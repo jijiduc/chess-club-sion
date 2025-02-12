@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournoi Interne - CE Sion</title>
+
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../static/favicon/site.webmanifest">
+
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/hero.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/content.css">
+
+    <!-- Scripts -->
+    <script src="../js/navigation.js"></script>
+    <script src="../js/competition.js"></script>
+</head>
+
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="accueil.html" class="nav-brand">
+                <div class="nav-logo">
+                    <img src="../../static/pieces/wP.svg" alt="Logo" />
+                </div>
+                <span class="brand-text">Club d'échecs de Sion</span>
+            </a>
+
+            <button class="mobile-menu-button">
+                <svg class="mobile-menu-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </button>
+
+            <div class="nav-links">
+                <a href="accueil.html" class="nav-link">Accueil</a>
+
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">Le club</a>
+                    <div class="dropdown-content">
+                        <a href="club.html">Présentation du club</a>
+                        <a href="comite.html">Le comité</a>
+                        <a href="club.html#devenir-membre">Devenir membre</a>
+                        <a href="comite.html#contact">Prendre contact</a>
+                        <a href="club.html#local-jeu">Local de jeu</a>
+                    </div>
+                </div>
+
+                <a href="programme.html" class="nav-link">Programme</a>
+
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link active">Compétitions</a>
+                    <div class="dropdown-content">
+                        <a href="cse.html">Championnat Suisse par Equipes</a>
+                        <a href="csg.html">Championnat Suisse par Groupe</a>
+                        <a href="cve.html">Championnat Valaisan par Équipes</a>
+                        <a href="tournoi_interne.html">Tournoi interne</a>
+                    </div>
+                </div>
+
+                <a href="ecole.html" class="nav-link">Ecole d'échecs</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="intro-section">
+            <h2>Tournoi Interne 2024/25</h2>
+            
+            <div class="seasons-section">
+                <div class="season-container">
+                    <h3>Format du tournoi</h3>
+                    <ul>
+                        <li>Format Round Robin avec une cadence de <strong>60 minutes + 30 secondes par coups</strong>, pour toute la partie.</li>
+                        <li>1 partie par mois. Se jouant soit lors de la soirée du club réservée ou possibilité d'avancer / de rattraper la partie dans un délai indiqué à chaque ronde.</li>
+                        <li>Le joueur avec les blancs aura la charge de transmettre le résultat de la rencontre.</li>
+                        <li>Si la date prévue ne convient pas, il incombe aux participants de trouver une alternative dans le délai communiqué pour la ronde.</li>
+                        <li>Si la partie n'est pas jouée dans le temps imparti, dans le but de permettre au tournoi d'avancer, les résultats manquants vaudront 0 point. Si l'un des deux joueurs est responsables de l'impossibilité de jouer la partie, cela entrainera forfait de sa part sur la partie.</li>
+                    </ul>
+                </div>
+
+                <div class="season-container">
+                    <h3>Prix</h3>
+                    <ul>
+                        <li><strong>1er prix :</strong> 1 livre d'échecs ainsi que 30 francs / Champion du tournoi interne</li>
+                        <li><strong>2ème prix :</strong> 1 livre d'échecs ainsi que 20 francs</li>
+                        <li><strong>3ème prix :</strong> 1 livre d'échecs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Résultats -->
+        <section class="seasons-section">
+            <!-- Ronde 3 -->
+            <div class="season-container">
+                <h2 class="season-header">Ronde 3</h2>
+                <div class="season-content">
+                    <div class="info-banner">
+                        <p>Ronde en cours</p>
+                    </div>
+                    
+                    <div class="teams-grid">
+                        <!-- Appariements -->
+                        <div class="results-table">
+                            <h3>Appariements</h3>
+                            <table class="w-full">
+                                <thead class="bg-gray-100">
+                                    <tr class="bg-indigo-600 text-white">
+                                        <th class="px-4 py-2 text-left text-white">Table</th>
+                                        <th class="px-4 py-2 text-left text-white">Blancs</th>
+                                        <th class="px-4 py-2 text-left text-white">Elo</th>
+                                        <th class="px-4 py-2 text-center text-white">Résultat</th>
+                                        <th class="px-4 py-2 text-left text-white">Noirs</th>
+                                        <th class="px-4 py-2 text-left text-white">Elo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b">
+                                        <td class="px-4 py-2">1</td>
+                                        <td class="px-4 py-2">Sola Flavien</td>
+                                        <td class="px-4 py-2">2027</td>
+                                        <td class="px-4 py-2 text-center">-</td>
+                                        <td class="px-4 py-2">Rappaz Pierre-Marie</td>
+                                        <td class="px-4 py-2">1951</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="px-4 py-2">2</td>
+                                        <td class="px-4 py-2">Duc Jeremy</td>
+                                        <td class="px-4 py-2">1762</td>
+                                        <td class="px-4 py-2 text-center">-</td>
+                                        <td class="px-4 py-2">Riand Jean-Yves</td>
+                                        <td class="px-4 py-2">1837</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="px-4 py-2">3</td>
+                                        <td class="px-4 py-2">Cortada-Garcia Joan</td>
+                                        <td class="px-4 py-2">1749</td>
+                                        <td class="px-4 py-2 text-center">-</td>
+                                        <td class="px-4 py-2">Ulmann Olivier</td>
+                                        <td class="px-4 py-2">1597</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="px-4 py-2">4</td>
+                                        <td class="px-4 py-2">Moerschell Simon</td>
+                                        <td class="px-4 py-2">1534</td>
+                                        <td class="px-4 py-2 text-center">-</td>
+                                        <td class="px-4 py-2">Ben Salem Akram</td>
+                                        <td class="px-4 py-2">-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Classement -->
+                        <div class="results-table">
+                            <h3>Classement après Ronde 2</h3>
+                                <table class="w-full">
+                                    <thead>
+                                        <tr class="bg-blue-100 text-white">
+                                            <th class="px-4 py-2 text-left bg-blue-500">Rang</th>
+                                            <th class="px-4 py-2 text-left bg-blue-500">Joueur</th>
+                                            <th class="px-4 py-2 text-left bg-blue-500">Elo</th>
+                                            <th class="px-4 py-2 text-left bg-blue-500">Perf</th>
+                                            <th class="px-4 py-2 text-left bg-blue-500">Points</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-b">
+                                            <td class="px-4 py-2">1-2</td>
+                                            <td class="px-4 py-2">Sola Flavien</td>
+                                            <td class="px-4 py-2">2027</td>
+                                            <td class="px-4 py-2">2558</td>
+                                            <td class="px-4 py-2">2.0</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="px-4 py-2">1-2</td>
+                                            <td class="px-4 py-2">Rappaz Pierre-Marie</td>
+                                            <td class="px-4 py-2">1951</td>
+                                            <td class="px-4 py-2">2445</td>
+                                            <td class="px-4 py-2">2.0</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="px-4 py-2">3-6</td>
+                                            <td class="px-4 py-2">Riand Jean-Yves</td>
+                                            <td class="px-4 py-2">1837</td>
+                                            <td class="px-4 py-2">1781</td>
+                                            <td class="px-4 py-2">1.0</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="px-4 py-2">3-6</td>
+                                            <td class="px-4 py-2">Duc Jeremy</td>
+                                            <td class="px-4 py-2">1762</td>
+                                            <td class="px-4 py-2">1186</td>
+                                            <td class="px-4 py-2">1.0</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="px-4 py-2">3-6</td>
+                                            <td class="px-4 py-2">Cortada-Garcia Joan</td>
+                                            <td class="px-4 py-2">1749</td>
+                                            <td class="px-4 py-2">1781</td>
+                                            <td class="px-4 py-2">1.0</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="px-4 py-2">3-6</td>
+                                            <td class="px-4 py-2">Ulmann Olivier</td>
+                                            <td class="px-4 py-2">1597</td>
+                                            <td class="px-4 py-2">1186</td>
+                                            <td class="px-4 py-2">1.0</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="px-4 py-2">7</td>
+                                            <td class="px-4 py-2">Moerschell Simon</td>
+                                            <td class="px-4 py-2">1534</td>
+                                            <td class="px-4 py-2">1026</td>
+                                            <td class="px-4 py-2">0.0</td>
+                                        </tr>
+                                        <tr class="border-b">
+                                            <td class="px-4 py-2">8</td>
+                                            <td class="px-4 py-2">Ben Salem Akram</td>
+                                            <td class="px-4 py-2">-</td>
+                                            <td class="px-4 py-2">915</td>
+                                            <td class="px-4 py-2">0.0</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ronde 2 -->
+            <div class="season-container">
+                <h2 class="season-header">Ronde 2</h2>
+                <div class="season-content">
+                    <div class="teams-grid">
+                        <!-- Appariements -->
+                        <div class="results-table">
+                            <h3>Appariements</h3>
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead>
+                                    <tr>
+                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">Table
+                                        </th>
+                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">Blancs
+                                        </th>
+                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">Elo
+                                        </th>
+                                        <th class="px-4 py-2 bg-gray-50 text-center text-sm font-medium text-gray-500">
+                                            Résultat</th>
+                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">Noirs
+                                        </th>
+                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">Elo
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-4 py-2">1</td>
+                                        <td class="px-4 py-2">Riand Jean-Yves</td>
+                                        <td class="px-4 py-2">1837</td>
+                                        <td class="px-4 py-2 text-center font-semibold">0 - 1</td>
+                                        <td class="px-4 py-2">Sola Flavien</td>
+                                        <td class="px-4 py-2">2027</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-2">2</td>
+                                        <td class="px-4 py-2">Rappaz Pierre-Marie</td>
+                                        <td class="px-4 py-2">1951</td>
+                                        <td class="px-4 py-2 text-center font-semibold">1 - 0</td>
+                                        <td class="px-4 py-2">Duc Jeremy</td>
+                                        <td class="px-4 py-2">1762</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-2">3</td>
+                                        <td class="px-4 py-2">Moerschell Simon</td>
+                                        <td class="px-4 py-2">1534</td>
+                                        <td class="px-4 py-2 text-center font-semibold">0 - 1</td>
+                                        <td class="px-4 py-2">Cortada-Garcia Joan</td>
+                                        <td class="px-4 py-2">1749</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-2">4</td>
+                                        <td class="px-4 py-2">Ben Salem Akram</td>
+                                        <td class="px-4 py-2">-</td>
+                                        <td class="px-4 py-2 text-center font-semibold">0 - 1</td>
+                                        <td class="px-4 py-2">Ulmann Olivier</td>
+                                        <td class="px-4 py-2">1597</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ronde 1 -->
+            <div class="season-container">
+                <h2 class="season-header">Ronde 1</h2>
+                <div class="season-content">
+                    <div class="teams-grid">
+                        <!-- Appariements -->
+                        <div class="results-table">
+                            <h3>Appariements</h3>
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead>
+                                    <tr>
+                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">Table
+                                        </th>
+                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">Blancs
+                                        </th>
+                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">Elo
+                                        </th>
+                                        <th class="px-4 py-2 bg-gray-50 text-center text-sm font-medium text-gray-500">
+                                            Résultat</th>
+                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">Noirs
+                                        </th>
+                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">Elo
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-200">
+                                    <tr>
+                                        <td class="px-4 py-2">1</td>
+                                        <td class="px-4 py-2">Sola Flavien</td>
+                                        <td class="px-4 py-2">2027</td>
+                                        <td class="px-4 py-2 text-center font-semibold">1 - 0</td>
+                                        <td class="px-4 py-2">Cortada-Garcia Joan</td>
+                                        <td class="px-4 py-2">1749</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-2">2</td>
+                                        <td class="px-4 py-2">Ulmann Olivier</td>
+                                        <td class="px-4 py-2">1597</td>
+                                        <td class="px-4 py-2 text-center font-semibold">0 - 1</td>
+                                        <td class="px-4 py-2">Rappaz Pierre-Marie</td>
+                                        <td class="px-4 py-2">1951</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-2">3</td>
+                                        <td class="px-4 py-2">Riand Jean-Yves</td>
+                                        <td class="px-4 py-2">1837</td>
+                                        <td class="px-4 py-2 text-center font-semibold">1 - 0</td>
+                                        <td class="px-4 py-2">Moerschell Simon</td>
+                                        <td class="px-4 py-2">1534</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-2">4</td>
+                                        <td class="px-4 py-2">Ben Salem Akram</td>
+                                        <td class="px-4 py-2">-</td>
+                                        <td class="px-4 py-2 text-center font-semibold">0 - 1</td>
+                                        <td class="px-4 py-2">Duc Jeremy</td>
+                                        <td class="px-4 py-2">1762</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">Le Club</h3>
+                <div class="footer-contact">
+                    <p>Club D'Échecs de Sion</p>
+                    <p>Rue des Châteaux 2</p>
+                    <p>1950 Sion</p>
+                </div>
+            </div>
+
+            <div class="footer-section links-section">
+                <h3 class="footer-title">Liens Fédérations</h3>
+                <div class="footer-links-grid">
+                    <a href="https://uve-wsb.ch" class="footer-link">Union Valaisanne des Échecs</a>
+                    <a href="https://swisschess.ch" class="footer-link">Fédération Suisse des Échecs</a>
+                    <a href="https://www.fide.com" class="footer-link">Fédération Internationale des Échecs</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <span>© 2025 Club d'Échecs de Sion. Tous droits réservés.</span>
+                <a href="../../archives/ancien_site/">Ancien site</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

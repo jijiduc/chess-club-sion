@@ -1,0 +1,11 @@
+{
+  "name": "cesion-website",
+  "version": "1.0.0",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  },
+  "scripts": {
+    "build": "tailwindcss -i src/css/apply.css -o src/css/tailwind.css",
+    "dev": "tailwindcss -i src/css/apply.css -o src/css/tailwind.css --watch"
+  }
+}

@@ -1,0 +1,66 @@
+<form method=post action="http://geocities.yahoo.com/forms">
+<table width=600 border=0 cellspacing=10 cellpadding=0>
+<tr><td valign=top align=right>
+<font face=arial size=-1>
+<b>Your first name:</b></font><br>
+<input type=text name="Name" size=25>
+</td>
+<td valign=top align=left>
+<font face=arial size=-1>
+<b>Your URL:</b></font><br>
+<input type=text name="URL" size=25>
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+
+<tr><td valign=top align=right>
+<font face=arial size=-1>
+<b>Would you visit my web site again?</b><br>
+Yes<input type=radio name="Visit" value="Yes, I would visit again">
+No<input type=radio name="Visit" value="No, I wouldn't visit again">
+</font>
+</td>
+<td valign=top>
+<font face=arial size=-1>
+<b>How did you hear about my site?</b><br>
+<input type=radio name="Hear About" value="Yahoo! GeoCities search">Yahoo! GeoCities search<br>
+<input type=radio name="Hear About" value="A popular search engine">A popular search engine<br>
+<input type=radio name="Hear About" value="Link from another site">Link from another site<br>
+<input type=radio name="Hear About" value="From a friend">From a friend
+</font>
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td colspan=2 valign=top align=center>
+<font face=arial size=-1>
+<b>If you have any comments or suggestions<br> for my site please add them below:
+</b></font><br>
+<textarea cols=40 rows=10 name="Comments"></textarea>
+<p>
+
+<input type="submit" value="Send">
+<input type="reset" value="Clear the form">
+</td>
+</tr>
+</table>
+
+<input type=hidden name="login" value="club_echecs_sion">
+
+<!-- Option 1 -->
+<input type="hidden" name="subject" value="Survey Results">
+
+<!-- Option 2 -->
+<input type="hidden" name="required_fields" value="Name,URL">
+
+<!-- Option 3
+<input type="hidden" name="next_url" value="http://www.geocities.com/club_echecs_sion/index.html">
+-->
+
+</form>

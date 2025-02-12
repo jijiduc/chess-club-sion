@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>École d'échecs - CE Sion</title>
+
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../static/favicon/site.webmanifest">
+
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/hero.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/content.css">
+
+    <!-- Scripts -->
+    <script src="../js/navigation.js"></script>
+</head>
+
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="accueil.html" class="nav-brand">
+                <div class="nav-logo">
+                    <img src="../../static/pieces/wP.svg" alt="Logo" />
+                </div>
+                <span class="brand-text">Club d'échecs de Sion</span>
+            </a>
+
+            <button class="mobile-menu-button">
+                <svg class="mobile-menu-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </button>
+
+            <div class="nav-links">
+                <a href="accueil.html" class="nav-link">Accueil</a>
+
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">Le club</a>
+                    <div class="dropdown-content">
+                        <a href="club.html">Présentation du club</a>
+                        <a href="comite.html">Le comité</a>
+                        <a href="club.html#devenir-membre">Devenir membre</a>
+                        <a href="comite.html#contact">Prendre contact</a>
+                        <a href="club.html#local-jeu">Local de jeu</a>
+                    </div>
+                </div>
+
+                <a href="programme.html" class="nav-link">Programme</a>
+
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">Compétitions</a>
+                    <div class="dropdown-content">
+                        <a href="cse.html">Championnat Suisse par Equipes</a>
+                        <a href="csg.html">Championnat Suisse par Groupe</a>
+                        <a href="cve.html">Championnat Valaisan par Équipes</a>
+                        <a href="tournoi_interne.html">Tournoi interne</a>
+                    </div>
+                </div>
+
+                <a href="ecole.html" class="nav-link active">Ecole d'échecs</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="intro-section">
+            <h2>Ecole d'échecs</h2>
+            <p>
+                Bienvenue à l'école d'échecs du Club d'Échecs de Sion !<br>
+                Notre école, qui a pris son envol en janvier 2025,
+                propose des cours accessibles à des joueurs débutants/amateurs.
+            </p>
+
+            
+
+            <div class="season-container">
+                <h3>Informations pratiques</h3>
+                <ul>
+                    <li><strong>Lieu :</strong><a href="comite.html#local-jeu" class="golden-link"> Local du club</a></li>
+                    <li><strong>Horaire :</strong> Vendredi à 19h00, selon le <a href="programme.html" class="golden-link">programme</a></li>
+            </div>
+
+            <div class="season-container">
+                <h3>Intéressé(e) ?</h3>
+                <p>
+                    N'hésitez pas à venir assister à un cours pour découvrir notre école !<br>
+                    Pour plus d'informations, vous pouvez <a href="comite.html#contact" class="golden-link">nous contacter</a>
+                    ou venir nous rencontrer directement lors d'une soirée du club.
+                </p>
+            </div>
+            
+            <p>
+                Notre structure est en constante évolution pour s'adapter au mieux aux besoins de nos participants.
+                Nous sommes à l'écoute de vos retours pour améliorer continuellement notre offre de formation.
+            </p>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">Le Club</h3>
+                <div class="footer-contact">
+                    <p>Club D'Échecs de Sion</p>
+                    <p>Rue des Châteaux 2</p>
+                    <p>1950 Sion</p>
+                </div>
+            </div>
+
+            <div class="footer-section links-section">
+                <h3 class="footer-title">Liens Fédérations</h3>
+                <div class="footer-links-grid">
+                    <a href="https://uve-wsb.ch" class="footer-link">Union Valaisanne des Échecs</a>
+                    <a href="https://swisschess.ch" class="footer-link">Fédération Suisse des Échecs</a>
+                    <a href="https://www.fide.com" class="footer-link">Fédération Internationale des Échecs</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <span>© 2025 Club d'Échecs de Sion. Tous droits réservés.</span>
+                <a href="../../archives/ancien_site/">Ancien site</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

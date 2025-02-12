@@ -1,0 +1,355 @@
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+<STYLE>
+ A:visited {color:black; text-decoration: none;}
+ A:link {color:black; text-decoration: none;}
+</STYLE>
+<SCRIPT language="JavaScript">
+<!-- 
+var moves0 = new Array
+(51,35,6,21,50,34,14,22,57,42,11,27,34,91,21,27,52,36,27,42,49,106,5,14,61,34,
+196,6,62,52,9,17,252,62,2,9,53,45,1,18,56,57,3,11,58,44,0,67,59,51,12,20,44,30,
+13,21,30,23,18,24,34,25,10,18,23,14,6,14,25,32,24,34,51,43,17,25,32,41,34,17,
+52,37,5,68,61,123,20,28,35,92,11,43,59,43,21,92,43,3,4,3,37,276);
+var mpast0 = new Array();
+var game0 = "";
+var board0 = new Array(-1,0);
+var restr = new Array('1-0','0-1','1/2-1/2','*');
+var Mypcs = " pnbrqk";
+var files = "abcdefgh";
+var ranks = "87654321";
+var initposn = new Array(
+12,10,11,13,14,11,10,12,
+9,9,9,9,9,9,9,9,
+0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,
+1,1,1,1,1,1,1,1,
+4,2,3,5,6,3,2,4,0);
+var pieces = ' PCFTDR';
+var curmov = new Array(0,0);
+var jbrd = 0;
+var imgurl = "jpc/";
+var nodraw = 0;
+var atgm = -1;
+var timerid = 0;
+var timecall = 0;
+var delay = 1500;
+function DrawPc(pc, sqr)
+{
+ var color, piece;
+ if(nodraw)
+   return;
+ piece = Mypcs.charAt(pc & 7);
+ color = (pc & 8) ? "b" : "w";
+ if(piece == ' '){
+   piece = "i";
+   color = "";
+   }
+ if(board0[64] & 1)
+   sqr = 63 - sqr;
+ document.images[jbrd + sqr].src = imgurl + color + piece + ".gif";
+ setTimeout("", 50);
+}
+function InitBoard()
+{
+ for(i=0; i<=64; i++)
+    board0[i] = initposn[i];
+}
+function FindScrBrd()
+{
+ j=0;
+ for(i=0;i < document.images.length; i++)
+    if(document.images[i].name != "")
+      if(document.images[i].name == 'brd' + j.toString()){
+         jbrd = i;
+         return;
+         }
+}
+function DrawBoard()
+{
+ for(i=0; i<64; i++)
+    DrawPc(board0[i], i);
+}
+function DoMv(pc, to, from)
+{
+ board0[to] = pc;
+ board0[from] = 0;
+ DrawPc(0, from);
+ DrawPc(pc, to);
+}
+function AutoMv()
+{
+ timecall = 1;
+ Forward();
+ document.form0.game0.value=MvStr();
+ timecall = 0;
+}
+function Astop()
+{
+ atgm = -1;
+ timecall = 0;
+ clearInterval(timerid);
+}
+function Astart()
+{
+ if(atgm==0)
+   Astop();
+ else{
+ atgm=0;
+ timerid = setInterval('AutoMv()', delay);
+ AutoMv();
+ }
+}
+function Flip()
+{
+ board0[64] ^= 1;
+ DrawBoard();
+}
+function GetOrds(sqr, flags)
+{
+ var co = "";
+ if(flags & 0x40)
+   co = files.charAt(sqr & 7);
+ if(flags & 0x80)
+   co = co + ranks.charAt((sqr & 0x38) >> 3);
+ return co;
+}
+function Forward5()
+{
+ if(atgm>=0)
+   Astop();
+ for(i=0; curmov[0] < moves0.length / 2 && i < 10; i++)
+    Forward();
+}
+function Back5()
+{
+ if(atgm>=0)
+   Astop();
+ for(i=0; curmov[0] > 0 && i < 10; i++)
+    Back();
+}
+function GoStart()
+{
+ if(atgm>=0)
+   Astop();
+ nodraw=1;
+ while(curmov[0] > 0)
+      Back();
+ nodraw=0;
+ DrawBoard();
+}
+function GoEnd()
+{
+ if(atgm>=0)
+   Astop();
+ nodraw=1;
+ while(curmov[0] < moves0.length / 2)
+      Forward();
+ nodraw=0;
+ DrawBoard();
+}
+function Forward()
+{
+ if(curmov[0] >= 0 && curmov[0] < moves0.length / 2){
+    var n = curmov[0] * 2;
+    var from = moves0[n] & 0x3f;
+    var to = to2 = moves0[n+1] & 0x3f;
+    var piece = mpast0[n] = board0[from];
+    mpast0[n+1] = board0[to];
+    promo = (moves0[n] & 0x700)
+    if(promo != 0)
+       piece = (piece & 8) + (promo >> 8);
+    DoMv(piece, to, from);
+    curmov[0]++;
+    if(moves0[n] & 0x40){
+       to = from;
+       (moves0[n] & 0x80) ? ++to : --to;
+       if((to2 + from) & 1){
+         board0[to] = 0;
+         DrawPc(0, to);
+         }
+       else{
+         from = ((from - to2) > 0) ? from - 4: from + 3;
+         DoMv(board0[from], to, from);
+         }
+      }
+    if(timecall==0 && atgm>=0)
+      Astop();
+    }
+ else
+   if(atgm>=0)
+     Astop();
+}
+function Back()
+{
+ if(atgm>=0)
+   Astop();
+ if(curmov[0] > 0){
+   n = (--curmov[0] * 2);
+   var from = moves0[n] & 0x3f;
+   var to = to2 = moves0[n+1] & 0x3f;
+   var piece = mpast0[n];
+	DoMv(piece, from, to);
+   board0[to] = piece = mpast0[n+1]
+   if(piece > 0)
+     DrawPc(piece, to);
+   if(moves0[n] & 0x40){
+     to = from;
+     (moves0[n] & 0x80) ? ++to : --to;
+     if((to2 + from) & 1){
+       board0[to] = (mpast0[n] & 8) ? 1 : 9;
+       DrawPc(board0[to], to);
+       }
+     else{
+       from = ((from - to2) > 0) ? from - 4 : from + 3;
+       DoMv(board0[to], from ,to);
+       }
+     }
+   }
+}
+function GoMv(mv)
+{
+ nodraw = 1;
+ if(curmov[0] > mv)
+   while(curmov[0] > mv)
+        Back();
+ else
+   while(curmov[0] < mv)
+        Forward();
+ nodraw = 0;
+ DrawBoard();
+ document.form0.game0.value = MvStr();
+}
+function MvStr()
+{
+ if(curmov[0] > 0 && curmov[0] <= moves0.length / 2 ){
+    var n = (curmov[0]-1)*2;
+    var from = moves0[n] & 0x3f;
+    var to = moves0[n+1] & 0x3f;
+    var mvs = (Math.floor((curmov[0]+1)>>1)).toString() + ". ";
+    if(board0[to] & 8)
+      mvs += '... ';
+    var chk = (moves0[n+1] & 0x100) ? "+" : "";
+    if(n+2 == moves0.length){
+      var res = (moves0[n+1] & 0x600)>>9;
+      chk += ' ' + restr[res];
+      }
+    if(moves0[n] & 0x40){
+      if((board0[to] & 7) == 6){
+        if(moves0[n] & 0x80)
+          mvs = mvs + "O-O";
+        else
+          mvs = mvs + "O-O-O";
+        return mvs + chk;
+        }
+      }
+    var apc = board0[to] & 7;
+    piece = (apc == 1) ? "" : pieces.charAt(apc);
+    var piece2 = "";
+    if(moves0[n] & 0x700){
+      piece2 = "=" + pieces.charAt((moves0[n] & 0x700) >> 8);
+      piece ="";
+      }
+    capflg = "";
+    if((mpast0[n+1]) || (moves0[n] & 0x40))
+      capflg = "x";
+    mvs = mvs + piece + GetOrds(from, moves0[n+1]) + capflg
+          + GetOrds(to, 0xC0) + piece2;
+    return mvs + chk;
+    }
+ return "";
+}
+function InitSys()
+{
+ FindScrBrd();
+ InitBoard();
+}
+// -->
+</SCRIPT>
+</HEAD>
+
+<BODY onLoad="InitSys()" BGCOLOR="#fffff9">
+<!-- game0 start -->
+<CENTER><TABLE BORDER=0 CELLPADDING="0"><TR><TD WIDTH="261" VALIGN=TOP><CENTER><TABLE BORDER BORDERCOLOR="black"><TR><TD>
+<TABLE BACKGROUND="jpc/green.jpg" BORDER="0" CELLSPACING="0" CELLPADDING="0"><TR><TD>
+<IMG SRC="jpc/br.gif" HEIGHT="29" WIDTH="29" name='brd0'><IMG SRC="jpc/bn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bq.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bk.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/br.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/wr.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wq.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wk.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wr.gif" HEIGHT="29" WIDTH="29"></TD></TR></TABLE></TD></TR></TABLE>
+</CENTER>
+<BR><FORM NAME="form0">
+<CENTER><P>
+<MAP NAME="map0">
+<AREA COORDS="9,7,31,25" HREF="javascript:void(0)" onClick="GoStart(); form0.game0.value=''; return false">
+<AREA COORDS="32,7,54,25" HREF="javascript:void(0)" onClick="Back5(); form0.game0.value=MvStr(); return false">
+<AREA COORDS="55,7,77,25" HREF="javascript:void(0)" onClick="Back(); form0.game0.value=MvStr(); return false">
+<AREA COORDS="78,7,100,25" HREF="javascript:void(0)" onClick="Forward(); form0.game0.value=MvStr(); return false">
+<AREA COORDS="101,7,123,25" HREF="javascript:void(0)" onClick="Forward5(); form0.game0.value=MvStr(); return false">
+<AREA COORDS="124,7,146,25" HREF="javascript:void(0)" onClick="GoEnd(); form0.game0.value=MvStr(); return false">
+<AREA COORDS="147,7,169,25" HREF="javascript:void(0)"onClick="Flip(); return false;">
+<AREA COORDS="170,7,192,25" HREF="javascript:void(0)"onClick="Astart(); return false;">
+</MAP>
+<IMG SRC="jpc/conpanfa.jpg" BORDER="0" USEMAP="#map0"></P></CENTER>
+<CENTER><FONT SIZE="2">Move</FONT> <INPUT TYPE=text name='game0' VALUE="" SIZE=20></CENTER>
+
+</FORM>
+</TD><TD VALIGN=TOP>
+<!-- ginfo0 -->
+<FONT SIZE="4"><B><CENTER><P>
+Carron, J. - Rappaz, P_M. (2000) [D86] <BR>Simultanee, Sion 2000 </P></CENTER></B></FONT>
+<BR>
+<P ALIGN="justify"><FONT SIZE="2" COLOR="black"><B>1. <A onClick="GoMv(1)" HREF="javascript:void(0)">d4</A>
+ <A onClick="GoMv(2)" HREF="javascript:void(0)">Cf6</A>
+ 2. <A onClick="GoMv(3)" HREF="javascript:void(0)">c4</A>
+ <A onClick="GoMv(4)" HREF="javascript:void(0)">g6</A>
+ 3. <A onClick="GoMv(5)" HREF="javascript:void(0)">Cc3</A>
+ <A onClick="GoMv(6)" HREF="javascript:void(0)">d5</A>
+ 4. <A onClick="GoMv(7)" HREF="javascript:void(0)">cxd5</A>
+ <A onClick="GoMv(8)" HREF="javascript:void(0)">Cxd5</A>
+ 5. <A onClick="GoMv(9)" HREF="javascript:void(0)">e4</A>
+ <A onClick="GoMv(10)" HREF="javascript:void(0)">Cxc3</A>
+ 6. <A onClick="GoMv(11)" HREF="javascript:void(0)">bxc3</A>
+ <A onClick="GoMv(12)" HREF="javascript:void(0)">Fg7</A>
+ 7. <A onClick="GoMv(13)" HREF="javascript:void(0)">Fc4</A>
+ <A onClick="GoMv(14)" HREF="javascript:void(0)">O-O</A>
+ 8. <A onClick="GoMv(15)" HREF="javascript:void(0)">Ce2</A>
+ <A onClick="GoMv(16)" HREF="javascript:void(0)">b6</A>
+ 9. <A onClick="GoMv(17)" HREF="javascript:void(0)">O-O</A>
+ <A onClick="GoMv(18)" HREF="javascript:void(0)">Fb7</A>
+ 10. <A onClick="GoMv(19)" HREF="javascript:void(0)">f3</A>
+ <A onClick="GoMv(20)" HREF="javascript:void(0)">Cc6</A>
+ </B><BR>&nbsp;&nbsp;&nbsp;10... c5 me semble clairement meilleur. Exemple 11. Fe3 cxd4 12. cxd4 Cc6 13. Tc1 e6 14. d5 exd5 15. Fxd5 Ca5 16. Cf4 Tc8 17. Txc8 Dxc8 18. Fd4 Fxd4+ 19. Dxd4 Cc6 20. Db2 Ce7 21. Tc1 Db8 22. Ce6 Fxd5 ?? 23. Dg7 1 - 0, Gligoric - Pachman 1955<BR><B>11. <A onClick="GoMv(21)" HREF="javascript:void(0)">Tb1</A>
+ </B><BR>&nbsp;&nbsp;&nbsp; Plus précis 11. Fe3 mais ce coup a le mérite d'enlever de l'attrait à un possible c5<BR><B><A onClick="GoMv(22)" HREF="javascript:void(0)">Dd7</A>
+ 12. <A onClick="GoMv(23)" HREF="javascript:void(0)">Fe3</A>
+ <A onClick="GoMv(24)" HREF="javascript:void(0)">Tad8</A>
+ </B><BR>&nbsp;&nbsp;&nbsp;12... Tfd8 13. Dc1 e5 14. Td1 Ca5 15. Fd3 De7 16. Fg5 f6 17. Fe3 Df7 18. d5 c6 19. c4 Tac8 20. Dd2 Fa6 21. c5 Cc4 22. Fxc4 Fxc4 23. cxb6 cxd5 24. exd5 axb6 25. d6 b5 26. Cc3 Ff8 27. Ce4 f5 28. d7 Tc7 29. Fg5 Fe7 30. Cd6 De6 31. Fxe7 Dxe7 32. Cxc4 Tcxd7 33. De2 Txd1+ 34. Txd1 Txd1+ 35. Dxd1 Dc5+ 36. Ce3 Dxe3+ 37. Rf1 et nulle au 59ème coup, Gaertner - Konoptka, 1992<BR><B>13. <A onClick="GoMv(25)" HREF="javascript:void(0)">Dd2</A>
+ </B><BR>&nbsp;&nbsp;&nbsp; 13. Dc1 est meilleur car il conserve la diagonale c1-h6 en n'exposant pas la dame à la tour sur la colonne d<BR><B><A onClick="GoMv(26)" HREF="javascript:void(0)">e6</A>
+ 14. <A onClick="GoMv(27)" HREF="javascript:void(0)">Fg5</A>
+ <A onClick="GoMv(28)" HREF="javascript:void(0)">f6</A>
+ 15. <A onClick="GoMv(29)" HREF="javascript:void(0)">Fh6</A>
+ <A onClick="GoMv(30)" HREF="javascript:void(0)">Ca5</A>
+ 16. <A onClick="GoMv(31)" HREF="javascript:void(0)">Fb5</A>
+ <A onClick="GoMv(32)" HREF="javascript:void(0)">c6</A>
+ 17. <A onClick="GoMv(33)" HREF="javascript:void(0)">Fxg7</A>
+ <A onClick="GoMv(34)" HREF="javascript:void(0)">Rxg7</A>
+ 18. <A onClick="GoMv(35)" HREF="javascript:void(0)">Fa4</A>
+ </B><BR>&nbsp;&nbsp;&nbsp;la suite 18. Fd3 c5 19. Fb5 Fc6 20. a4 Fxb5 21. axb5 est aussi jouable<BR><B><A onClick="GoMv(36)" HREF="javascript:void(0)">Cc4</A>
+ 19. <A onClick="GoMv(37)" HREF="javascript:void(0)">Dd3</A>
+ <A onClick="GoMv(38)" HREF="javascript:void(0)">b5</A>
+ </B><BR>&nbsp;&nbsp;&nbsp;jouer pour la nulle avec 19... Ce5 20. De3 Cc4 21. Dd3 était peut être préférable<BR><B>20. <A onClick="GoMv(39)" HREF="javascript:void(0)">Fb3</A>
+ <A onClick="GoMv(40)" HREF="javascript:void(0)">Cb6</A>
+ 21. <A onClick="GoMv(41)" HREF="javascript:void(0)">Cf4</A>
+ </B><BR>&nbsp;&nbsp;&nbsp;Les blancs attaquent la faiblesse des noirs. Une bonne possibilité est aussi 21. De3 Tfe8 22. Tfd1 Dd6 <BR><B><A onClick="GoMv(42)" HREF="javascript:void(0)">Tfe8</A>
+ 22. <A onClick="GoMv(43)" HREF="javascript:void(0)">Tfd1!</A>
+ </B><BR>&nbsp;&nbsp;&nbsp; empêche e5<BR><B><A onClick="GoMv(44)" HREF="javascript:void(0)">e5??</A>
+ 23. <A onClick="GoMv(45)" HREF="javascript:void(0)">dxe5</A>
+ <A onClick="GoMv(46)" HREF="javascript:void(0)">Dxd3</A>
+ 24. <A onClick="GoMv(47)" HREF="javascript:void(0)">Txd3</A>
+ <A onClick="GoMv(48)" HREF="javascript:void(0)">fxe5??</A>
+ 25. <A onClick="GoMv(49)" HREF="javascript:void(0)">Txd8</A>
+ <A onClick="GoMv(50)" HREF="javascript:void(0)">Txd8</A>
+ 26. <A onClick="GoMv(51)" HREF="javascript:void(0)">Ce6+</A>
+  1-0</FONT></B></P>
+</CENTER></TD></TR></TABLE></CENTER>
+<!-- game0 end -->
+</BODY></HTML>

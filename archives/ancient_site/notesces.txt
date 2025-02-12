@@ -1,0 +1,1 @@
+<form method=post action="http://us.geocities.yahoo.com/forms?login=club_echecs_sion">

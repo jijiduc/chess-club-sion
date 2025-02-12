@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club - CE Sion</title>
+
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../../static/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../static/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../../static/favicon/site.webmanifest">
+
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/hero.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/content.css">
+
+    <!-- Scripts -->
+    <script src="../js/navigation.js"></script>
+</head>
+
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="accueil.html" class="nav-brand">
+                <div class="nav-logo">
+                    <img src="../../static/pieces/wP.svg" alt="Logo" />
+                </div>
+                <span class="brand-text">Club d'échecs de Sion</span>
+            </a>
+
+            <button class="mobile-menu-button">
+                <svg class="mobile-menu-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </button>
+
+            <div class="nav-links">
+                <a href="accueil.html" class="nav-link">Accueil</a>
+
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link active">Le club</a>
+                    <div class="dropdown-content">
+                        <a href="club.html">Présentation du club</a>
+                        <a href="comite.html">Le comité</a>
+                        <a href="club.html#devenir-membre">Devenir membre</a>
+                        <a href="comite.html#contact">Prendre contact</a>
+                        <a href="club.html#local-jeu">Local de jeu</a>
+                    </div>
+                </div>
+
+                <a href="programme.html" class="nav-link">Programme</a>
+
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">Compétitions</a>
+                    <div class="dropdown-content">
+                        <a href="cse.html">Championnat Suisse par Equipes</a>
+                        <a href="csg.html">Championnat Suisse par Groupe</a>
+                        <a href="cve.html">Championnat Valaisan par Équipes</a>
+                        <a href="tournoi_interne.html">Tournoi interne</a>
+                    </div>
+                </div>
+
+                <a href="ecole.html" class="nav-link">Ecole d'échecs</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="intro-section">
+            <h2>Présentation du Club d'Échecs de Sion</h2>
+            <div class="season-container">
+                <h3>Qui sommes-nous ?</h3>
+                <div class="season-content">
+                    <p>
+                        Le Club d'Échecs de Sion, fondé en 1935, est un lieu de rencontre pour tous les passionnés d'échecs.
+                        Notre club accueille aussi bien les débutants que les joueurs expérimentés, dans une ambiance conviviale et studieuse.
+                    </p>
+                    <p>
+                        Nous proposons diverses activités :
+                    </p>
+                    <ol>
+                        <li>Des cours d'échecs</li>
+                        <li>Des soirées à thème : parties d'entraînements / analyses / blitz</li>
+                        <li>Participation aux championnats suisses et valaisans par équipes</li>
+                        <li>Un tournoi interne</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Devenir membre -->
+            <div class="season-container" id="devenir-membre">
+                <h3>Devenir membre</h3>
+                <div class="season-content">
+                    <p>
+                        Si vous souhaitez rejoindre notre club, nous vous proposons d'abord de venir participer à plusieurs soirées pour vous familiariser avec notre ambiance et nos activités.
+                        Si votre choix est fait, nous sommes ravis de vous accueillir parmi nous.
+                    </p>
+                    <div class="grid-2-cols">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3>Cotisations annuelles</h3>
+                            <ul>
+                                <li>Adultes : CHF 250.-</li>
+                                <li>Juniors(- 20 ans) : CHF 150.-</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h3>Comment adhérer ?</h3>
+                            <p>Pour devenir membre, vous pouvez venir nous rencontrer le vendredi soir lors des <a href="programme.html" class="golden-link">soirées du club</a> ou
+                                nous <a href="comite.html#contact" class="golden-link">contacter</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Où nous trouver ? -->
+            <div class="season-container" id="local-jeu">
+                <h3>Où nous trouver ?</h3>
+                <div class="season-content">
+                    <p class="font-semibold">
+                        Club d'Échecs de Sion<br>
+                        Rue des Châteaux 2<br>
+                        1950 Sion
+                    </p>
+                    <p>
+                        Le local est au dernier étage de la maison des Penaudiers.
+                    </p>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2764.440083544647!2d7.355490776721072!3d46.23375377108091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478edc44826a14cd%3A0x5ad7276f0d90b279!2sRue%20des%20Ch%C3%A2teaux%202%2C%201950%20Sion!5e0!3m2!1sfr!2sch!4v1707342008370!5m2!1sfr!2sch"
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">Le Club</h3>
+                <div class="footer-contact">
+                    <p>Club D'Échecs de Sion</p>
+                    <p>Rue des Châteaux 2</p>
+                    <p>1950 Sion</p>
+                </div>
+            </div>
+
+            <div class="footer-section links-section">
+                <h3 class="footer-title">Liens Fédérations</h3>
+                <div class="footer-links-grid">
+                    <a href="https://uve-wsb.ch" class="footer-link">Union Valaisanne des Échecs</a>
+                    <a href="https://swisschess.ch" class="footer-link">Fédération Suisse des Échecs</a>
+                    <a href="https://www.fide.com" class="footer-link">Fédération Internationale des Échecs</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <span>© 2025 Club d'Échecs de Sion. Tous droits réservés.</span>
+                <a href="../../archives/ancien_site/">Ancien site</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
