@@ -34,9 +34,8 @@
     line-height: 1.6;
 }
 
-.intro-section ol {
-    margin: 1rem 0;
-    padding-left: 1.5rem;
+.intro-section ul {
+    list-style-type: none;
 }
 
 .intro-section li {
@@ -111,6 +110,9 @@
 }
 
 .team-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
     background: white;
     border-radius: 1rem;
     padding: 2rem;
@@ -144,7 +146,8 @@
 .results-link {
     display: flex;
     justify-content: center;
-    margin-top: 1.5rem;
+    margin-top: auto; /* Pousse le lien vers le bas */
+    padding-top: 1.5rem; /* Espace au-dessus du bouton */
 }
 
 .button {

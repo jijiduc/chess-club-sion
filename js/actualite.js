@@ -29,15 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const indicators = document.querySelector('.news-indicators');
     const prevButton = document.querySelector('.news-prev');
     const nextButton = document.querySelector('.news-next');
-    const SLIDE_INTERVAL = 25000; // 25 secondes
+    const SLIDE_INTERVAL = 15000; // 15 secondes
     
     if (!slider || !indicators) {
         console.error('Éléments du carrousel non trouvés');
         return;
     }
 
-    // Génère les slides avec la structure pour les retours à la ligne
-    // Dans la partie de génération des slides
     slider.innerHTML = news.map((item, index) => `
         <article class="news-card ${index === 0 ? 'active' : ''}" data-index="${index}">
             <div class="news-image">
