@@ -15,15 +15,11 @@
 /* Section des contrôles */
 .controls-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    background: var(--color-secondary);
-    padding: 1.5rem;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
+    padding: 2rem;
     margin-bottom: var(--spacing-xl);
-    gap: 2rem;
-    backdrop-filter: blur(10px);
+    background: transparent;
 }
 
 /* Sélecteur de vue */
@@ -39,7 +35,7 @@
     background: transparent;
     color: var(--color-primary);
     border: none;
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 2.5rem;
     border-radius: 12px;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -49,6 +45,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     background: rgba(255, 255, 255, 0.1);
+    font-size: 1.1rem;
 }
 
 /* Effet hover moderne */
@@ -83,33 +80,6 @@
 .filter-button:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.3);
-}
-
-/* Barre de recherche */
-.search-bar {
-    flex: 1;
-    max-width: 400px;
-    position: relative;
-}
-
-.search-input {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    padding-left: 2.5rem;
-    border: none;
-    border-radius: var(--radius-md);
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(5px);
-    color: var(--color-primary);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.search-input:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.3);
-    background-color: var(--color-secondary);
 }
 
 /* Structure du calendrier */
@@ -369,10 +339,6 @@
         gap: 1rem;
     }
 
-    .search-bar {
-        max-width: none;
-    }
-
     .calendar-grid {
         font-size: 0.9rem;
     }
@@ -396,8 +362,9 @@
     .view-selector button,
     .calendar-header button,
     .filter-button {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        width: 100%;
     }
     
     .calendar-header button {
@@ -427,8 +394,8 @@
     .view-selector button,
     .calendar-header button,
     .filter-button {
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
+        padding: 0.7rem 1.5rem;
+        font-size: 0.95rem;
         width: 100%;
     }
 }
