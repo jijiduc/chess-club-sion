@@ -17,13 +17,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const initMobileMenu = () => {
         mobileMenuButton?.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            // Ajoute/retire la classe pour l'animation de l'icône
             mobileMenuButton.classList.toggle('active');
+            
+            // Ferme tous les dropdowns quand on ferme le menu
+            if (!navLinks.classList.contains('active')) {
+                dropdowns.forEach(dropdown => {
+                    dropdown.classList.remove('open');
+                });
+            }
         });
 
-        // Ferme le menu mobile lors du clic sur un lien
+        // Ferme le menu mobile lors du clic sur un lien (sauf pour les dropdowns)
         navLinks?.addEventListener('click', (e) => {
-            if (window.innerWidth <= MOBILE_BREAKPOINT && e.target.classList.contains('nav-link')) {
+            if (window.innerWidth <= MOBILE_BREAKPOINT && 
+                e.target.classList.contains('nav-link') && 
+                !e.target.parentElement.classList.contains('nav-dropdown')) {
                 navLinks.classList.remove('active');
                 mobileMenuButton.classList.remove('active');
             }
@@ -39,27 +47,38 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     /**
-     * Gestion des dropdowns sur mobile
+     * Gestion des dropdowns sur mobile et desktop
      */
-    const initMobileDropdowns = () => {
+    const initDropdowns = () => {
         dropdowns.forEach(dropdown => {
             const dropdownLink = dropdown.querySelector('.nav-link');
-            const dropdownContent = dropdown.querySelector('.dropdown-content');
-
-            // Sur mobile uniquement
-            if (window.innerWidth <= MOBILE_BREAKPOINT) {
-                dropdownLink?.addEventListener('click', (e) => {
+            
+            // Gestion des clics sur les liens de dropdown
+            dropdownLink?.addEventListener('click', (e) => {
+                if (window.innerWidth <= MOBILE_BREAKPOINT) {
                     e.preventDefault();
                     // Ferme tous les autres dropdowns
                     dropdowns.forEach(other => {
                         if (other !== dropdown) {
-                            other.querySelector('.dropdown-content')?.classList.remove('show');
+                            other.classList.remove('open');
                         }
                     });
                     // Toggle le dropdown actuel
-                    dropdownContent?.classList.toggle('show');
-                });
-            }
+                    dropdown.classList.toggle('open');
+                }
+            });
+
+            // Gestion des clics sur les liens dans le dropdown
+            const dropdownContent = dropdown.querySelector('.dropdown-content');
+            dropdownContent?.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    dropdown.classList.remove('open');
+                    if (window.innerWidth <= MOBILE_BREAKPOINT) {
+                        navLinks.classList.remove('active');
+                        mobileMenuButton.classList.remove('active');
+                    }
+                }
+            });
         });
     };
 
@@ -75,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
             dropdownLink?.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    dropdownContent?.classList.add('show');
+                    dropdown.classList.add('open');
                     dropdownItems?.[0]?.focus();
                 }
             });
@@ -85,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 item.addEventListener('keydown', (e) => {
                     switch (e.key) {
                         case 'Escape':
-                            dropdownContent.classList.remove('show');
+                            dropdown.classList.remove('open');
                             dropdownLink?.focus();
                             break;
                         case 'ArrowUp':
@@ -109,11 +128,18 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     const updateActiveLink = () => {
         const currentPath = window.location.pathname;
-        const links = document.querySelectorAll('.nav-link');
+        const links = document.querySelectorAll('.nav-link, .dropdown-content a');
 
         links.forEach(link => {
-            if (link.getAttribute('href') === currentPath.split('/').pop()) {
+            const href = link.getAttribute('href');
+            if (href === currentPath.split('/').pop() || 
+                (currentPath.endsWith('/') && href === '')) {
                 link.classList.add('active');
+                // Si le lien actif est dans un dropdown, ajoute la classe active au parent
+                const parentDropdown = link.closest('.nav-dropdown');
+                if (parentDropdown) {
+                    parentDropdown.querySelector('.nav-link').classList.add('active');
+                }
             }
         });
     };
@@ -126,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks?.classList.remove('active');
             mobileMenuButton?.classList.remove('active');
             dropdowns.forEach(dropdown => {
-                dropdown.querySelector('.dropdown-content')?.classList.remove('show');
+                dropdown.classList.remove('open');
             });
         }
     };
@@ -134,14 +160,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialisation
     const init = () => {
         initMobileMenu();
-        initMobileDropdowns();
+        initDropdowns();
         initKeyboardNav();
         updateActiveLink();
 
         // Event listeners
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('resize', handleResize);
-
+        
         // État initial
         handleScroll();
     };

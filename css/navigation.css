@@ -1,9 +1,7 @@
 /* ========================================
-   Navigation principale
+   Structure de base
    ======================================== */
-
-/* Structure de base */
-.nav-bar {
+   .nav-bar {
     position: fixed;
     top: 0;
     left: 0;
@@ -116,12 +114,6 @@
     position: relative;
 }
 
-.nav-dropdown:hover .dropdown-content {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
 .dropdown-content {
     position: absolute;
     top: calc(100% + 0.5rem);
@@ -166,10 +158,13 @@
     background: rgba(212, 175, 55, 0.1);
 }
 
-.dropdown-content a.separator-top {
-    border-top: 1.5px solid #d4af37;
-    margin-top: 0.5rem;
-    padding-top: 1rem;
+/* Version desktop */
+@media (min-width: 769px) {
+    .nav-dropdown:hover .dropdown-content {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
 }
 
 /* ========================================
@@ -194,42 +189,9 @@
     height: 24px;
 }
 
-.mobile-menu-icon path {
-    transition: all 0.3s ease;
-}
-
-.mobile-menu-button.active .mobile-menu-icon path:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.mobile-menu-button.active .mobile-menu-icon path:nth-child(2) {
-    opacity: 0;
-}
-
-.mobile-menu-button.active .mobile-menu-icon path:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
 /* ========================================
-   Media Queries
+   Version Mobile
    ======================================== */
-
-/* Grand écran et tablette */
-@media (max-width: 1024px) {
-    .nav-container {
-        padding: 0 1.5rem;
-    }
-
-    .brand-text {
-        font-size: 1.1rem;
-    }
-
-    .nav-link {
-        padding: 0.75rem 1rem;
-    }
-}
-
-/* Mobile */
 @media (max-width: 768px) {
     .mobile-menu-button {
         display: block;
@@ -264,11 +226,11 @@
     .nav-link {
         padding: 1rem;
         text-align: center;
-        border-radius: var(--radius-sm);
         width: 100%;
+        border-radius: var(--radius-sm);
     }
 
-    /* Nouvelle gestion des dropdowns en mobile */
+    /* Style des dropdowns en mobile */
     .nav-dropdown {
         width: 100%;
     }
@@ -289,17 +251,12 @@
         transition: all 0.3s ease;
     }
 
-    /* Gestion de l'état ouvert du dropdown */
-    .nav-dropdown.dropdown-open .dropdown-content {
+    .nav-dropdown.open .dropdown-content {
         opacity: 1;
         visibility: visible;
         height: auto;
         margin-top: 0.5rem;
-    }
-
-    /* Retrait du hover pour mobile */
-    .nav-dropdown:hover .dropdown-content {
-        transform: none;
+        padding: 0.5rem;
     }
 
     .dropdown-content a {
@@ -312,6 +269,7 @@
 
     .dropdown-content a:hover {
         background: rgba(255, 255, 255, 0.1);
+        padding-left: 0.75rem;
     }
 
     .dropdown-content a.active {
@@ -319,7 +277,7 @@
         color: var(--color-primary);
     }
 
-    /* Ajout d'un indicateur visuel pour le dropdown */
+    /* Indicateur de dropdown */
     .nav-dropdown > .nav-link {
         display: flex;
         align-items: center;
@@ -336,21 +294,16 @@
         border-bottom: 2px solid currentColor;
         transform: rotate(45deg);
         transition: transform 0.3s ease;
-        position: relative;
-        top: -2px;
     }
 
-    .nav-dropdown.dropdown-open > .nav-link::after {
-        transform: rotate(225deg);
-        top: 0;
-    }
-
-    .dropdown-content a.separator-top {
-        border-top-color: rgba(212, 175, 55, 0.8);
+    .nav-dropdown.open > .nav-link::after {
+        transform: rotate(-135deg);
     }
 }
 
-/* Petit mobile */
+/* ========================================
+   Version Mobile (petit écran)
+   ======================================== */
 @media (max-width: 480px) {
     .nav-container {
         height: 70px;
@@ -366,10 +319,6 @@
         font-size: 1rem;
     }
 
-    .mobile-menu-button {
-        padding: 0.25rem;
-    }
-
     .nav-links {
         top: 70px;
         max-height: calc(100vh - 70px);
@@ -381,18 +330,35 @@
         padding: 0.875rem;
         font-size: 0.95rem;
     }
+
+    .dropdown-content a {
+        padding: 0.75rem 0.5rem;
+    }
 }
 
 /* ========================================
-   Accessibility
+   Accessibilité
    ======================================== */
 @media (prefers-reduced-motion: reduce) {
     .nav-bar,
     .nav-brand,
-    .nav-logo,
+    .nav-logo img,
     .nav-link,
     .dropdown-content,
     .mobile-menu-icon path {
         transition: none;
+    }
+}
+
+/* Séparateur doré pour certains liens dropdown */
+.dropdown-content a.separator-top {
+    border-top: 1.5px solid #d4af37;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .dropdown-content a.separator-top {
+        border-top-color: rgba(212, 175, 55, 0.8);
     }
 }
