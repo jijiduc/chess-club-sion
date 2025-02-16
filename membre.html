@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comité - CE Sion</title>
+    <title>Membres - CE Sion</title>
 
     <!-- Polices -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,14 +26,17 @@
     <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/content.css">
-    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/membre.css">
 
     <!-- Scripts -->
     <script src="js/navigation.js"></script>
-    <script src="js/contact.js"></script>
+    <script type="module">
+        import { renderMembres } from './js/membre.js';
+        document.addEventListener('DOMContentLoaded', renderMembres);
+    </script>
 </head>
 
-<body class="font-sans bg-gray-50">
+<body class="font-sans">
     <!-- Navigation -->
     <nav class="nav-bar">
         <div class="nav-container">
@@ -82,111 +85,11 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
+
     <main class="main-content">
-        <section class="intro-section">
-            <h2>Le comité</h2>
-            <p>
-                Le comité du Club d'Échecs de Sion est composé de bénévoles passionnés qui œuvrent au développement
-                et à la promotion des échecs dans notre région. Chaque membre apporte son expertise et son engagement
-                pour faire vivre notre club.
-            </p>
-        </section>
-
-        <!-- Committee Members Grid -->
-        <div class="teams-grid">
-            <!-- Président -->
-            <div class="team-card">
-                <div class="relative">
-                    <img src="static/picture/comite/vlad.jpg" alt="Vlad Popescu"
-                        class="w-full h-64 object-cover rounded-t-lg">
-                </div>
-                <div class="p-6">
-                    <h3>Vlad Popescu</h3>
-                    <p>
-                        Notre président supervise les activités du club et représente
-                        le CE Sion auprès des instances échiquéennes.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Vice-Président -->
-            <div class="team-card">
-                <div class="relative">
-                    <img src="static/picture/comite/sandro.jpg" alt="Sandro Bétrisey"
-                        class="w-full h-64 object-cover rounded-t-lg">
-                </div>
-                <div class="p-6">
-                    <h3>Sandro Bétrisey</h3>
-                    <p>
-                        Notre vice-président épaule le président dans ses tâches.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Trésorier -->
-            <div class="team-card">
-                <div class="relative">
-                    <img src="static/picture/comite/pm.jpg" alt="Pierre-Marie Rappaz"
-                        class="w-full h-64 object-cover rounded-t-lg">
-                </div>
-                <div class="p-6">
-                    <h3>Pierre-Marie Rappaz</h3>
-                    <p>
-                        En charge des finances du club, notre trésorier gère les côtisations
-                        et assure une gestion rigoureuse du budget.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Webmaster -->
-            <div class="team-card">
-                <div class="relative">
-                    <img src="static/picture/comite/arnaud.jpg" alt="Arnaud Pannatier"
-                        class="w-full h-64 object-cover rounded-t-lg">
-                </div>
-                <div class="p-6">
-                    <h3>Arnaud Pannatier</h3>
-                    <p>
-                        membre
-                    </p>
-                </div>
-            </div>
-
-            <!-- Directeur technique -->
-            <div class="team-card">
-                <div class="relative">
-                    <img src="static/picture/comite/simon.webp" alt="Simon Morand"
-                        class="w-full h-64 object-cover rounded-t-lg">
-                </div>
-                <div class="p-6">
-                    <h3>Simon Morand</h3>
-                    <p>
-                        membre
-                    </p>
-                </div>
-            </div>
+        <div id="membres-container">
+            <!-- Le contenu sera injecté ici par JavaScript -->
         </div>
-
-        <!-- Contact Section -->
-        <section id="contact" class="season-container">
-            <div class="contact-box">
-                <h3>Prendre contact</h3>
-                <p>
-                    Pour toute question générale concernant le club ou ses activités, vous pouvez
-                    nous contacter à l'adresse suivante :
-                </p>
-                <div>
-                    <a href="mailto:vladpopescu314@gmail.com" class="golden-link">vladpopescu314@gmail.com</a>
-                    <button onclick="copyEmail()" class="copy-button ml-4">
-                        Copier
-                    </button>
-                </div>
-                <div class="copy-notification">
-                    Adresse e-mail copiée !
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->

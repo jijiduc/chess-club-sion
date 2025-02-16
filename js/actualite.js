@@ -5,7 +5,7 @@ const news = [
         title: "Matchs de la 6ème ronde du CSG",
         text: `Valais 1 a perdu 6.5 - 1.5 face à Nyon.\n\n` +
               `Valais 3 c'est incliné 2.5 - 3.5 face à La Béroche 1, leur rival de fond de classement.\n\n` +
-              `Aucune de nos deux équipes n'est encore sauve d'un relégation, la dernière ronde promet d'être palpitante.`,
+              `Aucune de nos deux équipes n'est encore sauve d'une relégation, la dernière ronde promet d'être palpitante.`,
         image: "../../static/picture/actualite/local_club.jpg"
     },
     {

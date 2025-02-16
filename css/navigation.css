@@ -310,6 +310,21 @@
     }
 }
 
+.dropdown-content a.separator-top {
+    border-top: 1.5px solid #d4af37;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+}
+
+/* Version mobile - garde la même couleur dorée */
+@media (max-width: 768px) {
+    .dropdown-content a.separator-top {
+        border-top: 1px solid #d4af37;
+        /* Ajout d'une légère opacité pour le mode sombre */
+        border-top-color: rgba(212, 175, 55, 0.8);
+    }
+}
+
 /* Support pour les préférences de réduction de mouvement */
 @media (prefers-reduced-motion: reduce) {
     .nav-bar,
