@@ -29,14 +29,6 @@ export const membresData = {
       title: "Experts (2000-2199)",
       players: [
         {
-          nom: "Morand",
-          prenom: "Simon",
-          codeFSE: "16502",
-          codeFIDE: "1303902",
-          elo: 2080,
-          federation: "SUI"
-        },
-        {
           nom: "Emery",
           prenom: "Stéphane",
           codeFSE: "17887",
@@ -50,6 +42,14 @@ export const membresData = {
           codeFSE: "10195",
           codeFIDE: "1307916",
           elo: 2083,
+          federation: "SUI"
+        },
+        {
+          nom: "Morand",
+          prenom: "Simon",
+          codeFSE: "16502",
+          codeFIDE: "1303902",
+          elo: 2080,
           federation: "SUI"
         },
         {
@@ -106,6 +106,14 @@ export const membresData = {
           federation: "SUI"
         },
         {
+          nom: "Pannatier",
+          prenom: "Arnaud",
+          codeFSE: "18728",
+          codeFIDE: "1326155",
+          elo: 1898,
+          federation: "SUI"
+        },
+        {
           nom: "Rappaz",
           prenom: "Pierre-M.",
           codeFSE: "1032",
@@ -122,49 +130,11 @@ export const membresData = {
           federation: "SUI"
         },
         {
-          nom: "Pannatier",
-          prenom: "Arnaud",
-          codeFSE: "18728",
-          codeFIDE: "1326155",
-          elo: 1898,
-          federation: "SUI"
-        },
-        {
-          nom: "Eggel",
-          prenom: "Xavier",
-          codeFSE: "21972",
-          codeFIDE: "1335430",
-          elo: 1901,
-          federation: "SUI",
-          note: "ELO FSE"
-        },
-        {
-          nom: "Chappaz",
-          prenom: "Max",
-          codeFSE: "25459",
-          codeFIDE: "1351567",
-          elo: 1862,
-          federation: "SUI"
-        },
-        {
           nom: "Riand",
           prenom: "Jean-Yves",
           codeFSE: "88",
           codeFIDE: "1306162",
           elo: 1835,
-          federation: "SUI"
-        }
-      ]
-    },
-    {
-      title: "Classe B (1600-1799)",
-      players: [
-        {
-          nom: "Duc",
-          prenom: "Jeremy",
-          codeFSE: "22891",
-          codeFIDE: "1338447",
-          elo: 1786,
           federation: "SUI"
         },
         {
@@ -192,6 +162,27 @@ export const membresData = {
           codeFIDE: "1317652",
           elo: 1819,
           federation: "SUI"
+        }
+      ]
+    },
+    {
+      title: "Classe B (1600-1799)",
+      players: [
+        {
+          nom: "Duc",
+          prenom: "Jeremy",
+          codeFSE: "22891",
+          codeFIDE: "1338447",
+          elo: 1786,
+          federation: "SUI"
+        },
+        {
+          nom: "Bétrisey",
+          prenom: "Sandro",
+          codeFSE: "14603",
+          codeFIDE: "1317636",
+          elo: 1776,
+          federation: "SUI"
         },
         {
           nom: "Ulmann",
@@ -202,40 +193,19 @@ export const membresData = {
           federation: "SUI"
         },
         {
-          nom: "Bétrisey",
-          prenom: "Sandro",
-          codeFSE: "14603",
-          codeFIDE: "1317636",
-          elo: 1776,
+          nom: "Moerschell",
+          prenom: "Simon",
+          codeFSE: "19594",
+          codeFIDE: "1335480",
+          elo: 1701,
           federation: "SUI"
-        }
-      ]
-    },
-    {
-      title: "Classe C (1400-1599)",
-      players: [
+        },
         {
           nom: "Bétrisey",
           prenom: "Claude",
           codeFSE: "24967",
           codeFIDE: "1360841",
           elo: 1639,
-          federation: "SUI"
-        },
-        {
-          nom: "Tosun",
-          prenom: "Mazlum",
-          codeFSE: "27228",
-          codeFIDE: "26391414",
-          elo: 1467,
-          federation: "TUR"
-        },
-        {
-          nom: "Moerschell",
-          prenom: "Simon",
-          codeFSE: "19594",
-          codeFIDE: "1335480",
-          elo: 1701,
           federation: "SUI"
         },
         {
@@ -248,6 +218,23 @@ export const membresData = {
           note: "ELO FSE"
         }
       ]
+    },
+    {
+      title: "Classe C (1400-1599)",
+      players: [
+        {
+          nom: "Tosun",
+          prenom: "Mazlum",
+          codeFSE: "27228",
+          codeFIDE: "26391414",
+          elo: 1467,
+          federation: "TUR"
+        }
+      ]
+    },
+    {
+      title: "Classe D (1200-1399)",
+      players: []
     }
   ]
 };
