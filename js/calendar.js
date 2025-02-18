@@ -46,7 +46,7 @@ const events = {
         },
         {
             time: "20h00",
-            title: "Open interne",
+            title: "Tournoi interne",
             category: "competition"
         }
     ],
