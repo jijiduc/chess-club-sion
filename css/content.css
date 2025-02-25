@@ -40,13 +40,70 @@
     line-height: 1.6;
 }
 
-.intro-section ul {
+/* Correction du style des listes numérotées */
+ol {
+    list-style-type: decimal;
+    margin-left: 1.5rem;
+    padding-left: 1rem;
+}
+
+ol li {
+    position: relative;
+    padding-left: 0.5rem;
+    margin-bottom: 1rem;
+    color: #4B5563;
+}
+
+/* Style spécifique pour les listes numérotées dans les sections comme celle du CSG */
+.intro-section ol {
+    counter-reset: item;
     list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.intro-section ol li {
+    counter-increment: item;
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+    color: #374151;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.intro-section ol li:before {
+    content: counter(item) ".";
+    position: absolute;
+    left: 0;
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+/* Style pour les sous-paragraphes dans les listes */
+.intro-section ol li p {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: normal;
+    margin-left: 0;
+}
+
+/* Correction de la liste à puces normale */
+.intro-section ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    padding-left: 0.5rem;
 }
 
 .intro-section li {
     color: #4B5563;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    padding-left: 0.5rem;
+}
+
+/* Mise en évidence des titres de sections dans les listes */
+.intro-section li strong {
+    color: #1a1a1a;
+    font-weight: 600;
 }
 
 /* ========================================
@@ -131,15 +188,14 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 
                 0 10px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.2s ease-in-out, 
-                box-shadow 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out;
     border: 1px solid #eee;
 }
 
 .team-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08), 
                 0 15px 20px rgba(0, 0, 0, 0.12);
+    border-color: #d4af37;
 }
 
 .team-card h3 {
@@ -177,6 +233,42 @@
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    color: #d4af37;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.button:hover::before {
+    opacity: 1;
+}
+
+.button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Assurer que la transition reste fluide */
+.results-link .button {
+    will-change: transform;
 }
 
 .golden-link {
