@@ -253,11 +253,11 @@
     transition: all 0.3s ease;
     padding: 0.3rem 0.6rem;
     border-radius: 4px;
-    background: rgba(191, 180, 143, 0.1);
+    background: rgba(212, 175, 55, 0.1);
 }
 
 .timeline-link a:hover {
-    background: rgba(191, 180, 143, 0.2);
+    background: rgba(212, 175, 55, 0.2);
     text-decoration: underline;
 }
 

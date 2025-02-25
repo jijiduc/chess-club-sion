@@ -1,7 +1,7 @@
 /* footer.css - Styles du pied de page */
 
 .site-footer {
-    background: var(--color-secondary);
+    background: var(--color-primary-dark);
     color: var(--color-secondary);
     padding: 4rem 0 0 0;
 }
@@ -32,12 +32,10 @@
 
 /* Titres */
 .footer-title {
-    color: var(--color-text-invert);
-    border-bottom: 2px solid var(--color-accent);
+    color: #cf1c2e;
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
 }
 
 /* Informations de contact */
@@ -68,9 +66,9 @@
 }
 
 .footer-link:hover {
-    color: var(--color-accent-light);
-    border-bottom-color: var(--color-accent-light);
+    color: var(--color-accent);
     transform: translateX(10px);
+    border-bottom-color: var(--color-accent);
 }
 
 /* Section horaires */
@@ -99,7 +97,7 @@
 .footer-bottom {
     margin-top: 3rem;
     padding: 1.5rem 0;
-    background: var(--color-secondary-light);
+    background: var(--color-primary-dark);
     text-align: center;
 }
 
@@ -121,7 +119,7 @@
 }
 
 .footer-bottom a:hover {
-    color: var(--color-accent-light);
+    color: var(--color-accent);
 }
 
 /* Media Queries */

@@ -90,8 +90,8 @@
 }
 
 .nav-link:hover {
-    background: var(--color-secondary);
-    color: var(--color-text-invert);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--color-secondary);
 }
 
 .nav-link.active {
@@ -115,7 +115,7 @@
     top: calc(100% + 0.5rem);
     left: 0;
     min-width: 260px;
-    background: var(--color-tertiary);
+    background: var(--color-secondary);
     border-radius: var(--radius-md);
     padding: 0.75rem;
     box-shadow: var(--shadow-lg);
@@ -130,7 +130,7 @@
 .dropdown-content a {
     display: block;
     padding: 0.75rem 1rem;
-    color: var(--color-secondary);
+    color: var(--color-primary);
     text-decoration: none;
     font-weight: 500;
     border-radius: var(--radius-sm);
@@ -139,9 +139,9 @@
 }
 
 .dropdown-content a:hover {
-    background: rgba(45, 48, 71, 0.05);
-    color: var(--color-primary);
+    background: rgba(26, 26, 26, 0.05);
     padding-left: 1.25rem;
+    color: var(--color-primary);
 }
 
 .dropdown-content a:focus-visible {
@@ -152,7 +152,7 @@
 
 .dropdown-content a.active {
     color: var(--color-accent);
-    background: rgba(191, 180, 143, 0.1);
+    background: rgba(212, 175, 55, 0.1);
 }
 
 /* Version desktop */

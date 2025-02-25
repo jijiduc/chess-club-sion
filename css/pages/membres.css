@@ -69,8 +69,8 @@
 }
 
 .elo-fse {
-    color: var(--color-info);
-    background: rgba(61, 90, 128, 0.1);
+    color: #2563eb;
+    background: #dbeafe;
 }
 
 .federation {
