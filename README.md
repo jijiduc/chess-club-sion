@@ -72,7 +72,7 @@ bun install -g tailwindcss @tailwindcss/cli
 Lancer le mode développement avec compilation automatique :
 
 ```bash
-bun run tailwindcss -i css/vendor/apply.css -o css/vendor/tailwind.css --watch
+bun run dev
 ```
 
 ### Production
@@ -80,5 +80,5 @@ bun run tailwindcss -i css/vendor/apply.css -o css/vendor/tailwind.css --watch
 Compiler et minifier les styles pour la production :
 
 ```bash
-bun run tailwindcss -i css/vendor/apply.css -o css/vendor/tailwind.css --minify
+bun run build
 ```

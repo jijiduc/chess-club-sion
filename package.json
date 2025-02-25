@@ -5,7 +5,8 @@
     "tailwindcss": "^3.4.17"
   },
   "scripts": {
-    "build": "tailwindcss -i src/css/apply.css -o src/css/tailwind.css",
-    "dev": "tailwindcss -i src/css/apply.css -o src/css/tailwind.css --watch"
-  }
+  "build:css": "node scripts/build-css.js",
+  "build:tailwind_watch": "tailwindcss -i css/vendor/apply.css -o css/vendor/tailwind.css watch",
+  "build:tailwind_minify": "tailwindcss -i css/vendor/apply.css -o css/vendor/tailwind.css minify"
+}
 }
