@@ -64,6 +64,9 @@
     margin: 2rem 0;
 }
 
+.compact-header + .main-content {
+    margin-top: 0;
+  }
 /* Média queries */
 @media (max-width: 768px) {
     .main-content {

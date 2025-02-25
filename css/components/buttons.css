@@ -3,8 +3,8 @@
 /* Bouton standard */
 .button {
     display: inline-block;
-    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-    color: white;
+    background: var(--color-primary);
+    color: var(--color-secondary);
     padding: 1rem 2rem;
     border-radius: 2rem;
     text-decoration: none;
@@ -20,6 +20,7 @@
 }
 
 .button:hover {
+    background: var(--color-primary-dark);
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     color: var(--color-accent);
@@ -32,7 +33,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+    background: linear-gradient(135deg, #A83745 0%, #8B2635 100%);
     z-index: -1;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -54,8 +55,8 @@
 }
 
 .button-accent {
-    background: linear-gradient(135deg, var(--color-accent) 0%, #b4941f 100%);
-    color: var(--color-primary);
+    background: linear-gradient(135deg, #D8315B 0%, #B23A48 100%);
+    color: var(--color-secondary);
 }
 
 .button-accent:hover {

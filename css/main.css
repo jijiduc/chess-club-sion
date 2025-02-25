@@ -1,7 +1,10 @@
 /* main.css - Généré automatiquement */
+/* VARIABLES */
+@import 'base/variables.css';
 
 /* CORE */
-@import 'variables.css';
+@import 'base/reset.css';
+@import 'base/typography.css';
 @import 'base/reset.css';
 @import 'base/typography.css';
 

@@ -6,7 +6,7 @@
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(26, 26, 26, 0.95);
+    background: var(--color-primary);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: 1000;
@@ -95,8 +95,9 @@
 }
 
 .nav-link.active {
-    background: var(--color-accent);
+    background: var(--color-secondary);
     color: var(--color-primary);
+    font-weight: 600;
 }
 
 .nav-link:focus-visible {
