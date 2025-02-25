@@ -4,7 +4,7 @@
 .button {
     display: inline-block;
     background: var(--color-primary);
-    color: var(--color-secondary);
+    color: var(--color-text-invert);
     padding: 1rem 2rem;
     border-radius: 2rem;
     text-decoration: none;
@@ -20,10 +20,10 @@
 }
 
 .button:hover {
-    background: var(--color-primary-dark);
+    background: var(--color-primary-light);
+    color: var(--color-text-invert);
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    color: var(--color-accent);
 }
 
 .button::before {
@@ -33,7 +33,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #A83745 0%, #8B2635 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     z-index: -1;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -51,16 +51,16 @@
 /* Variantes de boutons */
 .button-primary {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    color: var(--color-secondary);
+    color: var(--color-text-invert);
 }
 
 .button-accent {
-    background: linear-gradient(135deg, #D8315B 0%, #B23A48 100%);
-    color: var(--color-secondary);
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+    color: var(--color-text);
 }
 
 .button-accent:hover {
-    color: var(--color-primary-dark);
+    color: var(--color-text);
 }
 
 .button-outline {
@@ -105,7 +105,7 @@
 }
 
 .golden-link:hover {
-    color: #b4941f;
+    color: var(--color-accent-dark);
 }
 
 .golden-link::after {

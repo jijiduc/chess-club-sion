@@ -1,20 +1,73 @@
 /* variables.css - Variables globales du site */
 :root {
     /* Couleurs principales */
-    --color-primary: #E3001B;         /* Rouge Sion */
-    --color-primary-dark: #B70016;    /* Rouge foncé */
-    --color-secondary: #FFFFFF;       /* Blanc */
-    --color-text: #333333;            /* Texte principal */
-    --color-text-light: #777777;      /* Texte secondaire */
-    --color-accent: #D4AF37;          /* Or - pour les accents */
-    --color-background: #F9F9F9;      /* Fond clair */
-    --color-border: #E0E0E0;          /* Bordures légères */
-    
+    --color-primary: #9C0E20;
+    /* Rouge bordeaux - identité du club */
+    --color-primary-dark: #7A0B19;
+    /* Rouge bordeaux foncé */
+    --color-secondary: #2D3047;
+    /* Bleu nuit - sophistication */
+    --color-tertiary: #F2F2F2;
+    /* Gris très clair - espace et légèreté */
+
+    /* Accents et nuances */
+    --color-accent: #BFB48F;
+    /* Beige doré - rappel subtil des pièces */
+    --color-accent-light: #D9D1B9;
+    /* Beige clair pour les survols */
+    --color-accent-dark: #948A68;
+    /* Beige foncé - actions secondaires */
+    --color-primary-light: #D42A41;
+    /* Rouge clair - survols, focus */
+    --color-secondary-light: #484D6D;
+    /* Bleu nuit clair - éléments secondaires */
+
+    /* Texte */
+    --color-text: #1A1B25;
+    /* Presque noir - texte principal */
+    --color-text-light: #6B717E;
+    /* Gris moyen - texte secondaire */
+    --color-text-invert: #F9F9F9;
+    /* Blanc cassé - texte sur fond foncé */
+
+    /* Fonctionnels */
+    --color-error: #9C0E20;
+    /* Rouge - erreurs, alerte */
+    --color-success: #506C64;
+    /* Vert foncé - confirmations, succès */
+    --color-info: #3D5A80;
+    /* Bleu-gris - informations */
+    --color-warning: #DE9E48;
+    /* Ambre - avertissements */
+
+    /* Bannières */
+    --color-info-bg: #EBF2FA;
+    /* Fond bleu très clair */
+    --color-info-border: #3D5A80;
+    /* Bordure bleue */
+    --color-info-text: #2D3047;
+    /* Texte bleu foncé */
+    --color-warning-bg: #F8F1E0;
+    /* Fond beige clair */
+    --color-warning-border: #DE9E48;
+    /* Bordure ambre */
+    --color-warning-text: #8A6D3B;
+    /* Texte brun */
+
+    /* Fonds */
+    --color-background: #FBFBFB;
+    /* Blanc cassé - fond principal */
+    --color-border: #E8E8E8;
+    /* Gris très clair - séparations subtiles */
+
     /* Catégories d'événements */
-    --color-formation: #006B3F;       /* Vert foncé */
-    --color-competition: #E3001B;     /* Rouge Sion */
-    --color-soiree: #1D4F91;          /* Bleu profond */
-    
+    --color-formation: #506C64;
+    /* Vert foncé */
+    --color-competition: #9C0E20;
+    /* Rouge bordeaux */
+    --color-soiree: #3D5A80;
+    /* Bleu-gris */
+
     /* Ombres */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -42,13 +95,13 @@
     --font-sans: 'Poppins', sans-serif;
     --font-serif: 'Playfair Display', serif;
     --font-mono: 'Consolas', monospace;
-    
+
     /* Breakpoints */
     --breakpoint-sm: 480px;
     --breakpoint-md: 768px;
     --breakpoint-lg: 1024px;
     --breakpoint-xl: 1280px;
-    
+
     /* Conteneurs */
     --container-max: 1280px;
     --container-padding: 1rem;

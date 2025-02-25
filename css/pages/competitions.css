@@ -9,11 +9,11 @@
 
 /* Header de saison */
 .season-header {
-    background: #F3F4F6;
+    background: var(--color-tertiary);
+    color: var(--color-secondary);
     padding: 1rem;
     font-size: 1.5rem;
     font-weight: 600;
-    color: #374151;
     cursor: pointer;
     user-select: none;
     display: flex;
@@ -56,7 +56,7 @@
 }
 
 .results-table th {
-    background: var(--color-primary);
+    background: var(--color-secondary);
     color: white;
     padding: 0.75rem 1rem;
     text-align: left;

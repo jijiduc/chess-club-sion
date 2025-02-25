@@ -51,7 +51,7 @@
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     background: var(--color-primary);
-    color: var(--color-secondary);
+    color: var(--color-text-invert);
 }
 
 /* Effet active */
@@ -66,7 +66,7 @@
 .view-selector button.active,
 .filter-button.active {
     background: var(--color-primary);
-    color: var(--color-secondary);
+    color: var(--color-text-invert);
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -113,8 +113,8 @@
 
 /* En-têtes des jours */
 .calendar-day-header {
-    background-color: var(--color-primary);
-    color: var(--color-secondary);
+    background-color: var(--color-secondary);
+    color: var(--color-text-invert);
     padding: 1rem;
     text-align: center;
     font-weight: 500;
@@ -144,7 +144,7 @@
 }
 
 .calendar-day.today {
-    background: rgba(216, 49, 91, 0.05);
+    background: rgba(191, 180, 143, 0.1);
     border: 2px solid var(--color-accent);
 }
 
@@ -181,17 +181,17 @@
 
 .calendar-event.formation {
     border-left-color: var(--color-formation);
-    background: rgba(0, 107, 63, 0.1);
+    background: rgba(80, 108, 100, 0.1);
 }
 
 .calendar-event.competition {
     border-left-color: var(--color-competition);
-    background: rgba(227, 0, 27, 0.1);
+    background: rgba(156, 14, 32, 0.1);
 }
 
 .calendar-event.soiree_club {
     border-left-color: var(--color-soiree);
-    background: rgba(29, 79, 145, 0.1);
+    background: rgba(61, 90, 128, 0.1);
 }
 
 .calendar-event .event-time {
@@ -232,7 +232,7 @@
 
 .event-date {
     background: var(--color-primary);
-    color: var(--color-secondary);
+    color: var(--color-text-invert);
     padding: 1rem 1.5rem;
     font-size: 1.1rem;
     font-weight: 500;
@@ -304,17 +304,17 @@
 
 .category-formation {
     background-color: var(--color-formation);
-    color: var(--color-secondary);
+    color: var(--color-text-invert);
 }
 
 .category-competition {
     background-color: var(--color-competition);
-    color: var(--color-secondary);
+    color: var(--color-text-invert);
 }
 
 .category-soiree_club {
     background-color: var(--color-soiree);
-    color: var(--color-secondary);
+    color: var(--color-text-invert);
 }
 
 /* Media Queries pour la responsivité */
