@@ -1,7 +1,7 @@
-/* ========================================
-   Structure de base
-   ======================================== */
-   .nav-bar {
+/* navbar.css - Styles pour la barre de navigation */
+
+/* Structure de base */
+.nav-bar {
     position: fixed;
     top: 0;
     left: 0;
@@ -30,9 +30,7 @@
     margin: 0 auto;
 }
 
-/* ========================================
-   Logo et marque
-   ======================================== */
+/* Logo et marque */
 .nav-brand {
     display: flex;
     align-items: center;
@@ -72,9 +70,7 @@
     transform: scale(1.05);
 }
 
-/* ========================================
-   Menu principal
-   ======================================== */
+/* Menu principal */
 .nav-links {
     display: flex;
     gap: 0.5rem;
@@ -95,6 +91,7 @@
 
 .nav-link:hover {
     background: rgba(255, 255, 255, 0.1);
+    color: var(--color-secondary);
 }
 
 .nav-link.active {
@@ -107,9 +104,7 @@
     outline-offset: -2px;
 }
 
-/* ========================================
-   Dropdowns
-   ======================================== */
+/* Dropdowns */
 .nav-dropdown {
     position: relative;
 }
@@ -145,6 +140,7 @@
 .dropdown-content a:hover {
     background: rgba(26, 26, 26, 0.05);
     padding-left: 1.25rem;
+    color: var(--color-primary);
 }
 
 .dropdown-content a:focus-visible {
@@ -167,9 +163,7 @@
     }
 }
 
-/* ========================================
-   Menu mobile
-   ======================================== */
+/* Menu mobile */
 .mobile-menu-button {
     display: none;
     background: none;
@@ -189,9 +183,14 @@
     height: 24px;
 }
 
-/* ========================================
-   Version Mobile
-   ======================================== */
+/* Séparateur doré pour certains liens dropdown */
+.dropdown-content a.separator-top {
+    border-top: 1.5px solid var(--color-accent);
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+}
+
+/* Version Mobile */
 @media (max-width: 768px) {
     .mobile-menu-button {
         display: block;
@@ -270,6 +269,7 @@
     .dropdown-content a:hover {
         background: rgba(255, 255, 255, 0.1);
         padding-left: 0.75rem;
+        color: var(--color-secondary);
     }
 
     .dropdown-content a.active {
@@ -299,11 +299,13 @@
     .nav-dropdown.open > .nav-link::after {
         transform: rotate(-135deg);
     }
+    
+    .dropdown-content a.separator-top {
+        border-top-color: rgba(212, 175, 55, 0.8);
+    }
 }
 
-/* ========================================
-   Version Mobile (petit écran)
-   ======================================== */
+/* Version Mobile (petit écran) */
 @media (max-width: 480px) {
     .nav-container {
         height: 70px;
@@ -333,32 +335,5 @@
 
     .dropdown-content a {
         padding: 0.75rem 0.5rem;
-    }
-}
-
-/* ========================================
-   Accessibilité
-   ======================================== */
-@media (prefers-reduced-motion: reduce) {
-    .nav-bar,
-    .nav-brand,
-    .nav-logo img,
-    .nav-link,
-    .dropdown-content,
-    .mobile-menu-icon path {
-        transition: none;
-    }
-}
-
-/* Séparateur doré pour certains liens dropdown */
-.dropdown-content a.separator-top {
-    border-top: 1.5px solid #d4af37;
-    margin-top: 0.5rem;
-    padding-top: 1rem;
-}
-
-@media (max-width: 768px) {
-    .dropdown-content a.separator-top {
-        border-top-color: rgba(212, 175, 55, 0.8);
     }
 }

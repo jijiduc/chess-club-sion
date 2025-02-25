@@ -1,9 +1,4 @@
-/* Styles pour la page des membres */
-.main-content {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-}
+/* membres.css - Styles pour la page membres */
 
 /* Header */
 .membres-header {
@@ -17,7 +12,7 @@
     font-size: 2.5rem;
     color: var(--color-primary);
     margin-bottom: 1rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-sans);
     font-weight: 600;
 }
 
@@ -59,49 +54,6 @@
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
     margin-bottom: 2.5rem;
-}
-
-/* Carte de membre */
-.membre-card {
-    background: white;
-    border-radius: var(--radius-md);
-    padding: 1.5rem;
-    box-shadow: var(--shadow-sm);
-    transition: all var(--transition-fast);
-    border: 1px solid var(--color-border);
-    display: flex;
-    flex-direction: column;
-}
-
-.membre-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--color-accent);
-}
-
-.membre-nom {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--color-primary);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--color-accent);
-}
-
-.membre-details {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-.code {
-    font-family: 'Consolas', monospace;
-    font-size: 0.9rem;
-    color: var(--color-text-light);
-    background: var(--color-background);
-    padding: 0.25rem 0.5rem;
-    border-radius: var(--radius-sm);
 }
 
 /* ELO Styles */
@@ -156,12 +108,18 @@
     line-height: 1.6;
 }
 
+/* Code styling */
+.code {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    background: var(--color-background);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-sm);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-    .main-content {
-        padding: 1rem;
-    }
-    
     .membres-header h1 {
         font-size: 2rem;
     }
@@ -174,26 +132,27 @@
         min-width: 150px;
     }
     
-    .membres-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .membre-card {
-        padding: 1rem;
-    }
-    
-    .membres-grid {
-        grid-template-columns: 1fr;
-    }
-    
     .stat-value {
         font-size: 1.8rem;
     }
     
     .category-section h2 {
         font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .membres-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-summary {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .stat-item {
+        min-width: auto;
     }
 }

@@ -1,0 +1,130 @@
+/* competitions.css - Styles pour les pages de compétitions */
+
+/* Saisons */
+.seasons-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Header de saison */
+.season-header {
+    background: #F3F4F6;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #374151;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+}
+
+.season-header::before {
+    content: '▼';
+    display: inline-block;
+    margin-right: 0.5rem;
+    transition: transform 0.3s;
+}
+
+.season-header.collapsed::before {
+    transform: rotate(-90deg);
+}
+
+.season-content.collapsed {
+    display: none;
+}
+
+/* Tables de résultats */
+.results-table {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.results-table h3 {
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.results-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.results-table th {
+    background: var(--color-primary);
+    color: white;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 500;
+}
+
+.results-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.results-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Lien de résultats */
+.results-link {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    padding-top: 1.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .season-header {
+        font-size: 1.25rem;
+        padding: 0.875rem;
+    }
+    
+    .results-table {
+        padding: 1rem;
+    }
+    
+    .results-table table {
+        font-size: 0.9rem;
+    }
+    
+    .results-table th,
+    .results-table td {
+        padding: 0.625rem 0.75rem;
+    }
+    
+    .results-table h3 {
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .results-table {
+        padding: 0.75rem;
+    }
+    
+    .results-table table {
+        font-size: 0.8rem;
+    }
+    
+    .results-table th,
+    .results-table td {
+        padding: 0.5rem;
+    }
+    
+    /* Optimisation pour petits écrans */
+    .results-table {
+        overflow-x: auto;
+    }
+    
+    .results-table table {
+        min-width: 400px;
+    }
+}

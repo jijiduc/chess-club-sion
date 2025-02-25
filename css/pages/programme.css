@@ -1,8 +1,4 @@
-/* calendar.css */
-
-:root {
-    --color-primary-rgb: 26, 26, 26;
-}
+/* programme.css - Styles pour la page de programme */
 
 /* Container principal */
 .programme-container {
@@ -79,7 +75,7 @@
 .calendar-header button:focus,
 .filter-button:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.3);
+    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.3);
 }
 
 /* Structure du calendrier */
@@ -245,7 +241,7 @@
 
 .event-card {
     padding: 1.5rem;
-    border-bottom: 1px solid rgba(var(--color-primary-rgb), 0.1);
+    border-bottom: 1px solid rgba(26, 26, 26, 0.1);
     transition: all 0.3s ease;
 }
 
