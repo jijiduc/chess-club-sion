@@ -22,99 +22,31 @@
     <!-- Styles CSS -->
     <link rel="stylesheet" href="css/main.css">
 
-    <!-- Style spécifique pour le tournoi -->
-    <style>
-        /* Améliorer l'aspect des tableaux */
-        .results-table table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .results-table th {
-            text-align: left;
-            padding: 0.75rem 1rem;
-            background-color: var(--color-primary);
-            color: white;
-        }
-
-        .results-table td {
-            padding: 0.75rem 1rem;
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        /* Style pour les joueurs en tête du classement */
-        tr.top-player td {
-            font-weight: 600;
-            background-color: rgba(255, 40, 0, 0.05);
-        }
-
-        /* Animation du tableau de classement */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .results-table {
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        /* Amélioration de la grille pour les résultats */
-        .teams-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .teams-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-
     <!-- Scripts de base -->
     <script src="js/navbar.js"></script>
-    <script src="js/competition.js"></script>
     <script src="js/footer.js"></script>
-
-    <!-- Script spécifique pour le tournoi -->
     <script src="js/tournoi-data.js"></script>
-
-     <!-- React via CDN -->
-     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="js/competition.js"></script>
 </head>
-<body>
-    <!-- Structure existante -->
+<body class="font-sans">
+    <header class="hero-accueil compact-header">
+        <!-- La navbar sera injectée ici par navbar.js -->
+    </header>
+
+    <!-- Main Content -->
     <main class="main-content">
-        <!-- Contenu généré par tournoi-data.js -->
-        <div id="tournoi-content"></div>
+        <h1>Tournoi Interne</h1>
         
-        <!-- Nouvel élément pour le composant React -->
+        <!-- Container for the React component -->
         <div id="tournoi-react"></div>
     </main>
-    
-    <!-- Script React pour le composant de visualisation -->
-    <script type="text/babel">
-        // Copiez ici le contenu du composant TournoiVisualisation
-        const TournoiVisualisation = () => {
-            // Le code du composant...
-        };
-        
-        // Rendu du composant
-        ReactDOM.render(
-            <TournoiVisualisation />,
-            document.getElementById('tournoi-react')
-        );
-    </script>
-</body>
 
+    <!-- Footer -->
+    <footer class="site-footer">
+        <!-- Ce contenu est généré par le script footer.js -->
+    </footer>
+    
+    <!-- React Component Bundle -->
+    <script src="dist/tournoi.bundle.js"></script>
+</body>
 </html>

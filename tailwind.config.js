@@ -1,8 +1,12 @@
 module.exports = {
   content: [
-    "./**/*.html",      // Cible tous les fichiers HTML à la racine et dans les sous-dossiers
-    "./js/**/*.js",     // Cible tous les fichiers JavaScript dans le dossier js
+    './**.html',               // HTML files in root 
+    './**/*.html',             // HTML in subdirectories
+    './src/**/*.{js,jsx}',     // JS/JSX files in src
+    './js/**/*.js'             // JS files in js directory
   ],
+  // Exclude node_modules explicitly
+  exclude: ['node_modules/**'],
   theme: {
     extend: {
       fontFamily: {
