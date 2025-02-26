@@ -5,7 +5,7 @@
     "tailwindcss": "^3.4.17"
   },
   "scripts": {
-  "build: tailwind WATCH": "tailwindcss -i css/vendor/apply.css -o css/vendor/tailwind.css watch",
-  "build: tailwind MINIFY": "tailwindcss -i css/vendor/apply.css -o css/vendor/tailwind.css minify"
+  "build: DEV": "tailwindcss -i css/vendor/apply.css -o css/vendor/tailwind.css watch",
+  "build: PROD": "tailwindcss -i css/vendor/apply.css -o css/vendor/tailwind.css minify"
 }
 }

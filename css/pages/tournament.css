@@ -1,0 +1,285 @@
+/* Styles améliorés pour la page du tournoi interne */
+
+/* Style des conteneurs de ronde */
+.round-container {
+    margin-bottom: 2.5rem;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.round-container:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg), 0 10px 25px rgba(255, 40, 0, 0.1);
+}
+
+/* En-tête de ronde */
+.round-header {
+    background: var(--color-primary);
+    color: var(--color-secondary);
+    padding: 1rem 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.round-header .round-number {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+}
+
+.round-header .round-status {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.35rem 1rem;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.round-header .active-status {
+    background: var(--color-success);
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+/* Animation de pulsation pour le statut actif */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(76, 175, 80, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+}
+
+/* Contenu de la ronde */
+.round-content {
+    padding: 1.5rem;
+}
+
+/* Alerte de ronde en cours */
+.round-alert {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255, 40, 0, 0.1);
+    border-left: 4px solid var(--color-primary);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.round-alert:before {
+    content: "⚠️";
+    font-size: 1.25rem;
+}
+
+/* Grille de tournoi */
+.tournament-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+/* Tableau des résultats */
+.tournament-table {
+    background: white;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-border);
+}
+
+.tournament-table-header {
+    background: var(--color-dark);
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tournament-table-header h3 {
+    color: white;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.tournament-table-body {
+    padding: 0;
+}
+
+/* Style du tableau */
+.tournament-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tournament-table th {
+    background: var(--color-primary);
+    color: white;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.tournament-table td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease;
+}
+
+.tournament-table tr:hover td {
+    background-color: rgba(255, 40, 0, 0.05);
+}
+
+.tournament-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Colonnes spécifiques */
+.tournament-table .col-result {
+    text-align: center;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.tournament-table .col-elo {
+    font-family: var(--font-mono);
+    color: var(--color-dark-light);
+}
+
+.tournament-table .col-rank {
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+.tournament-table .col-player {
+    font-weight: 500;
+}
+
+.tournament-table .col-points {
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-primary);
+}
+
+.tournament-table .col-perf {
+    font-family: var(--font-mono);
+    color: var(--color-text-light);
+}
+
+/* Styles pour le classement par points */
+.standings-table th {
+    background: var(--color-dark-light);
+}
+
+.standings-table .top-player td {
+    background-color: rgba(255, 40, 0, 0.05);
+    font-weight: 600;
+}
+
+/* Badges de statut de ronde */
+.round-badge {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: center;
+    min-width: 80px;
+}
+
+.round-badge.completed {
+    background-color: var(--color-dark-light);
+    color: white;
+}
+
+.round-badge.active {
+    background-color: var(--color-success);
+    color: white;
+    animation: pulse 2s infinite;
+}
+
+.round-badge.upcoming {
+    background-color: var(--color-bg-accent-light);
+    color: var(--color-primary);
+}
+
+/* Animation d'entrée pour les conteneurs */
+.round-container {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Styles pour les statistiques */
+.stats-table .col-player {
+    font-weight: 600;
+}
+
+.performance-positive {
+    color: var(--color-success);
+}
+
+.performance-negative {
+    color: var(--color-error);
+}
+
+/* Adaptations responsives */
+@media (max-width: 768px) {
+    .tournament-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .round-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .round-header .round-status {
+        align-self: flex-start;
+    }
+    
+    .tournament-table td,
+    .tournament-table th {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .round-content {
+        padding: 1rem;
+    }
+    
+    .tournament-table-header {
+        padding: 0.75rem 1rem;
+    }
+    
+    .tournament-table td,
+    .tournament-table th {
+        padding: 0.5rem 0.35rem;
+        font-size: 0.8rem;
+    }
+    
+    .tournament-table-scroll {
+        overflow-x: auto;
+    }
+    
+    .round-badge {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+        min-width: 70px;
+    }
+}

@@ -27,6 +27,7 @@
 @import 'pages/programme.css';
 @import 'pages/competitions.css';
 @import 'pages/club.css';
+@import 'pages/tournament.css';
 
 /* VENDOR */
 @import 'vendor/tailwind.css';

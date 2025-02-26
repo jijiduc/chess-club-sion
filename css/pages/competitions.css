@@ -27,7 +27,7 @@
 
 /* Header de saison */
 .season-header {
-    background: var(--color-bg-muted);
+    background: transparent;
     color: var(--color-heading-light);
     padding: 1rem;
     font-size: 1.5rem;
@@ -39,10 +39,12 @@
 }
 
 .season-header::before {
-    content: '▼';
+    content: '⬤';
     display: inline-block;
     margin-right: 0.5rem;
     transition: transform 0.3s;
+    color: var(--color-primary);
+    font-size: 0.8rem;
 }
 
 .season-header.collapsed::before {

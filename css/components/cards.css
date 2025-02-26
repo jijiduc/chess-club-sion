@@ -167,9 +167,9 @@
 
 /* Bannières d'information */
 .info-banner {
-    background: var(--banner-warning-bg);
-    border-left: 4px solid var(--banner-warning-border);
-    color: var(--banner-warning-text);
+    background: #E0FFFF;
+    border-left: 4px solid #20B2AA;
+    color: #008B8B;
     padding: 1rem 1.5rem;
     margin-bottom: 1.5rem;
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
