@@ -21,25 +21,45 @@
 
     <!-- Styles CSS -->
     <link rel="stylesheet" href="css/main.css">
+    
+    <!-- Styles supplémentaires pour la page d'accueil -->
+    <style>
+        /* Style pour le background de la page */
+        body.home-page {
+            background-image: url('static/picture/background/valere.webp');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        
+        /* Augmenter la transparence de la section actualités */
+        .news-section {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        
+        /* Style pour les cartes d'actualités */
+        .news-card {
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Section combinée avec fond plus transparent */
+        .combined-section {
+            background: transparent;
+        }
+    </style>
 
     <!-- Scripts -->
     <script src="js/actualite.js"></script>
     <script src="js/footer.js"></script>
     <script src="js/navbar.js"></script>
-
 </head>
 
 <body class="font-sans home-page">
     <!-- Hero Section avec vidéo -->
     <header class="hero-accueil">
         <!-- La navbar sera injectée ici par navbar.js -->
-
-        <div class="hero-video-container">
-            <video autoplay muted loop class="hero-video">
-                <source src="static/video/hero-chess.mp4" type="video/mp4">
-                Votre navigateur ne supporte pas la lecture de vidéos.
-            </video>
-        </div>
     </header>
 
     <main>

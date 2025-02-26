@@ -3,7 +3,7 @@
 /* Section combinée */
 .combined-section {
     padding: 4rem 0;
-    background: rgba(255, 255, 255, 0.02);
+    background: transparent;
 }
 
 /* Section des actualités */
@@ -13,10 +13,12 @@
     max-width: 1200px;
     margin: 4rem auto;
     padding: 2.5rem;
-    background: var(--navbar-bg-scrolled);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .news-section h2 {
@@ -37,7 +39,7 @@
     transform: translateX(-50%);
     width: 60px;
     height: 3px;
-    background: var(--color-accent);
+    background: var(--color-primary);
     border-radius: 2px;
 }
 
@@ -64,6 +66,25 @@
     width: 100%;
 }
 
+/* Cartes d'actualités avec fond semi-transparent */
+.news-card {
+    position: relative;
+    width: 100%;
+    height: auto;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.95);
+}
+
 /* Animation de fondu */
 @keyframes fadeIn {
     from {
@@ -84,7 +105,7 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     border: none;
     color: var(--color-primary);
     cursor: pointer;
@@ -95,6 +116,8 @@
     justify-content: center;
     font-size: 1.5rem;
     z-index: 10;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .news-nav-button:hover {
@@ -134,12 +157,12 @@
 }
 
 .news-indicator:hover {
-    background: var(--color-accent);
+    background: var(--color-primary);
     transform: scale(1.2);
 }
 
 .news-indicator.active {
-    background: var(--color-accent);
+    background: var(--color-primary);
     width: 24px;
     border-radius: 12px;
 }
@@ -153,7 +176,7 @@
     max-height: 600px;
     overflow-y: auto;
     scrollbar-width: thin;
-    scrollbar-color: var(--color-accent) var(--color-background);
+    scrollbar-color: var(--color-primary) var(--color-background);
 }
 
 .timeline-container::-webkit-scrollbar {
@@ -166,7 +189,7 @@
 }
 
 .timeline-container::-webkit-scrollbar-thumb {
-    background-color: var(--color-accent);
+    background-color: var(--color-primary);
     border-radius: 10px;
     border: 2px solid var(--color-background);
 }
@@ -201,7 +224,7 @@
     height: 26px;
     border-radius: 50%;
     background-color: #FFFFFF;
-    border: 2px solid var(--color-accent);
+    border: 2px solid var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -211,7 +234,7 @@
 .timeline-marker svg {
     width: 16px;
     height: 16px;
-    fill: var(--color-accent);
+    fill: var(--color-primary);
 }
 
 .timeline-date {
@@ -222,11 +245,13 @@
 }
 
 .timeline-content {
-    background: var(--color-secondary);
+    background: rgba(255, 255, 255, 0.9);
     padding: 1.25rem;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    border-left: 3px solid var(--color-accent);
+    border-left: 3px solid var(--color-primary);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .timeline-title {
@@ -247,7 +272,7 @@
 }
 
 .timeline-link a {
-    color: var(--color-accent);
+    color: var(--color-primary);
     text-decoration: none;
     font-weight: 500;
     transition: all 0.3s ease;

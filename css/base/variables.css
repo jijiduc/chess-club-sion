@@ -1,79 +1,90 @@
 /* variables.css - Variables globales du site */
 :root {
     /* Couleurs principales */
-    --color-primary: #ff2d46;         /* Rouge Sion */
-    --color-primary-dark: #B70016;    /* Rouge foncé */
+    --color-primary: #FF2800;         /* Rouge Ferrari */
+    --color-primary-dark: #CC2000;    /* Rouge Ferrari foncé */
+    --color-primary-light: #FF5740;   /* Rouge Ferrari clair */
+    
     --color-secondary: #FFFFFF;       /* Blanc */
+    
+    --color-dark: #2D2D2D;            /* Gris anthracite */
+    --color-dark-light: #505050;      /* Gris anthracite clair */
+    --color-dark-lighter: #777777;    /* Gris anthracite plus clair */
+    
     --color-text: #333333;            /* Texte principal */
     --color-text-light: #777777;      /* Texte secondaire */
-    --color-accent: #D4AF37;          /* Or - pour les accents */
+    
+    --color-accent: #FF2800;          /* Accent - Rouge Ferrari */
+    --color-accent-dark: #CC2000;     /* Accent foncé */
+    
     --color-background: #F9F9F9;      /* Fond clair */
     --color-border: #E0E0E0;          /* Bordures légères */
 
-     /* Couleurs pour la navbar */
-     --navbar-bg: rgba(255, 255, 255, 0.85);         /* Fond blanc translucide */
-     --navbar-bg-scrolled: rgba(255, 255, 255, 0.95); /* Fond blanc scrollé */
-     --navbar-text: #FF2800;                         /* Rouge Ferrari */
-     --navbar-hover-bg: rgba(255, 40, 0, 0.1);       /* Fond rouge léger au survol */
-     --navbar-active-bg: #FF2800;                    /* Fond rouge pour l'élément actif */
-     --navbar-active-text: #FFFFFF;                  /* Texte blanc pour l'élément actif */
-     --dropdown-bg: rgba(255, 255, 255, 0.95);       /* Fond blanc translucide pour les dropdowns */
-     --dropdown-mobile-bg: rgba(255, 40, 0, 0.05);   /* Fond léger pour dropdown mobile */
+    /* Couleurs pour la navbar */
+    --navbar-bg: rgba(255, 255, 255, 0.85);         /* Fond blanc translucide */
+    --navbar-bg-scrolled: rgba(255, 255, 255, 0.95); /* Fond blanc scrollé */
+    --navbar-text: #FF2800;                         /* Rouge Ferrari */
+    --navbar-hover-bg: rgba(255, 40, 0, 0.1);       /* Fond rouge léger au survol */
+    --navbar-active-bg: #FF2800;                    /* Fond rouge pour l'élément actif */
+    --navbar-active-text: #FFFFFF;                  /* Texte blanc pour l'élément actif */
+    --dropdown-bg: rgba(255, 255, 255, 0.95);       /* Fond blanc translucide pour les dropdowns */
+    --dropdown-mobile-bg: rgba(255, 40, 0, 0.05);   /* Fond léger pour dropdown mobile */
     
     /* Nouvelles couleurs pour le footer */
-    --footer-bg: #B70016;                     /* Fond du footer (actuellement var(--color-primary-dark)) */
-    --footer-text: #FFFFFF;                   /* Texte principal du footer */
-    --footer-title: #cf1c2e;                  /* Couleur des titres du footer */
-    --footer-link: rgba(255, 255, 255, 0.9);  /* Couleur des liens du footer */
-    --footer-link-hover: #D4AF37;             /* Couleur des liens au survol (actuellement var(--color-accent)) */
-    --footer-border: rgba(245, 240, 232, 0.1); /* Couleur des bordures dans le footer */
-    --footer-text-muted: rgba(255, 255, 255, 0.7); /* Texte secondaire du footer */
-    --footer-text-light: rgba(255, 255, 255, 0.8); /* Texte plus clair du footer */
-    --footer-bottom-bg: #B70016;              /* Fond du bas de page (actuellement var(--color-primary-dark)) */
+    --footer-bg: #2D2D2D;                           /* Fond du footer - Gris anthracite */
+    --footer-text: #FFFFFF;                         /* Texte principal du footer */
+    --footer-title: #FF2800;                        /* Couleur des titres du footer - Rouge Ferrari */
+    --footer-link: rgba(255, 255, 255, 0.9);        /* Couleur des liens du footer */
+    --footer-link-hover: #FF5740;                   /* Couleur des liens au survol - Rouge Ferrari clair */
+    --footer-border: rgba(255, 255, 255, 0.1);      /* Couleur des bordures dans le footer */
+    --footer-text-muted: rgba(255, 255, 255, 0.7);  /* Texte secondaire du footer */
+    --footer-text-light: rgba(255, 255, 255, 0.8);  /* Texte plus clair du footer */
+    --footer-bottom-bg: #232323;                    /* Fond du bas de page - Gris anthracite plus foncé */
 
     /* Catégories d'événements */
-    --color-formation: #006B3F;       /* Vert foncé */
-    --color-competition: #E3001B;     /* Rouge Sion */
-    --color-soiree: #1D4F91;          /* Bleu profond */
+    --color-formation: #505050;                     /* Gris anthracite clair */
+    --color-competition: #FF2800;                   /* Rouge Ferrari */
+    --color-soiree: #505050;                        /* Gris anthracite clair */
 
     /* Couleurs d'informations */
-    --color-success: #28a745;         /* Vert succès */
-    --color-error: #dc3545;           /* Rouge erreur */
-    --color-warning: #f59e0b;         /* Orange avertissement */
-    --color-info: #cbd5e0;            /* Gris information */
+    --color-success: #4CAF50;                       /* Vert succès */
+    --color-error: #FF2800;                         /* Rouge erreur - Rouge Ferrari */
+    --color-warning: #FF9800;                       /* Orange avertissement */
+    --color-info: #505050;                          /* Gris information - Gris anthracite clair */
 
     /* Couleurs de fond */
-    --color-bg-light: #F8F9FA;        /* Fond très clair */
-    --color-bg-muted: #F3F4F6;        /* Fond gris clair */
+    --color-bg-light: #F8F9FA;                      /* Fond très clair */
+    --color-bg-muted: #F3F4F6;                      /* Fond gris clair */
     --color-bg-transparent: rgba(255, 255, 255, 0.1); /* Fond transparent */
-    --color-bg-accent-light: rgba(212, 175, 55, 0.1); /* Fond accent léger */
-    --color-bg-accent-medium: rgba(212, 175, 55, 0.2); /* Fond accent moyen */
-    --color-bg-primary-light: rgba(255, 40, 0, 0.1); /* Fond primaire léger */
+    --color-bg-accent-light: rgba(255, 40, 0, 0.1); /* Fond accent léger - Rouge Ferrari transparent */
+    --color-bg-accent-medium: rgba(255, 40, 0, 0.2); /* Fond accent moyen - Rouge Ferrari transparent */
+    --color-bg-primary-light: rgba(255, 40, 0, 0.1); /* Fond primaire léger - Rouge Ferrari transparent */
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    --gradient-accent: linear-gradient(135deg, #D8315B 0%, #B23A48 100%);
-    --gradient-button: linear-gradient(135deg, #A83745 0%, #8B2635 100%);
+    --gradient-primary: linear-gradient(135deg, #FF2800 0%, #CC2000 100%);
+    --gradient-accent: linear-gradient(135deg, #FF5740 0%, #FF2800 100%);
+    --gradient-button: linear-gradient(135deg, #FF2800 0%, #CC2000 100%);
+    --gradient-dark: linear-gradient(135deg, #2D2D2D 0%, #232323 100%);
     
     /* Couleurs de texte */
-    --color-heading: var(--color-primary); /* Couleur des titres */
+    --color-heading: #FF2800;                        /* Couleur des titres - Rouge Ferrari */
+    --color-heading-light: #505050;                  /* Couleur de titre légère - Gris anthracite clair */
     
     /* Couleurs pour les cartes */
     --card-bg: white;
-    --card-hover-border: var(--color-accent);
+    --card-hover-border: #FF2800;                    /* Rouge Ferrari */
     
     /* Couleurs pour les bannières */
-    --banner-warning-bg: #fef3c7;
-    --banner-warning-border: #f59e0b;
-    --banner-warning-text: #92400e;
+    --banner-warning-bg: #FFF3E0;
+    --banner-warning-border: #FF9800;
+    --banner-warning-text: #E65100;
     
     /* Autres couleurs spécifiques */
-    --color-link-hover: #b4941f;      /* Couleur de lien au survol */
-    --color-heading-light: #374151;   /* Couleur de titre légère */
-    --color-table-header-bg: var(--color-primary); /* Fond d'en-tête de tableau */
-    --color-table-border: #e5e7eb;    /* Bordure de tableau */
-    --color-blockquote-bg: rgba(216, 49, 91, 0.05); /* Fond de citation */
-    --color-code-bg: rgba(0, 0, 0, 0.05); /* Fond de code */
+    --color-link-hover: #CC2000;                    /* Couleur de lien au survol - Rouge Ferrari foncé */
+    --color-table-header-bg: #FF2800;               /* Fond d'en-tête de tableau - Rouge Ferrari */
+    --color-table-border: #e5e7eb;                  /* Bordure de tableau */
+    --color-blockquote-bg: rgba(255, 40, 0, 0.05);  /* Fond de citation - Rouge Ferrari transparent */
+    --color-code-bg: rgba(45, 45, 45, 0.05);        /* Fond de code - Gris anthracite transparent */
     
     /* Ombres */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);

@@ -1,12 +1,11 @@
 {
   "name": "cesion-website",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "devDependencies": {
     "tailwindcss": "^3.4.17"
   },
   "scripts": {
-  "build:css": "node scripts/build-css.js",
-  "build:tailwind_watch": "tailwindcss -i css/vendor/apply.css -o css/vendor/tailwind.css watch",
-  "build:tailwind_minify": "tailwindcss -i css/vendor/apply.css -o css/vendor/tailwind.css minify"
+  "build: tailwind WATCH": "tailwindcss -i css/vendor/apply.css -o css/vendor/tailwind.css watch",
+  "build: tailwind MINIFY": "tailwindcss -i css/vendor/apply.css -o css/vendor/tailwind.css minify"
 }
 }
