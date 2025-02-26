@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 // The main tournament visualization component
 const TournoiVisualisation = () => {
@@ -367,7 +367,8 @@ const TournoiVisualisation = () => {
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('tournoi-react');
     if (container) {
-        ReactDOM.render(<TournoiVisualisation />, container);
+        const root = createRoot(container);
+        root.render(<TournoiVisualisation />);
     }
 });
 
