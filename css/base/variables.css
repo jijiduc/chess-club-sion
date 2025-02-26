@@ -1,7 +1,7 @@
 /* variables.css - Variables globales du site */
 :root {
     /* Couleurs principales */
-    --color-primary: #E3001B;         /* Rouge Sion */
+    --color-primary: #ff2d46;         /* Rouge Sion */
     --color-primary-dark: #B70016;    /* Rouge foncé */
     --color-secondary: #FFFFFF;       /* Blanc */
     --color-text: #333333;            /* Texte principal */
@@ -9,6 +9,27 @@
     --color-accent: #D4AF37;          /* Or - pour les accents */
     --color-background: #F9F9F9;      /* Fond clair */
     --color-border: #E0E0E0;          /* Bordures légères */
+
+     /* Couleurs pour la navbar */
+     --navbar-bg: rgba(255, 255, 255, 0.85);         /* Fond blanc translucide */
+     --navbar-bg-scrolled: rgba(255, 255, 255, 0.95); /* Fond blanc scrollé */
+     --navbar-text: #FF2800;                         /* Rouge Ferrari */
+     --navbar-hover-bg: rgba(255, 40, 0, 0.1);       /* Fond rouge léger au survol */
+     --navbar-active-bg: #FF2800;                    /* Fond rouge pour l'élément actif */
+     --navbar-active-text: #FFFFFF;                  /* Texte blanc pour l'élément actif */
+     --dropdown-bg: rgba(255, 255, 255, 0.95);       /* Fond blanc translucide pour les dropdowns */
+     --dropdown-mobile-bg: rgba(255, 40, 0, 0.05);   /* Fond léger pour dropdown mobile */
+    
+    /* Nouvelles couleurs pour le footer */
+    --footer-bg: #B70016;                     /* Fond du footer (actuellement var(--color-primary-dark)) */
+    --footer-text: #FFFFFF;                   /* Texte principal du footer */
+    --footer-title: #cf1c2e;                  /* Couleur des titres du footer */
+    --footer-link: rgba(255, 255, 255, 0.9);  /* Couleur des liens du footer */
+    --footer-link-hover: #D4AF37;             /* Couleur des liens au survol (actuellement var(--color-accent)) */
+    --footer-border: rgba(245, 240, 232, 0.1); /* Couleur des bordures dans le footer */
+    --footer-text-muted: rgba(255, 255, 255, 0.7); /* Texte secondaire du footer */
+    --footer-text-light: rgba(255, 255, 255, 0.8); /* Texte plus clair du footer */
+    --footer-bottom-bg: #B70016;              /* Fond du bas de page (actuellement var(--color-primary-dark)) */
     
     /* Catégories d'événements */
     --color-formation: #006B3F;       /* Vert foncé */

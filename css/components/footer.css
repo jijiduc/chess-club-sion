@@ -1,8 +1,8 @@
-/* footer.css - Styles du pied de page */
+/* footer.css - Styles du pied de page avec variables */
 
 .site-footer {
-    background: var(--color-primary-dark);
-    color: var(--color-secondary);
+    background: var(--footer-bg);
+    color: var(--footer-text);
     padding: 4rem 0 0 0;
 }
 
@@ -32,7 +32,7 @@
 
 /* Titres */
 .footer-title {
-    color: #cf1c2e;
+    color: var(--footer-title);
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
@@ -44,7 +44,7 @@
     flex-direction: column;
     gap: 0.5rem;
     font-size: 1rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--footer-link);
 }
 
 /* Grille de liens */
@@ -57,18 +57,18 @@
 /* Liens */
 .footer-link {
     background: transparent;
-    color: #ffffff;
+    color: var(--footer-text);
     text-decoration: none;
     transition: all 0.3s ease;
     display: block;
     padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(245, 240, 232, 0.1);
+    border-bottom: 1px solid var(--footer-border);
 }
 
 .footer-link:hover {
-    color: var(--color-accent);
+    color: var(--footer-link-hover);
     transform: translateX(10px);
-    border-bottom-color: var(--color-accent);
+    border-bottom-color: var(--footer-link-hover);
 }
 
 /* Section horaires */
@@ -81,7 +81,7 @@
 .schedule-item {
     display: flex;
     justify-content: space-between;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--footer-link);
     padding: 0.5rem 0;
 }
 
@@ -90,14 +90,14 @@
 }
 
 .schedule-item .time {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--footer-text-light);
 }
 
 /* Bas de page */
 .footer-bottom {
     margin-top: 3rem;
     padding: 1.5rem 0;
-    background: var(--color-primary-dark);
+    background: var(--footer-bottom-bg);
     text-align: center;
 }
 
@@ -108,18 +108,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--footer-text-muted);
     font-size: 0.9rem;
 }
 
 .footer-bottom a {
-    color: rgba(255, 255, 255, 0.7);
+    color: var(--footer-text-muted);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-bottom a:hover {
-    color: var(--color-accent);
+    color: var(--footer-link-hover);
 }
 
 /* Media Queries */
