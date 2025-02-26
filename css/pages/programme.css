@@ -40,7 +40,7 @@
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--color-bg-transparent);
     font-size: 1.1rem;
 }
 
@@ -134,7 +134,7 @@
 }
 
 .calendar-day:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--color-bg-transparent);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -144,7 +144,7 @@
 }
 
 .calendar-day.today {
-    background: rgba(216, 49, 91, 0.05);
+    background: var(--color-blockquote-bg);
     border: 2px solid var(--color-accent);
 }
 
@@ -246,7 +246,7 @@
 }
 
 .event-card:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--color-bg-transparent);
     transform: translateX(5px);
 }
 

@@ -6,7 +6,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5em;
     font-weight: 600;
     line-height: 1.2;
-    color: var(--color-primary);
+    color: var(--color-heading);
 }
 
 h1 {
@@ -82,7 +82,7 @@ blockquote {
     margin: 1.5rem 0;
     padding: 1rem 1.5rem;
     border-left: 4px solid var(--color-accent);
-    background-color: rgba(216, 49, 91, 0.05);
+    background-color: var(--color-blockquote-bg);
     font-style: italic;
     color: var(--color-text-light);
 }
@@ -94,7 +94,7 @@ blockquote p:last-child {
 /* Code */
 code, pre {
     font-family: var(--font-mono);
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: var(--color-code-bg);
     border-radius: var(--radius-sm);
 }
 

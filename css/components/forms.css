@@ -96,11 +96,11 @@
 .form-control:focus {
     border-color: var(--color-accent);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 0 0 3px var(--color-bg-accent-light);
 }
 
 .form-control::placeholder {
-    color: #9ca3af;
+    color: var(--color-info);
 }
 
 .form-text {

@@ -2,7 +2,7 @@
 
 /* Carte de base */
 .card {
-    background: white;
+    background: var(--card-bg);
     border-radius: var(--radius-md);
     padding: 1.5rem;
     box-shadow: var(--shadow-sm);
@@ -37,7 +37,7 @@
     display: flex;
     flex-direction: column;
     min-height: 300px;
-    background: white;
+    background: var(--card-bg);
     border-radius: 1rem;
     padding: 2rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 
@@ -50,7 +50,7 @@
 .team-card:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08), 
                 0 15px 20px rgba(0, 0, 0, 0.12);
-    border-color: var(--color-accent);
+    border-color: var(--card-hover-border);
 }
 
 .team-card h3 {
@@ -68,7 +68,7 @@
 
 /* Carte de membre */
 .membre-card {
-    background: white;
+    background: var(--card-bg);
     border-radius: var(--radius-md);
     padding: 1.5rem;
     box-shadow: var(--shadow-sm);
@@ -81,7 +81,7 @@
 .membre-card:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
-    border-color: var(--color-accent);
+    border-color: var(--card-hover-border);
 }
 
 .membre-nom {
@@ -105,7 +105,7 @@
     position: relative;
     width: 100%;
     height: auto;
-    background: white;
+    background: var(--card-bg);
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -137,7 +137,7 @@
 
 .news-content {
     padding: 2rem;
-    background: white;
+    background: var(--card-bg);
 }
 
 .news-date {
@@ -167,9 +167,9 @@
 
 /* Bannières d'information */
 .info-banner {
-    background: #fef3c7;
-    border-left: 4px solid #f59e0b;
-    color: #92400e;
+    background: var(--banner-warning-bg);
+    border-left: 4px solid var(--banner-warning-border);
+    color: var(--banner-warning-text);
     padding: 1rem 1.5rem;
     margin-bottom: 1.5rem;
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;

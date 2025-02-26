@@ -13,10 +13,10 @@
     max-width: 1200px;
     margin: 4rem auto;
     padding: 2.5rem;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--navbar-bg-scrolled);
+    backdrop-filter: blur(10px);
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
 }
 
 .news-section h2 {
@@ -127,7 +127,7 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: #cbd5e0;
+    background: var(--color-info);
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -253,11 +253,11 @@
     transition: all 0.3s ease;
     padding: 0.3rem 0.6rem;
     border-radius: 4px;
-    background: rgba(212, 175, 55, 0.1);
+    background: var(--color-bg-accent-light);
 }
 
 .timeline-link a:hover {
-    background: rgba(212, 175, 55, 0.2);
+    background: var(--color-bg-accent-medium);
     text-decoration: underline;
 }
 

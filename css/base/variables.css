@@ -30,11 +30,50 @@
     --footer-text-muted: rgba(255, 255, 255, 0.7); /* Texte secondaire du footer */
     --footer-text-light: rgba(255, 255, 255, 0.8); /* Texte plus clair du footer */
     --footer-bottom-bg: #B70016;              /* Fond du bas de page (actuellement var(--color-primary-dark)) */
-    
+
     /* Catégories d'événements */
     --color-formation: #006B3F;       /* Vert foncé */
     --color-competition: #E3001B;     /* Rouge Sion */
     --color-soiree: #1D4F91;          /* Bleu profond */
+
+    /* Couleurs d'informations */
+    --color-success: #28a745;         /* Vert succès */
+    --color-error: #dc3545;           /* Rouge erreur */
+    --color-warning: #f59e0b;         /* Orange avertissement */
+    --color-info: #cbd5e0;            /* Gris information */
+
+    /* Couleurs de fond */
+    --color-bg-light: #F8F9FA;        /* Fond très clair */
+    --color-bg-muted: #F3F4F6;        /* Fond gris clair */
+    --color-bg-transparent: rgba(255, 255, 255, 0.1); /* Fond transparent */
+    --color-bg-accent-light: rgba(212, 175, 55, 0.1); /* Fond accent léger */
+    --color-bg-accent-medium: rgba(212, 175, 55, 0.2); /* Fond accent moyen */
+    --color-bg-primary-light: rgba(255, 40, 0, 0.1); /* Fond primaire léger */
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    --gradient-accent: linear-gradient(135deg, #D8315B 0%, #B23A48 100%);
+    --gradient-button: linear-gradient(135deg, #A83745 0%, #8B2635 100%);
+    
+    /* Couleurs de texte */
+    --color-heading: var(--color-primary); /* Couleur des titres */
+    
+    /* Couleurs pour les cartes */
+    --card-bg: white;
+    --card-hover-border: var(--color-accent);
+    
+    /* Couleurs pour les bannières */
+    --banner-warning-bg: #fef3c7;
+    --banner-warning-border: #f59e0b;
+    --banner-warning-text: #92400e;
+    
+    /* Autres couleurs spécifiques */
+    --color-link-hover: #b4941f;      /* Couleur de lien au survol */
+    --color-heading-light: #374151;   /* Couleur de titre légère */
+    --color-table-header-bg: var(--color-primary); /* Fond d'en-tête de tableau */
+    --color-table-border: #e5e7eb;    /* Bordure de tableau */
+    --color-blockquote-bg: rgba(216, 49, 91, 0.05); /* Fond de citation */
+    --color-code-bg: rgba(0, 0, 0, 0.05); /* Fond de code */
     
     /* Ombres */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);

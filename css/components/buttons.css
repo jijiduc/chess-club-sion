@@ -33,7 +33,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #A83745 0%, #8B2635 100%);
+    background: var(--gradient-button);
     z-index: -1;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -50,12 +50,12 @@
 
 /* Variantes de boutons */
 .button-primary {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    background: var(--gradient-primary);
     color: var(--color-secondary);
 }
 
 .button-accent {
-    background: linear-gradient(135deg, #D8315B 0%, #B23A48 100%);
+    background: var(--gradient-accent);
     color: var(--color-secondary);
 }
 
@@ -105,7 +105,7 @@
 }
 
 .golden-link:hover {
-    color: #b4941f;
+    color: var(--color-link-hover);
 }
 
 .golden-link::after {
