@@ -1,9 +1,9 @@
 /* variables.css - Variables globales du site */
 :root {
     /* Couleurs principales */
-    --color-primary: #FF2800;         /* Rouge Ferrari */
-    --color-primary-dark: #CC2000;    /* Rouge Ferrari foncé */
-    --color-primary-light: #FF5740;   /* Rouge Ferrari clair */
+    --color-primary: #D9272E;         /* Rouge */
+    --color-primary-dark: #B01F25;    /* Rouge foncé */
+    --color-primary-light: #E65058;   /* Rouge clair */
     
     --color-secondary: #FFFFFF;       /* Blanc */
     
@@ -23,9 +23,9 @@
     /* Couleurs pour la navbar */
     --navbar-bg: rgba(255, 255, 255, 0.85);         /* Fond blanc translucide */
     --navbar-bg-scrolled: rgba(255, 255, 255, 0.95); /* Fond blanc scrollé */
-    --navbar-text: #FF2800;                         /* Rouge Ferrari */
+    --navbar-text: #D9272E;                         /* Rouge Ferrari */
     --navbar-hover-bg: rgba(255, 40, 0, 0.1);       /* Fond rouge léger au survol */
-    --navbar-active-bg: #FF2800;                    /* Fond rouge pour l'élément actif */
+    --navbar-active-bg:  #D9272E;                    /* Fond rouge pour l'élément actif */
     --navbar-active-text: #FFFFFF;                  /* Texte blanc pour l'élément actif */
     --dropdown-bg: rgba(255, 255, 255, 0.95);       /* Fond blanc translucide pour les dropdowns */
     --dropdown-mobile-bg: rgba(255, 40, 0, 0.05);   /* Fond léger pour dropdown mobile */
@@ -42,9 +42,12 @@
     --footer-bottom-bg: #232323;                    /* Fond du bas de page - Gris anthracite plus foncé */
 
     /* Catégories d'événements */
-    --color-formation: #505050;                     /* Gris anthracite clair */
-    --color-competition: #FF2800;                   /* Rouge Ferrari */
-    --color-soiree: #505050;                        /* Gris anthracite clair */
+    --color-formation: #0896b9;
+    --color-formation-light: rgba(8, 150, 185, 0.1);
+    --color-competition: #dfec20;
+    --color-competition-light:  #deec205d;
+    --color-soiree: #c21bb4;
+    --color-soiree-light: rgba(194, 27, 180, 0.1);
 
     /* Couleurs d'informations */
     --color-success: #4CAF50;                       /* Vert succès */

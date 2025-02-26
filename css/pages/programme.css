@@ -181,22 +181,22 @@
 
 .calendar-event.formation {
     border-left-color: var(--color-formation);
-    background: rgba(0, 107, 63, 0.1);
+    background: var(--color-formation-light);
 }
 
 .calendar-event.competition {
     border-left-color: var(--color-competition);
-    background: rgba(227, 0, 27, 0.1);
+    background: var(--color-competition-light);
 }
 
 .calendar-event.soiree_club {
     border-left-color: var(--color-soiree);
-    background: rgba(29, 79, 145, 0.1);
+    background: var(--color-soiree-light);
 }
 
 .calendar-event .event-time {
     font-size: 0.75rem;
-    color: var(--color-text-light);
+    color: var(--color-primary-light);
     font-weight: 600;
     margin-bottom: 0.2rem;
 }
