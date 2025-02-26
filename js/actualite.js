@@ -6,7 +6,7 @@ const news = [
         text: `Malgré sa victoire 4.5 - 3.5 face à SG Riehen 1, Valais 1 termine tout de même dernier du classement pour cette saison en 1ère ligue fédérale.
               Synonyme de relégation, ce résultat verra Valais 1 de retour en 2ème ligue fédérale pour la saison 2026.\n\n` +
               `Valais 3, qui luttait également pour le maintien, est passé proche d'une correctionnelle, avec une défaite 0.5 - 5.5 face à Lausanne Grand-Echiquier 1.
-              Terminant avec le meilleur score individuel parmi les 3 équipes du fond de tableau, Valais 3 se sauve d'une relégation et termine antépénultième de son groupe.\n\n` +
+              Terminant tout de même avec le meilleur score individuel parmi les 3 équipes du fond de tableau, Valais 3 se sauve d'une relégation et termine antépénultième de son groupe.\n\n` +
               `La saison 2025 du CSG est donc terminée pour nos équipes, rendez-vous en octobre pour une nouvelle saison.`,
         icon: "trophy", // Icône pour les compétitions
         hasLink: true,

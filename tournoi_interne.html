@@ -29,7 +29,7 @@
 
 </head>
 
-<body class="font-sans">
+<body class="font-sans club-page">
     <header class="hero-accueil compact-header">
         <!-- La navbar sera injectée ici par navbar.js -->
     </header>
@@ -39,10 +39,10 @@
         <section class="intro-section">
             <h2>Tournoi Interne 2025</h2>
 
-            <div class="seasons-section">
-                <div class="season-container">
-                    <h3>Format du tournoi</h3>
-                    <ul>
+            <div class="season-container">
+                <h3>Format du tournoi</h3>
+                <div class="season-content">
+                    <ul class="enhanced-list">
                         <li>Format Round Robin avec une cadence de <strong>60 minutes + 30 secondes par coups</strong>,
                             pour toute la partie.</li>
                         <li>1 partie par mois. Se jouant soit lors de la soirée du club réservée ou possibilité
@@ -56,10 +56,12 @@
                             la partie.</li>
                     </ul>
                 </div>
+            </div>
 
-                <div class="season-container">
-                    <h3>Prix</h3>
-                    <ul>
+            <div class="season-container">
+                <h3>Prix</h3>
+                <div class="season-content">
+                    <ul class="enhanced-list">
                         <li><strong>1er prix :</strong> 1 livre d'échecs ainsi que 30 francs / Champion du tournoi
                             interne</li>
                         <li><strong>2ème prix :</strong> 1 livre d'échecs ainsi que 20 francs</li>
@@ -73,7 +75,7 @@
         <section class="seasons-section">
             <!-- Ronde 4 -->
             <div class="season-container">
-                <h2 class="season-header">Ronde 4</h2>
+                <h3>Ronde 4</h3>
                 <div class="season-content">
                     <div class="info-banner">
                         <p>Ronde en cours</p>
@@ -84,7 +86,7 @@
                         <div class="results-table">
                             <h3>Appariements</h3>
                             <table class="w-full">
-                                <thead class="bg-gray-100">
+                                <thead>
                                     <tr class="bg-indigo-600 text-white">
                                         <th class="px-4 py-2 text-left text-white">Table</th>
                                         <th class="px-4 py-2 text-left text-white">Blancs</th>
@@ -136,12 +138,12 @@
                             <h3>Classement après Ronde 3</h3>
                             <table class="w-full">
                                 <thead>
-                                    <tr class="bg-blue-100 text-white">
-                                        <th class="px-4 py-2 text-left bg-blue-500">Rang</th>
-                                        <th class="px-4 py-2 text-left bg-blue-500">Joueur</th>
-                                        <th class="px-4 py-2 text-left bg-blue-500">Elo</th>
-                                        <th class="px-4 py-2 text-left bg-blue-500">Perf</th>
-                                        <th class="px-4 py-2 text-left bg-blue-500">Points</th>
+                                    <tr class="bg-blue-500 text-white">
+                                        <th class="px-4 py-2 text-left">Rang</th>
+                                        <th class="px-4 py-2 text-left">Joueur</th>
+                                        <th class="px-4 py-2 text-left">Elo</th>
+                                        <th class="px-4 py-2 text-left">Perf</th>
+                                        <th class="px-4 py-2 text-left">Points</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -209,14 +211,14 @@
             </div>
             <!-- Ronde 3 -->
             <div class="season-container">
-                <h2 class="season-header">Ronde 3</h2>
+                <h3>Ronde 3</h3>
                 <div class="season-content">
                     <div class="teams-grid">
                         <!-- Appariements -->
                         <div class="results-table">
                             <h3>Appariements</h3>
                             <table class="w-full">
-                                <thead class="bg-gray-100">
+                                <thead>
                                     <tr class="bg-indigo-600 text-white">
                                         <th class="px-4 py-2 text-left text-white">Table</th>
                                         <th class="px-4 py-2 text-left text-white">Blancs</th>
@@ -268,12 +270,12 @@
                             <h3>Classement après Ronde 2</h3>
                             <table class="w-full">
                                 <thead>
-                                    <tr class="bg-blue-100 text-white">
-                                        <th class="px-4 py-2 text-left bg-blue-500">Rang</th>
-                                        <th class="px-4 py-2 text-left bg-blue-500">Joueur</th>
-                                        <th class="px-4 py-2 text-left bg-blue-500">Elo</th>
-                                        <th class="px-4 py-2 text-left bg-blue-500">Perf</th>
-                                        <th class="px-4 py-2 text-left bg-blue-500">Points</th>
+                                    <tr class="bg-blue-500 text-white">
+                                        <th class="px-4 py-2 text-left">Rang</th>
+                                        <th class="px-4 py-2 text-left">Joueur</th>
+                                        <th class="px-4 py-2 text-left">Elo</th>
+                                        <th class="px-4 py-2 text-left">Perf</th>
+                                        <th class="px-4 py-2 text-left">Points</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -342,34 +344,25 @@
 
             <!-- Ronde 2 -->
             <div class="season-container">
-                <h2 class="season-header">Ronde 2</h2>
+                <h3>Ronde 2</h3>
                 <div class="season-content">
                     <div class="teams-grid">
                         <!-- Appariements -->
                         <div class="results-table">
                             <h3>Appariements</h3>
-                            <table class="min-w-full divide-y divide-gray-200">
+                            <table class="w-full">
                                 <thead>
-                                    <tr>
-                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">
-                                            Table
-                                        </th>
-                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">
-                                            Blancs
-                                        </th>
-                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">Elo
-                                        </th>
-                                        <th class="px-4 py-2 bg-gray-50 text-center text-sm font-medium text-gray-500">
-                                            Résultat</th>
-                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">
-                                            Noirs
-                                        </th>
-                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">Elo
-                                        </th>
+                                    <tr class="bg-indigo-600 text-white">
+                                        <th class="px-4 py-2 text-left text-white">Table</th>
+                                        <th class="px-4 py-2 text-left text-white">Blancs</th>
+                                        <th class="px-4 py-2 text-left text-white">Elo</th>
+                                        <th class="px-4 py-2 text-center text-white">Résultat</th>
+                                        <th class="px-4 py-2 text-left text-white">Noirs</th>
+                                        <th class="px-4 py-2 text-left text-white">Elo</th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-white divide-y divide-gray-200">
-                                    <tr>
+                                <tbody>
+                                    <tr class="border-b">
                                         <td class="px-4 py-2">1</td>
                                         <td class="px-4 py-2">Riand Jean-Yves</td>
                                         <td class="px-4 py-2">1837</td>
@@ -377,7 +370,7 @@
                                         <td class="px-4 py-2">Sola Flavien</td>
                                         <td class="px-4 py-2">2027</td>
                                     </tr>
-                                    <tr>
+                                    <tr class="border-b">
                                         <td class="px-4 py-2">2</td>
                                         <td class="px-4 py-2">Rappaz Pierre-Marie</td>
                                         <td class="px-4 py-2">1951</td>
@@ -385,7 +378,7 @@
                                         <td class="px-4 py-2">Duc Jeremy</td>
                                         <td class="px-4 py-2">1762</td>
                                     </tr>
-                                    <tr>
+                                    <tr class="border-b">
                                         <td class="px-4 py-2">3</td>
                                         <td class="px-4 py-2">Moerschell Simon</td>
                                         <td class="px-4 py-2">1534</td>
@@ -393,7 +386,7 @@
                                         <td class="px-4 py-2">Cortada-Garcia Joan</td>
                                         <td class="px-4 py-2">1749</td>
                                     </tr>
-                                    <tr>
+                                    <tr class="border-b">
                                         <td class="px-4 py-2">4</td>
                                         <td class="px-4 py-2">Ben Salem Akram</td>
                                         <td class="px-4 py-2">-</td>
@@ -410,34 +403,25 @@
 
             <!-- Ronde 1 -->
             <div class="season-container">
-                <h2 class="season-header">Ronde 1</h2>
+                <h3>Ronde 1</h3>
                 <div class="season-content">
                     <div class="teams-grid">
                         <!-- Appariements -->
                         <div class="results-table">
                             <h3>Appariements</h3>
-                            <table class="min-w-full divide-y divide-gray-200">
+                            <table class="w-full">
                                 <thead>
-                                    <tr>
-                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">
-                                            Table
-                                        </th>
-                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">
-                                            Blancs
-                                        </th>
-                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">Elo
-                                        </th>
-                                        <th class="px-4 py-2 bg-gray-50 text-center text-sm font-medium text-gray-500">
-                                            Résultat</th>
-                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">
-                                            Noirs
-                                        </th>
-                                        <th class="px-4 py-2 bg-gray-50 text-left text-sm font-medium text-gray-500">Elo
-                                        </th>
+                                    <tr class="bg-indigo-600 text-white">
+                                        <th class="px-4 py-2 text-left text-white">Table</th>
+                                        <th class="px-4 py-2 text-left text-white">Blancs</th>
+                                        <th class="px-4 py-2 text-left text-white">Elo</th>
+                                        <th class="px-4 py-2 text-center text-white">Résultat</th>
+                                        <th class="px-4 py-2 text-left text-white">Noirs</th>
+                                        <th class="px-4 py-2 text-left text-white">Elo</th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-white divide-y divide-gray-200">
-                                    <tr>
+                                <tbody>
+                                    <tr class="border-b">
                                         <td class="px-4 py-2">1</td>
                                         <td class="px-4 py-2">Sola Flavien</td>
                                         <td class="px-4 py-2">2027</td>
@@ -445,7 +429,7 @@
                                         <td class="px-4 py-2">Cortada-Garcia Joan</td>
                                         <td class="px-4 py-2">1749</td>
                                     </tr>
-                                    <tr>
+                                    <tr class="border-b">
                                         <td class="px-4 py-2">2</td>
                                         <td class="px-4 py-2">Ulmann Olivier</td>
                                         <td class="px-4 py-2">1597</td>
@@ -453,7 +437,7 @@
                                         <td class="px-4 py-2">Rappaz Pierre-Marie</td>
                                         <td class="px-4 py-2">1951</td>
                                     </tr>
-                                    <tr>
+                                    <tr class="border-b">
                                         <td class="px-4 py-2">3</td>
                                         <td class="px-4 py-2">Riand Jean-Yves</td>
                                         <td class="px-4 py-2">1837</td>
@@ -461,7 +445,7 @@
                                         <td class="px-4 py-2">Moerschell Simon</td>
                                         <td class="px-4 py-2">1534</td>
                                     </tr>
-                                    <tr>
+                                    <tr class="border-b">
                                         <td class="px-4 py-2">4</td>
                                         <td class="px-4 py-2">Ben Salem Akram</td>
                                         <td class="px-4 py-2">-</td>
@@ -475,7 +459,6 @@
                     </div>
                 </div>
             </div>
-
         </section>
     </main>
 

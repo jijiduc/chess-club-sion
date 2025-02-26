@@ -9,9 +9,7 @@
     <!-- Polices -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="static/favicon/apple-touch-icon.png">
@@ -21,6 +19,8 @@
 
     <!-- Styles CSS -->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/pages/club.css">
+    <link rel="stylesheet" href="css/pages/competitions.css">
 
     <!-- Scripts -->
     <script src="js/navbar.js"></script>
@@ -28,7 +28,7 @@
     <script src="js/footer.js"></script>
 </head>
 
-<body class="font-sans">
+<body class="font-sans club-page">
     <header class="hero-accueil compact-header">
         <!-- La navbar sera injectée ici par navbar.js -->
     </header>
@@ -37,24 +37,33 @@
     <main class="main-content">
         <!-- Introduction -->
         <section class="intro-section">
-            <h2>Le Championnat Suisse par Equipes</h2>
-            <p>
-                Le Championnat Suisse par Equipes (CSE) est une compétition par équipes structuré en 6 ligues, du
-                niveau régional au niveau national. Elle est organisée par la Fédération Suisse des Echecs (FSE).
-                Le championnat se joue en 7 rondes au niveaux régionale et 9 au niveau national, réparties entre
-                mars et octobre.<br>
-            </p>
-            <ul>
-                <li><strong>Au niveau régionale :</strong><br>
-                    La 4ème ligue voit 4 joueurs par équipe s'affronter, puis 6 en 3ème et 2ème ligue
-                    et enfin 8 par équipe en 1ère ligue.</li>
-                <li><strong>Au niveau national :</strong><br>
-                    Les ligues nationales B et A voient s'affronter 8
-                    joueurs par équipe.</li>
-            </ul>
-            <p>Pour cette compétition, les joueurs du club de Sion sont réparties entre les équipes de Sion 1 et Sion
-                2.
-            </p>
+            <div class="season-container">
+                <h3>Le Championnat Suisse par Equipes</h3>
+                <div class="season-content">
+                    <p>
+                        Le Championnat Suisse par Equipes (CSE) est une compétition par équipes structuré en 6 ligues, du
+                        niveau régional au niveau national. Elle est organisée par la Fédération Suisse des Echecs (FSE).
+                        Le championnat se joue en 7 rondes au niveaux régionale et 9 au niveau national, réparties entre
+                        mars et octobre.
+                    </p>
+                    
+                    <div class="info-boxes-container">
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h3>Organisation des ligues</h3>
+                            </div>
+                            <div class="info-box-content">
+                                <ul class="enhanced-list">
+                                    <li><strong>Au niveau régional :</strong> La 4ème ligue voit 4 joueurs par équipe s'affronter, puis 6 en 3ème et 2ème ligue et enfin 8 par équipe en 1ère ligue.</li>
+                                    <li><strong>Au niveau national :</strong> Les ligues nationales B et A voient s'affronter 8 joueurs par équipe.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-4">Pour cette compétition, les joueurs du club de Sion sont réparties entre les équipes de Sion 1 et Sion 2.</p>
+                </div>
+            </div>
         </section>
 
         <!-- Saisons -->
@@ -63,7 +72,7 @@
                 <h2 class="season-header">Saison 2025</h2>
                 <div class="season-content">
                     <div class="info-banner">
-                        <p>la saison commencera le 22 mars 2025</p>
+                        <p>La saison commencera le 22 mars 2025</p>
                     </div>
                     <div class="teams-grid">
                         <div class="team-card">
@@ -76,11 +85,13 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
+        
         <section class="seasons-section">
             <div class="season-container">
-                <h2 class="season-header">Saison 2024</h2>
-                <div class="season-content">
+                <h2 class="season-header collapsed">Saison 2024</h2>
+                <div class="season-content collapsed">
                     <div class="teams-grid">
                         <div class="team-card">
                             <h3>Équipe Sion 1</h3>
@@ -104,12 +115,13 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
 
         <section class="seasons-section">
             <div class="season-container">
-                <h2 class="season-header">Saison 2023</h2>
-                <div class="season-content">
+                <h2 class="season-header collapsed">Saison 2023</h2>
+                <div class="season-content collapsed">
                     <div class="teams-grid">
                         <div class="team-card">
                             <h3>Équipe Sion 1</h3>
@@ -131,17 +143,46 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
 
         <section class="seasons-section">
             <div class="season-container">
-                <h2 class="season-header">Saison 2022</h2>
-                <div class="season-content">
+                <h2 class="season-header collapsed">Saison 2022</h2>
+                <div class="season-content collapsed">
                     <div class="teams-grid">
                         <div class="team-card">
                             <h3>Équipe Sion 1</h3>
                             <p>L'équipe de Sion 1 à évoluée en 2ème ligue régionale.
                                 Ayant finie 1ère de son groupe, l'équipe s'est vue promue en 1ère ligue régionale pour la saison 2023</p>
+                            <div class="results-link">
+                                <a href="https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyMiZhZ3J1cHBlPTQwOCZhbGlnYT00JmFyb3VuZD03"
+                                    class="button">Voir les résultats de Sion 1</a>
+                            </div>
+                        </div>
+                        <div class="team-card">
+                            <h3>Équipe Sion 2</h3>
+                            <p>L'équipe de Sion 2 a terminé en avant-dernière place de son groupe de 3ème ligue régionale.</p>
+                            <div class="results-link">
+                                <a href="https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyMiZhZ3J1cHBlPTUxNCZhbGlnYT01JmFyb3VuZD02"
+                                    class="button">
+                                    Voir les résultats de Sion 2</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="seasons-section">
+            <div class="season-container">
+                <h2 class="season-header collapsed">Saison 2021</h2>
+                <div class="season-content collapsed">
+                    <div class="teams-grid">
+                        <div class="team-card">
+                            <h3>Équipe Sion 1</h3>
+                            <p>L'équipe de Sion 1 à évoluée en 1ème ligue régionale.
+                                Ayant finie dernière de son groupe, l'équipe s'est vue reléguée en 2ème ligue régionale pour la saison 2022</p>
                             <div class="results-link">
                                 <a href="https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyMSZhZ3J1cHBlPTMwNCZhbGlnYT0zJmFyb3VuZD03"
                                     class="button">Voir les résultats de Sion 1</a>
@@ -158,33 +199,7 @@
                         </div>
                     </div>
                 </div>
-        </section>
-
-        <section class="seasons-section">
-            <div class="season-container">
-                <h2 class="season-header">Saison 2021</h2>
-                <div class="season-content">
-                    <div class="teams-grid">
-                        <div class="team-card">
-                            <h3>Équipe Sion 1</h3>
-                            <p>L'équipe de Sion 1 à évoluée en 1ème ligue régionale.
-                                Ayant finie dernière de son groupe, l'équipe s'est vue reléguée en 2ème ligue régionale pour la saison 2022</p>
-                            <div class="results-link">
-                                <a href="https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyMiZhZ3J1cHBlPTQwOCZhbGlnYT00JmFyb3VuZD03"
-                                    class="button">Voir les résultats de Sion 1</a>
-                            </div>
-                        </div>
-                        <div class="team-card">
-                            <h3>Équipe Sion 2</h3>
-                            <p>L'équipe de Sion 2 a terminé en 6ème place de son groupe de 3ème ligue régionale.</p>
-                            <div class="results-link">
-                                <a href="https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyMiZhZ3J1cHBlPTUxNCZhbGlnYT01"
-                                    class="button">
-                                    Voir les résultats de Sion 2</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
         </section>
     </main>
     <!-- Footer -->
