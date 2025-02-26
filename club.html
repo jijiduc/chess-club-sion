@@ -18,13 +18,14 @@
 
     <!-- Styles CSS -->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/pages/club.css">
 
     <!-- Scripts -->
     <script src="js/navbar.js"></script>
     <script src="js/footer.js"></script>
 </head>
 
-<body class="font-sans">
+<body class="font-sans club-page">
     <header class="hero-accueil compact-header">
         <!-- La navbar sera injectée ici par navbar.js -->
     </header>
@@ -32,18 +33,17 @@
     <!-- Main Content -->
     <main class="main-content">
         <section class="intro-section">
-            <h2>Présentation du Club d'Échecs de Sion</h2>
             <div class="season-container">
-                <h3>Qui sommes-nous ?</h3>
+                <h3>Présentation</h3>
                 <div class="season-content">
                     <p>
                         Le Club d'Échecs de Sion, fondé en 1935, est un lieu de rencontre pour tous les passionnés d'échecs.
                         Notre club accueille aussi bien les débutants que les joueurs expérimentés, dans une ambiance conviviale et studieuse.
                     </p>
                     <p>
-                        Nous proposons diverses activités :
+                        <br> Nous proposons diverses activités :
                     </p>
-                    <ol>
+                    <ol class="activities-list">
                         <li>Des cours d'échecs</li>
                         <li>Des soirées à thème : parties d'entraînements / analyses / blitz</li>
                         <li>Participation aux championnats suisses et valaisans par équipes</li>
@@ -60,19 +60,27 @@
                         Si vous souhaitez rejoindre notre club, nous vous proposons d'abord de venir participer à plusieurs soirées pour vous familiariser avec notre ambiance et nos activités.
                         Si votre choix est fait, nous sommes ravis de vous accueillir parmi nous.
                     </p>
-                    <div class="grid-2-cols">
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <h3>Cotisations annuelles</h3>
-                            <ul>
-                                <li>Adultes : CHF 250.-</li>
-                                <li>Juniors(- 20 ans) : CHF 150.-</li>
-                            </ul>
+                    <div class="info-boxes-container">
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h3>Cotisations annuelles</h3>
+                            </div>
+                            <div class="info-box-content">
+                                <ul class="enhanced-list">
+                                    <li>Adultes : CHF 250.-</li>
+                                    <li>Juniors(- 20 ans) : CHF 150.-</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <h3>Comment adhérer ?</h3>
-                            <p>Pour devenir membre, vous pouvez venir nous rencontrer le vendredi soir lors des <a href="programme.html" class="golden-link">soirées du club</a> ou
-                                nous <a href="comite.html#contact" class="golden-link">contacter</a>
-                            </p>
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h3>Adhésion</h3>
+                            </div>
+                            <div class="info-box-content">
+                                <p>Pour devenir membre, vous pouvez venir nous rencontrer le vendredi soir lors des <a href="programme.html" class="golden-link">soirées du club</a> ou
+                                    nous <a href="comite.html#contact" class="golden-link">contacter</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -80,13 +88,8 @@
 
             <!-- Où nous trouver ? -->
             <div class="season-container" id="local-jeu">
-                <h3>Où nous trouver ?</h3>
+                <h3>Local du club</h3>
                 <div class="season-content">
-                    <p class="font-semibold">
-                        Club d'Échecs de Sion<br>
-                        Rue des Châteaux 2<br>
-                        1950 Sion
-                    </p>
                     <p>
                         Le local est au dernier étage de la maison des Penaudiers.
                     </p>

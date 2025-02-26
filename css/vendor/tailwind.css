@@ -695,10 +695,6 @@ td {
   border-color: rgb(229 231 235 / var(--tw-divide-opacity, 1));
 }
 
-.rounded-lg {
-  border-radius: 1rem;
-}
-
 .rounded-t-lg {
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
