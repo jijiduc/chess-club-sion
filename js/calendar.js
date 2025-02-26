@@ -200,13 +200,17 @@ function setupFilters() {
 // Gestionnaire de vues
 class ViewManager {
     constructor() {
-        this.viewButtons = document.querySelectorAll('.view-selector button');
+        // Modification: sélectionner tous les boutons avec l'attribut data-view
+        this.viewButtons = document.querySelectorAll('button[data-view]');
         this.calendarView = document.getElementById('calendar-view');
         this.listView = document.getElementById('list-view');
         this.setupViewListeners();
 
         // Initialiser avec la vue calendrier
-        this.switchView(this.viewButtons[0]);
+        const initialCalendarButton = document.querySelector('button[data-view="calendar"]');
+        if (initialCalendarButton) {
+            this.switchView(initialCalendarButton);
+        }
     }
 
     setupViewListeners() {
@@ -216,15 +220,22 @@ class ViewManager {
     }
 
     switchView(selectedButton) {
-        this.viewButtons.forEach(btn => btn.classList.remove('active'));
-        selectedButton.classList.add('active');
-
         const view = selectedButton.dataset.view;
+        
+        // Mettre à jour tous les boutons avec le même attribut data-view
+        document.querySelectorAll(`button[data-view="${view}"]`).forEach(btn => {
+            btn.classList.add('active');
+        });
+        
+        document.querySelectorAll(`button[data-view]:not([data-view="${view}"])`).forEach(btn => {
+            btn.classList.remove('active');
+        });
+
         if (view === 'calendar') {
-            this.calendarView.style.display = 'block';
+            this.calendarView.closest('.season-container').style.display = 'block';
             this.listView.style.display = 'none';
         } else {
-            this.calendarView.style.display = 'none';
+            this.calendarView.closest('.season-container').style.display = 'none';
             this.listView.style.display = 'block';
             renderListView();
             setupFilters(); // Réinitialiser les filtres après le rendu de la liste
@@ -236,7 +247,8 @@ class ViewManager {
 class CalendarManager {
     constructor(events) {
         this.events = events;
-        this.currentDate = new Date(2025, 1, 1); // Note: les mois commencent à 0
+        // Correction: Utiliser l'année 2025 (la date correcte)
+        this.currentDate = new Date(2025, 1, 1); // Février 2025 (les mois commencent à 0)
         this.calendarGrid = document.querySelector('.calendar-grid');
         this.setupCalendarNavigation();
         this.generateCalendar();
@@ -340,7 +352,9 @@ class CalendarManager {
 class SearchManager {
     constructor() {
         this.searchInput = document.querySelector('.search-input');
-        this.setupSearchListener();
+        if (this.searchInput) {
+            this.setupSearchListener();
+        }
     }
 
     setupSearchListener() {

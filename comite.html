@@ -21,13 +21,14 @@
 
     <!-- Styles CSS -->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/pages/club.css">
 
     <!-- Scripts -->
     <script src="js/navbar.js"></script>
     <script src="js/contact.js"></script>
     <script src="js/footer.js"></script>
 
-<body class="font-sans bg-gray-50">
+<body class="font-sans club-page">
     <header class="hero-accueil compact-header">
         <!-- La navbar sera injectée ici par navbar.js -->
     </header>
@@ -35,105 +36,107 @@
     <!-- Main Content -->
     <main class="main-content">
         <section class="intro-section">
-            <h2>Le comité</h2>
-            <p>
-                Le comité du Club d'Échecs de Sion est composé de bénévoles passionnés qui œuvrent au développement
-                et à la promotion des échecs dans notre région. Chaque membre apporte son expertise et son engagement
-                pour faire vivre notre club.
-            </p>
-        </section>
-
-        <!-- Committee Members Grid -->
-        <div class="teams-grid">
-            <!-- Président -->
-            <div class="team-card">
-                <div class="relative">
-                    <img src="static/picture/comite/vlad.jpg" alt="Vlad Popescu"
-                        class="w-full h-64 object-cover rounded-t-lg">
-                </div>
-                <div class="p-6">
-                    <h3>Vlad Popescu</h3>
+            <div class="season-container">
+                <h3>Le comité</h3>
+                <div class="season-content">
                     <p>
-                        Notre président supervise les activités du club et représente
-                        le CE Sion auprès des instances échiquéennes.
+                        Le comité du Club d'Échecs de Sion est composé de bénévoles passionnés qui œuvrent au développement
+                        et à la promotion des échecs dans notre région. Chaque membre apporte son expertise et son engagement
+                        pour faire vivre notre club.
                     </p>
                 </div>
             </div>
 
-            <!-- Vice-Président -->
-            <div class="team-card">
-                <div class="relative">
-                    <img src="static/picture/comite/sandro.jpg" alt="Sandro Bétrisey"
-                        class="w-full h-64 object-cover rounded-t-lg">
+            <!-- Committee Members Grid -->
+            <div class="teams-grid">
+                <!-- Président -->
+                <div class="team-card">
+                    <div class="relative">
+                        <img src="static/picture/comite/vlad.jpg" alt="Vlad Popescu"
+                            class="w-full h-64 object-cover rounded-t-lg">
+                    </div>
+                    <div class="p-6">
+                        <h3>Vlad Popescu</h3>
+                        <p>
+                            président
+                        </p>
+                    </div>
                 </div>
-                <div class="p-6">
-                    <h3>Sandro Bétrisey</h3>
-                    <p>
-                        Notre vice-président épaule le président dans ses tâches.
-                    </p>
+
+                <!-- Vice-Président -->
+                <div class="team-card">
+                    <div class="relative">
+                        <img src="static/picture/comite/sandro.jpg" alt="Sandro Bétrisey"
+                            class="w-full h-64 object-cover rounded-t-lg">
+                    </div>
+                    <div class="p-6">
+                        <h3>Sandro Bétrisey</h3>
+                        <p>
+                            vice-président
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Trésorier -->
+                <div class="team-card">
+                    <div class="relative">
+                        <img src="static/picture/comite/pm.jpg" alt="Pierre-Marie Rappaz"
+                            class="w-full h-64 object-cover rounded-t-lg">
+                    </div>
+                    <div class="p-6">
+                        <h3>Pierre-Marie Rappaz</h3>
+                        <p>
+                            trésorier
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Webmaster -->
+                <div class="team-card">
+                    <div class="relative">
+                        <img src="static/picture/comite/arnaud.jpg" alt="Arnaud Pannatier"
+                            class="w-full h-64 object-cover rounded-t-lg">
+                    </div>
+                    <div class="p-6">
+                        <h3>Arnaud Pannatier</h3>
+                        <p>
+                            membre
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Directeur technique -->
+                <div class="team-card">
+                    <div class="relative">
+                        <img src="static/picture/comite/simon.webp" alt="Simon Morand"
+                            class="w-full h-64 object-cover rounded-t-lg">
+                    </div>
+                    <div class="p-6">
+                        <h3>Simon Morand</h3>
+                        <p>
+                            membre
+                        </p>
+                    </div>
                 </div>
             </div>
 
-            <!-- Trésorier -->
-            <div class="team-card">
-                <div class="relative">
-                    <img src="static/picture/comite/pm.jpg" alt="Pierre-Marie Rappaz"
-                        class="w-full h-64 object-cover rounded-t-lg">
-                </div>
-                <div class="p-6">
-                    <h3>Pierre-Marie Rappaz</h3>
-                    <p>
-                        En charge des finances du club, notre trésorier gère les côtisations
-                        et assure une gestion rigoureuse du budget.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Webmaster -->
-            <div class="team-card">
-                <div class="relative">
-                    <img src="static/picture/comite/arnaud.jpg" alt="Arnaud Pannatier"
-                        class="w-full h-64 object-cover rounded-t-lg">
-                </div>
-                <div class="p-6">
-                    <h3>Arnaud Pannatier</h3>
-                    <p>
-                        membre
-                    </p>
-                </div>
-            </div>
-
-            <!-- Directeur technique -->
-            <div class="team-card">
-                <div class="relative">
-                    <img src="static/picture/comite/simon.webp" alt="Simon Morand"
-                        class="w-full h-64 object-cover rounded-t-lg">
-                </div>
-                <div class="p-6">
-                    <h3>Simon Morand</h3>
-                    <p>
-                        membre
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Contact Section -->
-        <section id="contact" class="season-container">
-            <div class="contact-box">
+            <!-- Contact Section -->
+            <div class="season-container" id="contact">
                 <h3>Prendre contact</h3>
-                <p>
-                    Pour toute question générale concernant le club ou ses activités, vous pouvez
-                    nous contacter à l'adresse suivante :
-                </p>
-                <div>
-                    <a href="mailto:vladpopescu314@gmail.com" class="golden-link">vladpopescu314@gmail.com</a>
-                    <button onclick="copyEmail()" class="copy-button ml-4">
-                        Copier
-                    </button>
-                </div>
-                <div class="copy-notification">
-                    Adresse e-mail copiée !
+                <div class="season-content">
+                    <p>
+                        Pour toute question générale concernant le club ou ses activités, vous pouvez
+                        nous contacter à l'adresse suivante :
+                    </p>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <a href="mailto:vladpopescu314@gmail.com" class="golden-link">vladpopescu314@gmail.com</a>
+                        <button onclick="copyEmail()" class="copy-button ml-4">
+                            Copier
+                        </button>
+                    </div>
+                    <div class="copy-notification">
+                        Adresse e-mail copiée !
+                    </div>
                 </div>
             </div>
         </section>
