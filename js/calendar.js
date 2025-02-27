@@ -221,12 +221,12 @@ class ViewManager {
 
     switchView(selectedButton) {
         const view = selectedButton.dataset.view;
-        
+
         // Mettre à jour tous les boutons avec le même attribut data-view
         document.querySelectorAll(`button[data-view="${view}"]`).forEach(btn => {
             btn.classList.add('active');
         });
-        
+
         document.querySelectorAll(`button[data-view]:not([data-view="${view}"])`).forEach(btn => {
             btn.classList.remove('active');
         });
@@ -255,8 +255,8 @@ class CalendarManager {
     }
 
     setupCalendarNavigation() {
-        const prevButton = document.querySelector('.calendar-header button:first-child');
-        const nextButton = document.querySelector('.calendar-header button:last-child');
+        const prevButton = document.querySelector('.calendar-header .prev-month');
+        const nextButton = document.querySelector('.calendar-header .next-month');
 
         prevButton.addEventListener('click', () => this.changeMonth(-1));
         nextButton.addEventListener('click', () => this.changeMonth(1));
@@ -405,29 +405,29 @@ function renderListView() {
 
             eventCard.innerHTML = `
                 <div class="event-time">${event.time}</div>
-                <div class="event-title">
-                ${event.hasLink && event.link ?
-                    `<a href="${event.link}" 
-                            style="color: var(--color-accent);
-                            background: rgba(212, 175, 55, 0.05);
-                            padding: 2px 6px;
-                            border-radius: 4px;
-                            text-decoration: none
-                            transition: all 0.3s ease;"
-                            onmouseover="this.style.background='rgba(212, 175, 55, 0.1)'"
-                            onmouseout="this.style.background='rgba(212, 175, 55, 0.05)'"
-                    >${event.title}</a>` :
-                    event.title
-                }
-                <span class="category-badge category-${event.category}">${event.category === 'soiree_club' ? 'soirée du club' : event.category}</span>
+                <div class="event-title">${event.hasLink && event.link ?
+                `<a href="${event.link}" 
+                    style="color: var(--color-accent);
+                    background: rgba(212, 175, 55, 0.05);
+                    padding: 2px 6px;
+                    border-radius: 4px;
+                    text-decoration: none
+                    transition: all 0.3s ease;"
+                    onmouseover="this.style.background='rgba(212, 175, 55, 0.1)'"
+                    onmouseout="this.style.background='rgba(212, 175, 55, 0.05)'"
+                >${event.title}</a>` :
+                event.title
+            }
+            <span class="category-badge category-${event.category}">${event.category === 'soiree_club' ? 'soirée du club' : event.category}</span>
+            </div>
+            ${event.details ? `
+                <div class="event-details">
+                    <ul class="details-list">
+                        ${event.details.map(detail => `<li class="detail-item">${detail}</li>`).join('')}
+                    </ul>
                 </div>
-                ${event.details ? `
-                    <div class="event-details">
-                        ${event.details.map(detail => `<div>• ${detail}</div>`).join('')}
-                    </div>
-                ` : ''}
-            `;
-
+            ` : ''}
+        `;
             eventGroup.appendChild(eventCard);
         });
 
@@ -435,9 +435,67 @@ function renderListView() {
     });
 }
 
+// Ajout de boutons plus simples pour la navigation entre les mois
+function simplifyMobileNavigation() {
+    // Sur mobile, remplacer le texte des boutons de navigation par des icônes
+    if (window.innerWidth <= 480) {
+        const prevButton = document.querySelector('.prev-month');
+        const nextButton = document.querySelector('.next-month');
+
+        if (prevButton && prevButton.textContent.includes('Mois précédent')) {
+            prevButton.innerHTML = '&lt;';
+            prevButton.setAttribute('aria-label', 'Mois précédent');
+        }
+
+        if (nextButton && nextButton.textContent.includes('Mois suivant')) {
+            nextButton.innerHTML = '&gt;';
+            nextButton.setAttribute('aria-label', 'Mois suivant');
+        }
+    }
+}
+
+// Amélioration de l'affichage des événements dans la vue liste sur mobile
+function enhanceMobileListView() {
+    if (window.innerWidth <= 480) {
+        const eventCards = document.querySelectorAll('.event-card');
+
+        eventCards.forEach(card => {
+            // Restructurer l'affichage des badges de catégorie sur mobile
+            const title = card.querySelector('.event-title');
+            const badge = card.querySelector('.category-badge');
+
+            if (title && badge && !title.classList.contains('mobile-optimized')) {
+                title.classList.add('mobile-optimized');
+                // Déplacer le badge sous le titre
+                badge.style.marginTop = '0.5rem';
+            }
+        });
+    }
+}
+
 // Initialisation
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialiser les gestionnaires principaux
     new ViewManager();
     new CalendarManager(events);
     new SearchManager();
+
+    // Appliquer les optimisations mobiles
+    simplifyMobileNavigation();
+
+    // Réappliquer les optimisations après chaque changement de vue
+    const viewButtons = document.querySelectorAll('button[data-view]');
+    viewButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            setTimeout(() => {
+                enhanceMobileListView();
+            }, 100);
+        });
+    });
+
+    // Recalculer en cas de redimensionnement
+    window.addEventListener('resize', () => {
+        simplifyMobileNavigation();
+        enhanceMobileListView();
+    });
 });

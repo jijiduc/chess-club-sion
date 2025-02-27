@@ -4,6 +4,7 @@
     --color-primary: #D9272E;         /* Rouge */
     --color-primary-dark: #B01F25;    /* Rouge foncé */
     --color-primary-light: #E65058;   /* Rouge clair */
+    --color-primary-rgb: 217, 39, 46;  /* Rouge Ferrari en RGB */
     
     --color-secondary: #FFFFFF;       /* Blanc */
     
@@ -19,6 +20,16 @@
     
     --color-background: #F9F9F9;      /* Fond clair */
     --color-border: #E0E0E0;          /* Bordures légères */
+
+    /* Couleurs grises anthracite pour la signalétique */
+    --color-anthracite: #2D2D2D;            /* Gris anthracite - même que --color-dark */
+    --color-anthracite-light: #505050;      /* Gris anthracite clair - même que --color-dark-light */
+    --color-anthracite-lighter: #777777;    /* Gris anthracite plus clair - même que --color-dark-lighter */
+
+    /* Variation des couleurs de signalétique */
+    --color-event-header: var(--color-anthracite);     /* En-tête des événements */
+    --color-event-details-bg: rgba(45, 45, 45, 0.05);  /* Fond des détails d'événements */
+    --color-event-border: rgba(45, 45, 45, 0.15);      /* Bordure des événements */
 
     /* Couleurs pour la navbar */
     --navbar-bg: rgba(255, 255, 255, 0.85);         /* Fond blanc translucide */
@@ -44,10 +55,15 @@
     /* Catégories d'événements */
     --color-formation: #0896b9;
     --color-formation-light: rgba(8, 150, 185, 0.1);
+    --color-formation-rgb: 8, 150, 185;
+    
     --color-competition: #dfec20;
-    --color-competition-light:  #deec205d;
+    --color-competition-light: rgba(223, 236, 32, 0.08);
+    --color-competition-rgb: 223, 236, 32;
+    
     --color-soiree: #c21bb4;
     --color-soiree-light: rgba(194, 27, 180, 0.1);
+    --color-soiree-rgb: 194, 27, 180;
 
     /* Couleurs d'informations */
     --color-success: #4CAF50;                       /* Vert succès */
@@ -65,8 +81,10 @@
     
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, #FF2800 0%, #CC2000 100%);
+    --gradient-primary-soft: linear-gradient(135deg, #D9272E 0%, #C21F24 100%);
     --gradient-accent: linear-gradient(135deg, #FF5740 0%, #FF2800 100%);
     --gradient-button: linear-gradient(135deg, #FF2800 0%, #CC2000 100%);
+    --gradient-button-modern: linear-gradient(135deg, #FF2800 0%, #D9272E 100%);
     --gradient-dark: linear-gradient(135deg, #2D2D2D 0%, #232323 100%);
     
     /* Couleurs de texte */
@@ -93,6 +111,8 @@
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-sm-colored: 0 2px 5px rgba(var(--color-primary-rgb), 0.15);
+    --shadow-md-colored: 0 4px 10px rgba(var(--color-primary-rgb), 0.2);
 
     /* Transitions */
     --transition-fast: 0.2s ease-in-out;
@@ -104,6 +124,7 @@
     --radius-md: 0.5rem;
     --radius-lg: 1rem;
     --radius-full: 9999px;
+    --radius-button: 50px;
 
     /* Espacements */
     --spacing-xs: 0.25rem;
@@ -126,4 +147,8 @@
     /* Conteneurs */
     --container-max: 1280px;
     --container-padding: 1rem;
+
+    /* Couleurs d'accent pour l'interaction */
+    --color-hover-light: rgba(var(--color-primary-rgb), 0.05);
+    --color-active-light: rgba(var(--color-primary-rgb), 0.1);
 }

@@ -36,51 +36,35 @@
 
     <main class="main-content">
         <section class="intro-section">
-            <!-- Calendrier -->
             <div class="season-container">
                 <h3>Programme</h3>
-                <div class="calendar-section" id="calendar-view">
-                    <div class="calendar-header" style="display: flex; justify-content: space-between; align-items: center;">
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <button class="filter-button">&lt; Mois précédent</button>
-                            <button class="filter-button active" data-view="calendar">Calendrier</button>
-                        </div>
-                        <h2>Février 2024</h2>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <button class="filter-button" data-view="list">Liste</button>
-                            <button class="filter-button">Mois suivant &gt;</button>
-                        </div>
-                    </div>
-                    <div class="calendar-grid">
-                        <div class="calendar-day-header">Lun</div>
-                        <div class="calendar-day-header">Mar</div>
-                        <div class="calendar-day-header">Mer</div>
-                        <div class="calendar-day-header">Jeu</div>
-                        <div class="calendar-day-header">Ven</div>
-                        <div class="calendar-day-header">Sam</div>
-                        <div class="calendar-day-header">Dim</div>
-                        <!-- Les jours seront générés dynamiquement par JavaScript -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- Filtres des événements -->
-            <div class="season-container" id="list-view" style="display: none;">
-                <h3>Programme</h3>
                 <div class="season-content">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2>Événements</h2>
+                    
+                    <!-- Sélecteur de vue -->
+                    <div class="view-selector">
                         <button class="filter-button" data-view="calendar">Calendrier</button>
-                        <h2>Événements</h2>
                         <button class="filter-button active" data-view="list">Liste</button>
                     </div>
+                    
+                    <!-- Filtres de catégories -->
                     <div id="filters">
                         <button class="filter-button active" data-category="all">Tous</button>
                         <button class="filter-button" data-category="formation">Formation</button>
                         <button class="filter-button" data-category="competition">Compétition</button>
-                        <button class="filter-button" data-category="soiree_club">Soirée du club</button>
+                        <button class="filter-button" data-category="soiree_club">Soirée club</button>
                     </div>
-                    <div class="event-list">
-                        <!-- Le contenu est généré dynamiquement par calendar.js -->
+                    
+                    <!-- Vue calendrier (cachée) -->
+                    <div id="calendar-view" style="display: none;">
+                        <!-- Contenu du calendrier -->
+                    </div>
+                    
+                    <!-- Vue liste (visible) -->
+                    <div id="list-view">
+                        <div class="event-list">
+                            <!-- Contenu généré dynamiquement par JavaScript -->
+                        </div>
                     </div>
                 </div>
             </div>

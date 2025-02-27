@@ -21,7 +21,10 @@
 /* Sélecteur de vue */
 .view-selector {
     display: flex;
-    gap: 1rem;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 1.5rem auto;
+    max-width: 400px;
 }
 
 /* Styles de base communs pour tous les boutons */
@@ -32,7 +35,7 @@
     color: var(--color-primary);
     border: none;
     padding: 1rem 2.5rem;
-    border-radius: 12px;
+    border-radius: var(--radius-button);
     font-weight: 600;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -40,8 +43,9 @@
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
-    background: var(--color-bg-transparent);
+    background: white;
     font-size: 1.1rem;
+    border: 2px solid #eaeaea;
 }
 
 /* Effet hover moderne */
@@ -50,8 +54,7 @@
 .filter-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    background: var(--color-primary);
-    color: var(--color-secondary);
+    border-color: var(--color-primary-light);
 }
 
 /* Effet active */
@@ -65,9 +68,10 @@
 /* État actif des boutons */
 .view-selector button.active,
 .filter-button.active {
-    background: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     color: var(--color-secondary);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-md-colored);
+    border-color: transparent;
 }
 
 /* Animation de focus */
@@ -75,7 +79,7 @@
 .calendar-header button:focus,
 .filter-button:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(26, 26, 26, 0.3);
+    box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.2);
 }
 
 /* Structure du calendrier */
@@ -86,6 +90,8 @@
     box-shadow: var(--shadow-md);
     margin-bottom: 2rem;
     backdrop-filter: blur(10px);
+    width: 100%;
+    border: 1px solid var(--color-event-border);
 }
 
 .calendar-header {
@@ -93,12 +99,15 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-event-border);
 }
 
 .calendar-header h2 {
     font-size: 1.75rem;
     font-weight: 600;
     color: var(--color-primary);
+    white-space: nowrap;
 }
 
 /* Grille du calendrier */
@@ -106,14 +115,14 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 1px;
-    background-color: var(--color-border);
+    background-color: var(--color-event-border);
     border-radius: var(--radius-lg);
     overflow: hidden;
 }
 
 /* En-têtes des jours */
 .calendar-day-header {
-    background-color: var(--color-primary);
+    background-color: var(--color-anthracite);
     color: var(--color-secondary);
     padding: 1rem;
     text-align: center;
@@ -134,7 +143,7 @@
 }
 
 .calendar-day:hover {
-    background: var(--color-bg-transparent);
+    background: var(--color-event-details-bg);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -150,7 +159,7 @@
 
 .calendar-day-number {
     font-weight: 500;
-    color: var(--color-primary);
+    color: var(--color-anthracite);
     font-size: 1.1rem;
     margin-bottom: 0.75rem;
 }
@@ -196,13 +205,13 @@
 
 .calendar-event .event-time {
     font-size: 0.75rem;
-    color: var(--color-primary-light);
+    color: var(--color-anthracite-light);
     font-weight: 600;
     margin-bottom: 0.2rem;
 }
 
 .calendar-event .event-title {
-    color: var(--color-primary);
+    color: var(--color-anthracite);
     font-weight: 500;
     white-space: nowrap;
     overflow: hidden;
@@ -211,8 +220,7 @@
 
 /* Vue liste */
 #list-view {
-    max-width: 900px;
-    margin: 0 auto;
+    width: 100%;
     padding: 1rem 0;
 }
 
@@ -220,6 +228,7 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    width: 100%;
 }
 
 .event-group {
@@ -228,10 +237,12 @@
     box-shadow: var(--shadow-md);
     background: var(--color-secondary);
     backdrop-filter: blur(10px);
+    width: 100%;
+    border: 1px solid var(--color-event-border);
 }
 
 .event-date {
-    background: var(--color-primary);
+    background: var(--color-event-header);
     color: var(--color-secondary);
     padding: 1rem 1.5rem;
     font-size: 1.1rem;
@@ -241,12 +252,12 @@
 
 .event-card {
     padding: 1.5rem;
-    border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+    border-bottom: 1px solid var(--color-event-border);
     transition: all 0.3s ease;
 }
 
 .event-card:hover {
-    background: var(--color-bg-transparent);
+    background: var(--color-event-details-bg);
     transform: translateX(5px);
 }
 
@@ -255,13 +266,13 @@
 }
 
 .event-card .event-time {
-    color: var(--color-text-light);
+    color: var(--color-anthracite-light);
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .event-card .event-title {
-    color: var(--color-primary);
+    color: var(--color-anthracite);
     font-size: 1.1rem;
     font-weight: 600;
     margin: 0.5rem 0;
@@ -271,10 +282,35 @@
 }
 
 .event-card .event-details {
-    color: var(--color-text-light);
+    color: var(--color-anthracite-lighter);
     font-size: 0.95rem;
     line-height: 1.6;
-    margin-top: 0.5rem;
+    margin-top: 0.75rem;
+    background-color: var(--color-event-details-bg);
+    border-radius: 0.25rem;
+    padding: 0.75rem;
+}
+
+/* Styles améliorés pour les détails d'événements */
+.details-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.detail-item {
+    padding: 0.25rem 0;
+    position: relative;
+    padding-left: 1.25rem;
+    line-height: 1.4;
+}
+
+.detail-item:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
 }
 
 /* Filtres */
@@ -284,17 +320,22 @@
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Badges de catégorie */
 .category-badge {
     display: inline-block;
     padding: 0.3rem 0.8rem;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-full);
     font-size: 0.8rem;
     font-weight: 500;
     text-transform: capitalize;
     transition: all 0.3s ease;
+    background-color: var(--color-anthracite);
+    color: var(--color-secondary);
 }
 
 .category-badge:hover {
@@ -315,6 +356,95 @@
 .category-soiree_club {
     background-color: var(--color-soiree);
     color: var(--color-secondary);
+}
+
+/* Styles spécifiques pour les boutons de navigation entre mois */
+.prev-month, .next-month {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-anthracite);
+    color: var(--color-secondary);
+}
+
+.prev-month:hover, .next-month:hover {
+    background-color: var(--color-primary);
+}
+
+/* Titre principal "Programme" */
+.season-container h3 {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    color: white;
+    padding: 1.25rem 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.5px;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Titre "Événements" */
+h2 {
+    color: var(--color-primary);
+    font-size: 1.75rem;
+    text-align: center;
+    margin: 1.5rem 0;
+    position: relative;
+    font-family: var(--font-sans);
+    font-weight: 700;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background: var(--color-primary);
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+}
+
+/* Style spécifique pour chaque catégorie */
+#filters .filter-button[data-category="formation"]:hover,
+#filters .filter-button[data-category="formation"].active {
+    background: var(--color-formation);
+    box-shadow: 0 4px 10px rgba(8, 150, 185, 0.25);
+    color: white;
+    border-color: transparent;
+}
+
+#filters .filter-button[data-category="competition"]:hover,
+#filters .filter-button[data-category="competition"].active {
+    background: var(--color-competition);
+    box-shadow: 0 4px 10px rgba(223, 236, 32, 0.25);
+    color: var(--color-anthracite);
+    border-color: transparent;
+}
+
+#filters .filter-button[data-category="soiree_club"]:hover,
+#filters .filter-button[data-category="soiree_club"].active {
+    background: var(--color-soiree);
+    box-shadow: 0 4px 10px rgba(194, 27, 180, 0.25);
+    color: white;
+    border-color: transparent;
+}
+
+/* Conteneur principal avec ombre et bordure */
+.season-container {
+    background: white;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.season-content {
+    padding: 1.5rem;
 }
 
 /* Media Queries pour la responsivité */
@@ -367,8 +497,25 @@
         min-width: 100px;
         width: 100%;
     }
+    
+    #filters {
+        gap: 0.5rem;
+    }
+    
+    #filters .filter-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        min-width: auto;
+        flex: 1 1 calc(50% - 0.5rem);
+        text-align: center;
+    }
+    
+    .view-selector {
+        gap: 0.5rem;
+    }
 }
 
+/* Optimisations pour mobile */
 @media (max-width: 480px) {
     .programme-container {
         padding: 1rem;
@@ -383,15 +530,128 @@
         min-height: 100px;
     }
 
-    .event-card {
-        padding: 1rem;
-    }
-
     .view-selector button,
     .calendar-header button,
     .filter-button {
         padding: 0.7rem 1.5rem;
         font-size: 0.95rem;
         width: 100%;
+        min-height: 44px; /* Taille minimale pour cible tactile */
+    }
+    
+    /* Titre du mois */
+    .calendar-header h2 {
+        font-size: 1.25rem;
+        margin: 0.5rem 0;
+        white-space: nowrap;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .season-container h3 {
+        padding: 1rem 1.5rem;
+        font-size: 1.3rem;
+    }
+    
+    /* Boutons de navigation des mois simplifiés */
+    .prev-month, .next-month {
+        width: 44px;
+        height: 44px;
+        padding: 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Ajustements pour la vue liste sur mobile */
+    .event-card {
+        padding: 0.75rem;
+    }
+    
+    .event-time {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+    
+    .event-title {
+        margin-bottom: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .category-badge {
+        display: inline-block;
+        padding: 0.2rem 0.5rem;
+        align-self: flex-start;
+        font-size: 0.75rem;
+    }
+    
+    .event-details {
+        background-color: var(--color-event-details-bg);
+        border-radius: 0.25rem;
+        padding: 0.5rem;
+        margin-top: 0.75rem;
+        margin-left: 0;
+        border-left: none;
+        border-top: 2px solid var(--color-primary-light);
+        width: 100%;
+    }
+    
+    .detail-item {
+        padding: 0.25rem 0 0.25rem 1.25rem;
+    }
+    
+    /* Filtres sur mobile */
+    #filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    #filters .filter-button {
+        flex: 1 1 calc(50% - 0.5rem);
+        min-width: 130px;
+        max-width: 160px;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.85rem;
+        text-align: center;
+    }
+    
+    /* Jour du calendrier sur mobile */
+    .calendar-day {
+        min-height: 80px;
+        font-size: 0.85rem;
+    }
+    
+    .calendar-day-number {
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .calendar-event {
+        padding: 0.25rem 0.4rem;
+        font-size: 0.75rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .calendar-event .event-time {
+        font-size: 0.7rem;
+    }
+    
+    /* Structure plus simple en mobile */
+    .calendar-header {
+        margin-bottom: 1rem;
+    }
+    
+    .calendar-header > div {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
     }
 }
