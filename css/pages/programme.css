@@ -50,7 +50,6 @@
 
 /* Effet hover moderne */
 .view-selector button:hover,
-.calendar-header button:hover,
 .filter-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
@@ -108,6 +107,30 @@
     font-weight: 600;
     color: var(--color-primary);
     white-space: nowrap;
+}
+
+/* Styles spécifiques pour les boutons de navigation entre mois */
+.calendar-header .prev-month,
+.calendar-header .next-month {
+    background-color: var(--color-anthracite) !important;
+    color: white !important;
+    border: none !important;
+    font-weight: bold !important;
+    min-width: 40px !important;
+    padding: 0.75rem 1rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: background-color 0.3s ease !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+.calendar-header .prev-month:hover,
+.calendar-header .next-month:hover {
+    background-color: var(--color-primary) !important;
+    color: var(--color-secondary) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Grille du calendrier */
@@ -224,6 +247,26 @@
     padding: 1rem 0;
 }
 
+/* Filtres */
+#filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 5px 0;
+}
+
+#filters .filter-button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    min-width: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 .event-list {
     display: flex;
     flex-direction: column;
@@ -313,18 +356,6 @@
     font-weight: bold;
 }
 
-/* Filtres */
-#filters {
-    margin-bottom: 3rem;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 /* Badges de catégorie */
 .category-badge {
     display: inline-block;
@@ -358,17 +389,29 @@
     color: var(--color-secondary);
 }
 
-/* Styles spécifiques pour les boutons de navigation entre mois */
-.prev-month, .next-month {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-anthracite);
-    color: var(--color-secondary);
+/* Style spécifique pour chaque catégorie */
+#filters .filter-button[data-category="formation"]:hover,
+#filters .filter-button[data-category="formation"].active {
+    background: var(--color-formation);
+    box-shadow: 0 4px 10px rgba(8, 150, 185, 0.25);
+    color: white;
+    border-color: transparent;
 }
 
-.prev-month:hover, .next-month:hover {
-    background-color: var(--color-primary);
+#filters .filter-button[data-category="competition"]:hover,
+#filters .filter-button[data-category="competition"].active {
+    background: var(--color-competition);
+    box-shadow: 0 4px 10px rgba(223, 236, 32, 0.25);
+    color: var(--color-anthracite);
+    border-color: transparent;
+}
+
+#filters .filter-button[data-category="soiree_club"]:hover,
+#filters .filter-button[data-category="soiree_club"].active {
+    background: var(--color-soiree);
+    box-shadow: 0 4px 10px rgba(194, 27, 180, 0.25);
+    color: white;
+    border-color: transparent;
 }
 
 /* Titre principal "Programme" */
@@ -406,31 +449,6 @@ h2::after {
     left: 50%;
     transform: translateX(-50%);
     border-radius: 3px;
-}
-
-/* Style spécifique pour chaque catégorie */
-#filters .filter-button[data-category="formation"]:hover,
-#filters .filter-button[data-category="formation"].active {
-    background: var(--color-formation);
-    box-shadow: 0 4px 10px rgba(8, 150, 185, 0.25);
-    color: white;
-    border-color: transparent;
-}
-
-#filters .filter-button[data-category="competition"]:hover,
-#filters .filter-button[data-category="competition"].active {
-    background: var(--color-competition);
-    box-shadow: 0 4px 10px rgba(223, 236, 32, 0.25);
-    color: var(--color-anthracite);
-    border-color: transparent;
-}
-
-#filters .filter-button[data-category="soiree_club"]:hover,
-#filters .filter-button[data-category="soiree_club"].active {
-    background: var(--color-soiree);
-    box-shadow: 0 4px 10px rgba(194, 27, 180, 0.25);
-    color: white;
-    border-color: transparent;
 }
 
 /* Conteneur principal avec ombre et bordure */
@@ -486,11 +504,27 @@ h2::after {
     }
 
     .view-selector button,
-    .calendar-header button,
     .filter-button {
         padding: 0.8rem 2rem;
         font-size: 1rem;
         width: 100%;
+    }
+    
+    /* Boutons de navigation des mois simplifiés */
+    .calendar-header .prev-month {
+        font-size: 0 !important; /* Cache le texte */
+    }
+    .calendar-header .prev-month::before {
+        content: "←" !important;
+        font-size: 1.5rem !important;
+    }
+    
+    .calendar-header .next-month {
+        font-size: 0 !important; /* Cache le texte */
+    }
+    .calendar-header .next-month::before {
+        content: "→" !important;
+        font-size: 1.5rem !important;
     }
     
     .calendar-header button {
@@ -499,14 +533,17 @@ h2::after {
     }
     
     #filters {
+        justify-content: center;
+        flex-wrap: nowrap;
         gap: 0.5rem;
+        overflow-x: auto;
     }
     
     #filters .filter-button {
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
         min-width: auto;
-        flex: 1 1 calc(50% - 0.5rem);
+        flex: 0 0 auto;
         text-align: center;
     }
     
@@ -521,6 +558,38 @@ h2::after {
         padding: 1rem;
     }
 
+    /* Sur mobile, masquer la vue calendrier et les boutons de bascule */
+    #calendar-view {
+        display: none !important;
+    }
+    
+    /* Masquer le sélecteur de vue sur mobile */
+    .view-selector {
+        display: none !important;
+    }
+    
+    /* Forcer l'affichage de la vue liste */
+    #list-view {
+        display: block !important;
+    }
+    
+    /* Afficher les filtres verticalement sur mobile */
+    #filters {
+        flex-direction: column !important;
+        gap: 8px !important;
+        align-items: stretch !important;
+        overflow-x: visible !important;
+        padding: 0 10px !important;
+    }
+    
+    #filters .filter-button {
+        width: 100% !important;
+        padding: 10px !important;
+        text-align: center !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
     .calendar-day-header {
         padding: 0.75rem 0.5rem;
         font-size: 0.8rem;
@@ -531,7 +600,6 @@ h2::after {
     }
 
     .view-selector button,
-    .calendar-header button,
     .filter-button {
         padding: 0.7rem 1.5rem;
         font-size: 0.95rem;
@@ -604,24 +672,6 @@ h2::after {
         padding: 0.25rem 0 0.25rem 1.25rem;
     }
     
-    /* Filtres sur mobile */
-    #filters {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.5rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    #filters .filter-button {
-        flex: 1 1 calc(50% - 0.5rem);
-        min-width: 130px;
-        max-width: 160px;
-        padding: 0.5rem 0.75rem;
-        font-size: 0.85rem;
-        text-align: center;
-    }
-    
     /* Jour du calendrier sur mobile */
     .calendar-day {
         min-height: 80px;
@@ -631,27 +681,5 @@ h2::after {
     .calendar-day-number {
         font-size: 0.9rem;
         margin-bottom: 0.25rem;
-    }
-    
-    .calendar-event {
-        padding: 0.25rem 0.4rem;
-        font-size: 0.75rem;
-        margin-bottom: 0.25rem;
-    }
-    
-    .calendar-event .event-time {
-        font-size: 0.7rem;
-    }
-    
-    /* Structure plus simple en mobile */
-    .calendar-header {
-        margin-bottom: 1rem;
-    }
-    
-    .calendar-header > div {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        gap: 0.5rem;
     }
 }

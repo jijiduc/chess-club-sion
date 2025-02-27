@@ -166,14 +166,37 @@ const events = {
 // Fonction pour configurer les filtres
 function setupFilters() {
     const filterButtons = document.querySelectorAll('#filters .filter-button');
+    
+    // Vérifier si les boutons existent
+    if (!filterButtons || filterButtons.length === 0) {
+        console.warn('Boutons de filtre non trouvés');
+        return;
+    }
+    
+    // Supprimer les écouteurs existants avant d'en ajouter de nouveaux
     filterButtons.forEach(button => {
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+    });
+    
+    // Récupérer les nouveaux boutons et ajouter les écouteurs
+    const newFilterButtons = document.querySelectorAll('#filters .filter-button');
+    newFilterButtons.forEach(button => {
         button.addEventListener('click', function () {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Supprimer la classe active de tous les boutons
+            newFilterButtons.forEach(btn => btn.classList.remove('active'));
+            // Ajouter la classe active au bouton cliqué
             this.classList.add('active');
 
             const selectedCategory = this.dataset.category;
-
+            
+            // Filtrer les cartes d'événements
             const eventCards = document.querySelectorAll('.event-card');
+            if (!eventCards || eventCards.length === 0) {
+                console.warn('Cartes d\'événements non trouvées');
+                return;
+            }
+            
             eventCards.forEach(card => {
                 const group = card.closest('.event-group');
                 if (selectedCategory === 'all') {
@@ -200,26 +223,105 @@ function setupFilters() {
 // Gestionnaire de vues
 class ViewManager {
     constructor() {
-        // Modification: sélectionner tous les boutons avec l'attribut data-view
+        // Sélectionner tous les boutons avec l'attribut data-view
         this.viewButtons = document.querySelectorAll('button[data-view]');
         this.calendarView = document.getElementById('calendar-view');
         this.listView = document.getElementById('list-view');
-        this.setupViewListeners();
+        
+        // Vérifier que les éléments essentiels existent
+        if (!this.calendarView || !this.listView) {
+            console.error('Éléments de vue non trouvés');
+            return;
+        }
+        
+        // Vérifier si on est sur mobile (≤ 480px)
+        this.isMobile = window.innerWidth <= 480;
+        
+        // Configuration spécifique pour mobile
+        if (this.isMobile) {
+            // Sur mobile, forcer la vue liste
+            this.calendarView.style.display = 'none';
+            this.listView.style.display = 'block';
+            // Assurer que la liste est rendue
+            renderListView();
+        } else {
+            // Si pas sur mobile, configurer les écouteurs normalement
+            this.setupViewListeners();
 
-        // Initialiser avec la vue calendrier
-        const initialCalendarButton = document.querySelector('button[data-view="calendar"]');
-        if (initialCalendarButton) {
-            this.switchView(initialCalendarButton);
+            // Initialiser avec la vue correcte en fonction des classes actives
+            const activeButton = document.querySelector('button[data-view].active');
+            if (activeButton) {
+                this.switchView(activeButton);
+            } else {
+                // Par défaut, activer la vue calendrier si aucun bouton n'est actif
+                const calendarButton = document.querySelector('button[data-view="calendar"]');
+                if (calendarButton) {
+                    calendarButton.classList.add('active');
+                    this.switchView(calendarButton);
+                }
+            }
+        }
+        
+        // Écouter les changements de taille d'écran pour gérer le mode mobile
+        window.addEventListener('resize', this.handleResize.bind(this));
+    }
+
+    handleResize() {
+        // Vérifier si on passe en mode mobile ou si on en sort
+        const wasMobile = this.isMobile;
+        this.isMobile = window.innerWidth <= 480;
+        
+        // Si on entre en mode mobile
+        if (!wasMobile && this.isMobile) {
+            // Forcer la vue liste
+            this.calendarView.style.display = 'none';
+            this.listView.style.display = 'block';
+            renderListView();
+        } 
+        // Si on sort du mode mobile
+        else if (wasMobile && !this.isMobile) {
+            // Rétablir les écouteurs normaux
+            this.setupViewListeners();
+            
+            // Revenir à la vue par défaut (calendrier)
+            const calendarButton = document.querySelector('button[data-view="calendar"]');
+            if (calendarButton) {
+                calendarButton.classList.add('active');
+                this.switchView(calendarButton);
+            }
         }
     }
 
     setupViewListeners() {
+        // Vérifier d'abord si les boutons existent
+        if (!this.viewButtons || this.viewButtons.length === 0) {
+            console.warn('Boutons de vue non trouvés');
+            return;
+        }
+        
+        // Supprimer les écouteurs existants avant d'en ajouter de nouveaux
+        this.viewButtons.forEach(button => {
+            const newButton = button.cloneNode(true);
+            button.parentNode.replaceChild(newButton, button);
+        });
+        
+        // Récupérer les nouveaux boutons et ajouter les écouteurs
+        this.viewButtons = document.querySelectorAll('button[data-view]');
         this.viewButtons.forEach(button => {
             button.addEventListener('click', () => this.switchView(button));
         });
     }
 
     switchView(selectedButton) {
+        // Vérifier que les vues existent
+        if (!this.calendarView || !this.listView) {
+            console.error('Éléments de vue non trouvés');
+            return;
+        }
+        
+        // Ne rien faire si on est en mode mobile
+        if (this.isMobile) return;
+        
         const view = selectedButton.dataset.view;
 
         // Mettre à jour tous les boutons avec le même attribut data-view
@@ -232,13 +334,13 @@ class ViewManager {
         });
 
         if (view === 'calendar') {
-            this.calendarView.closest('.season-container').style.display = 'block';
+            this.calendarView.style.display = 'block';
             this.listView.style.display = 'none';
         } else {
-            this.calendarView.closest('.season-container').style.display = 'none';
+            this.calendarView.style.display = 'none';
             this.listView.style.display = 'block';
             renderListView();
-            setupFilters(); // Réinitialiser les filtres après le rendu de la liste
+            setupFilters(); 
         }
     }
 }
@@ -247,9 +349,18 @@ class ViewManager {
 class CalendarManager {
     constructor(events) {
         this.events = events;
-        // Correction: Utiliser l'année 2025 (la date correcte)
         this.currentDate = new Date(2025, 1, 1); // Février 2025 (les mois commencent à 0)
         this.calendarGrid = document.querySelector('.calendar-grid');
+        
+        // Vérifier que l'élément de grille existe
+        if (!this.calendarGrid) {
+            console.warn('Grille de calendrier non trouvée');
+            return;
+        }
+        
+        // Ne pas initialiser le calendrier en mode mobile
+        if (window.innerWidth <= 480) return;
+        
         this.setupCalendarNavigation();
         this.generateCalendar();
     }
@@ -257,6 +368,18 @@ class CalendarManager {
     setupCalendarNavigation() {
         const prevButton = document.querySelector('.calendar-header .prev-month');
         const nextButton = document.querySelector('.calendar-header .next-month');
+        
+        // Vérifier que les boutons existent
+        if (!prevButton || !nextButton) {
+            console.warn('Boutons de navigation du calendrier non trouvés');
+            return;
+        }
+        
+        // Simplifier les boutons sur mobile
+        if (window.innerWidth <= 480) {
+            prevButton.innerHTML = '&lt;';
+            nextButton.innerHTML = '&gt;';
+        }
 
         prevButton.addEventListener('click', () => this.changeMonth(-1));
         nextButton.addEventListener('click', () => this.changeMonth(1));
@@ -268,17 +391,27 @@ class CalendarManager {
     }
 
     generateCalendar() {
+        // Vérifier que la grille existe
+        if (!this.calendarGrid) {
+            console.warn('Grille de calendrier non trouvée');
+            return;
+        }
+        
         // Mise à jour du titre du mois
         const monthTitle = document.querySelector('.calendar-header h2');
-        monthTitle.textContent = this.currentDate.toLocaleDateString('fr-FR', {
-            month: 'long',
-            year: 'numeric'
-        });
+        if (monthTitle) {
+            monthTitle.textContent = this.currentDate.toLocaleDateString('fr-FR', {
+                month: 'long',
+                year: 'numeric'
+            });
+        }
 
         // Vider le calendrier existant (sauf les en-têtes)
         const headers = document.querySelectorAll('.calendar-day-header');
         this.calendarGrid.innerHTML = '';
-        headers.forEach(header => this.calendarGrid.appendChild(header));
+        if (headers && headers.length) {
+            headers.forEach(header => this.calendarGrid.appendChild(header));
+        }
 
         const year = this.currentDate.getFullYear();
         const month = this.currentDate.getMonth();
@@ -299,6 +432,8 @@ class CalendarManager {
     }
 
     createDayCell(date, isOtherMonth = false) {
+        if (!this.calendarGrid) return;
+        
         const day = document.createElement('div');
         day.className = 'calendar-day';
         if (isOtherMonth) {
@@ -375,6 +510,11 @@ class SearchManager {
 
 function renderListView() {
     const listContainer = document.querySelector('.event-list');
+    if (!listContainer) {
+        console.error('Container de liste d\'événements non trouvé');
+        return;
+    }
+    
     listContainer.innerHTML = '';
 
     const today = new Date();
@@ -383,6 +523,11 @@ function renderListView() {
     const sortedDates = Object.keys(events)
         .filter(date => new Date(date) >= today)
         .sort();
+
+    if (sortedDates.length === 0) {
+        listContainer.innerHTML = '<p class="text-center p-4">Aucun événement à venir.</p>';
+        return;
+    }
 
     sortedDates.forEach(date => {
         const eventGroup = document.createElement('div');
@@ -411,7 +556,7 @@ function renderListView() {
                     background: rgba(212, 175, 55, 0.05);
                     padding: 2px 6px;
                     border-radius: 4px;
-                    text-decoration: none
+                    text-decoration: none;
                     transition: all 0.3s ease;"
                     onmouseover="this.style.background='rgba(212, 175, 55, 0.1)'"
                     onmouseout="this.style.background='rgba(212, 175, 55, 0.05)'"
@@ -433,69 +578,99 @@ function renderListView() {
 
         listContainer.appendChild(eventGroup);
     });
-}
-
-// Ajout de boutons plus simples pour la navigation entre les mois
-function simplifyMobileNavigation() {
-    // Sur mobile, remplacer le texte des boutons de navigation par des icônes
-    if (window.innerWidth <= 480) {
-        const prevButton = document.querySelector('.prev-month');
-        const nextButton = document.querySelector('.next-month');
-
-        if (prevButton && prevButton.textContent.includes('Mois précédent')) {
-            prevButton.innerHTML = '&lt;';
-            prevButton.setAttribute('aria-label', 'Mois précédent');
-        }
-
-        if (nextButton && nextButton.textContent.includes('Mois suivant')) {
-            nextButton.innerHTML = '&gt;';
-            nextButton.setAttribute('aria-label', 'Mois suivant');
-        }
-    }
-}
-
-// Amélioration de l'affichage des événements dans la vue liste sur mobile
-function enhanceMobileListView() {
-    if (window.innerWidth <= 480) {
-        const eventCards = document.querySelectorAll('.event-card');
-
-        eventCards.forEach(card => {
-            // Restructurer l'affichage des badges de catégorie sur mobile
-            const title = card.querySelector('.event-title');
-            const badge = card.querySelector('.category-badge');
-
-            if (title && badge && !title.classList.contains('mobile-optimized')) {
-                title.classList.add('mobile-optimized');
-                // Déplacer le badge sous le titre
-                badge.style.marginTop = '0.5rem';
-            }
-        });
-    }
+    
+    // Réinitialiser les filtres après avoir rendu la liste
+    setupFilters();
 }
 
 // Initialisation
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialiser les gestionnaires principaux
-    new ViewManager();
-    new CalendarManager(events);
-    new SearchManager();
-
-    // Appliquer les optimisations mobiles
-    simplifyMobileNavigation();
-
-    // Réappliquer les optimisations après chaque changement de vue
-    const viewButtons = document.querySelectorAll('button[data-view]');
-    viewButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            setTimeout(() => {
-                enhanceMobileListView();
-            }, 100);
+    try {
+        console.log("Initialisation du calendrier...");
+        
+        // Vérifier si les éléments essentiels existent
+        const calendarView = document.getElementById('calendar-view');
+        const listView = document.getElementById('list-view');
+        
+        if (!calendarView) {
+            console.error('Élément #calendar-view non trouvé');
+        }
+        if (!listView) {
+            console.error('Élément #list-view non trouvé');
+        }
+        
+        // Afficher initialement la vue calendrier si pas en mode mobile
+        if (window.innerWidth > 480) {
+            if (calendarView) calendarView.style.display = 'block';
+            if (listView) listView.style.display = 'none';
+            
+            // Activer le bouton correspondant
+            const calendarButton = document.querySelector('button[data-view="calendar"]');
+            if (calendarButton) calendarButton.classList.add('active');
+        } else {
+            // Sur mobile, afficher la vue liste
+            if (calendarView) calendarView.style.display = 'none';
+            if (listView) listView.style.display = 'block';
+        }
+        
+        // Initialiser les gestionnaires
+        new ViewManager();
+        new CalendarManager(events);
+        new SearchManager();
+        
+        // Sur mobile, forcer le rendu de la liste et configurer les filtres
+        if (window.innerWidth <= 480) {
+            renderListView();
+        }
+        
+        // Écouter les redimensionnements
+        window.addEventListener('resize', () => {
+            const isMobile = window.innerWidth <= 480;
+            
+            if (isMobile) {
+                // En mode mobile
+                if (calendarView) calendarView.style.display = 'none';
+                if (listView) listView.style.display = 'block';
+                
+                // Masquer les sélecteurs de vue
+                const viewSelector = document.querySelector('.view-selector');
+                if (viewSelector) viewSelector.style.display = 'none';
+                
+                // Configurer les filtres en colonne
+                const filters = document.getElementById('filters');
+                if (filters) {
+                    filters.style.flexDirection = 'column';
+                    filters.style.gap = '8px';
+                    
+                    // Styles pour les boutons de filtre
+                    const filterButtons = filters.querySelectorAll('.filter-button');
+                    filterButtons.forEach(btn => {
+                        btn.style.width = '100%';
+                    });
+                }
+                
+                // Assurer que la liste est rendue
+                renderListView();
+            } else {
+                // En mode desktop
+                const viewSelector = document.querySelector('.view-selector');
+                if (viewSelector) viewSelector.style.display = 'flex';
+                
+                // Réinitialiser les styles des filtres
+                const filters = document.getElementById('filters');
+                if (filters) {
+                    filters.style.flexDirection = '';
+                    filters.style.gap = '';
+                    
+                    // Réinitialiser les styles des boutons
+                    const filterButtons = filters.querySelectorAll('.filter-button');
+                    filterButtons.forEach(btn => {
+                        btn.style.width = '';
+                    });
+                }
+            }
         });
-    });
-
-    // Recalculer en cas de redimensionnement
-    window.addEventListener('resize', () => {
-        simplifyMobileNavigation();
-        enhanceMobileListView();
-    });
+    } catch (error) {
+        console.error('Erreur lors de l\'initialisation:', error);
+    }
 });
