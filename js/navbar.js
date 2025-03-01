@@ -55,6 +55,7 @@ function injectNavbar() {
                     </div>
 
                     <a href="programme.html" class="nav-link">Programme</a>
+                    <a href="tournoi_chateaux.html" class="nav-link">Tournoi fermé des châteaux</a>
 
                     <div class="nav-dropdown">
                         <a href="#" class="nav-link">Compétitions</a>

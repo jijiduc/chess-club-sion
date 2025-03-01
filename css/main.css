@@ -28,6 +28,7 @@
 @import 'pages/competitions.css';
 @import 'pages/club.css';
 @import 'pages/tournament.css';
+@import 'pages/tournoi-chateaux.css';
 
 /* VENDOR */
 @import 'vendor/tailwind.css';

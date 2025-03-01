@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1er Tournoi fermé des Châteaux - Club d'échecs de Sion</title>
+
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="static/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/favicon/favicon-16x16.png">
+    <link rel="manifest" href="static/favicon/site.webmanifest">
+
+    <!-- Styles CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/pages/tournoi-chateaux.css">
+</head>
+
+<body class="tournoi-page">
+    <!-- Fond de page -->
+    <div class="page-background">
+        <img src="static/picture/background/valere.webp" alt="Arrière-plan Valère" class="background-image">
+        <div class="background-overlay"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero compact-hero">
+        <!-- La navbar sera injectée ici par navbar.js -->
+        <div class="hero-content">
+            <h1 class="hero-title">1er Tournoi fermé des Châteaux</h1>
+            <p class="hero-date">18 - 20.04.25</p>
+            <p class="hero-organizer">Organisé par le Club d'Échecs de Sion</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <!-- Conteneur principal -->
+        <div class="container">
+            <!-- Section d'informations générales -->
+            <section class="tournoi-section">
+                <h2 class="section-title">Informations générales</h2>
+                <div class="tournoi-content">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">Lieu</div>
+                            <div class="info-value">Au local du club d'échecs de Sion<br>Rue des Châteaux 2, 1950 Sion</div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-label">Format</div>
+                            <div class="info-value">Tournoi fermé à 6 joueurs en système Berger<br>(5 rondes, selon les règles de la FIDE)</div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-label">Catégories</div>
+                            <div class="info-value">
+                                <span class="category valere">Valère</span> : Elo entre 2000 – 1800<br>
+                                <span class="category tourbillon">Tourbillon</span> : Elo &lt;1800
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-label">Cadence</div>
+                            <div class="info-value">90 minutes + 30 secondes d'incrément par coup<br>Un délai de forfait de 30 minutes est appliqué.</div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-label">Inscriptions</div>
+                            <div class="info-value">60.-</div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-label">Homologation</div>
+                            <div class="info-value">FIDE et FSE</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Programme -->
+            <section class="tournoi-section">
+                <h2 class="section-title">Programme</h2>
+                <div class="tournoi-content">
+                    <div class="schedule-container">
+                        <div class="schedule-day">
+                            <div class="day-header">Vendredi 18 avril</div>
+                            <ul class="day-events">
+                                <li>Accueil et briefing de l'arbitre : 17h45</li>
+                                <li>1ère ronde : 18h00</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="schedule-day">
+                            <div class="day-header">Samedi 19 avril</div>
+                            <ul class="day-events">
+                                <li>2ème ronde : 09h00</li>
+                                <li>3ème ronde : 14h00</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="schedule-day">
+                            <div class="day-header">Dimanche 20 avril</div>
+                            <ul class="day-events">
+                                <li>4ème ronde : 09h00</li>
+                                <li>5ème ronde : 14h00</li>
+                                <li>Remise des prix : dès la fin de toutes les parties (env. 19h)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Prix -->
+            <section class="tournoi-section">
+                <h2 class="section-title">Prix</h2>
+                <div class="tournoi-content">
+                    <div class="prizes-container">
+                        <div class="prize-category">
+                            <h3 class="category-title">Catégorie Valère</h3>
+                            <div class="prize-list">
+                                <div class="prize-row">
+                                    <div class="prize-rank">I.</div>
+                                    <div class="prize-amount">100.-</div>
+                                </div>
+                                <div class="prize-row">
+                                    <div class="prize-rank">II.</div>
+                                    <div class="prize-amount">60.-</div>
+                                </div>
+                                <div class="prize-row">
+                                    <div class="prize-rank">III.</div>
+                                    <div class="prize-amount">40.-</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="prize-category">
+                            <h3 class="category-title">Catégorie Tourbillon</h3>
+                            <div class="prize-list">
+                                <div class="prize-row">
+                                    <div class="prize-rank">I.</div>
+                                    <div class="prize-amount">100.-</div>
+                                </div>
+                                <div class="prize-row">
+                                    <div class="prize-rank">II.</div>
+                                    <div class="prize-amount">60.-</div>
+                                </div>
+                                <div class="prize-row">
+                                    <div class="prize-rank">III.</div>
+                                    <div class="prize-amount">40.-</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Section Inscription -->
+            <section class="tournoi-section inscription-section">
+                <h2 class="section-title">Inscription</h2>
+                <div class="tournoi-content text-center">
+                    <p>Pour vous inscrire au 1er Tournoi fermé des Châteaux, veuillez remplir le formulaire d'inscription en ligne.</p>
+                    <p>Le nombre de places est limité à 6 joueurs par catégorie. Ne tardez pas à vous inscrire !</p>
+                    <div class="cta-container">
+                        <a href="https://forms.gle/Qvu8PDY6Voyy9kxC8" id="inscription-btn" class="button button-primary">S'inscrire maintenant</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal pour le formulaire -->
+    <div id="form-modal" class="form-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Inscription au Tournoi fermé des Châteaux</h3>
+                <button class="close-modal" aria-label="Fermer">&times;</button>
+            </div>
+            <div id="form-container"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <!-- Ce contenu est généré par le script footer.js -->
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/navbar.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/tournoi-chateaux.js"></script>
+</body>
+</html>

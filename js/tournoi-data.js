@@ -68,8 +68,8 @@ const tournoiData = {
             statut: "en cours",
             appariements: [
                 { table: 1, blanc: 4, noir: 1, resultat: null },
-                { table: 2, blanc: 6, noir: 2, resultat: null },
-                { table: 3, blanc: 7, noir: 3, resultat: null },
+                { table: 2, blanc: 2, noir: 3, resultat: null },
+                { table: 3, blanc: 7, noir: 6, resultat: null },
                 { table: 4, blanc: 8, noir: 5, resultat: null }
             ]
         }
