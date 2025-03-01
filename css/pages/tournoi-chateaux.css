@@ -5,6 +5,7 @@
 .tournoi-page {
     color: var(--color-text);
     position: relative;
+    padding-top: 0;
 }
 
 /* Système de fond de page en HTML pour meilleur contrôle */
@@ -31,27 +32,44 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(45, 45, 45, 0.5);
-    backdrop-filter: blur(1px);
+    background-color: rgba(45, 45, 45, 0.2);
+    backdrop-filter: blur(0px);
 }
 
 /* Hero section avec hauteur réduite
 ---------------------------------------------- */
 .compact-hero {
-    min-height: 40vh;
-    padding: 5rem 2rem 3rem;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    min-height: 20vh;
+    max-height: 500px;
+    padding-top: 120px !important;
+    padding-bottom: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
                 url('../../static/picture/utilities/valere.webp');
     background-size: cover;
     background-position: center;
     position: relative;
-    margin-bottom: 3rem;
+    margin-bottom: 0rem;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    width: 100%;
+    text-align: center;
+    padding-top: 3rem;
+    position: relative;
+    z-index: 5;
 }
 
 .hero-title {
+    position: relative;
     color: var(--color-secondary);
     font-size: 3rem;
     margin-bottom: 1rem;
+    margin-top: 0;
+    padding-top: 1.5rem;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
@@ -81,6 +99,10 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+}
+
+.tournoi-section:first-of-type {
+    margin-top: 0;
 }
 
 .section-title {
@@ -350,11 +372,23 @@
     border: none;
 }
 
+/* Ajustement de la navbar */
+.nav-bar {
+    height: auto !important;
+    z-index: 10;
+}
+
 /* Responsive
 ---------------------------------------------- */
 @media (max-width: 992px) {
+    .compact-hero {
+        padding-top: 100px !important;
+        min-height: 45vh;
+    }
+    
     .hero-title {
         font-size: 2.5rem;
+        padding-top: 2rem;
     }
     
     .hero-date {
@@ -368,12 +402,13 @@
 
 @media (max-width: 768px) {
     .compact-hero {
-        min-height: 35vh;
-        padding: 4rem 1.5rem 2.5rem;
+        padding-top: 90px !important;
+        min-height: 40vh;
     }
     
     .hero-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
+        padding-top: 2.5rem;
     }
     
     .hero-date {
@@ -410,13 +445,13 @@
 
 @media (max-width: 480px) {
     .compact-hero {
-        min-height: 30vh;
-        padding: 3.5rem 1rem 2rem;
+        padding-top: 80px !important;
+        min-height: 35vh;
     }
     
     .hero-title {
-        font-size: 1.75rem;
-        margin-bottom: 0.5rem;
+        font-size: 1.9rem;
+        padding-top: 3rem;
     }
     
     .hero-date {
@@ -465,5 +500,17 @@
     
     #form-container iframe {
         height: 450px;
+    }
+}
+
+/* Effet de parallaxe pour l'image de fond */
+@media (min-width: 769px) {
+    .background-image {
+        transform: translateY(0);
+        transition: transform 0.1s ease-out;
+    }
+    
+    .parallax-scroll .background-image {
+        transform: translateY(calc(var(--scroll-y, 0) * -0.05));
     }
 }

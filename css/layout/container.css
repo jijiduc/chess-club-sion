@@ -5,7 +5,7 @@
     max-width: var(--container-max);
     margin: 0 auto;
     padding: 4rem 1rem;
-    margin-top: 80px; /* Hauteur de la navbar par défaut */
+    margin-top: 0; /* Hauteur de la navbar par défaut */
 }
 
 /* Section d'introduction */

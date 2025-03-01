@@ -26,9 +26,6 @@ function injectNavbar() {
         newNavbar.innerHTML = `
             <div class="nav-container">
                 <a href="index.html" class="nav-brand">
-                    <div class="nav-logo">
-                        <img src="static/pieces/wK.svg" alt="Logo" />
-                    </div>
                     <span class="brand-text">Club d'échecs de Sion</span>
                 </a>
 
