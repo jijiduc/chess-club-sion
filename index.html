@@ -48,6 +48,22 @@
         .combined-section {
             background: transparent;
         }
+        /* Style pour ajuster l'affichage sur mobile */
+        @media (max-width: 768px) {
+            .hero-accueil {
+                min-height: 0;
+                height: auto !important;
+                max-height: 80px; /* Réduire la hauteur sur mobile */
+            }
+            
+            .combined-section {
+                padding-top: 4rem !important; /* Réduire l'espacement en haut */
+            }
+            
+            .news-section {
+                margin-top: 2; /* Supprimer la marge en haut */
+            }
+        }
     </style>
 
     <!-- Scripts -->

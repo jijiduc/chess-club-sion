@@ -373,7 +373,7 @@ class ViewManager {
 class CalendarManager {
     constructor(events) {
         this.events = events;
-        this.currentDate = new Date(2025, 1, 1); // Février 2025 (les mois commencent à 0)
+        this.currentDate = new Date(); // Février 2025 (les mois commencent à 0)
         this.calendarGrid = document.querySelector('.calendar-grid');
         
         // Vérifier que l'élément de grille existe

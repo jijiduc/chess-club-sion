@@ -331,11 +331,77 @@ function genererHtmlTournoi() {
     
     return htmlComplet;
 }
+// Fonction pour optimiser les tableaux sur mobile
+function optimizeTablesForMobile() {
+    // Vérifier si l'écran est en mode mobile
+    if (window.innerWidth <= 768) {
+        // Sélectionner tous les en-têtes de tableau pertinents
+        const tableHeaders = document.querySelectorAll('.results-table th, .tournament-table th');
+        
+        // Modifier les textes des en-têtes pour économiser de l'espace
+        tableHeaders.forEach((header, index) => {
+            switch(header.textContent.trim()) {
+                case 'Table':
+                    header.textContent = 'T.';
+                    break;
+                case 'Blancs':
+                    header.textContent = 'Blancs';
+                    break;
+                case 'Elo':
+                    header.textContent = 'Elo';
+                    break;
+                case 'Résultat':
+                    header.textContent = '';
+                    header.setAttribute('data-mobile-text', 'R.');
+                    header.classList.add('mobile-result-header');
+                    break;
+                case 'Noirs':
+                    header.textContent = 'Noirs';
+                    break;
+            }
+        });
+        
+        // Optimiser l'affichage des noms des joueurs (ne garder que le nom de famille)
+        const playerCells = document.querySelectorAll('.results-table td:nth-child(2), .results-table td:nth-child(5), .tournament-table td:nth-child(2), .tournament-table td:nth-child(5)');
+        
+        playerCells.forEach(cell => {
+            const fullName = cell.textContent.trim();
+            // Stocker le nom complet comme attribut data pour pouvoir le restaurer si nécessaire
+            cell.setAttribute('data-full-name', fullName);
+            
+            // Extraire le nom de famille (en supposant que le format est "Prénom Nom")
+            const nameParts = fullName.split(' ');
+            if (nameParts.length > 1) {
+                cell.textContent = nameParts[nameParts.length - 1];
+            }
+        });
+    } else {
+        // Restaurer les en-têtes complets sur les grands écrans
+        const tableHeaders = document.querySelectorAll('.results-table th, .tournament-table th');
+        tableHeaders.forEach((header) => {
+            if (header.classList.contains('mobile-result-header')) {
+                header.textContent = 'Résultat';
+            }
+        });
+        
+        // Restaurer les noms complets
+        const playerCells = document.querySelectorAll('[data-full-name]');
+        playerCells.forEach(cell => {
+            cell.textContent = cell.getAttribute('data-full-name');
+        });
+    }
+}
 
 // Injection du contenu au chargement de la page
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('tournoi-content');
     if (container) {
         container.innerHTML = genererHtmlTournoi();
+        
+        // Optimiser les tableaux APRÈS que le contenu est généré
+        setTimeout(optimizeTablesForMobile, 100);
     }
+    
+    // Ajouter l'écouteur pour le redimensionnement
+    window.addEventListener('resize', optimizeTablesForMobile);
 });
