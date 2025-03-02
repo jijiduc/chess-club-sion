@@ -113,6 +113,30 @@ const events = {
             details: ["Fribourg 1 - Sion 1", "Bulle 3 - Sion 2"]
         }
     ],
+    "2025-04-18": [
+        {
+            time: "17h45",
+            title: "Tournoi fermé des Châteaux",
+            category: "competition",
+            details: ["17h45 : acceuil", "18h00 : 1ère ronde"]
+        }
+    ],
+    "2025-04-19": [
+        {
+            time: "9h00",
+            title: "Tournoi fermé des Châteaux",
+            category: "competition",
+            details: ["9h00 : 2ème ronde", "14h00 : 3ème ronde"]
+        }
+    ],
+    "2025-04-20": [
+        {
+            time: "9h00",
+            title: "Tournoi fermé des Châteaux",
+            category: "competition",
+            details: ["9h00 : 4ème ronde", "14h00 : 5ème ronde"]
+        }
+    ],
     "2025-04-26": [
         {
             time: "14h00",
@@ -340,7 +364,7 @@ class ViewManager {
             this.calendarView.style.display = 'none';
             this.listView.style.display = 'block';
             renderListView();
-            setupFilters(); 
+            setupFilters();
         }
     }
 }
