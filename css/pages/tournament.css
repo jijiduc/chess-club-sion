@@ -1,10 +1,9 @@
 /* Styles améliorés pour la page du tournoi interne */
 body.tournoi-background {
-    background-image: url('../static/picture/background/valere.webp');
+    background-image: url('../../static/picture/background/valere.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    background-color: #2D2D2D; /* Fallback color */
 }
 /* Style des conteneurs de ronde */
 .round-container {

@@ -16,7 +16,10 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
+            presets: [
+              '@babel/preset-env',
+              ['@babel/preset-react', { runtime: 'automatic' }]
+            ]
           }
         }
       }
@@ -24,5 +27,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx']
-  }
+  },
+  // Ne PAS ajouter de configuration externals ici pour que React soit inclus dans le bundle
+  // Pour le débogage pendant le développement
+  devtool: process.env.NODE_ENV === 'development' ? 'source-map' : false,
+  // Mode peut être défini via la ligne de commande
+  mode: process.env.NODE_ENV || 'production'
 };
