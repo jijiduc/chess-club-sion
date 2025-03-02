@@ -87,14 +87,21 @@
 .hero-cta .button {
     margin: 0 0.5rem;
 }
+
 .tournoi-page .hero-content {
-    padding-top: 1 !important;
+    padding-top: 1rem !important;
     position: relative !important;
     transform: none !important;
     top: 0 !important;
     left: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 auto !important;
 }
-
 .compact-header {
     height: auto;
     min-height: 80px;

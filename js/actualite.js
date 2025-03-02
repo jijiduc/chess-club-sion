@@ -1,6 +1,19 @@
 // Données des actualités
 const news = [
     {
+        date: new Date('2025-03-01T12:00:00'),
+        title: "1er Tournoi fermé des Châteaux",
+        text: `Le Club d'Échecs de Sion organise son premier Tournoi fermé des Châteaux du 18 au 20 avril 2025.\n\n` +
+              `Ce tournoi, qui se déroulera en deux catégories (Valère pour Elo 1800-2000 et Tourbillon pour Elo <1800), ` +
+              `vise à offrir aux joueurs valaisans l'opportunité de disputer des parties lentes cotées FIDE dans notre canton.\n\n` +
+              `Format: tournoi fermé à 6 joueurs par catégorie, 5 rondes en système Berger selon les règles de la FIDE.\n\n` +
+              `Cadence: 90 minutes + 30 secondes d'incrément par coup.\n\n`,
+        icon: "trophy",
+        hasLink: true,
+        link: "tournoi_chateaux.html",
+        linkText: "Plus d'informations et inscriptions"
+    },
+    {
         date: new Date('2025-02-22T12:00:00'),
         title: "7ème ronde du CSG",
         text: `Malgré sa victoire 4.5 - 3.5 face à SG Riehen 1, Valais 1 termine tout de même dernier du classement pour cette saison en 1ère ligue fédérale.

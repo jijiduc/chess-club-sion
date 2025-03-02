@@ -70,7 +70,7 @@
 }
 
 .hero-date {
-    color: var(--color-primary);
+    color: var(--color-primary-light);
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
