@@ -30,6 +30,7 @@
 }
 
 .hero-content {
+    padding-top: 3;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -38,7 +39,6 @@
     z-index: 2;
     width: 100%;
     max-width: 1200px;
-    padding: 0 2rem;
 }
 
 .hero-title {
@@ -87,6 +87,13 @@
 .hero-cta .button {
     margin: 0 0.5rem;
 }
+.tournoi-page .hero-content {
+    padding-top: 1 !important;
+    position: relative !important;
+    transform: none !important;
+    top: 0 !important;
+    left: 0 !important;
+}
 
 .compact-header {
     height: auto;
@@ -101,43 +108,5 @@
 
     .hero-subtitle {
         font-size: 1.25rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero {
-        min-height: 50vh;
-        padding: 5rem 1rem 3rem;
-    }
-
-    .hero-accueil {
-        height: 60vh;
-    }
-
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1.125rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .hero-cta .button {
-        margin: 0.5rem;
-        display: block;
-        max-width: 250px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 1.75rem;
-    }
-
-    .hero-subtitle {
-        font-size: 1rem;
     }
 }
