@@ -42,13 +42,9 @@
     min-height: 20vh;
     max-height: 500px;
     padding-top: 120px !important;
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
     padding-left: 2rem;
     padding-right: 2rem;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url('../../static/picture/utilities/valere.webp');
-    background-size: cover;
-    background-position: center;
     position: relative;
     margin-bottom: 0rem;
     display: flex;
@@ -74,7 +70,7 @@
 }
 
 .hero-date {
-    color: var(--color-accent);
+    color: var(--color-primary);
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 1rem;

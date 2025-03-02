@@ -15,7 +15,7 @@
     --color-text: #333333;            /* Texte principal */
     --color-text-light: #777777;      /* Texte secondaire */
     
-    --color-accent: #FF2800;          /* Accent - Rouge Ferrari */
+    --color-accent: #e42020d5;          /* Accent - Rouge Ferrari */
     --color-accent-dark: #CC2000;     /* Accent foncé */
     
     --color-background: #F9F9F9;      /* Fond clair */
@@ -42,9 +42,9 @@
     --dropdown-mobile-bg: rgba(255, 40, 0, 0.05);   /* Fond léger pour dropdown mobile */
     
     /* Nouvelles couleurs pour le footer */
-    --footer-bg: #2D2D2D;                           /* Fond du footer - Gris anthracite */
+    --footer-bg: #333030;                           /* Fond du footer - Gris anthracite */
     --footer-text: #FFFFFF;                         /* Texte principal du footer */
-    --footer-title: #FF2800;                        /* Couleur des titres du footer - Rouge Ferrari */
+    --footer-title: #cc371d;                        /* Couleur des titres du footer - Rouge Ferrari */
     --footer-link: rgba(255, 255, 255, 0.9);        /* Couleur des liens du footer */
     --footer-link-hover: #FF5740;                   /* Couleur des liens au survol - Rouge Ferrari clair */
     --footer-border: rgba(255, 255, 255, 0.1);      /* Couleur des bordures dans le footer */
