@@ -81,12 +81,37 @@ const events = {
         }
     ],
 
+    "2025-03-07": [
+        {
+            time: "19h00-20h00",
+            title: "Cours d'échecs",
+            category: "formation"
+        },
+        {
+            time: "20h00",
+            title: "Soirée blitz",
+            category: "soiree_club"
+        }
+    ],
     "2025-03-14": [
         {
             time: "20h00",
-            title: "CVE 2e tour ronde 5",
+            title: "CVE ronde 5",
             category: "competition",
-            details: ["Sion 1 - Montana 1", "CEPV - Sion 2"]
+            details: ["championnat valaisan par équipes", "Sion 1 - Montana 1", "CEPV - Sion 2"]
+        }
+    ],
+    "2025-03-21": [
+        {
+            time: "19h00-20h00",
+            title: "Cours d'échecs",
+            category: "formation"
+        },
+        {
+            time: "20h00",
+            title: "Open interne",
+            category: "competition",
+            details: ["parties lentes"]
         }
     ],
     "2025-03-22": [
@@ -94,9 +119,36 @@ const events = {
             time: "14h00",
             title: "CSE ronde 1",
             category: "competition",
-            details: ["Sion 1 - Grand Echiquier 1", "Sion 2 - Crans-Montana 2"]
+            details: ["championnat suisse par équipes", "Sion 1 - Grand Echiquier 1", "Sion 2 - Crans-Montana 2"]
         }
     ],
+    "2025-03-28": [
+        {
+            time: "20h00",
+            title: "CVE ronde 6",
+            category: "competition",
+            details: ["championnat valaisan par équipes", "Riddes 1 - Sion 1", "Sion 2 - Monthey"]
+        }
+    ],
+    "2025-03-29": [
+        {
+            time: "09h00 - 11h45",
+            title: "École d'échecs UVE",
+            category: "formation",
+            hasLink: true,
+            link: "https://www.uve-wsb.ch/accueil-uve-wsb/informations/66-ecole-d-echecs-de-l-uve",
+            details: ["à Sierre"]
+        },
+        {
+            time: "13h15 - 18h00",
+            title: "5ème Tournoi du Grand Prix Jeunes",
+            category: "competition",
+            hasLink: true,
+            link: "https://www.uve-wsb.ch/images/competitions/Resultats/Jeunes/Ecole/2025/20250329_annonce_tournoi.pdf",
+            details: ["à Sierre"]
+        }
+    ],
+
     "2025-03-28": [
         {
             time: "20h00",
@@ -190,19 +242,19 @@ const events = {
 // Fonction pour configurer les filtres
 function setupFilters() {
     const filterButtons = document.querySelectorAll('#filters .filter-button');
-    
+
     // Vérifier si les boutons existent
     if (!filterButtons || filterButtons.length === 0) {
         console.warn('Boutons de filtre non trouvés');
         return;
     }
-    
+
     // Supprimer les écouteurs existants avant d'en ajouter de nouveaux
     filterButtons.forEach(button => {
         const newButton = button.cloneNode(true);
         button.parentNode.replaceChild(newButton, button);
     });
-    
+
     // Récupérer les nouveaux boutons et ajouter les écouteurs
     const newFilterButtons = document.querySelectorAll('#filters .filter-button');
     newFilterButtons.forEach(button => {
@@ -213,14 +265,14 @@ function setupFilters() {
             this.classList.add('active');
 
             const selectedCategory = this.dataset.category;
-            
+
             // Filtrer les cartes d'événements
             const eventCards = document.querySelectorAll('.event-card');
             if (!eventCards || eventCards.length === 0) {
                 console.warn('Cartes d\'événements non trouvées');
                 return;
             }
-            
+
             eventCards.forEach(card => {
                 const group = card.closest('.event-group');
                 if (selectedCategory === 'all') {
@@ -251,16 +303,16 @@ class ViewManager {
         this.viewButtons = document.querySelectorAll('button[data-view]');
         this.calendarView = document.getElementById('calendar-view');
         this.listView = document.getElementById('list-view');
-        
+
         // Vérifier que les éléments essentiels existent
         if (!this.calendarView || !this.listView) {
             console.error('Éléments de vue non trouvés');
             return;
         }
-        
+
         // Vérifier si on est sur mobile (≤ 480px)
         this.isMobile = window.innerWidth <= 480;
-        
+
         // Configuration spécifique pour mobile
         if (this.isMobile) {
             // Sur mobile, forcer la vue liste
@@ -285,7 +337,7 @@ class ViewManager {
                 }
             }
         }
-        
+
         // Écouter les changements de taille d'écran pour gérer le mode mobile
         window.addEventListener('resize', this.handleResize.bind(this));
     }
@@ -294,19 +346,19 @@ class ViewManager {
         // Vérifier si on passe en mode mobile ou si on en sort
         const wasMobile = this.isMobile;
         this.isMobile = window.innerWidth <= 480;
-        
+
         // Si on entre en mode mobile
         if (!wasMobile && this.isMobile) {
             // Forcer la vue liste
             this.calendarView.style.display = 'none';
             this.listView.style.display = 'block';
             renderListView();
-        } 
+        }
         // Si on sort du mode mobile
         else if (wasMobile && !this.isMobile) {
             // Rétablir les écouteurs normaux
             this.setupViewListeners();
-            
+
             // Revenir à la vue par défaut (calendrier)
             const calendarButton = document.querySelector('button[data-view="calendar"]');
             if (calendarButton) {
@@ -322,13 +374,13 @@ class ViewManager {
             console.warn('Boutons de vue non trouvés');
             return;
         }
-        
+
         // Supprimer les écouteurs existants avant d'en ajouter de nouveaux
         this.viewButtons.forEach(button => {
             const newButton = button.cloneNode(true);
             button.parentNode.replaceChild(newButton, button);
         });
-        
+
         // Récupérer les nouveaux boutons et ajouter les écouteurs
         this.viewButtons = document.querySelectorAll('button[data-view]');
         this.viewButtons.forEach(button => {
@@ -342,10 +394,10 @@ class ViewManager {
             console.error('Éléments de vue non trouvés');
             return;
         }
-        
+
         // Ne rien faire si on est en mode mobile
         if (this.isMobile) return;
-        
+
         const view = selectedButton.dataset.view;
 
         // Mettre à jour tous les boutons avec le même attribut data-view
@@ -375,16 +427,16 @@ class CalendarManager {
         this.events = events;
         this.currentDate = new Date(); // Février 2025 (les mois commencent à 0)
         this.calendarGrid = document.querySelector('.calendar-grid');
-        
+
         // Vérifier que l'élément de grille existe
         if (!this.calendarGrid) {
             console.warn('Grille de calendrier non trouvée');
             return;
         }
-        
+
         // Ne pas initialiser le calendrier en mode mobile
         if (window.innerWidth <= 480) return;
-        
+
         this.setupCalendarNavigation();
         this.generateCalendar();
     }
@@ -392,13 +444,13 @@ class CalendarManager {
     setupCalendarNavigation() {
         const prevButton = document.querySelector('.calendar-header .prev-month');
         const nextButton = document.querySelector('.calendar-header .next-month');
-        
+
         // Vérifier que les boutons existent
         if (!prevButton || !nextButton) {
             console.warn('Boutons de navigation du calendrier non trouvés');
             return;
         }
-        
+
         // Simplifier les boutons sur mobile
         if (window.innerWidth <= 480) {
             prevButton.innerHTML = '&lt;';
@@ -420,7 +472,7 @@ class CalendarManager {
             console.warn('Grille de calendrier non trouvée');
             return;
         }
-        
+
         // Mise à jour du titre du mois
         const monthTitle = document.querySelector('.calendar-header h2');
         if (monthTitle) {
@@ -457,7 +509,7 @@ class CalendarManager {
 
     createDayCell(date, isOtherMonth = false) {
         if (!this.calendarGrid) return;
-        
+
         const day = document.createElement('div');
         day.className = 'calendar-day';
         if (isOtherMonth) {
@@ -538,7 +590,7 @@ function renderListView() {
         console.error('Container de liste d\'événements non trouvé');
         return;
     }
-    
+
     listContainer.innerHTML = '';
 
     const today = new Date();
@@ -575,7 +627,7 @@ function renderListView() {
             eventCard.innerHTML = `
                 <div class="event-time">${event.time}</div>
                 <div class="event-title">${event.hasLink && event.link ?
-                `<a href="${event.link}" 
+                    `<a href="${event.link}" 
                     style="color: var(--color-accent);
                     background: rgba(212, 175, 55, 0.05);
                     padding: 2px 6px;
@@ -585,8 +637,8 @@ function renderListView() {
                     onmouseover="this.style.background='rgba(212, 175, 55, 0.1)'"
                     onmouseout="this.style.background='rgba(212, 175, 55, 0.05)'"
                 >${event.title}</a>` :
-                event.title
-            }
+                    event.title
+                }
             <span class="category-badge category-${event.category}">${event.category === 'soiree_club' ? 'soirée du club' : event.category}</span>
             </div>
             ${event.details ? `
@@ -602,7 +654,7 @@ function renderListView() {
 
         listContainer.appendChild(eventGroup);
     });
-    
+
     // Réinitialiser les filtres après avoir rendu la liste
     setupFilters();
 }
@@ -611,23 +663,23 @@ function renderListView() {
 document.addEventListener('DOMContentLoaded', () => {
     try {
         console.log("Initialisation du calendrier...");
-        
+
         // Vérifier si les éléments essentiels existent
         const calendarView = document.getElementById('calendar-view');
         const listView = document.getElementById('list-view');
-        
+
         if (!calendarView) {
             console.error('Élément #calendar-view non trouvé');
         }
         if (!listView) {
             console.error('Élément #list-view non trouvé');
         }
-        
+
         // Afficher initialement la vue calendrier si pas en mode mobile
         if (window.innerWidth > 480) {
             if (calendarView) calendarView.style.display = 'block';
             if (listView) listView.style.display = 'none';
-            
+
             // Activer le bouton correspondant
             const calendarButton = document.querySelector('button[data-view="calendar"]');
             if (calendarButton) calendarButton.classList.add('active');
@@ -636,56 +688,56 @@ document.addEventListener('DOMContentLoaded', () => {
             if (calendarView) calendarView.style.display = 'none';
             if (listView) listView.style.display = 'block';
         }
-        
+
         // Initialiser les gestionnaires
         new ViewManager();
         new CalendarManager(events);
         new SearchManager();
-        
+
         // Sur mobile, forcer le rendu de la liste et configurer les filtres
         if (window.innerWidth <= 480) {
             renderListView();
         }
-        
+
         // Écouter les redimensionnements
         window.addEventListener('resize', () => {
             const isMobile = window.innerWidth <= 480;
-            
+
             if (isMobile) {
                 // En mode mobile
                 if (calendarView) calendarView.style.display = 'none';
                 if (listView) listView.style.display = 'block';
-                
+
                 // Masquer les sélecteurs de vue
                 const viewSelector = document.querySelector('.view-selector');
                 if (viewSelector) viewSelector.style.display = 'none';
-                
+
                 // Configurer les filtres en colonne
                 const filters = document.getElementById('filters');
                 if (filters) {
                     filters.style.flexDirection = 'column';
                     filters.style.gap = '8px';
-                    
+
                     // Styles pour les boutons de filtre
                     const filterButtons = filters.querySelectorAll('.filter-button');
                     filterButtons.forEach(btn => {
                         btn.style.width = '100%';
                     });
                 }
-                
+
                 // Assurer que la liste est rendue
                 renderListView();
             } else {
                 // En mode desktop
                 const viewSelector = document.querySelector('.view-selector');
                 if (viewSelector) viewSelector.style.display = 'flex';
-                
+
                 // Réinitialiser les styles des filtres
                 const filters = document.getElementById('filters');
                 if (filters) {
                     filters.style.flexDirection = '';
                     filters.style.gap = '';
-                    
+
                     // Réinitialiser les styles des boutons
                     const filterButtons = filters.querySelectorAll('.filter-button');
                     filterButtons.forEach(btn => {

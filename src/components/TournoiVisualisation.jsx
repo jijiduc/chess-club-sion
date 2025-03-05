@@ -4,12 +4,8 @@ import { createRoot } from 'react-dom/client';
 
 // Composant principal pour visualiser le tournoi
 const TournoiVisualisation = () => {
-    // États pour la gestion de l'interface
-    const [rondeActive, setRondeActive] = useState(1);
-    const [vue, setVue] = useState('appariements'); // 'appariements' ou 'crosstable'
-    
-    // Données du tournoi
-    const [donnees] = useState({
+    // Données du tournoi - définies avant les états pour pouvoir les utiliser dans l'initialisation
+    const tournoiData = {
         info: {
             titre: "Tournoi Interne 2025",
             format: [
@@ -79,7 +75,30 @@ const TournoiVisualisation = () => {
                 ]
             }
         ]
-    });
+    };
+    
+    // Fonction pour déterminer la ronde active par défaut
+    const getRondeInitiale = () => {
+        // Chercher une ronde avec le statut "en cours"
+        const rondeEnCours = tournoiData.rondes.find(r => r.statut === "en cours");
+        if (rondeEnCours) return rondeEnCours.numero;
+        
+        // Si aucune ronde n'est en cours, prendre la dernière ronde terminée
+        const rondesTerminees = tournoiData.rondes
+            .filter(r => r.statut === "terminée")
+            .sort((a, b) => b.numero - a.numero);
+            
+        if (rondesTerminees.length > 0) return rondesTerminees[0].numero;
+        
+        // Sinon, prendre la dernière ronde du tournoi
+        return tournoiData.rondes.length > 0 ? 
+            tournoiData.rondes[tournoiData.rondes.length - 1].numero : 1;
+    };
+
+    // États pour la gestion de l'interface - avec initialisation dynamique
+    const [rondeActive, setRondeActive] = useState(getRondeInitiale());
+    const [vue, setVue] = useState('appariements'); // 'appariements' ou 'crosstable'
+    const [donnees] = useState(tournoiData);
 
     // Calcul du classement après une ronde spécifique
     const calculerClassement = (rondeNum) => {
@@ -163,6 +182,104 @@ const TournoiVisualisation = () => {
         });
         
         return scores;
+    };
+
+    // Effect pour optimiser les tableaux sur mobile
+    useEffect(() => {
+        const optimizeTablesForMobile = () => {
+            // Vérifier si l'écran est en mode mobile
+            if (window.innerWidth <= 768) {
+                // Sélectionner tous les en-têtes de tableau pertinents
+                const tableHeaders = document.querySelectorAll('.results-table th, .tournament-table th');
+                
+                // Modifier les textes des en-têtes pour économiser de l'espace
+                tableHeaders.forEach((header) => {
+                    if (header.textContent.trim() === 'Table') {
+                        header.textContent = 'T.';
+                    } else if (header.textContent.trim() === 'Résultat') {
+                        header.textContent = 'R.';
+                    }
+                });
+                
+                // Optimiser l'affichage des noms des joueurs (ne garder que le nom de famille)
+                const playerCells = document.querySelectorAll('.results-table td:nth-child(2), .results-table td:nth-child(5), .tournament-table td:nth-child(2), .tournament-table td:nth-child(5)');
+                
+                playerCells.forEach(cell => {
+                    const fullName = cell.textContent.trim();
+                    // Stocker le nom complet comme attribut data pour pouvoir le restaurer si nécessaire
+                    cell.setAttribute('data-full-name', fullName);
+                    
+                    // Extraire le nom de famille (en supposant que le format est "Prénom Nom")
+                    const nameParts = fullName.split(' ');
+                    if (nameParts.length > 1) {
+                        cell.textContent = nameParts[nameParts.length - 1];
+                    }
+                });
+            } else {
+                // Restaurer les en-têtes complets sur les grands écrans
+                const tableHeaders = document.querySelectorAll('.results-table th, .tournament-table th');
+                tableHeaders.forEach((header) => {
+                    if (header.textContent.trim() === 'T.') {
+                        header.textContent = 'Table';
+                    } else if (header.textContent.trim() === 'R.') {
+                        header.textContent = 'Résultat';
+                    }
+                });
+                
+                // Restaurer les noms complets
+                const playerCells = document.querySelectorAll('[data-full-name]');
+                playerCells.forEach(cell => {
+                    cell.textContent = cell.getAttribute('data-full-name');
+                });
+            }
+        };
+        
+        // Exécuter après le rendu initial
+        setTimeout(optimizeTablesForMobile, 100);
+        
+        // Animations pour les conteneurs de ronde
+        const roundContainers = document.querySelectorAll('.round-container');
+        roundContainers.forEach((container, index) => {
+            setTimeout(() => {
+                container.style.opacity = "1";
+                container.style.transform = "translateY(0)";
+            }, 100 * index);
+        });
+        
+        // Ajouter l'écouteur pour le redimensionnement
+        window.addEventListener('resize', optimizeTablesForMobile);
+        
+        // Nettoyage lors du démontage du composant
+        return () => {
+            window.removeEventListener('resize', optimizeTablesForMobile);
+        };
+    }, []);
+
+    // Composant pour les informations générales du tournoi
+    const InfoGenerale = () => {
+        return (
+            <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+                <h2 className="text-2xl font-bold text-red-600 mb-4 text-center">{donnees.info.titre}</h2>
+                
+                <div className="mb-6">
+                    <h3 className="text-xl font-semibold mb-3 text-gray-800 border-b border-gray-300 pb-2">Format du tournoi</h3>
+                    <ul className="list-disc pl-6 space-y-2">
+                        {donnees.info.format.map((item, index) => (
+                            <li key={index} dangerouslySetInnerHTML={{ __html: item }} className="text-gray-700"></li>
+                        ))}
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 className="text-xl font-semibold mb-3 text-gray-800 border-b border-gray-300 pb-2">Prix</h3>
+                    <ul className="list-disc pl-6 space-y-2">
+                        {donnees.info.prix.map((item, index) => (
+                            <li key={index} dangerouslySetInnerHTML={{ __html: item }} className="text-gray-700"></li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        );
     };
 
     // Composant de navigation entre les rondes
@@ -335,38 +452,44 @@ const TournoiVisualisation = () => {
 
     // Composant principal
     return (
-        <div className="bg-white rounded-lg shadow-md p-6 mb-8">
-            <h2 className="text-2xl font-bold text-red-600 mb-4 text-center">{donnees.info.titre}</h2>
+        <>
+            {/* Section d'information générale */}
+            <InfoGenerale />
             
-            {/* Navigation des vues */}
-            <div className="flex justify-center gap-4 mb-6">
-                <button 
-                    onClick={() => setVue('appariements')}
-                    className={`px-4 py-2 rounded-md ${vue === 'appariements' 
-                        ? 'bg-red-600 text-white' 
-                        : 'bg-gray-200 hover:bg-gray-300'}`}
-                >
-                    Appariements par Ronde
-                </button>
-                <button 
-                    onClick={() => setVue('crosstable')}
-                    className={`px-4 py-2 rounded-md ${vue === 'crosstable' 
-                        ? 'bg-red-600 text-white' 
-                        : 'bg-gray-200 hover:bg-gray-300'}`}
-                >
-                    Table de Résultats
-                </button>
+            {/* Section de visualisation des résultats */}
+            <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+                <h2 className="text-2xl font-bold text-red-600 mb-4 text-center">Résultats et Classement</h2>
+                
+                {/* Navigation des vues */}
+                <div className="flex justify-center gap-4 mb-6">
+                    <button 
+                        onClick={() => setVue('appariements')}
+                        className={`px-4 py-2 rounded-md ${vue === 'appariements' 
+                            ? 'bg-red-600 text-white' 
+                            : 'bg-gray-200 hover:bg-gray-300'}`}
+                    >
+                        Appariements par Ronde
+                    </button>
+                    <button 
+                        onClick={() => setVue('crosstable')}
+                        className={`px-4 py-2 rounded-md ${vue === 'crosstable' 
+                            ? 'bg-red-600 text-white' 
+                            : 'bg-gray-200 hover:bg-gray-300'}`}
+                    >
+                        Table de Résultats
+                    </button>
+                </div>
+                
+                {vue === 'appariements' ? (
+                    <>
+                        <RondeNavigation />
+                        <AppariementsRonde ronde={rondeActive} />
+                    </>
+                ) : (
+                    <ClassementTable />
+                )}
             </div>
-            
-            {vue === 'appariements' ? (
-                <>
-                    <RondeNavigation />
-                    <AppariementsRonde ronde={rondeActive} />
-                </>
-            ) : (
-                <ClassementTable />
-            )}
-        </div>
+        </>
     );
 };
 
