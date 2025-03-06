@@ -8,7 +8,7 @@ export const membresData = {
           prenom: "Pierre",
           codeFSE: "25469",
           codeFIDE: "26017962",
-          elo: 2565,
+          elo: 2552,
           federation: "FRA"
         }
       ]
@@ -29,14 +29,6 @@ export const membresData = {
       title: "Experts (2000-2199)",
       players: [
         {
-          nom: "Emery",
-          prenom: "Stéphane",
-          codeFSE: "17887",
-          codeFIDE: "1320815",
-          elo: 2084,
-          federation: "SUI"
-        },
-        {
           nom: "Philippoz",
           prenom: "David",
           codeFSE: "10195",
@@ -45,11 +37,19 @@ export const membresData = {
           federation: "SUI"
         },
         {
+          nom: "Emery",
+          prenom: "Stéphane",
+          codeFSE: "17887",
+          codeFIDE: "1320815",
+          elo: 2081,
+          federation: "SUI"
+        },
+        {
           nom: "Morand",
           prenom: "Simon",
           codeFSE: "16502",
           codeFIDE: "1303902",
-          elo: 2080,
+          elo: 2077,
           federation: "SUI"
         },
         {
@@ -57,7 +57,7 @@ export const membresData = {
           prenom: "Flavien",
           codeFSE: "28267",
           codeFIDE: "659479",
-          elo: 2043,
+          elo: 2061,
           federation: "FRA"
         }
       ]
@@ -70,7 +70,7 @@ export const membresData = {
           prenom: "Jean-Michel",
           codeFSE: "2177",
           codeFIDE: "1301829",
-          elo: 1998,
+          elo: 1983,
           federation: "SUI"
         },
         {
@@ -82,19 +82,19 @@ export const membresData = {
           federation: "SUI"
         },
         {
-          nom: "Roduit",
-          prenom: "Yves",
-          codeFSE: "3783",
-          codeFIDE: "1318853",
-          elo: 1932,
-          federation: "SUI"
-        },
-        {
           nom: "Popescu",
           prenom: "Vlad",
           codeFSE: "18363",
           codeFIDE: "1330403",
-          elo: 1926,
+          elo: 1931,
+          federation: "SUI"
+        },
+        {
+          nom: "Roduit",
+          prenom: "Yves",
+          codeFSE: "3783",
+          codeFIDE: "1318853",
+          elo: 1921,
           federation: "SUI"
         },
         {
@@ -134,7 +134,7 @@ export const membresData = {
           prenom: "Jean-Yves",
           codeFSE: "88",
           codeFIDE: "1306162",
-          elo: 1835,
+          elo: 1827,
           federation: "SUI"
         },
         {
@@ -169,14 +169,6 @@ export const membresData = {
       title: "Classe B (1600-1799)",
       players: [
         {
-          nom: "Duc",
-          prenom: "Jeremy",
-          codeFSE: "22891",
-          codeFIDE: "1338447",
-          elo: 1786,
-          federation: "SUI"
-        },
-        {
           nom: "Bétrisey",
           prenom: "Sandro",
           codeFSE: "14603",
@@ -185,11 +177,19 @@ export const membresData = {
           federation: "SUI"
         },
         {
+          nom: "Duc",
+          prenom: "Jeremy",
+          codeFSE: "22891",
+          codeFIDE: "1338447",
+          elo: 1775,
+          federation: "SUI"
+        },
+        {
           nom: "Ulmann",
           prenom: "Olivier",
           codeFSE: "16717",
           codeFIDE: "1316770",
-          elo: 1762,
+          elo: 1755,
           federation: "SUI"
         },
         {
@@ -205,7 +205,7 @@ export const membresData = {
           prenom: "Claude",
           codeFSE: "24967",
           codeFIDE: "1360841",
-          elo: 1639,
+          elo: 1626,
           federation: "SUI"
         },
         {
