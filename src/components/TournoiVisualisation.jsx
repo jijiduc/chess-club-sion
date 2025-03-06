@@ -21,18 +21,18 @@ const TournoiVisualisation = () => {
                 "<strong>3ème prix :</strong> 1 livre d'échecs"
             ]
         },
-        
+
         joueurs: [
-            { id: 1, nom: "Sola Flavien", elo: 2027, title: ""},
-            { id: 2, nom: "Rappaz Pierre-Marie", elo: 1951, title: ""},
-            { id: 3, nom: "Riand Jean-Yves", elo: 1837, title: ""},
-            { id: 4, nom: "Duc Jeremy", elo: 1762, title: ""},
-            { id: 5, nom: "Cortada-Garcia Joan", elo: 1749, title: ""},
-            { id: 6, nom: "Ulmann Olivier", elo: 1597, title: ""},
-            { id: 7, nom: "Moerschell Simon", elo: 1534, title: ""},
-            { id: 8, nom: "Ben Salem Akram", elo: null, title: ""}
+            { id: 1, nom: "Sola Flavien", elo: 2027, title: "" },
+            { id: 2, nom: "Rappaz Pierre-Marie", elo: 1951, title: "" },
+            { id: 3, nom: "Riand Jean-Yves", elo: 1837, title: "" },
+            { id: 4, nom: "Duc Jeremy", elo: 1762, title: "" },
+            { id: 5, nom: "Cortada-Garcia Joan", elo: 1749, title: "" },
+            { id: 6, nom: "Ulmann Olivier", elo: 1597, title: "" },
+            { id: 7, nom: "Moerschell Simon", elo: 1534, title: "" },
+            { id: 8, nom: "Ben Salem Akram", elo: null, title: "" }
         ],
-        
+
         rondes: [
             {
                 numero: 1,
@@ -68,7 +68,7 @@ const TournoiVisualisation = () => {
                 numero: 4,
                 statut: "en cours",
                 appariements: [
-                    { table: 1, blanc: 4, noir: 1, resultat: "1-0" },
+                    { table: 1, blanc: 4, noir: 1, resultat: "0-1" },
                     { table: 2, blanc: 2, noir: 3, resultat: null },
                     { table: 3, blanc: 7, noir: 6, resultat: "0-1" },
                     { table: 4, blanc: 8, noir: 5, resultat: "0-1" }
@@ -76,22 +76,22 @@ const TournoiVisualisation = () => {
             }
         ]
     };
-    
+
     // Fonction pour déterminer la ronde active par défaut
     const getRondeInitiale = () => {
         // Chercher une ronde avec le statut "en cours"
         const rondeEnCours = tournoiData.rondes.find(r => r.statut === "en cours");
         if (rondeEnCours) return rondeEnCours.numero;
-        
+
         // Si aucune ronde n'est en cours, prendre la dernière ronde terminée
         const rondesTerminees = tournoiData.rondes
             .filter(r => r.statut === "terminée")
             .sort((a, b) => b.numero - a.numero);
-            
+
         if (rondesTerminees.length > 0) return rondesTerminees[0].numero;
-        
+
         // Sinon, prendre la dernière ronde du tournoi
-        return tournoiData.rondes.length > 0 ? 
+        return tournoiData.rondes.length > 0 ?
             tournoiData.rondes[tournoiData.rondes.length - 1].numero : 1;
     };
 
@@ -109,24 +109,31 @@ const TournoiVisualisation = () => {
             elo: joueur.elo || "-",
             points: 0,
             perf: 0,
+            buchholz: 0,          // Tiebreak 1: Buchholz
+            buchholzSum: 0,       // Tiebreak 2: Somme des Buchholz des adversaires
             adversaires: [],
             resultats: {} // Pour stocker les résultats contre chaque adversaire
         }));
-        
+
         // Parcourir toutes les rondes jusqu'à la ronde spécifiée
-        for (let i = 0; i < rondeNum; i++) {
+        for (let i = 0; i < donnees.rondes.length; i++) {
             const ronde = donnees.rondes[i];
-            
+
+            // Ne traiter que les rondes jusqu'à la ronde spécifiée et avec un statut approprié
+            if (i >= rondeNum || (ronde.statut !== "terminée" && ronde.statut !== "en cours")) {
+                continue;
+            }
+
             // Traiter chaque appariement
             ronde.appariements.forEach(app => {
                 if (app.resultat) {
                     const blanc = scores.find(s => s.id === app.blanc);
                     const noir = scores.find(s => s.id === app.noir);
-                    
+
                     // Enregistrer les adversaires pour le départage
                     blanc.adversaires.push(app.noir);
                     noir.adversaires.push(app.blanc);
-                    
+
                     // Stocker les résultats pour la cross-table
                     if (app.resultat === "1-0") {
                         blanc.resultats[app.noir] = "1";
@@ -142,11 +149,11 @@ const TournoiVisualisation = () => {
                         blanc.points += 0.5;
                         noir.points += 0.5;
                     }
-                    
+
                     // Calcul de performance simplifié
                     const eloNoir = donnees.joueurs.find(j => j.id === app.noir).elo || 1500;
                     const eloBlanc = donnees.joueurs.find(j => j.id === app.blanc).elo || 1500;
-                    
+
                     if (app.resultat === "1-0") {
                         blanc.perf += eloNoir + 400;
                         noir.perf += eloBlanc - 400;
@@ -160,7 +167,7 @@ const TournoiVisualisation = () => {
                 }
             });
         }
-        
+
         // Calcul de la performance moyenne
         scores.forEach(s => {
             if (s.adversaires.length > 0) {
@@ -169,18 +176,73 @@ const TournoiVisualisation = () => {
                 s.perf = 0;
             }
         });
-        
-        // Trier par points (décroissant) puis par performance (décroissant)
+
+        // Calcul du Buchholz (somme des points des adversaires)
+        scores.forEach(joueur => {
+            joueur.buchholz = joueur.adversaires.reduce((sum, advId) => {
+                const adv = scores.find(s => s.id === advId);
+                return sum + adv.points;
+            }, 0);
+        });
+
+        // Calcul de la somme des Buchholz des adversaires
+        scores.forEach(joueur => {
+            joueur.buchholzSum = joueur.adversaires.reduce((sum, advId) => {
+                const adv = scores.find(s => s.id === advId);
+                return sum + adv.buchholz;
+            }, 0);
+        });
+
+        // Trier par points (décroissant), puis par Buchholz, puis par somme des Buchholz, puis par performance
         scores.sort((a, b) => {
             if (b.points !== a.points) return b.points - a.points;
+            if (b.buchholz !== a.buchholz) return b.buchholz - a.buchholz;
+            if (b.buchholzSum !== a.buchholzSum) return b.buchholzSum - a.buchholzSum;
             return b.perf - a.perf;
         });
-        
-        // Ajouter le rang
+
+        // Déterminer les rangs avec gestion des ex aequo
+        let tieGroups = [];
+        let currentTie = [0];
+
+        for (let i = 1; i < scores.length; i++) {
+            if (scores[i].points === scores[i - 1].points &&
+                scores[i].buchholz === scores[i - 1].buchholz &&
+                scores[i].buchholzSum === scores[i - 1].buchholzSum) {
+                // C'est une égalité
+                currentTie.push(i);
+            } else {
+                // Fin de l'égalité précédente
+                if (currentTie.length > 1) {
+                    tieGroups.push([...currentTie]);
+                }
+                // Démarrer une nouvelle égalité potentielle
+                currentTie = [i];
+            }
+        }
+
+        // Vérifier la dernière égalité potentielle
+        if (currentTie.length > 1) {
+            tieGroups.push([...currentTie]);
+        }
+
+        // Assigner les rangs standards d'abord
         scores.forEach((s, index) => {
             s.rang = index + 1;
+            s.rangAffiche = s.rang.toString();
         });
-        
+
+        // Puis modifier les affichages de rang pour les ex aequo
+        tieGroups.forEach(group => {
+            const firstRank = scores[group[0]].rang;
+            const lastRank = scores[group[group.length - 1]].rang;
+            const displayRank = `${firstRank}-${lastRank}`;
+
+            group.forEach(idx => {
+                scores[idx].rangAffiche = displayRank;
+            });
+        });
+
         return scores;
     };
 
@@ -191,7 +253,7 @@ const TournoiVisualisation = () => {
             if (window.innerWidth <= 768) {
                 // Sélectionner tous les en-têtes de tableau pertinents
                 const tableHeaders = document.querySelectorAll('.results-table th, .tournament-table th');
-                
+
                 // Modifier les textes des en-têtes pour économiser de l'espace
                 tableHeaders.forEach((header) => {
                     if (header.textContent.trim() === 'Table') {
@@ -200,15 +262,15 @@ const TournoiVisualisation = () => {
                         header.textContent = 'R.';
                     }
                 });
-                
+
                 // Optimiser l'affichage des noms des joueurs (ne garder que le nom de famille)
                 const playerCells = document.querySelectorAll('.results-table td:nth-child(2), .results-table td:nth-child(5), .tournament-table td:nth-child(2), .tournament-table td:nth-child(5)');
-                
+
                 playerCells.forEach(cell => {
                     const fullName = cell.textContent.trim();
                     // Stocker le nom complet comme attribut data pour pouvoir le restaurer si nécessaire
                     cell.setAttribute('data-full-name', fullName);
-                    
+
                     // Extraire le nom de famille (en supposant que le format est "Prénom Nom")
                     const nameParts = fullName.split(' ');
                     if (nameParts.length > 1) {
@@ -225,7 +287,7 @@ const TournoiVisualisation = () => {
                         header.textContent = 'Résultat';
                     }
                 });
-                
+
                 // Restaurer les noms complets
                 const playerCells = document.querySelectorAll('[data-full-name]');
                 playerCells.forEach(cell => {
@@ -233,10 +295,10 @@ const TournoiVisualisation = () => {
                 });
             }
         };
-        
+
         // Exécuter après le rendu initial
         setTimeout(optimizeTablesForMobile, 100);
-        
+
         // Animations pour les conteneurs de ronde
         const roundContainers = document.querySelectorAll('.round-container');
         roundContainers.forEach((container, index) => {
@@ -245,10 +307,10 @@ const TournoiVisualisation = () => {
                 container.style.transform = "translateY(0)";
             }, 100 * index);
         });
-        
+
         // Ajouter l'écouteur pour le redimensionnement
         window.addEventListener('resize', optimizeTablesForMobile);
-        
+
         // Nettoyage lors du démontage du composant
         return () => {
             window.removeEventListener('resize', optimizeTablesForMobile);
@@ -260,7 +322,7 @@ const TournoiVisualisation = () => {
         return (
             <div className="bg-white rounded-lg shadow-md p-6 mb-6">
                 <h2 className="text-2xl font-bold text-red-600 mb-4 text-center">{donnees.info.titre}</h2>
-                
+
                 <div className="mb-6">
                     <h3 className="text-xl font-semibold mb-3 text-gray-800 border-b border-gray-300 pb-2">Format du tournoi</h3>
                     <ul className="list-disc pl-6 space-y-2">
@@ -269,7 +331,7 @@ const TournoiVisualisation = () => {
                         ))}
                     </ul>
                 </div>
-                
+
                 <div>
                     <h3 className="text-xl font-semibold mb-3 text-gray-800 border-b border-gray-300 pb-2">Prix</h3>
                     <ul className="list-disc pl-6 space-y-2">
@@ -286,27 +348,27 @@ const TournoiVisualisation = () => {
     const RondeNavigation = () => {
         return (
             <div className="flex justify-center items-center gap-4 my-4 bg-gray-800 p-4 rounded-md">
-                <button 
+                <button
                     onClick={() => setRondeActive(prev => Math.max(1, prev - 1))}
                     className="text-white px-3 py-1 bg-red-700 rounded hover:bg-red-800"
                     disabled={rondeActive === 1}
                 >
                     &lt;
                 </button>
-                
+
                 {donnees.rondes.map(ronde => (
                     <button
                         key={ronde.numero}
                         onClick={() => setRondeActive(ronde.numero)}
-                        className={`px-3 py-1 rounded ${rondeActive === ronde.numero 
-                            ? 'bg-red-600 text-white' 
+                        className={`px-3 py-1 rounded ${rondeActive === ronde.numero
+                            ? 'bg-red-600 text-white'
                             : 'bg-gray-700 text-white hover:bg-gray-600'}`}
                     >
                         {ronde.numero}
                     </button>
                 ))}
-                
-                <button 
+
+                <button
                     onClick={() => setRondeActive(prev => Math.min(donnees.rondes.length, prev + 1))}
                     className="text-white px-3 py-1 bg-red-700 rounded hover:bg-red-800"
                     disabled={rondeActive === donnees.rondes.length}
@@ -321,11 +383,11 @@ const TournoiVisualisation = () => {
     const AppariementsRonde = ({ ronde }) => {
         const rondeObj = donnees.rondes.find(r => r.numero === ronde);
         if (!rondeObj) return <div>Ronde non trouvée</div>;
-        
+
         return (
             <div className="bg-gray-100 rounded-lg shadow-md p-4">
                 <h3 className="text-xl font-bold text-red-600 mb-4 text-center">Ronde {rondeObj.numero} {rondeObj.statut === "en cours" ? "(en cours)" : ""}</h3>
-                
+
                 <div className="overflow-x-auto">
                     <table className="w-full">
                         <thead className="bg-gray-800 text-white">
@@ -343,7 +405,7 @@ const TournoiVisualisation = () => {
                                 const joueurBlanc = donnees.joueurs.find(j => j.id === app.blanc);
                                 const joueurNoir = donnees.joueurs.find(j => j.id === app.noir);
                                 const resultat = app.resultat || "";
-                                
+
                                 return (
                                     <tr key={app.table} className="border-b border-gray-300 hover:bg-gray-200">
                                         <td className="py-2 px-4">{app.table}</td>
@@ -352,18 +414,16 @@ const TournoiVisualisation = () => {
                                         <td className="py-2 px-4 text-center font-bold">
                                             {resultat ? (
                                                 <div className="flex items-center justify-center">
-                                                    <div className={`w-8 h-8 flex items-center justify-center ${
-                                                        resultat === "1-0" ? "bg-green-100 text-green-800" : 
-                                                        resultat === "0-1" ? "bg-red-100 text-red-800" : 
-                                                        "bg-yellow-100 text-yellow-800"
-                                                    } rounded-md mx-1`}>
+                                                    <div className={`w-8 h-8 flex items-center justify-center ${resultat === "1-0" ? "bg-green-100 text-green-800" :
+                                                        resultat === "0-1" ? "bg-red-100 text-red-800" :
+                                                            "bg-yellow-100 text-yellow-800"
+                                                        } rounded-md mx-1`}>
                                                         {resultat === "1-0" ? "1" : resultat === "0-1" ? "0" : "½"}
                                                     </div>
-                                                    <div className={`w-8 h-8 flex items-center justify-center ${
-                                                        resultat === "0-1" ? "bg-green-100 text-green-800" : 
-                                                        resultat === "1-0" ? "bg-red-100 text-red-800" : 
-                                                        "bg-yellow-100 text-yellow-800"
-                                                    } rounded-md mx-1`}>
+                                                    <div className={`w-8 h-8 flex items-center justify-center ${resultat === "0-1" ? "bg-green-100 text-green-800" :
+                                                        resultat === "1-0" ? "bg-red-100 text-red-800" :
+                                                            "bg-yellow-100 text-yellow-800"
+                                                        } rounded-md mx-1`}>
                                                         {resultat === "0-1" ? "1" : resultat === "1-0" ? "0" : "½"}
                                                     </div>
                                                 </div>
@@ -385,40 +445,46 @@ const TournoiVisualisation = () => {
 
     // Composant pour le tableau de classement
     const ClassementTable = () => {
-        const rondeActuelle = donnees.rondes.filter(r => r.statut === "terminée").length;
+        const rondeActuelle = donnees.rondes.filter(r => r.statut === "terminée" || r.statut === "en cours").length;
         const scores = calculerClassement(rondeActuelle);
-        
+
         return (
             <div className="bg-gray-100 rounded-lg shadow-md p-4 mt-8">
                 <h3 className="text-xl font-bold text-red-600 mb-4 text-center">Classement général</h3>
-                
+
                 <div className="overflow-x-auto">
                     <table className="w-full">
                         <thead className="bg-gray-800 text-white">
                             <tr>
-                                <th className="py-2 px-3 text-left">#</th>
+                                <th className="py-2 px-2 text-center">#</th>
                                 <th className="py-2 px-3 text-left">Joueur</th>
-                                <th className="py-2 px-3 text-left">Elo</th>
-                                <th className="py-2 px-3 text-center">Pts</th>
+                                <th className="py-2 px-2 text-center">Elo</th>
+                                <th className="py-2 px-2 text-center">Pts</th>
+                                <th className="py-2 px-2 text-center">Perf</th>
+                                <th className="py-2 px-2 text-center">TB1</th>
+                                <th className="py-2 px-2 text-center">TB2</th>
                                 {donnees.joueurs.map(j => (
                                     <th key={j.id} className="py-2 px-2 text-center">{j.id}</th>
                                 ))}
                             </tr>
                         </thead>
                         <tbody>
-                            {scores.map((joueur, index) => (
-                                <tr key={joueur.id} className={`border-b border-gray-300 hover:bg-gray-200 ${index < 3 ? "bg-gray-100" : ""}`}>
-                                    <td className="py-2 px-3 font-medium">{joueur.rang}</td>
+                            {scores.map((joueur) => (
+                                <tr key={joueur.id} className="border-b border-gray-300 hover:bg-gray-200">
+                                    <td className="py-2 px-2 text-center font-medium">{joueur.rangAffiche}</td>
                                     <td className="py-2 px-3 font-medium">{joueur.nom}</td>
-                                    <td className="py-2 px-3 text-gray-600">{joueur.elo}</td>
-                                    <td className="py-2 px-3 text-center font-bold">{joueur.points.toFixed(1)}</td>
-                                    
+                                    <td className="py-2 px-2 text-center text-gray-600">{joueur.elo}</td>
+                                    <td className="py-2 px-2 text-center font-bold">{joueur.points.toFixed(1)}</td>
+                                    <td className="py-2 px-2 text-center">{joueur.perf}</td>
+                                    <td className="py-2 px-2 text-center">{joueur.buchholz.toFixed(1)}</td>
+                                    <td className="py-2 px-2 text-center">{joueur.buchholzSum.toFixed(1)}</td>
+
                                     {donnees.joueurs.map(adversaire => {
                                         // Cases diagonales (même joueur)
                                         if (joueur.id === adversaire.id) {
                                             return <td key={adversaire.id} className="py-2 px-2 text-center bg-gray-300">×</td>;
                                         }
-                                        
+
                                         // Résultat connu
                                         const resultat = joueur.resultats[adversaire.id];
                                         if (resultat) {
@@ -430,14 +496,14 @@ const TournoiVisualisation = () => {
                                             } else if (resultat === "½") {
                                                 cellClass = "bg-yellow-100 text-yellow-800 font-bold";
                                             }
-                                            
+
                                             return (
                                                 <td key={adversaire.id} className={`py-1 px-2 text-center ${cellClass}`}>
                                                     {resultat}
                                                 </td>
                                             );
                                         }
-                                        
+
                                         // Partie à jouer
                                         return <td key={adversaire.id} className="py-1 px-2 text-center text-gray-400">-</td>;
                                     })}
@@ -455,31 +521,31 @@ const TournoiVisualisation = () => {
         <>
             {/* Section d'information générale */}
             <InfoGenerale />
-            
+
             {/* Section de visualisation des résultats */}
             <div className="bg-white rounded-lg shadow-md p-6 mb-8">
                 <h2 className="text-2xl font-bold text-red-600 mb-4 text-center">Résultats et Classement</h2>
-                
+
                 {/* Navigation des vues */}
                 <div className="flex justify-center gap-4 mb-6">
-                    <button 
+                    <button
                         onClick={() => setVue('appariements')}
-                        className={`px-4 py-2 rounded-md ${vue === 'appariements' 
-                            ? 'bg-red-600 text-white' 
+                        className={`px-4 py-2 rounded-md ${vue === 'appariements'
+                            ? 'bg-red-600 text-white'
                             : 'bg-gray-200 hover:bg-gray-300'}`}
                     >
                         Appariements par Ronde
                     </button>
-                    <button 
+                    <button
                         onClick={() => setVue('crosstable')}
-                        className={`px-4 py-2 rounded-md ${vue === 'crosstable' 
-                            ? 'bg-red-600 text-white' 
+                        className={`px-4 py-2 rounded-md ${vue === 'crosstable'
+                            ? 'bg-red-600 text-white'
                             : 'bg-gray-200 hover:bg-gray-300'}`}
                     >
                         Table de Résultats
                     </button>
                 </div>
-                
+
                 {vue === 'appariements' ? (
                     <>
                         <RondeNavigation />
@@ -496,24 +562,24 @@ const TournoiVisualisation = () => {
 // Fonction d'initialisation moderne pour React 18
 function initializeApp() {
     console.log('Initializing React application...');
-    
+
     try {
         const container = document.getElementById('tournoi-react');
-        
+
         if (!container) {
             throw new Error("Container element #tournoi-react not found");
         }
-        
+
         console.log('Container found, creating React root');
         const root = createRoot(container);
-        
+
         console.log('Rendering TournoiVisualisation component');
         root.render(
             <React.StrictMode>
                 <TournoiVisualisation />
             </React.StrictMode>
         );
-        
+
         console.log('TournoiVisualisation rendered successfully');
     } catch (error) {
         console.error('Error initializing React application:', error);
