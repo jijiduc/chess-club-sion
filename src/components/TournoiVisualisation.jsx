@@ -463,13 +463,14 @@ const TournoiVisualisation = () => {
                                 <th className="py-2 px-2 text-center">Perf</th>
                                 <th className="py-2 px-2 text-center">TB1</th>
                                 <th className="py-2 px-2 text-center">TB2</th>
-                                {donnees.joueurs.map(j => (
-                                    <th key={j.id} className="py-2 px-2 text-center">{j.id}</th>
+                                {/* Remplacer les IDs des joueurs par leur position dans le classement (de 1 à 8) */}
+                                {Array.from({ length: scores.length }, (_, index) => (
+                                    <th key={index} className="py-2 px-2 text-center">{index + 1}</th>
                                 ))}
                             </tr>
                         </thead>
                         <tbody>
-                            {scores.map((joueur) => (
+                            {scores.map((joueur, rowIndex) => (
                                 <tr key={joueur.id} className="border-b border-gray-300 hover:bg-gray-200">
                                     <td className="py-2 px-2 text-center font-medium">{joueur.rangAffiche}</td>
                                     <td className="py-2 px-3 font-medium">{joueur.nom}</td>
@@ -479,10 +480,10 @@ const TournoiVisualisation = () => {
                                     <td className="py-2 px-2 text-center">{joueur.buchholz.toFixed(1)}</td>
                                     <td className="py-2 px-2 text-center">{joueur.buchholzSum.toFixed(1)}</td>
 
-                                    {donnees.joueurs.map(adversaire => {
+                                    {scores.map((adversaire, colIndex) => {
                                         // Cases diagonales (même joueur)
-                                        if (joueur.id === adversaire.id) {
-                                            return <td key={adversaire.id} className="py-2 px-2 text-center bg-gray-300">×</td>;
+                                        if (rowIndex === colIndex) {
+                                            return <td key={colIndex} className="py-2 px-2 text-center bg-gray-300">×</td>;
                                         }
 
                                         // Résultat connu
@@ -498,14 +499,14 @@ const TournoiVisualisation = () => {
                                             }
 
                                             return (
-                                                <td key={adversaire.id} className={`py-1 px-2 text-center ${cellClass}`}>
+                                                <td key={colIndex} className={`py-1 px-2 text-center ${cellClass}`}>
                                                     {resultat}
                                                 </td>
                                             );
                                         }
 
                                         // Partie à jouer
-                                        return <td key={adversaire.id} className="py-1 px-2 text-center text-gray-400">-</td>;
+                                        return <td key={colIndex} className="py-1 px-2 text-center text-gray-400">-</td>;
                                     })}
                                 </tr>
                             ))}
