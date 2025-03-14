@@ -1,4 +1,16 @@
-// calendar.js - Logique du calendrier et des événements
+const highlightStyle = document.createElement('style');
+highlightStyle.textContent = `
+    .highlighted-event {
+        animation: highlight-pulse 3s ease-in-out;
+    }
+    
+    @keyframes highlight-pulse {
+        0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+        50% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0.4); }
+        100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+    }
+`;
+document.head.appendChild(highlightStyle);
 
 // Données des événements
 const events = {
@@ -28,7 +40,11 @@ const events = {
             time: "09h00",
             title: "CSG ronde 6",
             category: "competition",
-            details: ["Nyon 1 - Valais 1", "Valais 3 - La Béroche 1"]
+            details: [
+                {text: "championnat suisse par groupe", link: "csg.html"},
+                "Nyon 1 - Valais 1", 
+                "Valais 3 - La Béroche 1"
+            ]
         }
     ],
     "2025-02-14": [
@@ -47,7 +63,8 @@ const events = {
         {
             time: "20h00",
             title: "Tournoi interne",
-            category: "competition"
+            category: "competition",
+            details: [{text: "tournoi interne", link: "tournoi_interne.html"}]
         }
     ],
     "2025-02-22": [
@@ -55,7 +72,11 @@ const events = {
             time: "09h00",
             title: "CSG ronde 7",
             category: "competition",
-            details: ["Valais 1 - SG Riehen 1", "Grand Echiquier - Valais 3"]
+            details: [
+                {text: "championnat suisse par groupe", link: "csg.html"},
+                "Valais 1 - SG Riehen 1", 
+                "Grand Echiquier - Valais 3"
+            ]
         }
     ],
     "2025-02-23": [
@@ -64,8 +85,8 @@ const events = {
             title: "Active Chess du Bouveret",
             category: "competition",
             hasLink: true,
-            link: "https://echecs-port-valais.ch/active-chess/",  // Ajout de l'URL spécifique
-            details: ["7 rondes", "15min + 5sec/coup"]  // Optionnel: ajout de détails
+            link: "https://echecs-port-valais.ch/active-chess/",
+            details: ["7 rondes", "15min + 5sec/coup"]
         }
     ],
     "2025-02-28": [
@@ -98,7 +119,11 @@ const events = {
             time: "20h00",
             title: "CVE ronde 5",
             category: "competition",
-            details: ["championnat valaisan par équipes", "Sion 1 - Montana 1", "CEPV - Sion 2"]
+            details: [
+                {text: "championnat valaisan par équipes", link: "cve.html"},
+                "Sion 1 - Montana 1",
+                "CEPV - Sion 2"
+            ]
         }
     ],
     "2025-03-21": [
@@ -109,9 +134,11 @@ const events = {
         },
         {
             time: "20h00",
-            title: "Open interne",
+            title: "Tournoi interne",
             category: "competition",
-            details: ["parties lentes"]
+            details: [
+                {text: "ronde 5", link: "tournoi_interne.html"},
+            ]
         }
     ],
     "2025-03-22": [
@@ -119,7 +146,11 @@ const events = {
             time: "14h00",
             title: "CSE ronde 1",
             category: "competition",
-            details: ["championnat suisse par équipes", "Sion 1 - Grand Echiquier 1", "Sion 2 - Crans-Montana 2"]
+            details: [
+                {text: "championnat suisse par équipes", link: "cse.html"},
+                "Sion 1 - Grand Echiquier 1",
+                "Sion 2 - Crans-Montana 2"
+            ]
         }
     ],
     "2025-03-28": [
@@ -127,7 +158,11 @@ const events = {
             time: "20h00",
             title: "CVE ronde 6",
             category: "competition",
-            details: ["championnat valaisan par équipes", "Riddes 1 - Sion 1", "Sion 2 - Monthey"]
+            details: [
+                {text: "championnat valaisan par équipes", link: "cve.html"},
+                "Riddes 1 - Sion 1",
+                "Sion 2 - Monthey"
+            ]
         }
     ],
     "2025-03-29": [
@@ -149,20 +184,16 @@ const events = {
         }
     ],
 
-    "2025-03-28": [
-        {
-            time: "20h00",
-            title: "CVE 2e tour ronde 6",
-            category: "competition",
-            details: ["Riddes 1 - Sion 1", "Sion 2 - Monthey"]
-        }
-    ],
     "2025-04-05": [
         {
             time: "14h00",
             title: "CSE ronde 2",
             category: "competition",
-            details: ["Fribourg 1 - Sion 1", "Bulle 3 - Sion 2"]
+            details: [
+                {text: "championnat suisse par équipes", link: "cse.html"},
+                "Fribourg 1 - Sion 1",
+                "Bulle 3 - Sion 2"
+            ]
         }
     ],
     "2025-04-18": [
@@ -170,7 +201,11 @@ const events = {
             time: "17h45",
             title: "Tournoi fermé des Châteaux",
             category: "competition",
-            details: ["17h45 : acceuil", "18h00 : 1ère ronde"]
+            details: [
+                {text: "tournoi fermé des châteaux", link: "tournoi_chateaux.html"},
+                "17h45 : accueil",
+                "18h00 : 1ère ronde"
+            ]
         }
     ],
     "2025-04-19": [
@@ -178,7 +213,11 @@ const events = {
             time: "9h00",
             title: "Tournoi fermé des Châteaux",
             category: "competition",
-            details: ["9h00 : 2ème ronde", "14h00 : 3ème ronde"]
+            details: [
+                {text: "tournoi fermé des châteaux", link: "tournoi_chateaux.html"},
+                "9h00 : 2ème ronde", 
+                "14h00 : 3ème ronde"
+            ]
         }
     ],
     "2025-04-20": [
@@ -186,7 +225,11 @@ const events = {
             time: "9h00",
             title: "Tournoi fermé des Châteaux",
             category: "competition",
-            details: ["9h00 : 4ème ronde", "14h00 : 5ème ronde"]
+            details: [
+                {text: "tournoi fermé des châteaux", link: "tournoi_chateaux.html"},
+                "9h00 : 4ème ronde", 
+                "14h00 : 5ème ronde"
+            ]
         }
     ],
     "2025-04-26": [
@@ -194,7 +237,11 @@ const events = {
             time: "14h00",
             title: "CSE ronde 3",
             category: "competition",
-            details: ["Sion 1 - Köniz-Bubenberg 1", "Sion 2 - Grand Echiquier 2"]
+            details: [
+                {text: "championnat suisse par équipes", link: "cse.html"},
+                "Sion 1 - Köniz-Bubenberg 1", 
+                "Sion 2 - Grand Echiquier 2"
+            ]
         }
     ],
     "2025-05-03": [
@@ -202,7 +249,10 @@ const events = {
             time: "09h00",
             title: "CVE ronde finale",
             category: "competition",
-            details: ["Appariements à venir"]
+            details: [
+                {text: "championnat valaisan par équipes", link: "cve.html"},
+                "Appariements à venir"
+            ]
         }
     ],
     "2025-05-17": [
@@ -210,7 +260,11 @@ const events = {
             time: "14h00",
             title: "CSE ronde 4",
             category: "competition",
-            details: ["Sion 1 - Neuchâtel 1", "Valais 2 - Sion 2"]
+            details: [
+                {text: "championnat suisse par équipes", link: "cse.html"},
+                "Sion 1 - Neuchâtel 1", 
+                "Valais 2 - Sion 2"
+            ]
         }
     ],
     "2025-06-21": [
@@ -218,7 +272,11 @@ const events = {
             time: "14h00",
             title: "CSE ronde 5",
             category: "competition",
-            details: ["Valais 1 - Sion 1", "Sion 2 - Monthey 1"]
+            details: [
+                {text: "championnat suisse par équipes", link: "cse.html"},
+                "Valais 1 - Sion 1", 
+                "Sion 2 - Monthey 1"
+            ]
         }
     ],
     "2025-08-23": [
@@ -226,7 +284,11 @@ const events = {
             time: "14h00",
             title: "CSE ronde 6",
             category: "competition",
-            details: ["Echallens 2 - Sion 1", "Sion 2 - Crazy Horse 1"]
+            details: [
+                {text: "championnat suisse par équipes", link: "cse.html"},
+                "Echallens 2 - Sion 1", 
+                "Sion 2 - Crazy Horse 1"
+            ]
         }
     ],
     "2025-09-13": [
@@ -234,7 +296,11 @@ const events = {
             time: "14h00",
             title: "CSE ronde 7",
             category: "competition",
-            details: ["Sion 1 - Genève 2", "Payerne 2 - Sion 2"]
+            details: [
+                {text: "championnat suisse par équipes", link: "cse.html"},
+                "Sion 1 - Genève 2", 
+                "Payerne 2 - Sion 2"
+            ]
         }
     ]
 };
@@ -509,7 +575,7 @@ class CalendarManager {
 
     createDayCell(date, isOtherMonth = false) {
         if (!this.calendarGrid) return;
-
+    
         const day = document.createElement('div');
         day.className = 'calendar-day';
         if (isOtherMonth) {
@@ -517,34 +583,34 @@ class CalendarManager {
             this.calendarGrid.appendChild(day);
             return;
         }
-
+    
         // Vérifier si c'est aujourd'hui
         const today = new Date();
         if (date.toDateString() === today.toDateString()) {
             day.classList.add('today');
         }
-
+    
         // Ajouter le numéro du jour
         const dayNumber = document.createElement('div');
         dayNumber.className = 'calendar-day-number';
         dayNumber.textContent = date.getDate();
         day.appendChild(dayNumber);
-
+    
         // Formater la date pour correspondre au format des événements
         const dateStr = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
-
+    
         if (this.events[dateStr]) {
             day.classList.add('has-event');
-            this.addEventsToDay(day, this.events[dateStr]);
+            this.addEventsToDay(day, this.events[dateStr], dateStr); // Passer dateStr ici
         }
-
+    
         this.calendarGrid.appendChild(day);
     }
 
-    addEventsToDay(dayCell, dayEvents) {
+    addEventsToDay(dayCell, dayEvents, dateStr) {
         const eventsList = document.createElement('div');
         eventsList.className = 'calendar-events';
-
+    
         dayEvents.forEach(event => {
             const eventElement = document.createElement('div');
             eventElement.className = `calendar-event ${event.category}`;
@@ -552,10 +618,63 @@ class CalendarManager {
                 <div class="event-time">${event.time}</div>
                 <div class="event-title">${event.title}</div>
             `;
+            
+            // Ajouter l'attribut data pour faciliter l'identification de l'événement
+            eventElement.dataset.date = dateStr;
+            eventElement.dataset.title = event.title;
+            eventElement.dataset.time = event.time;
+            
+            // Rendre l'événement cliquable
+            eventElement.style.cursor = 'pointer';
+            eventElement.addEventListener('click', () => this.showEventInListView(event, dateStr));
+            
             eventsList.appendChild(eventElement);
         });
-
+    
         dayCell.appendChild(eventsList);
+    }
+
+    showEventInListView(event, dateStr) {
+        // Basculer vers la vue liste
+        const listViewButton = document.querySelector('button[data-view="list"]');
+        if (listViewButton) {
+            listViewButton.click();
+        }
+        
+        // Attendre que la vue liste soit chargée
+        setTimeout(() => {
+            // Trouver l'élément correspondant dans la vue liste
+            const eventCards = document.querySelectorAll('.event-card');
+            let targetCard = null;
+            
+            eventCards.forEach(card => {
+                const titleElement = card.querySelector('.event-title');
+                const timeElement = card.querySelector('.event-time');
+                
+                if (titleElement && timeElement) {
+                    const cardTitle = titleElement.textContent.trim();
+                    const cardTime = timeElement.textContent.trim();
+                    
+                    if (cardTitle.includes(event.title) && cardTime === event.time) {
+                        targetCard = card;
+                    }
+                }
+            });
+            
+            // Si l'événement est trouvé, faire défiler jusqu'à lui et le mettre en évidence
+            if (targetCard) {
+                // Faire défiler jusqu'à l'événement
+                targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Ajouter une classe pour la mise en évidence temporaire
+                targetCard.classList.add('highlighted-event');
+                
+                // Supprimer la mise en évidence après quelques secondes
+                setTimeout(() => {
+                    targetCard.classList.remove('highlighted-event');
+                }, 3000);
+            }
+        }, 300); // Petit délai pour laisser le temps à la vue liste de se charger
     }
 }
 
@@ -644,7 +763,14 @@ function renderListView() {
             ${event.details ? `
                 <div class="event-details">
                     <ul class="details-list">
-                        ${event.details.map(detail => `<li class="detail-item">${detail}</li>`).join('')}
+                        ${event.details.map(detail => {
+                            if (typeof detail === 'object' && detail.link) {
+                                return `<li class="detail-item"><a href="${detail.link}" style="color: var(--color-accent); text-decoration: underline;">${detail.text}</a></li>`;
+                            } else {
+                                const text = typeof detail === 'object' ? detail.text : detail;
+                                return `<li class="detail-item">${text}</li>`;
+                            }
+                        }).join('')}
                     </ul>
                 </div>
             ` : ''}
