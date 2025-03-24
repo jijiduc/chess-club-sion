@@ -1,6 +1,30 @@
 // Données des actualités
 const news = [
     {
+        date: new Date('2025-03-22T12:00:00'),
+        title: "1ère ronde du CSE 2025",
+        text: `Lors de la 1ère journée du Championnat Suisse par Equipe 2025, Sion 1 s'est incliné 1½:6½ face à Grand Echiquier Lausanne.\n\n` +
+              `Sion 2 s'est également incliné 2-4 face à Montana.\n\n` +
+              `Une première journée difficile pour nos équipes, qui chercheront à se relancer dès la prochaine ronde, le 5 avril.`,
+        icon: "trophy",
+        hasLink: true,
+        link: "cse.html",
+        linkText: "Plus d'informations sur le CSE"
+    },
+    {
+    date: new Date('2025-03-13T12:00:00'),
+        title: "5ème ronde du CVE",
+        text: `Sion 1 c'est imposé 3.5 - 0.5 face à Montana 1.\n\n` +
+              `Une victoire importante pour Sion 1 qui reste dans la course pour la 1ère place de son groupe.\n\n` +
+              `Le score du match n'est cependant pas encore certains, car une procédure est en cours auprès du tribunal de l'UVE.\n\n` +
+              `Sion 2 c'est incliné 1.5 - 2.5 face à Port-Valais.\n\n` +
+              `Avec cette défaite, Sion 2 est désormais dernier de son groupe et devra se gagner lors de la 6ème ronde pour chercher une 3ème place de son groupe.`,
+        icon: "trophy",
+        hasLink: true,
+        link: "cve.html",
+        linkText: "Plus d'informations sur le CVE"
+    },
+    {
         date: new Date('2025-03-01T12:00:00'),
         title: "1er Tournoi fermé des Châteaux",
         text: `Le Club d'Échecs de Sion organise son premier Tournoi fermé des Châteaux du 18 au 20 avril 2025.\n\n` +
@@ -12,50 +36,6 @@ const news = [
         hasLink: true,
         link: "tournoi_chateaux.html",
         linkText: "Plus d'informations et inscriptions"
-    },
-    {
-        date: new Date('2025-02-22T12:00:00'),
-        title: "7ème ronde du CSG",
-        text: `Malgré sa victoire 4.5 - 3.5 face à SG Riehen 1, Valais 1 termine tout de même dernier du classement pour cette saison en 1ère ligue fédérale.
-              Synonyme de relégation, ce résultat verra Valais 1 de retour en 2ème ligue fédérale pour la saison 2026.\n\n` +
-              `Valais 3, qui luttait également pour le maintien, est passé proche d'une correctionnelle, avec une défaite 0.5 - 5.5 face à Lausanne Grand-Echiquier 1.
-              Terminant tout de même avec le meilleur score individuel parmi les 3 équipes du fond de tableau, Valais 3 se sauve d'une relégation et termine antépénultième de son groupe.\n\n` +
-              `La saison 2025 du CSG est donc terminée pour nos équipes, rendez-vous en octobre pour une nouvelle saison.`,
-        icon: "trophy", // Icône pour les compétitions
-        hasLink: true,
-        link: "csg.html",
-        linkText: "Plus d'informations sur le CSG"
-    },
-    {
-        date: new Date('2025-02-08T12:00:00'),
-        title: "6ème ronde du CSG",
-        text: `Valais 1 a perdu 6.5 - 1.5 face à Nyon.\n\n` +
-              `Valais 3 c'est incliné 2.5 - 3.5 face à La Béroche 1, leur rival de fond de classement.\n\n` +
-              `Aucune de nos deux équipes n'est encore sauve d'une relégation, la dernière ronde promet d'être palpitante.`,
-        icon: "trophy", // Icône pour les compétitions
-        hasLink: true,
-        link: "csg.html",
-        linkText: "Plus d'informations sur le CSG"
-    },
-    {
-        date: new Date('2025-01-31T20:00:00'),
-        title: "4ème ronde du CVE",
-        text: `Sion 1 n'a pas réussi à s'imposer face à Sierre 1, résultat 2 - 2.\n\n` +
-              `Sion 2 s'est incliné 0.5 - 3.5 face aux favoris de leur groupe, Martigny 1.`,
-        icon: "trophy",
-        hasLink: true,
-        link: "cve.html",
-        linkText: "Plus d'informations sur le CVE"
-    },
-    {
-        date: new Date('2025-01-25T09:00:00'),
-        title: "Matchs de la 5ème ronde du CSG",
-        text: `Valais 1 a perdu 2.5 - 5.5 face à Kirchberg 1.\n\n` +
-              `Se relançant après 3 défaites consécutives, Valais 3 à pris le meilleur de Neuchâtel 1 sur le score de 3.5 à 2.5.`,
-        icon: "trophy",
-        hasLink: true,
-        link: "csg.html",
-        linkText: "Plus d'informations sur le CSG"
     },
 ];
 

@@ -167,14 +167,6 @@ const events = {
     ],
     "2025-03-29": [
         {
-            time: "09h00 - 11h45",
-            title: "École d'échecs UVE",
-            category: "formation",
-            hasLink: true,
-            link: "https://www.uve-wsb.ch/accueil-uve-wsb/informations/66-ecole-d-echecs-de-l-uve",
-            details: ["à Sierre"]
-        },
-        {
             time: "13h15 - 18h00",
             title: "5ème Tournoi du Grand Prix Jeunes",
             category: "competition",
@@ -227,7 +219,7 @@ const events = {
             category: "competition",
             details: [
                 {text: "tournoi fermé des châteaux", link: "tournoi_chateaux.html"},
-                "9h00 : 4ème ronde", 
+                "9h00 : 4ème ronde",
                 "14h00 : 5ème ronde"
             ]
         }
@@ -262,7 +254,7 @@ const events = {
             category: "competition",
             details: [
                 {text: "championnat suisse par équipes", link: "cse.html"},
-                "Sion 1 - Neuchâtel 1", 
+                "Sion 1 - Neuchâtel 1",
                 "Valais 2 - Sion 2"
             ]
         }

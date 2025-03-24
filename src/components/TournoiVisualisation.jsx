@@ -1,11 +1,113 @@
-// TournoiVisualisation.jsx
+// Import des données des membres au début du fichier
+import { membresData } from '../../js/member-data.js';
 import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 
+// Fonction pour mettre à jour les données Elo
+const mettreAJourElo = (joueurs) => {
+    // Copie profonde de l'array des joueurs pour éviter de modifier l'original directement
+    const joueursAJour = JSON.parse(JSON.stringify(joueurs));
+    
+    // Parcourir tous les joueurs du tournoi
+    joueursAJour.forEach(joueur => {
+        // Fonction pour trouver une correspondance dans les données des membres
+        const trouverJoueurDansMembres = () => {
+            // Parcourir toutes les catégories de membres
+            for (const categorie of membresData.categories) {
+                // Chercher dans chaque joueur de la catégorie
+                for (const membre of categorie.players) {
+                    // Comparer les noms (en prenant en compte les différents formats)
+                    // Extraire nom/prénom du joueur du tournoi
+                    const nomComplet = joueur.nom;
+                    const partiesNom = nomComplet.split(' ');
+                    
+                    // Cas où le nom est "Nom Prénom"
+                    if (partiesNom.length === 2) {
+                        const [nomJoueur, prenomJoueur] = partiesNom;
+                        // Vérifier la correspondance directe
+                        if (membre.nom.toLowerCase() === nomJoueur.toLowerCase() && 
+                            membre.prenom.toLowerCase().startsWith(prenomJoueur.toLowerCase())) {
+                            return membre;
+                        }
+                    }
+                    
+                    // Cas où le nom est "Prénom Nom"
+                    if (partiesNom.length === 2) {
+                        const [prenomJoueur, nomJoueur] = partiesNom;
+                        // Vérifier la correspondance inversée
+                        if (membre.nom.toLowerCase() === nomJoueur.toLowerCase() && 
+                            membre.prenom.toLowerCase().startsWith(prenomJoueur.toLowerCase())) {
+                            return membre;
+                        }
+                    }
+                    
+                    // Cas spécial pour les noms composés
+                    if (membre.nom.toLowerCase() + " " + membre.prenom.toLowerCase() === nomComplet.toLowerCase() ||
+                        membre.prenom.toLowerCase() + " " + membre.nom.toLowerCase() === nomComplet.toLowerCase()) {
+                        return membre;
+                    }
+                    
+                    // Vérification par recherche partielle
+                    if (nomComplet.toLowerCase().includes(membre.nom.toLowerCase())) {
+                        return membre;
+                    }
+                }
+            }
+            return null;
+        };
+        
+        // Chercher le joueur dans les membres
+        const membreCorrespondant = trouverJoueurDansMembres();
+        
+        // Si une correspondance est trouvée, mettre à jour l'Elo
+        if (membreCorrespondant) {
+            joueur.elo = membreCorrespondant.elo;
+            console.log(`Mise à jour de l'Elo pour ${joueur.nom}: ${joueur.elo}`);
+        }
+    });
+    
+    return joueursAJour;
+};
+
 // Composant principal pour visualiser le tournoi
 const TournoiVisualisation = () => {
+    // Injecter le CSS minimal
+    useEffect(() => {
+        const injectCSS = `
+            /* Couleur blanche pour tous les en-têtes de tableau */
+            .tournament-table th,
+            .results-table th,
+            .bg-gray-800 th,
+            thead.bg-gray-800 tr th {
+                color: white !important;
+            }
+            
+            /* Assurer que tous les en-têtes de colonnes numérotées sont blancs */
+            .tournament-table th:nth-child(n+8) {
+                color: white !important;
+            }
+            
+            /* Amélioration discrète des boutons de navigation */
+            .bg-gray-800.p-4.rounded-md button {
+                color: white !important;
+            }
+        `;
+        
+        // Créer et ajouter un élément style
+        const style = document.createElement('style');
+        style.type = 'text/css';
+        style.appendChild(document.createTextNode(injectCSS));
+        document.head.appendChild(style);
+        
+        // Nettoyer lors du démontage
+        return () => {
+            if (style.parentNode) {
+                document.head.removeChild(style);
+            }
+        };
+    }, []);
     // Données du tournoi - définies avant les états pour pouvoir les utiliser dans l'initialisation
-    const tournoiData = {
+    const tournoiDataInitial = {
         info: {
             titre: "Tournoi Interne 2025",
             format: [
@@ -66,15 +168,31 @@ const TournoiVisualisation = () => {
             },
             {
                 numero: 4,
-                statut: "en cours",
+                statut: "terminée",
                 appariements: [
                     { table: 1, blanc: 4, noir: 1, resultat: "0-1" },
-                    { table: 2, blanc: 2, noir: 3, resultat: null },
+                    { table: 2, blanc: 2, noir: 3, resultat: "0-1"},
                     { table: 3, blanc: 7, noir: 6, resultat: "0-1" },
                     { table: 4, blanc: 8, noir: 5, resultat: "0-1" }
                 ]
+            },
+            {
+                numero: 5,
+                statut: "en cours",
+                appariements: [
+                    { table: 1, blanc: 1, noir: 6, resultat: null },
+                    { table: 2, blanc: 5, noir: 4, resultat: null },
+                    { table: 3, blanc: 3, noir: 8, resultat: null },
+                    { table: 4, blanc: 7, noir: 2, resultat: null }
+                ]
             }
         ]
+    };
+
+    // Mettre à jour les Elo des joueurs à partir des données membres
+    const tournoiData = {
+        ...tournoiDataInitial,
+        joueurs: mettreAJourElo(tournoiDataInitial.joueurs)
     };
 
     // Fonction pour déterminer la ronde active par défaut
@@ -352,6 +470,7 @@ const TournoiVisualisation = () => {
                     onClick={() => setRondeActive(prev => Math.max(1, prev - 1))}
                     className="text-white px-3 py-1 bg-red-700 rounded hover:bg-red-800"
                     disabled={rondeActive === 1}
+                    aria-label="Ronde précédente"
                 >
                     &lt;
                 </button>
@@ -363,6 +482,7 @@ const TournoiVisualisation = () => {
                         className={`px-3 py-1 rounded ${rondeActive === ronde.numero
                             ? 'bg-red-600 text-white'
                             : 'bg-gray-700 text-white hover:bg-gray-600'}`}
+                        aria-label={`Ronde ${ronde.numero}`}
                     >
                         {ronde.numero}
                     </button>
@@ -372,6 +492,7 @@ const TournoiVisualisation = () => {
                     onClick={() => setRondeActive(prev => Math.min(donnees.rondes.length, prev + 1))}
                     className="text-white px-3 py-1 bg-red-700 rounded hover:bg-red-800"
                     disabled={rondeActive === donnees.rondes.length}
+                    aria-label="Ronde suivante"
                 >
                     &gt;
                 </button>
@@ -386,10 +507,12 @@ const TournoiVisualisation = () => {
 
         return (
             <div className="bg-gray-100 rounded-lg shadow-md p-4">
-                <h3 className="text-xl font-bold text-red-600 mb-4 text-center">Ronde {rondeObj.numero} {rondeObj.statut === "en cours" ? "(en cours)" : ""}</h3>
+                <h3 className="text-xl font-bold text-red-600 mb-4 text-center">
+                    Ronde {rondeObj.numero} {rondeObj.statut === "en cours" ? "(en cours)" : ""}
+                </h3>
 
                 <div className="overflow-x-auto">
-                    <table className="w-full">
+                    <table className="w-full results-table">
                         <thead className="bg-gray-800 text-white">
                             <tr>
                                 <th className="py-2 px-4 text-left">#</th>
@@ -453,7 +576,7 @@ const TournoiVisualisation = () => {
                 <h3 className="text-xl font-bold text-red-600 mb-4 text-center">Classement général</h3>
 
                 <div className="overflow-x-auto">
-                    <table className="w-full">
+                    <table className="w-full tournament-table">
                         <thead className="bg-gray-800 text-white">
                             <tr>
                                 <th className="py-2 px-2 text-center">#</th>
@@ -465,7 +588,7 @@ const TournoiVisualisation = () => {
                                 <th className="py-2 px-2 text-center">TB2</th>
                                 {/* Remplacer les IDs des joueurs par leur position dans le classement (de 1 à 8) */}
                                 {Array.from({ length: scores.length }, (_, index) => (
-                                    <th key={index} className="py-2 px-2 text-center">{index + 1}</th>
+                                    <th key={index} className="py-2 px-2 text-center column-number">{index + 1}</th>
                                 ))}
                             </tr>
                         </thead>
