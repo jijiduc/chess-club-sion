@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   entry: {
     tournoi: './src/components/TournoiVisualisation.jsx',
-    cse: './src/components/CSEVisualisation.jsx'  // Add new entry point for CSE
+    cse: './src/components/CSEVisualisation.jsx'
   },
   output: {
     filename: '[name].bundle.js',
@@ -27,14 +27,16 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.csv$/,
+        use: 'raw-loader'
       }
     ]
   },
   resolve: {
     extensions: ['.js', '.jsx']
   },
-  // Pour le débogage pendant le développement
   devtool: process.env.NODE_ENV === 'development' ? 'source-map' : false,
-  // Mode peut être défini via la ligne de commande
   mode: process.env.NODE_ENV || 'production'
 };
