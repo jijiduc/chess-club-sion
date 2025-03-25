@@ -1,0 +1,33 @@
+matchId,boardNumber,homePlayer,homeRating,result,awayPlayer,awayRating
+1,1,Dominique Li,2292,1-0,Robin Voland,2057
+1,2,Richard Gerber,2233,1-0,Bertrand Banderet,1942
+1,3,Laurent Geiser,2210,0-1,Roland Hauser,2026
+1,4,Daniel Chiriac,2075,1-0,Hassan Roger Sadeghi,2098
+1,5,Christophe Rivaud,1986,0-1,Roman Tkhoruk,1896
+1,6,Tiziano Frei,1920,1-0,Jason Weber,1838
+1,7,Jeremy Broome,1885,½-½,Luca Srdjenovic,1882
+1,8,Hugo Jelicic,1894,1-0,Mohamad Al-Dourobi,1770
+2,1,Ludovic Zaza,2140,½-½,Lindo Duratti,2134
+2,2,Jean-Daniel Delacroix,1938,0-1,Nicolas Perréard,2033
+2,3,Alexan Floure,1913,0-1,Jan Steenhuis,2057
+2,4,Jean-Paul Moret,1969,½-½,Steve Monthoux,2013
+2,5,Xavier Perruchoud,1898,½-½,Colin Cordey,1951
+2,6,Jacob Planchamp,1964,½-½,Stéphane Coletta,1928
+2,7,Pierre Perruchoud,1890,½-½,Julien Coletta,1829
+2,8,Fabrice Lovey,1821,1-0,N.N.,
+3,1,Flavien Sola,2167,0-1,Guillaume Chauvon,2076
+3,2,Vlad Popescu,1990,0-1,Ferran Rocamora Martorell,2126
+3,3,Pierre-M. Rappaz,1933,½-½,Jonathan Jaccard,1949
+3,4,Jean-Yves Riand,1877,½-½,Jean-Manuel Segura,2066
+3,5,Max Chappaz,1904,0-1,Sébastien Vasey,1956
+3,6,Yves Roduit,1910,0-1,Vincent Conrad,1904
+3,7,Olivier Ulmann,1788,0-1,Pierpaolo Ranieri,1893
+3,8,Jeremy Duc,1829,½-½,Mathis Soubeyrand,1547
+4,1,Igor Yarmonov,2342,0-1,Sylvain Julmy,2179
+4,2,Jörg Brauchli,1915,½-½,Yves Deschenaux,2121
+4,3,Hansjürg Känel,2226,½-½,Salvatore Cruceli,2083
+4,4,Marc Tillmann,1921,0-1,Joseph Edoecs,2035
+4,5,Mike Jäger,2114,1-0,Bernard Deschenaux,2002
+4,6,Martin Hess,1905,0-1,Thierry Bonferroni,1965
+4,7,Thomas Mani,1949,0-1,Achim Schneuwly,1943
+4,8,Nahom Demoz,1738,0-1,Marius Cornée,1894

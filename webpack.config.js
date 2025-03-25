@@ -2,7 +2,8 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    tournoi: './src/components/TournoiVisualisation.jsx'
+    tournoi: './src/components/TournoiVisualisation.jsx',
+    cse: './src/components/CSEVisualisation.jsx'  // Add new entry point for CSE
   },
   output: {
     filename: '[name].bundle.js',
@@ -32,7 +33,6 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx']
   },
-  // Ne PAS ajouter de configuration externals ici pour que React soit inclus dans le bundle
   // Pour le débogage pendant le développement
   devtool: process.env.NODE_ENV === 'development' ? 'source-map' : false,
   // Mode peut être défini via la ligne de commande
