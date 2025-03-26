@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
@@ -26,17 +27,32 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader'
+        ]
       },
       {
         test: /\.csv$/,
         use: 'raw-loader'
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/images/[name][ext]'
+        }
       }
     ]
   },
   resolve: {
     extensions: ['.js', '.jsx']
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css',
+    })
+  ],
   devtool: process.env.NODE_ENV === 'development' ? 'source-map' : false,
   mode: process.env.NODE_ENV || 'production'
 };
