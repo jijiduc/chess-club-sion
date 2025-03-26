@@ -1,5 +1,4 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./node_modules/react-dom/cjs/react-dom.development.js":
@@ -8,6 +7,7 @@
   \*************************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+"use strict";
 /**
  * @license React
  * react-dom.development.js
@@ -29936,6 +29936,7 @@ if (
   \******************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+"use strict";
 
 
 var m = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
@@ -29968,6 +29969,7 @@ if (false) {} else {
   \*****************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 function checkDCE() {
@@ -30011,6 +30013,7 @@ if (false) {} else {
   \*****************************************************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
+"use strict";
 /**
  * @license React
  * react-jsx-runtime.development.js
@@ -31354,6 +31357,7 @@ exports.jsxs = jsxs;
   \*****************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
+"use strict";
 /* module decorator */ module = __webpack_require__.nmd(module);
 /**
  * @license React
@@ -34105,6 +34109,7 @@ if (
   \*************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 if (false) {} else {
@@ -34120,6 +34125,7 @@ if (false) {} else {
   \*******************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 if (false) {} else {
@@ -34135,6 +34141,7 @@ if (false) {} else {
   \*************************************************************/
 /***/ ((__unused_webpack_module, exports) => {
 
+"use strict";
 /**
  * @license React
  * scheduler.development.js
@@ -34779,6 +34786,7 @@ if (
   \*****************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
+"use strict";
 
 
 if (false) {} else {
@@ -34788,19 +34796,20 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./src/components/CSEVisualization.jsx":
-/*!*********************************************!*\
-  !*** ./src/components/CSEVisualization.jsx ***!
-  \*********************************************/
+/***/ "./src/components/CSEVisualization/index.jsx":
+/*!***************************************************!*\
+  !*** ./src/components/CSEVisualization/index.jsx ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _dataManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dataManager */ "./src/components/dataManager.js");
+/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../data */ "./src/data/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
@@ -34878,12 +34887,12 @@ var CSEVisualization = function CSEVisualization() {
               setLoading(true);
               _context.prev = 1;
               // Get team info
-              info = _dataManager__WEBPACK_IMPORTED_MODULE_1__["default"].getTeamInfo(selectedTeam.id);
+              info = _data__WEBPACK_IMPORTED_MODULE_1__["default"].getTeamInfo(selectedTeam.id);
               setTeamInfo(info);
 
               // Load round data
               _context.next = 6;
-              return _dataManager__WEBPACK_IMPORTED_MODULE_1__["default"].loadRoundData(currentRound);
+              return _data__WEBPACK_IMPORTED_MODULE_1__["default"].loadRoundData(currentRound);
             case 6:
               roundData = _context.sent;
               // Get rankings for this league
@@ -34895,8 +34904,8 @@ var CSEVisualization = function CSEVisualization() {
               }); // Add team names to matches
               enhancedMatches = teamMatches.map(function (match) {
                 return _objectSpread(_objectSpread({}, match), {}, {
-                  homeTeam: _dataManager__WEBPACK_IMPORTED_MODULE_1__["default"].getTeamName(match.homeTeamId),
-                  awayTeam: _dataManager__WEBPACK_IMPORTED_MODULE_1__["default"].getTeamName(match.awayTeamId)
+                  homeTeam: _data__WEBPACK_IMPORTED_MODULE_1__["default"].getTeamName(match.homeTeamId),
+                  awayTeam: _data__WEBPACK_IMPORTED_MODULE_1__["default"].getTeamName(match.awayTeamId)
                 });
               });
               setMatches(enhancedMatches);
@@ -34942,7 +34951,7 @@ var CSEVisualization = function CSEVisualization() {
             case 2:
               _context2.prev = 2;
               _context2.next = 5;
-              return _dataManager__WEBPACK_IMPORTED_MODULE_1__["default"].loadRoundData(currentRound);
+              return _data__WEBPACK_IMPORTED_MODULE_1__["default"].loadRoundData(currentRound);
             case 5:
               roundData = _context2.sent;
               matchBoards = roundData.boards.filter(function (b) {
@@ -35103,7 +35112,7 @@ var CSEVisualization = function CSEVisualization() {
                   children: rank.rank
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
                   className: "px-4 py-2",
-                  children: _dataManager__WEBPACK_IMPORTED_MODULE_1__["default"].getTeamName(rank.teamId)
+                  children: _data__WEBPACK_IMPORTED_MODULE_1__["default"].getTeamName(rank.teamId)
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
                   className: "px-4 py-2 text-center",
                   children: rank.matchPoints
@@ -35265,31 +35274,21 @@ var CSEVisualization = function CSEVisualization() {
 
 /***/ }),
 
-/***/ "./src/components/dataManager.js":
-/*!***************************************!*\
-  !*** ./src/components/dataManager.js ***!
-  \***************************************/
+/***/ "./src/data/constants.js":
+/*!*******************************!*\
+  !*** ./src/data/constants.js ***!
+  \*******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   LEAGUES: () => (/* binding */ LEAGUES),
+/* harmony export */   ROUNDS_INFO: () => (/* binding */ ROUNDS_INFO),
+/* harmony export */   TEAMS: () => (/* binding */ TEAMS)
 /* harmony export */ });
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
-function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
-function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
-function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
-function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
-function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
-function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
-function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
-// dataManager.js
+// src/data/constants.js - Static data constants
 
-// Données statiques
 var LEAGUES = [{
   id: 1,
   name: "1ère ligue"
@@ -35368,431 +35367,82 @@ var TEAMS = [
 }];
 var ROUNDS_INFO = [{
   id: 1,
-  date: "2023-09-15",
+  date: "2025-03-22",
   roundNumber: 1
 }, {
   id: 2,
-  date: "2023-10-20",
+  date: "2025-04-05",
   roundNumber: 2
 }, {
   id: 3,
-  date: "2023-11-17",
+  date: "2025-04-26",
   roundNumber: 3
 }, {
   id: 4,
-  date: "2023-12-15",
+  date: "2025-05-17",
   roundNumber: 4
 }, {
   id: 5,
-  date: "2024-01-19",
+  date: "2025-06-21",
   roundNumber: 5
 }, {
   id: 6,
-  date: "2024-02-16",
+  date: "2025-08-23",
   roundNumber: 6
 }, {
   id: 7,
-  date: "2024-03-22",
+  date: "2025-10-13",
   roundNumber: 7
 }];
 
-// Cache pour les données des rondes
+/***/ }),
+
+/***/ "./src/data/index.js":
+/*!***************************!*\
+  !*** ./src/data/index.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./constants */ "./src/data/constants.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t["return"] || t["return"](); } finally { if (u) throw o; } } }; }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+// src/data/index.js - Central data management for the chess visualization
+
+
+// Cache for round data
 var roundsCache = {};
-
-// Exemple de données pour la ronde 1 (normalement dans un fichier séparé)
-var round1Data = {
-  matches: [
-  // 1ère ligue
-  {
-    id: 1,
-    roundId: 1,
-    homeTeamId: 2,
-    // Genève 2
-    awayTeamId: 3,
-    // Neuchâtel 1
-    score: "5½-2½"
-  }, {
-    id: 2,
-    roundId: 1,
-    homeTeamId: 4,
-    // Valais 1
-    awayTeamId: 5,
-    // Echallens 2
-    score: "3½-4½"
-  }, {
-    id: 3,
-    roundId: 1,
-    homeTeamId: 1,
-    // Sion 1
-    awayTeamId: 6,
-    // Grand Echiquier 1
-    score: "1½-6½"
-  }, {
-    id: 4,
-    roundId: 1,
-    homeTeamId: 7,
-    // Köniz-Bubenberg 1
-    awayTeamId: 8,
-    // Fribourg 1
-    score: "2-6"
-  },
-  // 3ème ligue
-  {
-    id: 5,
-    roundId: 1,
-    homeTeamId: 10,
-    // Grand Echiquier 2
-    awayTeamId: 11,
-    // Monthey 1
-    score: "1-5"
-  }, {
-    id: 6,
-    roundId: 1,
-    homeTeamId: 9,
-    // Sion 2
-    awayTeamId: 12,
-    // Crans-Montana 2
-    score: "2-4"
-  }, {
-    id: 7,
-    roundId: 1,
-    homeTeamId: 13,
-    // Valais 2
-    awayTeamId: 14,
-    // Bulle 3
-    score: "5-1"
-  }, {
-    id: 8,
-    roundId: 1,
-    homeTeamId: 15,
-    // Crazy Horse 1
-    awayTeamId: 16,
-    // Payerne 2
-    score: "3½-2½"
-  }],
-  boards: [
-  // Match 1: Genève 2 vs Neuchâtel 1
-  {
-    matchId: 1,
-    boardNumber: 1,
-    homePlayer: "Dominique Li",
-    homeRating: 2292,
-    result: "1-0",
-    awayPlayer: "Robin Voland",
-    awayRating: 2057
-  }, {
-    matchId: 1,
-    boardNumber: 2,
-    homePlayer: "Richard Gerber",
-    homeRating: 2233,
-    result: "1-0",
-    awayPlayer: "Bertrand Banderet",
-    awayRating: 1942
-  }, {
-    matchId: 1,
-    boardNumber: 3,
-    homePlayer: "Laurent Geiser",
-    homeRating: 2210,
-    result: "0-1",
-    awayPlayer: "Roland Hauser",
-    awayRating: 2026
-  }, {
-    matchId: 1,
-    boardNumber: 4,
-    homePlayer: "Daniel Chiriac",
-    homeRating: 2075,
-    result: "1-0",
-    awayPlayer: "Hassan Roger Sadeghi",
-    awayRating: 2098
-  }, {
-    matchId: 1,
-    boardNumber: 5,
-    homePlayer: "Christophe Rivaud",
-    homeRating: 1986,
-    result: "0-1",
-    awayPlayer: "Roman Tkhoruk",
-    awayRating: 1896
-  }, {
-    matchId: 1,
-    boardNumber: 6,
-    homePlayer: "Tiziano Frei",
-    homeRating: 1920,
-    result: "1-0",
-    awayPlayer: "Jason Weber",
-    awayRating: 1838
-  }, {
-    matchId: 1,
-    boardNumber: 7,
-    homePlayer: "Jeremy Broome",
-    homeRating: 1885,
-    result: "½-½",
-    awayPlayer: "Luca Srdjenovic",
-    awayRating: 1882
-  }, {
-    matchId: 1,
-    boardNumber: 8,
-    homePlayer: "Hugo Jelicic",
-    homeRating: 1894,
-    result: "1-0",
-    awayPlayer: "Mohamad Al-Dourobi",
-    awayRating: 1770
-  },
-  // Match 2: Valais 1 vs Echallens 2
-  {
-    matchId: 2,
-    boardNumber: 1,
-    homePlayer: "Ludovic Zaza",
-    homeRating: 2140,
-    result: "½-½",
-    awayPlayer: "Lindo Duratti",
-    awayRating: 2134
-  },
-  // ... autres parties du match 2
-
-  // Match 3: Sion 1 vs Grand Echiquier 1
-  {
-    matchId: 3,
-    boardNumber: 1,
-    homePlayer: "Flavien Sola",
-    homeRating: 2167,
-    result: "0-1",
-    awayPlayer: "Guillaume Chauvon",
-    awayRating: 2076
-  }, {
-    matchId: 3,
-    boardNumber: 2,
-    homePlayer: "Vlad Popescu",
-    homeRating: 1990,
-    result: "0-1",
-    awayPlayer: "Ferran Rocamora Martorell",
-    awayRating: 2126
-  }, {
-    matchId: 3,
-    boardNumber: 3,
-    homePlayer: "Pierre-M. Rappaz",
-    homeRating: 1933,
-    result: "½-½",
-    awayPlayer: "Jonathan Jaccard",
-    awayRating: 1949
-  }, {
-    matchId: 3,
-    boardNumber: 4,
-    homePlayer: "Jean-Yves Riand",
-    homeRating: 1877,
-    result: "½-½",
-    awayPlayer: "Jean-Manuel Segura",
-    awayRating: 2066
-  }, {
-    matchId: 3,
-    boardNumber: 5,
-    homePlayer: "Max Chappaz",
-    homeRating: 1904,
-    result: "0-1",
-    awayPlayer: "Sébastien Vasey",
-    awayRating: 1956
-  }, {
-    matchId: 3,
-    boardNumber: 6,
-    homePlayer: "Yves Roduit",
-    homeRating: 1910,
-    result: "0-1",
-    awayPlayer: "Vincent Conrad",
-    awayRating: 1904
-  }, {
-    matchId: 3,
-    boardNumber: 7,
-    homePlayer: "Olivier Ulmann",
-    homeRating: 1788,
-    result: "0-1",
-    awayPlayer: "Pierpaolo Ranieri",
-    awayRating: 1893
-  }, {
-    matchId: 3,
-    boardNumber: 8,
-    homePlayer: "Jeremy Duc",
-    homeRating: 1829,
-    result: "½-½",
-    awayPlayer: "Mathis Soubeyrand",
-    awayRating: 1547
-  },
-  // ... autres matches et parties
-
-  // Match 6: Sion 2 vs Crans-Montana 2
-  {
-    matchId: 6,
-    boardNumber: 1,
-    homePlayer: "Alexandre Briguet",
-    homeRating: 1828,
-    result: "0-1",
-    awayPlayer: "Alessandro Bonalli",
-    awayRating: 1621
-  }, {
-    matchId: 6,
-    boardNumber: 2,
-    homePlayer: "Olivier Crettenand",
-    homeRating: 1826,
-    result: "1-0",
-    awayPlayer: "Timur Gökok",
-    awayRating: null
-  }, {
-    matchId: 6,
-    boardNumber: 3,
-    homePlayer: "Mazlum Tosun",
-    homeRating: 1689,
-    result: "1-0",
-    awayPlayer: "Hervé Frainay",
-    awayRating: 1561
-  }, {
-    matchId: 6,
-    boardNumber: 4,
-    homePlayer: "Sandro Bétrisey",
-    homeRating: 1745,
-    result: "0-1",
-    awayPlayer: "Luc Udry",
-    awayRating: 1523
-  }, {
-    matchId: 6,
-    boardNumber: 5,
-    homePlayer: "Akram Ben Salem",
-    homeRating: null,
-    result: "0-1",
-    awayPlayer: "Jean-Claude Zermatten",
-    awayRating: 1559
-  }, {
-    matchId: 6,
-    boardNumber: 6,
-    homePlayer: "Florian Clavien",
-    homeRating: null,
-    result: "0-1",
-    awayPlayer: "Claude-Alain Bonvin",
-    awayRating: 1629
-  }
-
-  // ... autres parties pour les autres matches
-  ],
-  rankings: {
-    1: [
-    // 1ère ligue
-    {
-      rank: 1,
-      teamId: 6,
-      matchPoints: 2,
-      gamePoints: "6½"
-    }, {
-      rank: 2,
-      teamId: 8,
-      matchPoints: 2,
-      gamePoints: "6"
-    }, {
-      rank: 3,
-      teamId: 2,
-      matchPoints: 2,
-      gamePoints: "5½"
-    }, {
-      rank: 4,
-      teamId: 5,
-      matchPoints: 2,
-      gamePoints: "4½"
-    }, {
-      rank: 5,
-      teamId: 4,
-      matchPoints: 0,
-      gamePoints: "3½"
-    }, {
-      rank: 6,
-      teamId: 3,
-      matchPoints: 0,
-      gamePoints: "2½"
-    }, {
-      rank: 7,
-      teamId: 7,
-      matchPoints: 0,
-      gamePoints: "2"
-    }, {
-      rank: 8,
-      teamId: 1,
-      matchPoints: 0,
-      gamePoints: "1½"
-    }],
-    2: [
-    // 3ème ligue
-    {
-      rank: 1,
-      teamId: 11,
-      matchPoints: 2,
-      gamePoints: "5"
-    }, {
-      rank: 1,
-      teamId: 13,
-      matchPoints: 2,
-      gamePoints: "5"
-    }, {
-      rank: 3,
-      teamId: 12,
-      matchPoints: 2,
-      gamePoints: "4"
-    }, {
-      rank: 4,
-      teamId: 15,
-      matchPoints: 2,
-      gamePoints: "3½"
-    }, {
-      rank: 5,
-      teamId: 16,
-      matchPoints: 0,
-      gamePoints: "2½"
-    }, {
-      rank: 6,
-      teamId: 9,
-      matchPoints: 0,
-      gamePoints: "2"
-    }, {
-      rank: 7,
-      teamId: 14,
-      matchPoints: 0,
-      gamePoints: "1"
-    }, {
-      rank: 7,
-      teamId: 10,
-      matchPoints: 0,
-      gamePoints: "1"
-    }]
-  }
-};
-
-// Exemple de données pour la ronde 2 (ajoutez vos propres données dans le même format)
-var round2Data = {
-  matches: [
-    // Ajouter les matches de la ronde 2
-  ],
-  boards: [
-    // Ajouter les parties de la ronde 2
-  ],
-  rankings: {
-    1: [
-      // Classement de la ronde 2 pour la ligue 1
-    ],
-    2: [
-      // Classement de la ronde 2 pour la ligue 2
-    ]
-  }
-};
-
-// Gestionnaire de données d'échecs
 var ChessDataManager = /*#__PURE__*/function () {
   function ChessDataManager() {
     _classCallCheck(this, ChessDataManager);
-    this.leagues = LEAGUES;
-    this.teams = TEAMS;
-    this.roundsInfo = ROUNDS_INFO;
-
-    // Pré-charger la ronde 1 dans le cache
-    roundsCache[1] = round1Data;
-    roundsCache[2] = round2Data;
+    this.leagues = _constants__WEBPACK_IMPORTED_MODULE_0__.LEAGUES;
+    this.teams = _constants__WEBPACK_IMPORTED_MODULE_0__.TEAMS;
+    this.roundsInfo = _constants__WEBPACK_IMPORTED_MODULE_0__.ROUNDS_INFO;
   }
 
   /**
-   * Obtenir les informations sur une équipe
+   * Get team information by ID
    */
   return _createClass(ChessDataManager, [{
     key: "getTeamInfo",
@@ -35810,7 +35460,7 @@ var ChessDataManager = /*#__PURE__*/function () {
     }
 
     /**
-     * Obtenir le nom d'une équipe par son ID
+     * Get team name by ID
      */
   }, {
     key: "getTeamName",
@@ -35822,12 +35472,13 @@ var ChessDataManager = /*#__PURE__*/function () {
     }
 
     /**
-     * Charger les données d'une ronde
+     * Load round data (with caching)
      */
   }, {
     key: "loadRoundData",
     value: (function () {
       var _loadRoundData = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(roundNumber) {
+        var module;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) switch (_context.prev = _context.next) {
             case 0:
@@ -35837,22 +35488,29 @@ var ChessDataManager = /*#__PURE__*/function () {
               }
               return _context.abrupt("return", roundsCache[roundNumber]);
             case 2:
-              // Dans une implémentation réelle, charger depuis un fichier externe
-              // Pour cet exemple, retourner des données vides si la ronde n'est pas dans le cache
-              console.log("Donn\xE9es pour la ronde ".concat(roundNumber, " non disponibles"));
+              _context.prev = 2;
+              _context.next = 5;
+              return __webpack_require__("./src/data/rounds lazy recursive ^\\.\\/round.*\\.js$")("./round".concat(roundNumber, ".js"));
+            case 5:
+              module = _context.sent;
+              roundsCache[roundNumber] = module["default"];
+              return _context.abrupt("return", module["default"]);
+            case 10:
+              _context.prev = 10;
+              _context.t0 = _context["catch"](2);
+              console.error("Error loading round ".concat(roundNumber, ":"), _context.t0);
+
+              // Fallback to empty data structure
               return _context.abrupt("return", {
                 matches: [],
                 boards: [],
-                rankings: {
-                  1: [],
-                  2: []
-                }
+                rankings: {}
               });
-            case 4:
+            case 14:
             case "end":
               return _context.stop();
           }
-        }, _callee);
+        }, _callee, null, [[2, 10]]);
       }));
       function loadRoundData(_x) {
         return _loadRoundData.apply(this, arguments);
@@ -35860,24 +35518,174 @@ var ChessDataManager = /*#__PURE__*/function () {
       return loadRoundData;
     }()
     /**
-     * Créer une structure pour une nouvelle ronde
+     * Get the latest rankings for a league
      */
     )
   }, {
-    key: "createRoundTemplate",
-    value: function createRoundTemplate(roundNumber) {
-      return {
-        matches: [],
-        boards: [],
-        rankings: {
-          1: [],
-          2: []
-        }
-      };
-    }
+    key: "getLatestRankings",
+    value: (function () {
+      var _getLatestRankings = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2(leagueId) {
+        var i, round;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              i = 7;
+            case 1:
+              if (!(i >= 1)) {
+                _context2.next = 10;
+                break;
+              }
+              _context2.next = 4;
+              return this.loadRoundData(i);
+            case 4:
+              round = _context2.sent;
+              if (!(round && round.rankings && round.rankings[leagueId])) {
+                _context2.next = 7;
+                break;
+              }
+              return _context2.abrupt("return", round.rankings[leagueId]);
+            case 7:
+              i--;
+              _context2.next = 1;
+              break;
+            case 10:
+              return _context2.abrupt("return", []);
+            case 11:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2, this);
+      }));
+      function getLatestRankings(_x2) {
+        return _getLatestRankings.apply(this, arguments);
+      }
+      return getLatestRankings;
+    }()
+    /**
+     * Get all matches for a team across all rounds
+     */
+    )
+  }, {
+    key: "getAllTeamMatches",
+    value: (function () {
+      var _getAllTeamMatches = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee3(teamId) {
+        var _this = this;
+        var allMatches, _iterator, _step, _loop;
+        return _regeneratorRuntime().wrap(function _callee3$(_context4) {
+          while (1) switch (_context4.prev = _context4.next) {
+            case 0:
+              allMatches = [];
+              _iterator = _createForOfIteratorHelper(this.roundsInfo);
+              _context4.prev = 2;
+              _loop = /*#__PURE__*/_regeneratorRuntime().mark(function _loop() {
+                var round, roundData, matches, enhancedMatches;
+                return _regeneratorRuntime().wrap(function _loop$(_context3) {
+                  while (1) switch (_context3.prev = _context3.next) {
+                    case 0:
+                      round = _step.value;
+                      _context3.next = 3;
+                      return _this.loadRoundData(round.roundNumber);
+                    case 3:
+                      roundData = _context3.sent;
+                      if (!(!roundData || !roundData.matches)) {
+                        _context3.next = 6;
+                        break;
+                      }
+                      return _context3.abrupt("return", 1);
+                    case 6:
+                      matches = roundData.matches.filter(function (m) {
+                        return m.homeTeamId === teamId || m.awayTeamId === teamId;
+                      });
+                      enhancedMatches = matches.map(function (match) {
+                        return _objectSpread(_objectSpread({}, match), {}, {
+                          roundNumber: round.roundNumber,
+                          roundDate: round.date,
+                          homeTeam: _this.getTeamName(match.homeTeamId),
+                          awayTeam: _this.getTeamName(match.awayTeamId)
+                        });
+                      });
+                      allMatches.push.apply(allMatches, _toConsumableArray(enhancedMatches));
+                    case 9:
+                    case "end":
+                      return _context3.stop();
+                  }
+                }, _loop);
+              });
+              _iterator.s();
+            case 5:
+              if ((_step = _iterator.n()).done) {
+                _context4.next = 11;
+                break;
+              }
+              return _context4.delegateYield(_loop(), "t0", 7);
+            case 7:
+              if (!_context4.t0) {
+                _context4.next = 9;
+                break;
+              }
+              return _context4.abrupt("continue", 9);
+            case 9:
+              _context4.next = 5;
+              break;
+            case 11:
+              _context4.next = 16;
+              break;
+            case 13:
+              _context4.prev = 13;
+              _context4.t1 = _context4["catch"](2);
+              _iterator.e(_context4.t1);
+            case 16:
+              _context4.prev = 16;
+              _iterator.f();
+              return _context4.finish(16);
+            case 19:
+              return _context4.abrupt("return", allMatches);
+            case 20:
+            case "end":
+              return _context4.stop();
+          }
+        }, _callee3, this, [[2, 13, 16, 19]]);
+      }));
+      function getAllTeamMatches(_x3) {
+        return _getAllTeamMatches.apply(this, arguments);
+      }
+      return getAllTeamMatches;
+    }())
   }]);
-}(); // Exporter une instance singleton
+}(); // Export a singleton instance
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new ChessDataManager());
+
+/***/ }),
+
+/***/ "./src/data/rounds lazy recursive ^\\.\\/round.*\\.js$":
+/*!******************************************************************!*\
+  !*** ./src/data/rounds/ lazy ^\.\/round.*\.js$ namespace object ***!
+  \******************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var map = {
+	"./round1.js": [
+		"./src/data/rounds/round1.js",
+		"src_data_rounds_round1_js"
+	]
+};
+function webpackAsyncContext(req) {
+	if(!__webpack_require__.o(map, req)) {
+		return Promise.resolve().then(() => {
+			var e = new Error("Cannot find module '" + req + "'");
+			e.code = 'MODULE_NOT_FOUND';
+			throw e;
+		});
+	}
+
+	var ids = map[req], id = ids[0];
+	return __webpack_require__.e(ids[1]).then(() => {
+		return __webpack_require__(id);
+	});
+}
+webpackAsyncContext.keys = () => (Object.keys(map));
+webpackAsyncContext.id = "./src/data/rounds lazy recursive ^\\.\\/round.*\\.js$";
+module.exports = webpackAsyncContext;
 
 /***/ })
 
@@ -35910,6 +35718,9 @@ var ChessDataManager = /*#__PURE__*/function () {
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
@@ -35935,9 +35746,98 @@ var ChessDataManager = /*#__PURE__*/function () {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/ensure chunk */
+/******/ 	(() => {
+/******/ 		__webpack_require__.f = {};
+/******/ 		// This file contains only the entry chunk.
+/******/ 		// The chunk loading function for additional chunks
+/******/ 		__webpack_require__.e = (chunkId) => {
+/******/ 			return Promise.all(Object.keys(__webpack_require__.f).reduce((promises, key) => {
+/******/ 				__webpack_require__.f[key](chunkId, promises);
+/******/ 				return promises;
+/******/ 			}, []));
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/get javascript chunk filename */
+/******/ 	(() => {
+/******/ 		// This function allow to reference async chunks
+/******/ 		__webpack_require__.u = (chunkId) => {
+/******/ 			// return url for filenames based on template
+/******/ 			return "" + chunkId + ".bundle.js";
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/get mini-css chunk filename */
+/******/ 	(() => {
+/******/ 		// This function allow to reference async chunks
+/******/ 		__webpack_require__.miniCssF = (chunkId) => {
+/******/ 			// return url for filenames based on template
+/******/ 			return undefined;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/load script */
+/******/ 	(() => {
+/******/ 		var inProgress = {};
+/******/ 		var dataWebpackPrefix = "cesion-website:";
+/******/ 		// loadScript function to load a script via script tag
+/******/ 		__webpack_require__.l = (url, done, key, chunkId) => {
+/******/ 			if(inProgress[url]) { inProgress[url].push(done); return; }
+/******/ 			var script, needAttach;
+/******/ 			if(key !== undefined) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				for(var i = 0; i < scripts.length; i++) {
+/******/ 					var s = scripts[i];
+/******/ 					if(s.getAttribute("src") == url || s.getAttribute("data-webpack") == dataWebpackPrefix + key) { script = s; break; }
+/******/ 				}
+/******/ 			}
+/******/ 			if(!script) {
+/******/ 				needAttach = true;
+/******/ 				script = document.createElement('script');
+/******/ 		
+/******/ 				script.charset = 'utf-8';
+/******/ 				script.timeout = 120;
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 				script.setAttribute("data-webpack", dataWebpackPrefix + key);
+/******/ 		
+/******/ 				script.src = url;
+/******/ 			}
+/******/ 			inProgress[url] = [done];
+/******/ 			var onScriptComplete = (prev, event) => {
+/******/ 				// avoid mem leaks in IE.
+/******/ 				script.onerror = script.onload = null;
+/******/ 				clearTimeout(timeout);
+/******/ 				var doneFns = inProgress[url];
+/******/ 				delete inProgress[url];
+/******/ 				script.parentNode && script.parentNode.removeChild(script);
+/******/ 				doneFns && doneFns.forEach((fn) => (fn(event)));
+/******/ 				if(prev) return prev(event);
+/******/ 			}
+/******/ 			var timeout = setTimeout(onScriptComplete.bind(null, undefined, { type: 'timeout', target: script }), 120000);
+/******/ 			script.onerror = onScriptComplete.bind(null, script.onerror);
+/******/ 			script.onload = onScriptComplete.bind(null, script.onload);
+/******/ 			needAttach && document.head.appendChild(script);
+/******/ 		};
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
@@ -35960,26 +35860,146 @@ var ChessDataManager = /*#__PURE__*/function () {
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript && document.currentScript.tagName.toUpperCase() === 'SCRIPT')
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/^blob:/, "").replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"cse": 0
+/******/ 		};
+/******/ 		
+/******/ 		__webpack_require__.f.j = (chunkId, promises) => {
+/******/ 				// JSONP chunk loading for javascript
+/******/ 				var installedChunkData = __webpack_require__.o(installedChunks, chunkId) ? installedChunks[chunkId] : undefined;
+/******/ 				if(installedChunkData !== 0) { // 0 means "already installed".
+/******/ 		
+/******/ 					// a Promise means "currently loading".
+/******/ 					if(installedChunkData) {
+/******/ 						promises.push(installedChunkData[2]);
+/******/ 					} else {
+/******/ 						if(true) { // all chunks have JS
+/******/ 							// setup Promise in chunk cache
+/******/ 							var promise = new Promise((resolve, reject) => (installedChunkData = installedChunks[chunkId] = [resolve, reject]));
+/******/ 							promises.push(installedChunkData[2] = promise);
+/******/ 		
+/******/ 							// start chunk loading
+/******/ 							var url = __webpack_require__.p + __webpack_require__.u(chunkId);
+/******/ 							// create error before stack unwound to get useful stacktrace later
+/******/ 							var error = new Error();
+/******/ 							var loadingEnded = (event) => {
+/******/ 								if(__webpack_require__.o(installedChunks, chunkId)) {
+/******/ 									installedChunkData = installedChunks[chunkId];
+/******/ 									if(installedChunkData !== 0) installedChunks[chunkId] = undefined;
+/******/ 									if(installedChunkData) {
+/******/ 										var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 										var realSrc = event && event.target && event.target.src;
+/******/ 										error.message = 'Loading chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
+/******/ 										error.name = 'ChunkLoadError';
+/******/ 										error.type = errorType;
+/******/ 										error.request = realSrc;
+/******/ 										installedChunkData[1](error);
+/******/ 									}
+/******/ 								}
+/******/ 							};
+/******/ 							__webpack_require__.l(url, loadingEnded, "chunk-" + chunkId, chunkId);
+/******/ 						}
+/******/ 					}
+/******/ 				}
+/******/ 		};
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		// no on chunks loaded
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 		
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunkcesion_website"] = self["webpackChunkcesion_website"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry needs to be wrapped in an IIFE because it needs to be isolated against other modules in the chunk.
+// This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
 (() => {
-/*!*********************************************!*\
-  !*** ./src/components/CSEVisualisation.jsx ***!
-  \*********************************************/
+"use strict";
+/*!*************************************************!*\
+  !*** ./src/components/CSEVisualization/App.jsx ***!
+  \*************************************************/
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
-/* harmony import */ var _CSEVisualization__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CSEVisualization */ "./src/components/CSEVisualization.jsx");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index */ "./src/components/CSEVisualization/index.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 
-// Wait for DOM to be fully loaded
+/**
+ * Initialize the CSE Visualization React app
+ * This function finds the container element and mounts the React app
+ */
 
-document.addEventListener('DOMContentLoaded', function () {
+var initializeApp = function initializeApp() {
   // Find the container element
   var container = document.getElementById('cse-react');
   if (container) {
@@ -35987,11 +36007,20 @@ document.addEventListener('DOMContentLoaded', function () {
     var root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(container);
 
     // Render the component
-    root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_CSEVisualization__WEBPACK_IMPORTED_MODULE_2__["default"], {}));
+    root.render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_index__WEBPACK_IMPORTED_MODULE_2__["default"], {}));
   } else {
     console.error('Container element with id "cse-react" not found');
   }
-});
+};
+
+// Wait for DOM to be fully loaded before initializing
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+  // If DOM is already loaded, initialize immediately
+  initializeApp();
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (initializeApp);
 })();
 
 /******/ })()

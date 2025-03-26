@@ -1,4 +1,4 @@
-// /src/data/index.js
+// src/data/index.js - Central data management for the chess visualization
 import { LEAGUES, TEAMS, ROUNDS_INFO } from './constants';
 
 // Cache for round data
@@ -23,6 +23,14 @@ class ChessDataManager {
   }
 
   /**
+   * Get team name by ID
+   */
+  getTeamName(teamId) {
+    const team = this.teams.find(t => t.id === teamId);
+    return team ? team.name : "Équipe inconnue";
+  }
+
+  /**
    * Load round data (with caching)
    */
   async loadRoundData(roundNumber) {
@@ -33,7 +41,6 @@ class ChessDataManager {
 
     try {
       // Dynamic import for the specific round
-      // In production, this would load from the server or a separate file
       const module = await import(`./rounds/round${roundNumber}.js`);
       roundsCache[roundNumber] = module.default;
       return module.default;
@@ -81,8 +88,8 @@ class ChessDataManager {
         ...match,
         roundNumber: round.roundNumber,
         roundDate: round.date,
-        homeTeam: this.teams.find(t => t.id === match.homeTeamId)?.name,
-        awayTeam: this.teams.find(t => t.id === match.awayTeamId)?.name,
+        homeTeam: this.getTeamName(match.homeTeamId),
+        awayTeam: this.getTeamName(match.awayTeamId),
       }));
       
       allMatches.push(...enhancedMatches);

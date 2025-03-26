@@ -3,8 +3,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
-    tournoi: './src/components/TournoiVisualisation.jsx',
-    cse: './src/components/CSEVisualisation.jsx'
+    tournoi: './src/components/TournoiVisualisation.jsx', // Keep original filename with 's'
+    cse: './src/components/CSEVisualization/App.jsx'      // New CSE entry point
   },
   output: {
     filename: '[name].bundle.js',

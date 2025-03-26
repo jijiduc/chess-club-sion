@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // Import data manager
-import ChessDataManager from "./dataManager";
+import ChessDataManager from "../../data";
 
 // Main component
 const CSEVisualization = () => {
