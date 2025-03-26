@@ -34800,7 +34800,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _dataManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./dataManager */ "./src/components/dataManager.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 function _slicedToArray(r, e) { return _arrayWithHoles(r) || _iterableToArrayLimit(r, e) || _unsupportedIterableToArray(r, e) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
@@ -34809,643 +34819,154 @@ function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" !=
 function _arrayWithHoles(r) { if (Array.isArray(r)) return r; }
 
 
-// Complete embedded dataset from CSVs
+// Import data manager
 
-var EMBEDDED_DATA = {
-  sion1: {
-    info: [{
-      league: "1ère ligue",
-      round: 1
-    }],
-    matches: [{
-      matchId: 1,
-      homeTeam: "Genève 2",
-      awayTeam: "Neuchâtel 1",
-      score: "5½-2½"
-    }, {
-      matchId: 2,
-      homeTeam: "Valais 1",
-      awayTeam: "Echallens 2",
-      score: "3½-4½"
-    }, {
-      matchId: 3,
-      homeTeam: "Sion 1",
-      awayTeam: "Grand Echiquier 1",
-      score: "1½-6½"
-    }, {
-      matchId: 4,
-      homeTeam: "Köniz-Bubenberg 1",
-      awayTeam: "Fribourg 1",
-      score: "2-6"
-    }],
-    boards: [
-    // Match 1: Genève 2 vs Neuchâtel 1
-    {
-      matchId: 1,
-      boardNumber: 1,
-      homePlayer: "Dominique Li",
-      homeRating: 2292,
-      result: "1-0",
-      awayPlayer: "Robin Voland",
-      awayRating: 2057
-    }, {
-      matchId: 1,
-      boardNumber: 2,
-      homePlayer: "Richard Gerber",
-      homeRating: 2233,
-      result: "1-0",
-      awayPlayer: "Bertrand Banderet",
-      awayRating: 1942
-    }, {
-      matchId: 1,
-      boardNumber: 3,
-      homePlayer: "Laurent Geiser",
-      homeRating: 2210,
-      result: "0-1",
-      awayPlayer: "Roland Hauser",
-      awayRating: 2026
-    }, {
-      matchId: 1,
-      boardNumber: 4,
-      homePlayer: "Daniel Chiriac",
-      homeRating: 2075,
-      result: "1-0",
-      awayPlayer: "Hassan Roger Sadeghi",
-      awayRating: 2098
-    }, {
-      matchId: 1,
-      boardNumber: 5,
-      homePlayer: "Christophe Rivaud",
-      homeRating: 1986,
-      result: "0-1",
-      awayPlayer: "Roman Tkhoruk",
-      awayRating: 1896
-    }, {
-      matchId: 1,
-      boardNumber: 6,
-      homePlayer: "Tiziano Frei",
-      homeRating: 1920,
-      result: "1-0",
-      awayPlayer: "Jason Weber",
-      awayRating: 1838
-    }, {
-      matchId: 1,
-      boardNumber: 7,
-      homePlayer: "Jeremy Broome",
-      homeRating: 1885,
-      result: "½-½",
-      awayPlayer: "Luca Srdjenovic",
-      awayRating: 1882
-    }, {
-      matchId: 1,
-      boardNumber: 8,
-      homePlayer: "Hugo Jelicic",
-      homeRating: 1894,
-      result: "1-0",
-      awayPlayer: "Mohamad Al-Dourobi",
-      awayRating: 1770
-    },
-    // Match 2: Valais 1 vs Echallens 2
-    {
-      matchId: 2,
-      boardNumber: 1,
-      homePlayer: "Ludovic Zaza",
-      homeRating: 2140,
-      result: "½-½",
-      awayPlayer: "Lindo Duratti",
-      awayRating: 2134
-    }, {
-      matchId: 2,
-      boardNumber: 2,
-      homePlayer: "Jean-Daniel Delacroix",
-      homeRating: 1938,
-      result: "0-1",
-      awayPlayer: "Nicolas Perréard",
-      awayRating: 2033
-    }, {
-      matchId: 2,
-      boardNumber: 3,
-      homePlayer: "Alexan Floure",
-      homeRating: 1913,
-      result: "0-1",
-      awayPlayer: "Jan Steenhuis",
-      awayRating: 2057
-    }, {
-      matchId: 2,
-      boardNumber: 4,
-      homePlayer: "Jean-Paul Moret",
-      homeRating: 1969,
-      result: "½-½",
-      awayPlayer: "Steve Monthoux",
-      awayRating: 2013
-    }, {
-      matchId: 2,
-      boardNumber: 5,
-      homePlayer: "Xavier Perruchoud",
-      homeRating: 1898,
-      result: "½-½",
-      awayPlayer: "Colin Cordey",
-      awayRating: 1951
-    }, {
-      matchId: 2,
-      boardNumber: 6,
-      homePlayer: "Jacob Planchamp",
-      homeRating: 1964,
-      result: "½-½",
-      awayPlayer: "Stéphane Coletta",
-      awayRating: 1928
-    }, {
-      matchId: 2,
-      boardNumber: 7,
-      homePlayer: "Pierre Perruchoud",
-      homeRating: 1890,
-      result: "½-½",
-      awayPlayer: "Julien Coletta",
-      awayRating: 1829
-    }, {
-      matchId: 2,
-      boardNumber: 8,
-      homePlayer: "Fabrice Lovey",
-      homeRating: 1821,
-      result: "1-0",
-      awayPlayer: "N.N.",
-      awayRating: null
-    },
-    // Match 3: Sion 1 vs Grand Echiquier 1
-    {
-      matchId: 3,
-      boardNumber: 1,
-      homePlayer: "Flavien Sola",
-      homeRating: 2167,
-      result: "0-1",
-      awayPlayer: "Guillaume Chauvon",
-      awayRating: 2076
-    }, {
-      matchId: 3,
-      boardNumber: 2,
-      homePlayer: "Vlad Popescu",
-      homeRating: 1990,
-      result: "0-1",
-      awayPlayer: "Ferran Rocamora Martorell",
-      awayRating: 2126
-    }, {
-      matchId: 3,
-      boardNumber: 3,
-      homePlayer: "Pierre-M. Rappaz",
-      homeRating: 1933,
-      result: "½-½",
-      awayPlayer: "Jonathan Jaccard",
-      awayRating: 1949
-    }, {
-      matchId: 3,
-      boardNumber: 4,
-      homePlayer: "Jean-Yves Riand",
-      homeRating: 1877,
-      result: "½-½",
-      awayPlayer: "Jean-Manuel Segura",
-      awayRating: 2066
-    }, {
-      matchId: 3,
-      boardNumber: 5,
-      homePlayer: "Max Chappaz",
-      homeRating: 1904,
-      result: "0-1",
-      awayPlayer: "Sébastien Vasey",
-      awayRating: 1956
-    }, {
-      matchId: 3,
-      boardNumber: 6,
-      homePlayer: "Yves Roduit",
-      homeRating: 1910,
-      result: "0-1",
-      awayPlayer: "Vincent Conrad",
-      awayRating: 1904
-    }, {
-      matchId: 3,
-      boardNumber: 7,
-      homePlayer: "Olivier Ulmann",
-      homeRating: 1788,
-      result: "0-1",
-      awayPlayer: "Pierpaolo Ranieri",
-      awayRating: 1893
-    }, {
-      matchId: 3,
-      boardNumber: 8,
-      homePlayer: "Jeremy Duc",
-      homeRating: 1829,
-      result: "½-½",
-      awayPlayer: "Mathis Soubeyrand",
-      awayRating: 1547
-    },
-    // Match 4: Köniz-Bubenberg 1 vs Fribourg 1
-    {
-      matchId: 4,
-      boardNumber: 1,
-      homePlayer: "Igor Yarmonov",
-      homeRating: 2342,
-      result: "0-1",
-      awayPlayer: "Sylvain Julmy",
-      awayRating: 2179
-    }, {
-      matchId: 4,
-      boardNumber: 2,
-      homePlayer: "Jörg Brauchli",
-      homeRating: 1915,
-      result: "½-½",
-      awayPlayer: "Yves Deschenaux",
-      awayRating: 2121
-    }, {
-      matchId: 4,
-      boardNumber: 3,
-      homePlayer: "Hansjürg Känel",
-      homeRating: 2226,
-      result: "½-½",
-      awayPlayer: "Salvatore Cruceli",
-      awayRating: 2083
-    }, {
-      matchId: 4,
-      boardNumber: 4,
-      homePlayer: "Marc Tillmann",
-      homeRating: 1921,
-      result: "0-1",
-      awayPlayer: "Joseph Edoecs",
-      awayRating: 2035
-    }, {
-      matchId: 4,
-      boardNumber: 5,
-      homePlayer: "Mike Jäger",
-      homeRating: 2114,
-      result: "1-0",
-      awayPlayer: "Bernard Deschenaux",
-      awayRating: 2002
-    }, {
-      matchId: 4,
-      boardNumber: 6,
-      homePlayer: "Martin Hess",
-      homeRating: 1905,
-      result: "0-1",
-      awayPlayer: "Thierry Bonferroni",
-      awayRating: 1965
-    }, {
-      matchId: 4,
-      boardNumber: 7,
-      homePlayer: "Thomas Mani",
-      homeRating: 1949,
-      result: "0-1",
-      awayPlayer: "Achim Schneuwly",
-      awayRating: 1943
-    }, {
-      matchId: 4,
-      boardNumber: 8,
-      homePlayer: "Nahom Demoz",
-      homeRating: 1738,
-      result: "0-1",
-      awayPlayer: "Marius Cornée",
-      awayRating: 1894
-    }],
-    rankings: [{
-      rank: 1,
-      team: "Grand Echiquier 1",
-      matchPoints: 2,
-      gamePoints: "6½"
-    }, {
-      rank: 2,
-      team: "Fribourg 1",
-      matchPoints: 2,
-      gamePoints: "6"
-    }, {
-      rank: 3,
-      team: "Genève 2",
-      matchPoints: 2,
-      gamePoints: "5½"
-    }, {
-      rank: 4,
-      team: "Echallens 2",
-      matchPoints: 2,
-      gamePoints: "4½"
-    }, {
-      rank: 5,
-      team: "Valais 1",
-      matchPoints: 0,
-      gamePoints: "3½"
-    }, {
-      rank: 6,
-      team: "Neuchâtel 1",
-      matchPoints: 0,
-      gamePoints: "2½"
-    }, {
-      rank: 7,
-      team: "Köniz-Bubenberg 1",
-      matchPoints: 0,
-      gamePoints: "2"
-    }, {
-      rank: 8,
-      team: "Sion 1",
-      matchPoints: 0,
-      gamePoints: "1½"
-    }]
-  },
-  sion2: {
-    info: [{
-      league: "3ème ligue",
-      round: 1
-    }],
-    matches: [{
-      matchId: 1,
-      homeTeam: "Grand Echiquier 2",
-      awayTeam: "Monthey 1",
-      score: "1-5"
-    }, {
-      matchId: 2,
-      homeTeam: "Sion 2",
-      awayTeam: "Crans-Montana 2",
-      score: "2-4"
-    }, {
-      matchId: 3,
-      homeTeam: "Valais 2",
-      awayTeam: "Bulle 3",
-      score: "5-1"
-    }, {
-      matchId: 4,
-      homeTeam: "Crazy Horse 1",
-      awayTeam: "Payerne 2",
-      score: "3½-2½"
-    }],
-    boards: [
-    // Match 1: Grand Echiquier 2 vs Monthey 1
-    {
-      matchId: 1,
-      boardNumber: 1,
-      homePlayer: "Olivier Dubuis",
-      homeRating: 1778,
-      result: "0-1",
-      awayPlayer: "Jorel Martin",
-      awayRating: 1827
-    }, {
-      matchId: 1,
-      boardNumber: 2,
-      homePlayer: "Emil Ungureanu",
-      homeRating: null,
-      result: "0-1",
-      awayPlayer: "Fabien Tordeur",
-      awayRating: 1977
-    }, {
-      matchId: 1,
-      boardNumber: 3,
-      homePlayer: "Paolo Braconi",
-      homeRating: 1529,
-      result: "0-1",
-      awayPlayer: "Dorian Turner",
-      awayRating: null
-    }, {
-      matchId: 1,
-      boardNumber: 4,
-      homePlayer: "Alban Hessler",
-      homeRating: 1470,
-      result: "0-1",
-      awayPlayer: "Colin Moesching",
-      awayRating: 1891
-    }, {
-      matchId: 1,
-      boardNumber: 5,
-      homePlayer: "Adam Nasrallah",
-      homeRating: null,
-      result: "0-1",
-      awayPlayer: "Samuel Favre",
-      awayRating: 1595
-    }, {
-      matchId: 1,
-      boardNumber: 6,
-      homePlayer: "José Martinez",
-      homeRating: 1662,
-      result: "1-0",
-      awayPlayer: "N.N.",
-      awayRating: null
-    },
-    // Match 2: Sion 2 vs Crans-Montana 2
-    {
-      matchId: 2,
-      boardNumber: 1,
-      homePlayer: "Alexandre Briguet",
-      homeRating: 1828,
-      result: "0-1",
-      awayPlayer: "Alessandro Bonalli",
-      awayRating: 1621
-    }, {
-      matchId: 2,
-      boardNumber: 2,
-      homePlayer: "Olivier Crettenand",
-      homeRating: 1826,
-      result: "1-0",
-      awayPlayer: "Timur Gökok",
-      awayRating: null
-    }, {
-      matchId: 2,
-      boardNumber: 3,
-      homePlayer: "Mazlum Tosun",
-      homeRating: 1689,
-      result: "1-0",
-      awayPlayer: "Hervé Frainay",
-      awayRating: 1561
-    }, {
-      matchId: 2,
-      boardNumber: 4,
-      homePlayer: "Sandro Bétrisey",
-      homeRating: 1745,
-      result: "0-1",
-      awayPlayer: "Luc Udry",
-      awayRating: 1523
-    }, {
-      matchId: 2,
-      boardNumber: 5,
-      homePlayer: "Akram Ben Salem",
-      homeRating: null,
-      result: "0-1",
-      awayPlayer: "Jean-Claude Zermatten",
-      awayRating: 1559
-    }, {
-      matchId: 2,
-      boardNumber: 6,
-      homePlayer: "Florian Clavien",
-      homeRating: null,
-      result: "0-1",
-      awayPlayer: "Claude-Alain Bonvin",
-      awayRating: 1629
-    },
-    // Match 3: Valais 2 vs Bulle 3
-    {
-      matchId: 3,
-      boardNumber: 1,
-      homePlayer: "Jean-Marie Carron",
-      homeRating: 1852,
-      result: "1-0",
-      awayPlayer: "Laurent Geib",
-      awayRating: 1660
-    }, {
-      matchId: 3,
-      boardNumber: 2,
-      homePlayer: "Cyril Dorsaz",
-      homeRating: 1819,
-      result: "½-½",
-      awayPlayer: "Charles-François Feller",
-      awayRating: 1670
-    }, {
-      matchId: 3,
-      boardNumber: 3,
-      homePlayer: "Hervé Lanois",
-      homeRating: 1781,
-      result: "1-0",
-      awayPlayer: "Alfred Senff",
-      awayRating: 1544
-    }, {
-      matchId: 3,
-      boardNumber: 4,
-      homePlayer: "François Perruchoud",
-      homeRating: 1921,
-      result: "½-½",
-      awayPlayer: "Gael Grangier",
-      awayRating: null
-    }, {
-      matchId: 3,
-      boardNumber: 5,
-      homePlayer: "Stephan Major",
-      homeRating: 1797,
-      result: "1-0",
-      awayPlayer: "Aurélie Conod",
-      awayRating: null
-    }, {
-      matchId: 3,
-      boardNumber: 6,
-      homePlayer: "Michel Steiner",
-      homeRating: 1803,
-      result: "1-0",
-      awayPlayer: "N.N.",
-      awayRating: null
-    },
-    // Match 4: Crazy Horse 1 vs Payerne 2
-    {
-      matchId: 4,
-      boardNumber: 1,
-      homePlayer: "Adrian Silva",
-      homeRating: 1857,
-      result: "0-1",
-      awayPlayer: "Vivian Rochat",
-      awayRating: 1942
-    }, {
-      matchId: 4,
-      boardNumber: 2,
-      homePlayer: "Alain Tcheau",
-      homeRating: 2011,
-      result: "1-0",
-      awayPlayer: "Lucas Bueche",
-      awayRating: 1841
-    }, {
-      matchId: 4,
-      boardNumber: 3,
-      homePlayer: "Daniel Jaquier",
-      homeRating: 1871,
-      result: "½-½",
-      awayPlayer: "Karel Bourban",
-      awayRating: 1818
-    }, {
-      matchId: 4,
-      boardNumber: 4,
-      homePlayer: "Dzevad Osmic",
-      homeRating: 1841,
-      result: "1-0",
-      awayPlayer: "Kiril Solomatin",
-      awayRating: null
-    }, {
-      matchId: 4,
-      boardNumber: 5,
-      homePlayer: "Alain Chollet",
-      homeRating: 1783,
-      result: "1-0",
-      awayPlayer: "Alex Garfield",
-      awayRating: 1786
-    }, {
-      matchId: 4,
-      boardNumber: 6,
-      homePlayer: "Joël Loba",
-      homeRating: 1833,
-      result: "0-1",
-      awayPlayer: "Carlo Bonferroni",
-      awayRating: 1774
-    }],
-    rankings: [{
-      rank: 1,
-      team: "Monthey 1",
-      matchPoints: 2,
-      gamePoints: "5"
-    }, {
-      rank: 1,
-      team: "Valais 2",
-      matchPoints: 2,
-      gamePoints: "5"
-    }, {
-      rank: 3,
-      team: "Crans-Montana 2",
-      matchPoints: 2,
-      gamePoints: "4"
-    }, {
-      rank: 4,
-      team: "Crazy Horse 1",
-      matchPoints: 2,
-      gamePoints: "3½"
-    }, {
-      rank: 5,
-      team: "Payerne 2",
-      matchPoints: 0,
-      gamePoints: "2½"
-    }, {
-      rank: 6,
-      team: "Sion 2",
-      matchPoints: 0,
-      gamePoints: "2"
-    }, {
-      rank: 7,
-      team: "Bulle 3",
-      matchPoints: 0,
-      gamePoints: "1"
-    }, {
-      rank: 7,
-      team: "Grand Echiquier 2",
-      matchPoints: 0,
-      gamePoints: "1"
-    }]
-  }
-};
 
 // Main component
+
 var CSEVisualization = function CSEVisualization() {
-  var _currentData$info$, _currentData$info$2;
+  var _teamInfo$league;
   // State
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("Sion 1"),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
+      id: 1,
+      name: "Sion 1"
+    }),
     _useState2 = _slicedToArray(_useState, 2),
     selectedTeam = _useState2[0],
     setSelectedTeam = _useState2[1];
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(EMBEDDED_DATA),
-    _useState4 = _slicedToArray(_useState3, 1),
-    data = _useState4[0];
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState4 = _slicedToArray(_useState3, 2),
+    selectedMatchId = _useState4[0],
+    setSelectedMatchId = _useState4[1];
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("rankings"),
     _useState6 = _slicedToArray(_useState5, 2),
-    selectedMatchId = _useState6[0],
-    setSelectedMatchId = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("rankings"),
+    currentView = _useState6[0],
+    setCurrentView = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
     _useState8 = _slicedToArray(_useState7, 2),
-    currentView = _useState8[0],
-    setCurrentView = _useState8[1]; // Toggle between "rankings" and "results"
+    loading = _useState8[0],
+    setLoading = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(1),
+    _useState10 = _slicedToArray(_useState9, 2),
+    currentRound = _useState10[0],
+    setCurrentRound = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState12 = _slicedToArray(_useState11, 2),
+    matches = _useState12[0],
+    setMatches = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState14 = _slicedToArray(_useState13, 2),
+    boards = _useState14[0],
+    setBoards = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+    _useState16 = _slicedToArray(_useState15, 2),
+    rankings = _useState16[0],
+    setRankings = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
+    _useState18 = _slicedToArray(_useState17, 2),
+    teamInfo = _useState18[0],
+    setTeamInfo = _useState18[1];
 
-  // Set initial match ID
-  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
-    var teamData = selectedTeam === "Sion 1" ? data.sion1 : data.sion2;
-    var teamMatch = teamData.matches.find(function (m) {
-      return m.homeTeam === selectedTeam || m.awayTeam === selectedTeam;
-    });
-    if (teamMatch && !selectedMatchId) {
-      setSelectedMatchId(teamMatch.matchId);
-    }
-  }, [selectedTeam, data, selectedMatchId]);
+  // Load data when team or round changes
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var loadData = /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var info, roundData, teamMatches, enhancedMatches;
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              setLoading(true);
+              _context.prev = 1;
+              // Get team info
+              info = _dataManager__WEBPACK_IMPORTED_MODULE_1__["default"].getTeamInfo(selectedTeam.id);
+              setTeamInfo(info);
+
+              // Load round data
+              _context.next = 6;
+              return _dataManager__WEBPACK_IMPORTED_MODULE_1__["default"].loadRoundData(currentRound);
+            case 6:
+              roundData = _context.sent;
+              // Get rankings for this league
+              setRankings(roundData.rankings[info.leagueId]);
+
+              // Get matches for this team
+              teamMatches = roundData.matches.filter(function (m) {
+                return m.homeTeamId === selectedTeam.id || m.awayTeamId === selectedTeam.id;
+              }); // Add team names to matches
+              enhancedMatches = teamMatches.map(function (match) {
+                return _objectSpread(_objectSpread({}, match), {}, {
+                  homeTeam: _dataManager__WEBPACK_IMPORTED_MODULE_1__["default"].getTeamName(match.homeTeamId),
+                  awayTeam: _dataManager__WEBPACK_IMPORTED_MODULE_1__["default"].getTeamName(match.awayTeamId)
+                });
+              });
+              setMatches(enhancedMatches);
+
+              // Set default match if none selected
+              if (enhancedMatches.length > 0 && !selectedMatchId) {
+                setSelectedMatchId(enhancedMatches[0].id);
+              }
+              _context.next = 17;
+              break;
+            case 14:
+              _context.prev = 14;
+              _context.t0 = _context["catch"](1);
+              console.error("Error loading data:", _context.t0);
+            case 17:
+              setLoading(false);
+            case 18:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee, null, [[1, 14]]);
+      }));
+      return function loadData() {
+        return _ref.apply(this, arguments);
+      };
+    }();
+    loadData();
+  }, [selectedTeam.id, currentRound]);
+
+  // Load board data when match selection changes
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var loadBoardData = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+        var roundData, matchBoards;
+        return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+          while (1) switch (_context2.prev = _context2.next) {
+            case 0:
+              if (selectedMatchId) {
+                _context2.next = 2;
+                break;
+              }
+              return _context2.abrupt("return");
+            case 2:
+              _context2.prev = 2;
+              _context2.next = 5;
+              return _dataManager__WEBPACK_IMPORTED_MODULE_1__["default"].loadRoundData(currentRound);
+            case 5:
+              roundData = _context2.sent;
+              matchBoards = roundData.boards.filter(function (b) {
+                return b.matchId === selectedMatchId;
+              });
+              setBoards(matchBoards);
+              _context2.next = 13;
+              break;
+            case 10:
+              _context2.prev = 10;
+              _context2.t0 = _context2["catch"](2);
+              console.error("Error loading board data:", _context2.t0);
+            case 13:
+            case "end":
+              return _context2.stop();
+          }
+        }, _callee2, null, [[2, 10]]);
+      }));
+      return function loadBoardData() {
+        return _ref2.apply(this, arguments);
+      };
+    }();
+    loadBoardData();
+  }, [selectedMatchId, currentRound]);
 
   // Helper functions
   var formatMatchResult = function formatMatchResult(score) {
@@ -35467,65 +34988,73 @@ var CSEVisualization = function CSEVisualization() {
   };
 
   // Handle team change
-  var handleTeamChange = function handleTeamChange(team) {
-    setSelectedTeam(team);
-    var matches = team === "Sion 1" ? data.sion1.matches : data.sion2.matches;
-    var teamMatch = matches.find(function (m) {
-      return m.homeTeam === team || m.awayTeam === team;
+  var handleTeamChange = function handleTeamChange(teamId, teamName) {
+    setSelectedTeam({
+      id: teamId,
+      name: teamName
     });
-    if (teamMatch) {
-      setSelectedMatchId(teamMatch.matchId);
-    }
+    setSelectedMatchId(null); // Reset selected match
   };
 
-  // Get current data
-  var currentData = selectedTeam === "Sion 1" ? data.sion1 : data.sion2;
-  var currentMatch = currentData.matches.find(function (m) {
-    return m.matchId === selectedMatchId;
+  // Get current match
+  var currentMatch = matches.find(function (m) {
+    return m.id === selectedMatchId;
   });
-  var currentBoards = currentData.boards.filter(function (b) {
-    return b.matchId === selectedMatchId;
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+
+  // Loading indicator
+  if (loading) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "container mx-auto px-4 py-8 text-center",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "animate-pulse",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "h-8 bg-gray-300 rounded w-1/3 mx-auto mb-4"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "h-48 bg-gray-300 rounded mb-4"
+        })]
+      })
+    });
+  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: "container mx-auto px-4",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "flex justify-center mb-8",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "bg-white rounded-lg overflow-hidden shadow-md",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-          className: "px-6 py-3 ".concat(selectedTeam === "Sion 1" ? "bg-red-600 text-white" : "bg-gray-200 text-gray-800"),
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          className: "px-6 py-3 ".concat(selectedTeam.id === 1 ? "bg-red-600 text-white" : "bg-gray-200 text-gray-800"),
           onClick: function onClick() {
-            return handleTeamChange("Sion 1");
+            return handleTeamChange(1, "Sion 1");
           },
           children: "Sion 1"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
-          className: "px-6 py-3 ".concat(selectedTeam === "Sion 2" ? "bg-red-600 text-white" : "bg-gray-200 text-gray-800"),
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          className: "px-6 py-3 ".concat(selectedTeam.id === 9 ? "bg-red-600 text-white" : "bg-gray-200 text-gray-800"),
           onClick: function onClick() {
-            return handleTeamChange("Sion 2");
+            return handleTeamChange(9, "Sion 2");
           },
           children: "Sion 2"
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "bg-white rounded-lg p-4 mb-8 shadow-md",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "text-center",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h2", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h2", {
           className: "font-bold text-xl mb-2",
-          children: [((_currentData$info$ = currentData.info[0]) === null || _currentData$info$ === void 0 ? void 0 : _currentData$info$.league) || "?", " - Ronde", " ", ((_currentData$info$2 = currentData.info[0]) === null || _currentData$info$2 === void 0 ? void 0 : _currentData$info$2.round) || "?"]
+          children: [(teamInfo === null || teamInfo === void 0 || (_teamInfo$league = teamInfo.league) === null || _teamInfo$league === void 0 ? void 0 : _teamInfo$league.name) || "?", " - Ronde ", currentRound]
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "flex justify-center mb-8",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "bg-white rounded-lg overflow-hidden shadow-md",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
           className: "px-6 py-3 ".concat(currentView === "rankings" ? "bg-red-600 text-white" : "bg-gray-200 text-gray-800"),
           onClick: function onClick() {
             return setCurrentView("rankings");
           },
           children: "Classement"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
           className: "px-6 py-3 ".concat(currentView === "results" ? "bg-red-600 text-white" : "bg-gray-200 text-gray-800"),
           onClick: function onClick() {
             return setCurrentView("results");
@@ -35536,49 +35065,49 @@ var CSEVisualization = function CSEVisualization() {
     }), currentView === "rankings" ?
     /*#__PURE__*/
     /* Rankings Table */
-    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "bg-white rounded-lg overflow-hidden mb-8 shadow-md",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "bg-gray-800 text-white px-4 py-3",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
           className: "font-bold",
           children: "Classement"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "overflow-x-auto",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("table", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("table", {
           className: "w-full",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("thead", {
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("tr", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("thead", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
               className: "bg-gray-200",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
                 className: "px-4 py-2 text-left",
                 children: "Rang"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
                 className: "px-4 py-2 text-left",
                 children: "\xC9quipe"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
                 className: "px-4 py-2 text-center",
                 children: "Points de match"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
                 className: "px-4 py-2 text-center",
                 children: "Points individuels"
               })]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("tbody", {
-            children: currentData.rankings.map(function (rank, index) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("tr", {
-                className: "border-b ".concat(rank.team === selectedTeam ? "bg-red-100" : ""),
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("tbody", {
+            children: rankings && rankings.map(function (rank, index) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
+                className: "border-b ".concat(rank.teamId === selectedTeam.id ? "bg-red-100" : ""),
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
                   className: "px-4 py-2",
                   children: rank.rank
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
                   className: "px-4 py-2",
-                  children: rank.team
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
+                  children: _dataManager__WEBPACK_IMPORTED_MODULE_1__["default"].getTeamName(rank.teamId)
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
                   className: "px-4 py-2 text-center",
                   children: rank.matchPoints
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
                   className: "px-4 py-2 text-center",
                   children: rank.gamePoints
                 })]
@@ -35590,107 +35119,107 @@ var CSEVisualization = function CSEVisualization() {
     }) :
     /*#__PURE__*/
     /* Matches & Boards */
-    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "bg-white rounded-lg overflow-hidden mb-8 shadow-md",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "bg-gray-800 text-white px-4 py-3",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
           className: "font-bold",
           children: "R\xE9sultats"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "p-4 bg-gray-200 border-b",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "grid grid-cols-1 md:grid-cols-2 gap-4",
-          children: currentData.matches.map(function (match, index) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("button", {
-              className: "p-3 rounded border ".concat(selectedMatchId === match.matchId ? 'bg-red-600 text-white border-red-700 hover:bg-red-700' : 'bg-white border-gray-300 hover:bg-gray-100'),
+          children: matches.map(function (match, index) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
+              className: "p-3 rounded border ".concat(selectedMatchId === match.id ? 'bg-red-600 text-white border-red-700 hover:bg-red-700' : 'bg-white border-gray-300 hover:bg-gray-100'),
               onClick: function onClick() {
-                return setSelectedMatchId(match.matchId);
+                return setSelectedMatchId(match.id);
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
                 className: "font-semibold",
                 children: [match.homeTeam, " - ", match.awayTeam]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                 className: "text-sm mt-1",
                 children: match.score
               })]
             }, index);
           })
         })
-      }), currentMatch && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      }), currentMatch && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "p-4",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "flex items-center justify-between mb-4",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             className: "text-lg font-bold text-right w-1/3",
             children: currentMatch.homeTeam
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "flex justify-center items-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: "w-16 h-16 rounded-full flex items-center justify-center text-white font-bold bg-gray-600",
               children: formatMatchResult(currentMatch.score).home
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: "mx-2 text-lg",
               children: "-"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: "w-16 h-16 rounded-full flex items-center justify-center text-white font-bold bg-gray-600",
               children: formatMatchResult(currentMatch.score).away
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             className: "text-lg font-bold text-left w-1/3",
             children: currentMatch.awayTeam
           })]
-        }), currentBoards.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        }), boards.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "overflow-x-auto mt-4",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("table", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("table", {
             className: "w-full",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("thead", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("tr", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("thead", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
                 className: "bg-gray-200",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
                   className: "px-4 py-2 text-center",
                   children: "\xC9chiquier"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
                   className: "px-4 py-2 text-left",
                   children: "Joueur"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
                   className: "px-4 py-2 text-center",
                   children: "Elo"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
                   className: "px-4 py-2 text-center",
                   children: "R\xE9sultat"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
                   className: "px-4 py-2 text-left",
                   children: "Joueur"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("th", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
                   className: "px-4 py-2 text-center",
                   children: "Elo"
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("tbody", {
-              children: currentBoards.map(function (board, index) {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("tbody", {
+              children: boards.map(function (board, index) {
                 // For traditional chess color alternation - home player on odd boards has white
                 var homePlayerHasWhite = board.boardNumber % 2 === 1;
                 var awayPlayerHasWhite = !homePlayerHasWhite;
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("tr", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
                   className: "border-b hover:bg-gray-50",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
                     className: "px-4 py-2 text-center",
                     children: board.boardNumber
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
                     className: "px-4 py-2 ".concat(homePlayerHasWhite ? "bg-white border-l-2 border-gray-200" : "bg-gray-700 text-white"),
                     children: board.homePlayer
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
                     className: "px-4 py-2 text-center ".concat(homePlayerHasWhite ? "bg-white border-r-2 border-gray-200" : "bg-gray-700 text-white"),
                     children: board.homeRating || "-"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
                     className: "px-4 py-2 text-center font-bold",
                     children: board.result
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
                     className: "px-4 py-2 ".concat(awayPlayerHasWhite ? "bg-white border-l-2 border-gray-200" : "bg-gray-700 text-white"),
                     children: board.awayPlayer
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("td", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("td", {
                     className: "px-4 py-2 text-center ".concat(awayPlayerHasWhite ? "bg-white border-r-2 border-gray-200" : "bg-gray-700 text-white"),
                     children: board.awayRating || "-"
                   })]
@@ -35698,18 +35227,657 @@ var CSEVisualization = function CSEVisualization() {
               })
             })]
           })
-        }), currentBoards.length === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        }), boards.length === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "text-center text-gray-500 mt-4",
           children: "D\xE9tails des parties non disponibles pour ce match."
         })]
-      }), !currentMatch && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      }), !currentMatch && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "p-4 text-center text-gray-600",
         children: "Aucun match s\xE9lectionn\xE9."
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "bg-white rounded-lg overflow-hidden mb-8 shadow-md",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "bg-gray-800 text-white px-4 py-3",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+          className: "font-bold",
+          children: "S\xE9lection de la ronde"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "p-4",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "flex flex-wrap justify-center gap-2",
+          children: [1, 2, 3, 4, 5, 6, 7].map(function (round) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
+              className: "px-4 py-2 rounded ".concat(currentRound === round ? "bg-red-600 text-white" : "bg-gray-200 hover:bg-gray-300"),
+              onClick: function onClick() {
+                return setCurrentRound(round);
+              },
+              children: ["Ronde ", round]
+            }, round);
+          })
+        })
       })]
     })]
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CSEVisualization);
+
+/***/ }),
+
+/***/ "./src/components/dataManager.js":
+/*!***************************************!*\
+  !*** ./src/components/dataManager.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return e; }; var t, e = {}, r = Object.prototype, n = r.hasOwnProperty, o = Object.defineProperty || function (t, e, r) { t[e] = r.value; }, i = "function" == typeof Symbol ? Symbol : {}, a = i.iterator || "@@iterator", c = i.asyncIterator || "@@asyncIterator", u = i.toStringTag || "@@toStringTag"; function define(t, e, r) { return Object.defineProperty(t, e, { value: r, enumerable: !0, configurable: !0, writable: !0 }), t[e]; } try { define({}, ""); } catch (t) { define = function define(t, e, r) { return t[e] = r; }; } function wrap(t, e, r, n) { var i = e && e.prototype instanceof Generator ? e : Generator, a = Object.create(i.prototype), c = new Context(n || []); return o(a, "_invoke", { value: makeInvokeMethod(t, r, c) }), a; } function tryCatch(t, e, r) { try { return { type: "normal", arg: t.call(e, r) }; } catch (t) { return { type: "throw", arg: t }; } } e.wrap = wrap; var h = "suspendedStart", l = "suspendedYield", f = "executing", s = "completed", y = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var p = {}; define(p, a, function () { return this; }); var d = Object.getPrototypeOf, v = d && d(d(values([]))); v && v !== r && n.call(v, a) && (p = v); var g = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(p); function defineIteratorMethods(t) { ["next", "throw", "return"].forEach(function (e) { define(t, e, function (t) { return this._invoke(e, t); }); }); } function AsyncIterator(t, e) { function invoke(r, o, i, a) { var c = tryCatch(t[r], t, o); if ("throw" !== c.type) { var u = c.arg, h = u.value; return h && "object" == _typeof(h) && n.call(h, "__await") ? e.resolve(h.__await).then(function (t) { invoke("next", t, i, a); }, function (t) { invoke("throw", t, i, a); }) : e.resolve(h).then(function (t) { u.value = t, i(u); }, function (t) { return invoke("throw", t, i, a); }); } a(c.arg); } var r; o(this, "_invoke", { value: function value(t, n) { function callInvokeWithMethodAndArg() { return new e(function (e, r) { invoke(t, n, e, r); }); } return r = r ? r.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(e, r, n) { var o = h; return function (i, a) { if (o === f) throw Error("Generator is already running"); if (o === s) { if ("throw" === i) throw a; return { value: t, done: !0 }; } for (n.method = i, n.arg = a;;) { var c = n.delegate; if (c) { var u = maybeInvokeDelegate(c, n); if (u) { if (u === y) continue; return u; } } if ("next" === n.method) n.sent = n._sent = n.arg;else if ("throw" === n.method) { if (o === h) throw o = s, n.arg; n.dispatchException(n.arg); } else "return" === n.method && n.abrupt("return", n.arg); o = f; var p = tryCatch(e, r, n); if ("normal" === p.type) { if (o = n.done ? s : l, p.arg === y) continue; return { value: p.arg, done: n.done }; } "throw" === p.type && (o = s, n.method = "throw", n.arg = p.arg); } }; } function maybeInvokeDelegate(e, r) { var n = r.method, o = e.iterator[n]; if (o === t) return r.delegate = null, "throw" === n && e.iterator["return"] && (r.method = "return", r.arg = t, maybeInvokeDelegate(e, r), "throw" === r.method) || "return" !== n && (r.method = "throw", r.arg = new TypeError("The iterator does not provide a '" + n + "' method")), y; var i = tryCatch(o, e.iterator, r.arg); if ("throw" === i.type) return r.method = "throw", r.arg = i.arg, r.delegate = null, y; var a = i.arg; return a ? a.done ? (r[e.resultName] = a.value, r.next = e.nextLoc, "return" !== r.method && (r.method = "next", r.arg = t), r.delegate = null, y) : a : (r.method = "throw", r.arg = new TypeError("iterator result is not an object"), r.delegate = null, y); } function pushTryEntry(t) { var e = { tryLoc: t[0] }; 1 in t && (e.catchLoc = t[1]), 2 in t && (e.finallyLoc = t[2], e.afterLoc = t[3]), this.tryEntries.push(e); } function resetTryEntry(t) { var e = t.completion || {}; e.type = "normal", delete e.arg, t.completion = e; } function Context(t) { this.tryEntries = [{ tryLoc: "root" }], t.forEach(pushTryEntry, this), this.reset(!0); } function values(e) { if (e || "" === e) { var r = e[a]; if (r) return r.call(e); if ("function" == typeof e.next) return e; if (!isNaN(e.length)) { var o = -1, i = function next() { for (; ++o < e.length;) if (n.call(e, o)) return next.value = e[o], next.done = !1, next; return next.value = t, next.done = !0, next; }; return i.next = i; } } throw new TypeError(_typeof(e) + " is not iterable"); } return GeneratorFunction.prototype = GeneratorFunctionPrototype, o(g, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), o(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, u, "GeneratorFunction"), e.isGeneratorFunction = function (t) { var e = "function" == typeof t && t.constructor; return !!e && (e === GeneratorFunction || "GeneratorFunction" === (e.displayName || e.name)); }, e.mark = function (t) { return Object.setPrototypeOf ? Object.setPrototypeOf(t, GeneratorFunctionPrototype) : (t.__proto__ = GeneratorFunctionPrototype, define(t, u, "GeneratorFunction")), t.prototype = Object.create(g), t; }, e.awrap = function (t) { return { __await: t }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, c, function () { return this; }), e.AsyncIterator = AsyncIterator, e.async = function (t, r, n, o, i) { void 0 === i && (i = Promise); var a = new AsyncIterator(wrap(t, r, n, o), i); return e.isGeneratorFunction(r) ? a : a.next().then(function (t) { return t.done ? t.value : a.next(); }); }, defineIteratorMethods(g), define(g, u, "Generator"), define(g, a, function () { return this; }), define(g, "toString", function () { return "[object Generator]"; }), e.keys = function (t) { var e = Object(t), r = []; for (var n in e) r.push(n); return r.reverse(), function next() { for (; r.length;) { var t = r.pop(); if (t in e) return next.value = t, next.done = !1, next; } return next.done = !0, next; }; }, e.values = values, Context.prototype = { constructor: Context, reset: function reset(e) { if (this.prev = 0, this.next = 0, this.sent = this._sent = t, this.done = !1, this.delegate = null, this.method = "next", this.arg = t, this.tryEntries.forEach(resetTryEntry), !e) for (var r in this) "t" === r.charAt(0) && n.call(this, r) && !isNaN(+r.slice(1)) && (this[r] = t); }, stop: function stop() { this.done = !0; var t = this.tryEntries[0].completion; if ("throw" === t.type) throw t.arg; return this.rval; }, dispatchException: function dispatchException(e) { if (this.done) throw e; var r = this; function handle(n, o) { return a.type = "throw", a.arg = e, r.next = n, o && (r.method = "next", r.arg = t), !!o; } for (var o = this.tryEntries.length - 1; o >= 0; --o) { var i = this.tryEntries[o], a = i.completion; if ("root" === i.tryLoc) return handle("end"); if (i.tryLoc <= this.prev) { var c = n.call(i, "catchLoc"), u = n.call(i, "finallyLoc"); if (c && u) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } else if (c) { if (this.prev < i.catchLoc) return handle(i.catchLoc, !0); } else { if (!u) throw Error("try statement without catch or finally"); if (this.prev < i.finallyLoc) return handle(i.finallyLoc); } } } }, abrupt: function abrupt(t, e) { for (var r = this.tryEntries.length - 1; r >= 0; --r) { var o = this.tryEntries[r]; if (o.tryLoc <= this.prev && n.call(o, "finallyLoc") && this.prev < o.finallyLoc) { var i = o; break; } } i && ("break" === t || "continue" === t) && i.tryLoc <= e && e <= i.finallyLoc && (i = null); var a = i ? i.completion : {}; return a.type = t, a.arg = e, i ? (this.method = "next", this.next = i.finallyLoc, y) : this.complete(a); }, complete: function complete(t, e) { if ("throw" === t.type) throw t.arg; return "break" === t.type || "continue" === t.type ? this.next = t.arg : "return" === t.type ? (this.rval = this.arg = t.arg, this.method = "return", this.next = "end") : "normal" === t.type && e && (this.next = e), y; }, finish: function finish(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.finallyLoc === t) return this.complete(r.completion, r.afterLoc), resetTryEntry(r), y; } }, "catch": function _catch(t) { for (var e = this.tryEntries.length - 1; e >= 0; --e) { var r = this.tryEntries[e]; if (r.tryLoc === t) { var n = r.completion; if ("throw" === n.type) { var o = n.arg; resetTryEntry(r); } return o; } } throw Error("illegal catch attempt"); }, delegateYield: function delegateYield(e, r, n) { return this.delegate = { iterator: values(e), resultName: r, nextLoc: n }, "next" === this.method && (this.arg = t), y; } }, e; }
+function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
+function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+// dataManager.js
+
+// Données statiques
+var LEAGUES = [{
+  id: 1,
+  name: "1ère ligue"
+}, {
+  id: 2,
+  name: "3ème ligue"
+}];
+var TEAMS = [
+// 1ère ligue
+{
+  id: 1,
+  name: "Sion 1",
+  leagueId: 1
+}, {
+  id: 2,
+  name: "Genève 2",
+  leagueId: 1
+}, {
+  id: 3,
+  name: "Neuchâtel 1",
+  leagueId: 1
+}, {
+  id: 4,
+  name: "Valais 1",
+  leagueId: 1
+}, {
+  id: 5,
+  name: "Echallens 2",
+  leagueId: 1
+}, {
+  id: 6,
+  name: "Grand Echiquier 1",
+  leagueId: 1
+}, {
+  id: 7,
+  name: "Köniz-Bubenberg 1",
+  leagueId: 1
+}, {
+  id: 8,
+  name: "Fribourg 1",
+  leagueId: 1
+},
+// 3ème ligue
+{
+  id: 9,
+  name: "Sion 2",
+  leagueId: 2
+}, {
+  id: 10,
+  name: "Grand Echiquier 2",
+  leagueId: 2
+}, {
+  id: 11,
+  name: "Monthey 1",
+  leagueId: 2
+}, {
+  id: 12,
+  name: "Crans-Montana 2",
+  leagueId: 2
+}, {
+  id: 13,
+  name: "Valais 2",
+  leagueId: 2
+}, {
+  id: 14,
+  name: "Bulle 3",
+  leagueId: 2
+}, {
+  id: 15,
+  name: "Crazy Horse 1",
+  leagueId: 2
+}, {
+  id: 16,
+  name: "Payerne 2",
+  leagueId: 2
+}];
+var ROUNDS_INFO = [{
+  id: 1,
+  date: "2023-09-15",
+  roundNumber: 1
+}, {
+  id: 2,
+  date: "2023-10-20",
+  roundNumber: 2
+}, {
+  id: 3,
+  date: "2023-11-17",
+  roundNumber: 3
+}, {
+  id: 4,
+  date: "2023-12-15",
+  roundNumber: 4
+}, {
+  id: 5,
+  date: "2024-01-19",
+  roundNumber: 5
+}, {
+  id: 6,
+  date: "2024-02-16",
+  roundNumber: 6
+}, {
+  id: 7,
+  date: "2024-03-22",
+  roundNumber: 7
+}];
+
+// Cache pour les données des rondes
+var roundsCache = {};
+
+// Exemple de données pour la ronde 1 (normalement dans un fichier séparé)
+var round1Data = {
+  matches: [
+  // 1ère ligue
+  {
+    id: 1,
+    roundId: 1,
+    homeTeamId: 2,
+    // Genève 2
+    awayTeamId: 3,
+    // Neuchâtel 1
+    score: "5½-2½"
+  }, {
+    id: 2,
+    roundId: 1,
+    homeTeamId: 4,
+    // Valais 1
+    awayTeamId: 5,
+    // Echallens 2
+    score: "3½-4½"
+  }, {
+    id: 3,
+    roundId: 1,
+    homeTeamId: 1,
+    // Sion 1
+    awayTeamId: 6,
+    // Grand Echiquier 1
+    score: "1½-6½"
+  }, {
+    id: 4,
+    roundId: 1,
+    homeTeamId: 7,
+    // Köniz-Bubenberg 1
+    awayTeamId: 8,
+    // Fribourg 1
+    score: "2-6"
+  },
+  // 3ème ligue
+  {
+    id: 5,
+    roundId: 1,
+    homeTeamId: 10,
+    // Grand Echiquier 2
+    awayTeamId: 11,
+    // Monthey 1
+    score: "1-5"
+  }, {
+    id: 6,
+    roundId: 1,
+    homeTeamId: 9,
+    // Sion 2
+    awayTeamId: 12,
+    // Crans-Montana 2
+    score: "2-4"
+  }, {
+    id: 7,
+    roundId: 1,
+    homeTeamId: 13,
+    // Valais 2
+    awayTeamId: 14,
+    // Bulle 3
+    score: "5-1"
+  }, {
+    id: 8,
+    roundId: 1,
+    homeTeamId: 15,
+    // Crazy Horse 1
+    awayTeamId: 16,
+    // Payerne 2
+    score: "3½-2½"
+  }],
+  boards: [
+  // Match 1: Genève 2 vs Neuchâtel 1
+  {
+    matchId: 1,
+    boardNumber: 1,
+    homePlayer: "Dominique Li",
+    homeRating: 2292,
+    result: "1-0",
+    awayPlayer: "Robin Voland",
+    awayRating: 2057
+  }, {
+    matchId: 1,
+    boardNumber: 2,
+    homePlayer: "Richard Gerber",
+    homeRating: 2233,
+    result: "1-0",
+    awayPlayer: "Bertrand Banderet",
+    awayRating: 1942
+  }, {
+    matchId: 1,
+    boardNumber: 3,
+    homePlayer: "Laurent Geiser",
+    homeRating: 2210,
+    result: "0-1",
+    awayPlayer: "Roland Hauser",
+    awayRating: 2026
+  }, {
+    matchId: 1,
+    boardNumber: 4,
+    homePlayer: "Daniel Chiriac",
+    homeRating: 2075,
+    result: "1-0",
+    awayPlayer: "Hassan Roger Sadeghi",
+    awayRating: 2098
+  }, {
+    matchId: 1,
+    boardNumber: 5,
+    homePlayer: "Christophe Rivaud",
+    homeRating: 1986,
+    result: "0-1",
+    awayPlayer: "Roman Tkhoruk",
+    awayRating: 1896
+  }, {
+    matchId: 1,
+    boardNumber: 6,
+    homePlayer: "Tiziano Frei",
+    homeRating: 1920,
+    result: "1-0",
+    awayPlayer: "Jason Weber",
+    awayRating: 1838
+  }, {
+    matchId: 1,
+    boardNumber: 7,
+    homePlayer: "Jeremy Broome",
+    homeRating: 1885,
+    result: "½-½",
+    awayPlayer: "Luca Srdjenovic",
+    awayRating: 1882
+  }, {
+    matchId: 1,
+    boardNumber: 8,
+    homePlayer: "Hugo Jelicic",
+    homeRating: 1894,
+    result: "1-0",
+    awayPlayer: "Mohamad Al-Dourobi",
+    awayRating: 1770
+  },
+  // Match 2: Valais 1 vs Echallens 2
+  {
+    matchId: 2,
+    boardNumber: 1,
+    homePlayer: "Ludovic Zaza",
+    homeRating: 2140,
+    result: "½-½",
+    awayPlayer: "Lindo Duratti",
+    awayRating: 2134
+  },
+  // ... autres parties du match 2
+
+  // Match 3: Sion 1 vs Grand Echiquier 1
+  {
+    matchId: 3,
+    boardNumber: 1,
+    homePlayer: "Flavien Sola",
+    homeRating: 2167,
+    result: "0-1",
+    awayPlayer: "Guillaume Chauvon",
+    awayRating: 2076
+  }, {
+    matchId: 3,
+    boardNumber: 2,
+    homePlayer: "Vlad Popescu",
+    homeRating: 1990,
+    result: "0-1",
+    awayPlayer: "Ferran Rocamora Martorell",
+    awayRating: 2126
+  }, {
+    matchId: 3,
+    boardNumber: 3,
+    homePlayer: "Pierre-M. Rappaz",
+    homeRating: 1933,
+    result: "½-½",
+    awayPlayer: "Jonathan Jaccard",
+    awayRating: 1949
+  }, {
+    matchId: 3,
+    boardNumber: 4,
+    homePlayer: "Jean-Yves Riand",
+    homeRating: 1877,
+    result: "½-½",
+    awayPlayer: "Jean-Manuel Segura",
+    awayRating: 2066
+  }, {
+    matchId: 3,
+    boardNumber: 5,
+    homePlayer: "Max Chappaz",
+    homeRating: 1904,
+    result: "0-1",
+    awayPlayer: "Sébastien Vasey",
+    awayRating: 1956
+  }, {
+    matchId: 3,
+    boardNumber: 6,
+    homePlayer: "Yves Roduit",
+    homeRating: 1910,
+    result: "0-1",
+    awayPlayer: "Vincent Conrad",
+    awayRating: 1904
+  }, {
+    matchId: 3,
+    boardNumber: 7,
+    homePlayer: "Olivier Ulmann",
+    homeRating: 1788,
+    result: "0-1",
+    awayPlayer: "Pierpaolo Ranieri",
+    awayRating: 1893
+  }, {
+    matchId: 3,
+    boardNumber: 8,
+    homePlayer: "Jeremy Duc",
+    homeRating: 1829,
+    result: "½-½",
+    awayPlayer: "Mathis Soubeyrand",
+    awayRating: 1547
+  },
+  // ... autres matches et parties
+
+  // Match 6: Sion 2 vs Crans-Montana 2
+  {
+    matchId: 6,
+    boardNumber: 1,
+    homePlayer: "Alexandre Briguet",
+    homeRating: 1828,
+    result: "0-1",
+    awayPlayer: "Alessandro Bonalli",
+    awayRating: 1621
+  }, {
+    matchId: 6,
+    boardNumber: 2,
+    homePlayer: "Olivier Crettenand",
+    homeRating: 1826,
+    result: "1-0",
+    awayPlayer: "Timur Gökok",
+    awayRating: null
+  }, {
+    matchId: 6,
+    boardNumber: 3,
+    homePlayer: "Mazlum Tosun",
+    homeRating: 1689,
+    result: "1-0",
+    awayPlayer: "Hervé Frainay",
+    awayRating: 1561
+  }, {
+    matchId: 6,
+    boardNumber: 4,
+    homePlayer: "Sandro Bétrisey",
+    homeRating: 1745,
+    result: "0-1",
+    awayPlayer: "Luc Udry",
+    awayRating: 1523
+  }, {
+    matchId: 6,
+    boardNumber: 5,
+    homePlayer: "Akram Ben Salem",
+    homeRating: null,
+    result: "0-1",
+    awayPlayer: "Jean-Claude Zermatten",
+    awayRating: 1559
+  }, {
+    matchId: 6,
+    boardNumber: 6,
+    homePlayer: "Florian Clavien",
+    homeRating: null,
+    result: "0-1",
+    awayPlayer: "Claude-Alain Bonvin",
+    awayRating: 1629
+  }
+
+  // ... autres parties pour les autres matches
+  ],
+  rankings: {
+    1: [
+    // 1ère ligue
+    {
+      rank: 1,
+      teamId: 6,
+      matchPoints: 2,
+      gamePoints: "6½"
+    }, {
+      rank: 2,
+      teamId: 8,
+      matchPoints: 2,
+      gamePoints: "6"
+    }, {
+      rank: 3,
+      teamId: 2,
+      matchPoints: 2,
+      gamePoints: "5½"
+    }, {
+      rank: 4,
+      teamId: 5,
+      matchPoints: 2,
+      gamePoints: "4½"
+    }, {
+      rank: 5,
+      teamId: 4,
+      matchPoints: 0,
+      gamePoints: "3½"
+    }, {
+      rank: 6,
+      teamId: 3,
+      matchPoints: 0,
+      gamePoints: "2½"
+    }, {
+      rank: 7,
+      teamId: 7,
+      matchPoints: 0,
+      gamePoints: "2"
+    }, {
+      rank: 8,
+      teamId: 1,
+      matchPoints: 0,
+      gamePoints: "1½"
+    }],
+    2: [
+    // 3ème ligue
+    {
+      rank: 1,
+      teamId: 11,
+      matchPoints: 2,
+      gamePoints: "5"
+    }, {
+      rank: 1,
+      teamId: 13,
+      matchPoints: 2,
+      gamePoints: "5"
+    }, {
+      rank: 3,
+      teamId: 12,
+      matchPoints: 2,
+      gamePoints: "4"
+    }, {
+      rank: 4,
+      teamId: 15,
+      matchPoints: 2,
+      gamePoints: "3½"
+    }, {
+      rank: 5,
+      teamId: 16,
+      matchPoints: 0,
+      gamePoints: "2½"
+    }, {
+      rank: 6,
+      teamId: 9,
+      matchPoints: 0,
+      gamePoints: "2"
+    }, {
+      rank: 7,
+      teamId: 14,
+      matchPoints: 0,
+      gamePoints: "1"
+    }, {
+      rank: 7,
+      teamId: 10,
+      matchPoints: 0,
+      gamePoints: "1"
+    }]
+  }
+};
+
+// Exemple de données pour la ronde 2 (ajoutez vos propres données dans le même format)
+var round2Data = {
+  matches: [
+    // Ajouter les matches de la ronde 2
+  ],
+  boards: [
+    // Ajouter les parties de la ronde 2
+  ],
+  rankings: {
+    1: [
+      // Classement de la ronde 2 pour la ligue 1
+    ],
+    2: [
+      // Classement de la ronde 2 pour la ligue 2
+    ]
+  }
+};
+
+// Gestionnaire de données d'échecs
+var ChessDataManager = /*#__PURE__*/function () {
+  function ChessDataManager() {
+    _classCallCheck(this, ChessDataManager);
+    this.leagues = LEAGUES;
+    this.teams = TEAMS;
+    this.roundsInfo = ROUNDS_INFO;
+
+    // Pré-charger la ronde 1 dans le cache
+    roundsCache[1] = round1Data;
+    roundsCache[2] = round2Data;
+  }
+
+  /**
+   * Obtenir les informations sur une équipe
+   */
+  return _createClass(ChessDataManager, [{
+    key: "getTeamInfo",
+    value: function getTeamInfo(teamId) {
+      var team = this.teams.find(function (t) {
+        return t.id === teamId;
+      });
+      if (!team) return null;
+      var league = this.leagues.find(function (l) {
+        return l.id === team.leagueId;
+      });
+      return _objectSpread(_objectSpread({}, team), {}, {
+        league: league
+      });
+    }
+
+    /**
+     * Obtenir le nom d'une équipe par son ID
+     */
+  }, {
+    key: "getTeamName",
+    value: function getTeamName(teamId) {
+      var team = this.teams.find(function (t) {
+        return t.id === teamId;
+      });
+      return team ? team.name : "Équipe inconnue";
+    }
+
+    /**
+     * Charger les données d'une ronde
+     */
+  }, {
+    key: "loadRoundData",
+    value: (function () {
+      var _loadRoundData = _asyncToGenerator(/*#__PURE__*/_regeneratorRuntime().mark(function _callee(roundNumber) {
+        return _regeneratorRuntime().wrap(function _callee$(_context) {
+          while (1) switch (_context.prev = _context.next) {
+            case 0:
+              if (!roundsCache[roundNumber]) {
+                _context.next = 2;
+                break;
+              }
+              return _context.abrupt("return", roundsCache[roundNumber]);
+            case 2:
+              // Dans une implémentation réelle, charger depuis un fichier externe
+              // Pour cet exemple, retourner des données vides si la ronde n'est pas dans le cache
+              console.log("Donn\xE9es pour la ronde ".concat(roundNumber, " non disponibles"));
+              return _context.abrupt("return", {
+                matches: [],
+                boards: [],
+                rankings: {
+                  1: [],
+                  2: []
+                }
+              });
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }, _callee);
+      }));
+      function loadRoundData(_x) {
+        return _loadRoundData.apply(this, arguments);
+      }
+      return loadRoundData;
+    }()
+    /**
+     * Créer une structure pour une nouvelle ronde
+     */
+    )
+  }, {
+    key: "createRoundTemplate",
+    value: function createRoundTemplate(roundNumber) {
+      return {
+        matches: [],
+        boards: [],
+        rankings: {
+          1: [],
+          2: []
+        }
+      };
+    }
+  }]);
+}(); // Exporter une instance singleton
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (new ChessDataManager());
 
 /***/ })
 
