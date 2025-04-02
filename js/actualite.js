@@ -1,6 +1,20 @@
 // Données des actualités
 const news = [
     {
+        date: new Date('2025-03-28T12:00:00'),
+        title: "6ème ronde du CVE",
+        text: `Sion 1 c'est imposé 4 - 0 face à Riddes 1.\n\n` +
+              `Cette victoire conclut la lutte serrée avec l'équipe de Sierre 1 pour la première place du groupe et la qualification en finale.\n\n` +
+              `Le match pour le titre opposera donc Martigny 1 à Sion 1.\n\n` +
+              `De son côté, Sion 2 n'a pas résisté à Monthey et s'est incliné d'un demi-point sur le score de 1.5 - 2.5.\n\n` +
+              `Après une deuxième phase de groupe plus compliquée, Sion 2 affrontera Riddes 1 dans le match pour la 7ᵉ place.\n\n` +
+              `La ronde finale se déroulera le 3 mai.`,
+        icon: "trophy",
+        hasLink: true,
+        link: "cve.html",
+        linkText: "Plus d'informations sur le CVE"
+    },
+    {
         date: new Date('2025-03-22T12:00:00'),
         title: "1ère ronde du CSE 2025",
         text: `Lors de la 1ère journée du Championnat Suisse par Equipe 2025, Sion 1 s'est incliné 1½:6½ face à Grand Echiquier Lausanne.\n\n` +

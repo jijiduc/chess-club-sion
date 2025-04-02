@@ -14,16 +14,7 @@ document.head.appendChild(highlightStyle);
 
 // Données des événements
 const events = {
-    "2025-01-31": [
-        {
-            time: "20h00",
-            title: "CVE 2e tour ronde 4",
-            category: "competition",
-            details: ["Sion 1 - Sierre 1", "Martigny 1 - Sion 2"]
-        }
-    ],
-
-    "2025-02-07": [
+    "2025-04-04": [
         {
             time: "19h00-20h00",
             title: "Cours d'échecs",
@@ -32,150 +23,10 @@ const events = {
         {
             time: "20h00",
             title: "Soirée analyse",
-            category: "soiree_club"
+            category: "soiree_club",
+            details: ["Discussion des parties lentes jouées dans le courant du mois de mars"]
         }
     ],
-    "2025-02-08": [
-        {
-            time: "09h00",
-            title: "CSG ronde 6",
-            category: "competition",
-            details: [
-                {text: "championnat suisse par groupe", link: "csg.html"},
-                "Nyon 1 - Valais 1", 
-                "Valais 3 - La Béroche 1"
-            ]
-        }
-    ],
-    "2025-02-14": [
-        {
-            time: "20h00",
-            title: "Soirée blitz",
-            category: "soiree_club"
-        }
-    ],
-    "2025-02-21": [
-        {
-            time: "19h00-20h00",
-            title: "Cours d'échecs",
-            category: "formation"
-        },
-        {
-            time: "20h00",
-            title: "Tournoi interne",
-            category: "competition",
-            details: [{text: "tournoi interne", link: "tournoi_interne.html"}]
-        }
-    ],
-    "2025-02-22": [
-        {
-            time: "09h00",
-            title: "CSG ronde 7",
-            category: "competition",
-            details: [
-                {text: "championnat suisse par groupe", link: "csg.html"},
-                "Valais 1 - SG Riehen 1", 
-                "Grand Echiquier - Valais 3"
-            ]
-        }
-    ],
-    "2025-02-23": [
-        {
-            time: "09h00",
-            title: "Active Chess du Bouveret",
-            category: "competition",
-            hasLink: true,
-            link: "https://echecs-port-valais.ch/active-chess/",
-            details: ["7 rondes", "15min + 5sec/coup"]
-        }
-    ],
-    "2025-02-28": [
-        {
-            time: "19h00-20h00",
-            title: "Cours d'échecs",
-            category: "formation"
-        },
-        {
-            time: "20h00",
-            title: "Soirée analyse",
-            category: "soiree_club"
-        }
-    ],
-
-    "2025-03-07": [
-        {
-            time: "19h00-20h00",
-            title: "Cours d'échecs",
-            category: "formation"
-        },
-        {
-            time: "20h00",
-            title: "Soirée blitz",
-            category: "soiree_club"
-        }
-    ],
-    "2025-03-14": [
-        {
-            time: "20h00",
-            title: "CVE ronde 5",
-            category: "competition",
-            details: [
-                {text: "championnat valaisan par équipes", link: "cve.html"},
-                "Sion 1 - Montana 1",
-                "CEPV - Sion 2"
-            ]
-        }
-    ],
-    "2025-03-21": [
-        {
-            time: "19h00-20h00",
-            title: "Cours d'échecs",
-            category: "formation"
-        },
-        {
-            time: "20h00",
-            title: "Tournoi interne",
-            category: "competition",
-            details: [
-                {text: "ronde 5", link: "tournoi_interne.html"},
-            ]
-        }
-    ],
-    "2025-03-22": [
-        {
-            time: "14h00",
-            title: "CSE ronde 1",
-            category: "competition",
-            details: [
-                {text: "championnat suisse par équipes", link: "cse.html"},
-                "Sion 1 - Grand Echiquier 1",
-                "Sion 2 - Crans-Montana 2"
-            ]
-        }
-    ],
-    "2025-03-28": [
-        {
-            time: "20h00",
-            title: "CVE ronde 6",
-            category: "competition",
-            details: [
-                {text: "championnat valaisan par équipes", link: "cve.html"},
-                "Riddes 1 - Sion 1",
-                "Sion 2 - Monthey"
-            ]
-        }
-    ],
-    "2025-03-29": [
-        {
-            time: "13h15 - 18h00",
-            title: "5ème Tournoi du Grand Prix Jeunes",
-            category: "competition",
-            hasLink: true,
-            link: "https://www.uve-wsb.ch/images/competitions/Resultats/Jeunes/Ecole/2025/20250329_annonce_tournoi.pdf",
-            details: ["à Sierre"]
-        }
-    ],
-
     "2025-04-05": [
         {
             time: "14h00",
@@ -188,40 +39,43 @@ const events = {
             ]
         }
     ],
+    "2025-04-11": [
+        {
+            time: "20h00",
+            title: "Soirée blitz",
+            category: "soiree_club",
+            details: ["Échauffement à la journée du lendemain"]
+        }
+    ],
+    "2025-04-12": [
+        {
+            time: "09h00",
+            title: "Journée Valaisanne du Blitz",
+            category: "competition",
+            hasLink: true,
+            link: "https://www.uve-wsb.ch/competitions-valaisannes/championnats-valaisans-de-blitz",
+            details: ["À Monthey"]
+        }
+    ],
     "2025-04-18": [
         {
-            time: "17h45",
-            title: "Tournoi fermé des Châteaux",
+            time: "19h00-20h00",
+            title: "Cours d'échecs",
+            category: "formation"
+        },
+        {
+            time: "20h00",
+            title: "Open interne",
             category: "competition",
-            details: [
-                {text: "tournoi fermé des châteaux", link: "tournoi_chateaux.html"},
-                "17h45 : accueil",
-                "18h00 : 1ère ronde"
-            ]
+            details: ["Parties lentes"]
         }
     ],
-    "2025-04-19": [
+    "2025-04-25": [
         {
-            time: "9h00",
-            title: "Tournoi fermé des Châteaux",
-            category: "competition",
-            details: [
-                {text: "tournoi fermé des châteaux", link: "tournoi_chateaux.html"},
-                "9h00 : 2ème ronde", 
-                "14h00 : 3ème ronde"
-            ]
-        }
-    ],
-    "2025-04-20": [
-        {
-            time: "9h00",
-            title: "Tournoi fermé des Châteaux",
-            category: "competition",
-            details: [
-                {text: "tournoi fermé des châteaux", link: "tournoi_chateaux.html"},
-                "9h00 : 4ème ronde",
-                "14h00 : 5ème ronde"
-            ]
+            time: "20h00",
+            title: "Soirée analyse",
+            category: "soiree_club",
+            details: ["Discussion des parties de CSE et CVI jouées en début du mois d'avril"]
         }
     ],
     "2025-04-26": [
@@ -243,7 +97,8 @@ const events = {
             category: "competition",
             details: [
                 {text: "championnat valaisan par équipes", link: "cve.html"},
-                "Appariements à venir"
+                "Martigny 1 - Sion 1",
+                "Sion 2 - Riddes 1"
             ]
         }
     ],
@@ -256,6 +111,42 @@ const events = {
                 {text: "championnat suisse par équipes", link: "cse.html"},
                 "Sion 1 - Neuchâtel 1",
                 "Valais 2 - Sion 2"
+            ]
+        }
+    ],
+    "2025-06-06": [
+        {
+            time: "17h45",
+            title: "Tournoi des Châteaux",
+            category: "competition",
+            details: [
+                {text: "tournoi fermé des châteaux", link: "tournoi_chateaux.html"},
+                "17h45 : accueil",
+                "18h00 : 1ère ronde"
+            ]
+        }
+    ],
+    "2025-06-07": [
+        {
+            time: "9h00",
+            title: "Tournoi des Châteaux",
+            category: "competition",
+            details: [
+                {text: "tournoi fermé des châteaux", link: "tournoi_chateaux.html"},
+                "9h00 : 2ème ronde",
+                "14h00 : 3ème ronde"
+            ]
+        }
+    ],
+    "2025-06-08": [
+        {
+            time: "9h00",
+            title: "Tournoi des Châteaux",
+            category: "competition",
+            details: [
+                {text: "tournoi fermé des châteaux", link: "tournoi_chateaux.html"},
+                "9h00 : 4ème ronde",
+                "14h00 : 5ème ronde"
             ]
         }
     ],
@@ -483,7 +374,11 @@ class ViewManager {
 class CalendarManager {
     constructor(events) {
         this.events = events;
-        this.currentDate = new Date(); // Février 2025 (les mois commencent à 0)
+        
+        // Utiliser la date actuelle du système comme point de départ
+        const today = new Date();
+        this.currentDate = new Date(today.getFullYear(), today.getMonth(), 1);
+        
         this.calendarGrid = document.querySelector('.calendar-grid');
 
         // Vérifier que l'élément de grille existe
@@ -520,8 +415,19 @@ class CalendarManager {
     }
 
     changeMonth(delta) {
-        this.currentDate.setMonth(this.currentDate.getMonth() + delta);
-        this.generateCalendar();
+        // Calculer la nouvelle date
+        const newDate = new Date(this.currentDate);
+        newDate.setMonth(newDate.getMonth() + delta);
+        
+        // Obtenir le mois et l'année actuels du système
+        const today = new Date();
+        const currentMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+        
+        // Ne pas permettre de naviguer avant le mois actuel
+        if (newDate >= currentMonth) {
+            this.currentDate = newDate;
+            this.generateCalendar();
+        }
     }
 
     generateCalendar() {
