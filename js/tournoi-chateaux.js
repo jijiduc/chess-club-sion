@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const formContainer = document.getElementById('form-container');
     
     // URL du formulaire Google (à remplacer par votre URL)
-    const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSc-opYxoMe-ukfyHIAexpaczIQ2bwJHkrSFZmM1RtbF0de8kw/viewform?embedded=true';
+    const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfY9im2mz7e1IZcpwyLEAH9u-quZYmv3fdrJS3UdM8dBHle7g/viewform?usp=header';
     
     // Animation de parallaxe pour l'image de fond (subtile)
     const parallaxEffect = () => {

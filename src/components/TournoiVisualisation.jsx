@@ -180,9 +180,9 @@ const TournoiVisualisation = () => {
                 numero: 5,
                 statut: "en cours",
                 appariements: [
-                    { table: 1, blanc: 1, noir: 6, resultat: null },
+                    { table: 1, blanc: 1, noir: 6, resultat: "½-½" },
                     { table: 2, blanc: 5, noir: 4, resultat: null },
-                    { table: 3, blanc: 3, noir: 8, resultat: null },
+                    { table: 3, blanc: 3, noir: 8, resultat: "1-0" },
                     { table: 4, blanc: 7, noir: 2, resultat: null }
                 ]
             }

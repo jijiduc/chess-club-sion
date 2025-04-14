@@ -2,6 +2,16 @@
 const news = [
     {
         date: new Date('2025-03-28T12:00:00'),
+        title: "2ème ronde du CSE",
+        text: `Lors de la 2ère journée du Championnat Suisse par Equipe 2025, Sion 1 s'est incliné 2½:5½ face à Fribourg 1.\n\n` +
+              `Sion 2 s'est relancé en s'imposant 4-2 face à Bulle 3.\n\n`,
+        icon: "trophy",
+        hasLink: true,
+        link: "cse.html",
+        linkText: "Plus d'informations sur le CSE"
+    },
+    {
+        date: new Date('2025-03-28T12:00:00'),
         title: "6ème ronde du CVE",
         text: `Sion 1 c'est imposé 4 - 0 face à Riddes 1.\n\n` +
               `Cette victoire conclut la lutte serrée avec l'équipe de Sierre 1 pour la première place du groupe et la qualification en finale.\n\n` +
@@ -24,32 +34,6 @@ const news = [
         hasLink: true,
         link: "cse.html",
         linkText: "Plus d'informations sur le CSE"
-    },
-    {
-    date: new Date('2025-03-13T12:00:00'),
-        title: "5ème ronde du CVE",
-        text: `Sion 1 c'est imposé 3.5 - 0.5 face à Montana 1.\n\n` +
-              `Une victoire importante pour Sion 1 qui reste dans la course pour la 1ère place de son groupe.\n\n` +
-              `Le score du match n'est cependant pas encore certains, car une procédure est en cours auprès du tribunal de l'UVE.\n\n` +
-              `Sion 2 c'est incliné 1.5 - 2.5 face à Port-Valais.\n\n` +
-              `Avec cette défaite, Sion 2 est désormais dernier de son groupe et devra se gagner lors de la 6ème ronde pour chercher une 3ème place de son groupe.`,
-        icon: "trophy",
-        hasLink: true,
-        link: "cve.html",
-        linkText: "Plus d'informations sur le CVE"
-    },
-    {
-        date: new Date('2025-03-01T12:00:00'),
-        title: "1er Tournoi fermé des Châteaux",
-        text: `Le Club d'Échecs de Sion organise son premier Tournoi fermé des Châteaux du 18 au 20 avril 2025.\n\n` +
-              `Ce tournoi, qui se déroulera en deux catégories (Valère pour Elo 1800-2000 et Tourbillon pour Elo <1800), ` +
-              `vise à offrir aux joueurs valaisans l'opportunité de disputer des parties lentes cotées FIDE dans notre canton.\n\n` +
-              `Format: tournoi fermé à 6 joueurs par catégorie, 5 rondes en système Berger selon les règles de la FIDE.\n\n` +
-              `Cadence: 90 minutes + 30 secondes d'incrément par coup.\n\n`,
-        icon: "trophy",
-        hasLink: true,
-        link: "tournoi_chateaux.html",
-        linkText: "Plus d'informations et inscriptions"
     },
 ];
 
