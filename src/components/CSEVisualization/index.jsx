@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 // Import data manager
 import ChessDataManager from "../../data";
+// Import mobile optimization
+import MobileOptimization from "./MobileOptimization";
 
 // Main component
 const CSEVisualization = () => {
@@ -166,7 +168,10 @@ const CSEVisualization = () => {
   }
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto px-4 cse-visualization">
+      {/* Composant d'optimisation mobile qui va gérer les adaptations responsives */}
+      <MobileOptimization />
+      
       {/* League info */}
       <div className="bg-white rounded-lg p-3 mb-4 shadow-md">
         <div className="text-center">
@@ -257,10 +262,16 @@ const CSEVisualization = () => {
             <table className="w-full">
               <thead>
                 <tr className="bg-gray-200">
-                  <th className="px-4 py-2 text-left">Rang</th>
+                  <th className="px-4 py-2 text-left col-rank">
+                    <span>Rang</span>
+                  </th>
                   <th className="px-4 py-2 text-left">Équipe</th>
-                  <th className="px-4 py-2 text-center">Points de match</th>
-                  <th className="px-4 py-2 text-center">Points individuels</th>
+                  <th className="px-4 py-2 text-center col-matchpoints">
+                    <span>Points de match</span>
+                  </th>
+                  <th className="px-4 py-2 text-center col-gamepoints">
+                    <span>Points individuels</span>
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -297,15 +308,15 @@ const CSEVisualization = () => {
 
           {/* Match selection - Now showing all matches, with team matches highlighted */}
           <div className="p-4 bg-gray-200 border-b">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 cse-match-grid">
               {allMatches.map((match, index) => (
                 <button
                   key={index}
-                  className={`p-3 rounded border ${
+                  className={`p-3 rounded border cse-match-card ${
                     selectedMatchId === match.id
-                      ? "bg-red-600 text-white border-red-700 hover:bg-red-700"
+                      ? "bg-red-600 text-white border-red-700 hover:bg-red-700 active"
                       : match.isTeamMatch
-                      ? "bg-red-50 border-red-200 hover:bg-red-100"
+                      ? "bg-red-50 border-red-200 hover:bg-red-100 team-match"
                       : "bg-white border-gray-300 hover:bg-gray-100"
                   }`}
                   onClick={() => setSelectedMatchId(match.id)}
@@ -323,26 +334,26 @@ const CSEVisualization = () => {
           {currentMatch && (
             <div className="p-4">
               {/* Score display */}
-              <div className="flex items-center justify-between mb-4">
-                <div className="text-lg font-bold text-right w-1/3">
+              <div className="flex items-center justify-between mb-4 cse-match-score">
+                <div className="text-lg font-bold text-right w-1/3 cse-team-name">
                   {currentMatch.homeTeam}
                 </div>
 
-                <div className="flex justify-center items-center">
+                <div className="flex justify-center items-center cse-score-display">
                   <div
-                    className={`w-16 h-16 rounded-full flex items-center justify-center text-white font-bold bg-gray-600`}
+                    className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold bg-gray-600 cse-score-value"
                   >
                     {formatMatchResult(currentMatch.score).home}
                   </div>
-                  <div className="mx-2 text-lg">-</div>
+                  <div className="mx-2 text-lg cse-score-separator">-</div>
                   <div
-                    className={`w-16 h-16 rounded-full flex items-center justify-center text-white font-bold bg-gray-600`}
+                    className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold bg-gray-600 cse-score-value"
                   >
                     {formatMatchResult(currentMatch.score).away}
                   </div>
                 </div>
 
-                <div className="text-lg font-bold text-left w-1/3">
+                <div className="text-lg font-bold text-left w-1/3 cse-team-name">
                   {currentMatch.awayTeam}
                 </div>
               </div>
@@ -350,15 +361,15 @@ const CSEVisualization = () => {
               {/* Boards */}
               {boards.length > 0 && (
                 <div className="overflow-x-auto mt-4">
-                  <table className="w-full">
+                  <table className="w-full cse-boards-table">
                     <thead>
                       <tr className="bg-gray-200">
-                        <th className="px-4 py-2 text-center">Échiquier</th>
+                        <th className="px-4 py-2 text-center col-board">Échiquier</th>
                         <th className="px-4 py-2 text-left">Joueur</th>
-                        <th className="px-4 py-2 text-center">Elo</th>
-                        <th className="px-4 py-2 text-center">Résultat</th>
+                        <th className="px-4 py-2 text-center col-rating">Elo</th>
+                        <th className="px-4 py-2 text-center col-result">Résultat</th>
                         <th className="px-4 py-2 text-left">Joueur</th>
-                        <th className="px-4 py-2 text-center">Elo</th>
+                        <th className="px-4 py-2 text-center col-rating">Elo</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -367,25 +378,35 @@ const CSEVisualization = () => {
                         const homePlayerHasWhite = board.boardNumber % 2 === 1;
                         const awayPlayerHasWhite = !homePlayerHasWhite;
 
+                        // Extract last name only for mobile display
+                        const formatPlayerName = (fullName) => {
+                          return (
+                            <span className="player-full-name" title={fullName}>
+                              <span className="player-name-mobile">{fullName.split(' ').pop()}</span>
+                              <span className="player-name-desktop">{fullName}</span>
+                            </span>
+                          );
+                        };
+
                         return (
                           <tr key={index} className="border-b hover:bg-gray-50">
                             <td className="px-4 py-2 text-center">
                               {board.boardNumber}
                             </td>
                             <td
-                              className={`px-4 py-2 ${
+                              className={`px-4 py-2 player-name ${
                                 homePlayerHasWhite
-                                  ? "bg-white border-l-2 border-gray-200"
-                                  : "bg-gray-700 text-white"
+                                  ? "bg-white border-l-2 border-gray-200 cse-player-white"
+                                  : "bg-gray-700 text-white cse-player-black"
                               }`}
                             >
-                              {board.homePlayer}
+                              {formatPlayerName(board.homePlayer)}
                             </td>
                             <td
                               className={`px-4 py-2 text-center ${
                                 homePlayerHasWhite
-                                  ? "bg-white border-r-2 border-gray-200"
-                                  : "bg-gray-700 text-white"
+                                  ? "bg-white border-r-2 border-gray-200 cse-player-white"
+                                  : "bg-gray-700 text-white cse-player-black"
                               }`}
                             >
                               {board.homeRating || "-"}
@@ -394,19 +415,19 @@ const CSEVisualization = () => {
                               {board.result}
                             </td>
                             <td
-                              className={`px-4 py-2 ${
+                              className={`px-4 py-2 player-name ${
                                 awayPlayerHasWhite
-                                  ? "bg-white border-l-2 border-gray-200"
-                                  : "bg-gray-700 text-white"
+                                  ? "bg-white border-l-2 border-gray-200 cse-player-white"
+                                  : "bg-gray-700 text-white cse-player-black"
                               }`}
                             >
-                              {board.awayPlayer}
+                              {formatPlayerName(board.awayPlayer)}
                             </td>
                             <td
                               className={`px-4 py-2 text-center ${
                                 awayPlayerHasWhite
-                                  ? "bg-white border-r-2 border-gray-200"
-                                  : "bg-gray-700 text-white"
+                                  ? "bg-white border-r-2 border-gray-200 cse-player-white"
+                                  : "bg-gray-700 text-white cse-player-black"
                               }`}
                             >
                               {board.awayRating || "-"}

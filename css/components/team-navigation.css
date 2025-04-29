@@ -1,0 +1,235 @@
+/* team-navigation.css - Styles pour la navigation d'équipes et rondes de la page CSE */
+
+/* Container principal */
+.team-nav-container {
+    background-color: white;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin: 2rem auto;
+    max-width: 1000px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* En-tête avec titre */
+.team-nav-header {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Disposition en grille pour le contenu */
+.team-nav-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    width: 100%;
+}
+
+/* Colonne des équipes */
+.team-nav-teams {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Séparateur vertical */
+.team-nav-separator {
+    width: 4px;
+    background-color: var(--color-primary-light);
+    position: relative;
+}
+
+/* Boutons d'équipe */
+.team-btn {
+    width: 80%;
+    max-width: 220px;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    background-color: #f5f5f5;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-secondary);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.team-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-primary-light);
+}
+
+.team-btn.active {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(217, 39, 46, 0.2);
+}
+
+/* Navigation des rondes */
+.round-nav {
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+}
+
+/* Boutons de ronde */
+.round-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    color: var(--color-text);
+    font-weight: 700;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.round-btn:hover {
+    background-color: #e5e5e5;
+    transform: scale(1.1);
+}
+
+.round-btn.active {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px rgba(217, 39, 46, 0.2);
+}
+
+/* Ligne connectant les rondes */
+.round-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    background-color: var(--color-border);
+    z-index: 0;
+}
+
+/* Section des actions */
+.team-nav-actions {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Boutons d'action */
+.action-btn {
+    width: 80%;
+    max-width: 220px;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-text);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.action-btn:hover {
+    background-color: #e5e5e5;
+    transform: translateY(-2px);
+    border-color: var(--color-border);
+}
+
+.action-btn.active {
+    background-color: var(--color-dark);
+    color: white;
+}
+
+/* Pied de page */
+.team-nav-footer {
+    padding: 1.5rem;
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+    background-color: #f9f9f9;
+    font-weight: 600;
+}
+
+/* Styles adaptatifs */
+@media (max-width: 768px) {
+    .team-nav-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+    
+    .team-nav-separator {
+        display: none;
+    }
+    
+    .team-nav-teams {
+        padding: 1.5rem 1rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .team-btn {
+        width: auto;
+        max-width: none;
+        padding: 0.75rem 1.5rem;
+        margin: 0;
+    }
+    
+    .round-nav {
+        padding: 1.5rem 1rem;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .round-line {
+        display: none;
+    }
+    
+    .team-nav-actions {
+        padding: 1.5rem 1rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .action-btn {
+        width: auto;
+        max-width: none;
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+/* Microinteractions */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.team-btn.active:hover,
+.round-btn.active:hover {
+    animation: pulse 1s infinite;
+}
