@@ -1,378 +1,91 @@
-/* cse-visualization.css - Styles dédiés à la visualisation du CSE */
+/* Styles mobile pour CSEVisualization */
 
-/* Styles de base et variables */
-.cse-visualization {
-    --cse-primary: #D9272E;
-    --cse-primary-light: rgba(217, 39, 46, 0.1);
-    --cse-secondary: #2D2D2D;
-    --cse-border: #e5e7eb;
-    --cse-highlight: rgba(217, 39, 46, 0.05);
-    --cse-text-light: #777777;
-}
-
-/* Container principal */
-.cse-visualization {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
-    font-family: var(--font-sans);
-}
-
-/* Barre de navigation élégante */
-.cse-nav {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--cse-border);
-    background: linear-gradient(to right, #f9fafb, #f3f4f6);
-}
-
-/* Sections de la barre de navigation */
-.cse-nav-section {
-    display: flex;
-    border-right: 1px solid var(--cse-border);
-}
-
-.cse-nav-section:last-child {
-    border-right: none;
-}
-
-/* Boutons de navigation */
-.cse-nav-button {
-    padding: 0.75rem 1rem;
-    font-weight: 500;
-    transition: all 0.2s;
-    background: transparent;
-    color: var(--cse-secondary);
-    border: none;
-    cursor: pointer;
-}
-
-.cse-nav-button:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-.cse-nav-button.active {
-    background: var(--cse-primary);
-    color: white;
-    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
-}
-
-/* Info de la ligue */
-.cse-league-info {
-    background: white;
-    border-radius: 0.5rem;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    text-align: center;
-}
-
-.cse-league-title {
-    font-weight: 700;
-    font-size: 1.25rem;
-}
-
-/* Tables de classement et de résultats */
-.cse-table-container {
-    background: white;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.cse-table-header {
-    background: var(--cse-secondary);
-    color: white;
-    padding: 0.75rem 1rem;
-}
-
-.cse-table-header h2 {
-    margin: 0;
-    font-weight: 600;
-    font-size: 1.15rem;
-}
-
-.cse-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.cse-table th {
-    background: var(--cse-primary);
-    color: white;
-    padding: 0.75rem 0.5rem;
-    text-align: left;
-    font-weight: 500;
-    white-space: nowrap;
-}
-
-.cse-table td {
-    padding: 0.75rem 0.5rem;
-    border-bottom: 1px solid var(--cse-border);
-}
-
-.cse-table tr:last-child td {
-    border-bottom: none;
-}
-
-.cse-table tr:hover td {
-    background-color: var(--cse-highlight);
-}
-
-/* Affichage des résultats */
-.cse-match-score {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1.5rem 0;
-}
-
-.cse-team-name {
-    font-weight: 700;
-    flex: 1;
-    text-align: center;
-}
-
-.cse-score-display {
-    display: flex;
-    align-items: center;
-    margin: 0 1rem;
-}
-
-.cse-score-value {
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--cse-secondary);
-    color: white;
-    font-weight: 700;
-    border-radius: 50%;
-    margin: 0 0.5rem;
-}
-
-/* Grille de matches */
-.cse-match-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 0.75rem;
-    padding: 1rem;
-    background: #f3f4f6;
-}
-
-.cse-match-card {
-    padding: 0.75rem;
-    border-radius: 0.5rem;
-    border: 1px solid var(--cse-border);
-    transition: all 0.2s;
-    background: white;
-}
-
-.cse-match-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.cse-match-card.active {
-    background: var(--cse-primary);
-    color: white;
-    border-color: var(--cse-primary);
-}
-
-.cse-match-card.team-match {
-    background: var(--cse-primary-light);
-    border-color: var(--cse-primary);
-}
-
-/* Design pour les échiquiers */
-.cse-board-player {
-    display: flex;
-    align-items: center;
-}
-
-.cse-player-white {
-    background: white;
-    border-left: 2px solid var(--cse-border);
-}
-
-.cse-player-black {
-    background: var(--cse-secondary);
-    color: white;
-}
-
-/* Styles spécifiques pour mobile */
+/* Ajuster la taille des polices sur mobile */
 @media (max-width: 768px) {
-    /* Barre de navigation adaptative */
-    .cse-nav {
-        flex-direction: column;
+    .cse-visualization {
+      font-size: 0.9rem;
     }
     
-    .cse-nav-section {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid var(--cse-border);
+    .cse-visualization h2 {
+      font-size: 1.1rem;
     }
     
-    .cse-nav-section:last-child {
-        border-bottom: none;
+    /* Reduire les marges/paddings */
+    .cse-visualization th,
+    .cse-visualization td {
+      padding: 0.5rem 0.25rem;
     }
     
-    .cse-nav-button {
-        flex: 1;
-        text-align: center;
-        padding: 0.6rem 0.5rem;
-        font-size: 0.9rem;
+    /* Optimiser l'affichage des tableaux */
+    .col-rank, .col-board {
+      width: 40px;
     }
     
-    /* Équipes et rondes horizontales */
-    .cse-teams-section,
-    .cse-rounds-section {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        display: flex;
-        flex-wrap: nowrap;
+    .col-rating {
+      width: 50px;
     }
     
-    /* Adaptation des tables */
-    .cse-table th,
-    .cse-table td {
-        padding: 0.5rem 0.25rem;
-        font-size: 0.85rem;
+    .col-result {
+      width: 40px;
     }
     
-    /* Abréviations pour économiser de l'espace */
-    .cse-table th.col-short {
-        width: 2rem;
-        text-align: center;
+    .col-matchpoints, .col-gamepoints {
+      width: 50px;
     }
     
-    .cse-table th.col-rank:after {
-        content: "#";
-        display: inline;
+    /* Cache la version desktop des noms de joueurs */
+    .player-name-desktop {
+      display: none;
     }
     
-    .cse-table th.col-matchpoints:after {
-        content: "MP";
-        display: inline;
-    }
-    
-    .cse-table th.col-gamepoints:after {
-        content: "GP";
-        display: inline;
-    }
-    
-    .cse-table th.col-rank span,
-    .cse-table th.col-matchpoints span,
-    .cse-table th.col-gamepoints span {
-        display: none;
-    }
-    
-    /* Affichage du score adapté */
-    .cse-match-score {
-        flex-wrap: wrap;
-    }
-    
-    .cse-team-name {
-        font-size: 0.9rem;
-        padding: 0 0.25rem;
-    }
-    
+    /* Réduire la taille des cercles de score */
     .cse-score-value {
-        width: 2.5rem;
-        height: 2.5rem;
-        font-size: 0.9rem;
+      width: 3rem;
+      height: 3rem;
+      font-size: 1rem;
     }
-    
-    /* Grille de matches */
-    .cse-match-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.5rem;
-        padding: 0.5rem;
+  }
+  
+  /* Styles desktop */
+  @media (min-width: 769px) {
+    /* Cache la version mobile des noms de joueurs */
+    .player-name-mobile {
+      display: none;
     }
-    
-    .cse-match-card {
-        padding: 0.5rem;
-        font-size: 0.8rem;
-    }
-    
-    /* Optimisation des tables d'échiquiers */
-    .cse-boards-table {
-        font-size: 0.8rem;
-    }
-    
-    .cse-boards-table th.col-board {
-        width: 1.5rem;
-        font-size: 0.75rem;
-        padding: 0.4rem 0.1rem;
-        text-align: center;
-    }
-    
-    .cse-boards-table th.col-rating {
-        width: 3rem;
-        font-size: 0.75rem;
-        padding: 0.4rem 0.1rem;
-        text-align: center;
-    }
-    
-    .cse-boards-table th.col-result {
-        width: 2.5rem;
-        font-size: 0.75rem;
-        padding: 0.4rem 0.1rem;
-        text-align: center;
-    }
-    
-    .cse-boards-table td.player-name {
-        max-width: 120px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-}
+  }
 
-/* Styles encore plus spécifiques pour très petits écrans */
-@media (max-width: 480px) {
-    .cse-nav-button {
-        padding: 0.5rem 0.35rem;
-        font-size: 0.8rem;
+  /* Styles améliorés pour mobile */
+@media (max-width: 640px) {
+    /* Améliorer la lisibilité des boutons */
+    button {
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
     }
     
-    .cse-match-grid {
-        grid-template-columns: 1fr;
+    /* Réduire les marges sur petits écrans */
+    .container {
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
     }
     
-    .cse-score-value {
-        width: 2rem;
-        height: 2rem;
-        font-size: 0.8rem;
+    /* Améliorer la taille des boutons pour les doigts */
+    .py-4, .py-5 {
+      min-height: 48px; /* Taille minimale pour les cibles tactiles */
     }
     
-    /* Adaptation des scores affichés */
-    .cse-score-display {
-        flex-direction: column;
-        margin: 0 0.5rem;
+    /* Transitions plus douces */
+    .transition-all {
+      transition: all 0.2s ease-in-out;
     }
     
-    .cse-score-separator {
-        margin: 0.25rem 0;
+    /* Effets de pression sur les boutons */
+    button:active {
+      transform: scale(0.98);
     }
-    
-    /* Optimisation extrême des tables */
-    .cse-table th,
-    .cse-table td {
-        padding: 0.4rem 0.2rem;
-        font-size: 0.75rem;
+  
+    /* Améliorer les scores dans les matchs */
+    .rounded-full {
+      width: 3rem !important;
+      height: 3rem !important;
     }
-    
-    /* Cacher certaines colonnes moins importantes sur très petits écrans */
-    .cse-table th.mobile-hide,
-    .cse-table td.mobile-hide {
-        display: none;
-    }
-}
+  }

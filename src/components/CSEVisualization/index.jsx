@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
-
-// Import data manager
 import ChessDataManager from "../../data";
-// Import mobile optimization
-import MobileOptimization from "./MobileOptimization";
+import useMediaQuery from "./hooks/useMediaQuery";
+
+// Component imports
+import LeagueHeader from "./components/LeagueHeader";
+import Navigation from "./components/Navigation";
+import RankingsTable from "./components/RankingsTable";
+import MatchesList from "./components/MatchesList";
+import MatchDetails from "./components/MatchDetails";
+import BoardsTable from "./components/BoardsTable";
 
 // Main component
 const CSEVisualization = () => {
@@ -12,23 +17,26 @@ const CSEVisualization = () => {
   const [selectedMatchId, setSelectedMatchId] = useState(null);
   const [currentView, setCurrentView] = useState("rankings");
   const [loading, setLoading] = useState(true);
-  const [currentRound, setCurrentRound] = useState(1); // Initial value, will be updated
+  const [dataError, setDataError] = useState(false);
+  const [currentRound, setCurrentRound] = useState(1);
   const [matches, setMatches] = useState([]);
   const [allMatches, setAllMatches] = useState([]);
   const [boards, setBoards] = useState([]);
   const [rankings, setRankings] = useState([]);
   const [teamInfo, setTeamInfo] = useState(null);
+  
+  // Responsive detection
+  const isMobile = useMediaQuery('(max-width: 768px)');
 
-  // Find the latest round with data available
+  // Find the latest round with data available (limited to 1-3)
   useEffect(() => {
     const findLatestRound = async () => {
       try {
-        // Get max possible round from total number of rounds (should be 7)
-        const maxRound = ChessDataManager.roundsInfo.length;
+        // Start with a safe default round
+        let foundRound = 1;
         
-        // Try to find the latest round with data by checking each round
-        // starting from the highest number
-        for (let i = maxRound; i >= 1; i--) {
+        // Try to find the latest round with data (only check 1-3)
+        for (let i = 3; i >= 1; i--) {
           try {
             const roundData = await ChessDataManager.loadRoundData(i);
             // Check if this round has valid data
@@ -37,7 +45,7 @@ const CSEVisualization = () => {
                 (roundData.rankings && Object.keys(roundData.rankings).length > 0)
               )) {
               console.log(`Found latest round with data: Round ${i}`);
-              setCurrentRound(i);
+              foundRound = i;
               break;
             }
           } catch (error) {
@@ -46,8 +54,12 @@ const CSEVisualization = () => {
             continue;
           }
         }
+        
+        setCurrentRound(foundRound);
       } catch (error) {
         console.error("Error finding latest round:", error);
+        // Ensure a default round is set even if errors occur
+        setCurrentRound(1);
       }
     };
 
@@ -58,22 +70,32 @@ const CSEVisualization = () => {
   useEffect(() => {
     const loadData = async () => {
       setLoading(true);
+      setDataError(false);
 
       try {
         // Get team info
         const info = ChessDataManager.getTeamInfo(selectedTeam.id);
+        if (!info) {
+          throw new Error("Team info not found");
+        }
         setTeamInfo(info);
 
         // Load round data
         const roundData = await ChessDataManager.loadRoundData(currentRound);
+        if (!roundData) {
+          throw new Error("Round data not found");
+        }
 
         // Get rankings for this league
-        setRankings(roundData.rankings[info.leagueId]);
+        if (roundData.rankings && roundData.rankings[info.leagueId]) {
+          setRankings(roundData.rankings[info.leagueId]);
+        } else {
+          setRankings([]);
+        }
 
         // Get matches for this team
         const teamMatches = roundData.matches.filter(
-          (m) =>
-            m.homeTeamId === selectedTeam.id || m.awayTeamId === selectedTeam.id
+          (m) => m.homeTeamId === selectedTeam.id || m.awayTeamId === selectedTeam.id
         );
 
         // Get all matches for the current league
@@ -93,9 +115,7 @@ const CSEVisualization = () => {
           ...match,
           homeTeam: ChessDataManager.getTeamName(match.homeTeamId),
           awayTeam: ChessDataManager.getTeamName(match.awayTeamId),
-          isTeamMatch:
-            match.homeTeamId === selectedTeam.id ||
-            match.awayTeamId === selectedTeam.id,
+          isTeamMatch: match.homeTeamId === selectedTeam.id || match.awayTeamId === selectedTeam.id,
         }));
 
         setMatches(enhancedTeamMatches);
@@ -107,6 +127,7 @@ const CSEVisualization = () => {
         }
       } catch (error) {
         console.error("Error loading data:", error);
+        setDataError(true);
       }
 
       setLoading(false);
@@ -122,12 +143,18 @@ const CSEVisualization = () => {
 
       try {
         const roundData = await ChessDataManager.loadRoundData(currentRound);
+        if (!roundData || !roundData.boards) {
+          setBoards([]);
+          return;
+        }
+        
         const matchBoards = roundData.boards.filter(
           (b) => b.matchId === selectedMatchId
         );
         setBoards(matchBoards);
       } catch (error) {
         console.error("Error loading board data:", error);
+        setBoards([]);
       }
     };
 
@@ -145,7 +172,8 @@ const CSEVisualization = () => {
   };
 
   // Handle team change
-  const handleTeamChange = (teamId, teamName) => {
+  const handleTeamChange = (teamId) => {
+    const teamName = ChessDataManager.getTeamName(teamId);
     setSelectedTeam({ id: teamId, name: teamName });
     setSelectedMatchId(null); // Reset selected match
   };
@@ -167,138 +195,44 @@ const CSEVisualization = () => {
     );
   }
 
+  // Error state
+  if (dataError) {
+    return (
+      <div className="container mx-auto px-4 py-8 text-center">
+        <div className="bg-red-100 p-4 rounded-lg">
+          <h3 className="text-red-700 font-bold mb-2">Données non disponibles</h3>
+          <p className="text-red-600">
+            Nous ne pouvons pas charger les données pour cette ronde.
+            Les résultats seront disponibles prochainement.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="container mx-auto px-4 cse-visualization">
-      {/* Composant d'optimisation mobile qui va gérer les adaptations responsives */}
-      <MobileOptimization />
-      
-      {/* League info */}
-      <div className="bg-white rounded-lg p-3 mb-4 shadow-md">
-        <div className="text-center">
-          <h2 className="font-bold text-xl">
-            {teamInfo?.league?.name || "?"} Ouest
-          </h2>
-        </div>
-      </div>
+    <div className={`container mx-auto ${isMobile ? 'px-2' : 'px-4'} cse-visualization`}>
+      {/* League header */}
+      <LeagueHeader leagueName={teamInfo?.league?.name} />
 
-      {/* Elegant Navigation Bar */}
-      <div className="mb-6 rounded-lg overflow-hidden shadow-lg border border-gray-200">
-        <div className="flex flex-wrap items-center bg-gradient-to-r from-gray-50 to-gray-100">
-          {/* Team selection - Left side */}
-          <div className="flex border-r border-gray-300">
-            <button
-              className={`px-6 py-4 font-medium transition-all duration-200 ${
-                selectedTeam.id === 1
-                  ? "bg-red-600 text-white shadow-inner"
-                  : "bg-transparent hover:bg-gray-200 text-gray-800"
-              }`}
-              onClick={() => handleTeamChange(1, "Sion 1")}
-            >
-              Sion 1
-            </button>
-            <button
-              className={`px-6 py-4 font-medium transition-all duration-200 ${
-                selectedTeam.id === 9
-                  ? "bg-red-600 text-white shadow-inner"
-                  : "bg-transparent hover:bg-gray-200 text-gray-800"
-              }`}
-              onClick={() => handleTeamChange(9, "Sion 2")}
-            >
-              Sion 2
-            </button>
-          </div>
-
-          {/* Round selection - Center */}
-          <div className="flex flex-1 border-r border-gray-300">
-            {[1, 2, 3, 4, 5, 6, 7].map((round) => (
-              <button
-                key={round}
-                className={`flex-1 py-4 font-medium transition-all duration-200 ${
-                  currentRound === round
-                    ? "bg-red-600 text-white shadow-inner"
-                    : "bg-transparent hover:bg-gray-200 text-gray-800"
-                }`}
-                onClick={() => setCurrentRound(round)}
-              >
-                {round}
-              </button>
-            ))}
-          </div>
-
-          {/* View selection - Right side */}
-          <div className="flex">
-            <button
-              className={`px-8 py-4 font-medium transition-all duration-200 ${
-                currentView === "rankings"
-                  ? "bg-red-600 text-white shadow-inner"
-                  : "bg-transparent hover:bg-gray-200 text-gray-800"
-              }`}
-              onClick={() => setCurrentView("rankings")}
-            >
-              Classement
-            </button>
-            <button
-              className={`px-8 py-4 font-medium transition-all duration-200 ${
-                currentView === "results"
-                  ? "bg-red-600 text-white shadow-inner"
-                  : "bg-transparent hover:bg-gray-200 text-gray-800"
-              }`}
-              onClick={() => setCurrentView("results")}
-            >
-              Résultats
-            </button>
-          </div>
-        </div>
-      </div>
+      {/* Navigation bar */}
+      <Navigation 
+        selectedTeamId={selectedTeam.id}
+        currentRound={currentRound}
+        currentView={currentView}
+        onTeamChange={handleTeamChange}
+        onRoundChange={setCurrentRound}
+        onViewChange={setCurrentView}
+      />
 
       {/* Content based on selected view */}
       {currentView === "rankings" ? (
         /* Rankings Table */
-        <div className="bg-white rounded-lg overflow-hidden mb-8 shadow-md">
-          <div className="bg-gray-800 text-white px-4 py-3">
-            <h2 className="font-bold">Classement</h2>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-gray-200">
-                  <th className="px-4 py-2 text-left col-rank">
-                    <span>Rang</span>
-                  </th>
-                  <th className="px-4 py-2 text-left">Équipe</th>
-                  <th className="px-4 py-2 text-center col-matchpoints">
-                    <span>Points de match</span>
-                  </th>
-                  <th className="px-4 py-2 text-center col-gamepoints">
-                    <span>Points individuels</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {rankings &&
-                  rankings.map((rank, index) => (
-                    <tr
-                      key={index}
-                      className={`border-b ${
-                        rank.teamId === selectedTeam.id ? "bg-red-100" : ""
-                      }`}
-                    >
-                      <td className="px-4 py-2">{rank.rank}</td>
-                      <td className="px-4 py-2">
-                        {ChessDataManager.getTeamName(rank.teamId)}
-                      </td>
-                      <td className="px-4 py-2 text-center">
-                        {rank.matchPoints}
-                      </td>
-                      <td className="px-4 py-2 text-center">
-                        {rank.gamePoints}
-                      </td>
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <RankingsTable 
+          rankings={rankings}
+          selectedTeamId={selectedTeam.id}
+          getTeamName={ChessDataManager.getTeamName}
+        />
       ) : (
         /* Matches & Boards */
         <div className="bg-white rounded-lg overflow-hidden mb-8 shadow-md">
@@ -306,152 +240,31 @@ const CSEVisualization = () => {
             <h2 className="font-bold">Résultats - Ronde {currentRound}</h2>
           </div>
 
-          {/* Match selection - Now showing all matches, with team matches highlighted */}
-          <div className="p-4 bg-gray-200 border-b">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 cse-match-grid">
-              {allMatches.map((match, index) => (
-                <button
-                  key={index}
-                  className={`p-3 rounded border cse-match-card ${
-                    selectedMatchId === match.id
-                      ? "bg-red-600 text-white border-red-700 hover:bg-red-700 active"
-                      : match.isTeamMatch
-                      ? "bg-red-50 border-red-200 hover:bg-red-100 team-match"
-                      : "bg-white border-gray-300 hover:bg-gray-100"
-                  }`}
-                  onClick={() => setSelectedMatchId(match.id)}
-                >
-                  <div className="font-semibold">
-                    {match.homeTeam} - {match.awayTeam}
-                  </div>
-                  <div className="text-sm mt-1">{match.score}</div>
-                </button>
-              ))}
-            </div>
-          </div>
+          {allMatches.length > 0 ? (
+            <>
+              {/* Matches list */}
+              <MatchesList 
+                matches={allMatches}
+                selectedMatchId={selectedMatchId}
+                onMatchSelect={setSelectedMatchId}
+                roundNumber={currentRound}
+              />
 
-          {/* Match details */}
-          {currentMatch && (
-            <div className="p-4">
-              {/* Score display */}
-              <div className="flex items-center justify-between mb-4 cse-match-score">
-                <div className="text-lg font-bold text-right w-1/3 cse-team-name">
-                  {currentMatch.homeTeam}
-                </div>
-
-                <div className="flex justify-center items-center cse-score-display">
-                  <div
-                    className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold bg-gray-600 cse-score-value"
-                  >
-                    {formatMatchResult(currentMatch.score).home}
-                  </div>
-                  <div className="mx-2 text-lg cse-score-separator">-</div>
-                  <div
-                    className="w-16 h-16 rounded-full flex items-center justify-center text-white font-bold bg-gray-600 cse-score-value"
-                  >
-                    {formatMatchResult(currentMatch.score).away}
-                  </div>
-                </div>
-
-                <div className="text-lg font-bold text-left w-1/3 cse-team-name">
-                  {currentMatch.awayTeam}
-                </div>
-              </div>
-
-              {/* Boards */}
-              {boards.length > 0 && (
-                <div className="overflow-x-auto mt-4">
-                  <table className="w-full cse-boards-table">
-                    <thead>
-                      <tr className="bg-gray-200">
-                        <th className="px-4 py-2 text-center col-board">Échiquier</th>
-                        <th className="px-4 py-2 text-left">Joueur</th>
-                        <th className="px-4 py-2 text-center col-rating">Elo</th>
-                        <th className="px-4 py-2 text-center col-result">Résultat</th>
-                        <th className="px-4 py-2 text-left">Joueur</th>
-                        <th className="px-4 py-2 text-center col-rating">Elo</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {boards.map((board, index) => {
-                        // For traditional chess color alternation - home player on odd boards has white
-                        const homePlayerHasWhite = board.boardNumber % 2 === 1;
-                        const awayPlayerHasWhite = !homePlayerHasWhite;
-
-                        // Extract last name only for mobile display
-                        const formatPlayerName = (fullName) => {
-                          return (
-                            <span className="player-full-name" title={fullName}>
-                              <span className="player-name-mobile">{fullName.split(' ').pop()}</span>
-                              <span className="player-name-desktop">{fullName}</span>
-                            </span>
-                          );
-                        };
-
-                        return (
-                          <tr key={index} className="border-b hover:bg-gray-50">
-                            <td className="px-4 py-2 text-center">
-                              {board.boardNumber}
-                            </td>
-                            <td
-                              className={`px-4 py-2 player-name ${
-                                homePlayerHasWhite
-                                  ? "bg-white border-l-2 border-gray-200 cse-player-white"
-                                  : "bg-gray-700 text-white cse-player-black"
-                              }`}
-                            >
-                              {formatPlayerName(board.homePlayer)}
-                            </td>
-                            <td
-                              className={`px-4 py-2 text-center ${
-                                homePlayerHasWhite
-                                  ? "bg-white border-r-2 border-gray-200 cse-player-white"
-                                  : "bg-gray-700 text-white cse-player-black"
-                              }`}
-                            >
-                              {board.homeRating || "-"}
-                            </td>
-                            <td className="px-4 py-2 text-center font-bold">
-                              {board.result}
-                            </td>
-                            <td
-                              className={`px-4 py-2 player-name ${
-                                awayPlayerHasWhite
-                                  ? "bg-white border-l-2 border-gray-200 cse-player-white"
-                                  : "bg-gray-700 text-white cse-player-black"
-                              }`}
-                            >
-                              {formatPlayerName(board.awayPlayer)}
-                            </td>
-                            <td
-                              className={`px-4 py-2 text-center ${
-                                awayPlayerHasWhite
-                                  ? "bg-white border-r-2 border-gray-200 cse-player-white"
-                                  : "bg-gray-700 text-white cse-player-black"
-                              }`}
-                            >
-                              {board.awayRating || "-"}
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
+              {/* Match details */}
+              {currentMatch ? (
+                <>
+                  <MatchDetails match={currentMatch} />
+                  <BoardsTable boards={boards} />
+                </>
+              ) : (
+                <div className="p-4 text-center text-gray-600">
+                  Aucun match sélectionné.
                 </div>
               )}
-
-              {boards.length === 0 && (
-                <div className="text-center text-gray-500 mt-4">
-                  Détails des parties non disponibles pour ce match.
-                </div>
-              )}
-            </div>
-          )}
-
-          {/* No match selected */}
-          {!currentMatch && (
+            </>
+          ) : (
             <div className="p-4 text-center text-gray-600">
-              Aucun match sélectionné.
+              Aucun match disponible pour cette ronde.
             </div>
           )}
         </div>

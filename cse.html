@@ -18,6 +18,8 @@
 
     <!-- Styles CSS -->
     <link rel="stylesheet" href="css/main.css">
+    <!-- CSS spécifique à la visualisation CSE -->
+    <link rel="stylesheet" href="css/pages/cse-visualization.css">
 </head>
 <body class="font-sans club-page">
     <header class="hero-accueil compact-header">
@@ -58,7 +60,7 @@
         </section>
 
         <!-- Container for the React component -->
-        <div id="cse-react" class="container mx-auto"></div>
+        <div id="cse-react" class="container mx-auto px-4 py-6"></div>
     </main>
 
     <!-- Footer -->
@@ -66,10 +68,28 @@
         <!-- Ce contenu est généré par le script footer.js -->
     </footer>
     
-    <!-- Scripts in correct order -->
+    <!-- Scripts -->
+    <!-- Navbar et footer scripts -->
     <script src="js/navbar.js"></script>
     <script src="js/footer.js"></script>
-    <!-- React bundle would be added here - this is just a placeholder -->
+    
+    <!-- Script de débogage pour vérifier que le conteneur existe -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM chargé, vérification du conteneur cse-react:');
+            const container = document.getElementById('cse-react');
+            
+            if (container) {
+                console.log('Conteneur trouvé:', container);
+                // Ajouter un marqueur visuel temporaire
+                container.innerHTML = '<div class="text-center py-4 text-gray-500">Chargement de la visualisation CSE...</div>';
+            } else {
+                console.error('ERREUR: Conteneur #cse-react non trouvé!');
+            }
+        });
+    </script>
+    
+    <!-- React bundle -->
     <script src="dist/cse.bundle.js"></script>
 </body>
 </html>
