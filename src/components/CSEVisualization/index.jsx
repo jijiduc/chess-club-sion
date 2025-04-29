@@ -1,276 +1,247 @@
-import React, { useState, useEffect } from "react";
-import ChessDataManager from "../../data";
-import useMediaQuery from "./hooks/useMediaQuery";
+// src/data/index.js - Central data management for the chess visualization
 
-// Component imports
-import LeagueHeader from "./components/LeagueHeader";
-import Navigation from "./components/Navigation";
-import RankingsTable from "./components/RankingsTable";
-import MatchesList from "./components/MatchesList";
-import MatchDetails from "./components/MatchDetails";
-import BoardsTable from "./components/BoardsTable";
+// Constants for leagues, teams, and rounds
+const LEAGUES = [
+  { id: 1, name: "1ère ligue" },
+  { id: 2, name: "3ème ligue" }
+];
 
-// Main component
-const CSEVisualization = () => {
-  // State
-  const [selectedTeam, setSelectedTeam] = useState({ id: 1, name: "Sion 1" });
-  const [selectedMatchId, setSelectedMatchId] = useState(null);
-  const [currentView, setCurrentView] = useState("rankings");
-  const [loading, setLoading] = useState(true);
-  const [dataError, setDataError] = useState(false);
-  const [currentRound, setCurrentRound] = useState(1);
-  const [matches, setMatches] = useState([]);
-  const [allMatches, setAllMatches] = useState([]);
-  const [boards, setBoards] = useState([]);
-  const [rankings, setRankings] = useState([]);
-  const [teamInfo, setTeamInfo] = useState(null);
+const TEAMS = [
+  // 1ère ligue
+  { id: 1, name: "Sion 1", leagueId: 1 },
+  { id: 2, name: "Genève 2", leagueId: 1 },
+  { id: 3, name: "Neuchâtel 1", leagueId: 1 },
+  { id: 4, name: "Valais 1", leagueId: 1 },
+  { id: 5, name: "Echallens 2", leagueId: 1 },
+  { id: 6, name: "Grand Echiquier 1", leagueId: 1 },
+  { id: 7, name: "Köniz-Bubenberg 1", leagueId: 1 },
+  { id: 8, name: "Fribourg 1", leagueId: 1 },
   
-  // Responsive detection
-  const isMobile = useMediaQuery('(max-width: 768px)');
+  // 3ème ligue
+  { id: 9, name: "Sion 2", leagueId: 2 },
+  { id: 10, name: "Grand Echiquier 2", leagueId: 2 },
+  { id: 11, name: "Monthey 1", leagueId: 2 },
+  { id: 12, name: "Crans-Montana 2", leagueId: 2 },
+  { id: 13, name: "Valais 2", leagueId: 2 },
+  { id: 14, name: "Bulle 3", leagueId: 2 },
+  { id: 15, name: "Crazy Horse 1", leagueId: 2 },
+  { id: 16, name: "Payerne 2", leagueId: 2 }
+];
 
-  // Find the latest round with data available (limited to 1-3)
-  useEffect(() => {
-    const findLatestRound = async () => {
-      try {
-        // Start with a safe default round
-        let foundRound = 1;
-        
-        // Try to find the latest round with data (only check 1-3)
-        for (let i = 3; i >= 1; i--) {
-          try {
-            const roundData = await ChessDataManager.loadRoundData(i);
-            // Check if this round has valid data
-            if (roundData && (
-                (roundData.matches && roundData.matches.length > 0) || 
-                (roundData.rankings && Object.keys(roundData.rankings).length > 0)
-              )) {
-              console.log(`Found latest round with data: Round ${i}`);
-              foundRound = i;
-              break;
-            }
-          } catch (error) {
-            // Continue checking previous rounds
-            console.log(`No data for round ${i}, checking previous...`);
-            continue;
-          }
-        }
-        
-        setCurrentRound(foundRound);
-      } catch (error) {
-        console.error("Error finding latest round:", error);
-        // Ensure a default round is set even if errors occur
-        setCurrentRound(1);
-      }
-    };
+const ROUNDS_INFO = [
+  { id: 1, date: "2025-03-22", roundNumber: 1 },
+  { id: 2, date: "2025-04-05", roundNumber: 2 },
+  { id: 3, date: "2025-04-26", roundNumber: 3 },
+  { id: 4, date: "2025-05-17", roundNumber: 4 },
+  { id: 5, date: "2025-06-21", roundNumber: 5 },
+  { id: 6, date: "2025-08-23", roundNumber: 6 },
+  { id: 7, date: "2025-10-13", roundNumber: 7 }
+];
 
-    findLatestRound();
-  }, []);
-
-  // Load data when team or round changes
-  useEffect(() => {
-    const loadData = async () => {
-      setLoading(true);
-      setDataError(false);
-
-      try {
-        // Get team info
-        const info = ChessDataManager.getTeamInfo(selectedTeam.id);
-        if (!info) {
-          throw new Error("Team info not found");
-        }
-        setTeamInfo(info);
-
-        // Load round data
-        const roundData = await ChessDataManager.loadRoundData(currentRound);
-        if (!roundData) {
-          throw new Error("Round data not found");
-        }
-
-        // Get rankings for this league
-        if (roundData.rankings && roundData.rankings[info.leagueId]) {
-          setRankings(roundData.rankings[info.leagueId]);
-        } else {
-          setRankings([]);
-        }
-
-        // Get matches for this team
-        const teamMatches = roundData.matches.filter(
-          (m) => m.homeTeamId === selectedTeam.id || m.awayTeamId === selectedTeam.id
-        );
-
-        // Get all matches for the current league
-        const leagueMatches = roundData.matches.filter((m) => {
-          const homeTeam = ChessDataManager.getTeamInfo(m.homeTeamId);
-          return homeTeam && homeTeam.leagueId === info.leagueId;
-        });
-
-        // Add team names to both match lists
-        const enhancedTeamMatches = teamMatches.map((match) => ({
-          ...match,
-          homeTeam: ChessDataManager.getTeamName(match.homeTeamId),
-          awayTeam: ChessDataManager.getTeamName(match.awayTeamId),
-        }));
-
-        const enhancedAllMatches = leagueMatches.map((match) => ({
-          ...match,
-          homeTeam: ChessDataManager.getTeamName(match.homeTeamId),
-          awayTeam: ChessDataManager.getTeamName(match.awayTeamId),
-          isTeamMatch: match.homeTeamId === selectedTeam.id || match.awayTeamId === selectedTeam.id,
-        }));
-
-        setMatches(enhancedTeamMatches);
-        setAllMatches(enhancedAllMatches);
-
-        // Set default match if none selected
-        if (enhancedTeamMatches.length > 0 && !selectedMatchId) {
-          setSelectedMatchId(enhancedTeamMatches[0].id);
-        }
-      } catch (error) {
-        console.error("Error loading data:", error);
-        setDataError(true);
-      }
-
-      setLoading(false);
-    };
-
-    loadData();
-  }, [selectedTeam.id, currentRound]);
-
-  // Load board data when match selection changes
-  useEffect(() => {
-    const loadBoardData = async () => {
-      if (!selectedMatchId) return;
-
-      try {
-        const roundData = await ChessDataManager.loadRoundData(currentRound);
-        if (!roundData || !roundData.boards) {
-          setBoards([]);
-          return;
-        }
-        
-        const matchBoards = roundData.boards.filter(
-          (b) => b.matchId === selectedMatchId
-        );
-        setBoards(matchBoards);
-      } catch (error) {
-        console.error("Error loading board data:", error);
-        setBoards([]);
-      }
-    };
-
-    loadBoardData();
-  }, [selectedMatchId, currentRound]);
-
-  // Helper functions
-  const formatMatchResult = (score) => {
-    if (!score) return { home: 0, away: 0 };
-    const parts = score.split("-");
-    if (parts.length !== 2) return { home: 0, away: 0 };
-    const homeScore = parseFloat(parts[0].replace("½", ".5"));
-    const awayScore = parseFloat(parts[1].replace("½", ".5"));
-    return { home: homeScore, away: awayScore };
-  };
-
-  // Handle team change
-  const handleTeamChange = (teamId) => {
-    const teamName = ChessDataManager.getTeamName(teamId);
-    setSelectedTeam({ id: teamId, name: teamName });
-    setSelectedMatchId(null); // Reset selected match
-  };
-
-  // Get current match
-  const currentMatch =
-    matches.find((m) => m.id === selectedMatchId) ||
-    allMatches.find((m) => m.id === selectedMatchId);
-
-  // Loading indicator
-  if (loading) {
-    return (
-      <div className="container mx-auto px-4 py-8 text-center">
-        <div className="animate-pulse">
-          <div className="h-8 bg-gray-300 rounded w-1/3 mx-auto mb-4"></div>
-          <div className="h-48 bg-gray-300 rounded mb-4"></div>
-        </div>
-      </div>
-    );
+// Sample data for round 1 (fallback data)
+const round1Data = {
+  matches: [
+    // 1ère ligue
+    {
+      id: 1,
+      roundId: 1,
+      homeTeamId: 2, // Genève 2
+      awayTeamId: 3, // Neuchâtel 1
+      score: "5½-2½"
+    },
+    {
+      id: 3,
+      roundId: 1,
+      homeTeamId: 1, // Sion 1
+      awayTeamId: 6, // Grand Echiquier 1
+      score: "1½-6½"
+    },
+    // 3ème ligue
+    {
+      id: 6,
+      roundId: 1,
+      homeTeamId: 9, // Sion 2
+      awayTeamId: 12, // Crans-Montana 2
+      score: "2-4"
+    }
+  ],
+  
+  boards: [
+    // Match 3: Sion 1 vs Grand Echiquier 1
+    {
+      matchId: 3,
+      boardNumber: 1,
+      homePlayer: "Flavien Sola",
+      homeRating: 2167,
+      result: "0-1",
+      awayPlayer: "Guillaume Chauvon",
+      awayRating: 2076
+    },
+    {
+      matchId: 3,
+      boardNumber: 2,
+      homePlayer: "Vlad Popescu",
+      homeRating: 1990,
+      result: "0-1",
+      awayPlayer: "Ferran Rocamora Martorell",
+      awayRating: 2126
+    },
+    {
+      matchId: 3,
+      boardNumber: 3,
+      homePlayer: "Pierre-M. Rappaz",
+      homeRating: 1933,
+      result: "½-½",
+      awayPlayer: "Jonathan Jaccard",
+      awayRating: 1949
+    },
+    {
+      matchId: 3,
+      boardNumber: 4,
+      homePlayer: "Jean-Yves Riand",
+      homeRating: 1877,
+      result: "½-½",
+      awayPlayer: "Jean-Manuel Segura",
+      awayRating: 2066
+    },
+    {
+      matchId: 3,
+      boardNumber: 5,
+      homePlayer: "Max Chappaz",
+      homeRating: 1904,
+      result: "0-1",
+      awayPlayer: "Sébastien Vasey",
+      awayRating: 1956
+    },
+    {
+      matchId: 3,
+      boardNumber: 6,
+      homePlayer: "Yves Roduit",
+      homeRating: 1910,
+      result: "0-1",
+      awayPlayer: "Vincent Conrad",
+      awayRating: 1904
+    },
+    {
+      matchId: 3,
+      boardNumber: 7,
+      homePlayer: "Olivier Ulmann",
+      homeRating: 1788,
+      result: "0-1",
+      awayPlayer: "Pierpaolo Ranieri",
+      awayRating: 1893
+    },
+    {
+      matchId: 3,
+      boardNumber: 8,
+      homePlayer: "Jeremy Duc",
+      homeRating: 1829,
+      result: "½-½",
+      awayPlayer: "Mathis Soubeyrand",
+      awayRating: 1547
+    }
+  ],
+  
+  rankings: {
+    1: [ // 1ère ligue
+      { rank: 1, teamId: 6, matchPoints: 2, gamePoints: "6½" },
+      { rank: 2, teamId: 8, matchPoints: 2, gamePoints: "6" },
+      { rank: 3, teamId: 2, matchPoints: 2, gamePoints: "5½" },
+      { rank: 4, teamId: 5, matchPoints: 2, gamePoints: "4½" },
+      { rank: 5, teamId: 4, matchPoints: 0, gamePoints: "3½" },
+      { rank: 6, teamId: 3, matchPoints: 0, gamePoints: "2½" },
+      { rank: 7, teamId: 7, matchPoints: 0, gamePoints: "2" },
+      { rank: 8, teamId: 1, matchPoints: 0, gamePoints: "1½" }
+    ],
+    2: [ // 3ème ligue
+      { rank: 1, teamId: 11, matchPoints: 2, gamePoints: "5" },
+      { rank: 1, teamId: 13, matchPoints: 2, gamePoints: "5" },
+      { rank: 3, teamId: 12, matchPoints: 2, gamePoints: "4" },
+      { rank: 4, teamId: 15, matchPoints: 2, gamePoints: "3½" },
+      { rank: 5, teamId: 16, matchPoints: 0, gamePoints: "2½" },
+      { rank: 6, teamId: 9, matchPoints: 0, gamePoints: "2" },
+      { rank: 7, teamId: 14, matchPoints: 0, gamePoints: "1" },
+      { rank: 7, teamId: 10, matchPoints: 0, gamePoints: "1" }
+    ]
   }
-
-  // Error state
-  if (dataError) {
-    return (
-      <div className="container mx-auto px-4 py-8 text-center">
-        <div className="bg-red-100 p-4 rounded-lg">
-          <h3 className="text-red-700 font-bold mb-2">Données non disponibles</h3>
-          <p className="text-red-600">
-            Nous ne pouvons pas charger les données pour cette ronde.
-            Les résultats seront disponibles prochainement.
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className={`container mx-auto ${isMobile ? 'px-2' : 'px-4'} cse-visualization`}>
-      {/* League header */}
-      <LeagueHeader leagueName={teamInfo?.league?.name} />
-
-      {/* Navigation bar */}
-      <Navigation 
-        selectedTeamId={selectedTeam.id}
-        currentRound={currentRound}
-        currentView={currentView}
-        onTeamChange={handleTeamChange}
-        onRoundChange={setCurrentRound}
-        onViewChange={setCurrentView}
-      />
-
-      {/* Content based on selected view */}
-      {currentView === "rankings" ? (
-        /* Rankings Table */
-        <RankingsTable 
-          rankings={rankings}
-          selectedTeamId={selectedTeam.id}
-          getTeamName={ChessDataManager.getTeamName}
-        />
-      ) : (
-        /* Matches & Boards */
-        <div className="bg-white rounded-lg overflow-hidden mb-8 shadow-md">
-          <div className="bg-gray-800 text-white px-4 py-3">
-            <h2 className="font-bold">Résultats - Ronde {currentRound}</h2>
-          </div>
-
-          {allMatches.length > 0 ? (
-            <>
-              {/* Matches list */}
-              <MatchesList 
-                matches={allMatches}
-                selectedMatchId={selectedMatchId}
-                onMatchSelect={setSelectedMatchId}
-                roundNumber={currentRound}
-              />
-
-              {/* Match details */}
-              {currentMatch ? (
-                <>
-                  <MatchDetails match={currentMatch} />
-                  <BoardsTable boards={boards} />
-                </>
-              ) : (
-                <div className="p-4 text-center text-gray-600">
-                  Aucun match sélectionné.
-                </div>
-              )}
-            </>
-          ) : (
-            <div className="p-4 text-center text-gray-600">
-              Aucun match disponible pour cette ronde.
-            </div>
-          )}
-        </div>
-      )}
-    </div>
-  );
 };
 
-export default CSEVisualization;
+// Cache for round data
+const roundsCache = {};
+roundsCache[1] = round1Data;
+
+/**
+ * Chess Data Manager class
+ * Singleton that manages all chess tournament data
+ */
+class ChessDataManager {
+  constructor() {
+    this.leagues = LEAGUES;
+    this.teams = TEAMS;
+    this.roundsInfo = ROUNDS_INFO;
+  }
+
+  /**
+   * Get team information by ID
+   */
+  getTeamInfo(teamId) {
+    const team = this.teams.find(t => t.id === teamId);
+    if (!team) return null;
+    
+    const league = this.leagues.find(l => l.id === team.leagueId);
+    return { ...team, league };
+  }
+
+  /**
+   * Get team name by ID
+   */
+  getTeamName(teamId) {
+    const team = this.teams.find(t => t.id === teamId);
+    return team ? team.name : "Équipe inconnue";
+  }
+
+  /**
+   * Load round data (with caching)
+   */
+  async loadRoundData(roundNumber) {
+    // Return from cache if available
+    if (roundsCache[roundNumber]) {
+      return roundsCache[roundNumber];
+    }
+
+    try {
+      // Return round1Data as fallback for any round that's not in cache
+      console.log(`No data cached for round ${roundNumber}, using fallback data`);
+      return round1Data;
+    } catch (error) {
+      console.error(`Error loading round ${roundNumber}:`, error);
+      
+      // Fallback to empty data structure
+      return {
+        matches: [],
+        boards: [],
+        rankings: {
+          1: [],
+          2: []
+        }
+      };
+    }
+  }
+
+  /**
+   * Get the latest round number with available data
+   */
+  async getLatestRoundNumber() {
+    return 3; // Always return round 3 as the latest round
+  }
+
+  /**
+   * Get the latest rankings for a league
+   */
+  async getLatestRankings(leagueId) {
+    return round1Data.rankings[leagueId] || [];
+  }
+}
+
+// Export a singleton instance
+export default new ChessDataManager();

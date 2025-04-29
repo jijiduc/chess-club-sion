@@ -1,17 +1,33 @@
 // src/components/CSEVisualization/components/CompactHorizontalMatchView.jsx
 import React, { useState } from 'react';
-import { formatMatchResult } from '../utils/formatters';
 
-const CompactHorizontalMatchView = ({ match, boards }) => {
-  // États pour la gestion des noms de joueurs
+/**
+ * Compact mobile-friendly layout for match details
+ * @param {Object} match - The match data object
+ * @param {Array} boards - Array of boards/games for this match
+ */
+const CompactHorizontalMatchView = ({ match, boards = [] }) => {
+  // States for expandable player names
   const [expandedRows, setExpandedRows] = useState({});
   
   if (!match) return null;
   
-  // Formatage du résultat
+  // Format match result for display
+  const formatMatchResult = (score) => {
+    if (!score) return { home: "0", away: "0" };
+    const parts = score.split("-");
+    if (parts.length !== 2) return { home: "0", away: "0" };
+    
+    // Handle scores with or without decimals
+    const homeScore = parts[0].trim().replace("½", ".5");
+    const awayScore = parts[1].trim().replace("½", ".5");
+    
+    return { home: homeScore, away: awayScore };
+  };
+  
   const result = formatMatchResult(match.score);
   
-  // Toggle pour les noms de joueurs
+  // Toggle function for player names
   const togglePlayerName = (boardNumber, side) => {
     const key = `${boardNumber}-${side}`;
     setExpandedRows(prev => ({
@@ -20,8 +36,10 @@ const CompactHorizontalMatchView = ({ match, boards }) => {
     }));
   };
   
-  // Formatage des noms de joueurs
+  // Format player name for display
   const formatPlayerName = (fullName, boardNumber, side) => {
+    if (!fullName) return "";
+    
     const key = `${boardNumber}-${side}`;
     const isExpanded = expandedRows[key];
     
@@ -30,7 +48,7 @@ const CompactHorizontalMatchView = ({ match, boards }) => {
     const nameParts = fullName.split(' ');
     if (nameParts.length <= 1) return fullName;
     
-    // Retourne seulement le nom de famille par défaut
+    // Return only last name by default
     const lastName = nameParts[nameParts.length - 1];
     const firstNames = nameParts.slice(0, nameParts.length - 1).join(' ');
     
@@ -44,71 +62,87 @@ const CompactHorizontalMatchView = ({ match, boards }) => {
 
   return (
     <div className="cse-match-compact">
-      {/* Affichage du score horizontal */}
-      <div className="cse-score-horizontal">
-        <div className="cse-team-name-compact">{match.homeTeam}</div>
-        <div className="cse-score-circle-compact">{result.home}</div>
-        <div className="cse-separator-compact">-</div>
-        <div className="cse-score-circle-compact">{result.away}</div>
-        <div className="cse-team-name-compact">{match.awayTeam}</div>
+      {/* Horizontal score display */}
+      <div className="flex items-center justify-center p-3 bg-gray-50 rounded-lg mb-4">
+        <div className="text-sm font-medium px-2 text-right">{match.homeTeam}</div>
+        <div className="w-10 h-10 flex items-center justify-center bg-gray-600 text-white font-bold rounded-full mx-1">
+          {result.home}
+        </div>
+        <div className="mx-1 font-bold">-</div>
+        <div className="w-10 h-10 flex items-center justify-center bg-gray-600 text-white font-bold rounded-full mx-1">
+          {result.away}
+        </div>
+        <div className="text-sm font-medium px-2 text-left">{match.awayTeam}</div>
       </div>
       
-      {/* Table des détails d'échiquier compacte */}
+      {/* Chess boards table */}
       {boards && boards.length > 0 ? (
         <div className="overflow-x-auto">
-          <table className="cse-board-table-compact">
-            <thead>
+          <table className="w-full border-collapse">
+            <thead className="bg-gray-200">
               <tr>
-                <th>É</th>
-                <th>Joueur</th>
-                <th className="col-elo">Elo</th>
-                <th className="col-result">R</th>
-                <th>Joueur</th>
-                <th className="col-elo">Elo</th>
+                <th className="py-2 px-1 text-center text-xs">#</th>
+                <th className="py-2 px-2 text-left text-xs">Joueur</th>
+                <th className="py-2 px-1 text-center text-xs">Elo</th>
+                <th className="py-2 px-1 text-center text-xs">R</th>
+                <th className="py-2 px-2 text-left text-xs">Joueur</th>
+                <th className="py-2 px-1 text-center text-xs">Elo</th>
               </tr>
             </thead>
             <tbody>
               {boards.map((board) => {
-                // Couleurs d'échiquier: les échiquiers impairs ont les blancs pour le joueur à domicile
+                // Chess board colors: odd-numbered boards have white pieces for home player
                 const homePlayerHasWhite = board.boardNumber % 2 === 1;
                 
                 return (
-                  <tr key={board.boardNumber}>
-                    {/* Numéro d'échiquier */}
-                    <td>{board.boardNumber}</td>
+                  <tr key={board.boardNumber} className="border-b border-gray-200">
+                    {/* Board number */}
+                    <td className="py-2 px-1 text-center text-xs">{board.boardNumber}</td>
                     
-                    {/* Joueur à domicile */}
+                    {/* Home player */}
                     <td 
-                      className={homePlayerHasWhite ? "cse-player-white-compact" : "cse-player-black-compact"}
+                      className={`py-2 px-2 text-xs ${homePlayerHasWhite 
+                        ? "bg-white" 
+                        : "bg-gray-700 text-white"}`}
                       onClick={() => togglePlayerName(board.boardNumber, 'home')}
                     >
-                      <div className={`cse-player-name-compact ${expandedRows[`${board.boardNumber}-home`] ? 'expanded' : ''}`}>
+                      <div className={`truncate ${expandedRows[`${board.boardNumber}-home`] ? '' : 'max-w-[80px]'}`}>
                         {formatPlayerName(board.homePlayer, board.boardNumber, 'home')}
                       </div>
                     </td>
                     
-                    {/* Classement Elo à domicile */}
-                    <td className={`col-elo ${homePlayerHasWhite ? "cse-player-white-compact" : "cse-player-black-compact"}`}>
+                    {/* Home rating */}
+                    <td 
+                      className={`py-2 px-1 text-center text-xs ${homePlayerHasWhite 
+                        ? "bg-white" 
+                        : "bg-gray-700 text-white"}`}
+                    >
                       {board.homeRating || "-"}
                     </td>
                     
-                    {/* Résultat */}
-                    <td className="col-result cse-result-compact">
+                    {/* Result */}
+                    <td className="py-2 px-1 text-center font-bold text-xs">
                       {board.result}
                     </td>
                     
-                    {/* Joueur à l'extérieur */}
+                    {/* Away player */}
                     <td 
-                      className={!homePlayerHasWhite ? "cse-player-white-compact" : "cse-player-black-compact"}
+                      className={`py-2 px-2 text-xs ${!homePlayerHasWhite 
+                        ? "bg-white" 
+                        : "bg-gray-700 text-white"}`}
                       onClick={() => togglePlayerName(board.boardNumber, 'away')}
                     >
-                      <div className={`cse-player-name-compact ${expandedRows[`${board.boardNumber}-away`] ? 'expanded' : ''}`}>
+                      <div className={`truncate ${expandedRows[`${board.boardNumber}-away`] ? '' : 'max-w-[80px]'}`}>
                         {formatPlayerName(board.awayPlayer, board.boardNumber, 'away')}
                       </div>
                     </td>
                     
-                    {/* Classement Elo à l'extérieur */}
-                    <td className={`col-elo ${!homePlayerHasWhite ? "cse-player-white-compact" : "cse-player-black-compact"}`}>
+                    {/* Away rating */}
+                    <td 
+                      className={`py-2 px-1 text-center text-xs ${!homePlayerHasWhite 
+                        ? "bg-white" 
+                        : "bg-gray-700 text-white"}`}
+                    >
                       {board.awayRating || "-"}
                     </td>
                   </tr>
@@ -118,14 +152,14 @@ const CompactHorizontalMatchView = ({ match, boards }) => {
           </table>
         </div>
       ) : (
-        <div className="text-center text-gray-500 mt-4 p-4">
+        <div className="text-center text-gray-500 p-4 text-sm">
           Détails des parties non disponibles pour ce match.
         </div>
       )}
       
-      {/* Instruction discrète pour l'utilisateur */}
+      {/* Instruction for user */}
       {boards && boards.length > 0 && (
-        <div className="p-1 text-center text-xs text-gray-500 italic bg-gray-50">
+        <div className="p-1 text-center text-xs text-gray-500 italic bg-gray-50 mt-2 rounded">
           Tap sur les noms pour voir le nom complet
         </div>
       )}

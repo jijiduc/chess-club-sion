@@ -2,7 +2,7 @@ import React from 'react';
 import useMediaQuery from '../hooks/useMediaQuery';
 
 /**
- * Navigation component for teams, rounds and views
+ * Improved navigation component with better visual separation
  */
 const Navigation = ({ 
   selectedTeamId, 
@@ -16,71 +16,74 @@ const Navigation = ({
 
   return (
     <div className="mb-6 rounded-lg overflow-hidden shadow-lg border border-gray-200">
-      <div className={`${isMobile ? 'flex flex-col' : 'flex flex-wrap items-center'} bg-gradient-to-r from-gray-50 to-gray-100`}>
-        {/* Team selection */}
-        <div className={`${isMobile ? 'w-full' : 'flex border-r border-gray-300'}`}>
-          <button
-            className={`${isMobile ? 'flex-1' : 'px-6'} py-4 font-medium transition-all duration-200 ${
-              selectedTeamId === 1
-                ? "bg-red-600 text-white shadow-inner"
-                : "bg-transparent hover:bg-gray-200 text-gray-800"
-            }`}
-            onClick={() => onTeamChange(1)}
-          >
-            Sion 1
-          </button>
-          <button
-            className={`${isMobile ? 'flex-1' : 'px-6'} py-4 font-medium transition-all duration-200 ${
-              selectedTeamId === 9
-                ? "bg-red-600 text-white shadow-inner"
-                : "bg-transparent hover:bg-gray-200 text-gray-800"
-            }`}
-            onClick={() => onTeamChange(9)}
-          >
-            Sion 2
-          </button>
-        </div>
+      {/* Team selection section */}
+      <div className="grid grid-cols-2 border-b border-gray-200">
+        <button
+          className={`py-4 px-4 font-medium transition-all duration-200 ${
+            selectedTeamId === 1
+              ? "bg-red-600 text-white"
+              : "bg-transparent hover:bg-gray-100 text-gray-800"
+          }`}
+          onClick={() => onTeamChange(1)}
+        >
+          <span className="relative z-10">Sion 1</span>
+        </button>
+        <button
+          className={`py-4 px-4 font-medium transition-all duration-200 ${
+            selectedTeamId === 9
+              ? "bg-red-600 text-white"
+              : "bg-transparent hover:bg-gray-100 text-gray-800"
+          }`}
+          onClick={() => onTeamChange(9)}
+        >
+          <span className="relative z-10">Sion 2</span>
+        </button>
+      </div>
 
-        {/* Round selection */}
-        <div className={`${isMobile ? 'w-full flex overflow-x-auto' : 'flex flex-1 border-r border-gray-300'}`}>
-          {[1, 2, 3, 4, 5, 6, 7].map((round) => (
-            <button
-              key={round}
-              className={`${isMobile ? 'min-w-[40px]' : 'flex-1'} py-4 font-medium transition-all duration-200 ${
-                currentRound === round
-                  ? "bg-red-600 text-white shadow-inner"
-                  : "bg-transparent hover:bg-gray-200 text-gray-800"
-              }`}
-              onClick={() => onRoundChange(round)}
-            >
-              {round}
-            </button>
-          ))}
-        </div>
-
-        {/* View selection */}
-        <div className={`${isMobile ? 'w-full' : 'flex'}`}>
+      {/* Round selection - optional section
+      <div className="border-b border-gray-200 flex">
+        {[1, 2, 3, 4, 5, 6, 7].map((round) => (
           <button
-            className={`${isMobile ? 'flex-1' : 'px-8'} py-4 font-medium transition-all duration-200 ${
-              currentView === "rankings"
-                ? "bg-red-600 text-white shadow-inner"
-                : "bg-transparent hover:bg-gray-200 text-gray-800"
+            key={round}
+            className={`py-3 px-2 flex-1 font-medium transition-all duration-200 ${
+              currentRound === round
+                ? "bg-red-600 text-white"
+                : "bg-transparent hover:bg-gray-100 text-gray-800"
             }`}
-            onClick={() => onViewChange("rankings")}
+            onClick={() => onRoundChange(round)}
           >
+            <span className="relative z-10">{round}</span>
+          </button>
+        ))}
+      </div>
+      */}
+
+      {/* View selection section */}
+      <div className="grid grid-cols-2">
+        <button
+          className={`py-4 px-4 font-medium transition-all duration-200 ${
+            currentView === "rankings"
+              ? "bg-red-600 text-white"
+              : "bg-transparent hover:bg-gray-100 text-gray-800"
+          }`}
+          onClick={() => onViewChange("rankings")}
+        >
+          <span className="relative z-10">
             {isMobile ? "Class." : "Classement"}
-          </button>
-          <button
-            className={`${isMobile ? 'flex-1' : 'px-8'} py-4 font-medium transition-all duration-200 ${
-              currentView === "results"
-                ? "bg-red-600 text-white shadow-inner"
-                : "bg-transparent hover:bg-gray-200 text-gray-800"
-            }`}
-            onClick={() => onViewChange("results")}
-          >
+          </span>
+        </button>
+        <button
+          className={`py-4 px-4 font-medium transition-all duration-200 ${
+            currentView === "results"
+              ? "bg-red-600 text-white"
+              : "bg-transparent hover:bg-gray-100 text-gray-800"
+          }`}
+          onClick={() => onViewChange("results")}
+        >
+          <span className="relative z-10">
             {isMobile ? "Rés." : "Résultats"}
-          </button>
-        </div>
+          </span>
+        </button>
       </div>
     </div>
   );
