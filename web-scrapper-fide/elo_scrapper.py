@@ -156,6 +156,6 @@ def process_csv(input_file, output_file):
     print(f"📁 Résultats enregistrés dans {output_file}")
 
 if __name__ == "__main__":
-    input_file = "fide_ids.csv"
-    output_file = "fide_elo.csv"
+    input_file = "web-scrapper-fide/fide_ids.csv"
+    output_file = "web-scrapper-fide/fide_elo.csv"
     process_csv(input_file, output_file)

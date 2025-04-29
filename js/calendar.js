@@ -90,16 +90,49 @@ const events = {
             ]
         }
     ],
+    "2025-05-02": [
+        {
+            time: "19h00-20h00",
+            title: "Cours d'échecs",
+            category: "formation"
+        },
+        {
+            time: "20h00",
+            title: "Soirée blitz",
+            category: "soiree_club"
+        }
+    ],
     "2025-05-03": [
         {
             time: "09h00",
             title: "CVE ronde finale",
             category: "competition",
             details: [
-                {text: "championnat valaisan par équipes", link: "cve.html"},
-                "Martigny 1 - Sion 1",
-                "Sion 2 - Riddes 1"
+                {text: "Détails du CVE", link: "cve.html"},
+                "Martigny 1 - Sion 1 : pour la 1ère-2ème place",
+                "Sion 2 - Riddes 1 : pour la 7ème-8ème place",
             ]
+        }
+    ],
+    "2025-05-09": [
+        {
+            time: "20h00",
+            title: "Soirée analyse",
+            category: "soiree_club",
+            details: ["Analyses des parties jouées en CVE le week-end précédent"]
+        }
+    ],
+    "2025-05-16": [
+        {
+            time: "19h00-20h00",
+            title: "Cours d'échecs",
+            category: "formation"
+        },
+        {
+            time: "20h00",
+            title: "Open interne",
+            category: "competition",
+            details: [{text: "Détails du tournoi interne", link: "tournoi_interne.html"}]
         }
     ],
     "2025-05-17": [
@@ -108,10 +141,25 @@ const events = {
             title: "CSE ronde 4",
             category: "competition",
             details: [
-                {text: "championnat suisse par équipes", link: "cse.html"},
+                {text: "Détails sur le CSE", link: "cse.html"},
                 "Sion 1 - Neuchâtel 1",
                 "Valais 2 - Sion 2"
             ]
+        }
+    ],
+    "2025-05-23": [
+        {
+            time: "20h00",
+            title: "Soirée analyse",
+            category: "soiree_club",
+            details: ["Discussion des parties jouées en CSE ou pour l'Open interne"]
+        }
+    ],
+    "2025-05-30": [
+        {
+            time: "20h00",
+            title: "Soirée blitz",
+            category: "soiree_club"
         }
     ],
     "2025-06-06": [

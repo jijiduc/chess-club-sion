@@ -10,12 +10,47 @@ const CSEVisualization = () => {
   const [selectedMatchId, setSelectedMatchId] = useState(null);
   const [currentView, setCurrentView] = useState("rankings");
   const [loading, setLoading] = useState(true);
-  const [currentRound, setCurrentRound] = useState(1);
+  const [currentRound, setCurrentRound] = useState(1); // Initial value, will be updated
   const [matches, setMatches] = useState([]);
   const [allMatches, setAllMatches] = useState([]);
   const [boards, setBoards] = useState([]);
   const [rankings, setRankings] = useState([]);
   const [teamInfo, setTeamInfo] = useState(null);
+
+  // Find the latest round with data available
+  useEffect(() => {
+    const findLatestRound = async () => {
+      try {
+        // Get max possible round from total number of rounds (should be 7)
+        const maxRound = ChessDataManager.roundsInfo.length;
+        
+        // Try to find the latest round with data by checking each round
+        // starting from the highest number
+        for (let i = maxRound; i >= 1; i--) {
+          try {
+            const roundData = await ChessDataManager.loadRoundData(i);
+            // Check if this round has valid data
+            if (roundData && (
+                (roundData.matches && roundData.matches.length > 0) || 
+                (roundData.rankings && Object.keys(roundData.rankings).length > 0)
+              )) {
+              console.log(`Found latest round with data: Round ${i}`);
+              setCurrentRound(i);
+              break;
+            }
+          } catch (error) {
+            // Continue checking previous rounds
+            console.log(`No data for round ${i}, checking previous...`);
+            continue;
+          }
+        }
+      } catch (error) {
+        console.error("Error finding latest round:", error);
+      }
+    };
+
+    findLatestRound();
+  }, []);
 
   // Load data when team or round changes
   useEffect(() => {

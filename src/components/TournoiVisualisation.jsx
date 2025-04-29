@@ -129,7 +129,7 @@ const TournoiVisualisation = () => {
             { id: 2, nom: "Rappaz Pierre-Marie", elo: 1951, title: "" },
             { id: 3, nom: "Riand Jean-Yves", elo: 1837, title: "" },
             { id: 4, nom: "Duc Jeremy", elo: 1762, title: "" },
-            { id: 5, nom: "Cortada-Garcia Joan", elo: 1749, title: "" },
+            { id: 5, nom: "Cortada-Garcia Joan", elo: 1824, title: "" },
             { id: 6, nom: "Ulmann Olivier", elo: 1597, title: "" },
             { id: 7, nom: "Moerschell Simon", elo: 1534, title: "" },
             { id: 8, nom: "Ben Salem Akram", elo: null, title: "" }
@@ -178,12 +178,22 @@ const TournoiVisualisation = () => {
             },
             {
                 numero: 5,
-                statut: "en cours",
+                statut: "terminée",
                 appariements: [
                     { table: 1, blanc: 1, noir: 6, resultat: "½-½" },
-                    { table: 2, blanc: 5, noir: 4, resultat: null },
+                    { table: 2, blanc: 5, noir: 4, resultat: "½-½" },
                     { table: 3, blanc: 3, noir: 8, resultat: "1-0" },
-                    { table: 4, blanc: 7, noir: 2, resultat: null }
+                    { table: 4, blanc: 7, noir: 2, resultat: "0-1" }
+                ]
+            },
+            {
+                numero: 6,
+                statut: "en cours",
+                appariements: [
+                    { table: 1, blanc: 1, noir: 7, resultat: null },
+                    { table: 2, blanc: 6, noir: 4, resultat: "1-0" },
+                    { table: 3, blanc: 5, noir: 3, resultat: null },
+                    { table: 4, blanc: 2, noir: 8, resultat: null }
                 ]
             }
         ]

@@ -1,7 +1,19 @@
 // Données des actualités
 const news = [
     {
-        date: new Date('2025-03-28T12:00:00'),
+        date: new Date('2025-04-26T12:00:00'),
+        title: "3ème ronde du CSE",
+        text: `Lors de la 3ème journée du Championnat Suisse par Equipe 2025, Sion 1 s'est incliné 3:5 face à Köniz-Bubenberg 1.\n\n` +
+              `Sion 2 a connu la défaite 1½:4½ contre Grand Echiquier 2.\n\n` +
+              `Au classement, Sion 1 occupe désormais la dernière place de 1ère ligue avec 0 point de matchs et 7 points individuels, tandis que Sion 2 se retrouve à la 6ème place de 3ème ligue avec 2 points de matchs et 7½ points individuels.\n\n` +
+              `Ce début de championnat s'avère difficile pour nos équipes, particulièrement pour Sion 1 qui cherche encore son premier point après trois journées. Un sursaut sera nécessaire lors des prochaines rondes pour améliorer ces positions au classement.`,
+        icon: "trophy",
+        hasLink: true,
+        link: "cse.html",
+        linkText: "Plus d'informations sur le CSE"
+    },
+    {
+        date: new Date('2025-04-05T12:00:00'),
         title: "2ème ronde du CSE",
         text: `Lors de la 2ère journée du Championnat Suisse par Equipe 2025, Sion 1 s'est incliné 2½:5½ face à Fribourg 1.\n\n` +
               `Sion 2 s'est relancé en s'imposant 4-2 face à Bulle 3.\n\n`,
@@ -23,17 +35,6 @@ const news = [
         hasLink: true,
         link: "cve.html",
         linkText: "Plus d'informations sur le CVE"
-    },
-    {
-        date: new Date('2025-03-22T12:00:00'),
-        title: "1ère ronde du CSE 2025",
-        text: `Lors de la 1ère journée du Championnat Suisse par Equipe 2025, Sion 1 s'est incliné 1½:6½ face à Grand Echiquier Lausanne.\n\n` +
-              `Sion 2 s'est également incliné 2-4 face à Montana.\n\n` +
-              `Une première journée difficile pour nos équipes, qui chercheront à se relancer dès la prochaine ronde, le 5 avril.`,
-        icon: "trophy",
-        hasLink: true,
-        link: "cse.html",
-        linkText: "Plus d'informations sur le CSE"
     },
 ];
 
