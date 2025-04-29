@@ -1,9 +1,7 @@
+// src/components/CSEVisualization/components/MatchesList.jsx
 import React from 'react';
 import useMediaQuery from '../hooks/useMediaQuery';
 
-/**
- * Component for displaying the list of matches
- */
 const MatchesList = ({ 
   matches, 
   selectedMatchId, 
@@ -25,7 +23,7 @@ const MatchesList = ({
         {matches.map((match, index) => (
           <button
             key={index}
-            className={`${isMobile ? 'p-2 text-sm' : 'p-3'} rounded border cse-match-card ${
+            className={`cse-match-card ${isMobile ? 'p-2 text-sm' : 'p-3'} rounded border ${
               selectedMatchId === match.id
                 ? "bg-red-600 text-white border-red-700 hover:bg-red-700 active"
                 : match.isTeamMatch

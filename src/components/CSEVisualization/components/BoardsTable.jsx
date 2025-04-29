@@ -1,12 +1,27 @@
-import React from 'react';
+// src/components/CSEVisualization/components/BoardsTable.jsx
+import React, { useState } from 'react';
 import useMediaQuery from '../hooks/useMediaQuery';
-import { formatPlayerName } from '../utils/formatters';
 
-/**
- * Component for displaying the boards table
- */
 const BoardsTable = ({ boards }) => {
   const isMobile = useMediaQuery('(max-width: 768px)');
+  const [expandedRows, setExpandedRows] = useState({});
+  
+  const togglePlayerName = (boardNumber) => {
+    setExpandedRows(prev => ({
+      ...prev,
+      [boardNumber]: !prev[boardNumber]
+    }));
+  };
+  
+  // Format player name for display
+  const formatPlayerName = (fullName, boardNumber) => {
+    const isExpanded = expandedRows[boardNumber];
+    if (!isMobile || isExpanded) return fullName;
+    
+    // Return last name only for mobile
+    const nameParts = fullName.split(' ');
+    return nameParts.length > 1 ? nameParts[nameParts.length - 1] : fullName;
+  };
 
   if (!boards || boards.length === 0) {
     return (
@@ -17,68 +32,83 @@ const BoardsTable = ({ boards }) => {
   }
 
   return (
-    <div className="overflow-x-auto mt-4">
-      <table className="w-full cse-boards-table">
+    <div className={isMobile ? "overflow-x-auto mt-4 cse-boards-compact" : "overflow-x-auto mt-4"}>
+      <table className={isMobile ? "w-full cse-board-table-compact" : "w-full cse-boards-table"}>
         <thead>
-          <tr className="bg-gray-200">
-            <th className="px-4 py-2 text-center col-board">
+          <tr>
+            <th className="col-board">
               {isMobile ? "É" : "Échiquier"}
             </th>
-            <th className="px-4 py-2 text-left">Joueur</th>
-            <th className="px-4 py-2 text-center col-rating">Elo</th>
-            <th className="px-4 py-2 text-center col-result">
+            <th>Joueur</th>
+            <th className="col-elo">Elo</th>
+            <th className="col-result">
               {isMobile ? "R" : "Résultat"}
             </th>
-            <th className="px-4 py-2 text-left">Joueur</th>
-            <th className="px-4 py-2 text-center col-rating">Elo</th>
+            <th>Joueur</th>
+            <th className="col-elo">Elo</th>
           </tr>
         </thead>
         <tbody>
-          {boards.map((board, index) => {
-            // For traditional chess color alternation - home player on odd boards has white
+          {boards.map((board) => {
+            // Pour les couleurs d'échecs traditionnelles - le joueur à domicile a les blancs sur les échiquiers impairs
             const homePlayerHasWhite = board.boardNumber % 2 === 1;
-            const awayPlayerHasWhite = !homePlayerHasWhite;
-
+            
             return (
-              <tr key={index} className="border-b hover:bg-gray-50">
-                <td className="px-4 py-2 text-center">
+              <tr key={board.boardNumber} className="border-b hover:bg-gray-50">
+                <td className="text-center">
                   {board.boardNumber}
                 </td>
+                
+                {/* Joueur à domicile */}
                 <td
-                  className={`${isMobile ? 'px-2' : 'px-4'} py-2 player-name ${
+                  className={`${
                     homePlayerHasWhite
-                      ? "bg-white border-l-2 border-gray-200 cse-player-white"
-                      : "bg-gray-700 text-white cse-player-black"
+                      ? "cse-player-white"
+                      : "cse-player-black"
                   }`}
+                  onClick={() => togglePlayerName(board.boardNumber)}
                 >
-                  {formatPlayerName(board.homePlayer, isMobile)}
+                  <div className={`player-name ${expandedRows[board.boardNumber] ? 'expanded' : ''}`}>
+                    {formatPlayerName(board.homePlayer, board.boardNumber)}
+                  </div>
                 </td>
+                
+                {/* Elo du joueur à domicile */}
                 <td
-                  className={`${isMobile ? 'px-2' : 'px-4'} py-2 text-center ${
+                  className={`text-center ${
                     homePlayerHasWhite
-                      ? "bg-white border-r-2 border-gray-200 cse-player-white"
-                      : "bg-gray-700 text-white cse-player-black"
+                      ? "cse-player-white"
+                      : "cse-player-black"
                   }`}
                 >
                   {board.homeRating || "-"}
                 </td>
-                <td className="px-4 py-2 text-center font-bold">
+                
+                {/* Résultat */}
+                <td className="text-center font-bold">
                   {board.result}
                 </td>
+                
+                {/* Joueur à l'extérieur */}
                 <td
-                  className={`${isMobile ? 'px-2' : 'px-4'} py-2 player-name ${
-                    awayPlayerHasWhite
-                      ? "bg-white border-l-2 border-gray-200 cse-player-white"
-                      : "bg-gray-700 text-white cse-player-black"
+                  className={`${
+                    !homePlayerHasWhite
+                      ? "cse-player-white"
+                      : "cse-player-black"
                   }`}
+                  onClick={() => togglePlayerName(board.boardNumber+100)} // +100 pour différencier des joueurs à domicile
                 >
-                  {formatPlayerName(board.awayPlayer, isMobile)}
+                  <div className={`player-name ${expandedRows[board.boardNumber+100] ? 'expanded' : ''}`}>
+                    {formatPlayerName(board.awayPlayer, board.boardNumber+100)}
+                  </div>
                 </td>
+                
+                {/* Elo du joueur à l'extérieur */}
                 <td
-                  className={`${isMobile ? 'px-2' : 'px-4'} py-2 text-center ${
-                    awayPlayerHasWhite
-                      ? "bg-white border-r-2 border-gray-200 cse-player-white"
-                      : "bg-gray-700 text-white cse-player-black"
+                  className={`text-center ${
+                    !homePlayerHasWhite
+                      ? "cse-player-white"
+                      : "cse-player-black"
                   }`}
                 >
                   {board.awayRating || "-"}
@@ -88,6 +118,13 @@ const BoardsTable = ({ boards }) => {
           })}
         </tbody>
       </table>
+      
+      {/* Aide à l'utilisateur pour mobile */}
+      {isMobile && (
+        <div className="p-1 text-center text-xs text-gray-500 italic bg-gray-50">
+          Tap sur les noms pour voir le nom complet
+        </div>
+      )}
     </div>
   );
 };

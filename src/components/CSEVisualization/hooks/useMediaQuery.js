@@ -1,20 +1,14 @@
+// src/components/CSEVisualization/hooks/useMediaQuery.js
 import { useState, useEffect } from 'react';
 
-/**
- * Hook to detect if the media query matches
- * @param {string} query - CSS media query string (e.g. '(max-width: 768px)')
- * @returns {boolean} - Whether the query matches or not
- */
 const useMediaQuery = (query) => {
   const [matches, setMatches] = useState(
-    // Set initial value based on current match
     () => window.matchMedia(query).matches
   );
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(query);
     
-    // Handler for media query changes
     const updateMatch = (event) => {
       setMatches(event.matches);
     };
@@ -27,7 +21,7 @@ const useMediaQuery = (query) => {
       mediaQuery.addListener(updateMatch);
     }
 
-    // Update initially in case it doesn't match the initial value
+    // Initial value
     setMatches(mediaQuery.matches);
 
     // Cleanup
@@ -35,7 +29,6 @@ const useMediaQuery = (query) => {
       if (mediaQuery.removeEventListener) {
         mediaQuery.removeEventListener('change', updateMatch);
       } else {
-        // For older browsers
         mediaQuery.removeListener(updateMatch);
       }
     };
