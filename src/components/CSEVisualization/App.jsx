@@ -33,6 +33,15 @@ const CSEVisualization = () => {
       { id: 15, name: "Crazy Horse 1", leagueId: 2 },
       { id: 16, name: "Payerne 2", leagueId: 2 }
     ],
+    ROUNDS_INFO: [
+      { id: 1, date: "2025-03-22", roundNumber: 1 },
+      { id: 2, date: "2025-04-05", roundNumber: 2 },
+      { id: 3, date: "2025-04-26", roundNumber: 3 },
+      { id: 4, date: "2025-05-17", roundNumber: 4 },
+      { id: 5, date: "2025-06-21", roundNumber: 5 },
+      { id: 6, date: "2025-08-23", roundNumber: 6 },
+      { id: 7, date: "2025-10-13", roundNumber: 7 }
+    ],
     ROUND_DATA: {
       matches: [
         {
@@ -123,8 +132,9 @@ const CSEVisualization = () => {
 
   // State
   const [selectedTeam, setSelectedTeam] = useState({ id: 1, name: "Sion 1" });
-  const [selectedMatchId, setSelectedMatchId] = useState(3); // Default to match 3
+  const [selectedMatchId, setSelectedMatchId] = useState(1); // Default to match i
   const [currentView, setCurrentView] = useState("results"); // Start with results view
+  const [currentRound, setCurrentRound] = useState(3); // Default to round i
   const [isMobile, setIsMobile] = useState(false);
   const [isSmallMobile, setIsSmallMobile] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -137,6 +147,7 @@ const CSEVisualization = () => {
   const [boards, setBoards] = useState([]);
   const [rankings, setRankings] = useState([]);
   const [teamInfo, setTeamInfo] = useState(null);
+  const [availableRounds, setAvailableRounds] = useState([]);
 
   // Check screen size on mount and resize
   useEffect(() => {
@@ -170,6 +181,9 @@ const CSEVisualization = () => {
             console.log("Using external data manager");
             setDataManager(manager);
             setUsingFallbackData(false);
+            
+            // Set available rounds
+            setAvailableRounds(manager.roundsInfo || FALLBACK_DATA.ROUNDS_INFO);
           } else {
             throw new Error("Data manager imported but is missing required properties");
           }
@@ -177,11 +191,15 @@ const CSEVisualization = () => {
           console.error("Error importing data manager, using fallback data", error);
           setUsingFallbackData(true);
           
+          // Set available rounds from fallback data
+          setAvailableRounds(FALLBACK_DATA.ROUNDS_INFO);
+          
           // Create a simple data manager using the fallback data
           setDataManager({
             leagues: FALLBACK_DATA.LEAGUES,
             teams: FALLBACK_DATA.TEAMS,
             roundData: FALLBACK_DATA.ROUND_DATA,
+            roundsInfo: FALLBACK_DATA.ROUNDS_INFO,
             getTeamInfo: (teamId) => {
               const team = FALLBACK_DATA.TEAMS.find(t => t.id === teamId);
               if (!team) return null;
@@ -193,7 +211,7 @@ const CSEVisualization = () => {
               const team = FALLBACK_DATA.TEAMS.find(t => t.id === teamId);
               return team ? team.name : "Équipe inconnue";
             },
-            loadRoundData: async () => FALLBACK_DATA.ROUND_DATA
+            loadRoundData: async (roundNumber) => FALLBACK_DATA.ROUND_DATA
           });
         }
       } catch (error) {
@@ -222,9 +240,9 @@ const CSEVisualization = () => {
           roundData = FALLBACK_DATA.ROUND_DATA;
         } else {
           try {
-            roundData = await dataManager.loadRoundData(1);
+            roundData = await dataManager.loadRoundData(currentRound);
           } catch (error) {
-            console.error("Error loading round data, using fallback", error);
+            console.error(`Error loading round ${currentRound} data, using fallback`, error);
             roundData = FALLBACK_DATA.ROUND_DATA;
           }
         }
@@ -283,7 +301,7 @@ const CSEVisualization = () => {
     };
 
     loadTeamData();
-  }, [dataManager, selectedTeam.id]);
+  }, [dataManager, selectedTeam.id, currentRound]);
 
   // Load board data when match selection changes
   const loadBoardData = (matchId, roundData) => {
@@ -310,14 +328,14 @@ const CSEVisualization = () => {
     if (usingFallbackData) {
       loadBoardData(selectedMatchId, FALLBACK_DATA.ROUND_DATA);
     } else if (dataManager) {
-      dataManager.loadRoundData(1).then(roundData => {
+      dataManager.loadRoundData(currentRound).then(roundData => {
         loadBoardData(selectedMatchId, roundData);
       }).catch(error => {
-        console.error("Error loading round data for boards", error);
+        console.error(`Error loading round ${currentRound} data for boards`, error);
         loadBoardData(selectedMatchId, FALLBACK_DATA.ROUND_DATA);
       });
     }
-  }, [selectedMatchId, usingFallbackData, dataManager]);
+  }, [selectedMatchId, usingFallbackData, dataManager, currentRound]);
 
   // Handle team change
   const handleTeamChange = (teamId) => {
@@ -334,6 +352,11 @@ const CSEVisualization = () => {
     } else {
       setSelectedMatchId(null);
     }
+  };
+
+  // Handle round change
+  const handleRoundChange = (roundNumber) => {
+    setCurrentRound(roundNumber);
   };
 
   // Get current match
@@ -378,11 +401,11 @@ const CSEVisualization = () => {
 
       {/* Navigation */}
       <div className="mb-6 rounded-lg overflow-hidden shadow-lg border border-gray-200">
-        <div className={`${isMobile ? 'flex flex-col' : 'flex'} bg-gradient-to-r from-gray-50 to-gray-100`}>
-          {/* Team selection */}
-          <div className={`${isMobile ? 'w-full' : 'flex border-r border-gray-300'}`}>
+        {/* Team selection */}
+        <div className="border-b border-gray-200">
+          <div className="flex">
             <button
-              className={`${isMobile ? 'flex-1' : 'px-6'} py-4 font-medium transition-all duration-200 ${
+              className={`flex-1 py-4 font-medium transition-all duration-200 ${
                 selectedTeam.id === 1
                   ? "bg-red-600 text-white shadow-inner"
                   : "bg-transparent hover:bg-gray-200 text-gray-800"
@@ -392,7 +415,7 @@ const CSEVisualization = () => {
               Sion 1
             </button>
             <button
-              className={`${isMobile ? 'flex-1' : 'px-6'} py-4 font-medium transition-all duration-200 ${
+              className={`flex-1 py-4 font-medium transition-all duration-200 ${
                 selectedTeam.id === 9
                   ? "bg-red-600 text-white shadow-inner"
                   : "bg-transparent hover:bg-gray-200 text-gray-800"
@@ -402,30 +425,50 @@ const CSEVisualization = () => {
               Sion 2
             </button>
           </div>
+        </div>
 
-          {/* View selection */}
-          <div className={`${isMobile ? 'w-full' : 'flex'}`}>
-            <button
-              className={`${isMobile ? 'flex-1' : 'px-8'} py-4 font-medium transition-all duration-200 ${
-                currentView === "rankings"
-                  ? "bg-red-600 text-white shadow-inner"
-                  : "bg-transparent hover:bg-gray-200 text-gray-800"
-              }`}
-              onClick={() => setCurrentView("rankings")}
-            >
-              {isMobile ? "Class." : "Classement"}
-            </button>
-            <button
-              className={`${isMobile ? 'flex-1' : 'px-8'} py-4 font-medium transition-all duration-200 ${
-                currentView === "results"
-                  ? "bg-red-600 text-white shadow-inner"
-                  : "bg-transparent hover:bg-gray-200 text-gray-800"
-              }`}
-              onClick={() => setCurrentView("results")}
-            >
-              {isMobile ? "Rés." : "Résultats"}
-            </button>
+        {/* Round selection */}
+        <div className="border-b border-gray-200 bg-gray-50">
+          <div className="flex overflow-x-auto py-1 px-1 scrollbar-thin scrollbar-thumb-gray-300">
+            {availableRounds.map((round) => (
+              <button
+                key={round.id}
+                onClick={() => handleRoundChange(round.roundNumber)}
+                className={`whitespace-nowrap px-3 py-2 mx-1 rounded-md transition-all duration-200 ${
+                  currentRound === round.roundNumber
+                    ? "bg-red-600 text-white"
+                    : "bg-gray-200 hover:bg-gray-300 text-gray-800"
+                }`}
+                aria-label={`Ronde ${round.roundNumber}`}
+              >
+                Ronde {round.roundNumber}
+              </button>
+            ))}
           </div>
+        </div>
+
+        {/* View selection */}
+        <div className="flex">
+          <button
+            className={`flex-1 py-4 font-medium transition-all duration-200 ${
+              currentView === "rankings"
+                ? "bg-red-600 text-white shadow-inner"
+                : "bg-transparent hover:bg-gray-200 text-gray-800"
+            }`}
+            onClick={() => setCurrentView("rankings")}
+          >
+            {isMobile ? "Class." : "Classement"}
+          </button>
+          <button
+            className={`flex-1 py-4 font-medium transition-all duration-200 ${
+              currentView === "results"
+                ? "bg-red-600 text-white shadow-inner"
+                : "bg-transparent hover:bg-gray-200 text-gray-800"
+            }`}
+            onClick={() => setCurrentView("results")}
+          >
+            {isMobile ? "Rés." : "Résultats"}
+          </button>
         </div>
       </div>
 
@@ -472,7 +515,7 @@ const CSEVisualization = () => {
         /* Matches & Boards */
         <div className="bg-white rounded-lg overflow-hidden mb-8 shadow-md">
           <div className="bg-gray-800 text-white px-4 py-3">
-            <h2 className="font-bold">Résultats - Ronde 1</h2>
+            <h2 className="font-bold">Résultats - Ronde {currentRound}</h2>
           </div>
 
           {allMatches.length > 0 ? (
