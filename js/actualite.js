@@ -1,6 +1,28 @@
 // Données des actualités
 const news = [
     {
+        date: new Date('2025-05-03T12:00:00'),
+        title: "Doublé lors des finales du CVE !",
+        text: `Lors de la journée des finales valaisannes de compétitions par équipe, Sion 1 à ramené les 2 titres en jeu !\n\n` +
+              `Le matin, lors des finales par équipes de parties lentes, Sion 1 s'est imposé 2.5 - 1.5 contre Martigny pour remporter la compétition.\n` +
+              `Appariements:\n` +
+              `1. Lovey - Sola (1-0)\n` +
+              `2. Roduit - Floure (0-1)\n` +
+              `3. Perruchoud - Rappaz (0.5-0.5)\n` +
+              `4. Duc - Moret (1-0)\n\n` +
+              `Sion 2 s'est également imposé, sur le score de 3-1 contre Riddes pour la 7ème place.\n` +
+              `Appariements:\n` +
+              `1. Crettenand - Bonvin (1-0)\n` +
+              `2. Vouillamoz - Cortada (0.5-0.5)\n` +
+              `3. Ben Salem - Favre (0.5-0.5)\n` +
+              `4. Droz - Moerschell (1-0)\n\n` +
+              `L'après-midi, dans la compétition de parties rapides par équipe, Sion (composée de Riand, Rappaz, Sola et Duc) c'est imposée dans ses 4 matchs de poules et lors de la finale pour le doublé.`,
+        icon: "trophy",
+        hasLink: true,
+        link: "cve.html",
+        linkText: "Plus d'informations sur le CVE",
+    },
+    {
         date: new Date('2025-04-26T12:00:00'),
         title: "3ème ronde du CSE",
         text: `Lors de la 3ème journée du Championnat Suisse par Equipe 2025, Sion 1 s'est incliné 3:5 face à Köniz-Bubenberg 1.\n\n` +
@@ -11,31 +33,7 @@ const news = [
         hasLink: true,
         link: "cse.html",
         linkText: "Plus d'informations sur le CSE"
-    },
-    {
-        date: new Date('2025-04-05T12:00:00'),
-        title: "2ème ronde du CSE",
-        text: `Lors de la 2ère journée du Championnat Suisse par Equipe 2025, Sion 1 s'est incliné 2½:5½ face à Fribourg 1.\n\n` +
-              `Sion 2 s'est relancé en s'imposant 4-2 face à Bulle 3.\n\n`,
-        icon: "trophy",
-        hasLink: true,
-        link: "cse.html",
-        linkText: "Plus d'informations sur le CSE"
-    },
-    {
-        date: new Date('2025-03-28T12:00:00'),
-        title: "6ème ronde du CVE",
-        text: `Sion 1 c'est imposé 4 - 0 face à Riddes 1.\n\n` +
-              `Cette victoire conclut la lutte serrée avec l'équipe de Sierre 1 pour la première place du groupe et la qualification en finale.\n\n` +
-              `Le match pour le titre opposera donc Martigny 1 à Sion 1.\n\n` +
-              `De son côté, Sion 2 n'a pas résisté à Monthey et s'est incliné d'un demi-point sur le score de 1.5 - 2.5.\n\n` +
-              `Après une deuxième phase de groupe plus compliquée, Sion 2 affrontera Riddes 1 dans le match pour la 7ᵉ place.\n\n` +
-              `La ronde finale se déroulera le 3 mai.`,
-        icon: "trophy",
-        hasLink: true,
-        link: "cve.html",
-        linkText: "Plus d'informations sur le CVE"
-    },
+    }
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -85,27 +83,87 @@ document.addEventListener('DOMContentLoaded', () => {
         const timelineItem = document.createElement('div');
         timelineItem.className = 'timeline-item';
         
-        timelineItem.innerHTML = `
+        // HTML pour le marqueur et la date
+        let timelineHTML = `
             <div class="timeline-marker" title="${formattedDate}">
                 ${getIconSvg(item.icon)}
             </div>
             <div class="timeline-date">${formattedDate}</div>
             <div class="timeline-content">
-                <h3 class="timeline-title">${item.title}</h3>
-                <div class="timeline-text">
-                    ${item.text
-                        .split('\n\n')
-                        .filter(para => para.trim())
-                        .map(para => `<p>${para.trim()}</p>`)
-                        .join('')}
-                    ${item.hasLink ? `<p class="timeline-link"><a href="${item.link}">${item.linkText}</a></p>` : ''}
-                </div>
-            </div>
-        `;
+                <h3 class="timeline-title">${item.title}</h3>`;
         
+        // Ajouter l'image si elle existe
+        if (item.hasImage && item.image) {
+            timelineHTML += `
+                <div class="timeline-image">
+                    <img src="${item.image.src}" alt="${item.image.alt || ''}" class="news-image">
+                </div>`;
+        }
+        
+        // Traitement du texte pour préserver les retours à la ligne simples (\n)
+        timelineHTML += `<div class="timeline-text">`;
+        
+        // Diviser le texte en paragraphes
+        const paragraphs = item.text.split('\n\n');
+        
+        paragraphs.forEach(paragraph => {
+            if (paragraph.trim()) {
+                // Conserver les retours à la ligne simples dans le paragraphe
+                const formattedParagraph = paragraph
+                    .split('\n')
+                    .map(line => line.trim())
+                    .join('<br>');
+                
+                timelineHTML += `<p>${formattedParagraph}</p>`;
+            }
+        });
+        
+        // Ajouter le lien s'il existe
+        if (item.hasLink) {
+            timelineHTML += `<p class="timeline-link"><a href="${item.link}">${item.linkText}</a></p>`;
+        }
+        
+        timelineHTML += `</div></div>`;
+        
+        timelineItem.innerHTML = timelineHTML;
         timeline.appendChild(timelineItem);
     });
     
     timelineContainer.appendChild(timeline);
     container.appendChild(timelineContainer);
+    
+    // Ajouter des styles pour les images et les retours à la ligne
+    const styleElement = document.createElement('style');
+    styleElement.textContent = `
+        .timeline-image {
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            max-width: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .news-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-item:hover .news-image {
+            transform: scale(1.02);
+        }
+        
+        .timeline-text p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .timeline-text br {
+            display: block;
+            content: "";
+            margin-top: 0.5rem;
+        }
+    `;
+    document.head.appendChild(styleElement);
 });

@@ -130,7 +130,7 @@ const events = {
         },
         {
             time: "20h00",
-            title: "Open interne",
+            title: "Soirée de parties rapide + open interne",
             category: "competition",
             details: [{text: "Détails du tournoi interne", link: "tournoi_interne.html"}]
         }

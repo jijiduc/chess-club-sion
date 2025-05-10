@@ -192,7 +192,7 @@ const TournoiVisualisation = () => {
                 appariements: [
                     { table: 1, blanc: 1, noir: 7, resultat: null },
                     { table: 2, blanc: 6, noir: 4, resultat: "1-0" },
-                    { table: 3, blanc: 5, noir: 3, resultat: null },
+                    { table: 3, blanc: 5, noir: 3, resultat: "1-0" },
                     { table: 4, blanc: 2, noir: 8, resultat: null }
                 ]
             }
