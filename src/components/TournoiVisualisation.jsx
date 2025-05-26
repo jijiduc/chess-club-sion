@@ -188,12 +188,22 @@ const TournoiVisualisation = () => {
             },
             {
                 numero: 6,
-                statut: "en cours",
+                statut: "terminée",
                 appariements: [
-                    { table: 1, blanc: 1, noir: 7, resultat: null },
+                    { table: 1, blanc: 1, noir: 7, resultat: "1-0" },
                     { table: 2, blanc: 6, noir: 4, resultat: "1-0" },
                     { table: 3, blanc: 5, noir: 3, resultat: "1-0" },
-                    { table: 4, blanc: 2, noir: 8, resultat: null }
+                    { table: 4, blanc: 2, noir: 8, resultat: "1-0" }
+                ]
+            },
+            {
+                numero: 7,
+                statut: "en cours",
+                appariements: [
+                    { table: 1, blanc: 8, noir: 1, resultat: null },
+                    { table: 2, blanc: 3, noir: 6, resultat: null },
+                    { table: 3, blanc: 2, noir: 5, resultat: null },
+                    { table: 4, blanc: 4, noir: 7, resultat: null }
                 ]
             }
         ]
