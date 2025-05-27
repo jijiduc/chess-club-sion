@@ -1,0 +1,57 @@
+<html>
+
+<head>
+<title>ADD Entry Page</title>
+</head>
+
+<body BGCOLOR="#FFFFFF" TEXT="#000000">
+<!--     ***************  addbook.html Guidelines ****************   -->
+<!--     As with the geobook.html file, you can customize the look   -->
+<!--     of this page as much as you wish, provided you follow       -->
+<!--     these rules:                                                -->
+<!--     1) Do not modify any fields in the FORM clause. All of the  -->
+<!--        field names and values are very specific. Any changes    -->
+<!--        could result in unknown results.                         -->
+<!--     2) Do not edit the *FINAL* tag line. The add entry program  -->
+<!--        will not work without this tag.                          -->
+<!--     You can always generate a new addbook.html file by going    -->
+<!--     to guest_book.html and configuring a new addbook.html file. -->
+<!--     *********************************************************   -->
+
+<p><strong><font color="#FF0000">Merci de laisser une trace de votre visite .... </font></strong></p>
+
+<form METHOD="POST" ACTION="/cgi-bin/geoplus_apps/ans_entry">
+  <input type="hidden" name="final" value="&lt;!-- *FINAL* --&gt;"><input type="hidden"
+  name="state" value="1"><input type="hidden" name="field1_name" value="Nom et prenom"><input
+  type="hidden" name="field2_name" value="Page web"><input type="hidden" name="field3_name"
+  value="E Mail"><input type="hidden" name="field4_name" value="Ville"><input type="hidden"
+  name="field5_name" value="Pays"><input type="hidden" name="style" value="2"><table>
+    <tr>
+      <td>Nom et prenom:</td>
+      <td><input type="text" name="field1" size="20"> </td>
+    </tr>
+    <tr>
+      <td>Page web:</td>
+      <td><input type="text" name="field2" value="http://" size="20"> </td>
+    </tr>
+    <tr>
+      <td>E Mail:</td>
+      <td><input type="text" name="field3" size="20"> </td>
+    </tr>
+    <tr>
+      <td>Ville:</td>
+      <td><input type="text" name="field4" size="20"> </td>
+    </tr>
+    <tr>
+      <td>Pays:</td>
+      <td><input type="text" name="field5" size="20"> </td>
+    </tr>
+  </table>
+  <p><br>
+  Votre commentaire:<br>
+  <textarea name="comments" wrap="physical" cols="50" rows="6"></textarea></p>
+  <p><input type="submit" value="Valider"> <input type="reset" value="Effacer"> </p>
+</form>
+</body>
+</html>
+<!--#ybeacon spaceid="18939419" -->

@@ -1,0 +1,709 @@
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+<STYLE>
+ A:visited {color:black; text-decoration: none;}
+ A:link {color:black; text-decoration: none;}
+</STYLE>
+<SCRIPT language="JavaScript">
+<!-- 
+var moves0 = new Array
+(51,35,6,21,50,34,12,20,54,46,11,27,62,45,5,12,61,54,196,6,252,62,27,98,59,50,
+8,16,48,32,15,23,50,34,9,25,34,41,25,33,45,28,21,27,57,51,16,24,51,98,2,9,61,
+59,1,11,52,36,27,149,35,27,11,26,41,50,20,91,36,91,21,27,54,27,9,27,28,18,27,
+36,59,3,0,67,18,268,6,7,50,52,36,43,52,31,26,41,58,23,41,56,34,28,43,15,31,30,
+3,315,62,54,15,292,54,47,36,310,47,54);
+var mpast0 = new Array();
+var game0 = "";
+var board0 = new Array(-1,0);
+var moves1 = new Array
+(52,36,10,26,57,42,1,18,54,46,14,22,61,54,5,14,51,43,11,19,58,44,12,20,53,37,
+6,76,62,45,196,6,252,62,9,17,43,35,2,16,61,60,18,24,36,28,26,99,45,35,19,92,37,
+92,0,2,44,30,3,10,30,21,24,34,21,14,6,14,59,38,2,67,35,45,10,282,62,63,34,44,
+38,30,44,54,42,36,26,10,30,277,14,6,21,30,6,14,30,277,14,6,21,1054);
+var mpast1 = new Array();
+var game1 = "";
+var board1 = new Array(-1,0);
+var moves2 = new Array
+(51,35,6,21,50,34,14,22,57,42,11,27,62,45,5,14,34,91,21,27,52,36,27,42,49,106,
+10,26,58,44,196,6,59,51,3,24,56,58,5,3,35,27,1,18,42,34,9,17,51,24,18,24,61,52,
+12,28,45,51,13,29,53,45,24,9,252,62,29,37,44,53,22,30,54,38,14,21,62,54,15,31,
+55,47,2,11,58,56,11,32,52,59,32,59,61,123,31,39,54,61,9,19,59,121,0,65,57,49,
+1,9,56,121,3,65,61,52,6,13,52,43,13,12,43,42,12,11,42,43,11,10,49,41,21,14,43,
+42,14,21,57,177,21,14,48,32,8,24,51,57,14,21,57,40,21,14,40,281,19,281,41,25,
+14,5,42,43,5,19,53,60,1,0,60,42,0,1040);
+var mpast2 = new Array();
+var game2 = "";
+var board2 = new Array(-1,0);
+var moves3 = new Array
+(52,36,10,26,62,45,1,18,51,35,26,99,45,35,12,28,35,25,11,19,57,170,8,16,25,40,
+9,25,42,27,18,76,50,42,12,27,36,91,5,12,42,34,25,98,40,34,13,29,58,51,16,24,59,
+288,2,11,32,40,6,21,51,24,3,1,24,10,1,9,34,275,12,19,40,19,0,2,10,24,9,49,56,
+59,21,36,19,17,49,48,61,25,11,25,17,276,4,5,20,258);
+var mpast3 = new Array();
+var game3 = "";
+var board3 = new Array(-1,0);
+var restr = new Array('1-0','0-1','1/2-1/2','*');
+var Mypcs = " pnbrqk";
+var files = "abcdefgh";
+var ranks = "87654321";
+var initposn = new Array(
+12,10,11,13,14,11,10,12,
+9,9,9,9,9,9,9,9,
+0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,
+1,1,1,1,1,1,1,1,
+4,2,3,5,6,3,2,4,0);
+var pieces = ' PCFTDR';
+var curmov = new Array(0,0,0,0,0);
+var jbrd = new Array(0,0,0,0,0);
+var imgurl = "jpc/";
+var nodraw = 0;
+var autos = "";
+var atgm = -1;
+var timerid = 0;
+var timecall = 0;
+var delay = 1500;
+function DrawPc(nm, pc, sqr, board)
+{
+ var color, piece;
+ if(nodraw)
+   return;
+ piece = Mypcs.charAt(pc & 7);
+ color = (pc & 8) ? "b" : "w";
+ if(piece == ' '){
+   piece = "i";
+   color = "";
+   }
+ if(board[64] & 1)
+   sqr = 63 - sqr;
+ document.images[jbrd[nm] + sqr].src = imgurl + color + piece + ".gif";
+ setTimeout("", 50);
+}
+function InitBoard(board)
+{
+ for(i=0; i<=64; i++)
+    board[i] = initposn[i];
+}
+function FindScrBrd()
+{
+ j=0;
+ for(i=0;i < document.images.length; i++)
+    if(document.images[i].name != "")
+      if(document.images[i].name == 'brd' + j.toString()){
+         jbrd[j++] = i;
+         i+=63;
+         }
+}
+function DrawBoard(nm, board)
+{
+ for(i=0; i<64; i++)
+    DrawPc(nm, board[i], i, board);
+}
+function DoMv(nm, pc, to, from, board)
+{
+ board[to] = pc;
+ board[from] = 0;
+ DrawPc(nm, 0, from, board);
+ DrawPc(nm, pc, to, board);
+}
+function Auto0()
+{
+ Forward(moves0, mpast0, 0, board0);
+ document.form0.game0.value = MvStr(moves0, mpast0, 0, board0);
+}
+function Auto1()
+{
+ Forward(moves1, mpast1, 1, board1);
+ document.form1.game1.value = MvStr(moves1, mpast1, 1, board1);
+}
+function Auto2()
+{
+ Forward(moves2, mpast2, 2, board2);
+ document.form2.game2.value = MvStr(moves2, mpast2, 2, board2);
+}
+function Auto3()
+{
+ Forward(moves3, mpast3, 3, board3);
+ document.form3.game3.value = MvStr(moves3, mpast3, 3, board3);
+}
+function AutoMv()
+{
+ timecall = 1;
+ autos='Auto' + atgm.toString() + '()';
+ eval(autos);
+ timecall = 0;
+}
+function Astop()
+{
+ atgm = -1;
+ timecall = 0;
+ clearInterval(timerid);
+}
+function Astart(gm)
+{
+ if(atgm==gm)
+   Astop();
+ else{
+ if(atgm>=0)
+   Astop();
+ atgm=gm;
+ timerid = setInterval('AutoMv()', delay);
+ AutoMv();
+ }
+}
+function Flip(nm, board)
+{
+ board[64] ^= 1;
+ DrawBoard(nm, board);
+}
+function GetOrds(sqr, flags)
+{
+ var co = "";
+ if(flags & 0x40)
+   co = files.charAt(sqr & 7);
+ if(flags & 0x80)
+   co = co + ranks.charAt((sqr & 0x38) >> 3);
+ return co;
+}
+function Forward5(moves, mpast, nm, board)
+{
+ if(atgm>=0)
+   Astop();
+ for(i=0; curmov[nm] < moves.length / 2 && i < 10; i++)
+    Forward(moves, mpast, nm, board);
+}
+function Back5(moves, mpast, nm, board)
+{
+ if(atgm>=0)
+   Astop();
+ for(i=0; curmov[nm] > 0 && i < 10; i++)
+    Back(moves, mpast, nm, board);
+}
+function GoStart(moves, mpast, nm, board)
+{
+ if(atgm>=0)
+   Astop();
+ nodraw=1;
+ while(curmov[nm] > 0)
+      Back(moves, mpast, nm, board);
+ nodraw=0;
+ DrawBoard(nm, board);
+}
+function GoEnd(moves, mpast, nm, board)
+{
+ if(atgm>=0)
+   Astop();
+ nodraw=1;
+ while(curmov[nm] < moves.length / 2)
+      Forward(moves, mpast, nm, board);
+ nodraw=0;
+ DrawBoard(nm, board);
+}
+function Forward(moves, mpast, nm, board)
+{
+ if(curmov[nm] >= 0 && curmov[nm] < moves.length / 2){
+    var n = curmov[nm] * 2;
+    var from = moves[n] & 0x3f;
+    var to = to2 = moves[n+1] & 0x3f;
+    var piece = mpast[n] = board[from];
+    mpast[n+1] = board[to];
+    promo = (moves[n] & 0x700)
+    if(promo != 0)
+       piece = (piece & 8) + (promo >> 8);
+    DoMv(nm, piece, to, from, board);
+    curmov[nm]++;
+    if(moves[n] & 0x40){
+       to = from;
+       (moves[n] & 0x80) ? ++to : --to;
+       if((to2 + from) & 1){
+         board[to] = 0;
+         DrawPc(nm, 0, to, board);
+         }
+       else{
+         from = ((from - to2) > 0) ? from - 4: from + 3;
+         DoMv(nm, board[from], to, from, board);
+         }
+      }
+    if(timecall==0 && atgm>=0)
+      Astop();
+    }
+ else
+   if(atgm>=0)
+     Astop();
+}
+function Back(moves, mpast, nm, board)
+{
+ if(atgm>=0)
+   Astop();
+ if(curmov[nm] > 0){
+   n = (--curmov[nm] * 2);
+   var from = moves[n] & 0x3f;
+   var to = to2 = moves[n+1] & 0x3f;
+   var piece = mpast[n];
+	DoMv(nm, piece, from, to, board);
+   board[to] = piece = mpast[n+1]
+   if(piece > 0)
+     DrawPc(nm, piece, to, board);
+   if(moves[n] & 0x40){
+     to = from;
+     (moves[n] & 0x80) ? ++to : --to;
+     if((to2 + from) & 1){
+       board[to] = (mpast[n] & 8) ? 1 : 9;
+       DrawPc(nm, board[to], to, board);
+       }
+     else{
+       from = ((from - to2) > 0) ? from - 4 : from + 3;
+       DoMv(nm, board[to], from ,to, board);
+       }
+     }
+   }
+}
+function GoMv(moves, mpast, nm, board, mv)
+{
+ nodraw = 1;
+ if(curmov[nm] > mv)
+   while(curmov[nm] > mv)
+        Back(moves, mpast, nm, board);
+ else
+   while(curmov[nm] < mv)
+        Forward(moves, mpast, nm, board);
+ nodraw = 0;
+ DrawBoard(nm, board);
+}
+function GoMv0(mv)
+{
+ GoMv(moves0, mpast0, 0, board0, mv);
+ document.form0.game0.value = MvStr(moves0, mpast0, 0, board0);
+}
+function GoMv1(mv)
+{
+ GoMv(moves1, mpast1, 1, board1, mv);
+ document.form1.game1.value = MvStr(moves1, mpast1, 1, board1);
+}
+function GoMv2(mv)
+{
+ GoMv(moves2, mpast2, 2, board2, mv);
+ document.form2.game2.value = MvStr(moves2, mpast2, 2, board2);
+}
+function GoMv3(mv)
+{
+ GoMv(moves3, mpast3, 3, board3, mv);
+ document.form3.game3.value = MvStr(moves3, mpast3, 3, board3);
+}
+function MvStr(moves, mpast, nm, board)
+{
+ if(curmov[nm] > 0 && curmov[nm] <= moves.length / 2 ){
+    var n = (curmov[nm]-1)*2;
+    var from = moves[n] & 0x3f;
+    var to = moves[n+1] & 0x3f;
+    var mvs = (Math.floor((curmov[nm]+1)>>1)).toString() + ". ";
+    if(board[to] & 8)
+      mvs += '... ';
+    var chk = (moves[n+1] & 0x100) ? "+" : "";
+    if(n+2 == moves.length){
+      var res = (moves[n+1] & 0x600)>>9;
+      chk += ' ' + restr[res];
+      }
+    if(moves[n] & 0x40){
+      if((board[to] & 7) == 6){
+        if(moves[n] & 0x80)
+          mvs = mvs + "O-O";
+        else
+          mvs = mvs + "O-O-O";
+        return mvs + chk;
+        }
+      }
+    var apc = board[to] & 7;
+    piece = (apc == 1) ? "" : pieces.charAt(apc);
+    var piece2 = "";
+    if(moves[n] & 0x700){
+      piece2 = "=" + pieces.charAt((moves[n] & 0x700) >> 8);
+      piece ="";
+      }
+    capflg = "";
+    if((mpast[n+1]) || (moves[n] & 0x40))
+      capflg = "x";
+    mvs = mvs + piece + GetOrds(from, moves[n+1]) + capflg
+          + GetOrds(to, 0xC0) + piece2;
+    return mvs + chk;
+    }
+ return "";
+}
+function InitSys()
+{
+ FindScrBrd();
+ InitBoard(board0);
+ InitBoard(board1);
+ InitBoard(board2);
+ InitBoard(board3);
+}
+// -->
+</SCRIPT>
+</HEAD>
+
+<BODY onLoad="InitSys()" BGCOLOR="#fffff9">
+<!-- game0 start -->
+<CENTER><TABLE BORDER=0 CELLPADDING="0"><TR><TD WIDTH="261" VALIGN=TOP><CENTER><TABLE BORDER BORDERCOLOR="black"><TR><TD>
+<TABLE BACKGROUND="jpc/green.jpg" BORDER="0" CELLSPACING="0" CELLPADDING="0"><TR><TD>
+<IMG SRC="jpc/br.gif" HEIGHT="29" WIDTH="29" name='brd0'><IMG SRC="jpc/bn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bq.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bk.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/br.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/wr.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wq.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wk.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wr.gif" HEIGHT="29" WIDTH="29"></TD></TR></TABLE></TD></TR></TABLE>
+</CENTER>
+<BR><FORM NAME="form0">
+<CENTER><P>
+<MAP NAME="map0">
+<AREA COORDS="9,7,31,25" HREF="javascript:void(0)" onClick="GoStart(moves0, mpast0, 0, board0); form0.game0.value=''; return false">
+<AREA COORDS="32,7,54,25" HREF="javascript:void(0)" onClick="Back5(moves0, mpast0, 0, board0); form0.game0.value=MvStr(moves0, mpast0, 0, board0); return false">
+<AREA COORDS="55,7,77,25" HREF="javascript:void(0)" onClick="Back(moves0, mpast0, 0, board0); form0.game0.value=MvStr(moves0, mpast0, 0, board0); return false">
+<AREA COORDS="78,7,100,25" HREF="javascript:void(0)" onClick="Forward(moves0, mpast0, 0, board0); form0.game0.value=MvStr(moves0, mpast0, 0, board0); return false">
+<AREA COORDS="101,7,123,25" HREF="javascript:void(0)" onClick="Forward5(moves0, mpast0, 0, board0); form0.game0.value=MvStr(moves0, mpast0, 0, board0); return false">
+<AREA COORDS="124,7,146,25" HREF="javascript:void(0)" onClick="GoEnd(moves0, mpast0, 0, board0); form0.game0.value=MvStr(moves0, mpast0, 0, board0); return false">
+<AREA COORDS="147,7,169,25" HREF="javascript:void(0)"onClick="Flip(0, board0); return false;">
+<AREA COORDS="170,7,192,25" HREF="javascript:void(0)"onClick="Astart(0); return false;">
+</MAP>
+<IMG SRC="jpc/conpanfa.jpg" BORDER="0" USEMAP="#map0"></P></CENTER>
+<CENTER><FONT SIZE="2">Move</FONT> <INPUT TYPE=text name='game0' VALUE="" SIZE=20></CENTER>
+
+</FORM>
+</TD><TD VALIGN=TOP>
+<!-- ginfo0 -->
+<FONT SIZE="4"><B><CENTER><P>
+Carron, Julien - Arngrimsson, Dagur [E05] <BR>Schweiz-Island j/Olten (1) 2001 </P></CENTER></B></FONT>
+<BR>
+<P ALIGN="justify"><FONT SIZE="2" COLOR="black"><B>1. <A onClick="GoMv0(1)" HREF="javascript:void(0)">d4</A>
+ <A onClick="GoMv0(2)" HREF="javascript:void(0)">Cf6</A>
+ 2. <A onClick="GoMv0(3)" HREF="javascript:void(0)">c4</A>
+ <A onClick="GoMv0(4)" HREF="javascript:void(0)">e6</A>
+ 3. <A onClick="GoMv0(5)" HREF="javascript:void(0)">g3</A>
+ <A onClick="GoMv0(6)" HREF="javascript:void(0)">d5</A>
+ 4. <A onClick="GoMv0(7)" HREF="javascript:void(0)">Cf3</A>
+ <A onClick="GoMv0(8)" HREF="javascript:void(0)">Fe7</A>
+ 5. <A onClick="GoMv0(9)" HREF="javascript:void(0)">Fg2</A>
+ <A onClick="GoMv0(10)" HREF="javascript:void(0)">O-O</A>
+ 6. <A onClick="GoMv0(11)" HREF="javascript:void(0)">O-O</A>
+ <A onClick="GoMv0(12)" HREF="javascript:void(0)">dxc4</A>
+ 7. <A onClick="GoMv0(13)" HREF="javascript:void(0)">Dc2</A>
+ <A onClick="GoMv0(14)" HREF="javascript:void(0)">a6</A>
+ 8. <A onClick="GoMv0(15)" HREF="javascript:void(0)">a4</A>
+ <A onClick="GoMv0(16)" HREF="javascript:void(0)">h6</A>
+ 9. <A onClick="GoMv0(17)" HREF="javascript:void(0)">Dxc4</A>
+ <A onClick="GoMv0(18)" HREF="javascript:void(0)">b5</A>
+ 10. <A onClick="GoMv0(19)" HREF="javascript:void(0)">Db3</A>
+ <A onClick="GoMv0(20)" HREF="javascript:void(0)">b4</A>
+ 11. <A onClick="GoMv0(21)" HREF="javascript:void(0)">Ce5</A>
+ <A onClick="GoMv0(22)" HREF="javascript:void(0)">Cd5</A>
+ 12. <A onClick="GoMv0(23)" HREF="javascript:void(0)">Cd2</A>
+ <A onClick="GoMv0(24)" HREF="javascript:void(0)">a5</A>
+ 13. <A onClick="GoMv0(25)" HREF="javascript:void(0)">Cdc4</A>
+ <A onClick="GoMv0(26)" HREF="javascript:void(0)">Fb7</A>
+ 14. <A onClick="GoMv0(27)" HREF="javascript:void(0)">Td1</A>
+ <A onClick="GoMv0(28)" HREF="javascript:void(0)">Cd7</A>
+ 15. <A onClick="GoMv0(29)" HREF="javascript:void(0)">e4</A>
+ <A onClick="GoMv0(30)" HREF="javascript:void(0)">C5f6</A>
+ 16. <A onClick="GoMv0(31)" HREF="javascript:void(0)">d5</A>
+ <A onClick="GoMv0(32)" HREF="javascript:void(0)">Cc5</A>
+ 17. <A onClick="GoMv0(33)" HREF="javascript:void(0)">Dc2</A>
+ <A onClick="GoMv0(34)" HREF="javascript:void(0)">exd5</A>
+ 18. <A onClick="GoMv0(35)" HREF="javascript:void(0)">exd5</A>
+ <A onClick="GoMv0(36)" HREF="javascript:void(0)">Cxd5</A>
+ 19. <A onClick="GoMv0(37)" HREF="javascript:void(0)">Fxd5</A>
+ <A onClick="GoMv0(38)" HREF="javascript:void(0)">Fxd5</A>
+ 20. <A onClick="GoMv0(39)" HREF="javascript:void(0)">Cc6</A>
+ <A onClick="GoMv0(40)" HREF="javascript:void(0)">Fe4</A>
+ 21. <A onClick="GoMv0(41)" HREF="javascript:void(0)">Txd8</A>
+ <A onClick="GoMv0(42)" HREF="javascript:void(0)">Taxd8</A>
+ 22. <A onClick="GoMv0(43)" HREF="javascript:void(0)">Cxe7+</A>
+ <A onClick="GoMv0(44)" HREF="javascript:void(0)">Rh8</A>
+ 23. <A onClick="GoMv0(45)" HREF="javascript:void(0)">De2</A>
+ <A onClick="GoMv0(46)" HREF="javascript:void(0)">Fd3</A>
+ 24. <A onClick="GoMv0(47)" HREF="javascript:void(0)">Dh5</A>
+ <A onClick="GoMv0(48)" HREF="javascript:void(0)">Cb3</A>
+ 25. <A onClick="GoMv0(49)" HREF="javascript:void(0)">Fxh6</A>
+ <A onClick="GoMv0(50)" HREF="javascript:void(0)">Cxa1</A>
+ 26. <A onClick="GoMv0(51)" HREF="javascript:void(0)">Ce5</A>
+ <A onClick="GoMv0(52)" HREF="javascript:void(0)">Fh7</A>
+ 27. <A onClick="GoMv0(53)" HREF="javascript:void(0)">Dg5</A>
+ <A onClick="GoMv0(54)" HREF="javascript:void(0)">Td1+</A>
+ 28. <A onClick="GoMv0(55)" HREF="javascript:void(0)">Rg2</A>
+ <A onClick="GoMv0(56)" HREF="javascript:void(0)">Fe4+</A>
+ 29. <A onClick="GoMv0(57)" HREF="javascript:void(0)">Rh3</A>
+ <A onClick="GoMv0(58)" HREF="javascript:void(0)">Fg2+</A>
+ 30. <A onClick="GoMv0(59)" HREF="javascript:void(0)">Rxg2</A>
+  1-0</FONT></B></P>
+</CENTER></TD></TR></TABLE></CENTER>
+<!-- game0 end -->
+<!-- game1 start -->
+<BR><CENTER><TABLE BORDER=0 CELLPADDING="0"><TR><TD WIDTH="261" VALIGN=TOP><CENTER><TABLE BORDER BORDERCOLOR="black"><TR><TD>
+<TABLE BACKGROUND="jpc/green.jpg" BORDER="0" CELLSPACING="0" CELLPADDING="0"><TR><TD>
+<IMG SRC="jpc/br.gif" HEIGHT="29" WIDTH="29" name='brd1'><IMG SRC="jpc/bn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bq.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bk.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/br.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/wr.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wq.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wk.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wr.gif" HEIGHT="29" WIDTH="29"></TD></TR></TABLE></TD></TR></TABLE>
+</CENTER>
+<BR><FORM NAME="form1">
+<CENTER><P>
+<MAP NAME="map1">
+<AREA COORDS="9,7,31,25" HREF="javascript:void(0)" onClick="GoStart(moves1, mpast1, 1, board1); form1.game1.value=''; return false">
+<AREA COORDS="32,7,54,25" HREF="javascript:void(0)" onClick="Back5(moves1, mpast1, 1, board1); form1.game1.value=MvStr(moves1, mpast1, 1, board1); return false">
+<AREA COORDS="55,7,77,25" HREF="javascript:void(0)" onClick="Back(moves1, mpast1, 1, board1); form1.game1.value=MvStr(moves1, mpast1, 1, board1); return false">
+<AREA COORDS="78,7,100,25" HREF="javascript:void(0)" onClick="Forward(moves1, mpast1, 1, board1); form1.game1.value=MvStr(moves1, mpast1, 1, board1); return false">
+<AREA COORDS="101,7,123,25" HREF="javascript:void(0)" onClick="Forward5(moves1, mpast1, 1, board1); form1.game1.value=MvStr(moves1, mpast1, 1, board1); return false">
+<AREA COORDS="124,7,146,25" HREF="javascript:void(0)" onClick="GoEnd(moves1, mpast1, 1, board1); form1.game1.value=MvStr(moves1, mpast1, 1, board1); return false">
+<AREA COORDS="147,7,169,25" HREF="javascript:void(0)"onClick="Flip(1, board1); return false;">
+<AREA COORDS="170,7,192,25" HREF="javascript:void(0)"onClick="Astart(1); return false;">
+</MAP>
+<IMG SRC="jpc/conpanfa.jpg" BORDER="0" USEMAP="#map1"></P></CENTER>
+<CENTER><FONT SIZE="2">Move</FONT> <INPUT TYPE=text name='game1' VALUE="" SIZE=20></CENTER>
+
+</FORM>
+</TD><TD VALIGN=TOP>
+<!-- ginfo1 -->
+<FONT SIZE="4"><B><CENTER><P>
+Karlsson, Bjorn Ivar - Carron, Julien [B25] <BR>Schweiz-Island j/Olten (2) 2001 </P></CENTER></B></FONT>
+<BR>
+<P ALIGN="justify"><FONT SIZE="2" COLOR="black"><B>1. <A onClick="GoMv1(1)" HREF="javascript:void(0)">e4</A>
+ <A onClick="GoMv1(2)" HREF="javascript:void(0)">c5</A>
+ 2. <A onClick="GoMv1(3)" HREF="javascript:void(0)">Cc3</A>
+ <A onClick="GoMv1(4)" HREF="javascript:void(0)">Cc6</A>
+ 3. <A onClick="GoMv1(5)" HREF="javascript:void(0)">g3</A>
+ <A onClick="GoMv1(6)" HREF="javascript:void(0)">g6</A>
+ 4. <A onClick="GoMv1(7)" HREF="javascript:void(0)">Fg2</A>
+ <A onClick="GoMv1(8)" HREF="javascript:void(0)">Fg7</A>
+ 5. <A onClick="GoMv1(9)" HREF="javascript:void(0)">d3</A>
+ <A onClick="GoMv1(10)" HREF="javascript:void(0)">d6</A>
+ 6. <A onClick="GoMv1(11)" HREF="javascript:void(0)">Fe3</A>
+ <A onClick="GoMv1(12)" HREF="javascript:void(0)">e6</A>
+ 7. <A onClick="GoMv1(13)" HREF="javascript:void(0)">f4</A>
+ <A onClick="GoMv1(14)" HREF="javascript:void(0)">Cge7</A>
+ 8. <A onClick="GoMv1(15)" HREF="javascript:void(0)">Cf3</A>
+ <A onClick="GoMv1(16)" HREF="javascript:void(0)">O-O</A>
+ 9. <A onClick="GoMv1(17)" HREF="javascript:void(0)">O-O</A>
+ <A onClick="GoMv1(18)" HREF="javascript:void(0)">b6</A>
+ 10. <A onClick="GoMv1(19)" HREF="javascript:void(0)">d4</A>
+ <A onClick="GoMv1(20)" HREF="javascript:void(0)">Fa6</A>
+ 11. <A onClick="GoMv1(21)" HREF="javascript:void(0)">Te1</A>
+ <A onClick="GoMv1(22)" HREF="javascript:void(0)">Ca5</A>
+ 12. <A onClick="GoMv1(23)" HREF="javascript:void(0)">e5</A>
+ <A onClick="GoMv1(24)" HREF="javascript:void(0)">cxd4</A>
+ 13. <A onClick="GoMv1(25)" HREF="javascript:void(0)">Cxd4</A>
+ <A onClick="GoMv1(26)" HREF="javascript:void(0)">dxe5</A>
+ 14. <A onClick="GoMv1(27)" HREF="javascript:void(0)">fxe5</A>
+ <A onClick="GoMv1(28)" HREF="javascript:void(0)">Tc8</A>
+ 15. <A onClick="GoMv1(29)" HREF="javascript:void(0)">Fg5</A>
+ <A onClick="GoMv1(30)" HREF="javascript:void(0)">Dc7</A>
+ 16. <A onClick="GoMv1(31)" HREF="javascript:void(0)">Ff6</A>
+ <A onClick="GoMv1(32)" HREF="javascript:void(0)">Cc4</A>
+ 17. <A onClick="GoMv1(33)" HREF="javascript:void(0)">Fxg7</A>
+ <A onClick="GoMv1(34)" HREF="javascript:void(0)">Rxg7</A>
+ 18. <A onClick="GoMv1(35)" HREF="javascript:void(0)">Dg4</A>
+ <A onClick="GoMv1(36)" HREF="javascript:void(0)">Tcd8</A>
+ 19. <A onClick="GoMv1(37)" HREF="javascript:void(0)">Cf3</A>
+ <A onClick="GoMv1(38)" HREF="javascript:void(0)">Dc5+</A>
+ 20. <A onClick="GoMv1(39)" HREF="javascript:void(0)">Rh1</A>
+ <A onClick="GoMv1(40)" HREF="javascript:void(0)">Ce3</A>
+ 21. <A onClick="GoMv1(41)" HREF="javascript:void(0)">Dg5</A>
+ <A onClick="GoMv1(42)" HREF="javascript:void(0)">Cxg2</A>
+ 22. <A onClick="GoMv1(43)" HREF="javascript:void(0)">Ce4</A>
+ <A onClick="GoMv1(44)" HREF="javascript:void(0)">Dc7</A>
+ 23. <A onClick="GoMv1(45)" HREF="javascript:void(0)">Df6+</A>
+ <A onClick="GoMv1(46)" HREF="javascript:void(0)">Rg8</A>
+ 24. <A onClick="GoMv1(47)" HREF="javascript:void(0)">Dg5</A>
+ <A onClick="GoMv1(48)" HREF="javascript:void(0)">Rg7</A>
+ 25. <A onClick="GoMv1(49)" HREF="javascript:void(0)">Df6+</A>
+ <A onClick="GoMv1(50)" HREF="javascript:void(0)">Rg8</A>
+ 26. <A onClick="GoMv1(51)" HREF="javascript:void(0)">Dg5</A>
+  1/2-1/2</FONT></B></P>
+</CENTER></TD></TR></TABLE></CENTER>
+<!-- game1 end -->
+<!-- game2 start -->
+<BR><CENTER><TABLE BORDER=0 CELLPADDING="0"><TR><TD WIDTH="261" VALIGN=TOP><CENTER><TABLE BORDER BORDERCOLOR="black"><TR><TD>
+<TABLE BACKGROUND="jpc/green.jpg" BORDER="0" CELLSPACING="0" CELLPADDING="0"><TR><TD>
+<IMG SRC="jpc/br.gif" HEIGHT="29" WIDTH="29" name='brd2'><IMG SRC="jpc/bn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bq.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bk.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/br.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/wr.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wq.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wk.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wr.gif" HEIGHT="29" WIDTH="29"></TD></TR></TABLE></TD></TR></TABLE>
+</CENTER>
+<BR><FORM NAME="form2">
+<CENTER><P>
+<MAP NAME="map2">
+<AREA COORDS="9,7,31,25" HREF="javascript:void(0)" onClick="GoStart(moves2, mpast2, 2, board2); form2.game2.value=''; return false">
+<AREA COORDS="32,7,54,25" HREF="javascript:void(0)" onClick="Back5(moves2, mpast2, 2, board2); form2.game2.value=MvStr(moves2, mpast2, 2, board2); return false">
+<AREA COORDS="55,7,77,25" HREF="javascript:void(0)" onClick="Back(moves2, mpast2, 2, board2); form2.game2.value=MvStr(moves2, mpast2, 2, board2); return false">
+<AREA COORDS="78,7,100,25" HREF="javascript:void(0)" onClick="Forward(moves2, mpast2, 2, board2); form2.game2.value=MvStr(moves2, mpast2, 2, board2); return false">
+<AREA COORDS="101,7,123,25" HREF="javascript:void(0)" onClick="Forward5(moves2, mpast2, 2, board2); form2.game2.value=MvStr(moves2, mpast2, 2, board2); return false">
+<AREA COORDS="124,7,146,25" HREF="javascript:void(0)" onClick="GoEnd(moves2, mpast2, 2, board2); form2.game2.value=MvStr(moves2, mpast2, 2, board2); return false">
+<AREA COORDS="147,7,169,25" HREF="javascript:void(0)"onClick="Flip(2, board2); return false;">
+<AREA COORDS="170,7,192,25" HREF="javascript:void(0)"onClick="Astart(2); return false;">
+</MAP>
+<IMG SRC="jpc/conpanfa.jpg" BORDER="0" USEMAP="#map2"></P></CENTER>
+<CENTER><FONT SIZE="2">Move</FONT> <INPUT TYPE=text name='game2' VALUE="" SIZE=20></CENTER>
+
+</FORM>
+</TD><TD VALIGN=TOP>
+<!-- ginfo2 -->
+<FONT SIZE="4"><B><CENTER><P>
+Carron, Julien - Kjartansson, Gudmundur [D85] <BR>Schweiz-Island j/Olten (3) 2001 </P></CENTER></B></FONT>
+<BR>
+<P ALIGN="justify"><FONT SIZE="2" COLOR="black"><B>1. <A onClick="GoMv2(1)" HREF="javascript:void(0)">d4</A>
+ <A onClick="GoMv2(2)" HREF="javascript:void(0)">Cf6</A>
+ 2. <A onClick="GoMv2(3)" HREF="javascript:void(0)">c4</A>
+ <A onClick="GoMv2(4)" HREF="javascript:void(0)">g6</A>
+ 3. <A onClick="GoMv2(5)" HREF="javascript:void(0)">Cc3</A>
+ <A onClick="GoMv2(6)" HREF="javascript:void(0)">d5</A>
+ 4. <A onClick="GoMv2(7)" HREF="javascript:void(0)">Cf3</A>
+ <A onClick="GoMv2(8)" HREF="javascript:void(0)">Fg7</A>
+ 5. <A onClick="GoMv2(9)" HREF="javascript:void(0)">cxd5</A>
+ <A onClick="GoMv2(10)" HREF="javascript:void(0)">Cxd5</A>
+ 6. <A onClick="GoMv2(11)" HREF="javascript:void(0)">e4</A>
+ <A onClick="GoMv2(12)" HREF="javascript:void(0)">Cxc3</A>
+ 7. <A onClick="GoMv2(13)" HREF="javascript:void(0)">bxc3</A>
+ <A onClick="GoMv2(14)" HREF="javascript:void(0)">c5</A>
+ 8. <A onClick="GoMv2(15)" HREF="javascript:void(0)">Fe3</A>
+ <A onClick="GoMv2(16)" HREF="javascript:void(0)">O-O</A>
+ 9. <A onClick="GoMv2(17)" HREF="javascript:void(0)">Dd2</A>
+ <A onClick="GoMv2(18)" HREF="javascript:void(0)">Da5</A>
+ 10. <A onClick="GoMv2(19)" HREF="javascript:void(0)">Tc1</A>
+ <A onClick="GoMv2(20)" HREF="javascript:void(0)">Td8</A>
+ 11. <A onClick="GoMv2(21)" HREF="javascript:void(0)">d5</A>
+ <A onClick="GoMv2(22)" HREF="javascript:void(0)">Cc6</A>
+ 12. <A onClick="GoMv2(23)" HREF="javascript:void(0)">c4</A>
+ <A onClick="GoMv2(24)" HREF="javascript:void(0)">b6</A>
+ 13. <A onClick="GoMv2(25)" HREF="javascript:void(0)">Dxa5</A>
+ <A onClick="GoMv2(26)" HREF="javascript:void(0)">Cxa5</A>
+ 14. <A onClick="GoMv2(27)" HREF="javascript:void(0)">Fe2</A>
+ <A onClick="GoMv2(28)" HREF="javascript:void(0)">e5</A>
+ 15. <A onClick="GoMv2(29)" HREF="javascript:void(0)">Cd2</A>
+ <A onClick="GoMv2(30)" HREF="javascript:void(0)">f5</A>
+ 16. <A onClick="GoMv2(31)" HREF="javascript:void(0)">f3</A>
+ <A onClick="GoMv2(32)" HREF="javascript:void(0)">Cb7</A>
+ 17. <A onClick="GoMv2(33)" HREF="javascript:void(0)">O-O</A>
+ <A onClick="GoMv2(34)" HREF="javascript:void(0)">f4</A>
+ 18. <A onClick="GoMv2(35)" HREF="javascript:void(0)">Ff2</A>
+ <A onClick="GoMv2(36)" HREF="javascript:void(0)">g5</A>
+ 19. <A onClick="GoMv2(37)" HREF="javascript:void(0)">g4</A>
+ <A onClick="GoMv2(38)" HREF="javascript:void(0)">Ff6</A>
+ 20. <A onClick="GoMv2(39)" HREF="javascript:void(0)">Rg2</A>
+ <A onClick="GoMv2(40)" HREF="javascript:void(0)">h5</A>
+ 21. <A onClick="GoMv2(41)" HREF="javascript:void(0)">h3</A>
+ <A onClick="GoMv2(42)" HREF="javascript:void(0)">Fd7</A>
+ 22. <A onClick="GoMv2(43)" HREF="javascript:void(0)">Ta1</A>
+ <A onClick="GoMv2(44)" HREF="javascript:void(0)">Fa4</A>
+ 23. <A onClick="GoMv2(45)" HREF="javascript:void(0)">Fd1</A>
+ <A onClick="GoMv2(46)" HREF="javascript:void(0)">Fxd1</A>
+ 24. <A onClick="GoMv2(47)" HREF="javascript:void(0)">Tfxd1</A>
+ <A onClick="GoMv2(48)" HREF="javascript:void(0)">h4</A>
+ 25. <A onClick="GoMv2(49)" HREF="javascript:void(0)">Rf1</A>
+ <A onClick="GoMv2(50)" HREF="javascript:void(0)">Cd6</A>
+ 26. <A onClick="GoMv2(51)" HREF="javascript:void(0)">Tdb1</A>
+ <A onClick="GoMv2(52)" HREF="javascript:void(0)">Tab8</A>
+ 27. <A onClick="GoMv2(53)" HREF="javascript:void(0)">Tb2</A>
+ <A onClick="GoMv2(54)" HREF="javascript:void(0)">Tb7</A>
+ 28. <A onClick="GoMv2(55)" HREF="javascript:void(0)">Tab1</A>
+ <A onClick="GoMv2(56)" HREF="javascript:void(0)">Tdb8</A>
+ 29. <A onClick="GoMv2(57)" HREF="javascript:void(0)">Re2</A>
+ <A onClick="GoMv2(58)" HREF="javascript:void(0)">Rf7</A>
+ 30. <A onClick="GoMv2(59)" HREF="javascript:void(0)">Rd3</A>
+ <A onClick="GoMv2(60)" HREF="javascript:void(0)">Re7</A>
+ 31. <A onClick="GoMv2(61)" HREF="javascript:void(0)">Rc3</A>
+ <A onClick="GoMv2(62)" HREF="javascript:void(0)">Rd7</A>
+ 32. <A onClick="GoMv2(63)" HREF="javascript:void(0)">Rd3</A>
+ <A onClick="GoMv2(64)" HREF="javascript:void(0)">Rc7</A>
+ 33. <A onClick="GoMv2(65)" HREF="javascript:void(0)">Tb3</A>
+ <A onClick="GoMv2(66)" HREF="javascript:void(0)">Fg7</A>
+ 34. <A onClick="GoMv2(67)" HREF="javascript:void(0)">Rc3</A>
+ <A onClick="GoMv2(68)" HREF="javascript:void(0)">Ff6</A>
+ 35. <A onClick="GoMv2(69)" HREF="javascript:void(0)">T1b2</A>
+ <A onClick="GoMv2(70)" HREF="javascript:void(0)">Fg7</A>
+ 36. <A onClick="GoMv2(71)" HREF="javascript:void(0)">a4</A>
+ <A onClick="GoMv2(72)" HREF="javascript:void(0)">a5</A>
+ 37. <A onClick="GoMv2(73)" HREF="javascript:void(0)">Cb1</A>
+ <A onClick="GoMv2(74)" HREF="javascript:void(0)">Ff6</A>
+ 38. <A onClick="GoMv2(75)" HREF="javascript:void(0)">Ca3</A>
+ <A onClick="GoMv2(76)" HREF="javascript:void(0)">Fg7</A>
+ 39. <A onClick="GoMv2(77)" HREF="javascript:void(0)">Cb5+</A>
+ <A onClick="GoMv2(78)" HREF="javascript:void(0)">Cxb5+</A>
+ 40. <A onClick="GoMv2(79)" HREF="javascript:void(0)">Txb5</A>
+ <A onClick="GoMv2(80)" HREF="javascript:void(0)">Ff8</A>
+ 41. <A onClick="GoMv2(81)" HREF="javascript:void(0)">Rd3</A>
+ <A onClick="GoMv2(82)" HREF="javascript:void(0)">Fd6</A>
+ 42. <A onClick="GoMv2(83)" HREF="javascript:void(0)">Fe1</A>
+ <A onClick="GoMv2(84)" HREF="javascript:void(0)">Ta8</A>
+ 43. <A onClick="GoMv2(85)" HREF="javascript:void(0)">Fc3</A>
+ <A onClick="GoMv2(86)" HREF="javascript:void(0)">Ta6</A>
+  1/2-1/2</FONT></B></P>
+</CENTER></TD></TR></TABLE></CENTER>
+<!-- game2 end -->
+<!-- game3 start -->
+<BR><CENTER><TABLE BORDER=0 CELLPADDING="0"><TR><TD WIDTH="261" VALIGN=TOP><CENTER><TABLE BORDER BORDERCOLOR="black"><TR><TD>
+<TABLE BACKGROUND="jpc/green.jpg" BORDER="0" CELLSPACING="0" CELLPADDING="0"><TR><TD>
+<IMG SRC="jpc/br.gif" HEIGHT="29" WIDTH="29" name='brd3'><IMG SRC="jpc/bn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bq.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bk.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/br.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/bp.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/i.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wp.gif" HEIGHT="29" WIDTH="29"><BR><IMG SRC="jpc/wr.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wq.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wk.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wb.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wn.gif" HEIGHT="29" WIDTH="29"><IMG SRC="jpc/wr.gif" HEIGHT="29" WIDTH="29"></TD></TR></TABLE></TD></TR></TABLE>
+</CENTER>
+<BR><FORM NAME="form3">
+<CENTER><P>
+<MAP NAME="map3">
+<AREA COORDS="9,7,31,25" HREF="javascript:void(0)" onClick="GoStart(moves3, mpast3, 3, board3); form3.game3.value=''; return false">
+<AREA COORDS="32,7,54,25" HREF="javascript:void(0)" onClick="Back5(moves3, mpast3, 3, board3); form3.game3.value=MvStr(moves3, mpast3, 3, board3); return false">
+<AREA COORDS="55,7,77,25" HREF="javascript:void(0)" onClick="Back(moves3, mpast3, 3, board3); form3.game3.value=MvStr(moves3, mpast3, 3, board3); return false">
+<AREA COORDS="78,7,100,25" HREF="javascript:void(0)" onClick="Forward(moves3, mpast3, 3, board3); form3.game3.value=MvStr(moves3, mpast3, 3, board3); return false">
+<AREA COORDS="101,7,123,25" HREF="javascript:void(0)" onClick="Forward5(moves3, mpast3, 3, board3); form3.game3.value=MvStr(moves3, mpast3, 3, board3); return false">
+<AREA COORDS="124,7,146,25" HREF="javascript:void(0)" onClick="GoEnd(moves3, mpast3, 3, board3); form3.game3.value=MvStr(moves3, mpast3, 3, board3); return false">
+<AREA COORDS="147,7,169,25" HREF="javascript:void(0)"onClick="Flip(3, board3); return false;">
+<AREA COORDS="170,7,192,25" HREF="javascript:void(0)"onClick="Astart(3); return false;">
+</MAP>
+<IMG SRC="jpc/conpanfa.jpg" BORDER="0" USEMAP="#map3"></P></CENTER>
+<CENTER><FONT SIZE="2">Move</FONT> <INPUT TYPE=text name='game3' VALUE="" SIZE=20></CENTER>
+
+</FORM>
+</TD><TD VALIGN=TOP>
+<!-- ginfo3 -->
+<FONT SIZE="4"><B><CENTER><P>
+Valgardsson, Gudjon Hejdar - Carron, Julien [B32] <BR>Schweiz-Island j/Olten (4) 2001 </P></CENTER></B></FONT>
+<BR>
+<P ALIGN="justify"><FONT SIZE="2" COLOR="black"><B>1. <A onClick="GoMv3(1)" HREF="javascript:void(0)">e4</A>
+ <A onClick="GoMv3(2)" HREF="javascript:void(0)">c5</A>
+ 2. <A onClick="GoMv3(3)" HREF="javascript:void(0)">Cf3</A>
+ <A onClick="GoMv3(4)" HREF="javascript:void(0)">Cc6</A>
+ 3. <A onClick="GoMv3(5)" HREF="javascript:void(0)">d4</A>
+ <A onClick="GoMv3(6)" HREF="javascript:void(0)">cxd4</A>
+ 4. <A onClick="GoMv3(7)" HREF="javascript:void(0)">Cxd4</A>
+ <A onClick="GoMv3(8)" HREF="javascript:void(0)">e5</A>
+ 5. <A onClick="GoMv3(9)" HREF="javascript:void(0)">Cb5</A>
+ <A onClick="GoMv3(10)" HREF="javascript:void(0)">d6</A>
+ 6. <A onClick="GoMv3(11)" HREF="javascript:void(0)">C1c3</A>
+ <A onClick="GoMv3(12)" HREF="javascript:void(0)">a6</A>
+ 7. <A onClick="GoMv3(13)" HREF="javascript:void(0)">Ca3</A>
+ <A onClick="GoMv3(14)" HREF="javascript:void(0)">b5</A>
+ 8. <A onClick="GoMv3(15)" HREF="javascript:void(0)">Cd5</A>
+ <A onClick="GoMv3(16)" HREF="javascript:void(0)">Cce7</A>
+ 9. <A onClick="GoMv3(17)" HREF="javascript:void(0)">c3</A>
+ <A onClick="GoMv3(18)" HREF="javascript:void(0)">Cxd5</A>
+ 10. <A onClick="GoMv3(19)" HREF="javascript:void(0)">exd5</A>
+ <A onClick="GoMv3(20)" HREF="javascript:void(0)">Fe7</A>
+ 11. <A onClick="GoMv3(21)" HREF="javascript:void(0)">c4</A>
+ <A onClick="GoMv3(22)" HREF="javascript:void(0)">bxc4</A>
+ 12. <A onClick="GoMv3(23)" HREF="javascript:void(0)">Cxc4</A>
+ <A onClick="GoMv3(24)" HREF="javascript:void(0)">f5</A>
+ 13. <A onClick="GoMv3(25)" HREF="javascript:void(0)">Fd2</A>
+ <A onClick="GoMv3(26)" HREF="javascript:void(0)">a5</A>
+ 14. <A onClick="GoMv3(27)" HREF="javascript:void(0)">Da4+</A>
+ <A onClick="GoMv3(28)" HREF="javascript:void(0)">Fd7</A>
+ 15. <A onClick="GoMv3(29)" HREF="javascript:void(0)">Da3</A>
+ <A onClick="GoMv3(30)" HREF="javascript:void(0)">Cf6</A>
+ 16. <A onClick="GoMv3(31)" HREF="javascript:void(0)">Fxa5</A>
+ <A onClick="GoMv3(32)" HREF="javascript:void(0)">Db8</A>
+ 17. <A onClick="GoMv3(33)" HREF="javascript:void(0)">Fc7</A>
+ <A onClick="GoMv3(34)" HREF="javascript:void(0)">Db7</A>
+ 18. <A onClick="GoMv3(35)" HREF="javascript:void(0)">Cxd6+</A>
+ <A onClick="GoMv3(36)" HREF="javascript:void(0)">Fxd6</A>
+ 19. <A onClick="GoMv3(37)" HREF="javascript:void(0)">Dxd6</A>
+ <A onClick="GoMv3(38)" HREF="javascript:void(0)">Tc8</A>
+ 20. <A onClick="GoMv3(39)" HREF="javascript:void(0)">Fa5</A>
+ <A onClick="GoMv3(40)" HREF="javascript:void(0)">Dxb2</A>
+ 21. <A onClick="GoMv3(41)" HREF="javascript:void(0)">Td1</A>
+ <A onClick="GoMv3(42)" HREF="javascript:void(0)">Ce4</A>
+ 22. <A onClick="GoMv3(43)" HREF="javascript:void(0)">Db6</A>
+ <A onClick="GoMv3(44)" HREF="javascript:void(0)">Dxa2</A>
+ 23. <A onClick="GoMv3(45)" HREF="javascript:void(0)">Fb5</A>
+ <A onClick="GoMv3(46)" HREF="javascript:void(0)">Fxb5</A>
+ 24. <A onClick="GoMv3(47)" HREF="javascript:void(0)">De6+</A>
+ <A onClick="GoMv3(48)" HREF="javascript:void(0)">Rf8</A>
+ 25. <A onClick="GoMv3(49)" HREF="javascript:void(0)">Dxc8+</A>
+  1-0</FONT></B></P>
+</CENTER></TD></TR></TABLE></CENTER>
+<!-- game3 end -->
+</BODY></HTML>

@@ -1,0 +1,39 @@
+
+<form method=post action="http://geocities.yahoo.com/forms">
+<font face="arial, helvetica">
+<b>Your first name:</b><br>
+<input type="text" name="Name" size="27">
+<p>
+
+<b>Your URL:</b><br>
+<input type="text" name="URL" size="27">
+<p>
+
+<b>How often do you visit my web site?</b><br>
+<input type="radio" name="Visit" value="Daily">Every day<br>
+<input type="radio" name="Visit" value="Weekly">Once per week<br>
+<input type="radio" name="Visit" value="Monthly">Once per month<br>
+<input type="radio" name="Visit" value="Yearly">Once per year<br>
+<p>
+
+<b>Please add any comments you have below:</b>
+</font><br>
+<textarea cols="40" rows="10" name="Comments"></textarea>
+
+<p><br>
+<input type="submit" value="Send">
+<input type="reset" value="Clear the form">
+
+<input type="hidden" name="login" value="club_echecs_sion">
+
+<!-- Option 1 -->
+<input type="hidden" name="subject" value="Survey Results">
+
+<!-- Option 2 -->
+<input type="hidden" name="required_fields" value="Name,URL">
+
+<!-- Option 3
+<input type="hidden" name="next_url" value="http://www.geocities.com/club_echecs_sion/index.html">
+-->
+
+</form>

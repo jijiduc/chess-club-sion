@@ -1,84 +1,87 @@
-# Site Web du Club d'Échecs de Sion
+# Club d'Échecs de Sion
 
-Site web officiel du Club d'Échecs de Sion, accessible sur [cesion.ch](https://cesion.ch/), réalisé par [Jeremy Duc](https://github.com/jijiduc) sur la base du travail d'[Arnaud Pannatier](https://github.com/ArnaudPannatier) trouvable [ici](https://github.com/ArnaudPannatier/cesion).
+Site web officiel du Club d'Échecs de Sion, accessible sur [cesion.ch](https://cesion.ch/), développé avec React, TypeScript et Vite.
+
+Réalisé par [Jeremy Duc](https://github.com/jijiduc) sur la base du travail d'[Arnaud Pannatier](https://github.com/ArnaudPannatier) trouvable [ici](https://github.com/ArnaudPannatier/cesion).
 
 ## Licence
 
 Ce travail est sous licence GNU General Public License v3.0
 
-## Structure des fichiers
+## Structure du Projet
 
-📁 archives/\
-├── 📁 ancien_site/       *# Ressources de l'ancien site web du CE Sion*\
-📁 node_modules/          *# Dépendances du projet*\
-📁 css/                   *# Fichiers CSS*\
-📁 js/                    *# Fichiers JavaScript*\
-📁 static/                *# Ressources statiques*\
-├── 📁 picture/           *# Images du site (photos, bannières, etc.)*\
-├── 📁 favicon/           *# Icônes du site pour différentes plateformes*\
-├── 📁 pieces/            *# Pièces d'échecs en format SVG pour les animations*\
-└── 📁 video/             *# Pièces d'échecs en format SVG pour les animations*\
-📄 .gitignore             *# Liste des fichiers à ignorer par Git*\
-📄 bun.lock               *# Verrouillage des versions des dépendances pour Bun*\
-📄 package.json           *# Configuration du projet et liste des dépendances*\
-📄 README.md              *# Documentation du projet*\
-📄 tailwind.config.js     *# Configuration de Tailwind CSS (thème, plugins, etc.)*\
-📄 *pages*.html           *# Les différentes pages html du site*\
-
-## Pages du site
-
-- club.html
-- comite.html
-- cse.html
-- csg.html
-- cve.html
-- ecole.html
-- index.html
-- programme.html
-- tournoi_interne.html
-
-## Informations de dévelopement
-
-### Technologies utilisées
-
-- HTML5
-- JavaScript
-- CSS avec Tailwind
-- Bun comme gestionnaire de paquets
-
-### Prérequis
-
-- [Bun](https://bun.sh/) - Runtime JavaScript et gestionnaire de paquets
-- [TailwindCSS](https://tailwindcss.com/) - Framework CSS
-
-### Installation des prérequis
-
-1. Installation de Bun :
-
-```bash
-curl -fsSL https://bun.sh/install | bash
+```
+chess-club-sion/
+├── README.md                    # Ce fichier
+├── chess-club-sion-v2/          # Application web principale
+│   ├── src/                     # Code source React/TypeScript
+│   ├── public/                  # Ressources statiques
+│   │   └── archives/            # Archives historiques du club
+│   ├── package.json             # Dépendances du projet
+│   └── ...                      # Autres fichiers de configuration
+├── web-scrapper-FSE-ligue/      # Outil d'extraction des données FSE
+└── web-scrapper-fide/           # Outil d'extraction des classements FIDE
 ```
 
-2. Installation globale de TailwindCSS :
+## Application Web (chess-club-sion-v2)
 
-```bash
-bun install -g tailwindcss @tailwindcss/cli
-```
+### Technologies Utilisées
 
-### Développement
+- **Frontend**: React 18 avec TypeScript
+- **Build Tool**: Vite.js
+- **Styling**: Tailwind CSS
+- **Routing**: React Router v6
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
 
-> ⚠️ **Note importante** : Non compatible avec TailwindCSS v4
+### Fonctionnalités Principales
 
-Lancer le mode développement avec compilation automatique :
+- **Page d'accueil**: Actualités du club, informations pratiques
+- **Membres**: Liste des membres avec classements Elo
+- **Compétitions**: 
+  - Championnat Suisse par Équipes (CSE)
+  - Championnat Valaisan par Équipes (CVE)
+  - Coupe Suisse par Équipes (CSG)
+- **Programme**: Calendrier des événements et tournois
+- **École d'échecs**: Informations sur les cours pour jeunes
+- **Galerie**: Photos historiques du club
+- **Archives**: Documents historiques (tournois, résultats, photos)
 
-```bash
-bun run dev
-```
+### Installation et Développement
 
-### Production
+1. Naviguer vers le dossier du projet:
+   ```bash
+   cd chess-club-sion-v2
+   ```
 
-Compiler et minifier les styles pour la production :
+2. Installer les dépendances:
+   ```bash
+   npm install
+   ```
 
-```bash
-bun run build
-```
+3. Lancer le serveur de développement:
+   ```bash
+   npm run dev
+   ```
+
+4. Construire pour la production:
+   ```bash
+   npm run build
+   ```
+
+### Outils de Données
+
+- **web-scrapper-FSE-ligue**: Extrait les données du championnat FSE depuis le site officiel
+- **web-scrapper-fide**: Récupère les classements Elo FIDE des membres du club
+
+## Déploiement
+
+Le site est conçu pour être déployé comme une application statique. Les fichiers de production sont générés dans le dossier `chess-club-sion-v2/dist/`.
+
+## Contribution
+
+Pour contribuer au projet:
+1. Créer une branche pour votre fonctionnalité
+2. Faire vos modifications
+3. Tester localement
+4. Créer une pull request
