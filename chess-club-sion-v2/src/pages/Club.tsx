@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Users, Trophy, Calendar, MapPin, ChevronRight, Clock, CheckCircle } from 'lucide-react'
 
 export default function Club() {
+  const localImage = { src: './picture/local/local3.jpg', alt: 'Entrée du club' }
   const activities = [
     { text: "Des cours d'échecs", link: "/ecole" },
     { text: "Des soirées du club à thème : parties d'entraînements / analyses / blitz", link: "/programme" },
@@ -163,36 +164,58 @@ export default function Club() {
           >
             <h2 className="text-3xl font-serif font-bold text-neutral-900 mb-8">Local du Club</h2>
             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-              <div className="p-8">
-                <div className="flex items-start mb-6">
-                  <MapPin className="h-6 w-6 text-primary-600 mt-1 mr-3" />
-                  <div>
-                    <p className="text-lg text-neutral-700 mb-2">
-                      Le local est au dernier étage de la maison des Penaudiers.
-                    </p>
-                    <address className="text-neutral-600 not-italic">
-                      Rue des Châteaux 2<br />
-                      1950 Sion
-                    </address>
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Information Section */}
+                <div className="p-8">
+                  <div className="flex items-start mb-6">
+                    <MapPin className="h-6 w-6 text-primary-600 mt-1 mr-3" />
+                    <div>
+                      <p className="text-lg text-neutral-700 mb-2">
+                        Le local est au dernier étage de la maison des Penaudiers.
+                      </p>
+                      <address className="text-neutral-600 not-italic">
+                        Rue des Châteaux 2<br />
+                        1950 Sion
+                      </address>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center text-neutral-600 mb-6">
+                    <Clock className="h-5 w-5 mr-2" />
+                    <span>Ouvert tous les vendredis dès 20h</span>
+                  </div>
+                  
+                  <a 
+                    href="https://www.google.com/maps/place/Rue+des+Ch%C3%A2teaux+2,+1950+Sion"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-primary-600 hover:text-primary-700 text-sm"
+                  >
+                    Ouvrir dans Google Maps
+                    <ChevronRight className="h-4 w-4 ml-1" />
+                  </a>
+                </div>
+                
+                {/* Building Photo */}
+                <div className="relative h-full min-h-[400px] lg:min-h-0 bg-neutral-100">
+                  <div className="relative h-full">
+                    <img 
+                      src={localImage.src}
+                      alt={localImage.alt}
+                      className="w-full h-full object-contain"
+                    />
+                    
+                    {/* Caption */}
+                    <div className="absolute bottom-4 left-4 right-4 text-center">
+                      <p className="text-sm font-medium text-neutral-700 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full inline-block">
+                        {localImage.alt}
+                      </p>
+                    </div>
                   </div>
                 </div>
-                
-                <div className="flex items-center text-neutral-600 mb-4">
-                  <Clock className="h-5 w-5 mr-2" />
-                  <span>Ouvert tous les vendredis dès 20h</span>
-                </div>
-                
-                <a 
-                  href="https://www.google.com/maps/place/Rue+des+Ch%C3%A2teaux+2,+1950+Sion"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-primary-600 hover:text-primary-700 text-sm mb-6"
-                >
-                  Ouvrir dans Google Maps
-                  <ChevronRight className="h-4 w-4 ml-1" />
-                </a>
               </div>
               
+              {/* Map Section */}
               <div className="w-full h-96 relative bg-neutral-100">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2764.440083544647!2d7.355490776721072!3d46.23375377108091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478edc44826a14cd%3A0x5ad7276f0d90b279!2sRue%20des%20Ch%C3%A2teaux%202%2C%201950%20Sion!5e0!3m2!1sfr!2sch!4v1707342008370!5m2!1sfr!2sch"

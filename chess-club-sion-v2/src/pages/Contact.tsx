@@ -7,10 +7,6 @@ export default function Contact() {
   
   const emails = [
     {
-      address: "president@cesion.ch",
-      description: "Pour les questions générales et administratives"
-    },
-    {
       address: "info@cesion.ch",
       description: "Pour les informations sur le club et ses activités"
     },

@@ -39,7 +39,7 @@ export default function Home() {
       icon: Zap,
       title: "Soirées Club",
       description: "Blitz, analyses, parties semi-rapides et soirées thématiques",
-      time: "20h30",
+      time: "20h00",
       link: "/programme"
     },
     {
@@ -425,7 +425,7 @@ export default function Home() {
                   <Clock className="h-6 w-6 text-primary-400 mt-1" />
                   <div>
                     <h3 className="font-semibold text-lg">Horaires</h3>
-                    <p className="text-neutral-300">Vendredis soirs<br />19h00 : Cours jeunes<br />20h30 : Soirée club</p>
+                    <p className="text-neutral-300">Vendredis soirs<br />19h00 : Cours jeunes<br />20h00 : Soirée du club</p>
                   </div>
                 </div>
               </div>
