@@ -1,0 +1,457 @@
+{
+  "sion1": {
+    "results": [
+      {
+        "round": 1,
+        "date": "22.03.2025",
+        "opponent": "Grand Echiquier 1",
+        "venue": "home",
+        "location": "Sion",
+        "result": "1½-6½",
+        "boards": [
+          {
+            "player": "Flavien Sola",
+            "opponent": "Guillaume Chauvon",
+            "result": "0-1",
+            "playerElo": 2167
+          },
+          {
+            "player": "Vlad Popescu",
+            "opponent": "Ferran Rocamora Martorell",
+            "result": "0-1",
+            "playerElo": 1990
+          },
+          {
+            "player": "Pierre-M. Rappaz",
+            "opponent": "Jonathan Jaccard",
+            "result": "½-½",
+            "playerElo": 1933
+          },
+          {
+            "player": "Jean-Yves Riand",
+            "opponent": "Jean-Manuel Segura",
+            "result": "½-½",
+            "playerElo": 1877
+          },
+          {
+            "player": "Max Chappaz",
+            "opponent": "Sébastien Vasey",
+            "result": "0-1",
+            "playerElo": 1904
+          },
+          {
+            "player": "Yves Roduit",
+            "opponent": "Vincent Conrad",
+            "result": "0-1",
+            "playerElo": 1910
+          },
+          {
+            "player": "Olivier Ulmann",
+            "opponent": "Pierpaolo Ranieri",
+            "result": "0-1",
+            "playerElo": 1788
+          },
+          {
+            "player": "Jeremy Duc",
+            "opponent": "Mathis Soubeyrand",
+            "result": "½-½",
+            "playerElo": 1829
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "date": "05.04.2025",
+        "opponent": "Fribourg 1",
+        "venue": "away",
+        "location": "Fribourg",
+        "result": "5½-2½",
+        "boards": [
+          {
+            "player": "Vlad Popescu",
+            "opponent": "Sylvain Julmy",
+            "result": "0-1",
+            "playerElo": 1990
+          },
+          {
+            "player": "Max Chappaz",
+            "opponent": "Yves Deschenaux",
+            "result": "½-½",
+            "playerElo": 1904
+          },
+          {
+            "player": "Olivier Ulmann",
+            "opponent": "Bernard Deschenaux",
+            "result": "0-1",
+            "playerElo": 1788
+          },
+          {
+            "player": "Jean-Michel Paladini",
+            "opponent": "Thierry Bonferroni",
+            "result": "½-½",
+            "playerElo": 1983
+          },
+          {
+            "player": "Claude Bétrisey",
+            "opponent": "Achim Schneuwly",
+            "result": "0-1",
+            "playerElo": 1697
+          },
+          {
+            "player": "Jean-Yves Riand",
+            "opponent": "Raphaël Perrin",
+            "result": "0-1",
+            "playerElo": 1877
+          },
+          {
+            "player": "Olivier Crettenand",
+            "opponent": "Jean-Pierre Dorand",
+            "result": "½-½",
+            "playerElo": 1826
+          },
+          {
+            "player": "Yves Roduit",
+            "opponent": "Marius Cornée",
+            "result": "1-0",
+            "playerElo": 1910
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "date": "26.04.2025",
+        "opponent": "Köniz-Bubenberg 1",
+        "venue": "home",
+        "location": "Sion",
+        "result": "3-5",
+        "boards": [
+          {
+            "player": "Jean-Yves Riand",
+            "opponent": "Igor Yarmonov",
+            "result": "0-1",
+            "playerElo": 1877
+          },
+          {
+            "player": "Jeremy Duc",
+            "opponent": "Mike Jäger",
+            "result": "0-1",
+            "playerElo": 1829
+          },
+          {
+            "player": "Flavien Sola",
+            "opponent": "Gabriel Vergelin Soler",
+            "result": "1-0",
+            "playerElo": 2167
+          },
+          {
+            "player": "Jean-Michel Paladini",
+            "opponent": "Hansjürg Känel",
+            "result": "0-1",
+            "playerElo": 1983
+          },
+          {
+            "player": "Vlad Popescu",
+            "opponent": "Jörg Brauchli",
+            "result": "½-½",
+            "playerElo": 1990
+          },
+          {
+            "player": "Yves Roduit",
+            "opponent": "Sandor Kaszas",
+            "result": "0-1",
+            "playerElo": 1910
+          },
+          {
+            "player": "Yann Bourban",
+            "opponent": "Thomas Mani",
+            "result": "½-½",
+            "playerElo": 1885
+          },
+          {
+            "player": "Olivier Ulmann",
+            "opponent": "Marc Tillmann",
+            "result": "1-0",
+            "playerElo": 1788
+          }
+        ]
+      },
+      {
+        "round": 4,
+        "date": "17.05.2025",
+        "opponent": "Neuchâtel 1",
+        "venue": "home",
+        "location": "Sion",
+        "result": "3½-4½",
+        "boards": [
+          {
+            "player": "Christophe Sochacki",
+            "opponent": "Raphael Erne",
+            "result": "0-1",
+            "playerElo": 2458
+          },
+          {
+            "player": "Jean-Michel Paladini",
+            "opponent": "Robin Voland",
+            "result": "0-1",
+            "playerElo": 1983
+          },
+          {
+            "player": "Flavien Sola",
+            "opponent": "Roland Hauser",
+            "result": "1-0",
+            "playerElo": 2167
+          },
+          {
+            "player": "Vlad Popescu",
+            "opponent": "Hassan Roger Sadeghi",
+            "result": "1-0",
+            "playerElo": 1990
+          },
+          {
+            "player": "Max Chappaz",
+            "opponent": "Luca Srdjenovic",
+            "result": "½-½",
+            "playerElo": 1904
+          },
+          {
+            "player": "Pierre-M. Rappaz",
+            "opponent": "Bertrand Banderet",
+            "result": "½-½",
+            "playerElo": 1933
+          },
+          {
+            "player": "Jeremy Duc",
+            "opponent": "Jason Weber",
+            "result": "½-½",
+            "playerElo": 1829
+          },
+          {
+            "player": "Jean-Yves Riand",
+            "opponent": "Jeremy Butet",
+            "result": "0-1",
+            "playerElo": 1877
+          }
+        ]
+      }
+    ],
+    "players": [
+      "Christophe Sochacki (2458)",
+      "Flavien Sola (2167)",
+      "Vlad Popescu (1990)",
+      "Jean-Michel Paladini (1983)",
+      "Pierre-M. Rappaz (1933)",
+      "Pierre-Marie Rappaz (1933)",
+      "Yves Roduit (1910)",
+      "Max Chappaz (1904)",
+      "Yann Bourban (1885)",
+      "Jean-Yves Riand (1877)",
+      "Jeremy Duc (1829)",
+      "Alexandre Briguet (1828)",
+      "Olivier Crettenand (1826)",
+      "Joan Cortada Garcia (1824)",
+      "Olivier Ulmann (1788)",
+      "Claude Bétrisey (1697)"
+    ]
+  },
+  "sion2": {
+    "results": [
+      {
+        "round": 1,
+        "date": "22.03.2025",
+        "opponent": "Crans-Montana 2",
+        "venue": "home",
+        "location": "Sion",
+        "result": "2-4",
+        "boards": [
+          {
+            "player": "Alexandre Briguet",
+            "opponent": "Alessandro Bonalli",
+            "result": "0-1",
+            "playerElo": 1828
+          },
+          {
+            "player": "Olivier Crettenand",
+            "opponent": "Timur Gökok",
+            "result": "1-0",
+            "playerElo": 1826
+          },
+          {
+            "player": "Mazlum Tosun",
+            "opponent": "Hervé Frainay",
+            "result": "1-0",
+            "playerElo": 1689
+          },
+          {
+            "player": "Sandro Bétrisey",
+            "opponent": "Luc Udry",
+            "result": "0-1",
+            "playerElo": 1745
+          },
+          {
+            "player": "Akram Ben Salem",
+            "opponent": "Jean-Claude Zermatten",
+            "result": "0-1",
+            "playerElo": ""
+          },
+          {
+            "player": "Florian Clavien",
+            "opponent": "Claude-Alain Bonvin",
+            "result": "0-1",
+            "playerElo": ""
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "date": "05.04.2025",
+        "opponent": "Bulle 3",
+        "venue": "away",
+        "location": "Bulle",
+        "result": "2-4",
+        "boards": [
+          {
+            "player": "Alexandre Briguet",
+            "opponent": "Philippe Defferrard",
+            "result": "½-½",
+            "playerElo": 1828
+          },
+          {
+            "player": "Sandro Bétrisey",
+            "opponent": "Bert Jansen",
+            "result": "1-0",
+            "playerElo": 1745
+          },
+          {
+            "player": "Mazlum Tosun",
+            "opponent": "Charles-François Feller",
+            "result": "1-0",
+            "playerElo": 1689
+          },
+          {
+            "player": "Akram Ben Salem",
+            "opponent": "Thomas Christen",
+            "result": "½-½",
+            "playerElo": ""
+          },
+          {
+            "player": "Simon Moerschell",
+            "opponent": "Arno Jankowski",
+            "result": "1-0",
+            "playerElo": 1663
+          },
+          {
+            "player": "N.N.",
+            "opponent": "Alfred Senff",
+            "result": "0-1",
+            "playerElo": ""
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "date": "26.04.2025",
+        "opponent": "Grand Echiquier 2",
+        "venue": "home",
+        "location": "Sion",
+        "result": "1½-4½",
+        "boards": [
+          {
+            "player": "Olivier Crettenand",
+            "opponent": "Andrea Giananti",
+            "result": "½-½",
+            "playerElo": 1826
+          },
+          {
+            "player": "Mazlum Tosun",
+            "opponent": "Vincent Conrad",
+            "result": "0-1",
+            "playerElo": 1689
+          },
+          {
+            "player": "Alexandre Briguet",
+            "opponent": "Olivier Dubuis",
+            "result": "1-0",
+            "playerElo": 1828
+          },
+          {
+            "player": "Claude Bétrisey",
+            "opponent": "David Bovet",
+            "result": "0-1",
+            "playerElo": 1697
+          },
+          {
+            "player": "Akram Ben Salem",
+            "opponent": "Emil Ungureanu",
+            "result": "0-1",
+            "playerElo": ""
+          },
+          {
+            "player": "Sandro Bétrisey",
+            "opponent": "José Martinez",
+            "result": "0-1",
+            "playerElo": 1745
+          }
+        ]
+      },
+      {
+        "round": 4,
+        "date": "17.05.2025",
+        "opponent": "Valais 2",
+        "venue": "away",
+        "location": "Valais",
+        "result": "2½-3½",
+        "boards": [
+          {
+            "player": "Joan Cortada Garcia",
+            "opponent": "Hervé Lanois",
+            "result": "0-1",
+            "playerElo": 1824
+          },
+          {
+            "player": "Mazlum Tosun",
+            "opponent": "Stephan Major",
+            "result": "1-0",
+            "playerElo": 1689
+          },
+          {
+            "player": "Olivier Crettenand",
+            "opponent": "Christian Favre",
+            "result": "½-½",
+            "playerElo": 1826
+          },
+          {
+            "player": "Sandro Bétrisey",
+            "opponent": "Renzo Cerda",
+            "result": "1-0",
+            "playerElo": 1745
+          },
+          {
+            "player": "Alexandre Briguet",
+            "opponent": "Cyril Dorsaz",
+            "result": "1-0",
+            "playerElo": 1828
+          },
+          {
+            "player": "Simon Moerschell",
+            "opponent": "Michel Steiner",
+            "result": "0-1",
+            "playerElo": 1663
+          }
+        ]
+      }
+    ],
+    "players": [
+      "Jeremy Duc (1829)",
+      "Alexandre Briguet (1828)",
+      "Olivier Crettenand (1826)",
+      "Joan Cortada Garcia (1824)",
+      "Olivier Ulmann (1788)",
+      "Sandro Bétrisey (1745)",
+      "Claude Bétrisey (1697)",
+      "Mazlum Tosun (1689)",
+      "Simon Moerschell (1663)",
+      "Akram Ben Salem (0)",
+      "Florian Clavien (0)"
+    ]
+  }
+}

@@ -1,0 +1,818 @@
+{
+  "Sion_1": {
+    "round1": [
+      {
+        "name": "Robin Voland",
+        "rating": 2030
+      },
+      {
+        "name": "Bertrand Banderet",
+        "rating": 1951
+      },
+      {
+        "name": "Roland Hauser",
+        "rating": 2047
+      },
+      {
+        "name": "Hassan Roger Sadeghi",
+        "rating": 2082
+      },
+      {
+        "name": "Roman Tkhoruk",
+        "rating": 1943
+      },
+      {
+        "name": "Jason Weber",
+        "rating": 1828
+      },
+      {
+        "name": "Luca Srdjenovic",
+        "rating": 1894
+      },
+      {
+        "name": "Mohamad Al-Dourobi",
+        "rating": 1782
+      },
+      {
+        "name": "Lindo Duratti",
+        "rating": 2135
+      },
+      {
+        "name": "Nicolas Perréard",
+        "rating": 2043
+      },
+      {
+        "name": "Jan Steenhuis",
+        "rating": 2052
+      },
+      {
+        "name": "Steve Monthoux",
+        "rating": 2013
+      },
+      {
+        "name": "Colin Cordey",
+        "rating": 1979
+      },
+      {
+        "name": "Stéphane Coletta",
+        "rating": 1933
+      },
+      {
+        "name": "Julien Coletta",
+        "rating": 1803
+      },
+      {
+        "name": "Guillaume Chauvon",
+        "rating": 2111
+      },
+      {
+        "name": "Ferran Rocamora Martorell",
+        "rating": 2111
+      },
+      {
+        "name": "Jonathan Jaccard",
+        "rating": 1953
+      },
+      {
+        "name": "Jean-Manuel Segura",
+        "rating": 2090
+      },
+      {
+        "name": "Sébastien Vasey",
+        "rating": 1966
+      },
+      {
+        "name": "Vincent Conrad",
+        "rating": 1904
+      },
+      {
+        "name": "Pierpaolo Ranieri",
+        "rating": 1891
+      },
+      {
+        "name": "Mathis Soubeyrand",
+        "rating": 1533
+      },
+      {
+        "name": "Sylvain Julmy",
+        "rating": 2187
+      },
+      {
+        "name": "Yves Deschenaux",
+        "rating": 2121
+      },
+      {
+        "name": "Salvatore Cruceli",
+        "rating": 2077
+      },
+      {
+        "name": "Joseph Edoecs",
+        "rating": 2021
+      },
+      {
+        "name": "Bernard Deschenaux",
+        "rating": 2002
+      },
+      {
+        "name": "Thierry Bonferroni",
+        "rating": 1954
+      },
+      {
+        "name": "Achim Schneuwly",
+        "rating": 1930
+      },
+      {
+        "name": "Marius Cornée",
+        "rating": 1894
+      }
+    ],
+    "round2": [
+      {
+        "name": "Vlad Popescu",
+        "rating": 1990
+      },
+      {
+        "name": "Max Chappaz",
+        "rating": 1904
+      },
+      {
+        "name": "Olivier Ulmann",
+        "rating": 1788
+      },
+      {
+        "name": "Jean-Michel Paladini",
+        "rating": 1983
+      },
+      {
+        "name": "Claude Bétrisey",
+        "rating": 1697
+      },
+      {
+        "name": "Jean-Yves Riand",
+        "rating": 1877
+      },
+      {
+        "name": "Olivier Crettenand",
+        "rating": 1826
+      },
+      {
+        "name": "Yves Roduit",
+        "rating": 1910
+      },
+      {
+        "name": "Roman Tkhoruk",
+        "rating": 1896
+      },
+      {
+        "name": "Raphael Erne",
+        "rating": 2164
+      },
+      {
+        "name": "Luca Srdjenovic",
+        "rating": 1882
+      },
+      {
+        "name": "Didier Leuba",
+        "rating": 2169
+      },
+      {
+        "name": "Roland Hauser",
+        "rating": 2026
+      },
+      {
+        "name": "Bertrand Banderet",
+        "rating": 1942
+      },
+      {
+        "name": "Mohamad Al-Dourobi",
+        "rating": 1770
+      },
+      {
+        "name": "Elias Girardin",
+        "rating": 1772
+      },
+      {
+        "name": "Dominique Li",
+        "rating": 2292
+      },
+      {
+        "name": "Richard Gerber",
+        "rating": 2233
+      },
+      {
+        "name": "Laurent Geiser",
+        "rating": 2210
+      },
+      {
+        "name": "Nils Delmonico",
+        "rating": 1940
+      },
+      {
+        "name": "Tiziano Frei",
+        "rating": 1920
+      },
+      {
+        "name": "Samuel Detraz",
+        "rating": 1957
+      },
+      {
+        "name": "Jeremy Broome",
+        "rating": 1885
+      },
+      {
+        "name": "Jörg-Dieter Meyer",
+        "rating": 1869
+      },
+      {
+        "name": "Jan Steenhuis",
+        "rating": 2057
+      },
+      {
+        "name": "Valentin Palmonella",
+        "rating": 2138
+      },
+      {
+        "name": "Nicolas Perréard",
+        "rating": 2033
+      },
+      {
+        "name": "Daniel Stroppa",
+        "rating": 2182
+      },
+      {
+        "name": "Jean-Robert Vesin",
+        "rating": 2195
+      },
+      {
+        "name": "Wissam Pheng",
+        "rating": 2045
+      },
+      {
+        "name": "Steve Monthoux",
+        "rating": 2013
+      },
+      {
+        "name": "Stéphane Coletta",
+        "rating": 1928
+      }
+    ],
+    "round3": [
+      {
+        "name": "Alexan Floure",
+        "rating": 1913
+      },
+      {
+        "name": "Jean-Daniel Delacroix",
+        "rating": 1938
+      },
+      {
+        "name": "Hervé Lanois",
+        "rating": 1781
+      },
+      {
+        "name": "Fabrice Lovey",
+        "rating": 1821
+      },
+      {
+        "name": "Adrien Pignat",
+        "rating": 1747
+      },
+      {
+        "name": "Pierre Perruchoud",
+        "rating": 1890
+      },
+      {
+        "name": "Lucas Candelier",
+        "rating": 1863
+      },
+      {
+        "name": "Jean-Marie Carron",
+        "rating": 1852
+      },
+      {
+        "name": "Igor Yarmonov",
+        "rating": 2342
+      },
+      {
+        "name": "Mike Jäger",
+        "rating": 2114
+      },
+      {
+        "name": "Hansjürg Känel",
+        "rating": 2226
+      },
+      {
+        "name": "Jörg Brauchli",
+        "rating": 1915
+      },
+      {
+        "name": "Sandor Kaszas",
+        "rating": 2008
+      },
+      {
+        "name": "Thomas Mani",
+        "rating": 1949
+      },
+      {
+        "name": "Marc Tillmann",
+        "rating": 1921
+      },
+      {
+        "name": "Richard Gerber",
+        "rating": 2233
+      },
+      {
+        "name": "Dominique Li",
+        "rating": 2292
+      },
+      {
+        "name": "Nathan ALFRED",
+        "rating": 2214
+      },
+      {
+        "name": "Nils Delmonico",
+        "rating": 1940
+      },
+      {
+        "name": "Tiziano Frei",
+        "rating": 1920
+      },
+      {
+        "name": "Jeremy Cendan",
+        "rating": 1932
+      },
+      {
+        "name": "Jörg-Dieter Meyer",
+        "rating": 1869
+      },
+      {
+        "name": "Alexander Clarke",
+        "rating": 1802
+      },
+      {
+        "name": "Gonçalo Varela Tavares",
+        "rating": 1967
+      },
+      {
+        "name": "Guillaume Chauvon",
+        "rating": 2076
+      },
+      {
+        "name": "Sébastien Vasey",
+        "rating": 1956
+      },
+      {
+        "name": "Alexandre Bur",
+        "rating": 1901
+      },
+      {
+        "name": "Armin Rauer",
+        "rating": 1918
+      },
+      {
+        "name": "Pierpaolo Ranieri",
+        "rating": 1893
+      },
+      {
+        "name": "Sébastien Pagliaro",
+        "rating": 1920
+      },
+      {
+        "name": "Mathis Soubeyrand",
+        "rating": 1547
+      }
+    ],
+    "round4": [
+      {
+        "name": "Igor Yarmonov",
+        "rating": 2342
+      },
+      {
+        "name": "Hansjürg Känel",
+        "rating": 2226
+      },
+      {
+        "name": "Brian von Moos",
+        "rating": 1736
+      },
+      {
+        "name": "Sandor Kaszas",
+        "rating": 2008
+      },
+      {
+        "name": "Jörg Brauchli",
+        "rating": 1915
+      },
+      {
+        "name": "Thomas Mani",
+        "rating": 1949
+      },
+      {
+        "name": "Michael Weber",
+        "rating": 1898
+      },
+      {
+        "name": "Marc Tillmann",
+        "rating": 1921
+      },
+      {
+        "name": "Sylvain Julmy",
+        "rating": 2179
+      },
+      {
+        "name": "Yves Deschenaux",
+        "rating": 2121
+      },
+      {
+        "name": "Salvatore Cruceli",
+        "rating": 2083
+      },
+      {
+        "name": "Vinzenz Tremp",
+        "rating": 2042
+      },
+      {
+        "name": "Thierry Bonferroni",
+        "rating": 1965
+      },
+      {
+        "name": "Bernard Deschenaux",
+        "rating": 2002
+      },
+      {
+        "name": "Raphaël Perrin",
+        "rating": 1944
+      },
+      {
+        "name": "Pierpaolo Ranieri",
+        "rating": 1893
+      },
+      {
+        "name": "Ferran Rocamora Martorell",
+        "rating": 2126
+      },
+      {
+        "name": "Gonçalo Varela Tavares",
+        "rating": 1967
+      },
+      {
+        "name": "Jean-Manuel Segura",
+        "rating": 2066
+      },
+      {
+        "name": "Guillaume Chauvon",
+        "rating": 2076
+      },
+      {
+        "name": "Andreas Füglistaler",
+        "rating": 1983
+      },
+      {
+        "name": "Jonathan Jaccard",
+        "rating": 1949
+      },
+      {
+        "name": "Sébastien Vasey",
+        "rating": 1956
+      },
+      {
+        "name": "Raphael Erne",
+        "rating": 2164
+      },
+      {
+        "name": "Robin Voland",
+        "rating": 2057
+      },
+      {
+        "name": "Roland Hauser",
+        "rating": 2026
+      },
+      {
+        "name": "Hassan Roger Sadeghi",
+        "rating": 2098
+      },
+      {
+        "name": "Luca Srdjenovic",
+        "rating": 1882
+      },
+      {
+        "name": "Bertrand Banderet",
+        "rating": 1942
+      },
+      {
+        "name": "Jason Weber",
+        "rating": 1838
+      },
+      {
+        "name": "Jeremy Butet",
+        "rating": 1930
+      }
+    ]
+  },
+  "Sion_2": {
+    "round1": [
+      {
+        "name": "Jorel Martin",
+        "rating": 1827
+      },
+      {
+        "name": "Fabien Tordeur",
+        "rating": 1963
+      },
+      {
+        "name": "Colin Moesching",
+        "rating": 1897
+      },
+      {
+        "name": "Samuel Favre",
+        "rating": 1608
+      },
+      {
+        "name": "Alessandro Bonalli",
+        "rating": 1621
+      },
+      {
+        "name": "Hervé Frainay",
+        "rating": 1561
+      },
+      {
+        "name": "Luc Udry",
+        "rating": 1523
+      },
+      {
+        "name": "Jean-Claude Zermatten",
+        "rating": 1559
+      },
+      {
+        "name": "Claude-Alain Bonvin",
+        "rating": 1629
+      },
+      {
+        "name": "Laurent Geib",
+        "rating": 1673
+      },
+      {
+        "name": "Charles-François Feller",
+        "rating": 1670
+      },
+      {
+        "name": "Alfred Senff",
+        "rating": 1544
+      },
+      {
+        "name": "Vivian Rochat",
+        "rating": 1920
+      },
+      {
+        "name": "Lucas Bueche",
+        "rating": 1844
+      },
+      {
+        "name": "Karel Bourban",
+        "rating": 1806
+      },
+      {
+        "name": "Alex Garfield",
+        "rating": 1821
+      },
+      {
+        "name": "Carlo Bonferroni",
+        "rating": 1768
+      }
+    ],
+    "round2": [
+      {
+        "name": "Alain Tcheau",
+        "rating": 2011
+      },
+      {
+        "name": "Daniel Jaquier",
+        "rating": 1871
+      },
+      {
+        "name": "Joël Loba",
+        "rating": 1833
+      },
+      {
+        "name": "Alain Chollet",
+        "rating": 1783
+      },
+      {
+        "name": "Philippe Grosjean-Ritz",
+        "rating": 1821
+      },
+      {
+        "name": "Alexandre Briguet",
+        "rating": 1828
+      },
+      {
+        "name": "Sandro Bétrisey",
+        "rating": 1745
+      },
+      {
+        "name": "Mazlum Tosun",
+        "rating": 1689
+      },
+      {
+        "name": "Simon Moerschell",
+        "rating": 1663
+      },
+      {
+        "name": "Hervé Lanois",
+        "rating": 1781
+      },
+      {
+        "name": "Cyril Dorsaz",
+        "rating": 1819
+      },
+      {
+        "name": "Jean-Marie Carron",
+        "rating": 1852
+      },
+      {
+        "name": "Stephan Major",
+        "rating": 1797
+      },
+      {
+        "name": "Michel Steiner",
+        "rating": 1803
+      },
+      {
+        "name": "François Perruchoud",
+        "rating": 1921
+      },
+      {
+        "name": "Lucas Bueche",
+        "rating": 1841
+      },
+      {
+        "name": "Karel Bourban",
+        "rating": 1818
+      },
+      {
+        "name": "Armando Hauser",
+        "rating": 1819
+      },
+      {
+        "name": "Alex Garfield",
+        "rating": 1786
+      },
+      {
+        "name": "Carlo Bonferroni",
+        "rating": 1774
+      }
+    ],
+    "round3": [
+      {
+        "name": "Andrea Giananti",
+        "rating": 1867
+      },
+      {
+        "name": "Vincent Conrad",
+        "rating": 1904
+      },
+      {
+        "name": "Olivier Dubuis",
+        "rating": 1778
+      },
+      {
+        "name": "David Bovet",
+        "rating": 1741
+      },
+      {
+        "name": "José Martinez",
+        "rating": 1662
+      },
+      {
+        "name": "Claude-Alain Bonvin",
+        "rating": 1629
+      },
+      {
+        "name": "Alessandro Bonalli",
+        "rating": 1621
+      },
+      {
+        "name": "Luc Udry",
+        "rating": 1523
+      },
+      {
+        "name": "Jean-Claude Zermatten",
+        "rating": 1559
+      },
+      {
+        "name": "Colin Moesching",
+        "rating": 1891
+      },
+      {
+        "name": "Fabien Tordeur",
+        "rating": 1977
+      },
+      {
+        "name": "Marius Jordan",
+        "rating": 1632
+      },
+      {
+        "name": "Pascal Machoud",
+        "rating": 1817
+      },
+      {
+        "name": "Gilles Meynet",
+        "rating": 1470
+      },
+      {
+        "name": "Charles-François Feller",
+        "rating": 1670
+      },
+      {
+        "name": "Alfred Senff",
+        "rating": 1544
+      }
+    ],
+    "round4": [
+      {
+        "name": "Alain Tcheau",
+        "rating": 2011
+      },
+      {
+        "name": "Daniel Jaquier",
+        "rating": 1871
+      },
+      {
+        "name": "Rolf Grütter",
+        "rating": 2006
+      },
+      {
+        "name": "Adrian Silva",
+        "rating": 1857
+      },
+      {
+        "name": "Joël Loba",
+        "rating": 1833
+      },
+      {
+        "name": "Alain Chollet",
+        "rating": 1783
+      },
+      {
+        "name": "Claude-Alain Bonvin",
+        "rating": 1629
+      },
+      {
+        "name": "Alessandro Bonalli",
+        "rating": 1621
+      },
+      {
+        "name": "Jean-Claude Zermatten",
+        "rating": 1559
+      },
+      {
+        "name": "Luc Udry",
+        "rating": 1523
+      },
+      {
+        "name": "Joan Cortada Garcia",
+        "rating": 1824
+      },
+      {
+        "name": "Mazlum Tosun",
+        "rating": 1689
+      },
+      {
+        "name": "Olivier Crettenand",
+        "rating": 1826
+      },
+      {
+        "name": "Sandro Bétrisey",
+        "rating": 1745
+      },
+      {
+        "name": "Alexandre Briguet",
+        "rating": 1828
+      },
+      {
+        "name": "Simon Moerschell",
+        "rating": 1663
+      },
+      {
+        "name": "Michael Cardoso Rodrigues",
+        "rating": 1854
+      },
+      {
+        "name": "Lucas Bueche",
+        "rating": 1841
+      },
+      {
+        "name": "Armando Hauser",
+        "rating": 1819
+      },
+      {
+        "name": "Karel Bourban",
+        "rating": 1818
+      },
+      {
+        "name": "Alex Garfield",
+        "rating": 1786
+      }
+    ]
+  }
+}

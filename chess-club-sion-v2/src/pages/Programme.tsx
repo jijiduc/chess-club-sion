@@ -14,6 +14,23 @@ const Programme: React.FC = () => {
     tournoi: Sparkles
   };
 
+  // Component to render either icon or image
+  const EventVisual: React.FC<{ event: typeof programmeEvents[0]; className?: string }> = ({ event, className = "" }) => {
+    const Icon = categoryIcons[event.category];
+    
+    if (event.image) {
+      return (
+        <img 
+          src={event.image} 
+          alt={event.title}
+          className={`w-full h-full object-cover ${className}`}
+        />
+      );
+    }
+    
+    return <Icon className={`w-8 h-8 text-white ${className}`} />;
+  };
+
   // Filtrer les événements à venir
   const upcomingEvents = useMemo(() => {
     const now = new Date();
@@ -23,6 +40,15 @@ const Programme: React.FC = () => {
       .filter(event => {
         const eventDate = new Date(event.date);
         eventDate.setHours(0, 0, 0, 0);
+        
+        // If the event has an end date, check if we're within the date range
+        if (event.endDate) {
+          const endDate = new Date(event.endDate);
+          endDate.setHours(23, 59, 59, 999);
+          return endDate >= now;
+        }
+        
+        // Otherwise, just check if the event date is in the future
         return eventDate >= now;
       })
       .filter(event => selectedCategory === 'all' || event.category === selectedCategory)
@@ -46,20 +72,33 @@ const Programme: React.FC = () => {
     return grouped;
   }, [upcomingEvents]);
 
-  const formatDate = (dateString: string) => {
+  const formatDate = (dateString: string, endDateString?: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('fr-FR', {
+    const dateOptions: Intl.DateTimeFormatOptions = {
       weekday: 'long',
       day: 'numeric',
       month: 'long',
       year: 'numeric'
-    });
+    };
+    
+    if (endDateString) {
+      const endDate = new Date(endDateString);
+      // If same month and year, format as "Du X au Y month year"
+      if (date.getMonth() === endDate.getMonth() && date.getFullYear() === endDate.getFullYear()) {
+        return `Du ${date.getDate()} au ${endDate.toLocaleDateString('fr-FR', dateOptions)}`;
+      } else {
+        // Different months, show full dates
+        return `Du ${date.toLocaleDateString('fr-FR', dateOptions)} au ${endDate.toLocaleDateString('fr-FR', dateOptions)}`;
+      }
+    }
+    
+    return date.toLocaleDateString('fr-FR', dateOptions);
   };
 
   const activities = [
     {
       title: "Cours d'échecs",
-      description: "Formation pour jeunes et débutants tous les vendredis",
+      description: "Formation pour jeunes et débutants certains vendredis",
       icon: GraduationCap,
       color: "from-accent-500 to-accent-600",
       link: undefined
@@ -228,7 +267,6 @@ const Programme: React.FC = () => {
                   <h3 className="text-2xl font-bold text-neutral-800 mb-4 capitalize">{month}</h3>
                   <div className="space-y-4">
                     {events.map((event, index) => {
-                      const Icon = categoryIcons[event.category];
                       return (
                         <motion.div
                           key={event.id}
@@ -241,13 +279,15 @@ const Programme: React.FC = () => {
                           <div className="absolute inset-0 bg-gradient-to-r from-primary-600/10 to-transparent rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                           <div className="relative bg-white rounded-xl shadow-lg p-6 border border-primary-100 hover:shadow-xl transition-all">
                             <div className="flex items-start gap-6">
-                              <div className={`w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                                event.category === 'competition' ? 'bg-gradient-to-br from-primary-400 to-primary-500' :
-                                event.category === 'formation' ? 'bg-gradient-to-br from-accent-400 to-accent-500' :
-                                event.category === 'tournoi' ? 'bg-gradient-to-br from-secondary-400 to-secondary-500' :
-                                'bg-gradient-to-br from-success-400 to-success-500'
+                              <div className={`w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden ${
+                                event.image ? '' : (
+                                  event.category === 'competition' ? 'bg-gradient-to-br from-primary-400 to-primary-500' :
+                                  event.category === 'formation' ? 'bg-gradient-to-br from-accent-400 to-accent-500' :
+                                  event.category === 'tournoi' ? 'bg-gradient-to-br from-secondary-400 to-secondary-500' :
+                                  'bg-gradient-to-br from-success-400 to-success-500'
+                                )
                               }`}>
-                                <Icon className="w-8 h-8 text-white" />
+                                <EventVisual event={event} />
                               </div>
                               <div className="flex-grow">
                                 <div className="flex items-start justify-between mb-2">
@@ -261,12 +301,14 @@ const Programme: React.FC = () => {
                                 <div className="space-y-2 text-neutral-600">
                                   <p className="flex items-center">
                                     <Calendar className="w-4 h-4 mr-2 text-primary-500" />
-                                    {formatDate(event.date)}
+                                    {formatDate(event.date, event.endDate)}
                                   </p>
-                                  <p className="flex items-center">
-                                    <Clock className="w-4 h-4 mr-2 text-primary-500" />
-                                    {event.time}
-                                  </p>
+                                  {event.time && (
+                                    <p className="flex items-center">
+                                      <Clock className="w-4 h-4 mr-2 text-primary-500" />
+                                      {event.time}
+                                    </p>
+                                  )}
                                   {event.location && (
                                     <p className="flex items-center">
                                       <MapPin className="w-4 h-4 mr-2 text-primary-500" />

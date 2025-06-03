@@ -1,0 +1,86 @@
+⚠️  Joueur non trouvé dans le mapping: N.N.
+✅ Données transformées et sauvegardées dans cse_data_2025/cse_data_transformed.json
+
+📊 Résumé des données transformées:
+Sion 1: 4 rondes
+Sion 2: 4 rondes
+
+📝 Code TypeScript généré pour la page CSE:
+============================================================
+// Résultats Sion 1
+results: [
+  {
+    round: 1,
+    date: '22.03.2025',
+    opponent: 'Grand Echiquier 1',
+    venue: 'home',
+    location: 'Sion',
+    result: '1½-6½',
+    boards: [
+      { player: 'Flavien Sola', opponent: 'Guillaume Chauvon', result: '0-1' },
+      { player: 'Vlad Popescu', opponent: 'Ferran Rocamora Martorell', result: '0-1' },
+      { player: 'Pierre-M. Rappaz', opponent: 'Jonathan Jaccard', result: '½-½' },
+      { player: 'Jean-Yves Riand', opponent: 'Jean-Manuel Segura', result: '½-½' },
+      { player: 'Max Chappaz', opponent: 'Sébastien Vasey', result: '0-1' },
+      { player: 'Yves Roduit', opponent: 'Vincent Conrad', result: '0-1' },
+      { player: 'Olivier Ulmann', opponent: 'Pierpaolo Ranieri', result: '0-1' },
+      { player: 'Jeremy Duc', opponent: 'Mathis Soubeyrand', result: '½-½' },
+    ]
+  },
+  {
+    round: 2,
+    date: '05.04.2025',
+    opponent: 'Fribourg 1',
+    venue: 'away',
+    location: 'Fribourg',
+    result: '5½-2½',
+    boards: [
+      { player: 'Vlad Popescu', opponent: 'Sylvain Julmy', result: '0-1' },
+      { player: 'Max Chappaz', opponent: 'Yves Deschenaux', result: '½-½' },
+      { player: 'Olivier Ulmann', opponent: 'Bernard Deschenaux', result: '0-1' },
+      { player: 'Jean-Michel Paladini', opponent: 'Thierry Bonferroni', result: '½-½' },
+      { player: 'Claude Bétrisey', opponent: 'Achim Schneuwly', result: '0-1' },
+      { player: 'Jean-Yves Riand', opponent: 'Raphaël Perrin', result: '0-1' },
+      { player: 'Olivier Crettenand', opponent: 'Jean-Pierre Dorand', result: '½-½' },
+      { player: 'Yves Roduit', opponent: 'Marius Cornée', result: '1-0' },
+    ]
+  },
+  {
+    round: 3,
+    date: '26.04.2025',
+    opponent: 'Köniz-Bubenberg 1',
+    venue: 'home',
+    location: 'Sion',
+    result: '3-5',
+    boards: [
+      { player: 'Jean-Yves Riand', opponent: 'Igor Yarmonov', result: '0-1' },
+      { player: 'Jeremy Duc', opponent: 'Mike Jäger', result: '0-1' },
+      { player: 'Flavien Sola', opponent: 'Gabriel Vergelin Soler', result: '1-0' },
+      { player: 'Jean-Michel Paladini', opponent: 'Hansjürg Känel', result: '0-1' },
+      { player: 'Vlad Popescu', opponent: 'Jörg Brauchli', result: '½-½' },
+      { player: 'Yves Roduit', opponent: 'Sandor Kaszas', result: '0-1' },
+      { player: 'Yann Bourban', opponent: 'Thomas Mani', result: '½-½' },
+      { player: 'Olivier Ulmann', opponent: 'Marc Tillmann', result: '1-0' },
+    ]
+  },
+  {
+    round: 4,
+    date: '17.05.2025',
+    opponent: 'Neuchâtel 1',
+    venue: 'home',
+    location: 'Sion',
+    result: '3½-4½',
+    boards: [
+      { player: 'Christophe Sochacki', opponent: 'Raphael Erne', result: '0-1' },
+      { player: 'Jean-Michel Paladini', opponent: 'Robin Voland', result: '0-1' },
+      { player: 'Flavien Sola', opponent: 'Roland Hauser', result: '1-0' },
+      { player: 'Vlad Popescu', opponent: 'Hassan Roger Sadeghi', result: '1-0' },
+      { player: 'Max Chappaz', opponent: 'Luca Srdjenovic', result: '½-½' },
+      { player: 'Pierre-M. Rappaz', opponent: 'Bertrand Banderet', result: '½-½' },
+      { player: 'Jeremy Duc', opponent: 'Jason Weber', result: '½-½' },
+      { player: 'Jean-Yves Riand', opponent: 'Jeremy Butet', result: '0-1' },
+    ]
+  },
+]
+
+============================================================

@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom'
-import { Trophy, Calendar, Users, ChevronRight, MapPin, Clock, Zap, ChevronDown } from 'lucide-react'
+import { Trophy, Calendar, Users, ChevronRight, MapPin, Clock, Zap, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { newsItems } from '../data/news'
 import { programmeEvents } from '../data/programme'
 import { useState } from 'react'
 
 export default function Home() {
-  const [expandedNews, setExpandedNews] = useState<number | null>(null)
+  const [selectedNews, setSelectedNews] = useState<number | null>(null)
   
   const formatDate = (date: Date) => {
     return date.toLocaleDateString('fr-FR', { 
@@ -16,8 +16,78 @@ export default function Home() {
     })
   }
   
-  const toggleNews = (index: number) => {
-    setExpandedNews(expandedNews === index ? null : index)
+  const openNewsModal = (index: number) => {
+    setSelectedNews(index)
+  }
+  
+  const closeNewsModal = () => {
+    setSelectedNews(null)
+  }
+  
+  const renderTextWithLinks = (text: string) => {
+    // Séparer le texte principal du lien final
+    const linkMatch = text.match(/\n→ (.+) : (\/\S+)$/)
+    let mainText = text
+    let linkElement = null
+    
+    if (linkMatch) {
+      mainText = text.substring(0, text.lastIndexOf('\n→'))
+      const [, linkText, url] = linkMatch
+      linkElement = (
+        <div className="mt-4 pt-4 border-t border-neutral-200">
+          <Link 
+            to={url}
+            className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition-all duration-300"
+          >
+            → {linkText}
+            <ChevronRight className="ml-1 h-4 w-4" />
+          </Link>
+        </div>
+      )
+    }
+    
+    // Traiter le texte principal en préservant le formatage
+    const processedText = mainText.split('\n').map((line, index) => {
+      // Gérer les titres en gras
+      if (line.startsWith('**') && line.endsWith('**')) {
+        return (
+          <p key={index} className="font-bold text-neutral-800 mt-4 mb-2">
+            {line.replace(/\*\*/g, '')}
+          </p>
+        )
+      }
+      // Gérer les listes avec puces
+      if (line.startsWith('•')) {
+        return (
+          <p key={index} className="ml-4 mb-1">
+            {line}
+          </p>
+        )
+      }
+      // Gérer les listes avec symboles
+      if (line.match(/^[✓=✗]/)) {
+        return (
+          <p key={index} className="font-semibold mb-1 mt-2">
+            {line}
+          </p>
+        )
+      }
+      // Paragraphes normaux
+      return line.trim() ? (
+        <p key={index} className="mb-2">
+          {line}
+        </p>
+      ) : (
+        <br key={index} />
+      )
+    })
+    
+    return (
+      <>
+        {processedText}
+        {linkElement}
+      </>
+    )
   }
 
   // Removed unused formatText function
@@ -31,8 +101,8 @@ export default function Home() {
     {
       icon: Users,
       title: "Formation",
-      description: "Cours d'échecs pour jeunes et débutants tous les vendredis",
-      time: "19h00-20h00",
+      description: "Cours pour débutants et joueurs avancés, jeunes et adultes",
+      time: "18h-19h & 19h-20h",
       link: "/ecole"
     },
     {
@@ -129,24 +199,6 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white"
-        >
-          <div className="flex flex-col items-center space-y-2">
-            <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-              <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="w-1 h-3 bg-white/70 rounded-full mt-2"
-              />
-            </div>
-            <span className="text-sm text-white/70">Découvrir</span>
-          </div>
-        </motion.div>
       </section>
 
 
@@ -288,7 +340,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {newsItems.map((item, index) => (
               <motion.article
-                key={index}
+                key={`news-${index}`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -324,7 +376,7 @@ export default function Home() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-xl font-serif font-bold text-neutral-900 mb-3 group-hover:text-primary-700 transition-colors">
+                  <h3 className="text-xl font-serif font-bold text-neutral-900 mb-3 group-hover:text-primary-700 transition-colors line-clamp-2">
                     {item.title}
                   </h3>
                   
@@ -335,22 +387,6 @@ export default function Home() {
                     </p>
                   )}
                   
-                  {/* Expanded Content */}
-                  <AnimatePresence>
-                    {expandedNews === index && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="text-neutral-600 text-sm mb-4 leading-relaxed whitespace-pre-line">
-                          {item.text}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                   
                   {/* Footer */}
                   <div className="flex items-center justify-between">
@@ -364,20 +400,11 @@ export default function Home() {
                       </Link>
                     ) : (
                       <button 
-                        onClick={() => toggleNews(index)}
+                        onClick={() => openNewsModal(index)}
                         className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm transition-all duration-300"
                       >
-                        {expandedNews === index ? (
-                          <>
-                            Réduire
-                            <ChevronDown className="ml-1 h-4 w-4 rotate-180 transition-transform" />
-                          </>
-                        ) : (
-                          <>
-                            Lire plus
-                            <ChevronDown className="ml-1 h-4 w-4 transition-transform" />
-                          </>
-                        )}
+                        Lire l'article
+                        <ChevronRight className="ml-1 h-4 w-4" />
                       </button>
                     )}
                     
@@ -395,6 +422,98 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* News Modal */}
+      <AnimatePresence>
+        {selectedNews !== null && newsItems[selectedNews] && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            onClick={closeNewsModal}
+          >
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-black/60 backdrop-blur-md"
+            />
+            
+            {/* Modal Content */}
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={closeNewsModal}
+                className="absolute top-4 right-4 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110"
+              >
+                <X className="h-5 w-5 text-neutral-700" />
+              </button>
+              
+              {/* Image */}
+              {newsItems[selectedNews].hasImage && newsItems[selectedNews].image && (
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={newsItems[selectedNews].image.src}
+                    alt={newsItems[selectedNews].image.alt || ''}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                </div>
+              )}
+              
+              {/* Content */}
+              <div className="p-8">
+                {/* Date */}
+                <div className="flex items-center space-x-2 mb-4">
+                  <Trophy className="h-5 w-5 text-primary-600" />
+                  <span className="text-sm font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
+                    {formatDate(newsItems[selectedNews].date)}
+                  </span>
+                </div>
+                
+                {/* Title */}
+                <h2 className="text-3xl font-serif font-bold text-neutral-900 mb-4">
+                  {newsItems[selectedNews].title}
+                </h2>
+                
+                {/* Description */}
+                {newsItems[selectedNews].description && (
+                  <p className="text-lg text-neutral-700 mb-6 font-medium">
+                    {newsItems[selectedNews].description}
+                  </p>
+                )}
+                
+                {/* Full Text */}
+                <div className="text-neutral-600 leading-relaxed overflow-y-auto max-h-[50vh] space-y-1">
+                  {renderTextWithLinks(newsItems[selectedNews].text)}
+                </div>
+                
+                {/* Link if available */}
+                {newsItems[selectedNews].hasLink && newsItems[selectedNews].link && (
+                  <div className="mt-6 pt-6 border-t border-neutral-200">
+                    <Link
+                      to={newsItems[selectedNews].link}
+                      className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition-all duration-300"
+                    >
+                      {newsItems[selectedNews].linkText || 'Voir détails'}
+                      <ChevronRight className="ml-1 h-4 w-4" />
+                    </Link>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Contact & Location */}
       <section className="py-24 bg-gradient-to-br from-neutral-900 via-neutral-950 to-primary-950 text-white">

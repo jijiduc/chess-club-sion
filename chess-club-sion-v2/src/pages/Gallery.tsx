@@ -16,7 +16,7 @@ const galleryImages: GalleryImage[] = [
   // Team Competition Photos (CSE)
   {
     id: 'cse-2002-1a',
-    src: '/archives/ancient_site/cse20021a.jpg',
+    src: '/picture/gallery/cse20021a.jpg',
     category: 'team',
     title: 'Position difficile',
     description: 'Une position difficile lors du match Sion I - Fribourg',
@@ -25,7 +25,7 @@ const galleryImages: GalleryImage[] = [
   },
   {
     id: 'cse-2002-1b',
-    src: '/archives/ancient_site/cse20021b.jpg',
+    src: '/picture/gallery/cse20021b.jpg',
     category: 'team',
     title: 'Julien en action',
     description: 'Julien a oublié son T-Shirt ICC',
@@ -34,7 +34,7 @@ const galleryImages: GalleryImage[] = [
   },
   {
     id: 'cse-2002-1h',
-    src: '/archives/ancient_site/cse20021h.jpg',
+    src: '/picture/gallery/cse20021h.jpg',
     category: 'team',
     title: 'Vue d\'ensemble',
     description: 'Vue d\'ensemble du match Sion I - Fribourg',
@@ -43,7 +43,7 @@ const galleryImages: GalleryImage[] = [
   },
   {
     id: 'cse-2002-2a',
-    src: '/archives/ancient_site/cse20022a.jpg',
+    src: '/picture/gallery/cse20022a.jpg',
     category: 'team',
     title: 'Honneur au capitaine',
     description: 'Match Lausanne Le Joueur - Sion',
@@ -52,7 +52,7 @@ const galleryImages: GalleryImage[] = [
   },
   {
     id: 'cse-2002-2j',
-    src: '/archives/ancient_site/cse20022j.jpg',
+    src: '/picture/gallery/cse20022j.jpg',
     category: 'team',
     title: 'Coup de maître',
     description: 'C\'est dans cette position que Pascal va jouer le coup de GM d6-d5 !',
@@ -63,7 +63,7 @@ const galleryImages: GalleryImage[] = [
   // Valais Team Championship
   {
     id: 'cve-2000-3',
-    src: '/archives/ancient_site/cve2000-3.jpg',
+    src: '/picture/gallery/cve2000-3.jpg',
     category: 'team',
     title: 'Sion II promu',
     description: 'L\'équipe Sion II promue en groupe A (Olivier Crettenand, David Campanile, Eder et Renzo Cerda)',
@@ -72,7 +72,7 @@ const galleryImages: GalleryImage[] = [
   },
   {
     id: 'cve-2000-4',
-    src: '/archives/ancient_site/cve2000-4.jpg',
+    src: '/picture/gallery/cve2000-4.jpg',
     category: 'team',
     title: 'Sion II avec Martigny I',
     description: 'Équipe Sion II avec l\'équipe Martigny I (vainqueurs du groupe A)',
@@ -83,7 +83,7 @@ const galleryImages: GalleryImage[] = [
   // General Assembly 1998
   {
     id: 'ag-1998-jmp',
-    src: '/archives/ancient_site/ag98jmp.jpg',
+    src: '/picture/gallery/ag98jmp.jpg',
     category: 'event',
     title: 'Président Jean-Michel Paladini',
     description: 'Le président Jean-Michel Paladini prépare son discours',
@@ -92,7 +92,7 @@ const galleryImages: GalleryImage[] = [
   },
   {
     id: 'ag-1998-pg',
-    src: '/archives/ancient_site/ag98pg.jpg',
+    src: '/picture/gallery/ag98pg.jpg',
     category: 'event',
     title: 'Trésorier Pascal Grand',
     description: 'Pascal Grand, trésorier passionné par le discours du président',
@@ -101,7 +101,7 @@ const galleryImages: GalleryImage[] = [
   },
   {
     id: 'ag-1998-fc',
-    src: '/archives/ancient_site/ag98fc.jpg',
+    src: '/picture/gallery/ag98fc.jpg',
     category: 'event',
     title: 'Fritz Karafiat',
     description: 'Fritz Karafiat, responsable des activités internes, dévoué aux jeunes du club',
@@ -112,7 +112,7 @@ const galleryImages: GalleryImage[] = [
   // Club Local
   {
     id: 'local-1',
-    src: '/archives/ancient_site/local1.jpg',
+    src: '/picture/gallery/local1.jpg',
     category: 'venue',
     title: 'Bâtiment du club',
     description: 'Vue extérieure du bâtiment (nous sommes au dernier étage)',
@@ -120,7 +120,7 @@ const galleryImages: GalleryImage[] = [
   },
   {
     id: 'local-3',
-    src: '/archives/ancient_site/local3.jpg',
+    src: '/picture/gallery/local3.jpg',
     category: 'venue',
     title: 'Entrée du club',
     description: 'Après la porte d\'entrée, plus que 64 marches à grimper',
@@ -128,7 +128,7 @@ const galleryImages: GalleryImage[] = [
   },
   {
     id: 'local-5',
-    src: '/archives/ancient_site/local5.jpg',
+    src: '/picture/gallery/local5.jpg',
     category: 'venue',
     title: 'Salle principale',
     description: 'Salle de jeu principale avant la rénovation de 2006',
@@ -138,7 +138,7 @@ const galleryImages: GalleryImage[] = [
   // Kortchnoi Simultaneous Exhibition
   {
     id: 'kortchnoi-2000-a',
-    src: '/archives/ancient_site/k2000a.jpg',
+    src: '/picture/gallery/k2000a.jpg',
     category: 'tournament',
     title: 'Simultanée Kortchnoi',
     description: 'Joueurs incluant G Terreaux, P Vianin et autres',
@@ -147,7 +147,7 @@ const galleryImages: GalleryImage[] = [
   },
   {
     id: 'kortchnoi-2000-e',
-    src: '/archives/ancient_site/k2000e.jpg',
+    src: '/picture/gallery/k2000e.jpg',
     category: 'tournament',
     title: 'E Beney et O Crettenand',
     description: 'E Beney, son fils et O Crettenand',
@@ -156,7 +156,7 @@ const galleryImages: GalleryImage[] = [
   },
   {
     id: 'kortchnoi-2000-f',
-    src: '/archives/ancient_site/k2000f.jpg',
+    src: '/picture/gallery/k2000f.jpg',
     category: 'tournament',
     title: 'J-Y Riand et L Besse',
     description: 'J-Y Riand et L Besse contre Kortchnoi',
@@ -167,7 +167,7 @@ const galleryImages: GalleryImage[] = [
   // Historic Championship 1979
   {
     id: 'cv-1979-gt',
-    src: '/archives/ancient_site/gt79.jpg',
+    src: '/picture/gallery/gt79.jpg',
     category: 'historic',
     title: 'Championnat Valaisan 1979',
     description: 'Photo historique du championnat',
@@ -176,7 +176,7 @@ const galleryImages: GalleryImage[] = [
   },
   {
     id: 'cv-1979-pg',
-    src: '/archives/ancient_site/pg79.jpg',
+    src: '/picture/gallery/pg79.jpg',
     category: 'historic',
     title: 'Championnat Valaisan 1979',
     description: 'Photo historique du championnat',
@@ -185,7 +185,7 @@ const galleryImages: GalleryImage[] = [
   },
   {
     id: 'cv-1979-jmp',
-    src: '/archives/ancient_site/jmp79.jpg',
+    src: '/picture/gallery/jmp79.jpg',
     category: 'historic',
     title: 'Championnat Valaisan 1979',
     description: 'Photo historique du championnat',

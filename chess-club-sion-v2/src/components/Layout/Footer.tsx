@@ -40,7 +40,7 @@ export default function Footer() {
                 </div>
                 <div className="text-sm">
                   <p className="text-white font-medium">Vendredis soirs</p>
-                  <p className="text-gray-400">19h00 - 23h00</p>
+                  <p className="text-gray-400">18h00 - 23h00</p>
                 </div>
               </div>
               

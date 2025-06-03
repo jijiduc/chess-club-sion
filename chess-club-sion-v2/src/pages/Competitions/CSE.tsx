@@ -7,11 +7,14 @@ interface TeamResult {
   date: string;
   opponent: string;
   venue: 'home' | 'away';
+  location: string;
   result: string;
   boards: {
     player: string;
     opponent: string;
     result: string;
+    playerElo?: number;
+    opponentElo?: number;
   }[];
 }
 
@@ -37,13 +40,16 @@ const CSE: React.FC = () => {
         'Flavien Sola (2167)',
         'Vlad Popescu (1990)',
         'Jean-Michel Paladini (1983)',
-        'Pierre-Michel Rappaz (1933)',
+        'Pierre-M. Rappaz (1933)',
+        'Pierre-Marie Rappaz (1933)',
         'Yves Roduit (1910)',
         'Max Chappaz (1904)',
         'Yann Bourban (1885)',
         'Jean-Yves Riand (1877)',
         'Jeremy Duc (1829)',
+        'Alexandre Briguet (1828)',
         'Olivier Crettenand (1826)',
+        'Joan Cortada Garcia (1824)',
         'Olivier Ulmann (1788)',
         'Claude Bétrisey (1697)'
       ],
@@ -54,16 +60,17 @@ const CSE: React.FC = () => {
           date: '22.03.2025',
           opponent: 'Grand Echiquier 1',
           venue: 'home',
+          location: 'Sion',
           result: '1½-6½',
           boards: [
-            { player: 'Flavien Sola', opponent: 'Guillaume Chauvon', result: '0-1' },
-            { player: 'Vlad Popescu', opponent: 'Ferran Rocamora Martorell', result: '0-1' },
-            { player: 'Pierre-M. Rappaz', opponent: 'Jonathan Jaccard', result: '½-½' },
-            { player: 'Jean-Yves Riand', opponent: 'Jean-Manuel Segura', result: '½-½' },
-            { player: 'Max Chappaz', opponent: 'Sébastien Vasey', result: '0-1' },
-            { player: 'Yves Roduit', opponent: 'Vincent Conrad', result: '0-1' },
-            { player: 'Olivier Ulmann', opponent: 'Pierpaolo Ranieri', result: '0-1' },
-            { player: 'Jeremy Duc', opponent: 'Mathis Soubeyrand', result: '½-½' }
+            { player: 'Flavien Sola', opponent: 'Guillaume Chauvon', result: '0-1', playerElo: 2167, opponentElo: 2111 },
+            { player: 'Vlad Popescu', opponent: 'Ferran Rocamora Martorell', result: '0-1', playerElo: 1990, opponentElo: 2111 },
+            { player: 'Pierre-M. Rappaz', opponent: 'Jonathan Jaccard', result: '½-½', playerElo: 1933, opponentElo: 1953 },
+            { player: 'Jean-Yves Riand', opponent: 'Jean-Manuel Segura', result: '½-½', playerElo: 1877, opponentElo: 2090 },
+            { player: 'Max Chappaz', opponent: 'Sébastien Vasey', result: '0-1', playerElo: 1904, opponentElo: 1966 },
+            { player: 'Yves Roduit', opponent: 'Vincent Conrad', result: '0-1', playerElo: 1910, opponentElo: 1904 },
+            { player: 'Olivier Ulmann', opponent: 'Pierpaolo Ranieri', result: '0-1', playerElo: 1788, opponentElo: 1891 },
+            { player: 'Jeremy Duc', opponent: 'Mathis Soubeyrand', result: '½-½', playerElo: 1829, opponentElo: 1533 }
           ]
         },
         {
@@ -71,16 +78,17 @@ const CSE: React.FC = () => {
           date: '05.04.2025',
           opponent: 'Fribourg 1',
           venue: 'away',
-          result: '2½-5½',
+          location: 'Fribourg',
+          result: '5½-2½',
           boards: [
-            { player: 'Vlad Popescu', opponent: 'Sylvain Julmy', result: '0-1' },
-            { player: 'Max Chappaz', opponent: 'Yves Deschenaux', result: '½-½' },
-            { player: 'Olivier Ulmann', opponent: 'Bernard Deschenaux', result: '0-1' },
-            { player: 'Jean-Michel Paladini', opponent: 'Thierry Bonferroni', result: '½-½' },
-            { player: 'Claude Bétrisey', opponent: 'Achim Schneuwly', result: '0-1' },
-            { player: 'Jean-Yves Riand', opponent: 'Raphaël Perrin', result: '0-1' },
-            { player: 'Olivier Crettenand', opponent: 'Jean-Pierre Dorand', result: '½-½' },
-            { player: 'Yves Roduit', opponent: 'Marius Cornée', result: '1-0' }
+            { player: 'Vlad Popescu', opponent: 'Sylvain Julmy', result: '0-1', playerElo: 1990, opponentElo: 2187 },
+            { player: 'Max Chappaz', opponent: 'Yves Deschenaux', result: '½-½', playerElo: 1904, opponentElo: 2121 },
+            { player: 'Olivier Ulmann', opponent: 'Bernard Deschenaux', result: '0-1', playerElo: 1788, opponentElo: 2002 },
+            { player: 'Jean-Michel Paladini', opponent: 'Thierry Bonferroni', result: '½-½', playerElo: 1983, opponentElo: 1954 },
+            { player: 'Claude Bétrisey', opponent: 'Achim Schneuwly', result: '0-1', playerElo: 1697, opponentElo: 1930 },
+            { player: 'Jean-Yves Riand', opponent: 'Raphaël Perrin', result: '0-1', playerElo: 1877, opponentElo: 1944 },
+            { player: 'Olivier Crettenand', opponent: 'Jean-Pierre Dorand', result: '½-½', playerElo: 1826, opponentElo: 1800 },
+            { player: 'Yves Roduit', opponent: 'Marius Cornée', result: '1-0', playerElo: 1910, opponentElo: 1894 }
           ]
         },
         {
@@ -88,33 +96,35 @@ const CSE: React.FC = () => {
           date: '26.04.2025',
           opponent: 'Köniz-Bubenberg 1',
           venue: 'home',
+          location: 'Sion',
           result: '3-5',
           boards: [
-            { player: 'Jean-Yves Riand', opponent: 'Igor Yarmonov', result: '0-1' },
-            { player: 'Jeremy Duc', opponent: 'Mike Jäger', result: '0-1' },
-            { player: 'Flavien Sola', opponent: 'Gabriel Vergelin Soler', result: '1-0' },
-            { player: 'Jean-Michel Paladini', opponent: 'Hansjürg Känel', result: '0-1' },
-            { player: 'Vlad Popescu', opponent: 'Jörg Brauchli', result: '½-½' },
-            { player: 'Yves Roduit', opponent: 'Sandor Kaszas', result: '0-1' },
-            { player: 'Yann Bourban', opponent: 'Thomas Mani', result: '½-½' },
-            { player: 'Olivier Ulmann', opponent: 'Marc Tillmann', result: '1-0' }
+            { player: 'Jean-Yves Riand', opponent: 'Igor Yarmonov', result: '0-1', playerElo: 1877, opponentElo: 2342 },
+            { player: 'Jeremy Duc', opponent: 'Mike Jäger', result: '0-1', playerElo: 1829, opponentElo: 2114 },
+            { player: 'Flavien Sola', opponent: 'Gabriel Vergelin Soler', result: '1-0', playerElo: 2167, opponentElo: 1950 },
+            { player: 'Jean-Michel Paladini', opponent: 'Hansjürg Känel', result: '0-1', playerElo: 1983, opponentElo: 2226 },
+            { player: 'Vlad Popescu', opponent: 'Jörg Brauchli', result: '½-½', playerElo: 1990, opponentElo: 1915 },
+            { player: 'Yves Roduit', opponent: 'Sandor Kaszas', result: '0-1', playerElo: 1910, opponentElo: 2008 },
+            { player: 'Yann Bourban', opponent: 'Thomas Mani', result: '½-½', playerElo: 1885, opponentElo: 1949 },
+            { player: 'Olivier Ulmann', opponent: 'Marc Tillmann', result: '1-0', playerElo: 1788, opponentElo: 1921 }
           ]
         },
         {
           round: 4,
           date: '17.05.2025',
-          opponent: 'Genève 2',
-          venue: 'away',
-          result: '2½-5½',
+          opponent: 'Neuchâtel 1',
+          venue: 'home',
+          location: 'Sion',
+          result: '3½-4½',
           boards: [
-            { player: 'Christophe Sochacki', opponent: 'Raphael Erne', result: '0-1' },
-            { player: 'Jean-Michel Paladini', opponent: 'Robin Voland', result: '0-1' },
-            { player: 'Flavien Sola', opponent: 'Roland Hauser', result: '1-0' },
-            { player: 'Vlad Popescu', opponent: 'Hassan Roger Sadeghi', result: '0-1' },
-            { player: 'Max Chappaz', opponent: 'Luca Srdjenovic', result: '½-½' },
-            { player: 'Pierre-M. Rappaz', opponent: 'Bertrand Banderet', result: '0-1' },
-            { player: 'Jeremy Duc', opponent: 'Jason Weber', result: '1-0' },
-            { player: 'Jean-Yves Riand', opponent: 'Jeremy Butet', result: '0-1' }
+            { player: 'Christophe Sochacki', opponent: 'Raphael Erne', result: '0-1', playerElo: 2458, opponentElo: 2164 },
+            { player: 'Jean-Michel Paladini', opponent: 'Robin Voland', result: '0-1', playerElo: 1983, opponentElo: 2057 },
+            { player: 'Flavien Sola', opponent: 'Roland Hauser', result: '1-0', playerElo: 2167, opponentElo: 2026 },
+            { player: 'Vlad Popescu', opponent: 'Hassan Roger Sadeghi', result: '1-0', playerElo: 1990, opponentElo: 2098 },
+            { player: 'Max Chappaz', opponent: 'Luca Srdjenovic', result: '½-½', playerElo: 1904, opponentElo: 1882 },
+            { player: 'Pierre-M. Rappaz', opponent: 'Bertrand Banderet', result: '½-½', playerElo: 1933, opponentElo: 1942 },
+            { player: 'Jeremy Duc', opponent: 'Jason Weber', result: '½-½', playerElo: 1829, opponentElo: 1838 },
+            { player: 'Jean-Yves Riand', opponent: 'Jeremy Butet', result: '0-1', playerElo: 1877, opponentElo: 1930 }
           ]
         }
       ]
@@ -124,8 +134,11 @@ const CSE: React.FC = () => {
       league: '3ème ligue',
       captain: 'Sandro Bétrisey',
       players: [
+        'Jeremy Duc (1829)',
         'Alexandre Briguet (1828)',
         'Olivier Crettenand (1826)',
+        'Joan Cortada Garcia (1824)',
+        'Olivier Ulmann (1788)',
         'Sandro Bétrisey (1745)',
         'Claude Bétrisey (1697)',
         'Mazlum Tosun (1689)',
@@ -140,14 +153,15 @@ const CSE: React.FC = () => {
           date: '22.03.2025',
           opponent: 'Crans-Montana 2',
           venue: 'home',
+          location: 'Sion',
           result: '2-4',
           boards: [
-            { player: 'Alexandre Briguet', opponent: 'Alessandro Bonalli', result: '0-1' },
-            { player: 'Olivier Crettenand', opponent: 'Timur Gökok', result: '1-0' },
-            { player: 'Mazlum Tosun', opponent: 'Hervé Frainay', result: '1-0' },
-            { player: 'Sandro Bétrisey', opponent: 'Luc Udry', result: '0-1' },
-            { player: 'Akram Ben Salem', opponent: 'Jean-Claude Zermatten', result: '0-1' },
-            { player: 'Florian Clavien', opponent: 'Claude-Alain Bonvin', result: '0-1' }
+            { player: 'Alexandre Briguet', opponent: 'Alessandro Bonalli', result: '0-1', playerElo: 1828, opponentElo: 1621 },
+            { player: 'Olivier Crettenand', opponent: 'Timur Gökok', result: '1-0', playerElo: 1826, opponentElo: 1650 },
+            { player: 'Mazlum Tosun', opponent: 'Hervé Frainay', result: '1-0', playerElo: 1689, opponentElo: 1561 },
+            { player: 'Sandro Bétrisey', opponent: 'Luc Udry', result: '0-1', playerElo: 1745, opponentElo: 1523 },
+            { player: 'Akram Ben Salem', opponent: 'Jean-Claude Zermatten', result: '0-1', opponentElo: 1559 },
+            { player: 'Florian Clavien', opponent: 'Claude-Alain Bonvin', result: '0-1', opponentElo: 1629 }
           ]
         },
         {
@@ -155,14 +169,15 @@ const CSE: React.FC = () => {
           date: '05.04.2025',
           opponent: 'Bulle 3',
           venue: 'away',
-          result: '4-2',
+          location: 'Bulle',
+          result: '2-4',
           boards: [
-            { player: 'Alexandre Briguet', opponent: 'Philippe Defferrard', result: '½-½' },
-            { player: 'Sandro Bétrisey', opponent: 'Bert Jansen', result: '1-0' },
-            { player: 'Mazlum Tosun', opponent: 'Charles-François Feller', result: '1-0' },
-            { player: 'Akram Ben Salem', opponent: 'Thomas Christen', result: '½-½' },
-            { player: 'Simon Moerschell', opponent: 'Arno Jankowski', result: '1-0' },
-            { player: 'Forfait', opponent: 'Alfred Senff', result: '0-1' }
+            { player: 'Alexandre Briguet', opponent: 'Philippe Defferrard', result: '½-½', playerElo: 1828, opponentElo: 1750 },
+            { player: 'Sandro Bétrisey', opponent: 'Bert Jansen', result: '1-0', playerElo: 1745, opponentElo: 1650 },
+            { player: 'Mazlum Tosun', opponent: 'Charles-François Feller', result: '1-0', playerElo: 1689, opponentElo: 1670 },
+            { player: 'Akram Ben Salem', opponent: 'Thomas Christen', result: '½-½', opponentElo: 1700 },
+            { player: 'Simon Moerschell', opponent: 'Arno Jankowski', result: '1-0', playerElo: 1663, opponentElo: 1600 },
+            { player: 'N.N.', opponent: 'Alfred Senff', result: '0-1', opponentElo: 1544 }
           ]
         },
         {
@@ -170,28 +185,31 @@ const CSE: React.FC = () => {
           date: '26.04.2025',
           opponent: 'Grand Echiquier 2',
           venue: 'home',
+          location: 'Sion',
           result: '1½-4½',
           boards: [
-            { player: 'Olivier Crettenand', opponent: 'Andrea Giananti', result: '½-½' },
-            { player: 'Mazlum Tosun', opponent: 'Vincent Conrad', result: '0-1' },
-            { player: 'Alexandre Briguet', opponent: 'Olivier Dubuis', result: '1-0' },
-            { player: 'Claude Bétrisey', opponent: 'David Bovet', result: '0-1' },
-            { player: 'Akram Ben Salem', opponent: 'Emil Ungureanu', result: '0-1' },
-            { player: 'Sandro Bétrisey', opponent: 'José Martinez', result: '0-1' }
+            { player: 'Olivier Crettenand', opponent: 'Andrea Giananti', result: '½-½', playerElo: 1826, opponentElo: 1867 },
+            { player: 'Mazlum Tosun', opponent: 'Vincent Conrad', result: '0-1', playerElo: 1689, opponentElo: 1904 },
+            { player: 'Alexandre Briguet', opponent: 'Olivier Dubuis', result: '1-0', playerElo: 1828, opponentElo: 1778 },
+            { player: 'Claude Bétrisey', opponent: 'David Bovet', result: '0-1', playerElo: 1697, opponentElo: 1741 },
+            { player: 'Akram Ben Salem', opponent: 'Emil Ungureanu', result: '0-1', opponentElo: 1650 },
+            { player: 'Sandro Bétrisey', opponent: 'José Martinez', result: '0-1', playerElo: 1745, opponentElo: 1662 }
           ]
         },
         {
           round: 4,
           date: '17.05.2025',
-          opponent: 'Renens 1',
+          opponent: 'Valais 2',
           venue: 'away',
-          result: '3½-2½',
+          location: 'Valais',
+          result: '2½-3½',
           boards: [
-            { player: 'Mazlum Tosun', opponent: 'Stephan Major', result: '1-0' },
-            { player: 'Olivier Crettenand', opponent: 'Christian Favre', result: '½-½' },
-            { player: 'Sandro Bétrisey', opponent: 'Renzo Cerda', result: '1-0' },
-            { player: 'Alexandre Briguet', opponent: 'Cyril Dorsaz', result: '1-0' },
-            { player: 'Simon Moerschell', opponent: 'Michel Steiner', result: '0-1' }
+            { player: 'Joan Cortada Garcia', opponent: 'Hervé Lanois', result: '0-1', playerElo: 1824, opponentElo: 1781 },
+            { player: 'Mazlum Tosun', opponent: 'Stephan Major', result: '1-0', playerElo: 1689, opponentElo: 1797 },
+            { player: 'Olivier Crettenand', opponent: 'Christian Favre', result: '½-½', playerElo: 1826, opponentElo: 1750 },
+            { player: 'Sandro Bétrisey', opponent: 'Renzo Cerda', result: '1-0', playerElo: 1745, opponentElo: 1650 },
+            { player: 'Alexandre Briguet', opponent: 'Cyril Dorsaz', result: '1-0', playerElo: 1828, opponentElo: 1819 },
+            { player: 'Simon Moerschell', opponent: 'Michel Steiner', result: '0-1', playerElo: 1663, opponentElo: 1803 }
           ]
         }
       ]
@@ -596,67 +614,116 @@ const CSE: React.FC = () => {
             <div className="lg:col-span-2">
               <h3 className="text-2xl font-bold mb-6">Résultats saison {currentTeam.currentSeason}</h3>
               <div className="space-y-6">
-                {currentTeam.results.map((result, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 * index }}
-                    className="bg-white rounded-xl shadow-lg overflow-hidden"
-                  >
-                    <div className={`p-4 flex justify-between items-center ${
-                      parseFloat(result.result.split('-')[0]) > parseFloat(result.result.split('-')[1])
-                        ? 'bg-success-50 border-l-4 border-success-500'
-                        : parseFloat(result.result.split('-')[0]) < parseFloat(result.result.split('-')[1])
-                        ? 'bg-red-50 border-l-4 border-red-500'
-                        : 'bg-yellow-50 border-l-4 border-yellow-500'
-                    }`}>
-                      <div>
-                        <p className="text-sm text-neutral-600">Ronde {result.round} - {result.date}</p>
-                        <p className="text-lg font-semibold">
-                          {result.venue === 'home' ? currentTeam.name : result.opponent} - {result.venue === 'away' ? currentTeam.name : result.opponent}
-                        </p>
+                {currentTeam.results.map((result, index) => {
+                  // Calculate score dynamically from board results
+                  let teamScore = 0;
+                  let opponentScore = 0;
+                  
+                  result.boards.forEach(board => {
+                    if (board.result === '1-0') {
+                      teamScore += 1;
+                    } else if (board.result === '0-1') {
+                      opponentScore += 1;
+                    } else if (board.result === '½-½') {
+                      teamScore += 0.5;
+                      opponentScore += 0.5;
+                    }
+                  });
+                  
+                  // Determine match result label
+                  let resultLabel = '';
+                  let bgColorClass = '';
+                  let borderColorClass = '';
+                  
+                  if (teamScore > opponentScore) {
+                    resultLabel = 'Victoire';
+                    bgColorClass = 'bg-success-50';
+                    borderColorClass = 'border-success-500';
+                  } else if (teamScore < opponentScore) {
+                    resultLabel = 'Défaite';
+                    bgColorClass = 'bg-red-50';
+                    borderColorClass = 'border-red-500';
+                  } else {
+                    resultLabel = 'Match nul';
+                    bgColorClass = 'bg-yellow-50';
+                    borderColorClass = 'border-yellow-500';
+                  }
+                  
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1 * index }}
+                      className="bg-white rounded-xl shadow-lg overflow-hidden"
+                    >
+                      <div className={`p-4 flex justify-between items-center relative ${bgColorClass} border-l-4 ${borderColorClass}`}>
+                        <div>
+                          <p className="text-sm text-neutral-600">Ronde {result.round} - {result.date}</p>
+                          <p className="text-lg font-semibold">
+                            {currentTeam.name} - {result.opponent}
+                          </p>
+                        </div>
+                        <div className="absolute left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2">
+                          <span className={`text-lg font-bold ${
+                            resultLabel === 'Victoire' ? 'text-success-700' :
+                            resultLabel === 'Défaite' ? 'text-red-700' :
+                            'text-yellow-700'
+                          }`}>
+                            {resultLabel}
+                          </span>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-2xl font-bold">{teamScore}-{opponentScore}</p>
+                          <p className="text-sm text-neutral-600 flex items-center justify-end">
+                            <MapPin className="h-3 w-3 mr-1" />
+                            {result.location}
+                          </p>
+                        </div>
                       </div>
-                      <div className="text-right">
-                        <p className="text-2xl font-bold">{result.result}</p>
-                        <p className="text-sm text-neutral-600 flex items-center justify-end">
-                          <MapPin className="h-3 w-3 mr-1" />
-                          {result.venue === 'home' ? 'Domicile' : 'Extérieur'}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="p-4">
-                      <table className="w-full text-sm">
-                        <thead>
-                          <tr className="text-left text-neutral-600 border-b">
-                            <th className="pb-2">Échiquier</th>
-                            <th className="pb-2">Notre joueur</th>
-                            <th className="pb-2">Adversaire</th>
-                            <th className="pb-2 text-center">Résultat</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {result.boards.map((board, boardIndex) => (
-                            <tr key={boardIndex} className="border-b last:border-0">
-                              <td className="py-2">{boardIndex + 1}</td>
-                              <td className="py-2">{board.player}</td>
-                              <td className="py-2">{board.opponent}</td>
-                              <td className="py-2 text-center font-semibold">
-                                <span className={
-                                  board.result === '1-0' ? 'text-success-600' :
-                                  board.result === '0-1' ? 'text-red-600' :
-                                  'text-yellow-600'
-                                }>
-                                  {board.result}
-                                </span>
-                              </td>
+                      <div className="p-4">
+                        <table className="w-full text-sm">
+                          <thead>
+                            <tr className="text-left text-neutral-600 border-b">
+                              <th className="pb-2">Échiquier</th>
+                              <th className="pb-2">{currentTeam.name}</th>
+                              <th className="pb-2">{result.opponent}</th>
+                              <th className="pb-2 text-center">Résultat</th>
                             </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </motion.div>
-                ))}
+                          </thead>
+                          <tbody>
+                            {result.boards.map((board, boardIndex) => (
+                              <tr key={boardIndex} className="border-b last:border-0">
+                                <td className="py-2">{boardIndex + 1}</td>
+                                <td className="py-2">
+                                  {board.player}
+                                  {board.playerElo && (
+                                    <span className="text-neutral-500 ml-1">({board.playerElo})</span>
+                                  )}
+                                </td>
+                                <td className="py-2">
+                                  {board.opponent}
+                                  {board.opponentElo && (
+                                    <span className="text-neutral-500 ml-1">({board.opponentElo})</span>
+                                  )}
+                                </td>
+                                <td className="py-2 text-center font-semibold">
+                                  <span className={
+                                    board.result === '1-0' ? 'text-success-600' :
+                                    board.result === '0-1' ? 'text-red-600' :
+                                    'text-yellow-600'
+                                  }>
+                                    {board.result}
+                                  </span>
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
               
               <div className="mt-8 p-4 bg-accent-50 rounded-lg">

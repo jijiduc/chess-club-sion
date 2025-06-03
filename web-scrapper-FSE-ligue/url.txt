@@ -1,1 +1,15 @@
-https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNSZhZ3J1cHBlPTMwNCZhbGlnYT0zJmFyb3VuZD0x
+ronde 1 :
+Sion 1 : https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNSZhZ3J1cHBlPTMwNCZhbGlnYT0zJmFyb3VuZD0x
+Sion 2 : https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNSZhbGlnYT01JmFncnVwcGU9NTE0JmFyb3VuZD0x
+
+ronde 2 :
+Sion 1 : https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNSZhbGlnYT0zJmFncnVwcGU9MzA0JmFyb3VuZD0y
+Sion 2 : https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNSZhbGlnYT01JmFncnVwcGU9NTE0JmFyb3VuZD0y
+
+ronde 3 :
+Sion 1 : https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNSZhbGlnYT0zJmFncnVwcGU9MzA0JmFyb3VuZD0z
+Sion 2 : https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNSZhbGlnYT01JmFncnVwcGU9NTE0JmFyb3VuZD0z
+
+ronde 4 :
+Sion 1 : https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNSZhbGlnYT0zJmFncnVwcGU9MzA0JmFyb3VuZD00
+Sion 2 : https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNSZhZ3J1cHBlPTUxNCZhbGlnYT01JmFyb3VuZD00

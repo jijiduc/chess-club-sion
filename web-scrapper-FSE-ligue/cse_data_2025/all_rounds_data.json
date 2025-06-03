@@ -1,0 +1,2246 @@
+{
+  "Sion 1": {
+    "round1": {
+      "league": "1ère ligue",
+      "round": "1",
+      "rankings": [
+        {
+          "rank": "1",
+          "team": "Grand Echiquier 1",
+          "matchPoints": "2",
+          "gamePoints": "6½"
+        },
+        {
+          "rank": "2",
+          "team": "Fribourg 1",
+          "matchPoints": "2",
+          "gamePoints": "6"
+        },
+        {
+          "rank": "3",
+          "team": "Genève 2",
+          "matchPoints": "2",
+          "gamePoints": "5½"
+        },
+        {
+          "rank": "4",
+          "team": "Echallens 2",
+          "matchPoints": "2",
+          "gamePoints": "4½"
+        },
+        {
+          "rank": "5",
+          "team": "Valais 1",
+          "matchPoints": "0",
+          "gamePoints": "3½"
+        },
+        {
+          "rank": "6",
+          "team": "Neuchâtel 1",
+          "matchPoints": "0",
+          "gamePoints": "2½"
+        },
+        {
+          "rank": "7",
+          "team": "Köniz-Bubenberg 1",
+          "matchPoints": "0",
+          "gamePoints": "2"
+        },
+        {
+          "rank": "8",
+          "team": "Sion 1",
+          "matchPoints": "0",
+          "gamePoints": "1½"
+        }
+      ],
+      "matches": [
+        {
+          "homeTeam": "Genève 2",
+          "awayTeam": "Neuchâtel 1",
+          "score": "5½-2½",
+          "boards": [
+            {
+              "homePlayer": "Dominique Li",
+              "homeRating": "2282",
+              "result": "1-0",
+              "awayPlayer": "Robin Voland",
+              "awayRating": "2030"
+            },
+            {
+              "homePlayer": "Richard Gerber",
+              "homeRating": "2233",
+              "result": "1-0",
+              "awayPlayer": "Bertrand Banderet",
+              "awayRating": "1951"
+            },
+            {
+              "homePlayer": "Laurent Geiser",
+              "homeRating": "2222",
+              "result": "0-1",
+              "awayPlayer": "Roland Hauser",
+              "awayRating": "2047"
+            },
+            {
+              "homePlayer": "Daniel Chiriac",
+              "homeRating": "2029",
+              "result": "1-0",
+              "awayPlayer": "Hassan Roger Sadeghi",
+              "awayRating": "2082"
+            },
+            {
+              "homePlayer": "Christophe Rivaud",
+              "homeRating": "1974",
+              "result": "0-1",
+              "awayPlayer": "Roman Tkhoruk",
+              "awayRating": "1943"
+            },
+            {
+              "homePlayer": "Tiziano Frei",
+              "homeRating": "1963",
+              "result": "1-0",
+              "awayPlayer": "Jason Weber",
+              "awayRating": "1828"
+            },
+            {
+              "homePlayer": "Jeremy Broome",
+              "homeRating": "1936",
+              "result": "½-½",
+              "awayPlayer": "Luca Srdjenovic",
+              "awayRating": "1894"
+            },
+            {
+              "homePlayer": "Hugo Jelicic",
+              "homeRating": "1893",
+              "result": "1-0",
+              "awayPlayer": "Mohamad Al-Dourobi",
+              "awayRating": "1782"
+            }
+          ]
+        },
+        {
+          "homeTeam": "Valais 1",
+          "awayTeam": "Echallens 2",
+          "score": "3½-4½",
+          "boards": [
+            {
+              "homePlayer": "Ludovic Zaza",
+              "homeRating": "2160",
+              "result": "½-½",
+              "awayPlayer": "Lindo Duratti",
+              "awayRating": "2135"
+            },
+            {
+              "homePlayer": "Jean-Daniel Delacroix",
+              "homeRating": "1934",
+              "result": "0-1",
+              "awayPlayer": "Nicolas Perréard",
+              "awayRating": "2043"
+            },
+            {
+              "homePlayer": "Alexan Floure",
+              "homeRating": "1899",
+              "result": "0-1",
+              "awayPlayer": "Jan Steenhuis",
+              "awayRating": "2052"
+            },
+            {
+              "homePlayer": "Jean-Paul Moret",
+              "homeRating": "1964",
+              "result": "½-½",
+              "awayPlayer": "Steve Monthoux",
+              "awayRating": "2013"
+            },
+            {
+              "homePlayer": "Xavier Perruchoud",
+              "homeRating": "1922",
+              "result": "½-½",
+              "awayPlayer": "Colin Cordey",
+              "awayRating": "1979"
+            },
+            {
+              "homePlayer": "Jacob Planchamp",
+              "homeRating": "1964",
+              "result": "½-½",
+              "awayPlayer": "Stéphane Coletta",
+              "awayRating": "1933"
+            },
+            {
+              "homePlayer": "Pierre Perruchoud",
+              "homeRating": "1884",
+              "result": "½-½",
+              "awayPlayer": "Julien Coletta",
+              "awayRating": "1803"
+            },
+            {
+              "homePlayer": "Fabrice Lovey",
+              "homeRating": "1803",
+              "result": "1-0",
+              "awayPlayer": "N.N.",
+              "awayRating": ""
+            }
+          ]
+        },
+        {
+          "homeTeam": "Sion 1",
+          "awayTeam": "Grand Echiquier 1",
+          "score": "1½-6½",
+          "boards": [
+            {
+              "homePlayer": "Flavien Sola",
+              "homeRating": "",
+              "result": "0-1",
+              "awayPlayer": "Guillaume Chauvon",
+              "awayRating": "2111"
+            },
+            {
+              "homePlayer": "Vlad Popescu",
+              "homeRating": "1991",
+              "result": "0-1",
+              "awayPlayer": "Ferran Rocamora Martorell",
+              "awayRating": "2111"
+            },
+            {
+              "homePlayer": "Pierre-M. Rappaz",
+              "homeRating": "1954",
+              "result": "½-½",
+              "awayPlayer": "Jonathan Jaccard",
+              "awayRating": "1953"
+            },
+            {
+              "homePlayer": "Jean-Yves Riand",
+              "homeRating": "1879",
+              "result": "½-½",
+              "awayPlayer": "Jean-Manuel Segura",
+              "awayRating": "2090"
+            },
+            {
+              "homePlayer": "Max Chappaz",
+              "homeRating": "1910",
+              "result": "0-1",
+              "awayPlayer": "Sébastien Vasey",
+              "awayRating": "1966"
+            },
+            {
+              "homePlayer": "Yves Roduit",
+              "homeRating": "1918",
+              "result": "0-1",
+              "awayPlayer": "Vincent Conrad",
+              "awayRating": "1904"
+            },
+            {
+              "homePlayer": "Olivier Ulmann",
+              "homeRating": "1770",
+              "result": "0-1",
+              "awayPlayer": "Pierpaolo Ranieri",
+              "awayRating": "1891"
+            },
+            {
+              "homePlayer": "Jeremy Duc",
+              "homeRating": "1851",
+              "result": "½-½",
+              "awayPlayer": "Mathis Soubeyrand",
+              "awayRating": "1533"
+            }
+          ]
+        },
+        {
+          "homeTeam": "Köniz-Bubenberg 1",
+          "awayTeam": "Fribourg 1",
+          "score": "2-6",
+          "boards": [
+            {
+              "homePlayer": "Igor Yarmonov",
+              "homeRating": "2349",
+              "result": "0-1",
+              "awayPlayer": "Sylvain Julmy",
+              "awayRating": "2187"
+            },
+            {
+              "homePlayer": "Jörg Brauchli",
+              "homeRating": "1917",
+              "result": "½-½",
+              "awayPlayer": "Yves Deschenaux",
+              "awayRating": "2121"
+            },
+            {
+              "homePlayer": "Hansjürg Känel",
+              "homeRating": "2237",
+              "result": "½-½",
+              "awayPlayer": "Salvatore Cruceli",
+              "awayRating": "2077"
+            },
+            {
+              "homePlayer": "Marc Tillmann",
+              "homeRating": "1891",
+              "result": "0-1",
+              "awayPlayer": "Joseph Edoecs",
+              "awayRating": "2021"
+            },
+            {
+              "homePlayer": "Mike Jäger",
+              "homeRating": "2107",
+              "result": "1-0",
+              "awayPlayer": "Bernard Deschenaux",
+              "awayRating": "2002"
+            },
+            {
+              "homePlayer": "Martin Hess",
+              "homeRating": "1905",
+              "result": "0-1",
+              "awayPlayer": "Thierry Bonferroni",
+              "awayRating": "1954"
+            },
+            {
+              "homePlayer": "Thomas Mani",
+              "homeRating": "1963",
+              "result": "0-1",
+              "awayPlayer": "Achim Schneuwly",
+              "awayRating": "1930"
+            },
+            {
+              "homePlayer": "Nahom Demoz",
+              "homeRating": "",
+              "result": "0-1",
+              "awayPlayer": "Marius Cornée",
+              "awayRating": "1894"
+            }
+          ]
+        }
+      ]
+    },
+    "round2": {
+      "league": "1ère ligue",
+      "round": "2",
+      "rankings": [
+        {
+          "rank": "1",
+          "team": "Fribourg 1",
+          "matchPoints": "4",
+          "gamePoints": "11½"
+        },
+        {
+          "rank": "",
+          "team": "Grand Echiquier 1",
+          "matchPoints": "4",
+          "gamePoints": "11½"
+        },
+        {
+          "rank": "3",
+          "team": "Genève 2",
+          "matchPoints": "4",
+          "gamePoints": "11"
+        },
+        {
+          "rank": "4",
+          "team": "Echallens 2",
+          "matchPoints": "2",
+          "gamePoints": "7½"
+        },
+        {
+          "rank": "5",
+          "team": "Neuchâtel 1",
+          "matchPoints": "1",
+          "gamePoints": "6½"
+        },
+        {
+          "rank": "6",
+          "team": "Köniz-Bubenberg 1",
+          "matchPoints": "1",
+          "gamePoints": "6"
+        },
+        {
+          "rank": "7",
+          "team": "Valais 1",
+          "matchPoints": "0",
+          "gamePoints": "6"
+        },
+        {
+          "rank": "8",
+          "team": "Sion 1",
+          "matchPoints": "0",
+          "gamePoints": "4"
+        }
+      ],
+      "matches": [
+        {
+          "homeTeam": "Fribourg 1",
+          "awayTeam": "Sion 1",
+          "score": "5½-2½",
+          "boards": [
+            {
+              "homePlayer": "Sylvain Julmy",
+              "homeRating": "2179",
+              "result": "1-0",
+              "awayPlayer": "Vlad Popescu",
+              "awayRating": "1990"
+            },
+            {
+              "homePlayer": "Yves Deschenaux",
+              "homeRating": "2121",
+              "result": "½-½",
+              "awayPlayer": "Max Chappaz",
+              "awayRating": "1904"
+            },
+            {
+              "homePlayer": "Bernard Deschenaux",
+              "homeRating": "2002",
+              "result": "1-0",
+              "awayPlayer": "Olivier Ulmann",
+              "awayRating": "1788"
+            },
+            {
+              "homePlayer": "Thierry Bonferroni",
+              "homeRating": "1965",
+              "result": "½-½",
+              "awayPlayer": "Jean-Michel Paladini",
+              "awayRating": "1983"
+            },
+            {
+              "homePlayer": "Achim Schneuwly",
+              "homeRating": "1943",
+              "result": "1-0",
+              "awayPlayer": "Claude Bétrisey",
+              "awayRating": "1697"
+            },
+            {
+              "homePlayer": "Raphaël Perrin",
+              "homeRating": "1944",
+              "result": "1-0",
+              "awayPlayer": "Jean-Yves Riand",
+              "awayRating": "1877"
+            },
+            {
+              "homePlayer": "Jean-Pierre Dorand",
+              "homeRating": "1892",
+              "result": "½-½",
+              "awayPlayer": "Olivier Crettenand",
+              "awayRating": "1826"
+            },
+            {
+              "homePlayer": "Marius Cornée",
+              "homeRating": "1894",
+              "result": "0-1",
+              "awayPlayer": "Yves Roduit",
+              "awayRating": "1910"
+            }
+          ]
+        },
+        {
+          "homeTeam": "Köniz-Bubenberg 1",
+          "awayTeam": "Neuchâtel 1",
+          "score": "4-4",
+          "boards": [
+            {
+              "homePlayer": "Mike Jäger",
+              "homeRating": "2114",
+              "result": "1-0",
+              "awayPlayer": "Roman Tkhoruk",
+              "awayRating": "1896"
+            },
+            {
+              "homePlayer": "Brian von Moos",
+              "homeRating": "1736",
+              "result": "0-1",
+              "awayPlayer": "Raphael Erne",
+              "awayRating": "2164"
+            },
+            {
+              "homePlayer": "Hansjürg Känel",
+              "homeRating": "2226",
+              "result": "1-0",
+              "awayPlayer": "Luca Srdjenovic",
+              "awayRating": "1882"
+            },
+            {
+              "homePlayer": "Igor Yarmonov",
+              "homeRating": "2342",
+              "result": "½-½",
+              "awayPlayer": "Didier Leuba",
+              "awayRating": "2169"
+            },
+            {
+              "homePlayer": "Sandor Kaszas",
+              "homeRating": "2008",
+              "result": "½-½",
+              "awayPlayer": "Roland Hauser",
+              "awayRating": "2026"
+            },
+            {
+              "homePlayer": "Martin Hess",
+              "homeRating": "1905",
+              "result": "0-1",
+              "awayPlayer": "Bertrand Banderet",
+              "awayRating": "1942"
+            },
+            {
+              "homePlayer": "Marc Tillmann",
+              "homeRating": "1921",
+              "result": "1-0",
+              "awayPlayer": "Mohamad Al-Dourobi",
+              "awayRating": "1770"
+            },
+            {
+              "homePlayer": "Michael Weber",
+              "homeRating": "1898",
+              "result": "0-1",
+              "awayPlayer": "Elias Girardin",
+              "awayRating": "1772"
+            }
+          ]
+        },
+        {
+          "homeTeam": "Valais 1",
+          "awayTeam": "Genève 2",
+          "score": "2½-5½",
+          "boards": [
+            {
+              "homePlayer": "Ludovic Zaza",
+              "homeRating": "2140",
+              "result": "0-1",
+              "awayPlayer": "Dominique Li",
+              "awayRating": "2292"
+            },
+            {
+              "homePlayer": "Jean-Daniel Delacroix",
+              "homeRating": "1938",
+              "result": "½-½",
+              "awayPlayer": "Richard Gerber",
+              "awayRating": "2233"
+            },
+            {
+              "homePlayer": "Alexandre Zaza",
+              "homeRating": "1957",
+              "result": "1-0",
+              "awayPlayer": "Laurent Geiser",
+              "awayRating": "2210"
+            },
+            {
+              "homePlayer": "Fabrice Lovey",
+              "homeRating": "1821",
+              "result": "½-½",
+              "awayPlayer": "Nils Delmonico",
+              "awayRating": "1940"
+            },
+            {
+              "homePlayer": "Jacob Planchamp",
+              "homeRating": "1964",
+              "result": "0-1",
+              "awayPlayer": "Tiziano Frei",
+              "awayRating": "1920"
+            },
+            {
+              "homePlayer": "Xavier Perruchoud",
+              "homeRating": "1898",
+              "result": "0-1",
+              "awayPlayer": "Samuel Detraz",
+              "awayRating": "1957"
+            },
+            {
+              "homePlayer": "Jean-Paul Moret",
+              "homeRating": "1969",
+              "result": "0-1",
+              "awayPlayer": "Jeremy Broome",
+              "awayRating": "1885"
+            },
+            {
+              "homePlayer": "Pierre Perruchoud",
+              "homeRating": "1890",
+              "result": "½-½",
+              "awayPlayer": "Jörg-Dieter Meyer",
+              "awayRating": "1869"
+            }
+          ]
+        },
+        {
+          "homeTeam": "Grand Echiquier 1",
+          "awayTeam": "Echallens 2",
+          "score": "5-3",
+          "boards": [
+            {
+              "homePlayer": "Ferran Rocamora Martorell",
+              "homeRating": "2126",
+              "result": "1-0",
+              "awayPlayer": "Jan Steenhuis",
+              "awayRating": "2057"
+            },
+            {
+              "homePlayer": "Stasa Cuckovic",
+              "homeRating": "2188",
+              "result": "½-½",
+              "awayPlayer": "Valentin Palmonella",
+              "awayRating": "2138"
+            },
+            {
+              "homePlayer": "Guillaume Chauvon",
+              "homeRating": "2076",
+              "result": "0-1",
+              "awayPlayer": "Nicolas Perréard",
+              "awayRating": "2033"
+            },
+            {
+              "homePlayer": "Gonçalo Varela Tavares",
+              "homeRating": "1967",
+              "result": "1-0",
+              "awayPlayer": "Daniel Stroppa",
+              "awayRating": "2182"
+            },
+            {
+              "homePlayer": "Jean-Manuel Segura",
+              "homeRating": "2066",
+              "result": "0-1",
+              "awayPlayer": "Jean-Robert Vesin",
+              "awayRating": "2195"
+            },
+            {
+              "homePlayer": "Alexandre Bur",
+              "homeRating": "1901",
+              "result": "½-½",
+              "awayPlayer": "Wissam Pheng",
+              "awayRating": "2045"
+            },
+            {
+              "homePlayer": "Tikhon Parshikov",
+              "homeRating": "1977",
+              "result": "1-0",
+              "awayPlayer": "Steve Monthoux",
+              "awayRating": "2013"
+            },
+            {
+              "homePlayer": "Vincent Conrad",
+              "homeRating": "1904",
+              "result": "1-0",
+              "awayPlayer": "Stéphane Coletta",
+              "awayRating": "1928"
+            }
+          ]
+        }
+      ]
+    },
+    "round3": {
+      "league": "1ère ligue",
+      "round": "3",
+      "rankings": [
+        {
+          "rank": "1",
+          "team": "Grand Echiquier 1",
+          "matchPoints": "6",
+          "gamePoints": "17"
+        },
+        {
+          "rank": "2",
+          "team": "Fribourg 1",
+          "matchPoints": "4",
+          "gamePoints": "14"
+        },
+        {
+          "rank": "",
+          "team": "Genève 2",
+          "matchPoints": "4",
+          "gamePoints": "14"
+        },
+        {
+          "rank": "4",
+          "team": "Echallens 2",
+          "matchPoints": "4",
+          "gamePoints": "12½"
+        },
+        {
+          "rank": "5",
+          "team": "Köniz-Bubenberg 1",
+          "matchPoints": "3",
+          "gamePoints": "11"
+        },
+        {
+          "rank": "",
+          "team": "Neuchâtel 1",
+          "matchPoints": "3",
+          "gamePoints": "11"
+        },
+        {
+          "rank": "7",
+          "team": "Valais 1",
+          "matchPoints": "0",
+          "gamePoints": "9½"
+        },
+        {
+          "rank": "8",
+          "team": "Sion 1",
+          "matchPoints": "0",
+          "gamePoints": "7"
+        }
+      ],
+      "matches": [
+        {
+          "homeTeam": "Neuchâtel 1",
+          "awayTeam": "Valais 1",
+          "score": "4½-3½",
+          "boards": [
+            {
+              "homePlayer": "Robin Voland",
+              "homeRating": "2057",
+              "result": "½-½",
+              "awayPlayer": "Alexan Floure",
+              "awayRating": "1913"
+            },
+            {
+              "homePlayer": "Clément Pinson",
+              "homeRating": "2029",
+              "result": "½-½",
+              "awayPlayer": "Jean-Daniel Delacroix",
+              "awayRating": "1938"
+            },
+            {
+              "homePlayer": "Raphael Erne",
+              "homeRating": "2164",
+              "result": "1-0",
+              "awayPlayer": "Hervé Lanois",
+              "awayRating": "1781"
+            },
+            {
+              "homePlayer": "Hassan Roger Sadeghi",
+              "homeRating": "2098",
+              "result": "½-½",
+              "awayPlayer": "Fabrice Lovey",
+              "awayRating": "1821"
+            },
+            {
+              "homePlayer": "Antonin Robert",
+              "homeRating": "2149",
+              "result": "1-0",
+              "awayPlayer": "Adrien Pignat",
+              "awayRating": "1747"
+            },
+            {
+              "homePlayer": "Roland Hauser",
+              "homeRating": "2026",
+              "result": "½-½",
+              "awayPlayer": "Pierre Perruchoud",
+              "awayRating": "1890"
+            },
+            {
+              "homePlayer": "Jason Weber",
+              "homeRating": "1838",
+              "result": "0-1",
+              "awayPlayer": "Lucas Candelier",
+              "awayRating": "1863"
+            },
+            {
+              "homePlayer": "Luca Srdjenovic",
+              "homeRating": "1882",
+              "result": "½-½",
+              "awayPlayer": "Jean-Marie Carron",
+              "awayRating": "1852"
+            }
+          ]
+        },
+        {
+          "homeTeam": "Sion 1",
+          "awayTeam": "Köniz-Bubenberg 1",
+          "score": "3-5",
+          "boards": [
+            {
+              "homePlayer": "Jean-Yves Riand",
+              "homeRating": "1877",
+              "result": "0-1",
+              "awayPlayer": "Igor Yarmonov",
+              "awayRating": "2342"
+            },
+            {
+              "homePlayer": "Jeremy Duc",
+              "homeRating": "1829",
+              "result": "0-1",
+              "awayPlayer": "Mike Jäger",
+              "awayRating": "2114"
+            },
+            {
+              "homePlayer": "Flavien Sola",
+              "homeRating": "2167",
+              "result": "1-0",
+              "awayPlayer": "Gabriel Vergelin Soler",
+              "awayRating": ""
+            },
+            {
+              "homePlayer": "Jean-Michel Paladini",
+              "homeRating": "1983",
+              "result": "0-1",
+              "awayPlayer": "Hansjürg Känel",
+              "awayRating": "2226"
+            },
+            {
+              "homePlayer": "Vlad Popescu",
+              "homeRating": "1990",
+              "result": "½-½",
+              "awayPlayer": "Jörg Brauchli",
+              "awayRating": "1915"
+            },
+            {
+              "homePlayer": "Yves Roduit",
+              "homeRating": "1910",
+              "result": "0-1",
+              "awayPlayer": "Sandor Kaszas",
+              "awayRating": "2008"
+            },
+            {
+              "homePlayer": "Yann Bourban",
+              "homeRating": "1885",
+              "result": "½-½",
+              "awayPlayer": "Thomas Mani",
+              "awayRating": "1949"
+            },
+            {
+              "homePlayer": "Olivier Ulmann",
+              "homeRating": "1788",
+              "result": "1-0",
+              "awayPlayer": "Marc Tillmann",
+              "awayRating": "1921"
+            }
+          ]
+        },
+        {
+          "homeTeam": "Echallens 2",
+          "awayTeam": "Genève 2",
+          "score": "5-3",
+          "boards": [
+            {
+              "homePlayer": "Daniel Stroppa",
+              "homeRating": "2182",
+              "result": "½-½",
+              "awayPlayer": "Richard Gerber",
+              "awayRating": "2233"
+            },
+            {
+              "homePlayer": "Lindo Duratti",
+              "homeRating": "2134",
+              "result": "0-1",
+              "awayPlayer": "Dominique Li",
+              "awayRating": "2292"
+            },
+            {
+              "homePlayer": "Grégoire Tissier",
+              "homeRating": "2038",
+              "result": "1-0",
+              "awayPlayer": "Nathan ALFRED",
+              "awayRating": "2214"
+            },
+            {
+              "homePlayer": "Cédric Grillon",
+              "homeRating": "1984",
+              "result": "1-0",
+              "awayPlayer": "Nils Delmonico",
+              "awayRating": "1940"
+            },
+            {
+              "homePlayer": "Jan Steenhuis",
+              "homeRating": "2057",
+              "result": "½-½",
+              "awayPlayer": "Tiziano Frei",
+              "awayRating": "1920"
+            },
+            {
+              "homePlayer": "Steve Monthoux",
+              "homeRating": "2013",
+              "result": "½-½",
+              "awayPlayer": "Jeremy Cendan",
+              "awayRating": "1932"
+            },
+            {
+              "homePlayer": "Alexander Delangle",
+              "homeRating": "1911",
+              "result": "1-0",
+              "awayPlayer": "Jörg-Dieter Meyer",
+              "awayRating": "1869"
+            },
+            {
+              "homePlayer": "Stéphane Coletta",
+              "homeRating": "1928",
+              "result": "½-½",
+              "awayPlayer": "Alexander Clarke",
+              "awayRating": "1802"
+            }
+          ]
+        },
+        {
+          "homeTeam": "Fribourg 1",
+          "awayTeam": "Grand Echiquier 1",
+          "score": "2½-5½",
+          "boards": [
+            {
+              "homePlayer": "Yves Deschenaux",
+              "homeRating": "2121",
+              "result": "½-½",
+              "awayPlayer": "Gonçalo Varela Tavares",
+              "awayRating": "1967"
+            },
+            {
+              "homePlayer": "Salvatore Cruceli",
+              "homeRating": "2083",
+              "result": "1-0",
+              "awayPlayer": "Guillaume Chauvon",
+              "awayRating": "2076"
+            },
+            {
+              "homePlayer": "Joseph Edoecs",
+              "homeRating": "2035",
+              "result": "0-1",
+              "awayPlayer": "Sébastien Vasey",
+              "awayRating": "1956"
+            },
+            {
+              "homePlayer": "Vinzenz Tremp",
+              "homeRating": "2042",
+              "result": "0-1",
+              "awayPlayer": "Alexandre Bur",
+              "awayRating": "1901"
+            },
+            {
+              "homePlayer": "Jean Mettraux",
+              "homeRating": "1959",
+              "result": "½-½",
+              "awayPlayer": "Armin Rauer",
+              "awayRating": "1918"
+            },
+            {
+              "homePlayer": "Bernard Deschenaux",
+              "homeRating": "2002",
+              "result": "0-1",
+              "awayPlayer": "Pierpaolo Ranieri",
+              "awayRating": "1893"
+            },
+            {
+              "homePlayer": "Raphaël Perrin",
+              "homeRating": "1944",
+              "result": "0-1",
+              "awayPlayer": "Sébastien Pagliaro",
+              "awayRating": "1920"
+            },
+            {
+              "homePlayer": "Achim Schneuwly",
+              "homeRating": "1943",
+              "result": "½-½",
+              "awayPlayer": "Mathis Soubeyrand",
+              "awayRating": "1547"
+            }
+          ]
+        }
+      ]
+    },
+    "round4": {
+      "league": "1ère ligue",
+      "round": "4",
+      "rankings": [
+        {
+          "rank": "1",
+          "team": "Grand Echiquier 1",
+          "matchPoints": "6",
+          "gamePoints": "20½"
+        },
+        {
+          "rank": "2",
+          "team": "Genève 2",
+          "matchPoints": "6",
+          "gamePoints": "18½"
+        },
+        {
+          "rank": "3",
+          "team": "Echallens 2",
+          "matchPoints": "6",
+          "gamePoints": "17½"
+        },
+        {
+          "rank": "4",
+          "team": "Köniz-Bubenberg 1",
+          "matchPoints": "5",
+          "gamePoints": "16"
+        },
+        {
+          "rank": "5",
+          "team": "Neuchâtel 1",
+          "matchPoints": "5",
+          "gamePoints": "15½"
+        },
+        {
+          "rank": "6",
+          "team": "Fribourg 1",
+          "matchPoints": "4",
+          "gamePoints": "17"
+        },
+        {
+          "rank": "7",
+          "team": "Valais 1",
+          "matchPoints": "0",
+          "gamePoints": "12½"
+        },
+        {
+          "rank": "8",
+          "team": "Sion 1",
+          "matchPoints": "0",
+          "gamePoints": "10½"
+        }
+      ],
+      "matches": [
+        {
+          "homeTeam": "Valais 1",
+          "awayTeam": "Köniz-Bubenberg 1",
+          "score": "3-5",
+          "boards": [
+            {
+              "homePlayer": "Ludovic Zaza",
+              "homeRating": "2140",
+              "result": "0-1",
+              "awayPlayer": "Igor Yarmonov",
+              "awayRating": "2342"
+            },
+            {
+              "homePlayer": "Jean-Daniel Delacroix",
+              "homeRating": "1938",
+              "result": "0-1",
+              "awayPlayer": "Hansjürg Känel",
+              "awayRating": "2226"
+            },
+            {
+              "homePlayer": "Alexan Floure",
+              "homeRating": "1913",
+              "result": "1-0",
+              "awayPlayer": "Brian von Moos",
+              "awayRating": "1736"
+            },
+            {
+              "homePlayer": "Alexandre Zaza",
+              "homeRating": "1957",
+              "result": "0-1",
+              "awayPlayer": "Sandor Kaszas",
+              "awayRating": "2008"
+            },
+            {
+              "homePlayer": "Jean-Paul Moret",
+              "homeRating": "1969",
+              "result": "½-½",
+              "awayPlayer": "Jörg Brauchli",
+              "awayRating": "1915"
+            },
+            {
+              "homePlayer": "Jacob Planchamp",
+              "homeRating": "1964",
+              "result": "1-0",
+              "awayPlayer": "Thomas Mani",
+              "awayRating": "1949"
+            },
+            {
+              "homePlayer": "Pierre Perruchoud",
+              "homeRating": "1890",
+              "result": "½-½",
+              "awayPlayer": "Michael Weber",
+              "awayRating": "1898"
+            },
+            {
+              "homePlayer": "François Perruchoud",
+              "homeRating": "1921",
+              "result": "0-1",
+              "awayPlayer": "Marc Tillmann",
+              "awayRating": "1921"
+            }
+          ]
+        },
+        {
+          "homeTeam": "Echallens 2",
+          "awayTeam": "Fribourg 1",
+          "score": "5-3",
+          "boards": [
+            {
+              "homePlayer": "Nicolas Perréard",
+              "homeRating": "2033",
+              "result": "½-½",
+              "awayPlayer": "Sylvain Julmy",
+              "awayRating": "2179"
+            },
+            {
+              "homePlayer": "Stéphane Coletta",
+              "homeRating": "1928",
+              "result": "0-1",
+              "awayPlayer": "Yves Deschenaux",
+              "awayRating": "2121"
+            },
+            {
+              "homePlayer": "Daniel Stroppa",
+              "homeRating": "2182",
+              "result": "½-½",
+              "awayPlayer": "Salvatore Cruceli",
+              "awayRating": "2083"
+            },
+            {
+              "homePlayer": "Jean-Robert Vesin",
+              "homeRating": "2195",
+              "result": "1-0",
+              "awayPlayer": "Vinzenz Tremp",
+              "awayRating": "2042"
+            },
+            {
+              "homePlayer": "Jan Steenhuis",
+              "homeRating": "2057",
+              "result": "½-½",
+              "awayPlayer": "Thierry Bonferroni",
+              "awayRating": "1965"
+            },
+            {
+              "homePlayer": "Alexis ROSE",
+              "homeRating": "1871",
+              "result": "½-½",
+              "awayPlayer": "Bernard Deschenaux",
+              "awayRating": "2002"
+            },
+            {
+              "homePlayer": "Steve Monthoux",
+              "homeRating": "2013",
+              "result": "1-0",
+              "awayPlayer": "Raphaël Perrin",
+              "awayRating": "1944"
+            },
+            {
+              "homePlayer": "Cédric Grillon",
+              "homeRating": "1984",
+              "result": "1-0",
+              "awayPlayer": "N.N.",
+              "awayRating": ""
+            }
+          ]
+        },
+        {
+          "homeTeam": "Genève 2",
+          "awayTeam": "Grand Echiquier 1",
+          "score": "4½-3½",
+          "boards": [
+            {
+              "homePlayer": "Dominique Li",
+              "homeRating": "2292",
+              "result": "1-0",
+              "awayPlayer": "Pierpaolo Ranieri",
+              "awayRating": "1893"
+            },
+            {
+              "homePlayer": "Laurent Geiser",
+              "homeRating": "2210",
+              "result": "1-0",
+              "awayPlayer": "Ferran Rocamora Martorell",
+              "awayRating": "2126"
+            },
+            {
+              "homePlayer": "Vladimir Kovacevic",
+              "homeRating": "2127",
+              "result": "1-0",
+              "awayPlayer": "Gonçalo Varela Tavares",
+              "awayRating": "1967"
+            },
+            {
+              "homePlayer": "Christophe Rivaud",
+              "homeRating": "1986",
+              "result": "0-1",
+              "awayPlayer": "Jean-Manuel Segura",
+              "awayRating": "2066"
+            },
+            {
+              "homePlayer": "Frank Souiller",
+              "homeRating": "1950",
+              "result": "0-1",
+              "awayPlayer": "Guillaume Chauvon",
+              "awayRating": "2076"
+            },
+            {
+              "homePlayer": "Nils Delmonico",
+              "homeRating": "1940",
+              "result": "½-½",
+              "awayPlayer": "Andreas Füglistaler",
+              "awayRating": "1983"
+            },
+            {
+              "homePlayer": "Jeremy Broome",
+              "homeRating": "1885",
+              "result": "1-0",
+              "awayPlayer": "Jonathan Jaccard",
+              "awayRating": "1949"
+            },
+            {
+              "homePlayer": "Jörg-Dieter Meyer",
+              "homeRating": "1869",
+              "result": "0-1",
+              "awayPlayer": "Sébastien Vasey",
+              "awayRating": "1956"
+            }
+          ]
+        },
+        {
+          "homeTeam": "Sion 1",
+          "awayTeam": "Neuchâtel 1",
+          "score": "3½-4½",
+          "boards": [
+            {
+              "homePlayer": "Christophe Sochacki",
+              "homeRating": "",
+              "result": "0-1",
+              "awayPlayer": "Raphael Erne",
+              "awayRating": "2164"
+            },
+            {
+              "homePlayer": "Jean-Michel Paladini",
+              "homeRating": "1983",
+              "result": "0-1",
+              "awayPlayer": "Robin Voland",
+              "awayRating": "2057"
+            },
+            {
+              "homePlayer": "Flavien Sola",
+              "homeRating": "2167",
+              "result": "1-0",
+              "awayPlayer": "Roland Hauser",
+              "awayRating": "2026"
+            },
+            {
+              "homePlayer": "Vlad Popescu",
+              "homeRating": "1990",
+              "result": "1-0",
+              "awayPlayer": "Hassan Roger Sadeghi",
+              "awayRating": "2098"
+            },
+            {
+              "homePlayer": "Max Chappaz",
+              "homeRating": "1904",
+              "result": "½-½",
+              "awayPlayer": "Luca Srdjenovic",
+              "awayRating": "1882"
+            },
+            {
+              "homePlayer": "Pierre-M. Rappaz",
+              "homeRating": "1933",
+              "result": "½-½",
+              "awayPlayer": "Bertrand Banderet",
+              "awayRating": "1942"
+            },
+            {
+              "homePlayer": "Jeremy Duc",
+              "homeRating": "1829",
+              "result": "½-½",
+              "awayPlayer": "Jason Weber",
+              "awayRating": "1838"
+            },
+            {
+              "homePlayer": "Jean-Yves Riand",
+              "homeRating": "1877",
+              "result": "0-1",
+              "awayPlayer": "Jeremy Butet",
+              "awayRating": "1930"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Sion 2": {
+    "round1": {
+      "league": "3ème ligue",
+      "round": "1",
+      "rankings": [
+        {
+          "rank": "1",
+          "team": "Monthey 1",
+          "matchPoints": "2",
+          "gamePoints": "5"
+        },
+        {
+          "rank": "",
+          "team": "Valais 2",
+          "matchPoints": "2",
+          "gamePoints": "5"
+        },
+        {
+          "rank": "3",
+          "team": "Crans-Montana 2",
+          "matchPoints": "2",
+          "gamePoints": "4"
+        },
+        {
+          "rank": "4",
+          "team": "Crazy Horse 1",
+          "matchPoints": "2",
+          "gamePoints": "3½"
+        },
+        {
+          "rank": "5",
+          "team": "Payerne 2",
+          "matchPoints": "0",
+          "gamePoints": "2½"
+        },
+        {
+          "rank": "6",
+          "team": "Sion 2",
+          "matchPoints": "0",
+          "gamePoints": "2"
+        },
+        {
+          "rank": "7",
+          "team": "Bulle 3",
+          "matchPoints": "0",
+          "gamePoints": "1"
+        },
+        {
+          "rank": "",
+          "team": "Grand Echiquier 2",
+          "matchPoints": "0",
+          "gamePoints": "1"
+        }
+      ],
+      "matches": [
+        {
+          "homeTeam": "Grand Echiquier 2",
+          "awayTeam": "Monthey 1",
+          "score": "1-5",
+          "boards": [
+            {
+              "homePlayer": "Olivier Dubuis",
+              "homeRating": "1778",
+              "result": "0-1",
+              "awayPlayer": "Jorel Martin",
+              "awayRating": "1827"
+            },
+            {
+              "homePlayer": "Emil Ungureanu",
+              "homeRating": "",
+              "result": "0-1",
+              "awayPlayer": "Fabien Tordeur",
+              "awayRating": "1963"
+            },
+            {
+              "homePlayer": "Paolo Braconi",
+              "homeRating": "1529",
+              "result": "0-1",
+              "awayPlayer": "Dorian Turner",
+              "awayRating": ""
+            },
+            {
+              "homePlayer": "Alban Hessler",
+              "homeRating": "1470",
+              "result": "0-1",
+              "awayPlayer": "Colin Moesching",
+              "awayRating": "1897"
+            },
+            {
+              "homePlayer": "Adam Nasrallah",
+              "homeRating": "",
+              "result": "0-1",
+              "awayPlayer": "Samuel Favre",
+              "awayRating": "1608"
+            },
+            {
+              "homePlayer": "José Martinez",
+              "homeRating": "1674",
+              "result": "1-0",
+              "awayPlayer": "N.N.",
+              "awayRating": ""
+            }
+          ]
+        },
+        {
+          "homeTeam": "Sion 2",
+          "awayTeam": "Crans-Montana 2",
+          "score": "2-4",
+          "boards": [
+            {
+              "homePlayer": "Alexandre Briguet",
+              "homeRating": "1809",
+              "result": "0-1",
+              "awayPlayer": "Alessandro Bonalli",
+              "awayRating": "1621"
+            },
+            {
+              "homePlayer": "Olivier Crettenand",
+              "homeRating": "1826",
+              "result": "1-0",
+              "awayPlayer": "Timur Gökok",
+              "awayRating": ""
+            },
+            {
+              "homePlayer": "Mazlum Tosun",
+              "homeRating": "1689",
+              "result": "1-0",
+              "awayPlayer": "Hervé Frainay",
+              "awayRating": "1561"
+            },
+            {
+              "homePlayer": "Sandro Bétrisey",
+              "homeRating": "1745",
+              "result": "0-1",
+              "awayPlayer": "Luc Udry",
+              "awayRating": "1523"
+            },
+            {
+              "homePlayer": "Akram Ben Salem",
+              "homeRating": "",
+              "result": "0-1",
+              "awayPlayer": "Jean-Claude Zermatten",
+              "awayRating": "1559"
+            },
+            {
+              "homePlayer": "Florian Clavien",
+              "homeRating": "",
+              "result": "0-1",
+              "awayPlayer": "Claude-Alain Bonvin",
+              "awayRating": "1629"
+            }
+          ]
+        },
+        {
+          "homeTeam": "Valais 2",
+          "awayTeam": "Bulle 3",
+          "score": "5-1",
+          "boards": [
+            {
+              "homePlayer": "Jean-Marie Carron",
+              "homeRating": "1852",
+              "result": "1-0",
+              "awayPlayer": "Laurent Geib",
+              "awayRating": "1673"
+            },
+            {
+              "homePlayer": "Cyril Dorsaz",
+              "homeRating": "1827",
+              "result": "½-½",
+              "awayPlayer": "Charles-François Feller",
+              "awayRating": "1670"
+            },
+            {
+              "homePlayer": "Hervé Lanois",
+              "homeRating": "1832",
+              "result": "1-0",
+              "awayPlayer": "Alfred Senff",
+              "awayRating": "1544"
+            },
+            {
+              "homePlayer": "François Perruchoud",
+              "homeRating": "1921",
+              "result": "½-½",
+              "awayPlayer": "Gael Grangier",
+              "awayRating": ""
+            },
+            {
+              "homePlayer": "Stephan Major",
+              "homeRating": "1806",
+              "result": "1-0",
+              "awayPlayer": "Aurélie Conod",
+              "awayRating": ""
+            },
+            {
+              "homePlayer": "Michel Steiner",
+              "homeRating": "1795",
+              "result": "1-0",
+              "awayPlayer": "N.N.",
+              "awayRating": ""
+            }
+          ]
+        },
+        {
+          "homeTeam": "Crazy Horse 1",
+          "awayTeam": "Payerne 2",
+          "score": "3½-2½",
+          "boards": [
+            {
+              "homePlayer": "Adrian Silva",
+              "homeRating": "1857",
+              "result": "0-1",
+              "awayPlayer": "Vivian Rochat",
+              "awayRating": "1920"
+            },
+            {
+              "homePlayer": "Alain Tcheau",
+              "homeRating": "1969",
+              "result": "1-0",
+              "awayPlayer": "Lucas Bueche",
+              "awayRating": "1844"
+            },
+            {
+              "homePlayer": "Daniel Jaquier",
+              "homeRating": "1861",
+              "result": "½-½",
+              "awayPlayer": "Karel Bourban",
+              "awayRating": "1806"
+            },
+            {
+              "homePlayer": "Dzevad Osmic",
+              "homeRating": "1843",
+              "result": "1-0",
+              "awayPlayer": "Kiril Solomatin",
+              "awayRating": ""
+            },
+            {
+              "homePlayer": "Alain Chollet",
+              "homeRating": "1810",
+              "result": "1-0",
+              "awayPlayer": "Alex Garfield",
+              "awayRating": "1821"
+            },
+            {
+              "homePlayer": "Joël Loba",
+              "homeRating": "1841",
+              "result": "0-1",
+              "awayPlayer": "Carlo Bonferroni",
+              "awayRating": "1768"
+            }
+          ]
+        }
+      ]
+    },
+    "round2": {
+      "league": "3ème ligue",
+      "round": "2",
+      "rankings": [
+        {
+          "rank": "1",
+          "team": "Monthey 1",
+          "matchPoints": "4",
+          "gamePoints": "10"
+        },
+        {
+          "rank": "2",
+          "team": "Crazy Horse 1",
+          "matchPoints": "4",
+          "gamePoints": "9"
+        },
+        {
+          "rank": "3",
+          "team": "Valais 2",
+          "matchPoints": "2",
+          "gamePoints": "7½"
+        },
+        {
+          "rank": "4",
+          "team": "Sion 2",
+          "matchPoints": "2",
+          "gamePoints": "6"
+        },
+        {
+          "rank": "5",
+          "team": "Crans-Montana 2",
+          "matchPoints": "2",
+          "gamePoints": "4½"
+        },
+        {
+          "rank": "",
+          "team": "Grand Echiquier 2",
+          "matchPoints": "2",
+          "gamePoints": "4½"
+        },
+        {
+          "rank": "7",
+          "team": "Payerne 2",
+          "matchPoints": "0",
+          "gamePoints": "3½"
+        },
+        {
+          "rank": "8",
+          "team": "Bulle 3",
+          "matchPoints": "0",
+          "gamePoints": "3"
+        }
+      ],
+      "matches": [
+        {
+          "homeTeam": "Crans-Montana 2",
+          "awayTeam": "Crazy Horse 1",
+          "score": "½-5½",
+          "boards": [
+            {
+              "homePlayer": "Luc Udry",
+              "homeRating": "1523",
+              "result": "0-1",
+              "awayPlayer": "Alain Tcheau",
+              "awayRating": "2011"
+            },
+            {
+              "homePlayer": "Hervé Frainay",
+              "homeRating": "1561",
+              "result": "0-1",
+              "awayPlayer": "Daniel Jaquier",
+              "awayRating": "1871"
+            },
+            {
+              "homePlayer": "Timur Gökok",
+              "homeRating": "",
+              "result": "0-1",
+              "awayPlayer": "Joël Loba",
+              "awayRating": "1833"
+            },
+            {
+              "homePlayer": "Claude-Alain Bonvin",
+              "homeRating": "1629",
+              "result": "0-1",
+              "awayPlayer": "Alain Chollet",
+              "awayRating": "1783"
+            },
+            {
+              "homePlayer": "Jean-Claude Zermatten",
+              "homeRating": "1559",
+              "result": "½-½",
+              "awayPlayer": "Philippe Grosjean-Ritz",
+              "awayRating": "1821"
+            },
+            {
+              "homePlayer": "Amaury Aubrée-Dauchez",
+              "homeRating": "",
+              "result": "0-1",
+              "awayPlayer": "Marjorie Mourey",
+              "awayRating": ""
+            }
+          ]
+        },
+        {
+          "homeTeam": "Bulle 3",
+          "awayTeam": "Sion 2",
+          "score": "2-4",
+          "boards": [
+            {
+              "homePlayer": "Philippe Defferrard",
+              "homeRating": "1508",
+              "result": "½-½",
+              "awayPlayer": "Alexandre Briguet",
+              "awayRating": "1828"
+            },
+            {
+              "homePlayer": "Bert Jansen",
+              "homeRating": "",
+              "result": "0-1",
+              "awayPlayer": "Sandro Bétrisey",
+              "awayRating": "1745"
+            },
+            {
+              "homePlayer": "Charles-François Feller",
+              "homeRating": "1670",
+              "result": "0-1",
+              "awayPlayer": "Mazlum Tosun",
+              "awayRating": "1689"
+            },
+            {
+              "homePlayer": "Thomas Christen",
+              "homeRating": "",
+              "result": "½-½",
+              "awayPlayer": "Akram Ben Salem",
+              "awayRating": ""
+            },
+            {
+              "homePlayer": "Arno Jankowski",
+              "homeRating": "",
+              "result": "0-1",
+              "awayPlayer": "Simon Moerschell",
+              "awayRating": "1663"
+            },
+            {
+              "homePlayer": "Alfred Senff",
+              "homeRating": "1544",
+              "result": "1-0",
+              "awayPlayer": "N.N.",
+              "awayRating": ""
+            }
+          ]
+        },
+        {
+          "homeTeam": "Grand Echiquier 2",
+          "awayTeam": "Valais 2",
+          "score": "3½-2½",
+          "boards": [
+            {
+              "homePlayer": "Jonathan Jaccard",
+              "homeRating": "1949",
+              "result": "½-½",
+              "awayPlayer": "Hervé Lanois",
+              "awayRating": "1781"
+            },
+            {
+              "homePlayer": "Andrea Giananti",
+              "homeRating": "1867",
+              "result": "1-0",
+              "awayPlayer": "Cyril Dorsaz",
+              "awayRating": "1819"
+            },
+            {
+              "homePlayer": "Patrick Goette",
+              "homeRating": "1764",
+              "result": "1-0",
+              "awayPlayer": "Jean-Marie Carron",
+              "awayRating": "1852"
+            },
+            {
+              "homePlayer": "Olivier Dubuis",
+              "homeRating": "1778",
+              "result": "0-1",
+              "awayPlayer": "Stephan Major",
+              "awayRating": "1797"
+            },
+            {
+              "homePlayer": "Paul Dumoulin",
+              "homeRating": "1775",
+              "result": "1-0",
+              "awayPlayer": "Michel Steiner",
+              "awayRating": "1803"
+            },
+            {
+              "homePlayer": "N.N.",
+              "homeRating": "",
+              "result": "0-1",
+              "awayPlayer": "François Perruchoud",
+              "awayRating": "1921"
+            }
+          ]
+        },
+        {
+          "homeTeam": "Monthey 1",
+          "awayTeam": "Payerne 2",
+          "score": "5-1",
+          "boards": [
+            {
+              "homePlayer": "Colin Moesching",
+              "homeRating": "1891",
+              "result": "1-0",
+              "awayPlayer": "Lucas Bueche",
+              "awayRating": "1841"
+            },
+            {
+              "homePlayer": "Fabien Tordeur",
+              "homeRating": "1977",
+              "result": "1-0",
+              "awayPlayer": "Karel Bourban",
+              "awayRating": "1818"
+            },
+            {
+              "homePlayer": "Dorian Turner",
+              "homeRating": "",
+              "result": "½-½",
+              "awayPlayer": "Armando Hauser",
+              "awayRating": "1819"
+            },
+            {
+              "homePlayer": "Michail Batsiolas",
+              "homeRating": "1656",
+              "result": "1-0",
+              "awayPlayer": "Alex Garfield",
+              "awayRating": "1786"
+            },
+            {
+              "homePlayer": "Marius Jordan",
+              "homeRating": "1632",
+              "result": "1-0",
+              "awayPlayer": "Kiril Solomatin",
+              "awayRating": ""
+            },
+            {
+              "homePlayer": "Gilles Meynet",
+              "homeRating": "1470",
+              "result": "½-½",
+              "awayPlayer": "Carlo Bonferroni",
+              "awayRating": "1774"
+            }
+          ]
+        }
+      ]
+    },
+    "round3": {
+      "league": "3ème ligue",
+      "round": "3",
+      "rankings": [
+        {
+          "rank": "1",
+          "team": "Crazy Horse 1",
+          "matchPoints": "6",
+          "gamePoints": "14"
+        },
+        {
+          "rank": "2",
+          "team": "Monthey 1",
+          "matchPoints": "4",
+          "gamePoints": "12½"
+        },
+        {
+          "rank": "3",
+          "team": "Valais 2",
+          "matchPoints": "4",
+          "gamePoints": "11"
+        },
+        {
+          "rank": "4",
+          "team": "Grand Echiquier 2",
+          "matchPoints": "4",
+          "gamePoints": "9"
+        },
+        {
+          "rank": "5",
+          "team": "Payerne 2",
+          "matchPoints": "2",
+          "gamePoints": "9½"
+        },
+        {
+          "rank": "6",
+          "team": "Sion 2",
+          "matchPoints": "2",
+          "gamePoints": "7½"
+        },
+        {
+          "rank": "7",
+          "team": "Crans-Montana 2",
+          "matchPoints": "2",
+          "gamePoints": "4½"
+        },
+        {
+          "rank": "8",
+          "team": "Bulle 3",
+          "matchPoints": "0",
+          "gamePoints": "4"
+        }
+      ],
+      "matches": [
+        {
+          "homeTeam": "Sion 2",
+          "awayTeam": "Grand Echiquier 2",
+          "score": "1½-4½",
+          "boards": [
+            {
+              "homePlayer": "Olivier Crettenand",
+              "homeRating": "1826",
+              "result": "½-½",
+              "awayPlayer": "Andrea Giananti",
+              "awayRating": "1867"
+            },
+            {
+              "homePlayer": "Mazlum Tosun",
+              "homeRating": "1689",
+              "result": "0-1",
+              "awayPlayer": "Vincent Conrad",
+              "awayRating": "1904"
+            },
+            {
+              "homePlayer": "Alexandre Briguet",
+              "homeRating": "1828",
+              "result": "1-0",
+              "awayPlayer": "Olivier Dubuis",
+              "awayRating": "1778"
+            },
+            {
+              "homePlayer": "Claude Bétrisey",
+              "homeRating": "1697",
+              "result": "0-1",
+              "awayPlayer": "David Bovet",
+              "awayRating": "1741"
+            },
+            {
+              "homePlayer": "Akram Ben Salem",
+              "homeRating": "",
+              "result": "0-1",
+              "awayPlayer": "Emil Ungureanu",
+              "awayRating": ""
+            },
+            {
+              "homePlayer": "Sandro Bétrisey",
+              "homeRating": "1745",
+              "result": "0-1",
+              "awayPlayer": "José Martinez",
+              "awayRating": "1662"
+            }
+          ]
+        },
+        {
+          "homeTeam": "Payerne 2",
+          "awayTeam": "Crans-Montana 2",
+          "score": "6-0",
+          "boards": [
+            {
+              "homePlayer": "Vivian Rochat",
+              "homeRating": "1942",
+              "result": "1-0",
+              "awayPlayer": "Claude-Alain Bonvin",
+              "awayRating": "1629"
+            },
+            {
+              "homePlayer": "Lucas Bueche",
+              "homeRating": "1841",
+              "result": "1-0",
+              "awayPlayer": "Alessandro Bonalli",
+              "awayRating": "1621"
+            },
+            {
+              "homePlayer": "Yanis Vonnez",
+              "homeRating": "1740",
+              "result": "1-0",
+              "awayPlayer": "Luc Udry",
+              "awayRating": "1523"
+            },
+            {
+              "homePlayer": "Alex Garfield",
+              "homeRating": "1786",
+              "result": "1-0",
+              "awayPlayer": "Jean-Claude Zermatten",
+              "awayRating": "1559"
+            },
+            {
+              "homePlayer": "Kiril Solomatin",
+              "homeRating": "",
+              "result": "1-0",
+              "awayPlayer": "Timur Gökok",
+              "awayRating": ""
+            },
+            {
+              "homePlayer": "Carlo Bonferroni",
+              "homeRating": "1774",
+              "result": "1-0",
+              "awayPlayer": "Elias Leblé",
+              "awayRating": ""
+            }
+          ]
+        },
+        {
+          "homeTeam": "Valais 2",
+          "awayTeam": "Monthey 1",
+          "score": "3½-2½",
+          "boards": [
+            {
+              "homePlayer": "Jean-Paul Moret",
+              "homeRating": "1969",
+              "result": "1-0",
+              "awayPlayer": "Colin Moesching",
+              "awayRating": "1891"
+            },
+            {
+              "homePlayer": "Christian Favre",
+              "homeRating": "1848",
+              "result": "½-½",
+              "awayPlayer": "Fabien Tordeur",
+              "awayRating": "1977"
+            },
+            {
+              "homePlayer": "Stephan Major",
+              "homeRating": "1797",
+              "result": "1-0",
+              "awayPlayer": "Marius Jordan",
+              "awayRating": "1632"
+            },
+            {
+              "homePlayer": "Cyril Dorsaz",
+              "homeRating": "1819",
+              "result": "0-1",
+              "awayPlayer": "Pascal Machoud",
+              "awayRating": "1817"
+            },
+            {
+              "homePlayer": "Jean-Christophe Putallaz",
+              "homeRating": "1719",
+              "result": "1-0",
+              "awayPlayer": "Gilles Meynet",
+              "awayRating": "1470"
+            },
+            {
+              "homePlayer": "Renzo Cerda",
+              "homeRating": "1744",
+              "result": "0-1",
+              "awayPlayer": "Luis Rafael Collado Reynoso",
+              "awayRating": ""
+            }
+          ]
+        },
+        {
+          "homeTeam": "Crazy Horse 1",
+          "awayTeam": "Bulle 3",
+          "score": "5-1",
+          "boards": [
+            {
+              "homePlayer": "Daniel Jaquier",
+              "homeRating": "1871",
+              "result": "1-0",
+              "awayPlayer": "Charles-François Feller",
+              "awayRating": "1670"
+            },
+            {
+              "homePlayer": "Alain Tcheau",
+              "homeRating": "2011",
+              "result": "1-0",
+              "awayPlayer": "Alfred Senff",
+              "awayRating": "1544"
+            },
+            {
+              "homePlayer": "Alain Chollet",
+              "homeRating": "1783",
+              "result": "1-0",
+              "awayPlayer": "Arno Jankowski",
+              "awayRating": ""
+            },
+            {
+              "homePlayer": "Joël Loba",
+              "homeRating": "1833",
+              "result": "0-1",
+              "awayPlayer": "Thomas Christen",
+              "awayRating": ""
+            },
+            {
+              "homePlayer": "Adrian Silva",
+              "homeRating": "1857",
+              "result": "1-0",
+              "awayPlayer": "Cédric Lutz",
+              "awayRating": ""
+            },
+            {
+              "homePlayer": "Bernard Gasser",
+              "homeRating": "1693",
+              "result": "1-0",
+              "awayPlayer": "Logan Gremaud",
+              "awayRating": ""
+            }
+          ]
+        }
+      ]
+    },
+    "round4": {
+      "league": "3ème ligue",
+      "round": "4",
+      "rankings": [
+        {
+          "rank": "1",
+          "team": "Crazy Horse 1",
+          "matchPoints": "7",
+          "gamePoints": "17"
+        },
+        {
+          "rank": "2",
+          "team": "Monthey 1",
+          "matchPoints": "6",
+          "gamePoints": "17½"
+        },
+        {
+          "rank": "3",
+          "team": "Grand Echiquier 2",
+          "matchPoints": "5",
+          "gamePoints": "12"
+        },
+        {
+          "rank": "4",
+          "team": "Payerne 2",
+          "matchPoints": "4",
+          "gamePoints": "15½"
+        },
+        {
+          "rank": "5",
+          "team": "Valais 2",
+          "matchPoints": "4",
+          "gamePoints": "13½"
+        },
+        {
+          "rank": "6",
+          "team": "Sion 2",
+          "matchPoints": "4",
+          "gamePoints": "11"
+        },
+        {
+          "rank": "7",
+          "team": "Crans-Montana 2",
+          "matchPoints": "2",
+          "gamePoints": "5½"
+        },
+        {
+          "rank": "8",
+          "team": "Bulle 3",
+          "matchPoints": "0",
+          "gamePoints": "4"
+        }
+      ],
+      "matches": [
+        {
+          "homeTeam": "Grand Echiquier 2",
+          "awayTeam": "Crazy Horse 1",
+          "score": "3-3",
+          "boards": [
+            {
+              "homePlayer": "Alexandre Bur",
+              "homeRating": "1901",
+              "result": "1-0",
+              "awayPlayer": "Alain Tcheau",
+              "awayRating": "2011"
+            },
+            {
+              "homePlayer": "Vincent Conrad",
+              "homeRating": "1904",
+              "result": "0-1",
+              "awayPlayer": "Daniel Jaquier",
+              "awayRating": "1871"
+            },
+            {
+              "homePlayer": "Armin Rauer",
+              "homeRating": "1918",
+              "result": "0-1",
+              "awayPlayer": "Rolf Grütter",
+              "awayRating": "2006"
+            },
+            {
+              "homePlayer": "Kevin Lehmann",
+              "homeRating": "1852",
+              "result": "1-0",
+              "awayPlayer": "Adrian Silva",
+              "awayRating": "1857"
+            },
+            {
+              "homePlayer": "Andrea Giananti",
+              "homeRating": "1867",
+              "result": "½-½",
+              "awayPlayer": "Joël Loba",
+              "awayRating": "1833"
+            },
+            {
+              "homePlayer": "Patrick Goette",
+              "homeRating": "1764",
+              "result": "½-½",
+              "awayPlayer": "Alain Chollet",
+              "awayRating": "1783"
+            }
+          ]
+        },
+        {
+          "homeTeam": "Monthey 1",
+          "awayTeam": "Crans-Montana 2",
+          "score": "5-1",
+          "boards": [
+            {
+              "homePlayer": "Colin Moesching",
+              "homeRating": "1891",
+              "result": "1-0",
+              "awayPlayer": "Claude-Alain Bonvin",
+              "awayRating": "1629"
+            },
+            {
+              "homePlayer": "Fabien Tordeur",
+              "homeRating": "1977",
+              "result": "1-0",
+              "awayPlayer": "Alessandro Bonalli",
+              "awayRating": "1621"
+            },
+            {
+              "homePlayer": "Jorel Martin",
+              "homeRating": "1827",
+              "result": "1-0",
+              "awayPlayer": "Jean-Claude Zermatten",
+              "awayRating": "1559"
+            },
+            {
+              "homePlayer": "Dorian Turner",
+              "homeRating": "",
+              "result": "1-0",
+              "awayPlayer": "Luc Udry",
+              "awayRating": "1523"
+            },
+            {
+              "homePlayer": "Marius Jordan",
+              "homeRating": "1632",
+              "result": "1-0",
+              "awayPlayer": "Timur Gökok",
+              "awayRating": ""
+            },
+            {
+              "homePlayer": "Samuel Favre",
+              "homeRating": "1595",
+              "result": "0-1",
+              "awayPlayer": "Aleksandar Bojkovic",
+              "awayRating": ""
+            }
+          ]
+        },
+        {
+          "homeTeam": "Valais 2",
+          "awayTeam": "Sion 2",
+          "score": "2½-3½",
+          "boards": [
+            {
+              "homePlayer": "Hervé Lanois",
+              "homeRating": "1781",
+              "result": "1-0",
+              "awayPlayer": "Joan Cortada Garcia",
+              "awayRating": "1824"
+            },
+            {
+              "homePlayer": "Stephan Major",
+              "homeRating": "1797",
+              "result": "0-1",
+              "awayPlayer": "Mazlum Tosun",
+              "awayRating": "1689"
+            },
+            {
+              "homePlayer": "Christian Favre",
+              "homeRating": "1848",
+              "result": "½-½",
+              "awayPlayer": "Olivier Crettenand",
+              "awayRating": "1826"
+            },
+            {
+              "homePlayer": "Renzo Cerda",
+              "homeRating": "1744",
+              "result": "0-1",
+              "awayPlayer": "Sandro Bétrisey",
+              "awayRating": "1745"
+            },
+            {
+              "homePlayer": "Cyril Dorsaz",
+              "homeRating": "1819",
+              "result": "0-1",
+              "awayPlayer": "Alexandre Briguet",
+              "awayRating": "1828"
+            },
+            {
+              "homePlayer": "Michel Steiner",
+              "homeRating": "1803",
+              "result": "1-0",
+              "awayPlayer": "Simon Moerschell",
+              "awayRating": "1663"
+            }
+          ]
+        },
+        {
+          "homeTeam": "Bulle 3",
+          "awayTeam": "Payerne 2",
+          "score": "0-6",
+          "boards": [
+            {
+              "homePlayer": "Philippe Defferrard",
+              "homeRating": "1508",
+              "result": "0-1",
+              "awayPlayer": "Michael Cardoso Rodrigues",
+              "awayRating": "1854"
+            },
+            {
+              "homePlayer": "Alfred Senff",
+              "homeRating": "1544",
+              "result": "0-1",
+              "awayPlayer": "Lucas Bueche",
+              "awayRating": "1841"
+            },
+            {
+              "homePlayer": "Cédric Lutz",
+              "homeRating": "",
+              "result": "0-1",
+              "awayPlayer": "Armando Hauser",
+              "awayRating": "1819"
+            },
+            {
+              "homePlayer": "Thomas Christen",
+              "homeRating": "",
+              "result": "0-1",
+              "awayPlayer": "Karel Bourban",
+              "awayRating": "1818"
+            },
+            {
+              "homePlayer": "Pierre-Alain Genoud",
+              "homeRating": "",
+              "result": "0-1",
+              "awayPlayer": "Alex Garfield",
+              "awayRating": "1786"
+            },
+            {
+              "homePlayer": "N.N.",
+              "homeRating": "",
+              "result": "0-1",
+              "awayPlayer": "Kiril Solomatin",
+              "awayRating": ""
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

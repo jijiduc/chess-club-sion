@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Users, Trophy, Calendar, MapPin, ChevronRight, Clock, CheckCircle } from 'lucide-react'
+import { Users, Trophy, MapPin, ChevronRight, Clock, CheckCircle } from 'lucide-react'
 
 export default function Club() {
   const localImage = { src: './picture/local/local3.jpg', alt: 'Entrée du club' }
@@ -93,9 +93,10 @@ export default function Club() {
               <p className="text-neutral-600">Années d'histoire</p>
             </div>
             <div className="bg-white rounded-xl shadow-lg p-8 text-center">
-              <Calendar className="h-12 w-12 text-primary-600 mx-auto mb-4" />
-              <h3 className="text-3xl font-bold text-neutral-900 mb-2">52</h3>
-              <p className="text-neutral-600">Soirées par an</p>
+              <Trophy className="h-12 w-12 text-primary-600 mx-auto mb-4" />
+              <h3 className="text-3xl font-bold text-neutral-900 mb-2">6</h3>
+              <p className="text-neutral-600">Équipes en championnat</p>
+              <p className="text-sm text-neutral-500 mt-2">2 CSE • 2 CSG • 2 CVE</p>
             </div>
           </motion.div>
 
@@ -166,7 +167,7 @@ export default function Club() {
             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Information Section */}
-                <div className="p-8">
+                <div className="p-8 border-b-[3px] lg:border-b-0 lg:border-r-[3px] border-primary-600">
                   <div className="flex items-start mb-6">
                     <MapPin className="h-6 w-6 text-primary-600 mt-1 mr-3" />
                     <div>
@@ -216,7 +217,7 @@ export default function Club() {
               </div>
               
               {/* Map Section */}
-              <div className="w-full h-96 relative bg-neutral-100">
+              <div className="w-full h-96 relative bg-neutral-100 border-t-[3px] border-primary-600">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2764.440083544647!2d7.355490776721072!3d46.23375377108091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478edc44826a14cd%3A0x5ad7276f0d90b279!2sRue%20des%20Ch%C3%A2teaux%202%2C%201950%20Sion!5e0!3m2!1sfr!2sch!4v1707342008370!5m2!1sfr!2sch"
                   className="w-full h-full border-0"
