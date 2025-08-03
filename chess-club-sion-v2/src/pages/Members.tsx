@@ -39,7 +39,7 @@ export default function Members() {
             Liste des Membres
           </h1>
           <p className="text-xl text-neutral-600">
-            {totalMembers} membres actifs • ELO FSE moyen: {averageElo}
+            {totalMembers} membres actifs • ELO moyen: {averageElo}
           </p>
         </div>
 
@@ -100,7 +100,7 @@ export default function Members() {
                     Nom
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
-                    ELO FSE
+                    ELO FIDE
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
                     Fédération

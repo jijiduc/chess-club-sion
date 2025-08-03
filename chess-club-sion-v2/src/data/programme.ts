@@ -313,9 +313,9 @@ export const programmeEvents: ProgrammeEvent[] = [
 
   // Août 2025
   {
-    id: '2025-08-06',
+    id: '2025-08-09',
     title: 'Active Chess de Martigny',
-    date: '2025-08-06',
+    date: '2025-08-09',
     time: '9h00',
     category: 'competition',
     description: 'Tournoi de parties rapides',

@@ -172,8 +172,10 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-lg md:text-xl mb-12 text-primary-100 max-w-3xl mx-auto leading-relaxed"
           >
-            Le club d'échecs sédunois vous accueille pour découvrir 
-            ou perfectionner votre passion du jeu d'échecs dans une ambiance conviviale.
+            Le club d'échecs sédunois vous souhaite une excellente pause estivale !
+            Nous vous donnons rendez-vous fin août pour la reprise des activités.
+
+
           </motion.p>
 
           <motion.div
