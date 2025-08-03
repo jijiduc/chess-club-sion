@@ -21,7 +21,7 @@ const galleryImages: GalleryImage[] = [
     title: 'Position difficile',
     description: 'Une position difficile lors du match Sion I - Fribourg',
     date: '3 mars 2002',
-    event: 'CSE - Championnat Suisse par Équipes'
+    event: 'Championnat Suisse par Équipes'
   },
   {
     id: 'cse-2002-1b',
@@ -30,7 +30,7 @@ const galleryImages: GalleryImage[] = [
     title: 'Julien en action',
     description: 'Julien a oublié son T-Shirt ICC',
     date: '3 mars 2002',
-    event: 'CSE - Championnat Suisse par Équipes'
+    event: 'Championnat Suisse par Équipes'
   },
   {
     id: 'cse-2002-1h',
@@ -39,7 +39,7 @@ const galleryImages: GalleryImage[] = [
     title: 'Vue d\'ensemble',
     description: 'Vue d\'ensemble du match Sion I - Fribourg',
     date: '3 mars 2002',
-    event: 'CSE - Championnat Suisse par Équipes'
+    event: 'Championnat Suisse par Équipes'
   },
   {
     id: 'cse-2002-2a',
@@ -48,7 +48,7 @@ const galleryImages: GalleryImage[] = [
     title: 'Honneur au capitaine',
     description: 'Match Lausanne Le Joueur - Sion',
     date: '24 mars 2002',
-    event: 'CSE - Championnat Suisse par Équipes'
+    event: 'Championnat Suisse par Équipes'
   },
   {
     id: 'cse-2002-2j',
@@ -57,7 +57,45 @@ const galleryImages: GalleryImage[] = [
     title: 'Coup de maître',
     description: 'C\'est dans cette position que Pascal va jouer le coup de GM d6-d5 !',
     date: '24 mars 2002',
-    event: 'CSE - Championnat Suisse par Équipes'
+    event: 'Championnat Suisse par Équipes'
+  },
+
+  // CVE
+  {
+    id: 'cve-2022',
+    src: '/picture/gallery/cve_2022.png',
+    category: 'team',
+    title: 'Finale CVE 2022',
+    description: 'L\' équipe victorieuse lors de la finale (g.à.d Vlad, Pierre-Marie, Simon et Stéphane)',
+    date: 'mai 2022',
+    event: 'Championnat Valaisan par Équipes'
+  },
+  {
+    id: 'cve-2023',
+    src: '/picture/gallery/cve_2023.png',
+    category: 'team',
+    title: 'Finale CVE 2023',
+    description: 'L\' équipe victorieuse lors de la finale (g.à.d Simon, Vlad, Jean-Yves et Stéphane)',
+    date: 'mai 2023',
+    event: 'Championnat Valaisan par Équipes'
+  },
+  {
+    id: 'sion-crans-cve-2025',
+    src: '/picture/gallery/cve_2025.jpg',
+    category: 'team',
+    title: 'Finale CVE 2025',
+    description: 'L\' équipe victorieuse lors de la finale (g.à.d Jeremy, Pierre-Marie, Flavien et Jean-Yves)',
+    date: 'mai 2025',
+    event: 'Championnat Valaisan par Équipes'
+  },
+  {
+    id: 'cve-2025',
+    src: '/picture/gallery/SionMontana-cve2025.jpg',
+    category: 'team',
+    title: 'Tension finale',
+    description: 'Pierre-Marie et Xavier se battant pour donner la victoire à leur équipe, sous l\'oeil attentif d\'Yves et Jean-daniel lors du match Sion 1 - Montana 1. Le point sera finalement partagé',
+    date: 'mai 2025',
+    event: 'Championnat Valaisan par Équipes'
   },
   
   // Valais Team Championship
@@ -301,7 +339,7 @@ const galleryImages: GalleryImage[] = [
 
 const categories = [
   { id: 'all', label: 'Toutes', icon: Camera },
-  { id: 'team', label: 'Équipes', icon: Users },
+  { id: 'team', label: 'Compétition par équipes', icon: Users },
   { id: 'tournament', label: 'Tournois', icon: Trophy },
   { id: 'event', label: 'Événements', icon: Calendar },
   { id: 'member', label: 'Membres', icon: Users },
@@ -314,10 +352,49 @@ export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null)
   const [imageError, setImageError] = useState<Set<string>>(new Set())
 
+  const parseDate = (dateString?: string): Date => {
+    if (!dateString) {
+      return new Date(0);
+    }
+  
+    const monthMap: { [key: string]: number } = {
+      'janvier': 0, 'février': 1, 'mars': 2, 'avril': 3, 'mai': 4, 'juin': 5,
+      'juillet': 6, 'août': 7, 'septembre': 8, 'octobre': 9, 'novembre': 10, 'décembre': 11
+    };
+  
+    const parts = dateString.toLowerCase().split(' ');
+  
+    if (parts.length === 1 && /^\d{4}$/.test(parts[0])) {
+      return new Date(parseInt(parts[0]), 0, 1);
+    }
+    
+    if (parts.length === 2 && monthMap.hasOwnProperty(parts[0])) {
+      const year = parseInt(parts[1]);
+      const month = monthMap[parts[0]];
+      return new Date(year, month, 1);
+    }
+  
+    if (parts.length === 3 && monthMap.hasOwnProperty(parts[1])) {
+      const year = parseInt(parts[2]);
+      const month = monthMap[parts[1]];
+      const day = parseInt(parts[0]);
+      return new Date(year, month, day);
+    }
+  
+    return new Date(0);
+  };
+  
   const filteredImages = useMemo(() => {
-    if (selectedCategory === 'all') return galleryImages
-    return galleryImages.filter(img => img.category === selectedCategory)
-  }, [selectedCategory])
+    const imagesToFilter = selectedCategory === 'all'
+      ? galleryImages
+      : galleryImages.filter(img => img.category === selectedCategory);
+  
+    return imagesToFilter.sort((a, b) => {
+      const dateA = parseDate(a.date).getTime();
+      const dateB = parseDate(b.date).getTime();
+      return dateB - dateA;
+    });
+  }, [selectedCategory]);
 
   const handleImageError = (imageId: string) => {
     setImageError(prev => new Set(prev).add(imageId))
@@ -350,7 +427,7 @@ export default function Gallery() {
               Archives historiques du Club d'Échecs de Sion
             </p>
             <p className="text-lg opacity-75">
-              Plus de 40 ans d'histoire en images (1979-2019)
+              Notre histoire en images
             </p>
           </motion.div>
         </div>
@@ -493,6 +570,7 @@ export default function Gallery() {
                   </h2>
                   {selectedImage.description && (
                     <p className="text-neutral-700 mb-4">{selectedImage.description}</p>
+
                   )}
                   <div className="space-y-2 text-sm">
                     {selectedImage.date && (

@@ -18,6 +18,7 @@ const InternalTournament = lazy(() => import('./pages/Competitions/InternalTourn
 const ChessSchool = lazy(() => import('./pages/ChessSchool'))
 const Archives = lazy(() => import('./pages/Archives'))
 const Gallery = lazy(() => import('./pages/Gallery'))
+const Histoire = lazy(() => import('./pages/Histoire')) // <-- NOUVELLE PAGE AJOUTÉE
 
 const queryClient = new QueryClient()
 
@@ -51,6 +52,7 @@ function App() {
               <Route path="ecole" element={<ChessSchool />} />
               <Route path="archives" element={<Archives />} />
               <Route path="galerie" element={<Gallery />} />
+              <Route path="histoire" element={<Histoire />} /> {/* <-- NOUVELLE ROUTE AJOUTÉE */}
             </Route>
           </Routes>
         </Suspense>

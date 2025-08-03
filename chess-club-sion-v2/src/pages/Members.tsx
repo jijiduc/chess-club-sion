@@ -39,7 +39,7 @@ export default function Members() {
             Liste des Membres
           </h1>
           <p className="text-xl text-neutral-600">
-            {totalMembers} membres actifs • ELO moyen: {averageElo}
+            {totalMembers} membres actifs en compétition • ELO moyen: {averageElo}
           </p>
         </div>
 

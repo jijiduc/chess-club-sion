@@ -19,7 +19,7 @@ interface Score {
 // Données du tournoi
 const tournoiData = {
   info: {
-    titre: "Tournoi Interne 2025",
+    titre: "Championnat interne du club",
     format: [
       "Format Round Robin avec une cadence de <strong>60 minutes + 30 secondes par coups</strong>, pour toute la partie.",
       "1 partie par mois. Se jouant soit lors de la soirée du club réservée ou possibilité d'avancer / de rattraper la partie dans un délai indiqué à chaque ronde.",
@@ -108,12 +108,12 @@ const tournoiData = {
     },
     {
       numero: 7,
-      statut: "en cours",
+      statut: "terminée",
       appariements: [
-        { table: 1, blanc: 8, noir: 1, resultat: null },
-        { table: 2, blanc: 3, noir: 6, resultat: null },
-        { table: 3, blanc: 2, noir: 5, resultat: null },
-        { table: 4, blanc: 4, noir: 7, resultat: null }
+        { table: 1, blanc: 8, noir: 1, resultat: "0-1" },
+        { table: 2, blanc: 3, noir: 6, resultat: "1-0" },
+        { table: 3, blanc: 2, noir: 5, resultat: "1-0" },
+        { table: 4, blanc: 4, noir: 7, resultat: "1-0" }
       ]
     }
   ]
@@ -133,7 +133,12 @@ export default function InternalTournament() {
   }
 
   const [currentRound, setCurrentRound] = useState(getRondeInitiale())
-  const [viewMode, setViewMode] = useState<'rounds' | 'crosstable'>('rounds')
+  const [viewMode, setViewMode] = useState<'rounds' | 'crosstable'>('crosstable')
+  const [isExpanded, setIsExpanded] = useState(true)
+
+  const toggleExpanded = () => {
+    setIsExpanded(prev => !prev)
+  }
 
   // Calcul des scores
   const calculateScores = (): Score[] => {
@@ -366,117 +371,136 @@ export default function InternalTournament() {
               {tournoiData.info.titre}
             </h1>
             <p className="text-xl md:text-2xl opacity-90 mb-8">
-              Championnat interne du club
+              Tournoi de parties lentes
             </p>
-            <div className="flex flex-wrap justify-center gap-6 text-sm md:text-base">
-              <div className="flex items-center">
-                <Clock className="h-5 w-5 mr-2" />
-                <span>60 min + 30 sec/coup</span>
-              </div>
-              <div className="flex items-center">
-                <Users className="h-5 w-5 mr-2" />
-                <span>{tournoiData.joueurs.length} joueurs</span>
-              </div>
-              <div className="flex items-center">
-                <Trophy className="h-5 w-5 mr-2" />
-                <span>Round Robin</span>
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Tournament Info */}
+      {/* Tournament Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="bg-white rounded-xl shadow-lg p-8 md:p-12"
+            
+            {/* Unified Tournament Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-white rounded-xl shadow-lg overflow-hidden"
             >
-              <h2 className="text-2xl font-bold text-neutral-900 mb-6">Format du tournoi</h2>
-              <div className="space-y-3 mb-8">
-                {tournoiData.info.format.map((rule, index) => (
-                  <motion.div 
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 * index }}
-                    className="flex items-start"
-                  >
-                    <ChevronRight className="h-5 w-5 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                    <p className="text-neutral-700" dangerouslySetInnerHTML={{ __html: rule }}></p>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="bg-gradient-to-r from-yellow-50 to-primary-50 rounded-xl p-6 border border-primary-200">
-                <h3 className="text-xl font-bold text-primary-900 mb-4 flex items-center">
-                  <Award className="h-6 w-6 mr-2" />
-                  Prix du tournoi
+              <button
+                onClick={toggleExpanded}
+                className="w-full px-6 py-4 flex items-center justify-between bg-gradient-to-r from-primary-600 to-accent-600 text-white hover:from-primary-700 hover:to-accent-700 transition-colors"
+              >
+                <h3 className="text-2xl font-semibold flex items-center">
+                  <Trophy className="h-6 w-6 mr-3" />
+                  Tournoi interne de la saison 2024/25
                 </h3>
-                <div className="space-y-2">
-                  {tournoiData.info.prix.map((prix, index) => (
-                    <div 
-                      key={index} 
-                      className="flex items-start"
-                    >
-                      <Medal className={`h-5 w-5 mr-2 flex-shrink-0 mt-0.5 ${
-                        index === 0 ? 'text-yellow-500' :
-                        index === 1 ? 'text-neutral-400' :
-                        'text-primary-600'
-                      }`} />
-                      <p className="text-neutral-700" dangerouslySetInnerHTML={{ __html: prix }}></p>
+                <motion.svg
+                  animate={{ rotate: isExpanded ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </motion.svg>
+              </button>
+
+              {isExpanded && (
+                <motion.div
+                  initial={{ height: 0 }}
+                  animate={{ height: 'auto' }}
+                  exit={{ height: 0 }}
+                  className="px-6 py-8"
+                >
+                  {/* Format Rules */}
+                  <div className="mb-12">
+                    <h4 className="text-xl font-bold text-neutral-900 mb-6 flex items-center">
+                      <Award className="h-6 w-6 mr-2" />
+                      Règles du tournoi
+                    </h4>
+                    <div className="space-y-3 mb-8">
+                      {tournoiData.info.format.map((rule, index) => (
+                        <motion.div 
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.1 * index }}
+                          className="flex items-start"
+                        >
+                          <ChevronRight className="h-5 w-5 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
+                          <p className="text-neutral-700" dangerouslySetInnerHTML={{ __html: rule }}></p>
+                        </motion.div>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
 
-      {/* Results Section */}
-      <section className="py-16 bg-neutral-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            {/* View Toggle */}
-            <div className="flex justify-center mb-8">
-              <div className="bg-white rounded-lg shadow-md p-1 inline-flex">
-                <button
-                  onClick={() => setViewMode('rounds')}
-                  className={`px-6 py-2 rounded-md flex items-center transition-colors ${
-                    viewMode === 'rounds' 
-                      ? 'bg-gradient-to-r from-primary-600 to-accent-600 text-white' 
-                      : 'text-neutral-700 hover:bg-neutral-100'
-                  }`}
-                >
-                  <List className="h-5 w-5 mr-2" />
-                  Rondes
-                </button>
-                <button
-                  onClick={() => setViewMode('crosstable')}
-                  className={`px-6 py-2 rounded-md flex items-center transition-colors ${
-                    viewMode === 'crosstable' 
-                      ? 'bg-gradient-to-r from-primary-600 to-accent-600 text-white' 
-                      : 'text-neutral-700 hover:bg-neutral-100'
-                  }`}
-                >
-                  <Grid className="h-5 w-5 mr-2" />
-                  Classement
-                </button>
-              </div>
-            </div>
+                    <div className="bg-gradient-to-r from-yellow-50 to-primary-50 rounded-xl p-6 border border-primary-200">
+                      <h5 className="text-xl font-bold text-primary-900 mb-4 flex items-center">
+                        <Medal className="h-6 w-6 mr-2" />
+                        Prix du tournoi
+                      </h5>
+                      <div className="space-y-2">
+                        {tournoiData.info.prix.map((prix, index) => (
+                          <div 
+                            key={index} 
+                            className="flex items-start"
+                          >
+                            <Medal className={`h-5 w-5 mr-2 flex-shrink-0 mt-0.5 ${
+                              index === 0 ? 'text-yellow-500' :
+                              index === 1 ? 'text-neutral-400' :
+                              'text-primary-600'
+                            }`} />
+                            <p className="text-neutral-700" dangerouslySetInnerHTML={{ __html: prix }}></p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
 
-            {/* Content */}
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="bg-white rounded-xl shadow-lg p-6 md:p-8"
-            >
-              {viewMode === 'rounds' ? renderRounds() : renderCrosstable()}
+                  {/* Results Section */}
+                  <div>
+                    <h4 className="text-xl font-bold text-neutral-900 mb-6 flex items-center">
+                      <Trophy className="h-6 w-6 mr-2" />
+                      Classement et Rondes
+                    </h4>
+
+                    {/* View Toggle */}
+                    <div className="flex justify-center mb-8">
+                      <div className="bg-neutral-100 rounded-lg p-1 inline-flex">
+                        <button
+                          onClick={() => setViewMode('rounds')}
+                          className={`px-6 py-2 rounded-md flex items-center transition-colors ${
+                            viewMode === 'rounds' 
+                              ? 'bg-gradient-to-r from-primary-600 to-accent-600 text-white' 
+                              : 'text-neutral-700 hover:bg-neutral-200'
+                          }`}
+                        >
+                          <List className="h-5 w-5 mr-2" />
+                          Rondes
+                        </button>
+                        <button
+                          onClick={() => setViewMode('crosstable')}
+                          className={`px-6 py-2 rounded-md flex items-center transition-colors ${
+                            viewMode === 'crosstable' 
+                              ? 'bg-gradient-to-r from-primary-600 to-accent-600 text-white' 
+                              : 'text-neutral-700 hover:bg-neutral-200'
+                          }`}
+                        >
+                          <Grid className="h-5 w-5 mr-2" />
+                          Classement
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="bg-neutral-50 rounded-lg p-6">
+                      {viewMode === 'rounds' ? renderRounds() : renderCrosstable()}
+                    </div>
+                  </div>
+                </motion.div>
+              )}
             </motion.div>
           </div>
         </div>

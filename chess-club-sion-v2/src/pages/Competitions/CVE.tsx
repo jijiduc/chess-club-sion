@@ -279,7 +279,7 @@ export default function CVE() {
                   </h3>
                   <div className="space-y-4">
                     <div>
-                      <h4 className="font-semibold text-primary-900 mb-2">Structure en 3 phases</h4>
+                      <h4 className="font-semibold text-primary-600 mb-2 text-lg">Structure en 3 phases</h4>
                       <ul className="space-y-3">
                         <li className="flex items-start">
                           <ChevronRight className="h-5 w-5 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
@@ -309,9 +309,11 @@ export default function CVE() {
                   </div>
                 </div>
                 
-                <p className="text-neutral-700 mt-6">
-                  Pour cette compétition, les joueurs du club de Sion sont répartis entre les équipes de Sion 1 et Sion 2.
-                </p>
+                </div>
+                <div className="mt-8 p-4 bg-accent-50 rounded-lg">
+                  <p className="text-sm text-accent-800 font-semibold mb-1">Sur la répartition des joueurs du club :</p>
+                  <p className="text-sm text-accent-800">Pour cette compétition, les joueurs du club de Sion sont répartis entre les diverses équipes Sion.
+                  </p>
               </div>
             </div>
           </motion.div>

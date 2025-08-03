@@ -90,8 +90,6 @@ export default function Home() {
     )
   }
 
-  // Removed unused formatText function
-
   const upcomingEvents = programmeEvents
     .filter(event => new Date(event.date) >= new Date())
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
@@ -99,32 +97,25 @@ export default function Home() {
 
   const activities = [
     {
+      icon: Zap,
+      title: "Les soirées du club",
+      description: "Soirées blitz, analyses, parties semi-rapides ou thématiques",
+      time: "vendredi dès 20h00",
+      link: "/programme"
+    },
+    {
       icon: Users,
-      title: "Formation",
-      description: "Cours pour débutants et joueurs avancés, jeunes et adultes",
-      time: "18h-19h & 19h-20h",
+      title: "Pôle formation",
+      description: "Cours pour écoliers, joueurs intermédiaires et avancés, jeunes ou adultes",
+      time: "mercredi, vendredi, samedi",
       link: "/ecole"
     },
     {
-      icon: Zap,
-      title: "Soirées Club",
-      description: "Blitz, analyses, parties semi-rapides et soirées thématiques",
-      time: "20h00",
-      link: "/programme"
-    },
-    {
       icon: Trophy,
-      title: "Compétitions",
-      description: "CSE, CVE, CSG - Participez aux championnats suisses et valaisans",
-      time: "Week-ends",
+      title: "Pôle compétition",
+      description: "Participez aux diverses championnats suisses et valaisans par équipes",
+      time: "vendredi soir, samedi",
       link: "/competitions/cse"
-    },
-    {
-      icon: Calendar,
-      title: "Tournois",
-      description: "Tournois internes et championnats valaisans organisés au club",
-      time: "Selon calendrier",
-      link: "/programme"
     }
   ]
 
@@ -185,17 +176,17 @@ export default function Home() {
             className="flex flex-col sm:flex-row gap-6 justify-center"
           >
             <Link
-              to="/club#devenir-membre"
+              to="/club"
               className="group bg-white hover:bg-primary-50 text-primary-800 px-8 py-4 rounded-full font-semibold transition-all duration-300 inline-flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
-              Devenir membre
+              Découvrir le club
               <ChevronRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               to="/programme"
               className="group bg-primary-700/40 hover:bg-primary-600/50 backdrop-blur text-white border-2 border-white/20 hover:border-white/40 px-8 py-4 rounded-full font-semibold transition-all duration-300 inline-flex items-center justify-center"
             >
-              Programme & Calendrier
+              Programme
               <Calendar className="ml-2 h-5 w-5 group-hover:scale-110 transition-transform" />
             </Link>
           </motion.div>
@@ -217,12 +208,12 @@ export default function Home() {
               Nos activités
             </h2>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-              Du débutant au joueur confirmé, découvrez toutes nos activités 
-              pour progresser et partager votre passion des échecs.
+              Du débutant au joueur confirmé, découvrez nos diverses activités 
+              pour progresser et vous amusez avec le noble jeu.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {activities.map((activity, index) => {
               const IconComponent = activity.icon
               return (
@@ -232,7 +223,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="group bg-gradient-to-br from-neutral-50 to-neutral-100 hover:from-primary-50 hover:to-primary-100 rounded-2xl p-6 transition-all duration-300 hover:shadow-lg"
+                  className="group bg-gradient-to-br from-neutral-50 to-neutral-100 hover:from-primary-50 hover:to-primary-100 rounded-2xl p-6 transition-all duration-300 hover:shadow-lg flex flex-col h-full"
                 >
                   <div className="flex items-center justify-between mb-4">
                     <IconComponent className="h-8 w-8 text-primary-600 group-hover:scale-110 transition-transform" />
@@ -243,12 +234,12 @@ export default function Home() {
                   <h3 className="text-xl font-semibold text-neutral-900 mb-3">
                     {activity.title}
                   </h3>
-                  <p className="text-neutral-600 mb-4 leading-relaxed">
+                  <p className="text-neutral-600 mb-4 leading-relaxed flex-grow">
                     {activity.description}
                   </p>
                   <Link
                     to={activity.link}
-                    className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm group-hover:translate-x-1 transition-transform"
+                    className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm group-hover:translate-x-1 transition-transform mt-auto"
                   >
                     En savoir plus
                     <ChevronRight className="ml-1 h-4 w-4" />
@@ -273,7 +264,7 @@ export default function Home() {
               Prochains événements
             </h2>
             <p className="text-xl text-neutral-600">
-              Ne manquez pas nos prochaines activités !
+              Voici les trois prochains rendez-vous du calendrier
             </p>
           </motion.div>
 
@@ -334,7 +325,7 @@ export default function Home() {
               Actualités du club
             </h2>
             <p className="text-xl text-neutral-600 mb-6">
-              Suivez les dernières nouvelles et événements marquants
+              Voici les dernières nouvelles 
             </p>
             <div className="h-1 w-24 bg-primary-600 mx-auto" />
           </motion.div>
@@ -347,7 +338,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+                className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
               >
                 {/* Image Section */}
                 {item.hasImage && item.image && (
@@ -362,7 +353,7 @@ export default function Home() {
                 )}
                 
                 {/* Content Section */}
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-grow">
                   {/* Header */}
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center space-x-3">
@@ -381,38 +372,35 @@ export default function Home() {
                   <h3 className="text-xl font-serif font-bold text-neutral-900 mb-3 group-hover:text-primary-700 transition-colors line-clamp-2">
                     {item.title}
                   </h3>
-                  
-                  {/* Description */}
-                  {item.description && (
-                    <p className="text-neutral-700 text-base mb-4 leading-relaxed">
-                      {item.description}
-                    </p>
-                  )}
-                  
-                  
-                  {/* Footer */}
-                  <div className="flex items-center justify-between">
-                    {item.hasLink && item.link ? (
-                      <Link
-                        to={item.link}
-                        className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm transition-all duration-300"
-                      >
-                        {item.linkText || 'Voir détails'}
-                        <ChevronRight className="ml-1 h-4 w-4" />
-                      </Link>
-                    ) : (
-                      <button 
-                        onClick={() => openNewsModal(index)}
-                        className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm transition-all duration-300"
-                      >
-                        Lire l'article
-                        <ChevronRight className="ml-1 h-4 w-4" />
-                      </button>
+
+                  {/* Wrapper pour le contenu du bas (description + footer) */}
+                  <div className="mt-auto pt-2">
+                    {/* Description */}
+                    {item.description && (
+                      <p className="text-neutral-700 text-base mb-4 leading-relaxed">
+                        {item.description}
+                      </p>
                     )}
                     
-                    <div className="flex items-center space-x-2 text-xs text-neutral-400">
-                      <div className="w-1.5 h-1.5 bg-primary-400 rounded-full"></div>
-                      <span>Actualité</span>
+                    {/* Footer */}
+                    <div className="flex items-center justify-between">
+                      {item.hasLink && item.link ? (
+                        <Link
+                          to={item.link}
+                          className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm transition-all duration-300"
+                        >
+                          {item.linkText || 'Voir détails'}
+                          <ChevronRight className="ml-1 h-4 w-4" />
+                        </Link>
+                      ) : (
+                        <button 
+                          onClick={() => openNewsModal(index)}
+                          className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm transition-all duration-300"
+                        >
+                          Lire l'article au complet
+                          <ChevronRight className="ml-1 h-4 w-4" />
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -545,8 +533,8 @@ export default function Home() {
                 <div className="flex items-start space-x-4">
                   <Clock className="h-6 w-6 text-primary-400 mt-1" />
                   <div>
-                    <h3 className="font-semibold text-lg">Horaires</h3>
-                    <p className="text-neutral-300">Vendredis soirs<br />19h00 : Cours jeunes<br />20h00 : Soirée du club</p>
+                    <h3 className="font-semibold text-lg">Soirées du club</h3>
+                    <p className="text-neutral-300">Tous les vendredis soirs dès 20h00</p>
                   </div>
                 </div>
               </div>

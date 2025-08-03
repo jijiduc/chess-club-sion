@@ -85,7 +85,8 @@ const Programme: React.FC = () => {
       const endDate = new Date(endDateString);
       // If same month and year, format as "Du X au Y month year"
       if (date.getMonth() === endDate.getMonth() && date.getFullYear() === endDate.getFullYear()) {
-        return `Du ${date.getDate()} au ${endDate.toLocaleDateString('fr-FR', dateOptions)}`;
+        const shortDateOptions: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'long', year: 'numeric' };
+        return `Du ${date.getDate()} au ${endDate.toLocaleDateString('fr-FR', shortDateOptions)}`;
       } else {
         // Different months, show full dates
         return `Du ${date.toLocaleDateString('fr-FR', dateOptions)} au ${endDate.toLocaleDateString('fr-FR', dateOptions)}`;
@@ -94,30 +95,6 @@ const Programme: React.FC = () => {
     
     return date.toLocaleDateString('fr-FR', dateOptions);
   };
-
-  const activities = [
-    {
-      title: "Cours d'échecs",
-      description: "Formation pour jeunes et débutants certains vendredis",
-      icon: GraduationCap,
-      color: "from-accent-500 to-accent-600",
-      link: undefined
-    },
-    {
-      title: "Compétitions",
-      description: "Tournois de parties blitz, rapides ou lentes",
-      icon: Trophy,
-      color: "from-primary-500 to-primary-600",
-      link: "/competitions/tournoi-interne"
-    },
-    {
-      title: "Analyses",
-      description: "Approfondissez votre compréhension du jeu",
-      icon: Sparkles,
-      color: "from-secondary-500 to-secondary-600",
-      link: undefined
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-50 via-white to-accent-50">
@@ -139,7 +116,7 @@ const Programme: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-primary-200"
           >
-            Programme & Calendrier
+            Calendrier du club
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: -20 }}
@@ -147,59 +124,12 @@ const Programme: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-2xl text-primary-100 max-w-3xl"
           >
-            Découvrez nos activités hebdomadaires et nos événements tout au long de l'année
+            Référence des soirées, cours ou tournoi à venir
           </motion.p>
         </div>
       </motion.div>
 
       <div className="container mx-auto px-6 py-16">
-        {/* Activités régulières */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-20"
-        >
-          <h2 className="text-4xl font-bold text-neutral-800 mb-4 text-center">
-            Nos activités régulières
-          </h2>
-          <p className="text-xl text-neutral-600 text-center mb-12 max-w-3xl mx-auto">
-            Rejoignez-nous chaque vendredi soir pour une soirée dédiée aux échecs
-          </p>
-          
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {activities.map((activity, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="relative group"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-600/20 to-accent-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all"></div>
-                <div className="relative bg-white rounded-2xl shadow-xl p-8 border border-primary-100 h-full">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${activity.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                    <activity.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-neutral-800 mb-3">{activity.title}</h3>
-                  <p className="text-neutral-600 mb-3">{activity.description}</p>
-                  {activity.link && (
-                    <Link
-                      to={activity.link}
-                      className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm group-hover:translate-x-1 transition-all"
-                    >
-                      Tournoi interne
-                      <ExternalLink className="w-4 h-4 ml-1" />
-                    </Link>
-                  )}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-
         {/* Filtres */}
         <motion.section 
           initial={{ opacity: 0, y: 20 }}
@@ -245,11 +175,7 @@ const Programme: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           className="mb-20"
-        >
-          <h2 className="text-4xl font-bold text-neutral-800 mb-4 text-center">
-            Événements à Venir
-          </h2>
-          
+        > 
           {upcomingEvents.length === 0 ? (
             <div className="text-center py-12 bg-white rounded-2xl shadow-lg">
               <Calendar className="w-16 h-16 text-neutral-400 mx-auto mb-4" />
@@ -273,13 +199,13 @@ const Programme: React.FC = () => {
                           initial={{ opacity: 0, x: -20 }}
                           animate={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.5, delay: index * 0.05 }}
-                          whileHover={{ scale: 1.02, x: 10 }}
+                          whileHover={{ scale: 1.02 }}
                           className="group relative"
                         >
                           <div className="absolute inset-0 bg-gradient-to-r from-primary-600/10 to-transparent rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                          <div className="relative bg-white rounded-xl shadow-lg p-6 border border-primary-100 hover:shadow-xl transition-all">
-                            <div className="flex items-start gap-6">
-                              <div className={`w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden ${
+                          <div className="relative bg-white rounded-xl shadow-lg p-6 border border-primary-100 hover:shadow-xl transition-all overflow-hidden">
+                            
+                            <div className={`absolute top-6 right-6 w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden ${
                                 event.image ? '' : (
                                   event.category === 'competition' ? 'bg-gradient-to-br from-primary-400 to-primary-500' :
                                   event.category === 'formation' ? 'bg-gradient-to-br from-accent-400 to-accent-500' :
@@ -287,17 +213,18 @@ const Programme: React.FC = () => {
                                   'bg-gradient-to-br from-success-400 to-success-500'
                                 )
                               }`}>
-                                <EventVisual event={event} />
-                              </div>
+                              <EventVisual event={event} />
+                            </div>
+
+                            <span className={`absolute bottom-6 right-6 px-3 py-1 rounded-full text-sm font-medium ${categoryColors[event.category]}`}>
+                              {categoryLabels[event.category]}
+                            </span>
+
+                            <div className="flex items-start">
                               <div className="flex-grow">
-                                <div className="flex items-start justify-between mb-2">
-                                  <h3 className="text-xl font-bold text-neutral-800 group-hover:text-primary-600 transition-colors">
-                                    {event.title}
-                                  </h3>
-                                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${categoryColors[event.category]}`}>
-                                    {categoryLabels[event.category]}
-                                  </span>
-                                </div>
+                                <h3 className="text-xl font-bold text-neutral-800 group-hover:text-primary-600 transition-colors mr-20 mb-2">
+                                  {event.title}
+                                </h3>
                                 <div className="space-y-2 text-neutral-600">
                                   <p className="flex items-center">
                                     <Calendar className="w-4 h-4 mr-2 text-primary-500" />
@@ -342,6 +269,8 @@ const Programme: React.FC = () => {
                                     <div className="mt-3">
                                       <a
                                         href={event.link}
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
                                         className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm group-hover:translate-x-1 transition-all"
                                       >
                                         En savoir plus
@@ -351,7 +280,6 @@ const Programme: React.FC = () => {
                                   )}
                                 </div>
                               </div>
-                              <Sparkles className="w-6 h-6 text-primary-400 group-hover:rotate-12 transition-transform" />
                             </div>
                           </div>
                         </motion.div>
@@ -363,7 +291,6 @@ const Programme: React.FC = () => {
             </div>
           )}
         </motion.section>
-
       </div>
     </div>
   );

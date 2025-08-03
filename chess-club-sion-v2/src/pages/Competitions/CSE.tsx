@@ -398,7 +398,7 @@ const CSE: React.FC = () => {
             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
               <div className="bg-gradient-to-r from-accent-600 to-primary-600 text-white p-4">
                 <h3 className="text-xl font-bold">1ère ligue - Groupe Ouest</h3>
-                <p className="text-sm opacity-90">Après 4 rondes</p>
+                <p className="text-sm opacity-90">Après 5 rondes</p>
               </div>
               <div className="p-6">
                 <table className="w-full">
@@ -415,49 +415,49 @@ const CSE: React.FC = () => {
                       <td className="py-2">1</td>
                       <td className="py-2">Genève 2</td>
                       <td className="py-2 text-center font-semibold">8</td>
-                      <td className="py-2 text-center">18½</td>
+                      <td className="py-2 text-center">24½</td>
                     </tr>
                     <tr className="border-b">
                       <td className="py-2">2</td>
-                      <td className="py-2">Grand Echiquier 1</td>
-                      <td className="py-2 text-center font-semibold">6</td>
-                      <td className="py-2 text-center">20½</td>
+                      <td className="py-2">Echallens 2</td>
+                      <td className="py-2 text-center font-semibold">8</td>
+                      <td className="py-2 text-center">22½</td>
                     </tr>
                     <tr className="border-b">
                       <td className="py-2">3</td>
-                      <td className="py-2">Echallens 2</td>
-                      <td className="py-2 text-center font-semibold">6</td>
-                      <td className="py-2 text-center">17½</td>
+                      <td className="py-2">Grand Echiquier 1</td>
+                      <td className="py-2 text-center font-semibold">7</td>
+                      <td className="py-2 text-center">24½</td>
                     </tr>
                     <tr className="border-b">
                       <td className="py-2">4</td>
-                      <td className="py-2">Neuchâtel 1</td>
-                      <td className="py-2 text-center font-semibold">5</td>
-                      <td className="py-2 text-center">15½</td>
+                      <td className="py-2">Köniz-Bubenberg 1</td>
+                      <td className="py-2 text-center font-semibold">6</td>
+                      <td className="py-2 text-center">20</td>
                     </tr>
                     <tr className="border-b">
                       <td className="py-2">5</td>
-                      <td className="py-2">Köniz-Bubenberg 1</td>
+                      <td className="py-2">Neuchâtel 1</td>
                       <td className="py-2 text-center font-semibold">5</td>
-                      <td className="py-2 text-center">16</td>
+                      <td className="py-2 text-center">18½</td>
                     </tr>
                     <tr className="border-b">
                       <td className="py-2">6</td>
                       <td className="py-2">Fribourg 1</td>
                       <td className="py-2 text-center font-semibold">4</td>
-                      <td className="py-2 text-center">17</td>
+                      <td className="py-2 text-center">19</td>
                     </tr>
                     <tr className="border-b">
                       <td className="py-2">7</td>
                       <td className="py-2">Valais 1</td>
-                      <td className="py-2 text-center font-semibold">0</td>
-                      <td className="py-2 text-center">12½</td>
+                      <td className="py-2 text-center font-semibold">1</td>
+                      <td className="py-2 text-center">16½</td>
                     </tr>
                     <tr className="bg-red-50 font-semibold">
                       <td className="py-2">8</td>
                       <td className="py-2 text-red-900">Sion 1</td>
-                      <td className="py-2 text-center text-red-900">0</td>
-                      <td className="py-2 text-center text-red-900">10½</td>
+                      <td className="py-2 text-center text-red-900">1</td>
+                      <td className="py-2 text-center text-red-900">14½</td>
                     </tr>
                   </tbody>
                 </table>
@@ -467,8 +467,8 @@ const CSE: React.FC = () => {
             {/* 3ème ligue standings */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden">
               <div className="bg-gradient-to-r from-accent-600 to-primary-600 text-white p-4">
-                <h3 className="text-xl font-bold">3ème ligue - Groupe Ouest</h3>
-                <p className="text-sm opacity-90">Après 4 rondes</p>
+                <h3 className="text-xl font-bold">3ème ligue - Groupe Ouest 2</h3>
+                <p className="text-sm opacity-90">Après 5 rondes</p>
               </div>
               <div className="p-6">
                 <table className="w-full">
@@ -483,313 +483,54 @@ const CSE: React.FC = () => {
                   <tbody>
                     <tr className="border-b">
                       <td className="py-2">1</td>
-                      <td className="py-2">Crazy Horse 1</td>
-                      <td className="py-2 text-center font-semibold">7</td>
-                      <td className="py-2 text-center">17</td>
+                      <td className="py-2">Monthey 1</td>
+                      <td className="py-2 text-center font-semibold">8</td>
+                      <td className="py-2 text-center">21½</td>
                     </tr>
                     <tr className="border-b">
                       <td className="py-2">2</td>
-                      <td className="py-2">Monthey 1</td>
-                      <td className="py-2 text-center font-semibold">6</td>
-                      <td className="py-2 text-center">17½</td>
+                      <td className="py-2">Crazy Horse 1</td>
+                      <td className="py-2 text-center font-semibold">8</td>
+                      <td className="py-2 text-center">20</td>
                     </tr>
                     <tr className="border-b">
                       <td className="py-2">3</td>
-                      <td className="py-2">Grand Echiquier 2</td>
-                      <td className="py-2 text-center font-semibold">5</td>
-                      <td className="py-2 text-center">12</td>
+                      <td className="py-2">Payerne 2</td>
+                      <td className="py-2 text-center font-semibold">6</td>
+                      <td className="py-2 text-center">21½</td>
                     </tr>
                     <tr className="border-b">
                       <td className="py-2">4</td>
-                      <td className="py-2">Payerne 2</td>
-                      <td className="py-2 text-center font-semibold">4</td>
-                      <td className="py-2 text-center">15½</td>
-                    </tr>
-                    <tr className="bg-yellow-50 font-semibold">
-                      <td className="py-2">5</td>
-                      <td className="py-2 text-yellow-900">Sion 2</td>
-                      <td className="py-2 text-center text-yellow-900">4</td>
-                      <td className="py-2 text-center text-yellow-900">11</td>
+                      <td className="py-2">Valais 2</td>
+                      <td className="py-2 text-center font-semibold">5</td>
+                      <td className="py-2 text-center">16½</td>
                     </tr>
                     <tr className="border-b">
+                      <td className="py-2">5</td>
+                      <td className="py-2 text-yellow-900">Grand Echiquier 2</td>
+                      <td className="py-2 text-center text-yellow-900">5</td>
+                      <td className="py-2 text-center text-yellow-900">12</td>
+                    </tr>
+                    <tr className="bg-yellow-50 font-semibold">
                       <td className="py-2">6</td>
-                      <td className="py-2">Valais 2</td>
+                      <td className="py-2">Sion 2</td>
                       <td className="py-2 text-center font-semibold">4</td>
-                      <td className="py-2 text-center">13½</td>
+                      <td className="py-2 text-center">13</td>
                     </tr>
                     <tr className="border-b">
                       <td className="py-2">7</td>
                       <td className="py-2">Crans-Montana 2</td>
                       <td className="py-2 text-center font-semibold">2</td>
-                      <td className="py-2 text-center">5½</td>
+                      <td className="py-2 text-center">8</td>
                     </tr>
                     <tr className="border-b">
                       <td className="py-2">8</td>
                       <td className="py-2">Bulle 3</td>
-                      <td className="py-2 text-center font-semibold">0</td>
-                      <td className="py-2 text-center">4</td>
+                      <td className="py-2 text-center font-semibold">2</td>
+                      <td className="py-2 text-center">7½</td>
                     </tr>
                   </tbody>
                 </table>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Selector */}
-      <section className="py-8 bg-neutral-50">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-center space-x-4">
-            <button
-              onClick={() => setSelectedTeam('sion1')}
-              className={`px-8 py-3 rounded-lg font-semibold transition-all ${
-                selectedTeam === 'sion1'
-                  ? 'bg-primary-600 text-white shadow-lg'
-                  : 'bg-white text-neutral-700 hover:bg-neutral-100'
-              }`}
-            >
-              Sion 1 - 1ère ligue
-            </button>
-            <button
-              onClick={() => setSelectedTeam('sion2')}
-              className={`px-8 py-3 rounded-lg font-semibold transition-all ${
-                selectedTeam === 'sion2'
-                  ? 'bg-primary-600 text-white shadow-lg'
-                  : 'bg-white text-neutral-700 hover:bg-neutral-100'
-              }`}
-            >
-              Sion 2 - 3ème ligue
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* Team Details */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <motion.div
-            key={selectedTeam}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="grid lg:grid-cols-3 gap-8"
-          >
-            {/* Team Info */}
-            <div className="lg:col-span-1">
-              <div className="bg-white rounded-xl shadow-lg p-6 sticky top-24">
-                <h3 className="text-2xl font-bold mb-4 text-primary-900">{currentTeam.name}</h3>
-                <div className="space-y-4">
-                  <div>
-                    <p className="text-sm text-neutral-600">Ligue</p>
-                    <p className="font-semibold text-lg">{currentTeam.league}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-neutral-600">Capitaine</p>
-                    <p className="font-semibold text-lg">{currentTeam.captain}</p>
-                  </div>
-                  <div className="border-t pt-4">
-                    <p className="text-sm text-neutral-600">Classement actuel</p>
-                    <p className="text-2xl font-bold text-primary-900">
-                      {currentStanding.position}e / {currentStanding.total}
-                    </p>
-                    <p className="text-sm text-neutral-600 mt-1">
-                      {currentStanding.matchPoints} pts de match • {currentStanding.individualPoints} pts individuels
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-neutral-600 mb-2">Effectif</p>
-                    <ul className="space-y-1">
-                      {currentTeam.players.map((player, index) => (
-                        <li key={index} className="text-sm">
-                          {index + 1}. {player}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Results */}
-            <div className="lg:col-span-2">
-              <h3 className="text-2xl font-bold mb-6">Résultats saison {currentTeam.currentSeason}</h3>
-              <div className="space-y-6">
-                {currentTeam.results.map((result, index) => {
-                  // Calculate score dynamically from board results
-                  let teamScore = 0;
-                  let opponentScore = 0;
-                  
-                  result.boards.forEach(board => {
-                    if (board.result === '1-0') {
-                      teamScore += 1;
-                    } else if (board.result === '0-1') {
-                      opponentScore += 1;
-                    } else if (board.result === '½-½') {
-                      teamScore += 0.5;
-                      opponentScore += 0.5;
-                    }
-                  });
-                  
-                  // Determine match result label
-                  let resultLabel = '';
-                  let bgColorClass = '';
-                  let borderColorClass = '';
-                  
-                  if (teamScore > opponentScore) {
-                    resultLabel = 'Victoire';
-                    bgColorClass = 'bg-success-50';
-                    borderColorClass = 'border-success-500';
-                  } else if (teamScore < opponentScore) {
-                    resultLabel = 'Défaite';
-                    bgColorClass = 'bg-red-50';
-                    borderColorClass = 'border-red-500';
-                  } else {
-                    resultLabel = 'Match nul';
-                    bgColorClass = 'bg-yellow-50';
-                    borderColorClass = 'border-yellow-500';
-                  }
-                  
-                  return (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.1 * index }}
-                      className="bg-white rounded-xl shadow-lg overflow-hidden"
-                    >
-                      <div className={`p-4 flex justify-between items-center relative ${bgColorClass} border-l-4 ${borderColorClass}`}>
-                        <div>
-                          <p className="text-sm text-neutral-600">Ronde {result.round} - {result.date}</p>
-                          <p className="text-lg font-semibold">
-                            {currentTeam.name} - {result.opponent}
-                          </p>
-                        </div>
-                        <div className="absolute left-1/2 transform -translate-x-1/2 top-1/2 -translate-y-1/2">
-                          <span className={`text-lg font-bold ${
-                            resultLabel === 'Victoire' ? 'text-success-700' :
-                            resultLabel === 'Défaite' ? 'text-red-700' :
-                            'text-yellow-700'
-                          }`}>
-                            {resultLabel}
-                          </span>
-                        </div>
-                        <div className="text-right">
-                          <p className="text-2xl font-bold">{teamScore}-{opponentScore}</p>
-                          <p className="text-sm text-neutral-600 flex items-center justify-end">
-                            <MapPin className="h-3 w-3 mr-1" />
-                            {result.location}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="p-4">
-                        <table className="w-full text-sm">
-                          <thead>
-                            <tr className="text-left text-neutral-600 border-b">
-                              <th className="pb-2">Échiquier</th>
-                              <th className="pb-2">{currentTeam.name}</th>
-                              <th className="pb-2">{result.opponent}</th>
-                              <th className="pb-2 text-center">Résultat</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {result.boards.map((board, boardIndex) => (
-                              <tr key={boardIndex} className="border-b last:border-0">
-                                <td className="py-2">{boardIndex + 1}</td>
-                                <td className="py-2">
-                                  {board.player}
-                                  {board.playerElo && (
-                                    <span className="text-neutral-500 ml-1">({board.playerElo})</span>
-                                  )}
-                                </td>
-                                <td className="py-2">
-                                  {board.opponent}
-                                  {board.opponentElo && (
-                                    <span className="text-neutral-500 ml-1">({board.opponentElo})</span>
-                                  )}
-                                </td>
-                                <td className="py-2 text-center font-semibold">
-                                  <span className={
-                                    board.result === '1-0' ? 'text-success-600' :
-                                    board.result === '0-1' ? 'text-red-600' :
-                                    'text-yellow-600'
-                                  }>
-                                    {board.result}
-                                  </span>
-                                </td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-              
-              <div className="mt-8 p-4 bg-accent-50 rounded-lg">
-                <p className="text-sm text-accent-800">
-                  <strong>Prochaines rondes:</strong> R5 (21.06), R6 (23.08), R7 (13.10)
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Historical Achievements */}
-      <section className="py-16 bg-neutral-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Palmarès historique</h2>
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-white rounded-xl p-8 shadow-xl mb-8">
-              <div className="flex items-center space-x-4 mb-4">
-                <Medal className="h-12 w-12" />
-                <div>
-                  <h3 className="text-2xl font-bold">Participation en LNA</h3>
-                  <p className="text-yellow-100">Saison 1991-1992</p>
-                </div>
-              </div>
-              <p className="text-lg">
-                Le CE Sion a participé à la plus haute division du championnat suisse, 
-                une réalisation remarquable pour un club valaisan.
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white rounded-lg p-6 shadow-lg">
-                <h4 className="text-xl font-bold mb-4 text-primary-900">Années récentes</h4>
-                <ul className="space-y-2 text-neutral-700">
-                  <li className="flex items-start">
-                    <ChevronRight className="h-5 w-5 text-primary-600 mr-2 flex-shrink-0" />
-                    <span>Présence régulière en 1ère ligue depuis 2010</span>
-                  </li>
-                  <li className="flex items-start">
-                    <ChevronRight className="h-5 w-5 text-primary-600 mr-2 flex-shrink-0" />
-                    <span>Développement d'une deuxième équipe en 3ème ligue</span>
-                  </li>
-                  <li className="flex items-start">
-                    <ChevronRight className="h-5 w-5 text-primary-600 mr-2 flex-shrink-0" />
-                    <span>Formation continue de nouveaux joueurs</span>
-                  </li>
-                </ul>
-              </div>
-              
-              <div className="bg-white rounded-lg p-6 shadow-lg">
-                <h4 className="text-xl font-bold mb-4 text-primary-900">Objectifs</h4>
-                <ul className="space-y-2 text-neutral-700">
-                  <li className="flex items-start">
-                    <ChevronRight className="h-5 w-5 text-primary-600 mr-2 flex-shrink-0" />
-                    <span>Maintien et progression en 1ère ligue</span>
-                  </li>
-                  <li className="flex items-start">
-                    <ChevronRight className="h-5 w-5 text-primary-600 mr-2 flex-shrink-0" />
-                    <span>Développement de jeunes talents locaux</span>
-                  </li>
-                  <li className="flex items-start">
-                    <ChevronRight className="h-5 w-5 text-primary-600 mr-2 flex-shrink-0" />
-                    <span>Renforcement de l'esprit d'équipe</span>
-                  </li>
-                </ul>
               </div>
             </div>
           </div>
@@ -806,12 +547,21 @@ const CSE: React.FC = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://www.swisschess.ch/smm.html"
+                href="https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNSZhZ3J1cHBlPTMwNCZhbGlnYT0zJmFyb3VuZD01"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-white text-neutral-900 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors flex items-center space-x-2"
               >
-                <span>Site officiel CSE</span>
+                <span>Résultats de Sion 1</span>
+                <ExternalLink className="h-4 w-4" />
+              </a>
+              <a
+                href="https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNSZhZ3J1cHBlPTUxNCZhbGlnYT01JmFyb3VuZD01"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors flex items-center space-x-2"
+              >
+                <span>Résultats de Sion 2</span>
                 <ExternalLink className="h-4 w-4" />
               </a>
             </div>

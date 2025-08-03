@@ -5,11 +5,11 @@ import { Users, Trophy, MapPin, ChevronRight, Clock, CheckCircle } from 'lucide-
 export default function Club() {
   const localImage = { src: './picture/local/local3.jpg', alt: 'Entrée du club' }
   const activities = [
-    { text: "Des cours d'échecs", link: "/ecole" },
-    { text: "Des soirées du club à thème : parties d'entraînements / analyses / blitz", link: "/programme" },
+    { text: "Des cours d'échecs structurées dans le pôle formation", link: "/ecole" },
+    { text: "Des soirées du club : blitz, analyses, parties semi-rapides ou thématiques ", link: "/programme" },
     { text: "Participation aux championnats suisses par équipes et par groupes", link: "/competitions/cse" },
-    { text: "Participation au championnat valaisan par équipes", link: "/competitions/cve" },
-    { text: "Un tournoi interne", link: "/competitions/tournoi-interne" }
+    { text: "Participation aux diverses championnats valaisan par équipes", link: "/competitions/cve" },
+    { text: "Un championnat interne au club", link: "/competitions/tournoi-interne" }
   ]
 
   return (
@@ -31,7 +31,7 @@ export default function Club() {
             transition={{ delay: 0.1 }}
             className="text-xl text-primary-100 max-w-3xl"
           >
-            Depuis 1935, un lieu de rencontre pour tous les passionnés d'échecs en Valais
+            Depuis 1935, le lieu de rencontre autour de l'échiquier à Sion
           </motion.p>
         </div>
       </section>
@@ -49,12 +49,17 @@ export default function Club() {
           >
             <h2 className="text-3xl font-serif font-bold text-neutral-900 mb-8">Présentation</h2>
             <div className="bg-white rounded-xl shadow-lg p-8">
-              <p className="text-lg text-neutral-700 mb-6 leading-relaxed">
-                Le Club d'Échecs de Sion, fondé en 1935, est un lieu de rencontre pour tous les passionnés d'échecs. 
-                Notre club accueille aussi bien les débutants que les joueurs expérimentés, dans une ambiance conviviale et studieuse.
+              <p className="text-lg text-neutral-700 mb-4 leading-relaxed">
+                Le Club d'Échecs de Sion, fondé en 1935, est le lieu de rencontre pour tous les passionnés d'échecs dans la capitale valaisanne.
+              </p>
+              <p className="mb-6">
+                <Link to="/histoire" className="inline-flex items-center font-semibold text-primary-600 hover:text-primary-700 hover:underline transition-colors">
+                  En savoir plus sur l'histoire du club
+                  <ChevronRight className="h-4 w-4 ml-1" />
+                </Link>
               </p>
               
-              <h3 className="text-xl font-semibold text-neutral-900 mb-4">Nos activités :</h3>
+              <h3 className="text-xl font-semibold text-neutral-900 mb-4">Nous proposons :</h3>
               <ul className="space-y-3">
                 {activities.map((activity, index) => (
                   <motion.li 
@@ -82,11 +87,11 @@ export default function Club() {
             viewport={{ once: true }}
             className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16"
           >
-            <div className="bg-white rounded-xl shadow-lg p-8 text-center">
+            <Link to="/membres" className="block bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
               <Users className="h-12 w-12 text-primary-600 mx-auto mb-4" />
-              <h3 className="text-3xl font-bold text-neutral-900 mb-2">27</h3>
-              <p className="text-neutral-600">Membres actifs</p>
-            </div>
+              <h3 className="text-3xl font-bold text-primary-600 mb-2">28</h3>
+              <p className="text-neutral-600 underline">Membres actifs en compétition</p>
+            </Link>
             <div className="bg-white rounded-xl shadow-lg p-8 text-center">
               <Trophy className="h-12 w-12 text-primary-600 mx-auto mb-4" />
               <h3 className="text-3xl font-bold text-neutral-900 mb-2">90</h3>
@@ -111,9 +116,8 @@ export default function Club() {
             <h2 className="text-3xl font-serif font-bold text-neutral-900 mb-8">Devenir Membre</h2>
             <div className="bg-white rounded-xl shadow-lg p-8">
               <p className="text-lg text-neutral-700 mb-8 leading-relaxed">
-                Si vous souhaitez rejoindre notre club, nous vous proposons d'abord de venir participer à plusieurs soirées 
-                pour vous familiariser avec notre ambiance et nos activités. Si votre choix est fait, nous sommes ravis 
-                de vous accueillir parmi nous.
+                Nous vous proposons de venir participer au soirées du club 
+                afin nous découvrir, prendre contact et vous familiariser avec notre ambiance et nos activités. Une fois ce premier contact effectué, nous nous réjouissons de vous acceuillir parmi nous.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -129,6 +133,9 @@ export default function Club() {
                       <span className="font-semibold text-primary-900">CHF 150.-</span>
                     </li>
                   </ul>
+                  <p className="text-sm text-neutral-600 mt-3 pt-3 border-t border-primary-200">
+                    Pour les juniors, la cotisation est de <strong>CHF 100.-</strong> la première année.
+                  </p>
                 </div>
                 
                 <div className="bg-gradient-to-br from-neutral-50 to-neutral-100 rounded-lg p-6">
@@ -146,7 +153,7 @@ export default function Club() {
                     <li className="flex items-center">
                       <ChevronRight className="h-4 w-4 text-primary-600 mr-2" />
                       <Link to="/contact" className="text-primary-600 hover:text-primary-700">
-                        Nous contacter
+                        Nous contacter directement
                       </Link>
                     </li>
                   </ul>

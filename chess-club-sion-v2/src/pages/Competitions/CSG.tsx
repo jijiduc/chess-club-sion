@@ -113,47 +113,6 @@ export default function CSG() {
                   </a>.
                   Le championnat se déroule sur 7 rondes, de septembre à avril.
                 </p>
-                
-                <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 my-8">
-                  <h3 className="text-xl font-bold text-primary-900 mb-4 flex items-center">
-                    <Shield className="h-6 w-6 mr-2" />
-                    Organisation des ligues
-                  </h3>
-                  <div className="space-y-4">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <h4 className="font-semibold text-primary-900 mb-2">Au niveau national</h4>
-                        <ul className="space-y-2 text-sm">
-                          <li className="flex items-start">
-                            <ChevronRight className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                            <span>8 joueurs par équipe en 1ère et 2ème ligue fédérale</span>
-                          </li>
-                          <li className="flex items-start">
-                            <ChevronRight className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                            <span>Compétition au plus haut niveau suisse</span>
-                          </li>
-                        </ul>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-primary-900 mb-2">Au niveau régional</h4>
-                        <ul className="space-y-2 text-sm">
-                          <li className="flex items-start">
-                            <ChevronRight className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                            <span>6 joueurs en 1ère ligue régionale</span>
-                          </li>
-                          <li className="flex items-start">
-                            <ChevronRight className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                            <span>5 joueurs en 2ème ligue régionale</span>
-                          </li>
-                          <li className="flex items-start">
-                            <ChevronRight className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                            <span>4 joueurs en 3ème ligue régionale</span>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
 
                 {/* League Structure Tree */}
                 <div className="my-8">
@@ -193,11 +152,10 @@ export default function CSG() {
                     ))}
                   </div>
                 </div>
-                
-                <div className="bg-primary-50 border border-primary-200 rounded-lg p-6 mt-8">
-                  <p className="text-neutral-700">
-                    <strong className="text-primary-900">Note importante :</strong> Pour cette compétition, les joueurs du club de Sion sont répartis sous l'égide de la bannière
-                    "Valais" qui regroupe les clubs de Sion, Martigny et Monthey.
+                <div className="mt-8 p-4 bg-accent-50 rounded-lg">
+                  <p className="text-sm text-accent-800 font-semibold mb-1">Sur la répartition des joueurs du club :</p>
+                  <p className="text-sm text-accent-800">Pour cette compétition, les joueurs du club de Sion sont répartis sous l'égide de la bannière
+                    "Valais" qui regroupe des joueurs issus des clubs de Sion, Martigny, Bagnes et Monthey. En 2025, parmi les équipes Valais 1 et Valais 3.
                   </p>
                 </div>
               </div>
@@ -297,10 +255,6 @@ export default function CSG() {
               
               <div className="p-8">
                 <div className="space-y-4 text-neutral-700 mb-6">
-                  <p>
-                    Le Club d'Echecs de Sion participe régulièrement au Championnat Suisse par Groupes à travers 
-                    l'association "Valais" qui unit les forces des principaux clubs valaisans.
-                  </p>
                   <p>
                     Les équipes valaisannes ont connu diverses fortunes au fil des années, évoluant entre les 
                     ligues régionales et nationales selon les performances et la disponibilité des joueurs.

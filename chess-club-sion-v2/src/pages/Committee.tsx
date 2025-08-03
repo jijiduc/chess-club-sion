@@ -54,7 +54,7 @@ export default function Committee() {
             transition={{ delay: 0.1 }}
             className="text-xl text-primary-100 max-w-3xl"
           >
-            Une équipe de bénévoles passionnés au service du club
+            Voici les membres formant le comité du club
           </motion.p>
         </div>
       </section>
@@ -62,22 +62,6 @@ export default function Committee() {
       {/* Main Content */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          {/* Introduction */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16"
-          >
-            <div className="bg-white rounded-xl shadow-lg p-8">
-              <p className="text-lg text-neutral-700 leading-relaxed">
-                Le comité du Club d'Échecs de Sion est composé de bénévoles passionnés qui œuvrent au développement
-                et à la promotion des échecs dans notre région. Chaque membre apporte son expertise et son engagement
-                pour faire vivre notre club.
-              </p>
-            </div>
-          </motion.div>
 
           {/* Committee Members */}
           <motion.div 

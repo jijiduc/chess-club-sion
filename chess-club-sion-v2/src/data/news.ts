@@ -16,8 +16,29 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
+    date: new Date('2025-06-21T12:00:00'),
+    title: "CSE : Un derby valaisan sans vainqueur, un autre sans surprise",
+    description: "Le derby Valais 1 - Sion 1 s'achève sur un match nul, tandis que Sion 2 s'incline face au leader Monthey.",
+    text: `La 5e ronde du Championnat Suisse par Équipe s'est déroulée le 21 juin 2025 avec des résultats mitigés pour nos deux équipes.
+
+  **Sion 1 en 1re ligue**
+  Malgré une entame de match marquée par deux défaites consécutives, l'équipe est revenue à 3-3. Une position favorable aurait pu permettre de conclure le match, mais elle ne s’est malheureusement pas concrétisée.
+
+  **Sion 2 en 3e ligue**
+  Face à une équipe de Monthey bien armée et ambitieuse de promotion, Sion 2 a fait au mieux. Notons la victoire d'Akram, qui ouvre ainsi son compteur, ainsi que celle de Simon.
+
+  **Classements après 5 rondes**
+  • Sion 1 : 8e place (1re ligue) – 1 point de match, 14½ points individuels  
+  • Sion 2 : 5e place (3e ligue) – 4 points de match, 13 points individuels
+
+  Il n'y a désormais que peu d'espoir de maintien pour Sion 1 après ce match nul. D'un autre côté, bien que Sion 2 soit aux portes de la zone de relégation, il y a de bonnes chances pour que l'équipe parvienne à se maintenir.
+
+  → Voir tous les résultats et classements du CSE : /competitions/cse`,
+    icon: "trophy",
+  },
+  {
     date: new Date('2025-05-17T12:00:00'),
-    title: "4ème ronde du CSE : Nouvelle victoire pour Sion 2",
+    title: "CSE : Victoire pour Sion 2 !",
     description: "Sion 2 s'impose face à Renens 1 et confirme sa progression, tandis que Sion 1 s'incline face au leader Genève 2.",
     text: `La 4ème ronde du Championnat Suisse par Équipe s'est déroulée le 17 mai 2025 avec des résultats contrastés pour nos deux équipes sédunoises.
 
@@ -38,7 +59,7 @@ Si la situation reste délicate pour Sion 1, la dynamique positive de Sion 2 est
   },
   {
     date: new Date('2025-05-03T12:00:00'),
-    title: "Final du CVE : victoires en cadence lente et rapide !",
+    title: "CVE : Double championnat remporté !",
     description: "Sion 1 remporte les deux titres lors des finales valaisannes par équipes, s'imposant en parties lentes et rapides.",
     text: `Journée historique pour le Club d'Échecs de Sion ! Lors des finales valaisannes par équipes du 3 mai 2025, notre club a réalisé un doublé exceptionnel en remportant les deux titres mis en jeu.
 
@@ -65,52 +86,5 @@ L'après-midi, l'équipe sédunoise composée de Jean-Yves Riand, Pierre-Marie R
 → Voir tous les résultats et classements du CVE : /competitions/cve`,
     icon: "trophy",
   },
-  {
-    date: new Date('2025-04-26T12:00:00'),
-    title: "3ème ronde du CSE: une 3ème journée dans le dure...",
-    description: "Défaites pour Sion 1 et Sion 2 lors de la 3ème journée du Championnat Suisse par Équipe 2025.",
-    text: `Journée difficile pour nos équipes lors de la 3ème ronde du Championnat Suisse par Équipe, disputée à domicile le 26 avril 2025.
-
-**Sion 1 - Köniz-Bubenberg 1 : 3-5**
-
-Malgré la défaite, plusieurs joueurs se sont distingués :
-
-✓ Victoires :
-• Échiquier 3 : Flavien Sola
-• Échiquier 8 : Olivier Ulmann
-
-= Nulles :
-• Échiquier 5 : Vlad Popescu
-• Échiquier 7 : Yann Bourban
-
-✗ Défaites :
-• Échiquier 1 : Jean-Yves Riand
-• Échiquier 2 : Jeremy Duc
-• Échiquier 4 : Jean-Michel Paladini
-• Échiquier 6 : Yves Roduit
-
-**Sion 2 - Grand Echiquier 2 : 1½-4½**
-
-Une seule victoire mais de la combativité :
-
-✓ Victoire :
-• Échiquier 3 : Alexandre Briguet
-
-= Nulle :
-• Échiquier 1 : Olivier Crettenand
-
-✗ Défaites :
-• Échiquier 2 : Mazlum Tosun
-• Échiquier 4 : Claude Bétrisey
-• Échiquier 5 : Akram Ben Salem
-• Échiquier 6 : Sandro Bétrisey
-
-**Situation au classement**
-Après trois rondes, Sion 1 occupe la 8ème place (dernière) en 1ère ligue avec 0 point de match. Sion 2 est 6ème en 3ème ligue avec 2 points de matchs. 
-
-Malgré ce début de championnat compliqué, les équipes gardent le moral et sont déterminées à inverser la tendance. Prochain rendez-vous le 21 juin avec Sion 1 - Neuchâtel 1 et Sion 2 - Monthey 1.
-
-→ Voir tous les résultats et classements du CSE : /competitions/cse`,
-    icon: "trophy"
-  }
+  
 ]

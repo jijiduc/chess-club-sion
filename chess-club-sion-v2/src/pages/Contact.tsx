@@ -8,11 +8,11 @@ export default function Contact() {
   const emails = [
     {
       address: "info@cesion.ch",
-      description: "Pour les informations sur le club et ses activités"
+      description: "Pour des informations sur le club et ses activités"
     },
     {
       address: "ecole-echecs@cesion.ch",
-      description: "Pour l'école d'échecs et les cours pour jeunes"
+      description: "Pour des renseignements sur le pôle formation"
     }
   ]
 
@@ -62,10 +62,6 @@ export default function Contact() {
                 <Mail className="h-8 w-8 text-primary-600 mr-3" />
                 <h2 className="text-2xl font-semibold text-neutral-900">Contacts Email</h2>
               </div>
-              
-              <p className="text-neutral-700 mb-8">
-                Choisissez l'adresse appropriée selon votre demande :
-              </p>
               
               <div className="space-y-6">
                 {emails.map((emailInfo) => (
