@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Trophy, Users, ChevronRight, ChevronLeft, Medal, Clock, Award, Grid, List } from 'lucide-react'
+import { Trophy, ChevronRight, ChevronLeft, Award, Grid, List } from 'lucide-react'
 
 interface Score {
   id: number
@@ -20,18 +20,13 @@ interface Score {
 const tournoiData = {
   info: {
     titre: "Championnat interne du club",
+    // Règles simplifiées pour une consultation post-tournoi
     format: [
-      "Format Round Robin avec une cadence de <strong>60 minutes + 30 secondes par coups</strong>, pour toute la partie.",
-      "1 partie par mois. Se jouant soit lors de la soirée du club réservée ou possibilité d'avancer / de rattraper la partie dans un délai indiqué à chaque ronde.",
-      "Le joueur avec les blancs aura la charge de transmettre le résultat de la rencontre.",
-      "Si la date prévue ne convient pas, il incombe aux participants de trouver une alternative dans le délai communiqué pour la ronde.",
-      "Si la partie n'est pas jouée dans le temps imparti, dans le but de permettre au tournoi d'avancer, les résultats manquants vaudront 0 point. Si l'un des deux joueurs est responsables de l'impossibilité de jouer la partie, cela entrainera forfait de sa part sur la partie."
+      "Le tournoi s'est joué en 7 rondes (Round Robin).",
+      "La cadence des parties était de <strong>60 minutes + 30 secondes par coup</strong>."
     ],
-    prix: [
-      "<strong>1er prix :</strong> 1 livre d'échecs ainsi que 30 francs / Champion du tournoi interne",
-      "<strong>2ème prix :</strong> 1 livre d'échecs ainsi que 20 francs",
-      "<strong>3ème prix :</strong> 1 livre d'échecs"
-    ]
+    // Les prix sont maintenant remplacés par les résultats directs
+    prix: []
   },
 
   joueurs: [
@@ -120,11 +115,7 @@ const tournoiData = {
 }
 
 export default function InternalTournament() {
-  // Trouver la ronde en cours ou la dernière ronde terminée
   const getRondeInitiale = () => {
-    const rondeEnCours = tournoiData.rondes.find(r => r.statut === "en cours")
-    if (rondeEnCours) return rondeEnCours.numero
-    
     const rondesTerminees = tournoiData.rondes
       .filter(r => r.statut === "terminée")
       .sort((a, b) => b.numero - a.numero)
@@ -140,7 +131,6 @@ export default function InternalTournament() {
     setIsExpanded(prev => !prev)
   }
 
-  // Calcul des scores
   const calculateScores = (): Score[] => {
     const scores: Score[] = tournoiData.joueurs.map(joueur => ({
       id: joueur.id,
@@ -154,7 +144,6 @@ export default function InternalTournament() {
       resultats: {}
     }))
 
-    // Calculer les points pour chaque joueur - uniquement pour les parties terminées
     tournoiData.rondes.forEach(ronde => {
       if (ronde.statut === "terminée") {
         ronde.appariements.forEach(appariement => {
@@ -183,28 +172,24 @@ export default function InternalTournament() {
       }
     })
 
-    // Calculer Buchholz
     scores.forEach(joueur => {
       joueur.buchholz = joueur.adversaires.reduce((sum, advId) => {
         return sum + scores[advId - 1].points
       }, 0)
     })
 
-    // Calculer Buchholz Sum
     scores.forEach(joueur => {
       joueur.buchholzSum = joueur.adversaires.reduce((sum, advId) => {
         return sum + scores[advId - 1].buchholz
       }, 0)
     })
 
-    // Trier par points, puis par Buchholz, puis par Buchholz Sum
     scores.sort((a, b) => {
       if (b.points !== a.points) return b.points - a.points
       if (b.buchholz !== a.buchholz) return b.buchholz - a.buchholz
       return b.buchholzSum - a.buchholzSum
     })
 
-    // Assigner les rangs
     scores.forEach((joueur, index) => {
       joueur.rang = index + 1
       if (index === 0) joueur.rangAffiche = "🥇"
@@ -217,6 +202,7 @@ export default function InternalTournament() {
   }
 
   const scores = calculateScores()
+  const podium = scores.slice(0, 3)
 
   const getPlayerName = (id: number) => {
     const player = tournoiData.joueurs.find(j => j.id === id)
@@ -291,7 +277,6 @@ export default function InternalTournament() {
 
     return (
       <div className="space-y-6">
-        {/* Round Navigation */}
         <div className="flex items-center justify-between mb-6">
           <button
             onClick={() => setCurrentRound(Math.max(1, currentRound - 1))}
@@ -316,7 +301,6 @@ export default function InternalTournament() {
           </button>
         </div>
 
-        {/* Pairings */}
         <div className="grid md:grid-cols-2 gap-4">
           {round.appariements.map((appariement, index) => (
             <motion.div
@@ -358,7 +342,6 @@ export default function InternalTournament() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
-      {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-primary-900 to-accent-900 text-white py-24">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto px-4 relative z-10">
@@ -377,12 +360,10 @@ export default function InternalTournament() {
         </div>
       </section>
 
-      {/* Tournament Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             
-            {/* Unified Tournament Section */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -394,7 +375,7 @@ export default function InternalTournament() {
               >
                 <h3 className="text-2xl font-semibold flex items-center">
                   <Trophy className="h-6 w-6 mr-3" />
-                  Tournoi interne de la saison 2024/25
+                  Championnat interne de la saison 2024/25
                 </h3>
                 <motion.svg
                   animate={{ rotate: isExpanded ? 180 : 0 }}
@@ -415,13 +396,49 @@ export default function InternalTournament() {
                   exit={{ height: 0 }}
                   className="px-6 py-8"
                 >
-                  {/* Format Rules */}
+                  {/* Section Résultats du championnat */}
+                  <div className="bg-gradient-to-r from-yellow-50 to-primary-50 rounded-xl p-6 border border-primary-200 mb-12">
+                    <h4 className="text-xl font-bold text-primary-900 mb-4 flex items-center">
+                      <Trophy className="h-6 w-6 mr-2" />
+                      Résultats du championnat
+                    </h4>
+                    <div className="space-y-3">
+                      {podium.map((joueur) => (
+                        <div key={joueur.id} className="flex items-center text-lg">
+                          <span className="w-8">{joueur.rangAffiche}</span>
+                          <span className="font-semibold text-neutral-900">{joueur.nom}</span>
+                          <span className="ml-auto font-bold text-primary-800">{joueur.points} pts</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Section Résumé du déroulement */}
+                  <div className="mb-12">
+                    <h4 className="text-xl font-bold text-neutral-900 mb-4 flex items-center">
+                      <Award className="h-6 w-6 mr-2" />
+                      Résumé du déroulement
+                    </h4>
+                    <div className="prose prose-neutral max-w-none text-neutral-700 space-y-4">
+                      <p>
+                        <strong>Flavien Sola</strong> a dominé le tournoi de manière impressionnante, terminant invaincu avec 6,5 points sur 7. Ses victoires clés contre ses poursuivants directs, notamment Pierre-Marie Rappaz (ronde 3), ont rapidement scellé sa première place.
+                      </p>
+                      <p>
+                        La lutte pour la deuxième place a été intense. <strong>Pierre-Marie Rappaz</strong> a su se relever après deux défaites consécutives à mi-parcours, en remportant ses trois derniers matchs pour s'assurer la médaille d'argent avec 5 points.
+                      </p>
+                      <p>
+                        <strong>Olivier Ulmann</strong>, quant à lui, a réalisé une solide performance pour prendre la troisième place. Son parcours inclut une nulle précieuse contre le champion à la ronde 5 et des victoires décisives qui lui ont permis de finir sur le podium avec 4,5 points.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Section Format du tournoi */}
                   <div className="mb-12">
                     <h4 className="text-xl font-bold text-neutral-900 mb-6 flex items-center">
-                      <Award className="h-6 w-6 mr-2" />
-                      Règles du tournoi
+                      <List className="h-6 w-6 mr-2" />
+                      Format du tournoi
                     </h4>
-                    <div className="space-y-3 mb-8">
+                    <div className="space-y-3">
                       {tournoiData.info.format.map((rule, index) => (
                         <motion.div 
                           key={index}
@@ -435,38 +452,14 @@ export default function InternalTournament() {
                         </motion.div>
                       ))}
                     </div>
-
-                    <div className="bg-gradient-to-r from-yellow-50 to-primary-50 rounded-xl p-6 border border-primary-200">
-                      <h5 className="text-xl font-bold text-primary-900 mb-4 flex items-center">
-                        <Medal className="h-6 w-6 mr-2" />
-                        Prix du tournoi
-                      </h5>
-                      <div className="space-y-2">
-                        {tournoiData.info.prix.map((prix, index) => (
-                          <div 
-                            key={index} 
-                            className="flex items-start"
-                          >
-                            <Medal className={`h-5 w-5 mr-2 flex-shrink-0 mt-0.5 ${
-                              index === 0 ? 'text-yellow-500' :
-                              index === 1 ? 'text-neutral-400' :
-                              'text-primary-600'
-                            }`} />
-                            <p className="text-neutral-700" dangerouslySetInnerHTML={{ __html: prix }}></p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
                   </div>
 
-                  {/* Results Section */}
+                  {/* Section Classement et Rondes */}
                   <div>
                     <h4 className="text-xl font-bold text-neutral-900 mb-6 flex items-center">
-                      <Trophy className="h-6 w-6 mr-2" />
-                      Classement et Rondes
+                      <Grid className="h-6 w-6 mr-2" />
+                      Classement détaillé et Rondes
                     </h4>
-
-                    {/* View Toggle */}
                     <div className="flex justify-center mb-8">
                       <div className="bg-neutral-100 rounded-lg p-1 inline-flex">
                         <button
@@ -494,7 +487,6 @@ export default function InternalTournament() {
                       </div>
                     </div>
 
-                    {/* Content */}
                     <div className="bg-neutral-50 rounded-lg p-6">
                       {viewMode === 'rounds' ? renderRounds() : renderCrosstable()}
                     </div>

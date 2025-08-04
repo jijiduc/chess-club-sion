@@ -1,223 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Users, Calendar, ChevronRight, ExternalLink, Medal, MapPin } from 'lucide-react';
+import { Trophy, Users, Calendar, ChevronRight, ExternalLink} from 'lucide-react';
 
-interface TeamResult {
-  round: number;
-  date: string;
-  opponent: string;
-  venue: 'home' | 'away';
-  location: string;
-  result: string;
-  boards: {
-    player: string;
-    opponent: string;
-    result: string;
-    playerElo?: number;
-    opponentElo?: number;
-  }[];
-}
-
-interface TeamData {
-  name: string;
-  league: string;
-  captain: string;
-  players: string[];
-  currentSeason: string;
-  results: TeamResult[];
-}
 
 const CSE: React.FC = () => {
-  const [selectedTeam, setSelectedTeam] = useState<'sion1' | 'sion2'>('sion1');
-
-  const teams: Record<'sion1' | 'sion2', TeamData> = {
-    sion1: {
-      name: 'Sion 1',
-      league: '1ère ligue',
-      captain: 'Pierre-Marie Rappaz',
-      players: [
-        'Christophe Sochacki (2458)',
-        'Flavien Sola (2167)',
-        'Vlad Popescu (1990)',
-        'Jean-Michel Paladini (1983)',
-        'Pierre-M. Rappaz (1933)',
-        'Pierre-Marie Rappaz (1933)',
-        'Yves Roduit (1910)',
-        'Max Chappaz (1904)',
-        'Yann Bourban (1885)',
-        'Jean-Yves Riand (1877)',
-        'Jeremy Duc (1829)',
-        'Alexandre Briguet (1828)',
-        'Olivier Crettenand (1826)',
-        'Joan Cortada Garcia (1824)',
-        'Olivier Ulmann (1788)',
-        'Claude Bétrisey (1697)'
-      ],
-      currentSeason: '2024-2025',
-      results: [
-        {
-          round: 1,
-          date: '22.03.2025',
-          opponent: 'Grand Echiquier 1',
-          venue: 'home',
-          location: 'Sion',
-          result: '1½-6½',
-          boards: [
-            { player: 'Flavien Sola', opponent: 'Guillaume Chauvon', result: '0-1', playerElo: 2167, opponentElo: 2111 },
-            { player: 'Vlad Popescu', opponent: 'Ferran Rocamora Martorell', result: '0-1', playerElo: 1990, opponentElo: 2111 },
-            { player: 'Pierre-M. Rappaz', opponent: 'Jonathan Jaccard', result: '½-½', playerElo: 1933, opponentElo: 1953 },
-            { player: 'Jean-Yves Riand', opponent: 'Jean-Manuel Segura', result: '½-½', playerElo: 1877, opponentElo: 2090 },
-            { player: 'Max Chappaz', opponent: 'Sébastien Vasey', result: '0-1', playerElo: 1904, opponentElo: 1966 },
-            { player: 'Yves Roduit', opponent: 'Vincent Conrad', result: '0-1', playerElo: 1910, opponentElo: 1904 },
-            { player: 'Olivier Ulmann', opponent: 'Pierpaolo Ranieri', result: '0-1', playerElo: 1788, opponentElo: 1891 },
-            { player: 'Jeremy Duc', opponent: 'Mathis Soubeyrand', result: '½-½', playerElo: 1829, opponentElo: 1533 }
-          ]
-        },
-        {
-          round: 2,
-          date: '05.04.2025',
-          opponent: 'Fribourg 1',
-          venue: 'away',
-          location: 'Fribourg',
-          result: '5½-2½',
-          boards: [
-            { player: 'Vlad Popescu', opponent: 'Sylvain Julmy', result: '0-1', playerElo: 1990, opponentElo: 2187 },
-            { player: 'Max Chappaz', opponent: 'Yves Deschenaux', result: '½-½', playerElo: 1904, opponentElo: 2121 },
-            { player: 'Olivier Ulmann', opponent: 'Bernard Deschenaux', result: '0-1', playerElo: 1788, opponentElo: 2002 },
-            { player: 'Jean-Michel Paladini', opponent: 'Thierry Bonferroni', result: '½-½', playerElo: 1983, opponentElo: 1954 },
-            { player: 'Claude Bétrisey', opponent: 'Achim Schneuwly', result: '0-1', playerElo: 1697, opponentElo: 1930 },
-            { player: 'Jean-Yves Riand', opponent: 'Raphaël Perrin', result: '0-1', playerElo: 1877, opponentElo: 1944 },
-            { player: 'Olivier Crettenand', opponent: 'Jean-Pierre Dorand', result: '½-½', playerElo: 1826, opponentElo: 1800 },
-            { player: 'Yves Roduit', opponent: 'Marius Cornée', result: '1-0', playerElo: 1910, opponentElo: 1894 }
-          ]
-        },
-        {
-          round: 3,
-          date: '26.04.2025',
-          opponent: 'Köniz-Bubenberg 1',
-          venue: 'home',
-          location: 'Sion',
-          result: '3-5',
-          boards: [
-            { player: 'Jean-Yves Riand', opponent: 'Igor Yarmonov', result: '0-1', playerElo: 1877, opponentElo: 2342 },
-            { player: 'Jeremy Duc', opponent: 'Mike Jäger', result: '0-1', playerElo: 1829, opponentElo: 2114 },
-            { player: 'Flavien Sola', opponent: 'Gabriel Vergelin Soler', result: '1-0', playerElo: 2167, opponentElo: 1950 },
-            { player: 'Jean-Michel Paladini', opponent: 'Hansjürg Känel', result: '0-1', playerElo: 1983, opponentElo: 2226 },
-            { player: 'Vlad Popescu', opponent: 'Jörg Brauchli', result: '½-½', playerElo: 1990, opponentElo: 1915 },
-            { player: 'Yves Roduit', opponent: 'Sandor Kaszas', result: '0-1', playerElo: 1910, opponentElo: 2008 },
-            { player: 'Yann Bourban', opponent: 'Thomas Mani', result: '½-½', playerElo: 1885, opponentElo: 1949 },
-            { player: 'Olivier Ulmann', opponent: 'Marc Tillmann', result: '1-0', playerElo: 1788, opponentElo: 1921 }
-          ]
-        },
-        {
-          round: 4,
-          date: '17.05.2025',
-          opponent: 'Neuchâtel 1',
-          venue: 'home',
-          location: 'Sion',
-          result: '3½-4½',
-          boards: [
-            { player: 'Christophe Sochacki', opponent: 'Raphael Erne', result: '0-1', playerElo: 2458, opponentElo: 2164 },
-            { player: 'Jean-Michel Paladini', opponent: 'Robin Voland', result: '0-1', playerElo: 1983, opponentElo: 2057 },
-            { player: 'Flavien Sola', opponent: 'Roland Hauser', result: '1-0', playerElo: 2167, opponentElo: 2026 },
-            { player: 'Vlad Popescu', opponent: 'Hassan Roger Sadeghi', result: '1-0', playerElo: 1990, opponentElo: 2098 },
-            { player: 'Max Chappaz', opponent: 'Luca Srdjenovic', result: '½-½', playerElo: 1904, opponentElo: 1882 },
-            { player: 'Pierre-M. Rappaz', opponent: 'Bertrand Banderet', result: '½-½', playerElo: 1933, opponentElo: 1942 },
-            { player: 'Jeremy Duc', opponent: 'Jason Weber', result: '½-½', playerElo: 1829, opponentElo: 1838 },
-            { player: 'Jean-Yves Riand', opponent: 'Jeremy Butet', result: '0-1', playerElo: 1877, opponentElo: 1930 }
-          ]
-        }
-      ]
-    },
-    sion2: {
-      name: 'Sion 2',
-      league: '3ème ligue',
-      captain: 'Sandro Bétrisey',
-      players: [
-        'Jeremy Duc (1829)',
-        'Alexandre Briguet (1828)',
-        'Olivier Crettenand (1826)',
-        'Joan Cortada Garcia (1824)',
-        'Olivier Ulmann (1788)',
-        'Sandro Bétrisey (1745)',
-        'Claude Bétrisey (1697)',
-        'Mazlum Tosun (1689)',
-        'Simon Moerschell (1663)',
-        'Akram Ben Salem (sans ELO)',
-        'Florian Clavien (sans ELO)'
-      ],
-      currentSeason: '2024-2025',
-      results: [
-        {
-          round: 1,
-          date: '22.03.2025',
-          opponent: 'Crans-Montana 2',
-          venue: 'home',
-          location: 'Sion',
-          result: '2-4',
-          boards: [
-            { player: 'Alexandre Briguet', opponent: 'Alessandro Bonalli', result: '0-1', playerElo: 1828, opponentElo: 1621 },
-            { player: 'Olivier Crettenand', opponent: 'Timur Gökok', result: '1-0', playerElo: 1826, opponentElo: 1650 },
-            { player: 'Mazlum Tosun', opponent: 'Hervé Frainay', result: '1-0', playerElo: 1689, opponentElo: 1561 },
-            { player: 'Sandro Bétrisey', opponent: 'Luc Udry', result: '0-1', playerElo: 1745, opponentElo: 1523 },
-            { player: 'Akram Ben Salem', opponent: 'Jean-Claude Zermatten', result: '0-1', opponentElo: 1559 },
-            { player: 'Florian Clavien', opponent: 'Claude-Alain Bonvin', result: '0-1', opponentElo: 1629 }
-          ]
-        },
-        {
-          round: 2,
-          date: '05.04.2025',
-          opponent: 'Bulle 3',
-          venue: 'away',
-          location: 'Bulle',
-          result: '2-4',
-          boards: [
-            { player: 'Alexandre Briguet', opponent: 'Philippe Defferrard', result: '½-½', playerElo: 1828, opponentElo: 1750 },
-            { player: 'Sandro Bétrisey', opponent: 'Bert Jansen', result: '1-0', playerElo: 1745, opponentElo: 1650 },
-            { player: 'Mazlum Tosun', opponent: 'Charles-François Feller', result: '1-0', playerElo: 1689, opponentElo: 1670 },
-            { player: 'Akram Ben Salem', opponent: 'Thomas Christen', result: '½-½', opponentElo: 1700 },
-            { player: 'Simon Moerschell', opponent: 'Arno Jankowski', result: '1-0', playerElo: 1663, opponentElo: 1600 },
-            { player: 'N.N.', opponent: 'Alfred Senff', result: '0-1', opponentElo: 1544 }
-          ]
-        },
-        {
-          round: 3,
-          date: '26.04.2025',
-          opponent: 'Grand Echiquier 2',
-          venue: 'home',
-          location: 'Sion',
-          result: '1½-4½',
-          boards: [
-            { player: 'Olivier Crettenand', opponent: 'Andrea Giananti', result: '½-½', playerElo: 1826, opponentElo: 1867 },
-            { player: 'Mazlum Tosun', opponent: 'Vincent Conrad', result: '0-1', playerElo: 1689, opponentElo: 1904 },
-            { player: 'Alexandre Briguet', opponent: 'Olivier Dubuis', result: '1-0', playerElo: 1828, opponentElo: 1778 },
-            { player: 'Claude Bétrisey', opponent: 'David Bovet', result: '0-1', playerElo: 1697, opponentElo: 1741 },
-            { player: 'Akram Ben Salem', opponent: 'Emil Ungureanu', result: '0-1', opponentElo: 1650 },
-            { player: 'Sandro Bétrisey', opponent: 'José Martinez', result: '0-1', playerElo: 1745, opponentElo: 1662 }
-          ]
-        },
-        {
-          round: 4,
-          date: '17.05.2025',
-          opponent: 'Valais 2',
-          venue: 'away',
-          location: 'Valais',
-          result: '2½-3½',
-          boards: [
-            { player: 'Joan Cortada Garcia', opponent: 'Hervé Lanois', result: '0-1', playerElo: 1824, opponentElo: 1781 },
-            { player: 'Mazlum Tosun', opponent: 'Stephan Major', result: '1-0', playerElo: 1689, opponentElo: 1797 },
-            { player: 'Olivier Crettenand', opponent: 'Christian Favre', result: '½-½', playerElo: 1826, opponentElo: 1750 },
-            { player: 'Sandro Bétrisey', opponent: 'Renzo Cerda', result: '1-0', playerElo: 1745, opponentElo: 1650 },
-            { player: 'Alexandre Briguet', opponent: 'Cyril Dorsaz', result: '1-0', playerElo: 1828, opponentElo: 1819 },
-            { player: 'Simon Moerschell', opponent: 'Michel Steiner', result: '0-1', playerElo: 1663, opponentElo: 1803 }
-          ]
-        }
-      ]
-    }
-  };
-
-  const currentTeam = teams[selectedTeam];
-
   const leagueStructure = [
     { name: 'LNA', description: 'Ligue Nationale A - Élite des échecs suisses' },
     { name: 'LNB', description: 'Ligue Nationale B' },
@@ -226,24 +12,6 @@ const CSE: React.FC = () => {
     { name: '3ème ligue', description: 'Niveau régional', sionTeam: 'Sion 2' },
     { name: '4ème ligue', description: 'Niveau d\'entrée' }
   ];
-
-  // Current standings after 4 rounds
-  const standings = {
-    sion1: {
-      position: 8,
-      total: 8,
-      matchPoints: '0',
-      individualPoints: '10½'
-    },
-    sion2: {
-      position: 5,
-      total: 8,
-      matchPoints: '4',
-      individualPoints: '11'
-    }
-  };
-
-  const currentStanding = standings[selectedTeam];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-white">
@@ -258,7 +26,7 @@ const CSE: React.FC = () => {
           >
             <h1 className="text-5xl font-bold mb-4">Championnat Suisse par Équipes</h1>
             <p className="text-xl text-primary-100 mb-8">
-              Le CE Sion engage deux équipes dans la compétition nationale
+              CSE - Compétition nationale par équipes de clubs d'échecs
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <div className="bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full flex items-center space-x-2">
@@ -382,6 +150,21 @@ const CSE: React.FC = () => {
                       </div>
                     </motion.div>
                   ))}
+                </div>
+                <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 my-8">
+                  <h3 className="text-xl font-bold text-primary-900 mb-4 flex items-center">
+                    <Users className="h-6 w-6 mr-2" />
+                    Répartition des équipes
+                  </h3>
+                  <div className="space-y-2 text-neutral-700">
+                    <p>
+                      Pour la saison 2025, le club a engagé deux équipes dans le championnat.
+                    </p>
+                    <ul className="list-disc pl-5 space-y-1">
+                      <li><strong>Sion 1</strong>, avec pour capitaine <strong>Pierre-Marie Rappaz</strong>.</li>
+                      <li><strong>Sion 2</strong>, avec pour capitaine <strong>Sandro Bétrisey</strong>.</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>

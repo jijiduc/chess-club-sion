@@ -22,7 +22,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     category: 'competition',
     description: 'Tournoi de parties rapides',
     location: 'Salle communale de Martigny',
-    link: '/competitions/https://www.uve-wsb.ch/competitions-valaisannes/active-chess-de-martigny',
+    link: 'https://www.uve-wsb.ch/competitions-valaisannes/active-chess-de-martigny',
     details: ['7 rondes, cadence 20m+5s/cps'],
     image: '/picture/events/Martigny.png'
   },
@@ -34,7 +34,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     category: 'competition',
     description: 'Championnat suisse par équipes',
     location: 'Échallens et Sion',
-    link: '/competitions/cse',
+    link: 'https://www.swisschess.ch/cse.html',
     details: ['Sion 1 - Echallens 2', 'Sion 2 - Crazy Horse 1'],
     image: '/picture/events/FSE.png'
   },
@@ -97,7 +97,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     category: 'competition',
     description: 'Championnat suisse par équipes - Dernière ronde',
     location: 'Sion et Payerne',
-    link: '/competitions/cse',
+    link: 'https://www.swisschess.ch/cse.html',
     details: ['Sion 1 - Genève 2', 'Sion 2 - Payerne 2'],
     image: '/picture/events/FSE.png'
   },

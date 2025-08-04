@@ -1,9 +1,42 @@
 import { motion } from 'framer-motion'
-import { Calendar, User, ShieldCheck, Award } from 'lucide-react'
+import { User, Award } from 'lucide-react'
+
+// --- Définition des interfaces pour un typage strict ---
+interface TimelineEvent {
+  year: string;
+  description: string;
+}
+
+interface Personality {
+  name: string;
+  bio: string;
+}
+
+interface Achievement {
+  year: string;
+  title: string;
+}
+
+interface PlayerAchievement {
+  name: string;
+  achievements: Achievement[];
+}
+
+interface President {
+  period: string;
+  name: string;
+}
+
+interface HallOfFamePlayer {
+  name: string;
+  title: string;
+  elo: string;
+}
+
 
 // --- Structures de données pour le contenu ---
 
-const timelineEvents = [
+const timelineEvents: TimelineEvent[] = [
   { year: "1935", description: "Création d’un club d’échecs à Sion sous la présidence du Dr. André de Quay." },
   { year: "1947", description: "Fondation d’un deuxième club à Sion, nommé Club d’échecs de Valère." },
   { year: "1968", description: "Après quelques années d’inactivité, les deux clubs de Sion Valère et Sion Planta se réunissent sous la forme actuelle du Club d’échecs de Sion grâce à l’initiative conjointe de Gérald Grand et Marcel Allegro." },
@@ -27,26 +60,115 @@ const timelineEvents = [
   { year: "2025", description: "Sion remporte la finale du championnat valaisan par équipes pour la quatrième fois consécutive."},
 ];
 
-const personalities = [
-  { 
-    name: "Rodolphe Demanega", 
-    bio: "Après avoir présidé le club pendant deux décennies (1948-1968), il a joué un rôle clé en prenant la tête du club fraîchement réunifié jusqu'en 1971. Son dévouement a été salué par le titre de membre d'honneur." 
+const personalities: Personality[] = [
+  {
+    name: "Rodolphe Demanega",
+    bio: "Après avoir présidé le club pendant deux décennies (1948-1968), il a joué un rôle clé en prenant la tête du club fraîchement réunifié jusqu'en 1971. Son dévouement a été salué par le titre de membre d'honneur."
   },
-  { 
-    name: "Gérald Grand", 
-    bio: "Figure centrale des années 70-80 et artisan de la fusion des clubs en 1968. Polyvalent, il a partagé sa passion comme président, fondateur de l'UVE, auteur et rédacteur pour le Nouvelliste. Une immense contribution reconnue par les titres de président et membre d'honneur." 
+  {
+    name: "Gérald Grand",
+    bio: "Figure centrale des années 70-80 et artisan de la fusion des clubs en 1968. Polyvalent, il a partagé sa passion comme président, fondateur de l'UVE, auteur et rédacteur pour le Nouvelliste. Une immense contribution reconnue par les titres de président et membre d'honneur."
   },
-  { 
-    name: "Jean-Yves Riand", 
-    bio: "Il incarne la continuité du club, avec plus de 20 ans de présidence, notamment de 2000 à 2020. Ancien président de l'UVE et rédacteur échiquéen, il est surtout connu comme un capitaine emblématique, guidant les équipes avec passion." 
+  {
+    name: "Jean-Yves Riand",
+    bio: "Il incarne la continuité du club, avec plus de 20 ans de présidence, notamment de 2000 à 2020. Ancien président de l'UVE et rédacteur échiquéen, il est surtout connu comme un capitaine emblématique, guidant les équipes avec passion."
   },
-  { 
-    name: "Pierre-Marie Rappaz", 
-    bio: "Membre actif depuis 1969, il est l'un des grands piliers du club. Infatigable, il a consacré d'innombrables heures à l'organisation et au capitanat, formant avec Jean-Yves Riand un tandem d'une fidélité historique." 
+  {
+    name: "Pierre-Marie Rappaz",
+    bio: "Membre actif depuis 1969, il est l'un des grands piliers du club. Infatigable, il a consacré d'innombrables heures à l'organisation et au capitanat, formant avec Jean-Yves Riand un tandem d'une fidélité historique."
   },
 ];
 
-const presidents = [
+const playerAchievements: PlayerAchievement[] = [
+  {
+    name: "Eddy Beney",
+    achievements: [
+      { year: "1974", title: "Vainqueur du championnat valaisan junior" },
+      { year: "1977", title: "Vainqueur du championnat valaisan individuel" },
+      { year: "1978", title: "1er valaisan sur la liste de classement suisse" },
+      { year: "1985", title: "Vainqueur du championnat valaisan individuel" },
+      { year: "1987", title: "Vainqueur de la coupe valaisanne" },
+      { year: "2000", title: "Vainqueur du tournoi d'Automne de Crans-Montana" },
+      { year: "2000-2002", title: "Vainqueur du ch. valaisan individuel (3 fois)" },
+    ]
+  },
+  {
+    name: "Julien Carron",
+    achievements: [
+      { year: "2005-06", title: "Vainqueur de l'Active Chess de Martigny et du Championnat Valaisan de Blitz" },
+      { year: "2007", title: "Vainqueur de l'Active Chess de Martigny" },
+      { year: "2008-09", title: "Champion Valaisan Individuel Semi-Rapide (CVIS)" },
+      { year: "2011", title: "Vainqueur de l'Active Chess de Martigny" },
+    ]
+  },
+  {
+    name: "Gérald Grand",
+    achievements: [
+      { year: "1972", title: "4ème place au tournoi blitz du comptoir de Martigny" },
+      { year: "1975", title: "Vainqueur du ch. valaisan par correspondance" },
+      { year: "1977", title: "Vainqueur (5e éch.) au tournoi blitz de Lausanne" },
+    ]
+  },
+  {
+    name: "Simon Morand",
+    achievements: [
+      { year: "2014-15", title: "Vainqueur de l'Activ Chess du Bouveret (2 fois)" },
+      { year: "2015", title: "Champion Valaisan Individuel (rapide)" },
+      { year: "2016-19", title: "Champion Valaisan de Blitz par Paire (3 fois, avec M. Bijelic et S. Emery)" },
+    ]
+  },
+  {
+    name: "Jean-Michel Paladini",
+    achievements: [
+      { year: "1978", title: "Vainqueur du championnat valaisan junior" },
+      { year: "1979", title: "Vainqueur du championnat valaisan junior" },
+      { year: "1979", title: "Vainqueur de la coupe de Sion" },
+      { year: "1981", title: "Vainqueur du tournoi junior de Noël de Sion" },
+    ]
+  },
+  {
+    name: "Pierre-Marie Rappaz",
+    achievements: [
+      { year: "1972", title: "Vainqueur du championnat valaisan junior" },
+      { year: "1974", title: "Vainqueur du championnat valaisan individuel B" },
+      { year: "1975 & 1978", title: "Vainqueur du championnat valaisan individuel" },
+      { year: "1975-1994", title: "Vainqueur de la coupe valaisanne (5 fois)" },
+      { year: "1979", title: "1er valaisan sur le classement de la liste suisse" },
+      { year: "2008 & 2012", title: "Champion Valaisan Individuel (rapide)" },
+      { year: "2020", title: "Champion Valaisan de Blitz par Paire (avec J-Y. Riand)" },
+      { year: "2022", title: "Champion Valaisan Junior" },
+      { year: "2024", title: "Vainqueur du Grand Prix de Monthey (lente)" },
+    ]
+  },
+  {
+    name: "Jean-Yves Riand",
+    achievements: [
+      { year: "1989 & 1992", title: "Vainqueur de la coupe valaisanne" },
+      { year: "1990", title: "Vainqueur du ch. valaisan individuel (activ-chess)" },
+      { year: "2000", title: "Nulle contre V. Kortchnoi en simultanée" },
+      { year: "2012", title: "Champion Valaisan Junior" },
+      { year: "2015", title: "Champion Valaisan de Blitz (CVIB)" },
+      { year: "2020-23", title: "Champion Valaisan de Blitz par Paire (3 fois, avec P-M. Rappaz et L. Zaza)" },
+      { year: "2023", title: "Vainqueur du Grand Prix de Monthey (lente)" },
+    ]
+  },
+  {
+    name: "Gilles Terreaux",
+    achievements: [
+      { year: "1976", title: "Vainqueur du tournoi junior de la Placette à Sierre" },
+      { year: "1977", title: "2ème place au championnat romand junior" },
+      { year: "1978 & 1979", title: "Vainqueur de la coupe valaisanne" },
+      { year: "1979", title: "Vainqueur du championnat suisse TP1" },
+      { year: "1981 & 1994", title: "Vainqueur du championnat valaisan individuel" },
+      { year: "1990", title: "Obtention du titre de Maître FIDE (FM)" },
+      { year: "1996 & 1999", title: "Finaliste de la coupe suisse" },
+      { year: "2000", title: "Victoire sur V. Kortchnoi en simultanée" },
+      { year: "2005", title: "Vainqueur de l'Active Chess de Martigny" },
+    ]
+  },
+];
+
+const presidents: President[] = [
   { period: "1935-1947", name: "Dr. André de Quay" },
   { period: "1948-1971", name: "Rodolphe Demanega" },
   { period: "1972", name: "Gérald Grand" },
@@ -62,7 +184,7 @@ const presidents = [
   { period: "2021-2025", name: "Vlad Popescu" },
 ];
 
-const hallOfFame = [
+const hallOfFame: HallOfFamePlayer[] = [
   { name: "Philippe Berclaz", title: "Grand Maître international ICCF", elo: "2569" },
   { name: "Gilles Terreaux", title: "Maître International FIDE & ICCF", elo: "2505" },
   { name: "Valery Allegro", title: "Maître International FIDE", elo: "2416" },
@@ -74,10 +196,10 @@ const hallOfFame = [
   { name: "Jean-Yves Riand", title: "Meilleur elo FIDE", elo: "2135" },
 ];
 
-const notablePlayers = [
-  "Valéry Allegro", "Charles-Henri Amherdt", "Eddy Beney", "Philippe Berclaz", 
-  "Julien Carron", "Stéphane Emery", "Patrick Gaulé", "Pascal Grand", "Roland Levrand", 
-  "Simon Morand", "Jean-Michel Paladini", "David Philippoz", "Pierre-Marie Rappaz", 
+const notablePlayers: string[] = [
+  "Valéry Allegro", "Charles-Henri Amherdt", "Eddy Beney", "Philippe Berclaz",
+  "Julien Carron", "Stéphane Emery", "Patrick Gaulé", "Pascal Grand", "Roland Levrand",
+  "Simon Morand", "Jean-Michel Paladini", "David Philippoz", "Pierre-Marie Rappaz",
   "Jean-Yves Riand", "Pascal Vianin", "Gilles Terreaux"
 ];
 
@@ -89,20 +211,20 @@ export default function Histoire() {
       <section className="relative bg-gradient-to-br from-primary-800 to-primary-900 text-white py-20">
         <div className="absolute inset-0 bg-black opacity-10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-5xl font-serif font-bold mb-6"
           >
             L'Histoire du Club
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="text-xl text-primary-100 max-w-3xl"
           >
-            De 1935 à aujourd'hui, revivez les différents moments clés et découvrez les figures qui ont façonné le Club d'Échecs de Sion.
+            De 1935 à aujourd'hui, revivez les moments clés et découvrez les figures qui ont façonné le Club d'Échecs de Sion.
           </motion.p>
         </div>
       </section>
@@ -112,7 +234,7 @@ export default function Histoire() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           {/* Timeline Section */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -130,7 +252,7 @@ export default function Histoire() {
                   <motion.div
                     initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }} 
+                    viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
                     className="order-1 bg-white rounded-lg shadow-xl w-5/12 px-6 py-4"
                   >
@@ -162,6 +284,41 @@ export default function Histoire() {
                   <User className="h-10 w-10 text-primary-600 mx-auto mb-4"/>
                   <h3 className="font-bold text-xl text-neutral-900 mb-2">{person.name}</h3>
                   <p className="text-neutral-600 text-sm">{person.bio}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Palmarès Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-20"
+          >
+            <h2 className="text-3xl font-serif font-bold text-neutral-900 mb-12 text-center">Palmarès des Joueurs Emblématiques</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {playerAchievements.map((player, index) => (
+                <motion.div
+                  key={player.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white p-6 rounded-xl shadow-lg"
+                >
+                  <div className="flex items-center mb-4">
+                    <Award className="h-6 w-6 text-primary-600 mr-3" />
+                    <h3 className="font-bold text-xl text-primary-800">{player.name}</h3>
+                  </div>
+                  <ul className="space-y-3">
+                    {player.achievements.map((ach, i) => (
+                      <li key={i} className="flex items-start text-sm text-neutral-700 border-t border-neutral-100 pt-3">
+                        <span className="font-mono text-xs bg-neutral-100 text-neutral-600 rounded px-2 py-0.5 mr-3">{ach.year}</span>
+                        <span>{ach.title}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </motion.div>
               ))}
             </div>

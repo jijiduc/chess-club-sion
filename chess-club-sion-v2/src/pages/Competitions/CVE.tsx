@@ -212,8 +212,8 @@ export default function CVE() {
   ])
 
   const toggleSeason = (yearToToggle: string) => {
-    setSeasons(seasons.map(season => 
-      season.year === yearToToggle 
+    setSeasons(seasons.map(season =>
+      season.year === yearToToggle
         ? { ...season, isExpanded: !season.isExpanded }
         : season
     ))
@@ -225,7 +225,7 @@ export default function CVE() {
       <section className="relative bg-gradient-to-r from-primary-900 to-accent-900 text-white py-24">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
@@ -257,7 +257,7 @@ export default function CVE() {
       {/* About Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -268,10 +268,10 @@ export default function CVE() {
                 <p className="text-neutral-700 mb-6">
                   Organisé par <a href="https://www.uve-wsb.ch/" className="text-primary-600 hover:text-primary-700 underline">
                     l'Union Valaisanne des Echecs (UVE)
-                  </a>, le Championnat Valaisan par Equipes (CVE) est une compétition par équipes entre les clubs valaisans 
+                  </a>, le Championnat Valaisan par Equipes (CVE) est une compétition par équipes entre les clubs valaisans
                   se déroulant de novembre à mai. Chaque équipe sélectionne 4 joueurs par matchs pour s'affronter.
                 </p>
-                
+
                 <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 my-8">
                   <h3 className="text-xl font-bold text-primary-900 mb-4 flex items-center">
                     <Calendar className="h-6 w-6 mr-2" />
@@ -308,13 +308,23 @@ export default function CVE() {
                     </div>
                   </div>
                 </div>
-                
-                </div>
-                <div className="mt-8 p-4 bg-accent-50 rounded-lg">
-                  <p className="text-sm text-accent-800 font-semibold mb-1">Sur la répartition des joueurs du club :</p>
-                  <p className="text-sm text-accent-800">Pour cette compétition, les joueurs du club de Sion sont répartis entre les diverses équipes Sion.
-                  </p>
+
               </div>
+              <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 my-8">
+                  <h3 className="text-xl font-bold text-primary-900 mb-4 flex items-center">
+                    <Users className="h-6 w-6 mr-2" />
+                    Répartition des équipes
+                  </h3>
+                  <div className="space-y-2 text-neutral-700">
+                    <p>
+                      Pour la saison 2024/2025, le club a engagé deux équipes dans le championnat.
+                    </p>
+                    <ul className="list-disc pl-5 space-y-1">
+                      <li><strong>Sion 1</strong>, avec pour capitaine <strong>Jeremy Duc</strong>.</li>
+                      <li><strong>Sion 2</strong>, avec pour capitaine <strong>Simon Moerschell</strong>.</li>
+                    </ul>
+                  </div>
+                </div>
             </div>
           </motion.div>
         </div>
@@ -396,26 +406,24 @@ export default function CVE() {
                         <motion.div
                           key={team.teamName}
                           whileHover={{ scale: 1.02 }}
-                          className={`rounded-lg p-6 ${
-                            team.isChampion
+                          className={`rounded-lg p-6 ${team.isChampion
                               ? 'bg-gradient-to-br from-yellow-50 to-primary-50 border-2 border-primary-400'
                               : 'bg-neutral-50 border border-neutral-200'
-                          }`}
+                            }`}
                         >
                           <div className="flex justify-between items-start mb-4">
                             <h3 className="text-xl font-semibold text-neutral-900">{team.teamName}</h3>
-                            <span className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${
-                              team.isChampion
+                            <span className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${team.isChampion
                                 ? 'bg-gradient-to-r from-yellow-400 to-primary-400 text-white'
                                 : 'bg-neutral-200 text-neutral-700'
-                            }`}>
+                              }`}>
                               {team.isChampion && <Medal className="h-4 w-4 mr-1" />}
                               {team.position}
                             </span>
                           </div>
-                          
+
                           <p className="text-neutral-700 mb-4">{team.description}</p>
-                          
+
                           {team.matchDetails && (
                             <div className="bg-white rounded-md p-4 border border-neutral-200">
                               <h4 className="text-sm font-semibold text-neutral-700 mb-3 flex items-center">
@@ -478,7 +486,7 @@ export default function CVE() {
               <div className="px-6 py-4 bg-gradient-to-r from-neutral-700 to-neutral-800 text-white">
                 <h3 className="text-2xl font-semibold">Saisons antérieures</h3>
               </div>
-              
+
               <div className="p-8 text-center">
                 <p className="text-neutral-700 mb-6">
                   Consultez l'historique complet des championnats valaisans sur le site officiel de l'UVE.

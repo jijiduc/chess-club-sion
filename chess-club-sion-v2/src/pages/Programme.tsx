@@ -1,7 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Calendar, Clock, MapPin, Users, Trophy, GraduationCap, Sparkles, Filter, ExternalLink } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { programmeEvents, categoryLabels, categoryColors } from '../data/programme';
 
 const Programme: React.FC = () => {

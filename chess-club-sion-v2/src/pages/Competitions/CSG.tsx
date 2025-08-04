@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Users, Calendar, ChevronRight, ExternalLink, Shield, Flag } from 'lucide-react'
+import { Users, Calendar, ExternalLink, Shield, Flag } from 'lucide-react'
 
 interface Team {
   name: string
@@ -21,11 +21,11 @@ export default function CSG() {
   const [seasons, setSeasons] = useState<Season[]>([
     {
       year: '2025',
-      isExpanded: false,
+      isExpanded: true,
       teams: [
         {
           name: 'Valais 1',
-          description: "L'équipe de Sion 1 à évoluée en 1LF en 2025. Fraîchement promue de la 2LF lors saison 2024, elle n'a su se maintenir face à l'adversité du meilleur échelon national.",
+          description: "Fraîchement promue de la 2 ligue fédérale lors saison 2024, l'équipe n'a su se maintenir face à l'adversité du meilleur échelon national.",
           resultsLink: {
             url: 'https://www.swisschess.ch/csg.html?old=L3R1cm5pZXJlL3NnbS5waHA_YWphaHI9MjAyNSZhbGlnYT0xJmFncnVwcGU9MTAxJmFyb3VuZD03',
             text: 'Résultats de Valais 1'
@@ -33,7 +33,7 @@ export default function CSG() {
         },
         {
           name: 'Valais 3',
-          description: "Au terme d'une saison disputée pour le maintien en 1ère ligue régionale, Valais 3 termine antépénultième de son groupe.",
+          description: "Au terme d'une saison disputée pour le maintien en 1ère ligue régionale, Valais 3 se sauve de justesse en fin de saison.",
           resultsLink: {
             url: 'https://www.swisschess.ch/csg.html?old=L3R1cm5pZXJlL3NnbS5waHA_YWphaHI9MjAyNSZhcm91bmQ9NyZhbGlnYT0z',
             text: 'Résultats de Valais 3'
@@ -44,17 +44,17 @@ export default function CSG() {
   ])
 
   const toggleSeason = (yearToToggle: string) => {
-    setSeasons(seasons.map(season => 
-      season.year === yearToToggle 
+    setSeasons(seasons.map(season =>
+      season.year === yearToToggle
         ? { ...season, isExpanded: !season.isExpanded }
         : season
     ))
   }
 
   const leagueStructure = [
-    { name: '1ère ligue fédérale', description: '8 joueurs par équipe', valaisTeam: 'Valais 1 (2025)' },
+    { name: '1ère ligue fédérale', description: '8 joueurs par équipe', valaisTeam: 'Valais 1 (2024/25)' },
     { name: '2ème ligue fédérale', description: '8 joueurs par équipe' },
-    { name: '1ère ligue régionale', description: '6 joueurs par équipe', valaisTeam: 'Valais 3 (2025)' },
+    { name: '1ère ligue régionale', description: '6 joueurs par équipe', valaisTeam: 'Valais 3 (2024/25)' },
     { name: '2ème ligue régionale', description: '5 joueurs par équipe' },
     { name: '3ème ligue régionale', description: '4 joueurs par équipe' }
   ]
@@ -65,7 +65,7 @@ export default function CSG() {
       <section className="relative bg-gradient-to-r from-primary-900 to-accent-900 text-white py-24">
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
@@ -74,7 +74,7 @@ export default function CSG() {
               Championnat Suisse par Groupes
             </h1>
             <p className="text-xl md:text-2xl opacity-90 mb-8">
-              CSG - Compétition nationale par équipes
+              CSG - Compétition nationale par équipes de clubs d'échecs
             </p>
             <div className="flex flex-wrap justify-center gap-6 text-sm md:text-base">
               <div className="flex items-center">
@@ -97,7 +97,7 @@ export default function CSG() {
       {/* About Section */}
       <section className="py-16">
         <div className="container mx-auto px-4">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -124,18 +124,16 @@ export default function CSG() {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.05 * index }}
-                        className={`flex items-center py-2 ${
-                          league.valaisTeam ? 'bg-primary-50 rounded-lg px-2 -mx-2' : ''
-                        }`}
+                        className={`flex items-center py-2 ${league.valaisTeam ? 'bg-primary-50 rounded-lg px-2 -mx-2' : ''
+                          }`}
                       >
                         <div className="flex items-center flex-1">
                           <div className={`w-${index * 4} mr-2`} style={{ width: `${index * 16}px` }}></div>
                           {index > 0 && (
                             <div className="text-neutral-400 mr-2">└</div>
                           )}
-                          <div className={`font-semibold ${
-                            league.valaisTeam ? 'text-primary-900' : 'text-neutral-800'
-                          }`}>
+                          <div className={`font-semibold ${league.valaisTeam ? 'text-primary-900' : 'text-neutral-800'
+                            }`}>
                             {league.name}
                           </div>
                           <div className="text-neutral-500 text-sm ml-2">
@@ -152,11 +150,21 @@ export default function CSG() {
                     ))}
                   </div>
                 </div>
-                <div className="mt-8 p-4 bg-accent-50 rounded-lg">
-                  <p className="text-sm text-accent-800 font-semibold mb-1">Sur la répartition des joueurs du club :</p>
-                  <p className="text-sm text-accent-800">Pour cette compétition, les joueurs du club de Sion sont répartis sous l'égide de la bannière
-                    "Valais" qui regroupe des joueurs issus des clubs de Sion, Martigny, Bagnes et Monthey. En 2025, parmi les équipes Valais 1 et Valais 3.
-                  </p>
+                <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 my-8">
+                  <h3 className="text-xl font-bold text-primary-900 mb-4 flex items-center">
+                    <Users className="h-6 w-6 mr-2" />
+                    Répartition des équipes
+                  </h3>
+                  <div className="space-y-2 text-neutral-700">
+                    <p>
+                      Pour cette compétition, les joueurs du club de Sion sont répartis sous l'égide de la bannière <strong>Valais</strong>. Ce regroupement
+                      est constitué de joueurs issus des clubs de Sion, Martigny, Bagnes et Monthey. Pendant la saison 2024-2025, les joueurs du club ont été engagés dans les équipes de :
+                    </p>
+                    <ul className="list-disc pl-5 space-y-1">
+                      <li><strong>Valais 1</strong>, avec pour capitaine <strong>Simon Morand</strong>.</li>
+                      <li><strong>Valais 3</strong>, avec pour capitaine <strong>Pierre-Marie Rappaz</strong>.</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -211,14 +219,18 @@ export default function CSG() {
                         <motion.div
                           key={team.name}
                           whileHover={{ scale: 1.02 }}
-                          className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-lg p-6 border border-primary-200"
+                          className="flex flex-col justify-between bg-gradient-to-br from-primary-50 to-accent-50 rounded-lg p-6 border border-primary-200"
                         >
-                          <h3 className="text-xl font-semibold text-primary-900 mb-3 flex items-center">
-                            <Shield className="h-5 w-5 mr-2" />
-                            {team.name}
-                          </h3>
-                          <p className="text-neutral-700 mb-4">{team.description}</p>
-                          
+                          {/* Groupe pour le contenu supérieur */}
+                          <div>
+                            <h3 className="text-xl font-semibold text-primary-900 mb-3 flex items-center">
+                              <Shield className="h-5 w-5 mr-2" />
+                              {team.name}
+                            </h3>
+                            <p className="text-neutral-700 mb-4">{team.description}</p>
+                          </div>
+
+                          {/* Groupe pour le bouton */}
                           {team.resultsLink && (
                             <div className="mt-4">
                               <motion.a
@@ -252,11 +264,11 @@ export default function CSG() {
               <div className="px-6 py-4 bg-gradient-to-r from-neutral-700 to-neutral-800 text-white">
                 <h3 className="text-2xl font-semibold">Historique</h3>
               </div>
-              
+
               <div className="p-8">
                 <div className="space-y-4 text-neutral-700 mb-6">
                   <p>
-                    Les équipes valaisannes ont connu diverses fortunes au fil des années, évoluant entre les 
+                    Les équipes valaisannes ont connu diverses fortunes au fil des années, évoluant entre les
                     ligues régionales et nationales selon les performances et la disponibilité des joueurs.
                   </p>
                 </div>

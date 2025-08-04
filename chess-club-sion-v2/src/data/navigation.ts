@@ -26,9 +26,9 @@ export const navigationItems: NavItem[] = [
     href: '#',
     children: [
       { name: 'Championnat interne du club', href: '/competitions/tournoi-interne' },
-      { name: 'CVE - Championnat Valaisan', href: '/competitions/cve' },
-      { name: 'CSE - Championnat Suisse', href: '/competitions/cse' },
-      { name: 'CSG - Championnat Groupe', href: '/competitions/csg' }
+      { name: 'CVE - Champ. Valaisan par Equipe', href: '/competitions/cve' },
+      { name: 'CSE - Champ. Suisse par Equipe', href: '/competitions/cse' },
+      { name: 'CSG - Champ. Suisse par Groupe', href: '/competitions/csg' }
     ]
   },
   { name: 'Contact', href: '/contact' }

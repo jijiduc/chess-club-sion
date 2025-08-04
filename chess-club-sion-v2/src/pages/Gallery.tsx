@@ -1,11 +1,12 @@
 import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Camera, Calendar, Users, Trophy, MapPin, X, ChevronLeft, ChevronRight, Filter } from 'lucide-react'
+import { Camera, Calendar, Trophy, X, ChevronLeft, ChevronRight, Filter } from 'lucide-react'
 
 interface GalleryImage {
   id: string
   src: string
-  category: 'team' | 'tournament' | 'event' | 'member' | 'venue' | 'historic'
+  // La catégorie n'est plus utilisée pour le filtrage mais peut être conservée pour la sémantique
+  category: 'team' | 'tournament' | 'event' | 'member' | 'venue' | 'historic' | 'top_player'
   title: string
   description?: string
   date?: string
@@ -13,49 +14,49 @@ interface GalleryImage {
 }
 
 const galleryImages: GalleryImage[] = [
-  // Team Competition Photos (CSE)
+  // CSE
   {
     id: 'cse-2002-1a',
-    src: '/picture/gallery/cse20021a.jpg',
+    src: '/picture/gallery/CSE_2002/cse20021a.jpg',
     category: 'team',
-    title: 'Position difficile',
-    description: 'Une position difficile lors du match Sion I - Fribourg',
+    title: 'Position difficile contre Fribourg',
+    description: 'Analyse intense durant le match Sion I - Fribourg en Championnat Suisse par Équipes.',
     date: '3 mars 2002',
     event: 'Championnat Suisse par Équipes'
   },
   {
     id: 'cse-2002-1b',
-    src: '/picture/gallery/cse20021b.jpg',
+    src: '/picture/gallery/CSE_2002/cse20021b.jpg',
     category: 'team',
-    title: 'Julien en action',
-    description: 'Julien a oublié son T-Shirt ICC',
+    title: 'Julien Carron en pleine concentration',
+    description: 'Julien Carron, absorbé par sa partie lors du Championnat Suisse.',
     date: '3 mars 2002',
     event: 'Championnat Suisse par Équipes'
   },
   {
     id: 'cse-2002-1h',
-    src: '/picture/gallery/cse20021h.jpg',
+    src: '/picture/gallery/CSE_2002/cse20021h.jpg',
     category: 'team',
-    title: 'Vue d\'ensemble',
-    description: 'Vue d\'ensemble du match Sion I - Fribourg',
+    title: 'Vue d\'ensemble du match',
+    description: 'La salle de jeu lors de la rencontre Sion I - Fribourg.',
     date: '3 mars 2002',
     event: 'Championnat Suisse par Équipes'
   },
   {
     id: 'cse-2002-2a',
-    src: '/picture/gallery/cse20022a.jpg',
+    src: '/picture/gallery/CSE_2002/cse20022a.jpg',
     category: 'team',
-    title: 'Honneur au capitaine',
-    description: 'Match Lausanne Le Joueur - Sion',
+    title: 'Le capitaine en action',
+    description: 'Match à l\'extérieur contre Lausanne Le Joueur.',
     date: '24 mars 2002',
     event: 'Championnat Suisse par Équipes'
   },
   {
     id: 'cse-2002-2j',
-    src: '/picture/gallery/cse20022j.jpg',
+    src: '/picture/gallery/CSE_2002/cse20022j.jpg',
     category: 'team',
-    title: 'Coup de maître',
-    description: 'C\'est dans cette position que Pascal va jouer le coup de GM d6-d5 !',
+    title: 'Un coup de Maître',
+    description: 'C\'est dans cette position que Pascal jouera le coup de GM d6-d5 !',
     date: '24 mars 2002',
     event: 'Championnat Suisse par Équipes'
   },
@@ -63,338 +64,201 @@ const galleryImages: GalleryImage[] = [
   // CVE
   {
     id: 'cve-2022',
-    src: '/picture/gallery/cve_2022.png',
+    src: '/picture/gallery/CVE/cve_2022.png',
     category: 'team',
-    title: 'Finale CVE 2022',
-    description: 'L\' équipe victorieuse lors de la finale (g.à.d Vlad, Pierre-Marie, Simon et Stéphane)',
+    title: 'Champions Valaisans 2022',
+    description: 'L\'équipe victorieuse de la finale du CVE 2022 (g.à.d Vlad, Pierre-Marie, Simon et Stéphane).',
     date: 'mai 2022',
     event: 'Championnat Valaisan par Équipes'
   },
   {
     id: 'cve-2023',
-    src: '/picture/gallery/cve_2023.png',
+    src: '/picture/gallery/CVE/cve_2023.png',
     category: 'team',
-    title: 'Finale CVE 2023',
-    description: 'L\' équipe victorieuse lors de la finale (g.à.d Simon, Vlad, Jean-Yves et Stéphane)',
+    title: 'Champions Valaisans 2023',
+    description: 'L\'équipe victorieuse de la finale du CVE 2023 (g.à.d Simon, Vlad, Jean-Yves et Stéphane).',
     date: 'mai 2023',
     event: 'Championnat Valaisan par Équipes'
   },
   {
-    id: 'sion-crans-cve-2025',
-    src: '/picture/gallery/cve_2025.jpg',
+    id: 'cve-2025',
+    src: '/picture/gallery/CVE/cve_2025.jpg',
     category: 'team',
-    title: 'Finale CVE 2025',
-    description: 'L\' équipe victorieuse lors de la finale (g.à.d Jeremy, Pierre-Marie, Flavien et Jean-Yves)',
+    title: 'Champions Valaisans 2025',
+    description: 'L\'équipe victorieuse de la finale du CVE 2025 (g.à.d Jeremy, Pierre-Marie, Flavien et Jean-Yves).',
     date: 'mai 2025',
     event: 'Championnat Valaisan par Équipes'
   },
   {
-    id: 'cve-2025',
-    src: '/picture/gallery/SionMontana-cve2025.jpg',
+    id: 'sion-crans-cve-2025',
+    src: '/picture/gallery/CVE/SionMontana-cve2025.jpg',
     category: 'team',
-    title: 'Tension finale',
-    description: 'Pierre-Marie et Xavier se battant pour donner la victoire à leur équipe, sous l\'oeil attentif d\'Yves et Jean-daniel lors du match Sion 1 - Montana 1. Le point sera finalement partagé',
+    title: 'Tension en finale',
+    description: 'Pierre-Marie et Xavier se battant pour la victoire, sous l\'oeil d\'Yves et Jean-Daniel lors du match Sion 1 - Montana 1. Le point sera finalement partagé.',
     date: 'mai 2025',
     event: 'Championnat Valaisan par Équipes'
   },
-  
-  // Valais Team Championship
   {
     id: 'cve-2000-3',
-    src: '/picture/gallery/cve2000-3.jpg',
+    src: '/picture/gallery/CVE/cve2000-3.jpg',
     category: 'team',
-    title: 'Sion II promu',
-    description: 'L\'équipe Sion II promue en groupe A (Olivier Crettenand, David Campanile, Eder et Renzo Cerda)',
+    title: 'Sion II promu en groupe A',
+    description: 'L\'équipe Sion II (Olivier Crettenand, David Campanile, Eder et Renzo Cerda) célèbre sa promotion en 2000.',
     date: '2000',
     event: 'Championnat Valaisan par Équipes'
   },
   {
     id: 'cve-2000-4',
-    src: '/picture/gallery/cve2000-4.jpg',
+    src: '/picture/gallery/CVE/cve2000-4.jpg',
     category: 'team',
-    title: 'Sion II avec Martigny I',
-    description: 'Équipe Sion II avec l\'équipe Martigny I (vainqueurs du groupe A)',
+    title: 'Fair-play avec Martigny I',
+    description: 'L\'équipe Sion II pose avec les vainqueurs du groupe A, Martigny I.',
     date: '2000',
     event: 'Championnat Valaisan par Équipes'
   },
-  
-  // General Assembly 1998
+
+  // AG 1998
   {
     id: 'ag-1998-jmp',
-    src: '/picture/gallery/ag98jmp.jpg',
+    src: '/picture/gallery/AG/ag98jmp.jpg',
     category: 'event',
-    title: 'Président Jean-Michel Paladini',
-    description: 'Le président Jean-Michel Paladini prépare son discours',
+    title: 'Le Président Jean-Michel Paladini',
+    description: 'Le président prépare son discours lors de l\'Assemblée Générale de 1998.',
     date: '1998',
-    event: 'Assemblée Générale'
+    event: 'Assemblée Générale 1998'
   },
   {
     id: 'ag-1998-pg',
-    src: '/picture/gallery/ag98pg.jpg',
+    src: '/picture/gallery/AG/ag98pg.jpg',
     category: 'event',
-    title: 'Trésorier Pascal Grand',
-    description: 'Pascal Grand, trésorier passionné par le discours du président',
+    title: 'Le Trésorier Pascal Grand',
+    description: 'Pascal Grand, trésorier, attentif au discours du président.',
     date: '1998',
-    event: 'Assemblée Générale'
+    event: 'Assemblée Générale 1998'
   },
   {
     id: 'ag-1998-fc',
-    src: '/picture/gallery/ag98fc.jpg',
+    src: '/picture/gallery/AG/ag98fc.jpg',
     category: 'event',
-    title: 'Fritz Karafiat',
-    description: 'Fritz Karafiat, responsable des activités internes, dévoué aux jeunes du club',
+    title: 'Fritz Karafiat, responsable interne',
+    description: 'Fritz Karafiat, dévoué aux jeunes du club.',
     date: '1998',
-    event: 'Assemblée Générale'
+    event: 'Assemblée Générale 1998'
   },
+
+  // Local du club
+  { id: 'local-1', src: '/picture/gallery/Local/local1.jpg', category: 'venue', title: 'Le bâtiment du club', description: 'Vue extérieure du bâtiment (nous sommes au dernier étage).', event: 'Local du Club (avant 2006)' },
+  { id: 'local-2', src: '/picture/gallery/Local/local2.jpg', category: 'venue', title: 'Le bâtiment du club, autre vue', description: 'Une autre perspective de notre local historique.', event: 'Local du Club (avant 2006)' },
+  { id: 'local-3', src: '/picture/gallery/Local/local3.jpg', category: 'venue', title: 'L\'entrée des gladiateurs', description: 'Après la porte d\'entrée, il ne reste plus que 64 marches à grimper.', event: 'Local du Club (avant 2006)' },
+  { id: 'local-4', src: '/picture/gallery/Local/local4.jpg', category: 'venue', title: 'Salle secondaire', description: 'La salle secondaire, avant la grande rénovation de 2006.', event: 'Local du Club (avant 2006)' },
+  { id: 'local-5', src: '/picture/gallery/Local/local5.jpg', category: 'venue', title: 'Salle de jeu principale', description: 'La salle principale et son charme d\'antan, avant la rénovation de 2006.', event: 'Local du Club (avant 2006)' },
+
+  // Simultanée Kortchnoi 2000
+  { id: 'kortchnoi-2000-a', src: '/picture/gallery/Simultanee/Korchnoi/k2000a.jpg', category: 'tournament', title: 'Face au Maître', description: 'De vaillants compétiteurs face au légendaire Viktor Kortchnoi.', date: '2000', event: 'Simultanée Kortchnoi' },
+  { id: 'kortchnoi-2000-b', src: '/picture/gallery/Simultanee/Korchnoi/k2000b.jpg', category: 'tournament', title: 'Le regard du Maître', description: 'Le grand maître Viktor Kortchnoi en pleine contemplation.', date: '2000', event: 'Simultanée Kortchnoi' },
+  { id: 'kortchnoi-2000-c', src: '/picture/gallery/Simultanee/Korchnoi/k2000c.jpg', category: 'tournament', title: 'Kortchnoi contre Gilles Terreaux', description: 'Viktor Kortchnoi face à notre membre Gilles Terreaux.', date: '2000', event: 'Simultanée Kortchnoi' },
+  { id: 'kortchnoi-2000-e', src: '/picture/gallery/Simultanee/Korchnoi/k2000e.jpg', category: 'tournament', title: 'La jeunesse s\'interroge', description: 'Eddy Beney, son fils et Olivier Crettenand face à un problème posé par le GMI.', date: '2000', event: 'Simultanée Kortchnoi' },
+  { id: 'kortchnoi-2000-f', src: '/picture/gallery/Simultanee/Korchnoi/k2000f.jpg', category: 'tournament', title: 'Une poussée vigoureuse', description: 'Jean-Yves Riand et Léonard Besse en pleine collaboration contre Viktor Kortchnoi.', date: '2000', event: 'Simultanée Kortchnoi' },
+  { id: 'kortchnoi-2000-g', src: '/picture/gallery/Simultanee/Korchnoi/k2000g.jpg', category: 'tournament', title: 'Moment de réflexion', description: 'Kortchnoi analyse la position face à Jean-Yves Riand.', date: '2000', event: 'Simultanée Kortchnoi' },
+  { id: 'kortchnoi-2000-h', src: '/picture/gallery/Simultanee/Korchnoi/k2000h.jpg', category: 'tournament', title: 'Le Maître et ses adversaires', description: 'Kortchnoi se penche sur une position complexe.', date: '2000', event: 'Simultanée Kortchnoi' },
   
-  // Club Local
-  {
-    id: 'local-1',
-    src: '/picture/gallery/local1.jpg',
-    category: 'venue',
-    title: 'Bâtiment du club',
-    description: 'Vue extérieure du bâtiment (nous sommes au dernier étage)',
-    event: 'Local du club'
-  },
-  {
-    id: 'local-3',
-    src: '/picture/gallery/local3.jpg',
-    category: 'venue',
-    title: 'Entrée du club',
-    description: 'Après la porte d\'entrée, plus que 64 marches à grimper',
-    event: 'Local du club'
-  },
-  {
-    id: 'local-5',
-    src: '/picture/gallery/local5.jpg',
-    category: 'venue',
-    title: 'Salle principale',
-    description: 'Salle de jeu principale avant la rénovation de 2006',
-    event: 'Local du club'
-  },
+  // Simultanée Nemet Ivan
+  { id: 'nemet-ivan-2005', src: '/picture/gallery/Simultanee/Nemet/simnemet.jpg', category: 'top_player', title: 'Simultanée d\'Ivan Nemet', description: 'Le GMI Ivan Nemet, Champion Suisse 1990, lors d\'une simultanée.', date: '2005', event: 'Simultanée Nemet Ivan' },
   
-  // Kortchnoi Simultaneous Exhibition
+  // Championnat blitz par paires 2000 - Données mises à jour
   {
-    id: 'kortchnoi-2000-a',
-    src: '/picture/gallery/k2000a.jpg',
+    id: 'blitz-2000-1',
+    src: '/picture/gallery/Blitz/blitzp2-2000.jpg',
     category: 'tournament',
-    title: 'Simultanée Kortchnoi',
-    description: 'Joueurs incluant G Terreaux, P Vianin et autres',
-    date: '2000',
-    event: 'Simultanée Kortchnoi - Bagnes'
+    title: 'La vieille garde en action',
+    description: 'La paire expérimentée formée par Pierre-Marie Rappaz et Jean-Yves Riand.',
+    date: '25 mars 2000',
+    event: 'Ch. Valaisan de Blitz par Paire'
   },
   {
-    id: 'kortchnoi-2000-e',
-    src: '/picture/gallery/k2000e.jpg',
+    id: 'blitz-2000-2',
+    src: '/picture/gallery/Blitz/blitzp3-2000.jpg',
     category: 'tournament',
-    title: 'E Beney et O Crettenand',
-    description: 'E Beney, son fils et O Crettenand',
-    date: '2000',
-    event: 'Simultanée Kortchnoi - Bagnes'
+    title: 'Prix Junior pour Carron & Campanile',
+    description: 'La paire de jeunes talents, Julien Carron et David Campanile, remporte le premier prix junior.',
+    date: '25 mars 2000',
+    event: 'Ch. Valaisan de Blitz par Paire'
   },
   {
-    id: 'kortchnoi-2000-f',
-    src: '/picture/gallery/k2000f.jpg',
+    id: 'blitz-2000-3',
+    src: '/picture/gallery/Blitz/blitzp4-2000.jpg',
     category: 'tournament',
-    title: 'J-Y Riand et L Besse',
-    description: 'J-Y Riand et L Besse contre Kortchnoi',
-    date: '2000',
-    event: 'Simultanée Kortchnoi - Bagnes'
-  },
-  
-  // Historic Championship 1979
-  {
-    id: 'cv-1979-gt',
-    src: '/picture/gallery/gt79.jpg',
-    category: 'historic',
-    title: 'Championnat Valaisan 1979',
-    description: 'Photo historique du championnat',
-    date: '1979',
-    event: 'Championnat Valaisan'
+    title: 'Association inter-club',
+    description: 'La paire formée de Gilles Terreaux et Jean-Paul Moret lors du tournoi.',
+    date: '25 mars 2000',
+    event: 'Ch. Valaisan de Blitz par Paire'
   },
   {
-    id: 'cv-1979-pg',
-    src: '/picture/gallery/pg79.jpg',
-    category: 'historic',
-    title: 'Championnat Valaisan 1979',
-    description: 'Photo historique du championnat',
-    date: '1979',
-    event: 'Championnat Valaisan'
-  },
-  {
-    id: 'cv-1979-jmp',
-    src: '/picture/gallery/jmp79.jpg',
-    category: 'historic',
-    title: 'Championnat Valaisan 1979',
-    description: 'Photo historique du championnat',
-    date: '1979',
-    event: 'Championnat Valaisan'
-  },
-  
-  // Promotions Celebration 2001
-  {
-    id: 'promo-2001-f6',
-    src: '/archives/ancient_site/promo2001-f6.jpg',
-    category: 'event',
-    title: 'Fête des promotions',
-    description: 'Vue d\'ensemble de la célébration des promotions',
-    date: '2001',
-    event: 'Fête des promotions Sion I & II'
-  },
-  {
-    id: 'promo-2001-f5',
-    src: '/archives/ancient_site/promo2001-f5.jpg',
-    category: 'event',
-    title: 'Discours imminent',
-    description: 'Le discours du président semble imminent',
-    date: '2001',
-    event: 'Fête des promotions Sion I & II'
-  },
-  
-  // Mérite Sportif Sédunois 2002
-  {
-    id: 'ms-2002-7',
-    src: '/archives/ancient_site/ms2002-7.jpg',
-    category: 'event',
-    title: 'Julien appelé',
-    description: 'Julien est appelé pour recevoir son prix',
-    date: '2002',
-    event: 'Mérite Sportif Sédunois'
-  },
-  {
-    id: 'ms-2002-6',
-    src: '/archives/ancient_site/ms2002-6.jpg',
-    category: 'event',
-    title: 'Remise du prix',
-    description: 'Julien reçoit son prix des mains du président Mudry',
-    date: '2002',
-    event: 'Mérite Sportif Sédunois'
-  },
-  
-  // Member Portraits
-  {
-    id: 'member-vlad',
-    src: '/archives/ancient_site/Vlad.jpg',
-    category: 'member',
-    title: 'Popescu Vlad',
-    description: 'Président du club',
-    event: 'Portraits des membres'
-  },
-  {
-    id: 'member-sandro',
-    src: '/archives/ancient_site/Sandro.jpg',
-    category: 'member',
-    title: 'Bétrisey Sandro',
-    description: 'Vice-président du club',
-    event: 'Portraits des membres'
-  },
-  {
-    id: 'member-jyr',
-    src: '/archives/ancient_site/c-jyr2001.jpg',
-    category: 'member',
-    title: 'Jean-Yves Riand',
-    description: 'Capitaine d\'équipe',
-    date: '2001',
-    event: 'Portraits des membres'
-  },
-  
-  // Other Notable Images
-  {
-    id: 'anand-2008',
-    src: '/archives/ancient_site/anand2008.jpg',
+    id: 'blitz-2000-4',
+    src: '/picture/gallery/Blitz/blitzp5-2000.jpg',
     category: 'tournament',
-    title: 'Anand 2008',
-    description: 'Champion du monde Viswanathan Anand',
-    date: '2008',
-    event: 'Championnat du monde'
+    title: 'Pause publicitaire',
+    description: 'Après le garage Mistral, une page de pub pour Coca Cola...',
+    date: '25 mars 2000',
+    event: 'Ch. Valaisan de Blitz par Paire'
   },
-  {
-    id: 'julien-winterthur-2008',
-    src: '/archives/ancient_site/julienwinterthur2008.jpg',
-    category: 'tournament',
-    title: 'Julien à Winterthur',
-    description: 'Julien Carron au tournoi de Winterthur',
-    date: '2008',
-    event: 'Tournoi de Winterthur'
-  },
-  {
-    id: 'cvblitz-2019',
-    src: '/archives/ancient_site/cvblitz2019.JPG',
-    category: 'tournament',
-    title: 'Championnat Valaisan Blitz',
-    description: 'Championnat Valaisan de Blitz',
-    date: '2019',
-    event: 'Championnat Valaisan Blitz'
-  },
-  {
-    id: 'jyr-monthey-2017',
-    src: '/archives/ancient_site/jyrmonthey2017.JPG',
-    category: 'tournament',
-    title: 'J-Y Riand à Monthey',
-    description: 'Jean-Yves Riand au tournoi de Monthey',
-    date: '2017',
-    event: 'Tournoi de Monthey'
-  }
+
+  // Championnat Valaisan 1979
+  { id: 'cv-1979-gt', src: '/picture/gallery/Championnat_Valaisan/gt79.jpg', category: 'historic', title: 'Gilles Terreaux, Champion 1979', description: 'Gilles Terreaux, vainqueur du championnat toutes catégories confondues en 1979.', date: '1979', event: 'Championnat Valaisan 1979' },
+  { id: 'cv-1979-pg', src: '/picture/gallery/Championnat_Valaisan/pg79.jpg', category: 'historic', title: 'Pascal Grand, Champion du tournoi 2', description: 'Pascal Grand, champion valaisan du tournoi 2 en 1979.', date: '1979', event: 'Championnat Valaisan 1979' },
+  { id: 'cv-1979-jmp', src: '/picture/gallery/Championnat_Valaisan/jmp79.jpg', category: 'historic', title: 'Jean-Michel Paladini, Champion Junior', description: 'Jean-Michel Paladini, sacré champion valaisan junior en 1979.', date: '1979', event: 'Championnat Valaisan 1979' },
+
+  // Fête des promotions 2001
+  { id: 'promo-2001-f1', src: '/picture/gallery/Promotion_2001/promo2001-f1.jpg', category: 'event', title: 'Célébration des promotions', description: 'Des membres du club lors de la fête des promotions de Sion I & II.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001-f2', src: '/picture/gallery/Promotion_2001/promo2001-f2.jpg', category: 'event', title: 'Le banquet des champions', description: 'Plusieurs membres, dont Eddy Beney à gauche, partagent un repas.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001-f3', src: '/picture/gallery/Promotion_2001/promo2001-f3.jpg', category: 'event', title: 'Un moment convivial', description: 'Les promotions de Sion I & II sont dignement arrosées.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001-f4', src: '/picture/gallery/Promotion_2001/promo2001-f4.jpg', category: 'event', title: 'La tablée des joueurs', description: 'Plusieurs membres, dont Julien Carron tout à gauche, célèbrent la montée.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001-f5', src: '/picture/gallery/Promotion_2001/promo2001-f5.jpg', category: 'event', title: 'Souvenirs de promotion', description: 'Plusieurs membres, dont Jean-Yves Riand à gauche.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001-f6', src: '/picture/gallery/Promotion_2001/promo2001-f6.jpg', category: 'event', title: 'Vue d\'ensemble de la fête', description: 'Une grande tablée pour une grande occasion.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001-f7', src: '/picture/gallery/Promotion_2001/promo2001-f7.jpg', category: 'event', title: 'Gilles Terreaux, le sourire du vainqueur', description: 'Plusieurs membres, dont Gilles Terreaux à gauche.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001-f8', src: '/picture/gallery/Promotion_2001/promo2001-f8.jpg', category: 'event', title: 'Une belle soirée', description: 'Une belle tablée de membres pour fêter les promotions.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001-f9', src: '/picture/gallery/Promotion_2001/promo2001-f9.jpg', category: 'event', title: 'Gilles Terreaux, prêt au combat', description: 'Même à table, l\'esprit de compétition est là.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001a', src: '/picture/gallery/Promotion_2001/promo2001a.jpg', category: 'event', title: 'L\'équipe de la promotion', description: 'L\'équipe de Sion I victorieuse 5,5-2,5 contre Berne II.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001b', src: '/picture/gallery/Promotion_2001/promo2001b.jpg', category: 'event', title: 'La feuille de match historique', description: 'Le détail du match Sion I - Berne II qui a scellé la promotion.', date: '2001', event: 'Fête des promotions 2001' },
+
+  // Julien Carron Champion
+  { id: 'julien-cs1-2005', src: '/picture/gallery/Julien_Carron/csi2005.jpg', category: 'top_player', title: 'Julien Carron, Champion Suisse Junior', description: 'Julien Carron avec les différents champions suisses de l\'année 2005.', date: '2005', event: 'Championnat Suisse Individuel' },
 ]
 
-const categories = [
-  { id: 'all', label: 'Toutes', icon: Camera },
-  { id: 'team', label: 'Compétition par équipes', icon: Users },
-  { id: 'tournament', label: 'Tournois', icon: Trophy },
-  { id: 'event', label: 'Événements', icon: Calendar },
-  { id: 'member', label: 'Membres', icon: Users },
-  { id: 'venue', label: 'Local', icon: MapPin },
-  { id: 'historic', label: 'Historique', icon: Calendar }
-]
 
 export default function Gallery() {
-  const [selectedCategory, setSelectedCategory] = useState('all')
+  const [selectedFilter, setSelectedFilter] = useState('Toutes')
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null)
   const [imageError, setImageError] = useState<Set<string>>(new Set())
 
+  // Création dynamique des filtres basés sur le champ 'event'
+  const filterOptions = useMemo(() => {
+    const isString = (value: string | undefined): value is string => typeof value === 'string';
+    const events = new Set(galleryImages.map(img => img.event).filter(isString));
+    return ['Toutes', ...Array.from(events).sort()];
+  }, []);
+
   const parseDate = (dateString?: string): Date => {
-    if (!dateString) {
-      return new Date(0);
-    }
-  
-    const monthMap: { [key: string]: number } = {
-      'janvier': 0, 'février': 1, 'mars': 2, 'avril': 3, 'mai': 4, 'juin': 5,
-      'juillet': 6, 'août': 7, 'septembre': 8, 'octobre': 9, 'novembre': 10, 'décembre': 11
-    };
-  
+    if (!dateString) return new Date(0);
+    const monthMap: { [key: string]: number } = { 'janvier': 0, 'février': 1, 'mars': 2, 'avril': 3, 'mai': 4, 'juin': 5, 'juillet': 6, 'août': 7, 'septembre': 8, 'octobre': 9, 'novembre': 10, 'décembre': 11 };
     const parts = dateString.toLowerCase().split(' ');
-  
-    if (parts.length === 1 && /^\d{4}$/.test(parts[0])) {
-      return new Date(parseInt(parts[0]), 0, 1);
-    }
-    
-    if (parts.length === 2 && monthMap.hasOwnProperty(parts[0])) {
-      const year = parseInt(parts[1]);
-      const month = monthMap[parts[0]];
-      return new Date(year, month, 1);
-    }
-  
-    if (parts.length === 3 && monthMap.hasOwnProperty(parts[1])) {
-      const year = parseInt(parts[2]);
-      const month = monthMap[parts[1]];
-      const day = parseInt(parts[0]);
-      return new Date(year, month, day);
-    }
-  
+    if (parts.length === 1 && /^\d{4}$/.test(parts[0])) return new Date(parseInt(parts[0]), 0, 1);
+    if (parts.length === 2 && monthMap.hasOwnProperty(parts[0])) return new Date(parseInt(parts[1]), monthMap[parts[0]], 1);
+    if (parts.length === 3 && monthMap.hasOwnProperty(parts[1])) return new Date(parseInt(parts[2]), monthMap[parts[1]], parseInt(parts[0]));
     return new Date(0);
   };
   
   const filteredImages = useMemo(() => {
-    const imagesToFilter = selectedCategory === 'all'
+    const imagesToFilter = selectedFilter === 'Toutes'
       ? galleryImages
-      : galleryImages.filter(img => img.category === selectedCategory);
+      : galleryImages.filter(img => img.event === selectedFilter);
   
     return imagesToFilter.sort((a, b) => {
       const dateA = parseDate(a.date).getTime();
       const dateB = parseDate(b.date).getTime();
       return dateB - dateA;
     });
-  }, [selectedCategory]);
+  }, [selectedFilter]);
 
   const handleImageError = (imageId: string) => {
     setImageError(prev => new Set(prev).add(imageId))
@@ -434,27 +298,23 @@ export default function Gallery() {
       </section>
 
       {/* Category Filter */}
-      <section className="py-8 bg-white shadow-sm sticky top-20 z-40">
+      <section className="py-8 bg-white shadow-sm sticky top-0 z-40">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-center flex-wrap gap-3">
-            <Filter className="h-5 w-5 text-neutral-600" />
-            {categories.map((cat) => {
-              const Icon = cat.icon
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id)}
-                  className={`px-4 py-2 rounded-full font-medium transition-all flex items-center gap-2 ${
-                    selectedCategory === cat.id
-                      ? 'bg-gradient-to-r from-primary-600 to-primary-800 text-white shadow-lg'
-                      : 'bg-white text-neutral-700 hover:bg-neutral-50 border border-neutral-300'
-                  }`}
-                >
-                  <Icon className="h-4 w-4" />
-                  {cat.label}
-                </button>
-              )
-            })}
+            <Filter className="h-5 w-5 text-neutral-600 hidden md:block" />
+            {filterOptions.map((filter) => (
+              <button
+                key={filter}
+                onClick={() => setSelectedFilter(filter)}
+                className={`px-4 py-2 rounded-full font-medium transition-all text-sm md:text-base ${
+                  selectedFilter === filter
+                    ? 'bg-gradient-to-r from-primary-600 to-primary-800 text-white shadow-lg'
+                    : 'bg-white text-neutral-700 hover:bg-neutral-50 border border-neutral-300'
+                }`}
+              >
+                {filter}
+              </button>
+            ))}
           </div>
         </div>
       </section>
@@ -463,47 +323,51 @@ export default function Gallery() {
       <section className="py-12">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {filteredImages.map((image, index) => (
-              <motion.div
-                key={image.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
-                whileHover={{ scale: 1.05 }}
-                className="cursor-pointer group"
-                onClick={() => setSelectedImage(image)}
-              >
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                  <div className="aspect-w-16 aspect-h-12 bg-neutral-100 relative">
-                    {imageError.has(image.id) ? (
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="text-center p-4">
-                          <Camera className="h-12 w-12 text-neutral-400 mx-auto mb-2" />
-                          <p className="text-sm text-neutral-500">Image non disponible</p>
+            <AnimatePresence>
+              {filteredImages.map((image) => (
+                <motion.div
+                  layout
+                  key={image.id}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.3 }}
+                  whileHover={{ scale: 1.05 }}
+                  className="cursor-pointer group"
+                  onClick={() => setSelectedImage(image)}
+                >
+                  <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div className="aspect-w-16 aspect-h-12 bg-neutral-100 relative">
+                      {imageError.has(image.id) ? (
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-center p-4">
+                            <Camera className="h-12 w-12 text-neutral-400 mx-auto mb-2" />
+                            <p className="text-sm text-neutral-500">Image non disponible</p>
+                          </div>
                         </div>
-                      </div>
-                    ) : (
-                      <img
-                        src={image.src}
-                        alt={image.title}
-                        className="w-full h-48 object-cover group-hover:opacity-90 transition-opacity"
-                        onError={() => handleImageError(image.id)}
-                      />
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                      ) : (
+                        <img
+                          src={image.src}
+                          alt={image.title}
+                          className="w-full h-48 object-cover group-hover:opacity-90 transition-opacity"
+                          onError={() => handleImageError(image.id)}
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-neutral-900 mb-1 truncate">{image.title}</h3>
+                      {image.date && (
+                        <p className="text-sm text-neutral-500 mb-1">{image.date}</p>
+                      )}
+                      {image.event && (
+                        <p className="text-xs text-primary-600">{image.event}</p>
+                      )}
+                    </div>
                   </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-neutral-900 mb-1">{image.title}</h3>
-                    {image.date && (
-                      <p className="text-sm text-neutral-500 mb-1">{image.date}</p>
-                    )}
-                    {image.event && (
-                      <p className="text-xs text-primary-600">{image.event}</p>
-                    )}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </div>
         </div>
       </section>
@@ -525,29 +389,15 @@ export default function Gallery() {
               className="relative max-w-5xl w-full bg-white rounded-lg overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close button */}
-              <button
-                onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-colors"
-              >
+              <button onClick={() => setSelectedImage(null)} className="absolute top-4 right-4 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-colors">
                 <X className="h-6 w-6" />
               </button>
-
-              {/* Navigation buttons */}
-              <button
-                onClick={() => navigate('prev')}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-colors"
-              >
+              <button onClick={() => navigate('prev')} className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-colors">
                 <ChevronLeft className="h-6 w-6" />
               </button>
-              <button
-                onClick={() => navigate('next')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-colors"
-              >
+              <button onClick={() => navigate('next')} className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-colors">
                 <ChevronRight className="h-6 w-6" />
               </button>
-
-              {/* Image and details */}
               <div className="flex flex-col lg:flex-row">
                 <div className="lg:w-2/3 bg-black flex items-center justify-center">
                   {imageError.has(selectedImage.id) ? (
@@ -565,12 +415,9 @@ export default function Gallery() {
                   )}
                 </div>
                 <div className="lg:w-1/3 p-6 lg:p-8">
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-4">
-                    {selectedImage.title}
-                  </h2>
+                  <h2 className="text-2xl font-bold text-neutral-900 mb-4">{selectedImage.title}</h2>
                   {selectedImage.description && (
                     <p className="text-neutral-700 mb-4">{selectedImage.description}</p>
-
                   )}
                   <div className="space-y-2 text-sm">
                     {selectedImage.date && (
