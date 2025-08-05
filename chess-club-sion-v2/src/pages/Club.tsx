@@ -54,7 +54,7 @@ export default function Club() {
               </p>
               <p className="mb-6">
                 <Link to="/histoire" className="inline-flex items-center font-semibold text-primary-600 hover:text-primary-700 hover:underline transition-colors">
-                  En savoir plus sur l'histoire du club
+                  En savoir plus sur l'histoire du club, les joueurs et les événements marquants
                   <ChevronRight className="h-4 w-4 ml-1" />
                 </Link>
               </p>

@@ -1,21 +1,27 @@
 import React, { useState, useMemo } from 'react';
-import { Calendar, Clock, MapPin, Users, Trophy, GraduationCap, Sparkles, Filter, ExternalLink } from 'lucide-react';
+// Ajout de 'Crown' et suppression de 'Trophy' qui n'est plus utilisé directement dans les filtres
+import { Calendar, Clock, MapPin, Users, GraduationCap, Sparkles, Filter, ExternalLink, Shield, Crown } from 'lucide-react'; 
 import { motion } from 'framer-motion';
 import { programmeEvents, categoryLabels, categoryColors } from '../data/programme';
 
 const Programme: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
+  // Mise à jour des icônes pour être plus thématiques et retrait de "competition"
   const categoryIcons = {
     formation: GraduationCap,
-    competition: Trophy,
     'soiree-club': Users,
-    tournoi: Sparkles
+    tournoi: Crown, // <-- Icône plus thématique pour les tournois
+    simultanee: Users,
+    CSE: Shield,
+    CSG: Shield,
+    CVE: Shield // Utilisation de Shield également pour la cohérence des championnats
   };
 
   // Component to render either icon or image
   const EventVisual: React.FC<{ event: typeof programmeEvents[0]; className?: string }> = ({ event, className = "" }) => {
-    const Icon = categoryIcons[event.category];
+    // Fournir une icône par défaut au cas où une catégorie n'aurait pas d'icône définie
+    const Icon = categoryIcons[event.category as keyof typeof categoryIcons] || Sparkles;
     
     if (event.image) {
       return (
@@ -35,28 +41,38 @@ const Programme: React.FC = () => {
     const now = new Date();
     now.setHours(0, 0, 0, 0);
     
-    return programmeEvents
+    // Le premier filtre sur la date ne change pas
+    const futureEvents = programmeEvents
       .filter(event => {
         const eventDate = new Date(event.date);
         eventDate.setHours(0, 0, 0, 0);
         
-        // If the event has an end date, check if we're within the date range
         if (event.endDate) {
           const endDate = new Date(event.endDate);
           endDate.setHours(23, 59, 59, 999);
           return endDate >= now;
         }
         
-        // Otherwise, just check if the event date is in the future
         return eventDate >= now;
-      })
-      .filter(event => selectedCategory === 'all' || event.category === selectedCategory)
-      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+      });
+
+    // On filtre par catégorie SEULEMENT SI un filtre est sélectionné (différent de 'all')
+    const filteredEvents = selectedCategory === 'all'
+      ? futureEvents
+      : futureEvents.filter(event => {
+          // Si la catégorie sélectionnée est 'tournoi', on inclut aussi 'competition'
+          if (selectedCategory === 'tournoi') {
+            return event.category === 'tournoi';
+          }
+          return event.category === selectedCategory;
+        });
+
+    return filteredEvents.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
   }, [selectedCategory]);
 
   // Grouper les événements par mois
   const eventsByMonth = useMemo(() => {
-    const grouped = new Map<string, typeof upcomingEvents>();
+    const grouped = new Map<string, (typeof upcomingEvents)>();
     
     upcomingEvents.forEach(event => {
       const date = new Date(event.date);
@@ -82,12 +98,10 @@ const Programme: React.FC = () => {
     
     if (endDateString) {
       const endDate = new Date(endDateString);
-      // If same month and year, format as "Du X au Y month year"
       if (date.getMonth() === endDate.getMonth() && date.getFullYear() === endDate.getFullYear()) {
         const shortDateOptions: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'long', year: 'numeric' };
         return `Du ${date.getDate()} au ${endDate.toLocaleDateString('fr-FR', shortDateOptions)}`;
       } else {
-        // Different months, show full dates
         return `Du ${date.toLocaleDateString('fr-FR', dateOptions)} au ${endDate.toLocaleDateString('fr-FR', dateOptions)}`;
       }
     }
@@ -148,22 +162,24 @@ const Programme: React.FC = () => {
             >
               Tous les événements
             </button>
-            {Object.entries(categoryLabels).map(([key, label]) => {
-              const Icon = categoryIcons[key as keyof typeof categoryIcons];
-              return (
-                <button
-                  key={key}
-                  onClick={() => setSelectedCategory(key)}
-                  className={`px-6 py-2 rounded-full font-medium transition-all flex items-center gap-2 ${
-                    selectedCategory === key
-                      ? 'bg-gradient-to-r from-primary-600 to-primary-800 text-white shadow-lg'
-                      : 'bg-white text-neutral-700 hover:bg-neutral-50 border border-neutral-300'
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  {label}
-                </button>
-              );
+            {Object.entries(categoryLabels)
+              .filter(([key]) => key !== 'competition') // <-- FILTRE LA CATÉGORIE "COMPETITION"
+              .map(([key, label]) => {
+                const Icon = categoryIcons[key as keyof typeof categoryIcons] || Sparkles;
+                return (
+                  <button
+                    key={key}
+                    onClick={() => setSelectedCategory(key)}
+                    className={`px-6 py-2 rounded-full font-medium transition-all flex items-center gap-2 ${
+                      selectedCategory === key
+                        ? 'bg-gradient-to-r from-primary-600 to-primary-800 text-white shadow-lg'
+                        : 'bg-white text-neutral-700 hover:bg-neutral-50 border border-neutral-300'
+                    }`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    {label}
+                  </button>
+                );
             })}
           </div>
         </motion.section>
@@ -206,7 +222,6 @@ const Programme: React.FC = () => {
                             
                             <div className={`absolute top-6 right-6 w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden ${
                                 event.image ? '' : (
-                                  event.category === 'competition' ? 'bg-gradient-to-br from-primary-400 to-primary-500' :
                                   event.category === 'formation' ? 'bg-gradient-to-br from-accent-400 to-accent-500' :
                                   event.category === 'tournoi' ? 'bg-gradient-to-br from-secondary-400 to-secondary-500' :
                                   'bg-gradient-to-br from-success-400 to-success-500'

@@ -163,8 +163,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-lg md:text-xl mb-12 text-primary-100 max-w-3xl mx-auto leading-relaxed"
           >
-            Le club d'échecs sédunois vous souhaite une excellente pause estivale !
-            Nous vous donnons rendez-vous fin août pour la reprise des activités.
+            Bienvenue, le club reprend ses activités dès le 26 août avec la rentrée des cours.
 
 
           </motion.p>
@@ -322,7 +321,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-serif font-bold text-neutral-900 mb-4">
-              Actualités du club
+              Actualités échiquéennes du club
             </h2>
             <p className="text-xl text-neutral-600 mb-6">
               Voici les dernières nouvelles 

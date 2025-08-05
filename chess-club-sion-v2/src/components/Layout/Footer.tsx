@@ -39,8 +39,8 @@ export default function Footer() {
                   <Clock className="h-4 w-4 text-primary-400" />
                 </div>
                 <div className="text-sm">
-                  <p className="text-white font-medium">Vendredis soirs</p>
-                  <p className="text-gray-400">18h00 - 23h00</p>
+                  <p className="text-white font-medium">Soirées du club les vendredis soirs</p>
+                  <p className="text-gray-400">18h30 - 23h00</p>
                 </div>
               </div>
               

@@ -95,10 +95,12 @@ const playerAchievements: PlayerAchievement[] = [
   {
     name: "Julien Carron",
     achievements: [
-      { year: "2005-06", title: "Vainqueur de l'Active Chess de Martigny et du Championnat Valaisan de Blitz" },
+      { year: "2005", title: "Champion Suisse Junior" },
+      { year: "2005", title: "1er Valaisan au CVIS de Bagnes" },
+      { year: "2005-06", title: "Champion Valaisan de Blitz Individuel" },
       { year: "2007", title: "Vainqueur de l'Active Chess de Martigny" },
       { year: "2008-09", title: "Champion Valaisan Individuel Semi-Rapide (CVIS)" },
-      { year: "2011", title: "Vainqueur de l'Active Chess de Martigny" },
+      { year: "2006-07 & 2011", title: "1er valaisan à l'Active Chess de Martigny" },
     ]
   },
   {
@@ -112,9 +114,9 @@ const playerAchievements: PlayerAchievement[] = [
   {
     name: "Simon Morand",
     achievements: [
-      { year: "2014-15", title: "Vainqueur de l'Activ Chess du Bouveret (2 fois)" },
-      { year: "2015", title: "Champion Valaisan Individuel (rapide)" },
-      { year: "2016-19", title: "Champion Valaisan de Blitz par Paire (3 fois, avec M. Bijelic et S. Emery)" },
+      { year: "2014-15", title: "1er Valaisan de l'Activ Chess du Bouveret" },
+      { year: "2015", title: "Vainqueur de la coupe valaisanne Individuelle" },
+      { year: "2016-18-19", title: "Champion Valaisan de Blitz par Paire (3 fois, 1x avec M. Bijelic et 2x S. Emery)" },
     ]
   },
   {
@@ -136,20 +138,19 @@ const playerAchievements: PlayerAchievement[] = [
       { year: "1979", title: "1er valaisan sur le classement de la liste suisse" },
       { year: "2008 & 2012", title: "Champion Valaisan Individuel (rapide)" },
       { year: "2020", title: "Champion Valaisan de Blitz par Paire (avec J-Y. Riand)" },
-      { year: "2022", title: "Champion Valaisan Junior" },
-      { year: "2024", title: "Vainqueur du Grand Prix de Monthey (lente)" },
+      { year: "2022", title: "Vainqueur de la coupe Valaisanne Individuelle" },
+      { year: "2024", title: "Champion Valaisan de parties lentes, au Grand Prix de Monthey" },
     ]
   },
   {
     name: "Jean-Yves Riand",
     achievements: [
-      { year: "1989 & 1992", title: "Vainqueur de la coupe valaisanne" },
-      { year: "1990", title: "Vainqueur du ch. valaisan individuel (activ-chess)" },
-      { year: "2000", title: "Nulle contre V. Kortchnoi en simultanée" },
-      { year: "2012", title: "Champion Valaisan Junior" },
-      { year: "2015", title: "Champion Valaisan de Blitz (CVIB)" },
-      { year: "2020-23", title: "Champion Valaisan de Blitz par Paire (3 fois, avec P-M. Rappaz et L. Zaza)" },
-      { year: "2023", title: "Vainqueur du Grand Prix de Monthey (lente)" },
+      { year: "1989,1992,2012", title: "Vainqueur de la coupe valaisanne Individuelle" },
+      { year: "1990", title: "Vainqueur du championnat valaisan individuel (activ-chess)" },
+      { year: "2000", title: "Nulle contre Victor Kortchnoi en simultanée" },
+      { year: "2015", title: "Champion Valaisan de Blitz Individuel" },
+      { year: "2020-23", title: "Champion Valaisan de Blitz par Paire (3 fois, 1x avec P-M. Rappaz et 2x L. Zaza)" },
+      { year: "2023", title: "Champion Valaisan de parties lentes, au Grand Prix de Monthey" },
     ]
   },
   {
