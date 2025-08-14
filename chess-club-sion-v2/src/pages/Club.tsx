@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Users, Trophy, MapPin, ChevronRight, Clock, CheckCircle } from 'lucide-react'
 
 export default function Club() {
-  const localImage = { src: './picture/local/local3.jpg', alt: 'Entrée du club' }
+  const localImage = { src: './picture/local/entree.jpg', alt: 'Entrée du club' }
   const activities = [
     { text: "Des cours d'échecs structurées dans le pôle formation", link: "/ecole" },
     { text: "Des soirées du club : blitz, analyses, parties semi-rapides ou thématiques ", link: "/programme" },

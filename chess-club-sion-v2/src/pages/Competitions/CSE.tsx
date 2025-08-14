@@ -291,15 +291,15 @@ const CSE: React.FC = () => {
                     <tr className="border-b">
                       <td className="py-2">5</td>
                       <td className="py-2 text-yellow-900">Grand Echiquier 2</td>
-                      <td className="py-2 text-center text-yellow-900">5</td>
-                      <td className="py-2 text-center text-yellow-900">12</td>
+                      <td className="py-2 text-center font-semibold">5</td>
+                      <td className="py-2 text-center">12</td>
                     </tr>
                     <tr className="bg-yellow-50 font-semibold">
                       <td className="py-2">6</td>
                       <td className="py-2">Sion 2</td>
-                      <td className="py-2 text-center font-semibold">4</td>
-                      <td className="py-2 text-center">13</td>
-                    </tr>
+                      <td className="py-2 text-center text-yellow-900">4</td>
+                      <td className="py-2 text-center text-yellow-900">13</td>
+                    </tr>t
                     <tr className="border-b">
                       <td className="py-2">7</td>
                       <td className="py-2">Crans-Montana 2</td>

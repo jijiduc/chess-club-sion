@@ -7,47 +7,27 @@ import { useState } from 'react'
 
 export default function Home() {
   const [selectedNews, setSelectedNews] = useState<number | null>(null)
-  
+
   const formatDate = (date: Date) => {
-    return date.toLocaleDateString('fr-FR', { 
-      day: 'numeric', 
-      month: 'long', 
-      year: 'numeric' 
+    return date.toLocaleDateString('fr-FR', {
+      weekday: 'long', // Ajout pour afficher le jour de la semaine
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
     })
   }
-  
+
   const openNewsModal = (index: number) => {
     setSelectedNews(index)
   }
-  
+
   const closeNewsModal = () => {
     setSelectedNews(null)
   }
-  
+
+  // La fonction est simplifiée : elle ne gère que le formatage du texte.
   const renderTextWithLinks = (text: string) => {
-    // Séparer le texte principal du lien final
-    const linkMatch = text.match(/\n→ (.+) : (\/\S+)$/)
-    let mainText = text
-    let linkElement = null
-    
-    if (linkMatch) {
-      mainText = text.substring(0, text.lastIndexOf('\n→'))
-      const [, linkText, url] = linkMatch
-      linkElement = (
-        <div className="mt-4 pt-4 border-t border-neutral-200">
-          <Link 
-            to={url}
-            className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium transition-all duration-300"
-          >
-            → {linkText}
-            <ChevronRight className="ml-1 h-4 w-4" />
-          </Link>
-        </div>
-      )
-    }
-    
-    // Traiter le texte principal en préservant le formatage
-    const processedText = mainText.split('\n').map((line, index) => {
+    return text.split('\n').map((line, index) => {
       // Gérer les titres en gras
       if (line.startsWith('**') && line.endsWith('**')) {
         return (
@@ -81,13 +61,6 @@ export default function Home() {
         <br key={index} />
       )
     })
-    
-    return (
-      <>
-        {processedText}
-        {linkElement}
-      </>
-    )
   }
 
   const upcomingEvents = programmeEvents
@@ -124,7 +97,7 @@ export default function Home() {
       {/* Hero Section with Parallax Effect */}
       <section className="relative min-h-screen flex items-center justify-center">
         {/* Background Image with Overlay */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-fixed"
           style={{
             backgroundImage: 'url("./picture/background/valere.webp")',
@@ -148,7 +121,7 @@ export default function Home() {
             <div className="h-1 w-24 bg-primary-400 mx-auto mb-6" />
           </motion.div>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -157,15 +130,13 @@ export default function Home() {
             Fondé en 1935
           </motion.p>
 
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-lg md:text-xl mb-12 text-primary-100 max-w-3xl mx-auto leading-relaxed"
           >
-            Bienvenue, le club reprend ses activités dès le 26 août avec la rentrée des cours.
-
-
+            Bienvenue, le club reprend ses activités dès le mercredi 27 août avec la rentrée des cours d'échecs.
           </motion.p>
 
           <motion.div
@@ -207,7 +178,7 @@ export default function Home() {
               Nos activités
             </h2>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-              Du débutant au joueur confirmé, découvrez nos diverses activités 
+              Du débutant au joueur confirmé, découvrez nos diverses activités
               pour progresser et vous amusez avec le noble jeu.
             </p>
           </motion.div>
@@ -279,7 +250,7 @@ export default function Home() {
               >
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-sm font-medium text-primary-600 bg-primary-100 px-3 py-1 rounded-full">
-                    {new Date(event.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' })}
+                    {new Date(event.date).toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'short' })}
                   </span>
                   <span className="text-sm text-neutral-500">{event.time}</span>
                 </div>
@@ -324,11 +295,11 @@ export default function Home() {
               Actualités échiquéennes du club
             </h2>
             <p className="text-xl text-neutral-600 mb-6">
-              Voici les dernières nouvelles 
+              Voici les dernières nouvelles
             </p>
             <div className="h-1 w-24 bg-primary-600 mx-auto" />
           </motion.div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {newsItems.map((item, index) => (
               <motion.article
@@ -350,7 +321,7 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
                 )}
-                
+
                 {/* Content Section */}
                 <div className="p-6 flex flex-col flex-grow">
                   {/* Header */}
@@ -380,26 +351,16 @@ export default function Home() {
                         {item.description}
                       </p>
                     )}
-                    
-                    {/* Footer */}
+
+                    {/* Footer - CORRIGÉ */}
                     <div className="flex items-center justify-between">
-                      {item.hasLink && item.link ? (
-                        <Link
-                          to={item.link}
-                          className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm transition-all duration-300"
-                        >
-                          {item.linkText || 'Voir détails'}
-                          <ChevronRight className="ml-1 h-4 w-4" />
-                        </Link>
-                      ) : (
-                        <button 
-                          onClick={() => openNewsModal(index)}
-                          className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm transition-all duration-300"
-                        >
-                          Lire l'article au complet
-                          <ChevronRight className="ml-1 h-4 w-4" />
-                        </button>
-                      )}
+                      <button
+                        onClick={() => openNewsModal(index)}
+                        className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm transition-all duration-300"
+                      >
+                        Lire l'article au complet
+                        <ChevronRight className="ml-1 h-4 w-4" />
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -429,7 +390,7 @@ export default function Home() {
               exit={{ opacity: 0 }}
               className="absolute inset-0 bg-black/60 backdrop-blur-md"
             />
-            
+
             {/* Modal Content */}
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -446,7 +407,7 @@ export default function Home() {
               >
                 <X className="h-5 w-5 text-neutral-700" />
               </button>
-              
+
               {/* Image */}
               {newsItems[selectedNews].hasImage && newsItems[selectedNews].image && (
                 <div className="relative h-64 overflow-hidden">
@@ -458,7 +419,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 </div>
               )}
-              
+
               {/* Content */}
               <div className="p-8">
                 {/* Date */}
@@ -468,24 +429,24 @@ export default function Home() {
                     {formatDate(newsItems[selectedNews].date)}
                   </span>
                 </div>
-                
+
                 {/* Title */}
                 <h2 className="text-3xl font-serif font-bold text-neutral-900 mb-4">
                   {newsItems[selectedNews].title}
                 </h2>
-                
+
                 {/* Description */}
                 {newsItems[selectedNews].description && (
                   <p className="text-lg text-neutral-700 mb-6 font-medium">
                     {newsItems[selectedNews].description}
                   </p>
                 )}
-                
+
                 {/* Full Text */}
                 <div className="text-neutral-600 leading-relaxed overflow-y-auto max-h-[50vh] space-y-1">
                   {renderTextWithLinks(newsItems[selectedNews].text)}
                 </div>
-                
+
                 {/* Link if available */}
                 {newsItems[selectedNews].hasLink && newsItems[selectedNews].link && (
                   <div className="mt-6 pt-6 border-t border-neutral-200">
@@ -517,10 +478,10 @@ export default function Home() {
                 Venez nous rendre visite
               </h2>
               <p className="text-xl text-neutral-300 mb-8 leading-relaxed">
-                Notre local vous accueille tous les vendredis soirs dans une ambiance 
+                Notre local vous accueille tous les vendredis soirs dans une ambiance
                 conviviale au cœur de Sion.
               </p>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <MapPin className="h-6 w-6 text-primary-400 mt-1" />

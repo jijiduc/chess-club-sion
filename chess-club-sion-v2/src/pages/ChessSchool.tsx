@@ -41,7 +41,7 @@ const courses = [
     icon: GraduationCap,
     title: "Cours 'Écoliers'",
     audience: "Jeunes joueurs (6ans et +), débutants ou avec un premier niveau de pratique (ELO approximatif < 1400).",
-    schedule: "Mercredis : 13h00 - 15h00.",
+    schedule: "Mercredis : 13h30 - 15h30.",
     frequency: "Toutes les semaines (sauf vacances et exceptions annoncées).",
     price: "100.- CHF pour le semestre."
   },
@@ -70,7 +70,7 @@ const coaches: Coach[] = [
     image: "/picture/coaches/pm.jpg",
     achievements: [
       { icon: Crown, text: "Vainqueur du championnat valaisan junior" },
-      { icon: Award, text: "Plusieurs vainqueur de la coupe valaisanne Individuelle" },
+      { icon: Award, text: "Multiple vainqueur de la coupe valaisanne Individuelle" },
       { icon: Award, text: "Multiple Champion Valaisan par équipe" },
       { icon: Crown, text: "Champion Valaisan de parties lentes 2024" },
     ],
@@ -79,9 +79,9 @@ const coaches: Coach[] = [
   {
     name: "Flavien Sola",
     title: "Coach - Cours 'Intermédiaire' & 'Avancé'",
-    image: "/picture/coaches/flavien.png",
+    image: "/picture/coaches/flavien.jpg",
     achievements: [
-      { icon: Crown, text: "Multiple vainqueur de titres régionaux" },
+      { icon: Crown, text: "Champion Valaisan de parties rapides 2024-25" },
       { icon: Shield, text: "Membre de l’Équipe de France -21 ans (2004–2006)" },
       { icon: Star, text: "Participant au Championnat du Monde junior (2005)" },
       { icon: Award, text: "Formateur expérimenté à Niort et Paris" },

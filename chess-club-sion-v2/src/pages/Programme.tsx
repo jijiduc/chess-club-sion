@@ -1,32 +1,38 @@
 import React, { useState, useMemo } from 'react';
-// Ajout de 'Crown' et suppression de 'Trophy' qui n'est plus utilisé directement dans les filtres
 import { Calendar, Clock, MapPin, Users, GraduationCap, Sparkles, Filter, ExternalLink, Shield, Crown } from 'lucide-react'; 
 import { motion } from 'framer-motion';
 import { programmeEvents, categoryLabels, categoryColors } from '../data/programme';
 
+const categoryImages = {
+  CSE: '/picture/events/FSE.png',
+  CSG: '/picture/events/FSE.png',
+  CVE: '/picture/events/UVE.png',
+  CVI: '/picture/events/UVE.png'
+};
+
 const Programme: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
-  // Mise à jour des icônes pour être plus thématiques et retrait de "competition"
   const categoryIcons = {
     formation: GraduationCap,
     'soiree-club': Users,
-    tournoi: Crown, // <-- Icône plus thématique pour les tournois
+    tournoi: Crown,
     simultanee: Users,
     CSE: Shield,
     CSG: Shield,
-    CVE: Shield // Utilisation de Shield également pour la cohérence des championnats
+    CVE: Shield,
+    CVI: Shield
   };
 
-  // Component to render either icon or image
   const EventVisual: React.FC<{ event: typeof programmeEvents[0]; className?: string }> = ({ event, className = "" }) => {
-    // Fournir une icône par défaut au cas où une catégorie n'aurait pas d'icône définie
     const Icon = categoryIcons[event.category as keyof typeof categoryIcons] || Sparkles;
     
-    if (event.image) {
+    const imageSrc = event.image || categoryImages[event.category as keyof typeof categoryImages];
+    
+    if (imageSrc) {
       return (
         <img 
-          src={event.image} 
+          src={imageSrc} 
           alt={event.title}
           className={`w-full h-full object-cover ${className}`}
         />
@@ -36,12 +42,10 @@ const Programme: React.FC = () => {
     return <Icon className={`w-8 h-8 text-white ${className}`} />;
   };
 
-  // Filtrer les événements à venir
   const upcomingEvents = useMemo(() => {
     const now = new Date();
     now.setHours(0, 0, 0, 0);
     
-    // Le premier filtre sur la date ne change pas
     const futureEvents = programmeEvents
       .filter(event => {
         const eventDate = new Date(event.date);
@@ -56,11 +60,9 @@ const Programme: React.FC = () => {
         return eventDate >= now;
       });
 
-    // On filtre par catégorie SEULEMENT SI un filtre est sélectionné (différent de 'all')
     const filteredEvents = selectedCategory === 'all'
       ? futureEvents
       : futureEvents.filter(event => {
-          // Si la catégorie sélectionnée est 'tournoi', on inclut aussi 'competition'
           if (selectedCategory === 'tournoi') {
             return event.category === 'tournoi';
           }
@@ -70,7 +72,6 @@ const Programme: React.FC = () => {
     return filteredEvents.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
   }, [selectedCategory]);
 
-  // Grouper les événements par mois
   const eventsByMonth = useMemo(() => {
     const grouped = new Map<string, (typeof upcomingEvents)>();
     
@@ -163,7 +164,7 @@ const Programme: React.FC = () => {
               Tous les événements
             </button>
             {Object.entries(categoryLabels)
-              .filter(([key]) => key !== 'competition') // <-- FILTRE LA CATÉGORIE "COMPETITION"
+              .filter(([key]) => key !== 'competition')
               .map(([key, label]) => {
                 const Icon = categoryIcons[key as keyof typeof categoryIcons] || Sparkles;
                 return (

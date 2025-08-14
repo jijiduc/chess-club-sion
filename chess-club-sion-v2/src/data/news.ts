@@ -16,25 +16,51 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
+    date: new Date('2025-08-09T09:00:00'),
+    title: "Félicitations à nos 2 champions valaisans 2024-25 de parties rapides ! ",
+    description: "Au terme d'une saison 2024-25 de 3 tournois de parties rapides, Max devient champion valaisan cat. junior et Flavien champion valaisan cat. actif",
+    text: `La saison 2024-2025 de parties rapides s'est achevée avec le tournoi de Martigny ce samedi 9 août 2025, et nous sommes fiers d'annoncer que deux de nos membres ont été titrés champions valaisans ! Au terme des trois tournois de la saison, **Flavien Sola** est sacré champion valaisan dans la catégorie active, tandis que **Max Chappaz** remporte le titre en catégorie junior.
+
+**Format de la compétition**
+
+Pour la saison 2024-2025, les titres de champions valaisans de parties rapides ont été attribués en additionnant les deux meilleurs classements obtenus par les joueurs valaisans lors de trois tournois clés :
+* Le tournoi de Bagnes, le 12 janvier 2025
+* Le 17ème Active Chess du Bouveret, le 23 février 2025
+* Le 33ème tournoi de Martigny, le 9 août 2025
+
+**Le parcours de nos champions**
+
+**Flavien Sola**, notre nouveau champion valaisan actif, a su se démarquer grâce à des performances solides. Sa campagne a été particulièrement marquée par un excellent résultat au tournoi de Bagnes, où il a terminé à une impressionnante 4e place au classement général.
+
+**Max Chappaz** a démontré une belle régularité pour s'adjuger le titre en catégorie junior. Il a participé aux trois étapes du championnat, avec des prestations remarquables notamment à Bagnes où il s'est classé 17e et surtout au Bouveret, où il a décroché une superbe 9e place au classement final.
+
+Un grand bravo à Flavien et Max pour ces titres qui récompensent leur talent et leur investissement tout au long de la saison !`,
+    icon: "trophy",
+    hasLink: true,
+    link: "https://www.uve-wsb.ch/competitions-valaisannes/active-chess-de-martigny",
+    linkText: "Voir le détails de l'activ chess de Martigny"
+  },
+  {
     date: new Date('2025-06-21T12:00:00'),
     title: "CSE : Un derby valaisan sans vainqueur, un autre sans surprise",
     description: "Le derby Valais 1 - Sion 1 s'achève sur un match nul, tandis que Sion 2 s'incline face au leader Monthey.",
     text: `La 5e ronde du Championnat Suisse par Équipe s'est déroulée le 21 juin 2025 avec des résultats mitigés pour nos deux équipes.
 
-  **Sion 1 en 1re ligue**
-  Malgré une entame de match marquée par deux défaites consécutives, l'équipe est revenue à 3-3. Une position favorable aurait pu permettre de conclure le match, mais elle ne s’est malheureusement pas concrétisée.
+**Sion 1 en 1re ligue**
+Malgré une entame de match marquée par deux défaites consécutives, l'équipe est revenue à 3-3. Une position favorable aurait pu permettre de conclure le match, mais elle ne s’est malheureusement pas concrétisée.
 
-  **Sion 2 en 3e ligue**
-  Face à une équipe de Monthey bien armée et ambitieuse de promotion, Sion 2 a fait au mieux. Notons la victoire d'Akram, qui ouvre ainsi son compteur, ainsi que celle de Simon.
+**Sion 2 en 3e ligue**
+Face à une équipe de Monthey bien armée et ambitieuse de promotion, Sion 2 a fait au mieux. Notons la victoire d'Akram, qui ouvre ainsi son compteur, ainsi que celle de Simon.
 
-  **Classements après 5 rondes**
-  • Sion 1 : 8e place (1re ligue) – 1 point de match, 14½ points individuels  
-  • Sion 2 : 5e place (3e ligue) – 4 points de match, 13 points individuels
+**Classements après 5 rondes**
+• Sion 1 : 8e place (1re ligue) – 1 point de match, 14½ points individuels
+• Sion 2 : 5e place (3e ligue) – 4 points de match, 13 points individuels
 
-  Il n'y a désormais que peu d'espoir de maintien pour Sion 1 après ce match nul. D'un autre côté, bien que Sion 2 soit aux portes de la zone de relégation, il y a de bonnes chances pour que l'équipe parvienne à se maintenir.
-
-  → Voir tous les résultats et classements du CSE : /competitions/cse`,
+Il n'y a désormais que peu d'espoir de maintien pour Sion 1 après ce match nul. D'un autre côté, bien que Sion 2 soit aux portes de la zone de relégation, il y a de bonnes chances pour que l'équipe parvienne à se maintenir.`,
     icon: "trophy",
+    hasLink: true,
+    link: "/competitions/cse",
+    linkText: "Voir tous les résultats et classements du CSE"
   },
   {
     date: new Date('2025-05-17T12:00:00'),
@@ -52,10 +78,11 @@ Excellente performance de notre deuxième équipe qui s'impose 3½ - 2½ contre 
 • Sion 1 : 8ème place (1ère ligue) - 0 point de match, 10½ points individuels
 • Sion 2 : 5ème place (3ème ligue) - 4 points de matchs, 11 points individuels
 
-Si la situation reste délicate pour Sion 1, la dynamique positive de Sion 2 est très encourageante. L'équipe a trouvé ses marques et peut viser une place honorable en fin de saison.
-
-→ Voir tous les résultats et classements du CSE : /competitions/cse`,
+Si la situation reste délicate pour Sion 1, la dynamique positive de Sion 2 est très encourageante. L'équipe a trouvé ses marques et peut viser une place honorable en fin de saison.`,
     icon: "trophy",
+    hasLink: true,
+    link: "/competitions/cse",
+    linkText: "Voir tous les résultats et classements du CSE"
   },
   {
     date: new Date('2025-05-03T12:00:00'),
@@ -64,7 +91,6 @@ Si la situation reste délicate pour Sion 1, la dynamique positive de Sion 2 est
     text: `Journée historique pour le Club d'Échecs de Sion ! Lors des finales valaisannes par équipes du 3 mai 2025, notre club a réalisé un doublé exceptionnel en remportant les deux titres mis en jeu.
 
 **🏆 FINALE PARTIES LENTES - Victoire de Sion 1**
-
 Sion 1 remporte le titre valaisan en s'imposant 2½ - 1½ face à Martigny !
 
 • Échiquier 1 : Benoît Perruchoud - Pierre-Marie Rappaz (½-½)
@@ -80,11 +106,10 @@ Dans le match pour la 7ème place, Sion 2 s'impose largement 3-1 contre Riddes :
 • Échiquier 4 : Alain Droz - Romuald Moerschell (1-0)
 
 **🏆 FINALE PARTIES RAPIDES - Nouveau sacre sédunois**
-
-L'après-midi, l'équipe sédunoise composée de Jean-Yves Riand, Pierre-Marie Rappaz, Flavien Sola et Jeremy Duc a dominé la compétition de parties rapides. Vainqueurs de leurs 4 matchs de poule, ils ont ensuite remporté la finale pour compléter un doublé mémorable !
-
-→ Voir tous les résultats et classements du CVE : /competitions/cve`,
+L'après-midi, l'équipe sédunoise composée de Jean-Yves Riand, Pierre-Marie Rappaz, Flavien Sola et Jeremy Duc a dominé la compétition de parties rapides. Vainqueurs de leurs 4 matchs de poule, ils ont ensuite remporté la finale pour compléter un doublé mémorable !`,
     icon: "trophy",
+    hasLink: true,
+    link: "/competitions/cve",
+    linkText: "Voir tous les résultats et classements du CVE"
   },
-  
 ]
