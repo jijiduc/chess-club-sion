@@ -265,6 +265,24 @@ export const programmeEvents: ProgrammeEvent[] = [
     ],
     image: '/picture/events/100Monthey.png'
   },
+  {
+  "id": "2025-10-26-activ-chess-sion",
+  "title": "Activ Chess de Sion",
+  "date": "2025-10-26",
+  "time": "9h00",
+  "category": "tournoi",
+  "description": "Tournoi rapide en 9 rondes, cadence 15min + 3s/coup. Compte pour le Elo FIDE et le championnat valaisan.",
+  "location": "Sion",
+  "link": "/competitions/activ-chess",
+  "details": [
+    "9 rondes, système suisse.",
+    "Cadence: 15min + 3s par coup.",
+    "Compte pour le championnat valaisan de parties rapides 2025-26.",
+    "Compte pour le Grand Prix Valaisan Jeunes U20 2025-26.",
+    "Limité à 100 participants."
+  ],
+  "image": "/favicon/logo_normal.png"
+  },
 
   // Novembre 2025
   {

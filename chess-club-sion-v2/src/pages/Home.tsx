@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Trophy, Calendar, Users, ChevronRight, MapPin, Clock, Zap, X } from 'lucide-react'
+import { Trophy, Calendar, Users, ChevronRight, MapPin, Clock, Zap, X, ArrowRight} from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { newsItems } from '../data/news'
 import { programmeEvents } from '../data/programme'
@@ -72,14 +72,14 @@ export default function Home() {
     {
       icon: Zap,
       title: "Les soirées du club",
-      description: "Soirées blitz, analyses, parties semi-rapides ou thématiques",
-      time: "vendredi dès 20h00",
+      description: "Club ouvert à tous dès 20h00. Soirées blitz, rapides, analyses ou thématiques",
+      time: "vendredi 20h30",
       link: "/programme"
     },
     {
       icon: Users,
       title: "Pôle formation",
-      description: "Cours pour écoliers, joueurs intermédiaires et avancés, jeunes ou adultes",
+      description: "Cours pour écoliers, joueurs intermédiaires et avancés. Programme pour jeunes et adultes.",
       time: "mercredi, vendredi, samedi",
       link: "/ecole"
     },
@@ -118,48 +118,42 @@ export default function Home() {
               Club d'Échecs
               <span className="block text-primary-300">de Sion</span>
             </h1>
-            <div className="h-1 w-24 bg-primary-400 mx-auto mb-6" />
+            <div className="h-1 w-24 bg-primary-400 mx-auto mb-3" />
           </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-2xl md:text-3xl mb-4 text-primary-200 font-light"
+            className="text-2xl md:text-2xl mb-12 text-primary-200 font-light"
           >
-            Fondé en 1935
+            Au coeur de la capitale valaisanne depuis 1935 <br />
           </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-lg md:text-xl mb-12 text-primary-100 max-w-3xl mx-auto leading-relaxed"
-          >
-            Bienvenue, le club reprend ses activités dès le mercredi 27 août avec la rentrée des cours d'échecs.
-          </motion.p>
-
+          {/* --- Encart Annonce Tournoi --- */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-            className="flex flex-col sm:flex-row gap-6 justify-center"
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="mt-12"
           >
-            <Link
-              to="/club"
-              className="group bg-white hover:bg-primary-50 text-primary-800 px-8 py-4 rounded-full font-semibold transition-all duration-300 inline-flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-            >
-              Découvrir le club
-              <ChevronRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-            <Link
-              to="/programme"
-              className="group bg-primary-700/40 hover:bg-primary-600/50 backdrop-blur text-white border-2 border-white/20 hover:border-white/40 px-8 py-4 rounded-full font-semibold transition-all duration-300 inline-flex items-center justify-center"
-            >
-              Programme
-              <Calendar className="ml-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-            </Link>
+            <div className="bg-black/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6 max-w-2xl mx-auto">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="text-left">
+                  <p className="font-semibold text-primary-200 flex items-center"><Trophy className="h-5 w-5 mr-2" /> Ne manquez pas</p>
+                  <p className="text-xl text-white">Activ Chess de Sion - 26 Octobre 2025</p>
+                </div>
+                <Link
+                  to="/competitions/activ-chess"
+                  className="group bg-primary-500 hover:bg-primary-400 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 inline-flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full md:w-auto"
+                >
+                  S'inscrire
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
           </motion.div>
+
         </div>
 
       </section>
@@ -494,7 +488,7 @@ export default function Home() {
                   <Clock className="h-6 w-6 text-primary-400 mt-1" />
                   <div>
                     <h3 className="font-semibold text-lg">Soirées du club</h3>
-                    <p className="text-neutral-300">Tous les vendredis soirs dès 20h00</p>
+                    <p className="text-neutral-300">Ouvert à tous, vendredi dès 20h30</p>
                   </div>
                 </div>
               </div>

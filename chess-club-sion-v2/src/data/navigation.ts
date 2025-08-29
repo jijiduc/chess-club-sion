@@ -19,6 +19,7 @@ export const navigationItems: NavItem[] = [
       { name: 'Galerie photos', href: '/galerie' }
     ]
   },
+  { name: 'Activ Chess de Sion', href: '/activ-chess' },
   { name: 'Programme', href: '/programme' },
   { name: 'École d\'échecs', href: '/ecole' },
   {

@@ -19,19 +19,24 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           
-          {/* Logo & Brand */}
+          {/* Logo & Brand (Amélioré) */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-3 group">
-              <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-800 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
-                <span className="text-white font-bold text-xl">♔</span>
-              </div>
-              <div>
-                <span className="font-display font-bold text-xl text-neutral-900 group-hover:text-primary-700 transition-colors">
+              {/* Le logo image */}
+              <img 
+                src="/favicon/logo_normal.png" // Assurez-vous que ce chemin est correct
+                alt="Logo du Club d'Échecs de Sion"
+                // Ajustements de taille pour le logo
+                className="w-16 h-16 object-contain transition-all duration-300 group-hover:scale-105" 
+              />
+              
+              <div className="flex flex-col justify-center"> {/* Utilise flex-col et justify-center pour aligner le texte */}
+                <span className="font-display font-bold text-xl text-neutral-900 group-hover:text-primary-700 transition-colors leading-none"> {/* leading-none pour réduire l'interligne */}
                   Club d'Échecs
                 </span>
-                <div className="text-sm text-primary-600 font-medium -mt-1">
+                <span className="text-l text-primary-600 font-medium leading-none"> {/* -mt-1 pour rapprocher les lignes */}
                   de Sion
-                </div>
+                </span>
               </div>
             </Link>
           </div>
@@ -150,6 +155,7 @@ export default function Navigation() {
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
                             className="overflow-hidden"
                           >
                             <div className="pl-6 mt-2 space-y-2">

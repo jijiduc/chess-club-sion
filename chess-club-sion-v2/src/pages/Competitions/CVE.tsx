@@ -45,7 +45,7 @@ export default function CVE() {
       victoryTitle: 'Sion réalise le doublé en 2025 !',
       victoryDescription: 'Le CE Sion remporte le titre en parties classiques (pour la 4ème année consécutive) et en parties rapides lors des finales valaisannes du 3 mai 2025.',
       photo: {
-        src: '/picture/cve/cve_2025.jpg',
+        src: '/picture/gallery/CVE/cve_2025.jpg',
         alt: "L'équipe victorieuse du tournoi rapide",
         caption: "L'équipe victorieuse du tournoi rapide"
       },
@@ -132,7 +132,7 @@ export default function CVE() {
       victoryTitle: 'Sion 1 champion valaisan 2023 !',
       victoryDescription: 'Pour la deuxième année consécutive, le CE Sion remporte le titre de champion valaisan par équipes!',
       photo: {
-        src: '/picture/cve/cve_2023.png',
+        src: '/picture/gallery/CVE/cve_2023.png',
         alt: "L'équipe victorieuse",
         caption: "L'équipe de Sion 1, de g.à.d. Simon Morand, Vlad Popescu, Jean-Yves Riand et Stéphane Emery"
       },
@@ -163,7 +163,7 @@ export default function CVE() {
       victoryTitle: 'Sion 1 champion valaisan 2022 !',
       victoryDescription: 'Le CE Sion remporte le titre de champion par équipe en parties classiques lors de la finale valaisannes.',
       photo: {
-        src: '/picture/cve/cve_2022.png',
+        src: '/picture/gallery/CVE/cve_2022.png',
         alt: "L'équipe victorieuse",
         caption: "L'équipe de Sion 1 lors de la finale, de g.à.d. Vlad Popescu, Pierre-Marie Rappaz, Simon Morand et Stéphane Emery"
       },

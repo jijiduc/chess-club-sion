@@ -16,6 +16,42 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
+    date: new Date('2025-08-29T10:00:00'),
+    title: "Annonce : L'Activ Chess de Sion revient le 26 octobre 2025 !",
+    description: "Le traditionnel tournoi rapide du Club d'Échecs de Sion est de retour ! 9 rondes de 15+3. Inscriptions ouvertes, places limitées.",
+    text: `Le Club d'Échecs de Sion a le plaisir d'annoncer son grand tournoi annuel, l'Activ Chess, qui se tiendra le **dimanche 26 octobre 2025** au bâtiment scolaire de Champsec à Sion.
+
+Ce tournoi rapide, homologué FIDE, se jouera en **9 rondes** à la cadence de **15 minutes + 3 secondes par coup**. Il comptera pour le championnat valaisan de parties rapides 2025-26 ainsi que pour le Grand Prix Valaisan Jeunes U20.
+
+La compétition est ouverte à tous les joueurs, des GMI aux amateurs, avec des prix spéciaux pour les différentes catégories (Top 10, Valaisans, Juniors, Féminine, Elo <2000 et <1600).
+
+Le nombre de participants est **limité à 100 joueurs**. Une restauration sur place sera proposée avec un menu complet pour la pause de midi.
+
+Ne manquez pas ce rendez-vous incontournable des échecs en Valais !`,
+    icon: "trophy",
+    hasLink: true,
+    link: "/competitions/activ-chess",
+    linkText: "Consulter les détails du tournoi"
+  },
+  {
+    date: new Date('2025-08-23T12:00:00'),
+    title: "CSE R6 : Nul tardif pour Sion 1, défaite logique pour Sion 2",
+    description: "Lors de la 6ème ronde, Sion 1 a obtenu un match nul 4-4 à Echallens, tandis que Sion 2 s'est incliné 1-5 face au leader de son groupe, Crazy Horse 1.",
+    text: `La 6ème ronde du Championnat Suisse par Équipe, qui s'est déroulée le samedi 23 août 2025, a apporté des résultats contrastés pour nos équipes.
+
+**Sion 1 en 1re ligue : Un nul qui envoit de bons signaux**
+En déplacement à Echallens, Sion 1 a décroché un match nul sur le score de 4-4. Ce résultat, obtenu grâce entre autre aux victoires de Vlad Popescu et Jean-Yves Riand ainsi qu'aux nulles de 
+ne suffira malheuresement pas à l'équipe pour se maintenir, une ronde avant la fin. Cependant, ce résultat démontre que la rage de vaincre ne s'est pas estompée malgré la relégation à venir.
+
+**Sion 2 en 3e ligue : Défaite face au leader**
+À domicile, Sion 2 affrontait le leader incontesté du groupe, Crazy Horse 1. Comme l'indiquait le capitaine Sandro Betrisey, l'équipe n'a "malheureusement pas fait le poids contre les premiers du classement". La rencontre s'est soldée par une défaite 1-5. Les deux demi-points de l'équipe ont été obtenus par Simon Moerschell et Sandro, montrant l'exemple dans son rôle de capitaine.
+Malgré cette défaite attendue, Sion 2 reste en bonne position pour assurer son maintien. `,
+    icon: "trophy",
+    hasLink: true,
+    link: "/competitions/cse",
+    linkText: "Voir tous les résultats et classements du CSE"
+  },
+  {
     date: new Date('2025-08-09T09:00:00'),
     title: "Félicitations à nos 2 champions valaisans 2024-25 de parties rapides ! ",
     description: "Au terme d'une saison 2024-25 de 3 tournois de parties rapides, Max devient champion valaisan cat. junior et Flavien champion valaisan cat. actif",

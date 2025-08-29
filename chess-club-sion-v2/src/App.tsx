@@ -10,15 +10,15 @@ const Committee = lazy(() => import('./pages/Committee'))
 const Contact = lazy(() => import('./pages/Contact'))
 const Members = lazy(() => import('./pages/Members'))
 const Programme = lazy(() => import('./pages/Programme'))
-const ChateauxTournament = lazy(() => import('./pages/ChateauxTournament'))
 const CSE = lazy(() => import('./pages/Competitions/CSE'))
 const CSG = lazy(() => import('./pages/Competitions/CSG'))
 const CVE = lazy(() => import('./pages/Competitions/CVE'))
 const InternalTournament = lazy(() => import('./pages/Competitions/InternalTournament'))
 const ChessSchool = lazy(() => import('./pages/ChessSchool'))
-const Archives = lazy(() => import('./pages/Archives'))
 const Gallery = lazy(() => import('./pages/Gallery'))
-const Histoire = lazy(() => import('./pages/Histoire')) // <-- NOUVELLE PAGE AJOUTÉE
+const Histoire = lazy(() => import('./pages/Histoire'))
+const ActivChess = lazy(() => import('./pages/ActivChess'))
+
 
 const queryClient = new QueryClient()
 
@@ -42,7 +42,7 @@ function App() {
               <Route path="contact" element={<Contact />} />
               <Route path="membres" element={<Members />} />
               <Route path="programme" element={<Programme />} />
-              <Route path="tournoi-chateaux" element={<ChateauxTournament />} />
+              <Route path="activ-chess" element={<ActivChess />} />
               <Route path="competitions">
                 <Route path="cse" element={<CSE />} />
                 <Route path="csg" element={<CSG />} />
@@ -50,9 +50,8 @@ function App() {
                 <Route path="tournoi-interne" element={<InternalTournament />} />
               </Route>
               <Route path="ecole" element={<ChessSchool />} />
-              <Route path="archives" element={<Archives />} />
               <Route path="galerie" element={<Gallery />} />
-              <Route path="histoire" element={<Histoire />} /> {/* <-- NOUVELLE ROUTE AJOUTÉE */}
+              <Route path="histoire" element={<Histoire />} />
             </Route>
           </Routes>
         </Suspense>
