@@ -3,8 +3,8 @@
 ## Quick Deployment
 
 1. Run the deployment script:
-   ```bash
-   ./deploy.sh
+   ```powershell
+   ./deploy.ps1
    ```
 
 2. Upload files to Infomaniak:

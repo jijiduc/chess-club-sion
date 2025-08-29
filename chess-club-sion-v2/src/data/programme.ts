@@ -49,6 +49,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     date: '2025-08-29',
     time: '20h30',
     category: 'tournoi',
+    description: 'Tournoi de parties de 5min',
     location: "Local du club"
   },
   {

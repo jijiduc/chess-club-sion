@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Trophy, Calendar, Users, ChevronRight, MapPin, Clock, Zap, X, ArrowRight} from 'lucide-react'
+import { Trophy, Calendar, Users, ChevronRight, MapPin, Clock, Zap, X, ArrowRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { newsItems } from '../data/news'
 import { programmeEvents } from '../data/programme'
@@ -62,9 +62,13 @@ export default function Home() {
       )
     })
   }
+  // Crée une variable pour aujourd'hui à minuit
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
 
   const upcomingEvents = programmeEvents
-    .filter(event => new Date(event.date) >= new Date())
+    // Compare la date de l'événement avec 'today'
+    .filter(event => new Date(event.date) >= today)
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
     .slice(0, 3)
 
@@ -144,10 +148,10 @@ export default function Home() {
                   <p className="text-xl text-white">Activ Chess de Sion - 26 Octobre 2025</p>
                 </div>
                 <Link
-                  to="/competitions/activ-chess"
+                  to="/activ-chess"
                   className="group bg-primary-500 hover:bg-primary-400 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 inline-flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full md:w-auto"
                 >
-                  S'inscrire
+                  Informations
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -234,13 +238,14 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {upcomingEvents.map((event, index) => (
+              // Code Corrigé
               <motion.div
                 key={event.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col" // <-- 1. Ajouter flex flex-col
               >
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-sm font-medium text-primary-600 bg-primary-100 px-3 py-1 rounded-full">
@@ -248,12 +253,18 @@ export default function Home() {
                   </span>
                   <span className="text-sm text-neutral-500">{event.time}</span>
                 </div>
-                <h3 className="text-lg font-semibold text-neutral-900 mb-2">
-                  {event.title}
-                </h3>
-                <p className="text-neutral-600 text-sm mb-4">
-                  {event.description}
-                </p>
+
+                {/* 2. Nouveau conteneur qui va grandir */}
+                <div className="flex-grow"> {/* <-- 3. Ajouter flex-grow */}
+                  <h3 className="text-lg font-semibold text-neutral-900 mb-2">
+                    {event.title}
+                  </h3>
+                  <p className="text-neutral-600 text-sm mb-4">
+                    {event.description}
+                  </p>
+                </div>
+
+                {/* Cet élément sera maintenant poussé vers le bas */}
                 {event.location && (
                   <div className="flex items-center text-sm text-neutral-500">
                     <MapPin className="h-4 w-4 mr-1" />
