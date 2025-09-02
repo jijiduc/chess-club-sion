@@ -260,7 +260,7 @@ export default function ActivChessSion() {
                     </p>
                     <div className="space-y-3 text-neutral-800">
                         <p className="flex items-center gap-3"><User className="h-5 w-5 text-accent-500"/>Buffet de salades</p>
-                        <p className="flex items-center gap-3"><ShieldCheck className="h-5 w-5 text-accent-500"/>Cordon bleu artisanal, légumes et pommes de terre</p>
+                        <p className="flex items-center gap-3"><ShieldCheck className="h-5 w-5 text-accent-500"/>Cordon bleu artisanal, légumes et pommes de terre sautées</p>
                         <p className="flex items-center gap-3"><Cake className="h-5 w-5 text-accent-500"/>Gâteaux et café</p>
                     </div>
                      <div className="mt-6 pt-6 border-t border-dashed">

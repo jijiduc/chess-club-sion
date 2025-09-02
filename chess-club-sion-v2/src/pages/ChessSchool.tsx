@@ -42,7 +42,7 @@ const courses = [
     title: "Cours 'Écoliers'",
     audience: "Jeunes joueurs (6ans et +), débutants ou avec un premier niveau de pratique (ELO approximatif < 1400).",
     schedule: "Mercredis : 13h30 - 15h30.",
-    frequency: "Toutes les semaines (sauf vacances et exceptions annoncées).",
+    frequency: "3 fois par mois, selon le calendrier du club.",
     price: "100.- CHF pour le semestre."
   },
   {
@@ -56,7 +56,7 @@ const courses = [
   {
     icon: Trophy,
     title: "Cours 'Avancé'",
-    audience: "Dédié aux joueurs confirmés de tout âge visant la performance (ELO > 1800).",
+    audience: "Dédié aux joueurs confirmés de tout âge visant la performance, dans l'objectif d'atteindre l'excellence (ELO > 1800).",
     schedule: "Samedis : 09h30 - 11h30.",
     frequency: "3 fois par mois, selon le calendrier du club.",
     price: "200.- CHF pour le semestre."
@@ -69,7 +69,6 @@ const coaches: Coach[] = [
     title: "Coach - Cours 'Écoliers'",
     image: "/picture/coaches/pm.jpg",
     achievements: [
-      { icon: Crown, text: "Vainqueur du championnat valaisan junior" },
       { icon: Award, text: "Multiple vainqueur de la coupe valaisanne Individuelle" },
       { icon: Award, text: "Multiple Champion Valaisan par équipe" },
       { icon: Crown, text: "Champion Valaisan de parties lentes 2024" },
@@ -81,7 +80,6 @@ const coaches: Coach[] = [
     title: "Coach - Cours 'Intermédiaire' & 'Avancé'",
     image: "/picture/coaches/flavien.jpg",
     achievements: [
-      { icon: Crown, text: "Champion Valaisan de parties rapides 2024-25" },
       { icon: Shield, text: "Membre de l’Équipe de France -21 ans (2004–2006)" },
       { icon: Star, text: "Participant au Championnat du Monde junior (2005)" },
       { icon: Award, text: "Formateur expérimenté à Niort et Paris" },

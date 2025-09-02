@@ -13,65 +13,7 @@ export interface ProgrammeEvent {
 }
 
 export const programmeEvents: ProgrammeEvent[] = [
-  // Août 2025
-  {
-    id: '2025-08-23',
-    title: 'CSE ronde 6',
-    date: '2025-08-23',
-    time: '14h00',
-    category: 'CSE',
-    description: 'Championnat suisse par équipes',
-    location: 'Sion 1 : Sion - Sion 2 : Echallens',
-    link: 'https://www.swisschess.ch/cse.html',
-    details: ['Sion 1 - Echallens 2', 'Sion 2 - Crazy Horse 1'],
-  },
-  {
-    id: '2025-08-27-ecolier',
-    title: 'Cours écolier',
-    date: '2025-08-27',
-    time: '13h30',
-    category: 'formation',
-    description: 'Cours pour les écoliers, de 13h30 à 15h30',
-    location: "Local du club"
-  },
-  {
-    id: '2025-08-29-intermediaire',
-    title: 'Cours intermédiaire',
-    date: '2025-08-29',
-    time: '18h30',
-    category: 'formation',
-    description: 'Cours pour les joueurs intermédiaires, de 18h30 à 20h30',
-    location: "Local du club"
-  },
-  {
-    id: '2025-08-29-blitz',
-    title: 'Tournoi blitz de la rentrée',
-    date: '2025-08-29',
-    time: '20h30',
-    category: 'tournoi',
-    description: 'Tournoi de parties de 5min',
-    location: "Local du club"
-  },
-  {
-    id: '2025-08-30-avance',
-    title: 'Cours avancé',
-    date: '2025-08-30',
-    time: '9h30',
-    category: 'formation',
-    description: 'Cours pour les joueurs avancés, de 9h30 à 11h30',
-    location: "Local du club"
-  },
-
   // Septembre 2025
-  {
-    id: '2025-09-03-ecolier',
-    title: 'Cours écolier',
-    date: '2025-09-03',
-    time: '13h30',
-    category: 'formation',
-    description: 'Cours pour les écoliers, de 13h30 à 15h30',
-    location: "Local du club"
-  },
   {
     id: '2025-09-05-ag',
     title: 'Assemblée générale',
@@ -92,10 +34,11 @@ export const programmeEvents: ProgrammeEvent[] = [
   },
   {
     id: '2025-09-12-speciale',
-    title: 'Soirée spéciale : combativité',
+    title: 'Masterclass : Combativité',
     date: '2025-09-12',
     time: '20h00',
     category: 'soiree-club',
+    description: 'Masterclass spéciale sur le thème de la combativité et l\'esprit de la gagne, donnée par Mr. Knupfer Olivier',
     location: "Local du club"
   },
   {
