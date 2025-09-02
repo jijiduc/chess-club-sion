@@ -1,5 +1,6 @@
 import { Suspense, lazy } from 'react'
-import { HashRouter as Router, Routes, Route } from 'react-router-dom'
+// MODIFICATION : On retire l'import du Router ici
+import { Routes, Route } from 'react-router-dom' 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Layout from './components/Layout/Layout'
 
@@ -32,30 +33,29 @@ const PageLoader = () => (
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Router>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route path="club" element={<Club />} />
-              <Route path="comite" element={<Committee />} />
-              <Route path="contact" element={<Contact />} />
-              <Route path="membres" element={<Members />} />
-              <Route path="programme" element={<Programme />} />
-              <Route path="activ-chess" element={<ActivChess />} />
-              <Route path="competitions">
-                <Route path="cse" element={<CSE />} />
-                <Route path="csg" element={<CSG />} />
-                <Route path="cve" element={<CVE />} />
-                <Route path="tournoi-interne" element={<InternalTournament />} />
-              </Route>
-              <Route path="ecole" element={<ChessSchool />} />
-              <Route path="galerie" element={<Gallery />} />
-              <Route path="histoire" element={<Histoire />} />
+      {/* MODIFICATION : On a retiré le <Router> qui se trouvait ici */}
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="club" element={<Club />} />
+            <Route path="comite" element={<Committee />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="membres" element={<Members />} />
+            <Route path="programme" element={<Programme />} />
+            <Route path="activ-chess" element={<ActivChess />} />
+            <Route path="competitions">
+              <Route path="cse" element={<CSE />} />
+              <Route path="csg" element={<CSG />} />
+              <Route path="cve" element={<CVE />} />
+              <Route path="tournoi-interne" element={<InternalTournament />} />
             </Route>
-          </Routes>
-        </Suspense>
-      </Router>
+            <Route path="ecole" element={<ChessSchool />} />
+            <Route path="galerie" element={<Gallery />} />
+            <Route path="histoire" element={<Histoire />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </QueryClientProvider>
   )
 }

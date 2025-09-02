@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://www.cesion.ch/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://www.cesion.ch/club</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cesion.ch/histoire</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.cesion.ch/comite</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.cesion.ch/membres</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.cesion.ch/galerie</loc>
+    <priority>0.6</priority>
+  </url>
+   <url>
+    <loc>https://www.cesion.ch/contact</loc>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://www.cesion.ch/programme</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.cesion.ch/ecole</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.cesion.ch/activ-chess</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.cesion.ch/competitions/cse</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cesion.ch/competitions/csg</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cesion.ch/competitions/cve</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cesion.ch/competitions/tournoi-interne</loc>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

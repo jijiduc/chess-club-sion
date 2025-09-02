@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Title, Meta } from 'react-head';
 
 interface CommitteeMember {
   name: string
@@ -63,6 +64,9 @@ export default function Committee() {
 
   return (
     <>
+      <Title>Comité - Club d'Échecs de Sion</Title>
+      <Meta name="description" content="Rencontrez les membres du comité du Club d'Échecs de Sion. Découvrez qui sont le président, le trésorier et les autres membres dévoués à la vie du club." />
+
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-800 to-primary-900 text-white py-20">
         <div className="absolute inset-0 bg-black opacity-10"></div>

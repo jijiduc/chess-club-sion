@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Trophy, ChevronRight, ChevronLeft, Award, Grid, List } from 'lucide-react'
+import { Title, Meta } from 'react-head';
 
 interface Score {
   id: number
@@ -76,7 +77,7 @@ const tournoiData = {
       statut: "terminée",
       appariements: [
         { table: 1, blanc: 4, noir: 1, resultat: "0-1" },
-        { table: 2, blanc: 2, noir: 3, resultat: "0-1"},
+        { table: 2, blanc: 2, noir: 3, resultat: "0-1" },
         { table: 3, blanc: 7, noir: 6, resultat: "0-1" },
         { table: 4, blanc: 8, noir: 5, resultat: "0-1" }
       ]
@@ -119,7 +120,7 @@ export default function InternalTournament() {
     const rondesTerminees = tournoiData.rondes
       .filter(r => r.statut === "terminée")
       .sort((a, b) => b.numero - a.numero)
-    
+
     return rondesTerminees.length > 0 ? rondesTerminees[0].numero : 1
   }
 
@@ -230,7 +231,7 @@ export default function InternalTournament() {
           </thead>
           <tbody>
             {scores.map((score, index) => (
-              <motion.tr 
+              <motion.tr
                 key={score.id}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -249,12 +250,11 @@ export default function InternalTournament() {
                     {score.id === j.id ? (
                       <span className="text-neutral-400">X</span>
                     ) : (
-                      <span className={`font-medium ${
-                        score.resultats[j.id] === "1" ? "text-success-600" :
-                        score.resultats[j.id] === "0" ? "text-red-600" :
-                        score.resultats[j.id] === "½" ? "text-accent-600" :
-                        "text-neutral-300"
-                      }`}>
+                      <span className={`font-medium ${score.resultats[j.id] === "1" ? "text-success-600" :
+                          score.resultats[j.id] === "0" ? "text-red-600" :
+                            score.resultats[j.id] === "½" ? "text-accent-600" :
+                              "text-neutral-300"
+                        }`}>
                         {score.resultats[j.id] || "-"}
                       </span>
                     )}
@@ -286,11 +286,11 @@ export default function InternalTournament() {
             <ChevronLeft className="h-5 w-5 mr-1" />
             Ronde précédente
           </button>
-          
+
           <h3 className="text-xl font-semibold text-neutral-900">
             Ronde {round.numero} - {round.statut}
           </h3>
-          
+
           <button
             onClick={() => setCurrentRound(Math.min(tournoiData.rondes.length, currentRound + 1))}
             disabled={currentRound === tournoiData.rondes.length}
@@ -313,12 +313,11 @@ export default function InternalTournament() {
             >
               <div className="flex items-center justify-between">
                 <div className="text-sm text-neutral-500 mb-2">Table {appariement.table}</div>
-                <div className={`text-2xl font-bold ${
-                  appariement.resultat === "1-0" ? "text-success-600" :
-                  appariement.resultat === "0-1" ? "text-red-600" :
-                  appariement.resultat === "½-½" ? "text-accent-600" :
-                  "text-neutral-400"
-                }`}>
+                <div className={`text-2xl font-bold ${appariement.resultat === "1-0" ? "text-success-600" :
+                    appariement.resultat === "0-1" ? "text-red-600" :
+                      appariement.resultat === "½-½" ? "text-accent-600" :
+                        "text-neutral-400"
+                  }`}>
                   {appariement.resultat || "À jouer"}
                 </div>
               </div>
@@ -341,162 +340,165 @@ export default function InternalTournament() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
-      <section className="relative bg-gradient-to-r from-primary-900 to-accent-900 text-white py-24">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center"
-          >
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              {tournoiData.info.titre}
-            </h1>
-            <p className="text-xl md:text-2xl opacity-90 mb-8">
-              Tournoi de parties lentes
-            </p>
-          </motion.div>
-        </div>
-      </section>
+    <>
+      <Title>Championnat Interne - Club d'Échecs de Sion</Title>
+      <Meta name="description" content="Résultats complets du championnat interne 2024/25 du Club d'Échecs de Sion. Consultez le classement final, le résumé du tournoi et les résultats de chaque ronde." />
 
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            
+      <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
+        <section className="relative bg-gradient-to-r from-primary-900 to-accent-900 text-white py-24">
+          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="container mx-auto px-4 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white rounded-xl shadow-lg overflow-hidden"
+              className="text-center"
             >
-              <button
-                onClick={toggleExpanded}
-                className="w-full px-6 py-4 flex items-center justify-between bg-gradient-to-r from-primary-600 to-accent-600 text-white hover:from-primary-700 hover:to-accent-700 transition-colors"
+              <h1 className="text-4xl md:text-6xl font-bold mb-4">
+                {tournoiData.info.titre}
+              </h1>
+              <p className="text-xl md:text-2xl opacity-90 mb-8">
+                Tournoi de parties lentes
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        <section className="py-16">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto">
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-white rounded-xl shadow-lg overflow-hidden"
               >
-                <h3 className="text-2xl font-semibold flex items-center">
-                  <Trophy className="h-6 w-6 mr-3" />
-                  Championnat interne de la saison 2024/25
-                </h3>
-                <motion.svg
-                  animate={{ rotate: isExpanded ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+                <button
+                  onClick={toggleExpanded}
+                  className="w-full px-6 py-4 flex items-center justify-between bg-gradient-to-r from-primary-600 to-accent-600 text-white hover:from-primary-700 hover:to-accent-700 transition-colors"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </motion.svg>
-              </button>
+                  <h3 className="text-2xl font-semibold flex items-center">
+                    <Trophy className="h-6 w-6 mr-3" />
+                    Championnat interne de la saison 2024/25
+                  </h3>
+                  <motion.svg
+                    animate={{ rotate: isExpanded ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </motion.svg>
+                </button>
 
-              {isExpanded && (
-                <motion.div
-                  initial={{ height: 0 }}
-                  animate={{ height: 'auto' }}
-                  exit={{ height: 0 }}
-                  className="px-6 py-8"
-                >
-                  {/* Section Résultats du championnat */}
-                  <div className="bg-gradient-to-r from-yellow-50 to-primary-50 rounded-xl p-6 border border-primary-200 mb-12">
-                    <h4 className="text-xl font-bold text-primary-900 mb-4 flex items-center">
-                      <Trophy className="h-6 w-6 mr-2" />
-                      Résultats du championnat
-                    </h4>
-                    <div className="space-y-3">
-                      {podium.map((joueur) => (
-                        <div key={joueur.id} className="flex items-center text-lg">
-                          <span className="w-8">{joueur.rangAffiche}</span>
-                          <span className="font-semibold text-neutral-900">{joueur.nom}</span>
-                          <span className="ml-auto font-bold text-primary-800">{joueur.points} pts</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  {/* Section Résumé du déroulement */}
-                  <div className="mb-12">
-                    <h4 className="text-xl font-bold text-neutral-900 mb-4 flex items-center">
-                      <Award className="h-6 w-6 mr-2" />
-                      Résumé du déroulement
-                    </h4>
-                    <div className="prose prose-neutral max-w-none text-neutral-700 space-y-4">
-                      <p>
-                        <strong>Flavien Sola</strong> a dominé le tournoi de manière impressionnante, terminant invaincu avec 6,5 points sur 7. Ses victoires clés contre ses poursuivants directs, notamment Pierre-Marie Rappaz (ronde 3), ont rapidement scellé sa première place.
-                      </p>
-                      <p>
-                        La lutte pour la deuxième place a été intense. <strong>Pierre-Marie Rappaz</strong> a su se relever après deux défaites consécutives à mi-parcours, en remportant ses trois derniers matchs pour s'assurer la médaille d'argent avec 5 points.
-                      </p>
-                      <p>
-                        <strong>Olivier Ulmann</strong>, quant à lui, a réalisé une solide performance pour prendre la troisième place. Son parcours inclut une nulle précieuse contre le champion à la ronde 5 et des victoires décisives qui lui ont permis de finir sur le podium avec 4,5 points.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Section Format du tournoi */}
-                  <div className="mb-12">
-                    <h4 className="text-xl font-bold text-neutral-900 mb-6 flex items-center">
-                      <List className="h-6 w-6 mr-2" />
-                      Format du tournoi
-                    </h4>
-                    <div className="space-y-3">
-                      {tournoiData.info.format.map((rule, index) => (
-                        <motion.div 
-                          key={index}
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.1 * index }}
-                          className="flex items-start"
-                        >
-                          <ChevronRight className="h-5 w-5 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                          <p className="text-neutral-700" dangerouslySetInnerHTML={{ __html: rule }}></p>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Section Classement et Rondes */}
-                  <div>
-                    <h4 className="text-xl font-bold text-neutral-900 mb-6 flex items-center">
-                      <Grid className="h-6 w-6 mr-2" />
-                      Classement détaillé et Rondes
-                    </h4>
-                    <div className="flex justify-center mb-8">
-                      <div className="bg-neutral-100 rounded-lg p-1 inline-flex">
-                        <button
-                          onClick={() => setViewMode('rounds')}
-                          className={`px-6 py-2 rounded-md flex items-center transition-colors ${
-                            viewMode === 'rounds' 
-                              ? 'bg-gradient-to-r from-primary-600 to-accent-600 text-white' 
-                              : 'text-neutral-700 hover:bg-neutral-200'
-                          }`}
-                        >
-                          <List className="h-5 w-5 mr-2" />
-                          Rondes
-                        </button>
-                        <button
-                          onClick={() => setViewMode('crosstable')}
-                          className={`px-6 py-2 rounded-md flex items-center transition-colors ${
-                            viewMode === 'crosstable' 
-                              ? 'bg-gradient-to-r from-primary-600 to-accent-600 text-white' 
-                              : 'text-neutral-700 hover:bg-neutral-200'
-                          }`}
-                        >
-                          <Grid className="h-5 w-5 mr-2" />
-                          Classement
-                        </button>
+                {isExpanded && (
+                  <motion.div
+                    initial={{ height: 0 }}
+                    animate={{ height: 'auto' }}
+                    exit={{ height: 0 }}
+                    className="px-6 py-8"
+                  >
+                    {/* Section Résultats du championnat */}
+                    <div className="bg-gradient-to-r from-yellow-50 to-primary-50 rounded-xl p-6 border border-primary-200 mb-12">
+                      <h4 className="text-xl font-bold text-primary-900 mb-4 flex items-center">
+                        <Trophy className="h-6 w-6 mr-2" />
+                        Résultats du championnat
+                      </h4>
+                      <div className="space-y-3">
+                        {podium.map((joueur) => (
+                          <div key={joueur.id} className="flex items-center text-lg">
+                            <span className="w-8">{joueur.rangAffiche}</span>
+                            <span className="font-semibold text-neutral-900">{joueur.nom}</span>
+                            <span className="ml-auto font-bold text-primary-800">{joueur.points} pts</span>
+                          </div>
+                        ))}
                       </div>
                     </div>
 
-                    <div className="bg-neutral-50 rounded-lg p-6">
-                      {viewMode === 'rounds' ? renderRounds() : renderCrosstable()}
+                    {/* Section Résumé du déroulement */}
+                    <div className="mb-12">
+                      <h4 className="text-xl font-bold text-neutral-900 mb-4 flex items-center">
+                        <Award className="h-6 w-6 mr-2" />
+                        Résumé du déroulement
+                      </h4>
+                      <div className="prose prose-neutral max-w-none text-neutral-700 space-y-4">
+                        <p>
+                          <strong>Flavien Sola</strong> a dominé le tournoi de manière impressionnante, terminant invaincu avec 6,5 points sur 7. Ses victoires clés contre ses poursuivants directs, notamment Pierre-Marie Rappaz (ronde 3), ont rapidement scellé sa première place.
+                        </p>
+                        <p>
+                          La lutte pour la deuxième place a été intense. <strong>Pierre-Marie Rappaz</strong> a su se relever après deux défaites consécutives à mi-parcours, en remportant ses trois derniers matchs pour s'assurer la médaille d'argent avec 5 points.
+                        </p>
+                        <p>
+                          <strong>Olivier Ulmann</strong>, quant à lui, a réalisé une solide performance pour prendre la troisième place. Son parcours inclut une nulle précieuse contre le champion à la ronde 5 et des victoires décisives qui lui ont permis de finir sur le podium avec 4,5 points.
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
-              )}
-            </motion.div>
+
+                    {/* Section Format du tournoi */}
+                    <div className="mb-12">
+                      <h4 className="text-xl font-bold text-neutral-900 mb-6 flex items-center">
+                        <List className="h-6 w-6 mr-2" />
+                        Format du tournoi
+                      </h4>
+                      <div className="space-y-3">
+                        {tournoiData.info.format.map((rule, index) => (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.1 * index }}
+                            className="flex items-start"
+                          >
+                            <ChevronRight className="h-5 w-5 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
+                            <p className="text-neutral-700" dangerouslySetInnerHTML={{ __html: rule }}></p>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Section Classement et Rondes */}
+                    <div>
+                      <h4 className="text-xl font-bold text-neutral-900 mb-6 flex items-center">
+                        <Grid className="h-6 w-6 mr-2" />
+                        Classement détaillé et Rondes
+                      </h4>
+                      <div className="flex justify-center mb-8">
+                        <div className="bg-neutral-100 rounded-lg p-1 inline-flex">
+                          <button
+                            onClick={() => setViewMode('rounds')}
+                            className={`px-6 py-2 rounded-md flex items-center transition-colors ${viewMode === 'rounds'
+                                ? 'bg-gradient-to-r from-primary-600 to-accent-600 text-white'
+                                : 'text-neutral-700 hover:bg-neutral-200'
+                              }`}
+                          >
+                            <List className="h-5 w-5 mr-2" />
+                            Rondes
+                          </button>
+                          <button
+                            onClick={() => setViewMode('crosstable')}
+                            className={`px-6 py-2 rounded-md flex items-center transition-colors ${viewMode === 'crosstable'
+                                ? 'bg-gradient-to-r from-primary-600 to-accent-600 text-white'
+                                : 'text-neutral-700 hover:bg-neutral-200'
+                              }`}
+                          >
+                            <Grid className="h-5 w-5 mr-2" />
+                            Classement
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="bg-neutral-50 rounded-lg p-6">
+                        {viewMode === 'rounds' ? renderRounds() : renderCrosstable()}
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </motion.div>
+            </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </>
   )
 }

@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Camera, Calendar, Trophy, X, ChevronLeft, ChevronRight, Filter } from 'lucide-react'
+import { Title, Meta } from 'react-head';
 
 interface GalleryImage {
   id: string
@@ -161,10 +162,10 @@ const galleryImages: GalleryImage[] = [
   { id: 'kortchnoi-2000-f', src: '/picture/gallery/Simultanee/Korchnoi/k2000f.jpg', category: 'tournament', title: 'Une poussée vigoureuse', description: 'Jean-Yves Riand et Léonard Besse en pleine collaboration contre Viktor Kortchnoi.', date: '2000', event: 'Simultanée Kortchnoi' },
   { id: 'kortchnoi-2000-g', src: '/picture/gallery/Simultanee/Korchnoi/k2000g.jpg', category: 'tournament', title: 'Moment de réflexion', description: 'Kortchnoi analyse la position face à Jean-Yves Riand.', date: '2000', event: 'Simultanée Kortchnoi' },
   { id: 'kortchnoi-2000-h', src: '/picture/gallery/Simultanee/Korchnoi/k2000h.jpg', category: 'tournament', title: 'Le Maître et ses adversaires', description: 'Kortchnoi se penche sur une position complexe.', date: '2000', event: 'Simultanée Kortchnoi' },
-  
+
   // Simultanée Nemet Ivan
   { id: 'nemet-ivan-2005', src: '/picture/gallery/Simultanee/Nemet/simnemet.jpg', category: 'top_player', title: 'Simultanée d\'Ivan Nemet', description: 'Le GMI Ivan Nemet, Champion Suisse 1990, lors d\'une simultanée.', date: '2005', event: 'Simultanée Nemet Ivan' },
-  
+
   // Championnat blitz par paires 2000 - Données mises à jour
   {
     id: 'blitz-2000-1',
@@ -247,12 +248,12 @@ export default function Gallery() {
     if (parts.length === 3 && monthMap.hasOwnProperty(parts[1])) return new Date(parseInt(parts[2]), monthMap[parts[1]], parseInt(parts[0]));
     return new Date(0);
   };
-  
+
   const filteredImages = useMemo(() => {
     const imagesToFilter = selectedFilter === 'Toutes'
       ? galleryImages
       : galleryImages.filter(img => img.event === selectedFilter);
-  
+
     return imagesToFilter.sort((a, b) => {
       const dateA = parseDate(a.date).getTime();
       const dateB = parseDate(b.date).getTime();
@@ -267,178 +268,181 @@ export default function Gallery() {
   const navigate = (direction: 'prev' | 'next') => {
     if (!selectedImage) return
     const currentIndex = filteredImages.findIndex(img => img.id === selectedImage.id)
-    const newIndex = direction === 'next' 
+    const newIndex = direction === 'next'
       ? (currentIndex + 1) % filteredImages.length
       : (currentIndex - 1 + filteredImages.length) % filteredImages.length
     setSelectedImage(filteredImages[newIndex])
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-white">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary-800 to-primary-900 text-white py-20">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center"
-          >
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              Galerie Photos
-            </h1>
-            <p className="text-xl md:text-2xl opacity-90 mb-4">
-              Archives historiques du Club d'Échecs de Sion
-            </p>
-            <p className="text-lg opacity-75">
-              Notre histoire en images
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Category Filter */}
-      <section className="py-8 bg-white shadow-sm sticky top-0 z-40">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-center flex-wrap gap-3">
-            <Filter className="h-5 w-5 text-neutral-600 hidden md:block" />
-            {filterOptions.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setSelectedFilter(filter)}
-                className={`px-4 py-2 rounded-full font-medium transition-all text-sm md:text-base ${
-                  selectedFilter === filter
-                    ? 'bg-gradient-to-r from-primary-600 to-primary-800 text-white shadow-lg'
-                    : 'bg-white text-neutral-700 hover:bg-neutral-50 border border-neutral-300'
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery Grid */}
-      <section className="py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            <AnimatePresence>
-              {filteredImages.map((image) => (
-                <motion.div
-                  layout
-                  key={image.id}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
-                  transition={{ duration: 0.3 }}
-                  whileHover={{ scale: 1.05 }}
-                  className="cursor-pointer group"
-                  onClick={() => setSelectedImage(image)}
-                >
-                  <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div className="aspect-w-16 aspect-h-12 bg-neutral-100 relative">
-                      {imageError.has(image.id) ? (
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="text-center p-4">
-                            <Camera className="h-12 w-12 text-neutral-400 mx-auto mb-2" />
-                            <p className="text-sm text-neutral-500">Image non disponible</p>
-                          </div>
-                        </div>
-                      ) : (
-                        <img
-                          src={image.src}
-                          alt={image.title}
-                          className="w-full h-48 object-cover group-hover:opacity-90 transition-opacity"
-                          onError={() => handleImageError(image.id)}
-                        />
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    </div>
-                    <div className="p-4">
-                      <h3 className="font-semibold text-neutral-900 mb-1 truncate">{image.title}</h3>
-                      {image.date && (
-                        <p className="text-sm text-neutral-500 mb-1">{image.date}</p>
-                      )}
-                      {image.event && (
-                        <p className="text-xs text-primary-600">{image.event}</p>
-                      )}
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-        </div>
-      </section>
-
-      {/* Lightbox */}
-      <AnimatePresence>
-        {selectedImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-            onClick={() => setSelectedImage(null)}
-          >
+    <>
+      <Title>Galerie Photos - Club d'Échecs de Sion</Title>
+      <Meta name="description" content="Revivez les grands moments du Club d'Échecs de Sion à travers nos archives photos. Images de tournois, d'événements et de la vie du club." />
+      <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-white">
+        {/* Hero Section */}
+        <section className="relative bg-gradient-to-r from-primary-800 to-primary-900 text-white py-20">
+          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="container mx-auto px-4 relative z-10">
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="relative max-w-5xl w-full bg-white rounded-lg overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center"
             >
-              <button onClick={() => setSelectedImage(null)} className="absolute top-4 right-4 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-colors">
-                <X className="h-6 w-6" />
-              </button>
-              <button onClick={() => navigate('prev')} className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-colors">
-                <ChevronLeft className="h-6 w-6" />
-              </button>
-              <button onClick={() => navigate('next')} className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-colors">
-                <ChevronRight className="h-6 w-6" />
-              </button>
-              <div className="flex flex-col lg:flex-row">
-                <div className="lg:w-2/3 bg-black flex items-center justify-center">
-                  {imageError.has(selectedImage.id) ? (
-                    <div className="text-center p-8">
-                      <Camera className="h-16 w-16 text-neutral-400 mx-auto mb-4" />
-                      <p className="text-neutral-300">Image non disponible</p>
+              <h1 className="text-4xl md:text-6xl font-bold mb-4">
+                Galerie Photos
+              </h1>
+              <p className="text-xl md:text-2xl opacity-90 mb-4">
+                Archives historiques du Club d'Échecs de Sion
+              </p>
+              <p className="text-lg opacity-75">
+                Notre histoire en images
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Category Filter */}
+        <section className="py-8 bg-white shadow-sm sticky top-0 z-40">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center justify-center flex-wrap gap-3">
+              <Filter className="h-5 w-5 text-neutral-600 hidden md:block" />
+              {filterOptions.map((filter) => (
+                <button
+                  key={filter}
+                  onClick={() => setSelectedFilter(filter)}
+                  className={`px-4 py-2 rounded-full font-medium transition-all text-sm md:text-base ${selectedFilter === filter
+                      ? 'bg-gradient-to-r from-primary-600 to-primary-800 text-white shadow-lg'
+                      : 'bg-white text-neutral-700 hover:bg-neutral-50 border border-neutral-300'
+                    }`}
+                >
+                  {filter}
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Gallery Grid */}
+        <section className="py-12">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              <AnimatePresence>
+                {filteredImages.map((image) => (
+                  <motion.div
+                    layout
+                    key={image.id}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.3 }}
+                    whileHover={{ scale: 1.05 }}
+                    className="cursor-pointer group"
+                    onClick={() => setSelectedImage(image)}
+                  >
+                    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                      <div className="aspect-w-16 aspect-h-12 bg-neutral-100 relative">
+                        {imageError.has(image.id) ? (
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="text-center p-4">
+                              <Camera className="h-12 w-12 text-neutral-400 mx-auto mb-2" />
+                              <p className="text-sm text-neutral-500">Image non disponible</p>
+                            </div>
+                          </div>
+                        ) : (
+                          <img
+                            src={image.src}
+                            alt={image.title}
+                            className="w-full h-48 object-cover group-hover:opacity-90 transition-opacity"
+                            onError={() => handleImageError(image.id)}
+                          />
+                        )}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-semibold text-neutral-900 mb-1 truncate">{image.title}</h3>
+                        {image.date && (
+                          <p className="text-sm text-neutral-500 mb-1">{image.date}</p>
+                        )}
+                        {image.event && (
+                          <p className="text-xs text-primary-600">{image.event}</p>
+                        )}
+                      </div>
                     </div>
-                  ) : (
-                    <img
-                      src={selectedImage.src}
-                      alt={selectedImage.title}
-                      className="max-w-full max-h-[70vh] object-contain"
-                      onError={() => handleImageError(selectedImage.id)}
-                    />
-                  )}
-                </div>
-                <div className="lg:w-1/3 p-6 lg:p-8">
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-4">{selectedImage.title}</h2>
-                  {selectedImage.description && (
-                    <p className="text-neutral-700 mb-4">{selectedImage.description}</p>
-                  )}
-                  <div className="space-y-2 text-sm">
-                    {selectedImage.date && (
-                      <div className="flex items-center text-neutral-600">
-                        <Calendar className="h-4 w-4 mr-2" />
-                        {selectedImage.date}
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
+          </div>
+        </section>
+
+        {/* Lightbox */}
+        <AnimatePresence>
+          {selectedImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+              onClick={() => setSelectedImage(null)}
+            >
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                className="relative max-w-5xl w-full bg-white rounded-lg overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button onClick={() => setSelectedImage(null)} className="absolute top-4 right-4 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-colors">
+                  <X className="h-6 w-6" />
+                </button>
+                <button onClick={() => navigate('prev')} className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-colors">
+                  <ChevronLeft className="h-6 w-6" />
+                </button>
+                <button onClick={() => navigate('next')} className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-colors">
+                  <ChevronRight className="h-6 w-6" />
+                </button>
+                <div className="flex flex-col lg:flex-row">
+                  <div className="lg:w-2/3 bg-black flex items-center justify-center">
+                    {imageError.has(selectedImage.id) ? (
+                      <div className="text-center p-8">
+                        <Camera className="h-16 w-16 text-neutral-400 mx-auto mb-4" />
+                        <p className="text-neutral-300">Image non disponible</p>
                       </div>
-                    )}
-                    {selectedImage.event && (
-                      <div className="flex items-center text-primary-600">
-                        <Trophy className="h-4 w-4 mr-2" />
-                        {selectedImage.event}
-                      </div>
+                    ) : (
+                      <img
+                        src={selectedImage.src}
+                        alt={selectedImage.title}
+                        className="max-w-full max-h-[70vh] object-contain"
+                        onError={() => handleImageError(selectedImage.id)}
+                      />
                     )}
                   </div>
+                  <div className="lg:w-1/3 p-6 lg:p-8">
+                    <h2 className="text-2xl font-bold text-neutral-900 mb-4">{selectedImage.title}</h2>
+                    {selectedImage.description && (
+                      <p className="text-neutral-700 mb-4">{selectedImage.description}</p>
+                    )}
+                    <div className="space-y-2 text-sm">
+                      {selectedImage.date && (
+                        <div className="flex items-center text-neutral-600">
+                          <Calendar className="h-4 w-4 mr-2" />
+                          {selectedImage.date}
+                        </div>
+                      )}
+                      {selectedImage.event && (
+                        <div className="flex items-center text-primary-600">
+                          <Trophy className="h-4 w-4 mr-2" />
+                          {selectedImage.event}
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+          )}
+        </AnimatePresence>
+      </div>
+    </>
   )
 }

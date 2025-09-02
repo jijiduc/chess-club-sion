@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { User, Award } from 'lucide-react'
+import { Title, Meta } from 'react-head';
 
 // --- Définition des interfaces pour un typage strict ---
 interface TimelineEvent {
@@ -54,10 +55,10 @@ const timelineEvents: TimelineEvent[] = [
   { year: "1996", description: "Olivier Crettenand, membre du club, prend la présidence de l'UVE jusqu'en 2001" },
   { year: "1997", description: "Fin de la rubrique d’échecs dans le Nouvelliste tenue pendant plus de 10 ans par J.Y Riand, après G. Grand." },
   { year: "2006", description: "Rénovation du local du CE Sion de la rue des Châteaux 2." },
-  { year: "2022", description: "Sion remporte la finale du championnat valaisan par équipes."},
-  { year: "2023", description: "Sion remporte la finale du championnat valaisan par équipes pour la deuxième fois consécutive."},
-  { year: "2024", description: "Sion remporte la finale du championnat valaisan par équipes pour la troisième fois consécutive."},
-  { year: "2025", description: "Sion remporte la finale du championnat valaisan par équipes pour la quatrième fois consécutive."},
+  { year: "2022", description: "Sion remporte la finale du championnat valaisan par équipes." },
+  { year: "2023", description: "Sion remporte la finale du championnat valaisan par équipes pour la deuxième fois consécutive." },
+  { year: "2024", description: "Sion remporte la finale du championnat valaisan par équipes pour la troisième fois consécutive." },
+  { year: "2025", description: "Sion remporte la finale du championnat valaisan par équipes pour la quatrième fois consécutive." },
 ];
 
 const personalities: Personality[] = [
@@ -208,6 +209,8 @@ const notablePlayers: string[] = [
 export default function Histoire() {
   return (
     <>
+      <Title>Histoire du Club - Club d'Échecs de Sion</Title>
+      <Meta name="description" content="Explorez l'histoire du Club d'Échecs de Sion depuis 1935. Revivez les dates clés, découvrez les personnalités marquantes et le palmarès de nos meilleurs joueurs." />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-800 to-primary-900 text-white py-20">
         <div className="absolute inset-0 bg-black opacity-10"></div>
@@ -243,7 +246,7 @@ export default function Histoire() {
           >
             <h2 className="text-3xl font-serif font-bold text-neutral-900 mb-12 text-center">Frise chronologique</h2>
             <div className="relative wrap overflow-hidden p-10 h-full">
-              <div className="border-2-2 absolute border-opacity-20 border-primary-700 h-full border" style={{left: '50%'}}></div>
+              <div className="border-2-2 absolute border-opacity-20 border-primary-700 h-full border" style={{ left: '50%' }}></div>
               {timelineEvents.map((event, index) => (
                 <div key={index} className={`mb-8 flex justify-between items-center w-full ${index % 2 === 0 ? 'flex-row-reverse left-timeline' : 'right-timeline'}`}>
                   <div className="order-1 w-5/12"></div>
@@ -282,7 +285,7 @@ export default function Histoire() {
                   transition={{ delay: index * 0.1 }}
                   className="bg-white p-6 rounded-xl shadow-lg text-center"
                 >
-                  <User className="h-10 w-10 text-primary-600 mx-auto mb-4"/>
+                  <User className="h-10 w-10 text-primary-600 mx-auto mb-4" />
                   <h3 className="font-bold text-xl text-neutral-900 mb-2">{person.name}</h3>
                   <p className="text-neutral-600 text-sm">{person.bio}</p>
                 </motion.div>
@@ -324,7 +327,7 @@ export default function Histoire() {
               ))}
             </div>
           </motion.div>
-          
+
           {/* Presidents & Hall of Fame */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
             {/* Presidents */}
