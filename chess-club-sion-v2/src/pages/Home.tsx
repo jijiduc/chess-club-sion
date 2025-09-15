@@ -1,13 +1,29 @@
 import { Link } from 'react-router-dom'
-import { Trophy, Calendar, Users, ChevronRight, MapPin, Clock, Zap, X, ArrowRight } from 'lucide-react'
+// MODIFICATION 1: Ajout des icônes pour la navigation du carrousel
+import { Trophy, Calendar, Users, ChevronRight, MapPin, Clock, Zap, X, ArrowRight, ChevronUp, ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { newsItems } from '../data/news'
 import { programmeEvents } from '../data/programme'
 import { useState } from 'react'
-import { Title, Meta } from 'react-head'; 
+import { Title, Meta } from 'react-head';
 
 export default function Home() {
   const [selectedNews, setSelectedNews] = useState<number | null>(null)
+  // MODIFICATION 2: Ajout d'un état pour l'index de la carte active dans le carrousel
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // MODIFICATION 3: Trier les actualités par date, de la plus récente à la plus ancienne
+  // Nous utilisons une copie avec [...] pour ne pas muter l'array original importé
+  const sortedNews = [...newsItems].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+  // MODIFICATION 4: Fonctions pour naviguer dans le carrousel
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % sortedNews.length);
+  };
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + sortedNews.length) % sortedNews.length);
+  };
 
   const formatDate = (date: Date) => {
     return date.toLocaleDateString('fr-FR', {
@@ -18,8 +34,13 @@ export default function Home() {
     })
   }
 
-  const openNewsModal = (index: number) => {
-    setSelectedNews(index)
+  const openNewsModal = (newsItem: any) => {
+    // Pour s'assurer que le modal fonctionne toujours, on retrouve l'index
+    // de l'article sélectionné dans l'array original non trié.
+    const originalIndex = newsItems.findIndex(item => item.title === newsItem.title); // Assurez-vous d'avoir un ID unique si les titres ne le sont pas
+    if (originalIndex !== -1) {
+      setSelectedNews(originalIndex);
+    }
   }
 
   const closeNewsModal = () => {
@@ -58,7 +79,7 @@ export default function Home() {
       )
     })
   }
-  
+
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
@@ -98,7 +119,7 @@ export default function Home() {
       <Meta name="description" content="Bienvenue au Club d'Échecs de Sion. Découvrez nos activités, tournois, cours pour juniors et adultes, et rejoignez notre société de passionnés depuis 1935." />
 
       <div className="overflow-hidden">
-        {/* Hero Section with Parallax Effect */}
+        {/* Hero Section (INCHANGÉ) */}
         <section className="relative min-h-screen flex items-center justify-center">
           <div
             className="absolute inset-0 bg-cover bg-center bg-fixed"
@@ -156,11 +177,9 @@ export default function Home() {
             </motion.div>
 
           </div>
-
         </section>
 
-
-        {/* Activities Section */}
+        {/* Activities Section (INCHANGÉ) */}
         <section className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -216,7 +235,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Upcoming Events */}
+        {/* Upcoming Events (INCHANGÉ) */}
         <section className="py-24 bg-gradient-to-br from-primary-50 via-primary-50 to-accent-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -281,7 +300,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* News Section - Card Layout */}
+        {/* MODIFICATION 5: Remplacement de la section Actualités */}
         <section className="py-24 bg-gradient-to-br from-neutral-50 to-secondary-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -294,77 +313,92 @@ export default function Home() {
                 Actualités échiquéennes du club
               </h2>
               <p className="text-xl text-neutral-600 mb-6">
-                Voici les dernières nouvelles
+                Restez informé des dernières nouvelles, tournois, et événements du club
               </p>
               <div className="h-1 w-24 bg-primary-600 mx-auto" />
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {newsItems.map((item, index) => (
-                <motion.article
-                  key={`news-${index}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
-                >
-                  {item.hasImage && item.image && (
-                    <div className="relative overflow-hidden h-48">
-                      <img
-                        src={item.image.src}
-                        alt={item.image.alt || ''}
-                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    </div>
-                  )}
+            <div className="relative flex flex-col items-center justify-center max-w-3xl mx-auto">
+              {/* Conteneur pour les boutons de navigation */}
+              <div className="z-30 flex flex-col gap-4 absolute top-1/2 -translate-y-1/2 right-0 md:-right-24">
+                <button onClick={handlePrev} className="bg-white/80 backdrop-blur-sm hover:bg-white rounded-full p-3 shadow-md hover:shadow-lg transition-all transform hover:scale-110">
+                  <ChevronUp className="h-6 w-6 text-neutral-700" />
+                </button>
+                <button onClick={handleNext} className="bg-white/80 backdrop-blur-sm hover:bg-white rounded-full p-3 shadow-md hover:shadow-lg transition-all transform hover:scale-110">
+                  <ChevronDown className="h-6 w-6 text-neutral-700" />
+                </button>
+              </div>
 
-                  <div className="p-6 flex flex-col flex-grow">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex items-center space-x-3">
-                        <div className="bg-primary-100 group-hover:bg-primary-200 p-2 rounded-xl transition-colors duration-300">
-                          <Trophy className="h-5 w-5 text-primary-600" />
+              {/* Stack de cartes */}
+              <div className="relative w-full max-w-lg min-h-[400px]">
+                {sortedNews.map((item, index) => {
+                  const offset = index - activeIndex;
+                  // On affiche seulement 3 cartes à la fois pour la performance
+                  if (offset < 0 || offset > 2) return null;
+
+                  return (
+                    <motion.article
+                      key={item.title} // Utiliser un ID unique si possible
+                      className="group absolute top-0 flex flex-col bg-white rounded-2xl overflow-hidden shadow-lg w-full" // ❌ h-full retiré
+                      initial={{
+                        y: 0,
+                        scale: 1,
+                        opacity: 0
+                      }}
+                      animate={{
+                        y: offset * 30,
+                        scale: 1 - (offset * 0.1),
+                        opacity: 1 - (offset * 0.3),
+                        zIndex: sortedNews.length - index,
+                      }}
+                      transition={{ type: 'spring', stiffness: 200, damping: 25 }}
+                    >
+                      {item.hasImage && item.image && (
+                        <div className="relative overflow-hidden h-48">
+                          <img
+                            src={item.image.src}
+                            alt={item.image.alt || ''}
+                            className="w-full h-full object-cover"
+                          />
                         </div>
-                        <div className="flex-1">
-                          <span className="text-xs font-medium text-primary-600 bg-primary-50 px-2 py-1 rounded-full">
-                            {formatDate(item.date)}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <h3 className="text-xl font-serif font-bold text-neutral-900 mb-3 group-hover:text-primary-700 transition-colors line-clamp-2">
-                      {item.title}
-                    </h3>
-
-                    <div className="mt-auto pt-2">
-                      {item.description && (
-                        <p className="text-neutral-700 text-base mb-4 leading-relaxed">
-                          {item.description}
-                        </p>
                       )}
+                      <div className="p-6 flex flex-col flex-grow">
+                        <span className="text-xs font-medium text-primary-600 bg-primary-50 px-2 py-1 rounded-full self-start mb-3">
+                          {formatDate(item.date)}
+                        </span>
 
-                      <div className="flex items-center justify-between">
-                        <button
-                          onClick={() => openNewsModal(index)}
-                          className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm transition-all duration-300"
-                        >
-                          Lire l'article au complet
-                          <ChevronRight className="ml-1 h-4 w-4" />
-                        </button>
+                        <h3 className="text-xl font-serif font-bold text-neutral-900 mb-3 line-clamp-2">
+                          {item.title}
+                        </h3>
+
+                        {item.description && (
+                          // ❌ flex-grow retiré d'ici
+                          <p className="text-neutral-700 text-base mb-4 leading-relaxed line-clamp-3">
+                            {item.description}
+                          </p>
+                        )}
+
+                        {/* mt-auto va maintenant pousser le bouton juste après le contenu, pas au fond d'un conteneur de 500px */}
+                        <div className="mt-auto pt-2">
+                          <button
+                            onClick={() => openNewsModal(item)}
+                            className={`inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm transition-all duration-300 ${index !== activeIndex ? 'pointer-events-none' : ''
+                              }`}
+                          >
+                            Lire l'article au complet
+                            <ChevronRight className="ml-1 h-4 w-4" />
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-
-                  <div className="h-1 bg-gradient-to-r from-primary-500 to-primary-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                </motion.article>
-              ))}
+                    </motion.article>
+                  )
+                })}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* News Modal */}
+        {/* News Modal (INCHANGÉ) */}
         <AnimatePresence>
           {selectedNews !== null && newsItems[selectedNews] && (
             <motion.div
@@ -446,7 +480,7 @@ export default function Home() {
           )}
         </AnimatePresence>
 
-        {/* Contact & Location */}
+        {/* Contact & Location (INCHANGÉ) */}
         <section className="py-24 bg-gradient-to-br from-neutral-900 via-neutral-950 to-primary-950 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid lg:grid-cols-2 gap-16 items-center">

@@ -16,14 +16,31 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
+    date: new Date('2025-09-13T12:00:00'),
+    title: "CSE R7 : une dernière ronde qui résume la saison",
+    description: "Lors de la 7ème et dernière ronde, Sion c'est inclinée face à Genève 2 et sera relégué, tandis que Sion 2 a fait face sans trembler à Payerne 2 pour assurer son maintient.",
+    text: `La 7ème et dernière ronde du Championnat Suisse par Équipe s'est déroulée le samedi 13 septembre 2025. Les résultats obtenus par nos équipes résument bien leur saisons respectives.
+
+**Sion 1 en 1re ligue : Une correction finale qui devrait tirer une sonnette d'alarme**
+A la maison, Sion 1 s'est incliné sévèrement 1.5 - 6.5 face au 1er du groupe Genève 2. Les Genevois étaient venus en terre valaisanne avec la ferme intention de remporté le championnat, malgré une promotion déjà acquise.
+L'armada genevoise est d'ailleurs venue fournie d'une moyenne ELO dépassant de plus de 150 points celle de Sion 1. Le résultat reflète en certains points (endurance, affûtage et mindset) la saison passée et servira de leçon pour revenir plus fort en 2ème ligue la prochaine fois.
+
+**Sion 2 en 3e ligue : une belle nulle tenue**
+À Payerne, Sion 2 affrontait une des meilleurs équipes de son groupe, Payerne 2. L'équipe a fait preuve d'une belle résistance et des performances, comme celle de Joan et Jacques qui ont remporté leur parties. Cette solide prestation conclue admirablement la saison.`,
+    icon: "trophy",
+    hasLink: true,
+    link: "/competitions/cse",
+    linkText: "Voir tous les résultats et classements du CSE"
+  },
+  {
     date: new Date('2025-08-29T10:00:00'),
     title: "Annonce : L'Activ Chess de Sion revient le 26 octobre 2025 !",
-    description: "Le traditionnel tournoi rapide du Club d'Échecs de Sion est de retour ! 9 rondes de 15+3. Inscriptions ouvertes, places limitées.",
+    description: "Le 1er tournoi rapide du calendrier 2025-26 valaisan est arrivé ! 9 rondes de 15+3, côté FIDE avec une limite de 100 participants au bâtiment scolaire de Champsec à Sion",
     text: `Le Club d'Échecs de Sion a le plaisir d'annoncer son grand tournoi annuel, l'Activ Chess, qui se tiendra le **dimanche 26 octobre 2025** au bâtiment scolaire de Champsec à Sion.
 
-Ce tournoi rapide, homologué FIDE, se jouera en **9 rondes** à la cadence de **15 minutes + 3 secondes par coup**. Il comptera pour le championnat valaisan de parties rapides 2025-26 ainsi que pour le Grand Prix Valaisan Jeunes U20.
+Ce tournoi rapide, homologué FIDE, se jouera en **9 rondes** à la cadence de **15 minutes + 3 secondes par coup**. Il championnat valaisan de parties rapides 2025-26 ainsi que pour le Grand Prix Valaisan Jeunes U20.
 
-La compétition est ouverte à tous les joueurs, des GMI aux amateurs, avec des prix spéciaux pour les différentes catégories (Top 10, Valaisans, Juniors, Féminine, Elo <2000 et <1600).
+La compétition est ouverte à tous les joueurs, des GMI aux amateurcomptera pour le s, avec des prix spéciaux pour les différentes catégories (Top 10, Valaisans, Juniors, Féminine, Elo <2000 et <1600).
 
 Le nombre de participants est **limité à 100 joueurs**. Une restauration sur place sera proposée avec un menu complet pour la pause de midi.
 
@@ -78,7 +95,7 @@ Un grand bravo à Flavien et Max pour ces titres qui récompensent leur talent e
   },
   {
     date: new Date('2025-06-21T12:00:00'),
-    title: "CSE : Un derby valaisan sans vainqueur, un autre sans surprise",
+    title: "CSE : Doubles derbys valaisans",
     description: "Le derby Valais 1 - Sion 1 s'achève sur un match nul, tandis que Sion 2 s'incline face au leader Monthey.",
     text: `La 5e ronde du Championnat Suisse par Équipe s'est déroulée le 21 juin 2025 avec des résultats mitigés pour nos deux équipes.
 
@@ -97,55 +114,5 @@ Il n'y a désormais que peu d'espoir de maintien pour Sion 1 après ce match nul
     hasLink: true,
     link: "/competitions/cse",
     linkText: "Voir tous les résultats et classements du CSE"
-  },
-  {
-    date: new Date('2025-05-17T12:00:00'),
-    title: "CSE : Victoire pour Sion 2 !",
-    description: "Sion 2 s'impose face à Renens 1 et confirme sa progression, tandis que Sion 1 s'incline face au leader Genève 2.",
-    text: `La 4ème ronde du Championnat Suisse par Équipe s'est déroulée le 17 mai 2025 avec des résultats contrastés pour nos deux équipes sédunoises.
-
-**Sion 1 en 1ère ligue**
-Notre première équipe s'est inclinée 2½ - 5½ face au leader incontesté Genève 2. Face à une formation invaincue qui domine largement le groupe, nos joueurs ont néanmoins fait preuve de combativité et de détermination malgré l'écart de niveau.
-
-**Sion 2 en 3ème ligue**
-Excellente performance de notre deuxième équipe qui s'impose 3½ - 2½ contre Renens 1 ! Après leur belle victoire en ronde 2, cette nouvelle réussite confirme les progrès de l'équipe et leur permet de se maintenir confortablement dans le milieu de tableau.
-
-**Classements après 4 rondes**
-• Sion 1 : 8ème place (1ère ligue) - 0 point de match, 10½ points individuels
-• Sion 2 : 5ème place (3ème ligue) - 4 points de matchs, 11 points individuels
-
-Si la situation reste délicate pour Sion 1, la dynamique positive de Sion 2 est très encourageante. L'équipe a trouvé ses marques et peut viser une place honorable en fin de saison.`,
-    icon: "trophy",
-    hasLink: true,
-    link: "/competitions/cse",
-    linkText: "Voir tous les résultats et classements du CSE"
-  },
-  {
-    date: new Date('2025-05-03T12:00:00'),
-    title: "CVE : Double championnat remporté !",
-    description: "Sion 1 remporte les deux titres lors des finales valaisannes par équipes, s'imposant en parties lentes et rapides.",
-    text: `Journée historique pour le Club d'Échecs de Sion ! Lors des finales valaisannes par équipes du 3 mai 2025, notre club a réalisé un doublé exceptionnel en remportant les deux titres mis en jeu.
-
-**🏆 FINALE PARTIES LENTES - Victoire de Sion 1**
-Sion 1 remporte le titre valaisan en s'imposant 2½ - 1½ face à Martigny !
-
-• Échiquier 1 : Benoît Perruchoud - Pierre-Marie Rappaz (½-½)
-• Échiquier 2 : Yves Roduit - Hugo Floure (0-1) 
-• Échiquier 3 : Jean-Marie Lovey - Flavien Sola (1-0)
-• Échiquier 4 : Jeremy Duc - Brice Moret (1-0)
-
-Dans le match pour la 7ème place, Sion 2 s'impose largement 3-1 contre Riddes :
-
-• Échiquier 1 : Olivier Crettenand - Pierre Bonvin (1-0)
-• Échiquier 2 : Damien Vouillamoz - Roberto Cortada (½-½)
-• Échiquier 3 : Akram Ben Salem - Christophe Favre (½-½)
-• Échiquier 4 : Alain Droz - Romuald Moerschell (1-0)
-
-**🏆 FINALE PARTIES RAPIDES - Nouveau sacre sédunois**
-L'après-midi, l'équipe sédunoise composée de Jean-Yves Riand, Pierre-Marie Rappaz, Flavien Sola et Jeremy Duc a dominé la compétition de parties rapides. Vainqueurs de leurs 4 matchs de poule, ils ont ensuite remporté la finale pour compléter un doublé mémorable !`,
-    icon: "trophy",
-    hasLink: true,
-    link: "/competitions/cve",
-    linkText: "Voir tous les résultats et classements du CVE"
   },
 ]

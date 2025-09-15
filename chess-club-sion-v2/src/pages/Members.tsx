@@ -139,7 +139,10 @@ export default function Members() {
                         )}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <span className="text-sm font-semibold text-neutral-900">{player.elo}</span>
+                        <span className={`text-sm font-semibold ${player.note === 'Elo FSE' ? 'text-blue-600' : 'text-neutral-900'
+                          }`}>
+                          {player.elo}
+                        </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span className="text-sm text-neutral-600">{player.federation}</span>

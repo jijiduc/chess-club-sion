@@ -137,20 +137,43 @@ export default function ActivChessSion() {
               <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-3xl mx-auto">
                 Tournoi de parties rapides ouvert à tous, limité à 100 participants.
               </p>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <a
-                  href="https://forms.gle/hRwbY3kyT9qy7hrv9"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-8 py-4 bg-white text-primary-600 rounded-md hover:bg-neutral-100 transition-colors font-semibold shadow-lg"
+
+              {/* --- MODIFICATION COMMENCE ICI --- */}
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+                {/* Bouton Inscriptions */}
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <Ticket className="h-5 w-5 mr-3" />
-                  Inscriptions
-                </a>
-              </motion.div>
+                  <a
+                    href="https://forms.gle/hRwbY3kyT9qy7hrv9"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-8 py-4 bg-white text-primary-600 rounded-md hover:bg-neutral-100 transition-colors font-semibold shadow-lg"
+                  >
+                    <Ticket className="h-5 w-5 mr-3" />
+                    Inscriptions
+                  </a>
+                </motion.div>
+
+                {/* Nouveau Bouton: Liste des inscrits */}
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <a
+                    href="https://s2.chess-results.com/tnr1249797.aspx?lan=20"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white rounded-md hover:bg-white/10 transition-colors font-semibold shadow-lg"
+                  >
+                    <Users className="h-5 w-5 mr-3" />
+                    Liste des inscrits
+                  </a>
+                </motion.div>
+              </div>
+              {/* --- MODIFICATION TERMINE ICI --- */}
+
             </motion.div>
           </div>
         </section>

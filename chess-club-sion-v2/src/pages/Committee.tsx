@@ -1,122 +1,108 @@
 import { motion } from 'framer-motion'
 import { Title, Meta } from 'react-head';
+// MODIFICATION : 'Crown' est remplacé par 'Compass'
+import { Banknote, Compass, BookOpen, Megaphone, Trophy } from 'lucide-react';
 
 interface CommitteeMember {
   name: string
   role: string
   image: string
+  icon: React.ElementType
 }
 
-// Composant réutilisable pour une carte de membre
-const MemberCard = ({ member, index, className = '' }: { member: CommitteeMember, index: number, className?: string }) => (
+const MemberCard = ({ member, index }: { member: CommitteeMember, index: number }) => {
+  const { name, role, image, icon: Icon } = member;
+
+  return (
     <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
-        viewport={{ once: true }}
-        className={`bg-white rounded-xl shadow-lg overflow-hidden group w-full max-w-sm ${className}`}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      className="bg-white rounded-xl shadow-lg overflow-hidden group w-full text-center transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 flex flex-col h-full"
     >
-        {/* LA MODIFICATION EST ICI */}
-        <div className="relative h-64 overflow-hidden">
-            <img
-                src={member.image}
-                alt={member.name}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-            />
+      <div className="relative pt-10">
+        <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-primary-50 to-white"></div>
+        <div className="relative w-32 h-32 mx-auto">
+          <img
+            src={image}
+            alt={`Portrait de ${name}`}
+            className="w-full h-full rounded-full object-cover border-4 border-white shadow-md"
+          />
+          <div className="absolute -bottom-2 -right-2 bg-primary-600 text-white p-2 rounded-full shadow-lg">
+            <Icon className="w-6 h-6" />
+          </div>
         </div>
-        <div className="p-6 text-center">
-            <h3 className="text-2xl font-semibold text-neutral-900 mb-1">{member.name}</h3>
-            <p className="text-primary-600 font-semibold text-lg">{member.role}</p>
-        </div>
+      </div>
+      
+      <div className="p-6 flex-grow flex flex-col justify-center">
+        <h3 className="text-2xl font-semibold text-neutral-900 mb-1">{name}</h3>
+        <p className="text-primary-600 font-medium text-lg">{role}</p>
+      </div>
     </motion.div>
-)
+  );
+};
 
 export default function Committee() {
   const members: CommitteeMember[] = [
-    {
-      name: "Vlad Popescu",
-      role: "Président",
-      image: "./picture/comite/vlad.jpg"
-    },
-    {
-      name: "Sandro Bétrisey",
-      role: "Vice-président",
-      image: "./picture/comite/sandro.jpg"
-    },
-    {
-      name: "Pierre-Marie Rappaz",
-      role: "Trésorier",
-      image: "./picture/comite/pm.jpg"
-    },
-    {
-      name: "Arnaud Pannatier",
-      role: "Membre",
-      image: "./picture/comite/arnaud.jpg"
-    },
-    {
-      name: "Simon Morand",
-      role: "Membre",
-      image: "./picture/comite/simon.jpg"
-    }
-  ]
+    // MODIFICATION : L'icône du président est maintenant 'Compass'
+    { name: "Duc Jeremy", role: "", image: "./picture/comite/jeremy.jpg", icon: Compass },
+    { name: "Sandro Bétrisey", role: "Vice-président & Caissier", image: "./picture/comite/sandro.jpg", icon: Banknote },
+    { name: "Pierre-Marie Rappaz", role: "Resp. École d'Échecs", image: "./picture/comite/pm.jpg", icon: BookOpen },
+    { name: "Flavien Sola", role: "Resp. Communication", image: "./picture/comite/flavien.jpg", icon: Megaphone },
+    { name: "Ulmann Olivier", role: "Resp. Sportif", image: "./picture/comite/olivier.jpg", icon: Trophy },
+  ];
 
-  const [president, ...otherMembers] = members
+  const [president, ...otherMembers] = members;
 
   return (
     <>
-      <Title>Comité - Club d'Échecs de Sion</Title>
-      <Meta name="description" content="Rencontrez les membres du comité du Club d'Échecs de Sion. Découvrez qui sont le président, le trésorier et les autres membres dévoués à la vie du club." />
+      <Title>Le Comité - Club d'Échecs de Sion</Title>
+      <Meta name="description" content="Découvrez les membres dévoués du comité du Club d'Échecs de Sion." />
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary-800 to-primary-900 text-white py-20">
-        <div className="absolute inset-0 bg-black opacity-10"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl font-serif font-bold mb-6"
-          >
-            Le Comité
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-xl text-primary-100 max-w-3xl"
-          >
-            Voici les membres formant le comité du club
-          </motion.p>
-        </div>
-      </section>
+      <div className="bg-neutral-50 min-h-screen">
+        <section className="relative bg-gradient-to-r from-primary-900 to-accent-900 text-white py-24 text-center">
+            <div className="absolute inset-0 bg-black/40"></div>
+            <div className="container mx-auto px-4 relative z-10">
+                <motion.h1 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-4xl md:text-6xl font-bold mb-4"
+                >
+                    Notre Équipe
+                </motion.h1>
+                <motion.p 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                    className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto"
+                >
+                    Une équipe passionnée et engagée au service du club et de ses membres.
+                </motion.p>
+            </div>
+        </section>
 
-      {/* Main Content */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-20">
+            <div className="container mx-auto px-4">
+                <div className="flex flex-col items-center gap-16">
+                    
+                    <div className="w-full max-w-md">
+                       <h2 className="text-3xl font-bold text-primary-700 text-center mb-6">Présidence</h2>
+                       <MemberCard member={president} index={0} />
+                    </div>
 
-            <div className="space-y-16">
-                {/* 1. Le Président, mis en avant au centre */}
-                <div className="flex justify-center">
-                    <MemberCard
-                        member={president}
-                        index={0}
-                        className="transform lg:scale-110 shadow-2xl z-10"
-                    />
-                </div>
-
-                {/* 2. Les autres membres en dessous */}
-                <div className="flex flex-wrap justify-center items-stretch gap-8 lg:gap-12 -mt-8">
-                    {otherMembers.map((member, index) => (
-                        <MemberCard
-                            key={member.name}
-                            member={member}
-                            index={index + 1}
-                            className="lg:pt-16"
-                        />
-                    ))}
+                    <div className="w-full max-w-6xl">
+                        <h2 className="text-3xl font-bold text-neutral-800 text-center mb-8">Membres du comité</h2>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                            {otherMembers.map((member, index) => (
+                                <MemberCard key={member.name} member={member} index={index + 1} />
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </>
-  )
+  );
 }

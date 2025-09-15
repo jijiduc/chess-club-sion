@@ -16,6 +16,7 @@ import {
   Crown,
   Landmark,
   HandCoins,
+  User,
   type LucideProps
 } from 'lucide-react';
 import { type ForwardRefExoticComponent, type RefAttributes } from 'react';
@@ -246,7 +247,7 @@ export default function ChessSchool() {
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-4">Modalités de paiement</h2>
               <p className="text-lg text-neutral-600 mb-10">
-                Le règlement de la finance d'inscription finalise l'engagement et doit être effectué au plus tard le 4 septembre.
+                Le règlement de la finance d'inscription finalise l'engagement. Il est possible de venir assister à un cours d'essai avant de s'inscrire, pour ce faire, veuillez nous contacter par mail.
               </p>
             </div>
             <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -300,7 +301,7 @@ export default function ChessSchool() {
                   <h3 className="text-2xl font-semibold">En espèces</h3>
                 </div>
                 <p className="text-neutral-600">
-                  Il est également possible de régler la finance d'inscription en espèces. Le paiement peut être remis directement à l'un des formateurs lors du premier cours de la saison.
+                  Il est également possible de régler la finance d'inscription en espèces. Le paiement peut être alors remis directement à l'un des coachs lors d'un cours.
                 </p>
               </motion.div>
 
@@ -314,24 +315,40 @@ export default function ChessSchool() {
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-bold mb-8">Informations pratiques</h2>
               <div className="bg-white rounded-xl shadow-lg p-8 space-y-6">
+
+                {/* Ligne pour le calendrier (inchangée) */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <Calendar className="h-8 w-8 text-primary-600" />
                   <p className="text-lg">
-                    Le calendrier des cours, mis à jour mensuellement, est disponible sur {' '}
+                    Le calendrier des cours, mis à jour mensuellement, est disponible sur le{' '}
                     <Link to="/programme" className="font-semibold text-primary-600 hover:underline">
-                      programme du Club
+                      programme 
                     </Link>.
                   </p>
                 </div>
+
+                {/* Ligne ajoutée pour le responsable */}
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <User className="h-8 w-8 text-primary-600" />
+                  <p className="text-lg">
+                    Le responsable de l'école d'échecs est{' '}
+                    <a href="mailto:pmraphrappaz@hotmail.com" className="font-semibold text-primary-600 hover:underline">
+                      Pierre-Marie Rappaz
+                    </a>.
+                  </p>
+                </div>
+
+                {/* Ligne pour le contact général (légèrement modifiée pour la clarté) */}
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                   <Mail className="h-8 w-8 text-primary-600" />
                   <p className="text-lg">
-                    Pour toute question, contactez-nous à :{' '}
+                    Pour toute question générale, contactez-nous à :{' '}
                     <a href="mailto:ecole-echecs@cesion.ch" className="font-semibold text-primary-600 hover:underline">
                       ecole-echecs@cesion.ch
                     </a>
                   </p>
                 </div>
+
               </div>
             </div>
           </div>

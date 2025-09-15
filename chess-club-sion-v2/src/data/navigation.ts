@@ -13,7 +13,7 @@ export const navigationItems: NavItem[] = [
       { name: 'Présentation', href: '/club' },
       { name: 'Histoire du club', href: '/histoire' },
       { name: 'Comité', href: '/comite' },
-      { name: 'Membres', href: '/membres' },
+      { name: 'Membres actifs', href: '/membres' },
       { name: 'Local du club', href: '/club#local-jeu' },
       { name: 'Devenir membre', href: '/club#devenir-membre' },
       { name: 'Galerie photos', href: '/galerie' }

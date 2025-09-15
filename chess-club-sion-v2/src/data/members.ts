@@ -18,24 +18,7 @@ export const membresData: { categories: Category[] } = {
   categories: [
     {
       title: "Grand-Maître International",
-      players: [
-        {
-          nom: "Laurent-Paoli",
-          prenom: "Pierre",
-          codeFSE: "25469",
-          codeFIDE: "26017962",
-          elo: 2557,
-          federation: "FRA"
-        },
-        {
-          nom: "Sochacki",
-          prenom: "Christophe",
-          codeFSE: "28858",
-          codeFIDE: "662569",
-          elo: 2450,
-          federation: "FRA"
-        }
-      ]
+      players: []
     },
     {
       title: "Maître International",
@@ -81,23 +64,14 @@ export const membresData: { categories: Category[] } = {
           prenom: "Flavien",
           codeFSE: "28267",
           codeFIDE: "659479",
-          elo: 2057,
-        federation: "FRA"
+          elo: 2048, // Mis à jour depuis 2057
+          federation: "FRA"
         }
       ]
     },
     {
       title: "Classe A (>2000)",
       players: [
-        {
-          nom: "Paladini",
-          prenom: "Jean-Michel",
-          codeFSE: "2177",
-          codeFIDE: "1301829",
-          elo: 1964,
-          federation: "SUI",
-          category: "Senioren"
-        },
         {
           nom: "Philippoz",
           prenom: "Cédric",
@@ -111,8 +85,17 @@ export const membresData: { categories: Category[] } = {
           prenom: "Vlad",
           codeFSE: "18363",
           codeFIDE: "1330403",
-          elo: 1929,
+          elo: 1942, // Mis à jour depuis 1929
           federation: "SUI"
+        },
+        {
+          nom: "Paladini",
+          prenom: "Jean-Michel",
+          codeFSE: "2177",
+          codeFIDE: "1301829",
+          elo: 1941, // Mis à jour depuis 1964
+          federation: "SUI",
+          category: "Senioren"
         },
         {
           nom: "Roduit",
@@ -144,10 +127,18 @@ export const membresData: { categories: Category[] } = {
           prenom: "Pierre-Marie",
           codeFSE: "1032",
           codeFIDE: "1321641",
-          elo: 1894,
+          elo: 1898, // Mis à jour depuis 1894
           federation: "SUI",
           category: "Senioren"
-        },  
+        },
+        {
+          nom: "Bourban",
+          prenom: "Yann",
+          codeFSE: "2195",
+          codeFIDE: "1304461",
+          elo: 1880,
+          federation: "SUI"
+        },
         {
           nom: "Chappaz",
           prenom: "Max",
@@ -158,12 +149,13 @@ export const membresData: { categories: Category[] } = {
           category: "U-20"
         },
         {
-          nom: "Bourban",
-          prenom: "Yann",
-          codeFSE: "2195",
-          codeFIDE: "1304461",
-          elo: 1880,
-          federation: "SUI"
+          nom: "Riand",
+          prenom: "Jean-Yves",
+          codeFSE: "88",
+          codeFIDE: "1306162",
+          elo: 1838, // Mis à jour depuis 1811
+          federation: "SUI",
+          category: "Senioren"
         },
         {
           nom: "Crettenand",
@@ -175,31 +167,12 @@ export const membresData: { categories: Category[] } = {
           category: "Senioren"
         },
         {
-          nom: "Cortada Garcia",
-          prenom: "Joan",
-          codeFSE: "27179",
-          codeFIDE: "1358251",
-          elo: 1824,
-          note : "Elo FSE",
-          federation: "SUI"
-        },
-        {
           nom: "Briguet",
           prenom: "Alexandre",
           codeFSE: "15150",
           codeFIDE: "1317652",
           elo: 1816,
           federation: "SUI"
-        },
-        
-        {
-          nom: "Riand",
-          prenom: "Jean-Yves",
-          codeFSE: "88",
-          codeFIDE: "1306162",
-          elo: 1811,
-          federation: "SUI",
-          category: "Senioren"
         },
         {
           nom: "Eggel",
@@ -209,18 +182,27 @@ export const membresData: { categories: Category[] } = {
           elo: 1805,
           federation: "SUI"
         },
-        
       ]
     },
     {
       title: "Classe B (<1800)",
       players: [
+        
+        {
+          nom: "Cortada Garcia",
+          prenom: "Joan",
+          codeFSE: "27179",
+          codeFIDE: "1358251",
+          elo: 1766,
+          note : "Elo FSE",
+          federation: "SUI"
+        },
         {
           nom: "Bétrisey",
           prenom: "Sandro",
           codeFSE: "14603",
           codeFIDE: "1317636",
-          elo: 1760,
+          elo: 1763, // Mis à jour depuis 1760
           federation: "SUI"
         },
         {
@@ -228,7 +210,7 @@ export const membresData: { categories: Category[] } = {
           prenom: "Jeremy",
           codeFSE: "22891",
           codeFIDE: "1338447",
-          elo: 1751,
+          elo: 1747, // Mis à jour depuis 1751
           federation: "SUI"
         },
         {
@@ -236,7 +218,7 @@ export const membresData: { categories: Category[] } = {
           prenom: "Olivier",
           codeFSE: "16717",
           codeFIDE: "1316770",
-          elo: 1733,
+          elo: 1735, // Mis à jour depuis 1733
           federation: "SUI"
         },
         {
@@ -244,7 +226,7 @@ export const membresData: { categories: Category[] } = {
           prenom: "Simon",
           codeFSE: "19594",
           codeFIDE: "1335480",
-          elo: 1701,
+          elo: 1709, // Mis à jour depuis 1701
           federation: "SUI"
         },
         {
@@ -261,7 +243,7 @@ export const membresData: { categories: Category[] } = {
           prenom: "Claude",
           codeFSE: "24967",
           codeFIDE: "1360841",
-          elo: 1620,
+          elo: 1633, // Mis à jour depuis 1620
           federation: "SUI",
           category: "U-20"
         },
@@ -270,7 +252,7 @@ export const membresData: { categories: Category[] } = {
           prenom: "Samuel",
           codeFSE: "18727",
           codeFIDE: "1326309",
-          elo: 1605,
+          elo: 1629,
           note: "Elo FSE",
           federation: "SUI"
         }
@@ -282,7 +264,7 @@ export const membresData: { categories: Category[] } = {
         {
           nom: "Tosun",
           prenom: "Mazlum",
-          codeFSE: "27228",
+          codeFSE: "aucun",
           codeFIDE: "26391414",
           elo: 1501,
           federation: "TUR"

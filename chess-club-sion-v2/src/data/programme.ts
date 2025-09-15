@@ -34,12 +34,11 @@ export const programmeEvents: ProgrammeEvent[] = [
   },
   {
     id: '2025-09-12-speciale',
-    title: 'Masterclass : Combativité',
+    title: 'Masterclass d\'Olivier Knupfer sur la combativité aux échecs',
     date: '2025-09-12',
-    time: '20h00',
+    time: '19h55, inscription gratuite à pmraphrappaz@hotmail.com',
     category: 'soiree-club',
-    description: 'Masterclass spéciale sur le thème de la combativité et l\'esprit de la gagne, donnée par Mr. Knupfer Olivier',
-    location: "Local du club"
+    location: "Au dojo, rue du Scex 4 (au milieu des entrées de Coop City)"
   },
   {
     id: '2025-09-13',
