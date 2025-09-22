@@ -1,10 +1,42 @@
 import React, { useState, useMemo } from 'react';
-import { Calendar, Clock, MapPin, Users, GraduationCap, Sparkles, Filter, ExternalLink, Shield, Crown } from 'lucide-react';
+import { Calendar, Clock, MapPin, Users, GraduationCap, Sparkles, Filter, ExternalLink, Shield, Crown, CalendarPlus } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { programmeEvents, categoryLabels, categoryColors } from '../data/programme';
 import { Title, Meta } from 'react-head';
 
-// --- COMPOSANT EventCard avec images corrigées ---
+// --- FONCTION UTILITAIRE pour le lien Google Calendar ---
+const createGoogleCalendarLink = (event: typeof programmeEvents[0]) => {
+  const formatGoogleDate = (date: Date) => {
+    return date.toISOString().replace(/-|:|\.\d+/g, '');
+  };
+
+  const startDate = new Date(event.date);
+  if (event.time) {
+    const timeParts = event.time.match(/(\d{1,2})h(\d{2})?/);
+    if (timeParts) {
+      startDate.setHours(parseInt(timeParts[1], 10));
+      startDate.setMinutes(timeParts[2] ? parseInt(timeParts[2], 10) : 0);
+    }
+  }
+
+  // Durée par défaut de 3h pour un tournoi/match, 2h sinon
+  const isTournament = ['CSE', 'CSG', 'CVE', 'CVI', 'tournoi'].includes(event.category);
+  const durationHours = isTournament ? 4 : 2;
+  const endDate = new Date(startDate.getTime() + durationHours * 60 * 60 * 1000);
+
+  const baseUrl = 'https://www.google.com/calendar/render?action=TEMPLATE';
+  const params = new URLSearchParams({
+    text: event.title,
+    dates: `${formatGoogleDate(startDate)}/${formatGoogleDate(endDate)}`,
+    details: event.description || '',
+    location: event.location || ''
+  });
+
+  return `${baseUrl}&${params.toString()}`;
+};
+
+
+// --- COMPOSANT EventCard avec le nouveau bouton ---
 const EventCard = ({ event, index }: { event: typeof programmeEvents[0], index: number }) => {
   const categoryImages = {
     CSE: '/picture/events/FSE.png',
@@ -26,6 +58,7 @@ const EventCard = ({ event, index }: { event: typeof programmeEvents[0], index: 
 
   const Icon = categoryIcons[event.category as keyof typeof categoryIcons] || Sparkles;
   const imageSrc = event.image || categoryImages[event.category as keyof typeof categoryImages];
+  const googleCalendarLink = createGoogleCalendarLink(event);
 
   const formatDate = (dateString: string, endDateString?: string) => {
     const date = new Date(dateString);
@@ -49,14 +82,13 @@ const EventCard = ({ event, index }: { event: typeof programmeEvents[0], index: 
       whileHover={{ y: -5 }}
       className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full border border-transparent hover:border-primary-300 transition-all"
     >
-      {/* MODIFICATION : En-tête visuelle avec encadré pour l'image */}
-      <div className="relative w-full h-32 bg-gradient-to-br from-primary-100 to-accent-100 flex items-center justify-center p-4"> {/* Ajout de flex, items-center, justify-center, p-4 */}
+      <div className="relative w-full h-32 bg-gradient-to-br from-primary-100 to-accent-100 flex items-center justify-center p-4">
         {imageSrc ? (
-          <div className="w-full h-full max-w-[80%] max-h-[80%] bg-white rounded-lg shadow-md flex items-center justify-center overflow-hidden"> {/* Nouvel encadré */}
+          <div className="w-full h-full max-w-[80%] max-h-[80%] bg-white rounded-lg shadow-md flex items-center justify-center overflow-hidden">
              <img 
                src={imageSrc} 
                alt={event.title} 
-               className="w-full h-full object-contain" // MODIFICATION: object-cover -> object-contain
+               className="w-full h-full object-contain"
              />
           </div>
         ) : (
@@ -91,8 +123,8 @@ const EventCard = ({ event, index }: { event: typeof programmeEvents[0], index: 
           )}
         </div>
 
-        {event.link && (
-          <div className="mt-4 pt-3 border-t border-neutral-100">
+        <div className="mt-4 pt-3 border-t border-neutral-100 flex flex-wrap gap-4">
+          {event.link && (
             <a
               href={event.link}
               target="_blank"
@@ -102,14 +134,24 @@ const EventCard = ({ event, index }: { event: typeof programmeEvents[0], index: 
               En savoir plus
               <ExternalLink className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" />
             </a>
-          </div>
-        )}
+          )}
+          {/* --- BOUTON AJOUTÉ --- */}
+          <a
+            href={googleCalendarLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center text-secondary-600 hover:text-secondary-700 font-semibold text-sm group"
+          >
+            Ajouter au calendrier
+            <CalendarPlus className="w-4 h-4 ml-1.5 group-hover:scale-110 transition-transform" />
+          </a>
+        </div>
       </div>
     </motion.div>
   );
 };
 
-// --- COMPOSANT PRINCIPAL DE LA PAGE ---
+// --- COMPOSANT PRINCIPAL DE LA PAGE (inchangé) ---
 const Programme: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 

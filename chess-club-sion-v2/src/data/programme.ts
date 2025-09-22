@@ -38,7 +38,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     date: '2025-09-12',
     time: '19h55, inscription gratuite à pmraphrappaz@hotmail.com',
     category: 'soiree-club',
-    location: "Au dojo, rue du Scex 4 (au milieu des entrées de Coop City)"
+    location: "Au dojo, rue du Scex 4 (au milieu des entrées de Coop City)"
   },
   {
     id: '2025-09-13',
@@ -139,6 +139,33 @@ export const programmeEvents: ProgrammeEvent[] = [
 
   // Octobre 2025
   {
+    id: '2025-10-01-ecolier',
+    title: 'Cours écolier',
+    date: '2025-10-01',
+    time: '13h30',
+    category: 'formation',
+    description: 'Cours pour les écoliers, de 13h30 à 15h30',
+    location: "Local du club"
+  },
+  {
+    id: '2025-10-03-intermediaire',
+    title: 'Cours intermédiaire',
+    date: '2025-10-03',
+    time: '18h30',
+    category: 'formation',
+    description: 'Cours pour les joueurs intermédiaires, de 18h30 à 20h30',
+    location: "Local du club"
+  },
+  {
+    id: '2025-10-04-avance',
+    title: 'Cours avancé',
+    date: '2025-10-04',
+    time: '9h30',
+    category: 'formation',
+    description: 'Cours pour les joueurs avancés, de 9h30 à 11h30',
+    location: "Local du club"
+  },
+  {
     id: '2025-10-04-portvalais',
     title: 'Anniversaire du CE Port-Valais',
     date: '2025-10-04',
@@ -203,38 +230,113 @@ export const programmeEvents: ProgrammeEvent[] = [
     location: "Monthey",
     link: 'https://www.chessmonthey.ch',
     details: [
-        "Pierre Laurent-Paoli affrontera 30 joueurs classés.",
-        "Ludovic Zaza affrontera les jeunes de l'école d'échecs."
+      "Pierre Laurent-Paoli affrontera 30 joueurs classés.",
+      "Ludovic Zaza affrontera les jeunes de l'école d'échecs."
     ],
     image: '/picture/events/100Monthey.png'
   },
   {
-  "id": "2025-10-26-activ-chess-sion",
-  "title": "Activ Chess de Sion",
-  "date": "2025-10-26",
-  "time": "9h00",
-  "category": "tournoi",
-  "description": "Tournoi rapide en 9 rondes, cadence 15min + 3s/coup. Compte pour le Elo FIDE et le championnat valaisan.",
-  "location": "Sion",
-  "link": "/competitions/activ-chess",
-  "details": [
-    "9 rondes, système suisse.",
-    "Cadence: 15min + 3s par coup.",
-    "Compte pour le championnat valaisan de parties rapides 2025-26.",
-    "Compte pour le Grand Prix Valaisan Jeunes U20 2025-26.",
-    "Limité à 100 participants."
-  ],
-  "image": "/favicon/logo_normal.png"
+    id: '2025-10-15-ecolier',
+    title: 'Cours écolier',
+    date: '2025-10-15',
+    time: '13h30',
+    category: 'formation',
+    description: 'Cours pour les écoliers, de 13h30 à 15h30',
+    location: "Local du club"
+  },
+  {
+    id: '2025-10-17-intermediaire',
+    title: 'Cours intermédiaire',
+    date: '2025-10-17',
+    time: '18h30',
+    category: 'formation',
+    description: 'Cours pour les joueurs intermédiaires, de 18h30 à 20h30',
+    location: "Local du club"
+  },
+  {
+    id: '2025-10-18-avance',
+    title: 'Cours avancé',
+    date: '2025-10-18',
+    time: '9h30',
+    category: 'formation',
+    description: 'Cours pour les joueurs avancés, de 9h30 à 11h30',
+    location: "Local du club"
+  },
+  {
+    id: '2025-10-24-intermediaire',
+    title: 'Cours intermédiaire',
+    date: '2025-10-24',
+    time: '18h30',
+    category: 'formation',
+    description: 'Cours pour les joueurs intermédiaires, de 18h30 à 20h30',
+    location: "Local du club"
+  },
+  {
+    id: '2025-10-25-avance',
+    title: 'Cours avancé',
+    date: '2025-10-25',
+    time: '9h30',
+    category: 'formation',
+    description: 'Cours pour les joueurs avancés, de 9h30 à 11h30',
+    location: "Local du club"
+  },
+  {
+    "id": "2025-10-26-activ-chess-sion",
+    "title": "Activ Chess de Sion",
+    "date": "2025-10-26",
+    "time": "9h00",
+    "category": "tournoi",
+    "description": "Tournoi rapide en 9 rondes, cadence 15min + 3s/coup. Compte pour le Elo FIDE et le championnat valaisan.",
+    "location": "Sion",
+    "link": "/competitions/activ-chess",
+    "details": [
+      "9 rondes, système suisse.",
+      "Cadence: 15min + 3s par coup.",
+      "Compte pour le championnat valaisan de parties rapides 2025-26.",
+      "Compte pour le Grand Prix Valaisan Jeunes U20 2025-26.",
+      "Limité à 100 participants."
+    ],
+    "image": "/favicon/logo_normal.png"
+  },
+  {
+    id: '2025-10-29-ecolier',
+    title: 'Cours écolier',
+    date: '2025-10-29',
+    time: '13h30',
+    category: 'formation',
+    description: 'Cours pour les écoliers, de 13h30 à 15h30',
+    location: "Local du club"
   },
 
   // Novembre 2025
   {
-    id: '2025-11-01',
-    title: 'CSG - Ronde 1',
+    id: 'csg-2025-11-01-valais1',
+    title: 'CSG Ronde 1: Trümmerfeld - Valais 1',
     date: '2025-11-01',
     time: '14h00',
     category: 'CSG',
-    description: 'Championnat suisse de groupe par équipes',
+    description: '2. Bundesliga',
+    location: "Bâle (à l'extérieur)",
+    link: 'https://www.swisschess.ch/csg.html',
+  },
+  {
+    id: 'csg-2025-11-01-valais3',
+    title: 'CSG Ronde 1: Valais 2 - Valais 3',
+    date: '2025-11-01',
+    time: '14h00',
+    category: 'CSG',
+    description: '1. Regionalliga',
+    location: "Martigny (à l'extérieur)",
+    link: 'https://www.swisschess.ch/csg.html',
+  },
+  {
+    id: 'csg-2025-11-01-sion1',
+    title: 'CSG Ronde 1: Valais 4 - Sion 1',
+    date: '2025-11-01',
+    time: '14h00',
+    category: 'CSG',
+    description: '3. Regionalliga',
+    location: "Martigny (à l'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
@@ -256,8 +358,8 @@ export const programmeEvents: ProgrammeEvent[] = [
     location: "Monthey",
     link: 'https://www.chessmonthey.ch',
     details: [
-        "Inscription : 80.- Adultes / 40.- Jeunes.",
-        { text: 'Infos & inscriptions : jddelacroix@netplus.ch', link: 'mailto:jddelacroix@netplus.ch' }
+      "Inscription : 80.- Adultes / 40.- Jeunes.",
+      { text: 'Infos & inscriptions : jddelacroix@netplus.ch', link: 'mailto:jddelacroix@netplus.ch' }
     ],
     image: '/picture/events/100Monthey.png'
   },
@@ -270,12 +372,33 @@ export const programmeEvents: ProgrammeEvent[] = [
     description: 'Coupe valaisanne individuelle',
   },
   {
-    id: '2025-11-22',
-    title: 'CSG - Ronde 2',
+    id: 'csg-2025-11-22-valais1',
+    title: 'CSG Ronde 2: Valais 1 - Echallens',
     date: '2025-11-22',
     time: '14h00',
     category: 'CSG',
-    description: 'Championnat suisse de groupe par équipes',
+    description: '2. Bundesliga',
+    location: 'Café du Casino, Martigny',
+    link: 'https://www.swisschess.ch/csg.html',
+  },
+  {
+    id: 'csg-2025-11-22-valais3',
+    title: 'CSG Ronde 2: Echallens 2 - Valais 3',
+    date: '2025-11-22',
+    time: '14h00',
+    category: 'CSG',
+    description: '1. Regionalliga',
+    location: "Echallens (à l'extérieur)",
+    link: 'https://www.swisschess.ch/csg.html',
+  },
+  {
+    id: 'csg-2025-11-22-sion1',
+    title: 'CSG Ronde 2: Sion 1 - Montreux 2',
+    date: '2025-11-22',
+    time: '14h00',
+    category: 'CSG',
+    description: '3. Regionalliga',
+    location: 'Local du CE Sion',
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
@@ -305,12 +428,33 @@ export const programmeEvents: ProgrammeEvent[] = [
     location: 'Riddes'
   },
   {
-    id: '2025-12-13',
-    title: 'CSG - Ronde 3',
+    id: 'csg-2025-12-13-valais1',
+    title: 'CSG Ronde 3: SK Bern - Valais 1',
     date: '2025-12-13',
     time: '14h00',
     category: 'CSG',
-    description: 'Championnat suisse de groupe par équipes',
+    description: '2. Bundesliga',
+    location: "Berne (à l'extérieur)",
+    link: 'https://www.swisschess.ch/csg.html',
+  },
+  {
+    id: 'csg-2025-12-13-valais3',
+    title: 'CSG Ronde 3: Fribourg - Valais 3',
+    date: '2025-12-13',
+    time: '14h00',
+    category: 'CSG',
+    description: '1. Regionalliga',
+    location: "Fribourg (à l'extérieur)",
+    link: 'https://www.swisschess.ch/csg.html',
+  },
+  {
+    id: 'csg-2025-12-13-sion1',
+    title: 'CSG Ronde 3: Sion 1 - Vevey 2',
+    date: '2025-12-13',
+    time: '14h00',
+    category: 'CSG',
+    description: '3. Regionalliga',
+    location: 'Local du CE Sion',
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
@@ -340,12 +484,33 @@ export const programmeEvents: ProgrammeEvent[] = [
     description: 'Championnat valaisan par équipes de parties classiques',
   },
   {
-    id: '2026-01-24',
-    title: 'CSG - Ronde 4',
+    id: 'csg-2026-01-24-valais1',
+    title: 'CSG Ronde 4: Valais 1 - Schwarz-Weiss Bern',
     date: '2026-01-24',
     time: '14h00',
     category: 'CSG',
-    description: 'Championnat suisse de groupe par équipes',
+    description: '2. Bundesliga',
+    location: 'Café du Casino, Martigny',
+    link: 'https://www.swisschess.ch/csg.html',
+  },
+  {
+    id: 'csg-2026-01-24-valais3',
+    title: 'CSG Ronde 4: Valais 3 - Schwarz-Weiss Bern 2',
+    date: '2026-01-24',
+    time: '14h00',
+    category: 'CSG',
+    description: '1. Regionalliga',
+    location: 'Local du CE Sion',
+    link: 'https://www.swisschess.ch/csg.html',
+  },
+  {
+    id: 'csg-2026-01-24-sion1',
+    title: 'CSG Ronde 4: Vevey 2 - Sion 1',
+    date: '2026-01-24',
+    time: '14h00',
+    category: 'CSG',
+    description: '3. Regionalliga',
+    location: "Vevey (à l'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
@@ -368,21 +533,53 @@ export const programmeEvents: ProgrammeEvent[] = [
 
   // Février 2026
   {
-    id: '2026-02-07',
-    title: 'CSG - Ronde 5',
+    id: 'csg-2026-02-07-valais1',
+    title: 'CSG Ronde 5: Valais 1 - Nyon',
     date: '2026-02-07',
     time: '14h00',
     category: 'CSG',
-    description: 'Championnat suisse de groupe par équipes',
+    description: '2. Bundesliga',
+    location: 'Café du Casino, Martigny',
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
-    id: '2026-02-21',
-    title: 'CSG - Ronde 6',
+    id: 'csg-2026-02-07-valais3',
+    title: 'CSG Ronde 5: Valais 3 - Köniz Bubenberg',
+    date: '2026-02-07',
+    time: '14h00',
+    category: 'CSG',
+    description: '1. Regionalliga',
+    location: 'Local du CE Sion',
+    link: 'https://www.swisschess.ch/csg.html',
+  },
+  {
+    id: 'csg-2026-02-21-valais1',
+    title: 'CSG Ronde 6: La Chaux-de-Fonds - Valais 1',
     date: '2026-02-21',
     time: '14h00',
     category: 'CSG',
-    description: 'Championnat suisse de groupe par équipes',
+    description: '2. Bundesliga',
+    location: "La Chaux-de-Fonds (à l'extérieur)",
+    link: 'https://www.swisschess.ch/csg.html',
+  },
+  {
+    id: 'csg-2026-02-21-valais3',
+    title: 'CSG Ronde 6: Valais 3 - Grand Echiquier',
+    date: '2026-02-21',
+    time: '14h00',
+    category: 'CSG',
+    description: '1. Regionalliga',
+    location: 'Local du CE Sion',
+    link: 'https://www.swisschess.ch/csg.html',
+  },
+  {
+    id: 'csg-2026-02-21-sion1',
+    title: 'CSG Ronde 5: Sion 1 - Valais 4',
+    date: '2026-02-21',
+    time: '14h00',
+    category: 'CSG',
+    description: '3. Regionalliga',
+    location: 'Local du CE Sion',
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
@@ -404,12 +601,33 @@ export const programmeEvents: ProgrammeEvent[] = [
 
   // Mars 2026
   {
-    id: '2026-03-07',
-    title: 'CSG - Ronde 7',
+    id: 'csg-2026-03-07-valais1',
+    title: 'CSG Ronde 7: Valais 1 - Olten',
     date: '2026-03-07',
     time: '14h00',
     category: 'CSG',
-    description: 'Championnat suisse de groupe par équipes',
+    description: '2. Bundesliga',
+    location: 'Café du Casino, Martigny',
+    link: 'https://www.swisschess.ch/csg.html',
+  },
+  {
+    id: 'csg-2026-03-07-valais3',
+    title: 'CSG Ronde 7: Neuchâtel - Valais 3',
+    date: '2026-03-07',
+    time: '14h00',
+    category: 'CSG',
+    description: '1. Regionalliga',
+    location: "Neuchâtel (à l'extérieur)",
+    link: 'https://www.swisschess.ch/csg.html',
+  },
+  {
+    id: 'csg-2026-03-07-sion1',
+    title: 'CSG Ronde 6: Montreux 2 - Sion 1',
+    date: '2026-03-07',
+    time: '14h00',
+    category: 'CSG',
+    description: '3. Regionalliga',
+    location: "Clarens (à l'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
