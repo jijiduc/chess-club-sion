@@ -1,8 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { Calendar, Clock, MapPin, Users, GraduationCap, Sparkles, Filter, ExternalLink, Shield, Crown, CalendarPlus } from 'lucide-react';
+import { Calendar, Clock, MapPin, Users, GraduationCap, Sparkles, Filter, ExternalLink, Shield, Crown, CalendarPlus, PartyPopper } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { programmeEvents, categoryLabels, categoryColors } from '../data/programme';
-import { Title, Meta } from 'react-head';
 
 // --- FONCTION UTILITAIRE pour le lien Google Calendar ---
 const createGoogleCalendarLink = (event: typeof programmeEvents[0]) => {
@@ -36,28 +35,35 @@ const createGoogleCalendarLink = (event: typeof programmeEvents[0]) => {
 };
 
 
-// --- COMPOSANT EventCard avec le nouveau bouton ---
+// --- COMPOSANT EventCard ---
 const EventCard = ({ event, index }: { event: typeof programmeEvents[0], index: number }) => {
   const categoryImages = {
     CSE: '/picture/events/FSE.png',
     CSG: '/picture/events/FSE.png',
     CVE: '/picture/events/UVE.png',
-    CVI: '/picture/events/UVE.png'
+    CVI: '/picture/events/UVE.png',
+    'soiree-club': '/picture/events/Sion.png',
+    'ecole-echecs': '/picture/events/Sion.png'
   };
 
   const categoryIcons = {
-    formation: GraduationCap,
+    'ecole-echecs': GraduationCap,
     'soiree-club': Users,
     tournoi: Crown,
-    simultanee: Users,
     CSE: Shield,
     CSG: Shield,
     CVE: Shield,
-    CVI: Shield
+    CVI: Shield,
+    GPJV: Crown,
+    jubilee: PartyPopper
   };
 
   const Icon = categoryIcons[event.category as keyof typeof categoryIcons] || Sparkles;
-  const imageSrc = event.image || categoryImages[event.category as keyof typeof categoryImages];
+  const imageSrc =
+    event.image ||
+    (event.category in categoryImages
+      ? categoryImages[event.category as keyof typeof categoryImages]
+      : undefined);
   const googleCalendarLink = createGoogleCalendarLink(event);
 
   const formatDate = (dateString: string, endDateString?: string) => {
@@ -135,7 +141,6 @@ const EventCard = ({ event, index }: { event: typeof programmeEvents[0], index: 
               <ExternalLink className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" />
             </a>
           )}
-          {/* --- BOUTON AJOUTÉ --- */}
           <a
             href={googleCalendarLink}
             target="_blank"
@@ -151,7 +156,7 @@ const EventCard = ({ event, index }: { event: typeof programmeEvents[0], index: 
   );
 };
 
-// --- COMPOSANT PRINCIPAL DE LA PAGE (inchangé) ---
+// --- COMPOSANT PRINCIPAL DE LA PAGE ---
 const Programme: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
 
@@ -175,9 +180,6 @@ const Programme: React.FC = () => {
 
   return (
     <>
-      <Title>Programme & Calendrier - Club d'Échecs de Sion</Title>
-      <Meta name="description" content="Retrouvez le calendrier complet des événements du Club d'Échecs de Sion." />
-
       <div className="min-h-screen bg-neutral-50">
         <section className="bg-gradient-to-b from-primary-50 to-white py-24">
           <div className="container mx-auto px-6 text-center">

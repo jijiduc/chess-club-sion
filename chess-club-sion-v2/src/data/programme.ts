@@ -4,7 +4,7 @@ export interface ProgrammeEvent {
   date: string
   endDate?: string
   time: string
-  category: 'formation' | 'soiree-club' | 'tournoi' | 'simultanee' | 'CSE' | 'CSG' | 'CVE' | 'CVI'
+  category: 'ecole-echecs' | 'soiree-club' | 'tournoi'| 'CSE' | 'CSG' | 'CVE' | 'CVI' | 'GPJV' | 'jubilee'
   description?: string
   location?: string
   link?: string
@@ -13,172 +13,42 @@ export interface ProgrammeEvent {
 }
 
 export const programmeEvents: ProgrammeEvent[] = [
-  // Septembre 2025
-  {
-    id: '2025-09-05-ag',
-    title: 'Assemblée générale',
-    date: '2025-09-05',
-    time: '19h00',
-    category: 'soiree-club',
-    description: "Assemblée générale du club, suivie d'une verrée",
-    location: "Local du club"
-  },
-  {
-    id: '2025-09-10-ecolier',
-    title: 'Cours écolier',
-    date: '2025-09-10',
-    time: '13h30',
-    category: 'formation',
-    description: 'Cours pour les écoliers, de 13h30 à 15h30',
-    location: "Local du club"
-  },
-  {
-    id: '2025-09-12-speciale',
-    title: 'Masterclass d\'Olivier Knupfer sur la combativité aux échecs',
-    date: '2025-09-12',
-    time: '19h55, inscription gratuite à pmraphrappaz@hotmail.com',
-    category: 'soiree-club',
-    location: "Au dojo, rue du Scex 4 (au milieu des entrées de Coop City)"
-  },
-  {
-    id: '2025-09-13',
-    title: 'CSE - Ronde 7',
-    date: '2025-09-13',
-    time: '14h00',
-    category: 'CSE',
-    description: 'Championnat suisse par équipes - Dernière ronde',
-    link: 'https://www.swisschess.ch/cse.html',
-  },
-  {
-    id: '2025-09-17-ecolier',
-    title: 'Cours écolier',
-    date: '2025-09-17',
-    time: '13h30',
-    category: 'formation',
-    description: 'Cours pour les écoliers, de de 13h30 à 15h30',
-    location: "Local du club"
-  },
-  {
-    id: '2025-09-19-intermediaire',
-    title: 'Cours intermédiaire',
-    date: '2025-09-19',
-    time: '18h30',
-    category: 'formation',
-    description: 'Cours pour les joueurs intermédiaires, de 18h30 à 20h30',
-    location: "Local du club"
-  },
-  {
-    id: '2025-09-19-analyse',
-    title: 'Soirée analyse & jeu libre',
-    date: '2025-09-19',
-    time: '20h00',
-    category: 'soiree-club',
-    location: "Local du club"
-  },
-  {
-    id: '2025-09-19-geneve',
-    title: 'Open de Genève CEG',
-    date: '2025-09-19',
-    endDate: '2025-09-21',
-    time: 'Soir',
-    category: 'tournoi',
-    location: 'Genève',
-  },
-  {
-    id: '2025-09-20-avance',
-    title: 'Cours avancé',
-    date: '2025-09-20',
-    time: '9h30',
-    category: 'formation',
-    description: 'Cours pour les joueurs avancés, de 9h30 à 11h30',
-    location: "Local du club"
-  },
-  {
-    id: '2025-09-20-echallens',
-    title: 'Active Chess Echallens',
-    date: '2025-09-20',
-    time: 'Toute la journée',
-    category: 'tournoi',
-    location: 'Echallens',
-  },
-  {
-    id: '2025-09-24-ecolier',
-    title: 'Cours écolier',
-    date: '2025-09-24',
-    time: '13h30',
-    category: 'formation',
-    description: 'Cours pour les écoliers, de de 13h30 à 15h30',
-    location: "Local du club"
-  },
-  {
-    id: '2025-09-26-intermediaire',
-    title: 'Cours intermédiaire',
-    date: '2025-09-26',
-    time: '18h30',
-    category: 'formation',
-    description: 'Cours pour les joueurs intermédiaires, de 18h30 à 20h30',
-    location: "Local du club"
-  },
-  {
-    id: '2025-09-26-blitz4',
-    title: 'Soirée blitz à 4',
-    date: '2025-09-26',
-    time: '20h00',
-    category: 'soiree-club',
-    location: "Local du club"
-  },
-  {
-    id: '2025-09-27-avance',
-    title: 'Cours avancé',
-    date: '2025-09-27',
-    time: '9h30',
-    category: 'formation',
-    description: 'Cours pour les joueurs avancés, de 9h30 à 11h30',
-    location: "Local du club"
-  },
-
   // Octobre 2025
   {
     id: '2025-10-01-ecolier',
     title: 'Cours écolier',
     date: '2025-10-01',
     time: '13h30',
-    category: 'formation',
+    category: 'ecole-echecs',
     description: 'Cours pour les écoliers, de 13h30 à 15h30',
-    location: "Local du club"
+    location: "Local du club",
   },
   {
     id: '2025-10-03-intermediaire',
     title: 'Cours intermédiaire',
     date: '2025-10-03',
     time: '18h30',
-    category: 'formation',
+    category: 'ecole-echecs',
     description: 'Cours pour les joueurs intermédiaires, de 18h30 à 20h30',
-    location: "Local du club"
+    location: "Local du club",
+  },
+  {
+    id: '2025-10-03-soiree-blitz',
+    title: 'Soirée club: Tournoi blitz',
+    date: '2025-10-03',
+    time: '20h30',
+    category: 'soiree-club',
+    description: 'Tournoi amical de blitz pour les membres du club.',
+    location: "Local du club",
   },
   {
     id: '2025-10-04-avance',
     title: 'Cours avancé',
     date: '2025-10-04',
     time: '9h30',
-    category: 'formation',
+    category: 'ecole-echecs',
     description: 'Cours pour les joueurs avancés, de 9h30 à 11h30',
-    location: "Local du club"
-  },
-  {
-    id: '2025-10-04-portvalais',
-    title: 'Anniversaire du CE Port-Valais',
-    date: '2025-10-04',
-    time: 'Toute la journée',
-    category: 'soiree-club',
-    location: 'Bouveret',
-  },
-  {
-    id: '2025-10-04-blitz',
-    title: 'Championnat suisse de blitz',
-    date: '2025-10-04',
-    time: 'Toute la journée',
-    category: 'tournoi',
+    location: "Local du club",
   },
   {
     id: '2025-10-10-cvi',
@@ -189,11 +59,20 @@ export const programmeEvents: ProgrammeEvent[] = [
     description: 'Coupe valaisanne individuelle',
   },
   {
+    id: '2025-10-10-soiree-libre',
+    title: 'Soirée club: Jeu libre',
+    date: '2025-10-10',
+    time: '20h30',
+    category: 'soiree-club',
+    description: 'Jeu libre et parties amicales.',
+    location: "Local du club",
+  },
+  {
     id: '2025-10-11-tournoi',
     title: "Tournoi Populaire du Centenaire de Monthey",
     date: '2025-10-11',
     time: '9h30',
-    category: 'tournoi',
+    category: 'jubilee',
     description: "Tournoi populaire par équipe de 3 pour célébrer les 100 ans du club.",
     location: "Théâtre du Crochetan, Monthey",
     link: 'https://www.chessmonthey.ch',
@@ -209,7 +88,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: "Soirée de Gala du Centenaire de Monthey",
     date: '2025-10-11',
     time: '18h00',
-    category: 'soiree-club',
+    category: 'jubilee',
     description: "Soirée de gala avec partie officielle, repas, DJ et animations.",
     location: "Théâtre du Crochetan, Monthey",
     link: 'https://www.chessmonthey.ch',
@@ -225,7 +104,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: "Simultanée du Centenaire de Monthey",
     date: '2025-10-12',
     time: '14h00',
-    category: 'simultanee',
+    category: 'jubilee',
     description: "Parties simultanées avec le GMI Pierre Laurent-Paoli et Ludovic Zaza.",
     location: "Monthey",
     link: 'https://www.chessmonthey.ch',
@@ -240,45 +119,63 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'Cours écolier',
     date: '2025-10-15',
     time: '13h30',
-    category: 'formation',
+    category: 'ecole-echecs',
     description: 'Cours pour les écoliers, de 13h30 à 15h30',
-    location: "Local du club"
+    location: "Local du club",
   },
   {
     id: '2025-10-17-intermediaire',
     title: 'Cours intermédiaire',
     date: '2025-10-17',
     time: '18h30',
-    category: 'formation',
+    category: 'ecole-echecs',
     description: 'Cours pour les joueurs intermédiaires, de 18h30 à 20h30',
-    location: "Local du club"
+    location: "Local du club",
+  },
+  {
+    id: '2025-10-17-soiree-960',
+    title: 'Soirée club: Echecs 960',
+    date: '2025-10-17',
+    time: '20h30',
+    category: 'soiree-club',
+    description: 'Découverte et parties amicales en Fischer Random (Echecs 960).',
+    location: "Local du club",
   },
   {
     id: '2025-10-18-avance',
     title: 'Cours avancé',
     date: '2025-10-18',
     time: '9h30',
-    category: 'formation',
+    category: 'ecole-echecs',
     description: 'Cours pour les joueurs avancés, de 9h30 à 11h30',
-    location: "Local du club"
+    location: "Local du club",
   },
   {
     id: '2025-10-24-intermediaire',
     title: 'Cours intermédiaire',
     date: '2025-10-24',
     time: '18h30',
-    category: 'formation',
+    category: 'ecole-echecs',
     description: 'Cours pour les joueurs intermédiaires, de 18h30 à 20h30',
-    location: "Local du club"
+    location: "Local du club",
+  },
+  {
+    id: '2025-10-24-soiree-blitz',
+    title: 'Soirée club: Tournoi blitz',
+    date: '2025-10-24',
+    time: '20h30',
+    category: 'soiree-club',
+    description: 'Tournoi amical de blitz pour les membres du club.',
+    location: "Local du club",
   },
   {
     id: '2025-10-25-avance',
     title: 'Cours avancé',
     date: '2025-10-25',
     time: '9h30',
-    category: 'formation',
+    category: 'ecole-echecs',
     description: 'Cours pour les joueurs avancés, de 9h30 à 11h30',
-    location: "Local du club"
+    location: "Local du club",
   },
   {
     "id": "2025-10-26-activ-chess-sion",
@@ -303,9 +200,18 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'Cours écolier',
     date: '2025-10-29',
     time: '13h30',
-    category: 'formation',
+    category: 'ecole-echecs',
     description: 'Cours pour les écoliers, de 13h30 à 15h30',
-    location: "Local du club"
+    location: "Local du club",
+  },
+  {
+    id: '2025-10-31-soiree-libre',
+    title: 'Soirée club: Jeu libre',
+    date: '2025-10-31',
+    time: '20h30',
+    category: 'soiree-club',
+    description: 'Jeu libre et parties amicales.',
+    location: "Local du club",
   },
 
   // Novembre 2025
@@ -409,24 +315,8 @@ export const programmeEvents: ProgrammeEvent[] = [
     category: 'CVE',
     description: 'Championnat valaisan par équipes de parties classiques',
   },
-  {
-    id: '2025-11-28-jura',
-    title: 'Open du Jura',
-    date: '2025-11-28',
-    endDate: '2025-11-30',
-    time: 'Soir',
-    category: 'tournoi',
-  },
 
   // Décembre 2025
-  {
-    id: '2025-12-06-gp',
-    title: "Ecole d'échecs de l'UVE et 2ème Tournoi du Grand Prix Jeunes",
-    date: '2025-12-06',
-    time: 'Toute la journée',
-    category: 'formation',
-    location: 'Riddes'
-  },
   {
     id: 'csg-2025-12-13-valais1',
     title: 'CSG Ronde 3: SK Bern - Valais 1',
@@ -520,15 +410,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: 'Toute la journée',
     category: 'tournoi',
     location: 'Le Châble',
-  },
-  {
-    id: '2026-01-30-nyon',
-    title: 'Tournois de Nyon',
-    date: '2026-01-30',
-    endDate: '2026-01-31',
-    time: 'Soir',
-    category: 'tournoi',
-    location: 'Nyon',
+    image: '/picture/events/Bagnes.png'
   },
 
   // Février 2026
@@ -589,6 +471,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: 'Toute la journée',
     category: 'tournoi',
     location: 'Bouveret',
+    image: '/picture/events/CEPV.png'
   },
   {
     id: '2026-02-27-cve',
@@ -647,15 +530,6 @@ export const programmeEvents: ProgrammeEvent[] = [
     category: 'CVE',
     description: 'Championnat valaisan par équipes de parties classiques',
   },
-  {
-    id: '2026-03-27-broye',
-    title: 'Open de la Broye',
-    date: '2026-03-27',
-    endDate: '2026-03-29',
-    time: 'Soir',
-    category: 'tournoi',
-    location: 'Payerne',
-  },
 
   // Avril 2026
   {
@@ -705,6 +579,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     description: "Tournoi Fédéral d'échecs",
     location: 'Bâle',
     link: 'https://www.swisschess.ch/federal.html',
+    image: '/picture/events/FSE.png',
   },
 
   // Juin 2026
@@ -738,27 +613,30 @@ export const programmeEvents: ProgrammeEvent[] = [
     description: 'Championnat Suisse Individuel (CSI)',
     location: 'Grächen',
     link: 'https://www.swisschess.ch/csi.html',
+    image: '/picture/events/FSE.png',
   }
 ]
 
 export const categoryLabels = {
-  formation: 'Formation',
+  'ecole-echecs': 'Ecole d\'échecs',
   'soiree-club': 'Soirée club',
   tournoi: 'Tournoi',
-  simultanee: 'Simultanée',
   CSE: 'CSE',
   CSG: 'CSG',
   CVE: 'CVE',
   CVI: 'CVI',
+  GPJV: 'GPJV',
+  jubilee: 'Jubilée'
 }
 
 export const categoryColors = {
-  formation: 'bg-blue-100 text-blue-800',
+  'ecole-echecs': 'bg-blue-100 text-blue-800',
   'soiree-club': 'bg-green-100 text-green-800',
   tournoi: 'bg-purple-100 text-purple-800',
-  simultanee: 'bg-blue-100 text-blue-800',
   CSE: 'bg-red-100 text-red-800',
-  CSG: 'bg-yellow-100 text-yellow-800',
+  CSG: 'bg-orange-100 text-orange-800',
   CVE: 'bg-pink-100 text-pink-800',
-  CVI: 'bg-indigo-100 text-indigo-800'
+  CVI: 'bg-indigo-100 text-indigo-800',
+  GPJV: 'bg-cyan-100 text-cyan-800',
+  jubilee: 'bg-teal-100 text-teal-800'
 }
