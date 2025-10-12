@@ -56,7 +56,7 @@ const schedule = [
 const registrationFees = [
   { category: "Adultes", price: "30 CHF" },
   { category: "Juniors (U20)", price: "20 CHF" },
-  { category: "GMI & MI", price: "Gratuit" },
+  { category: "GM / IM / WGM / wWIM", price: "Gratuit" },
 ];
 
 const prizeCategories = [
@@ -285,6 +285,17 @@ export default function ActivChessSion() {
                 <p className="text-neutral-600 mb-6">
                   Un menu complet pour <strong>20 CHF</strong> vous est proposé pour la pause de midi.
                 </p>
+
+                <div className="my-6 p-4 bg-primary-50 border-l-4 border-primary-500 rounded-r-lg">
+                  <div className="flex items-center gap-3">
+                    <CalendarPlus className="h-6 w-6 text-primary-600 flex-shrink-0" />
+                    <div>
+                      <p className="font-bold text-primary-800">Date limite pour commander le repas :</p>
+                      <p className="text-lg font-semibold text-primary-700">Dimanche 19 Octobre</p>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="space-y-3 text-neutral-800">
                   <p className="flex items-center gap-3"><User className="h-5 w-5 text-accent-500" />Buffet de salades</p>
                   <p className="flex items-center gap-3"><ShieldCheck className="h-5 w-5 text-accent-500" />Cordon bleu artisanal, légumes et pommes de terre sautées</p>

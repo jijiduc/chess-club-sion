@@ -21,8 +21,46 @@ interface Season {
 export default function CSG() {
   const [seasons, setSeasons] = useState<Season[]>([
     {
-      year: '2025',
+      year: '2025/26',
       isExpanded: true,
+      teams: [
+        {
+          name: 'Valais 1',
+          description: "Equipe évoluant en 2ème ligue fédérale.",
+          resultsLink: {
+            url: 'https://www.swisschess.ch/csg.html?old=L3R1cm5pZXJlL3NnbS5waHA_YWphaHI9MjAyNiZhbGlnYT0yJmFncnVwcGU9MjAx',
+            text: 'Résultats de Valais 1'
+          }
+        },
+        {
+          name: 'Valais 2',
+          description: "Alignée en 1ère ligue régionale.",
+          resultsLink: {
+            url: 'https://www.swisschess.ch/csg.html?old=L3R1cm5pZXJlL3NnbS5waHA_YWphaHI9MjAyNiZhbGlnYT0zJmFncnVwcGU9MzAx',
+            text: 'Résultats de Valais 2'
+          }
+        },
+        {
+            name: 'Valais 3',
+            description: "Alignée 1ère ligue régionale.",
+            resultsLink: {
+              url: 'https://www.swisschess.ch/csg.html?old=L3R1cm5pZXJlL3NnbS5waHA_YWphaHI9MjAyNiZhbGlnYT0zJmFncnVwcGU9MzAx',
+              text: 'Résultats de Valais 3'
+            }
+        },
+        {
+            name: 'Sion 1',
+            description: "L'équipe du développement local.",
+            resultsLink: {
+              url: 'https://www.swisschess.ch/csg.html?old=L3R1cm5pZXJlL3NnbS5waHA_YWphaHI9MjAyNiZhbGlnYT01JmFncnVwcGU9NTAy',
+              text: 'Résultats de Sion 1'
+            }
+        }
+      ]
+    },
+    {
+      year: '2024/25',
+      isExpanded: false,
       teams: [
         {
           name: 'Valais 1',
@@ -53,11 +91,11 @@ export default function CSG() {
   }
 
   const leagueStructure = [
-    { name: '1ère ligue fédérale', description: '8 joueurs par équipe', valaisTeam: 'Valais 1 (2024/25)' },
-    { name: '2ème ligue fédérale', description: '8 joueurs par équipe' },
-    { name: '1ère ligue régionale', description: '6 joueurs par équipe', valaisTeam: 'Valais 3 (2024/25)' },
+    { name: '1ère ligue fédérale', description: '8 joueurs par équipe' },
+    { name: '2ème ligue fédérale', description: '8 joueurs par équipe', valaisTeam: 'Valais 1 (2025/26)' },
+    { name: '1ère ligue régionale', description: '6 joueurs par équipe', valaisTeam: 'Valais 2 & 3 (2025/26)' },
     { name: '2ème ligue régionale', description: '5 joueurs par équipe' },
-    { name: '3ème ligue régionale', description: '4 joueurs par équipe' }
+    { name: '3ème ligue régionale', description: '4 joueurs par équipe', valaisTeam: 'Sion 1 (2025/26)' }
   ]
 
   return (
@@ -87,11 +125,11 @@ export default function CSG() {
                 </div>
                 <div className="flex items-center">
                   <Users className="h-5 w-5 mr-2" />
-                  <span>Bannière "Valais"</span>
+                  <span>Bannière "Valais" & "Sion"</span>
                 </div>
                 <div className="flex items-center">
                   <Calendar className="h-5 w-5 mr-2" />
-                  <span>Septembre - Avril</span>
+                  <span>Novembre - Avril</span>
                 </div>
               </div>
             </motion.div>
@@ -115,7 +153,7 @@ export default function CSG() {
                     <a href="https://www.swisschess.ch/home-fr.html" className="text-primary-600 hover:text-primary-700 underline">
                       Fédération Suisse des Echecs (FSE)
                     </a>.
-                    Le championnat se déroule sur 7 rondes, de septembre à avril.
+                    Le championnat se déroule sur 7 rondes, de novembre à avril.
                   </p>
 
                   {/* League Structure Tree */}
@@ -161,12 +199,16 @@ export default function CSG() {
                     </h3>
                     <div className="space-y-2 text-neutral-700">
                       <p>
-                        Pour cette compétition, les joueurs du club de Sion sont répartis sous l'égide de la bannière <strong>Valais</strong>. Ce regroupement
-                        est constitué de joueurs issus des clubs de Sion, Martigny, Bagnes et Monthey. Pendant la saison 2024-2025, les joueurs du club ont été engagés dans les équipes de :
+                        Pour cette compétition, certains des meilleurs joueurs du club de Sion sont répartis sous l'égide de la bannière <strong>Valais</strong>. Il s'agit un regroupement des joueurs issus des clubs de Sion, Martigny, Bagnes et Monthey dans le but d'avoir une 1ère équipe valaisanne compétitive en ligue fédérale.
+                        <br />
+                        Afin de favoriser le développement de nos joueurs localement d'abord, le club engage également une équipe <strong>Sion 1</strong>.
                       </p>
+                      <p>Pendant la saison 2025-2026, des joueurs du club seront engagés parmi les équipes :</p>
                       <ul className="list-disc pl-5 space-y-1">
-                        <li><strong>Valais 1</strong>, avec pour capitaine <strong>Simon Morand</strong>.</li>
-                        <li><strong>Valais 3</strong>, avec pour capitaine <strong>Pierre-Marie Rappaz</strong>.</li>
+                        <li><strong>Valais 1</strong> (2ème ligue fédérale), avec pour capitaine <strong>Simon Morand</strong>.</li>
+                        <li><strong>Valais 2</strong> (1ère ligue régionale), avec pour capitaine <strong>Jean-Christophe Putallaz</strong>.</li>
+                        <li><strong>Valais 3</strong> (1ère ligue régionale), avec pour capitaine <strong>Pierre-Marie Rappaz</strong>.</li>
+                        <li><strong>Sion 1</strong> (3ème ligue régionale), avec pour capitaine <strong>Olivier Ulmann</strong>.</li>
                       </ul>
                     </div>
                   </div>
@@ -272,7 +314,7 @@ export default function CSG() {
                 <div className="p-8">
                   <div className="space-y-4 text-neutral-700 mb-6">
                     <p>
-                      Les équipes valaisannes ont connu diverses fortunes au fil des années, évoluant entre les
+                      Les équipes sédunoises et valaisannes ont connu diverses fortunes au fil des années, évoluant entre les
                       ligues régionales et nationales selon les performances et la disponibilité des joueurs.
                     </p>
                   </div>

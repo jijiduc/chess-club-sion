@@ -49,36 +49,42 @@ export default function Home() {
 
   const renderTextWithLinks = (text: string) => {
     return text.split('\n').map((line, index) => {
+      // Gère les lignes qui sont des titres (commence et finit par **)
       if (line.startsWith('**') && line.endsWith('**')) {
         return (
           <p key={index} className="font-bold text-neutral-800 mt-4 mb-2">
             {line.replace(/\*\*/g, '')}
           </p>
-        )
+        );
       }
-      if (line.startsWith('•')) {
+      // Gère les listes à puces
+      if (line.startsWith('* ')) {
+        const parts = line.substring(2).split(/\*\*/); // Enlève le "* " puis cherche le gras
         return (
           <p key={index} className="ml-4 mb-1">
-            {line}
+            <span className="mr-2">•</span>
+            {parts.map((part, i) =>
+              i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+            )}
           </p>
-        )
+        );
       }
-      if (line.match(/^[✓=✗]/)) {
+      
+      // Gère les autres lignes de texte pouvant contenir du gras
+      if (line.trim()) {
+        const parts = line.split(/\*\*/);
         return (
-          <p key={index} className="font-semibold mb-1 mt-2">
-            {line}
+          <p key={index} className="mb-2">
+            {parts.map((part, i) =>
+              i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+            )}
           </p>
-        )
+        );
       }
-      return line.trim() ? (
-        <p key={index} className="mb-2">
-          {line}
-        </p>
-      ) : (
-        <br key={index} />
-      )
-    })
-  }
+      
+      return <br key={index} />;
+    });
+  };
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);

@@ -10,38 +10,17 @@ import {
   Trophy,
   Mail,
   ArrowRight,
-  Award,
-  Shield,
-  Star,
-  Crown,
   Landmark,
   HandCoins,
   User,
-  type LucideProps
+  Info
 } from 'lucide-react';
-import { type ForwardRefExoticComponent, type RefAttributes } from 'react';
-
-// Définition d'un type plus précis pour les icônes
-type IconComponent = ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>;
-
-// Types pour les données, pour garantir la cohérence
-type Achievement = { year: string; text: string; } | { icon: IconComponent; text: string; };
-
-type Coach = {
-  name: string;
-  title: string;
-  image: string;
-  achievements: Achievement[];
-  experience?: string;
-};
-
-// ... (Les autres types et données restent les mêmes)
 
 const courses = [
   {
     icon: GraduationCap,
     title: "Cours 'Écoliers'",
-    audience: "Jeunes joueurs (6ans et +), débutants ou avec un premier niveau de pratique (ELO approximatif < 1400).",
+    audience: "Jeunes joueurs (6 ans et +), débutants ou avec un premier niveau de pratique (ELO approximatif < 1400).",
     schedule: "Mercredis : 13h30 - 15h30.",
     frequency: "3 fois par mois, selon le calendrier du club.",
     price: "100.- CHF pour le semestre."
@@ -64,57 +43,33 @@ const courses = [
   }
 ];
 
-const coaches: Coach[] = [
-  {
-    name: "Pierre-Marie Rappaz",
-    title: "Coach - Cours 'Écoliers'",
-    image: "/picture/coaches/pm.jpg",
-    achievements: [
-      { icon: Award, text: "Multiple vainqueur de la coupe valaisanne Individuelle" },
-      { icon: Award, text: "Multiple Champion Valaisan par équipe" },
-      { icon: Crown, text: "Champion Valaisan de parties lentes 2024" },
-    ],
-    experience: "Acteur majeur des échecs valaisans et du club depuis plus de 50 ans, Pierre-Marie possède une riche expérience de la compétition et de la formation des jeunes."
-  },
-  {
-    name: "Flavien Sola",
-    title: "Coach - Cours 'Intermédiaire' & 'Avancé'",
-    image: "/picture/coaches/flavien.jpg",
-    achievements: [
-      { icon: Shield, text: "Membre de l’Équipe de France -21 ans (2004–2006)" },
-      { icon: Star, text: "Participant au Championnat du Monde junior (2005)" },
-      { icon: Award, text: "Formateur expérimenté à Niort et Paris" },
-    ],
-    experience: "Ayant bientôt 3 décennies d'expérience, Flavien a forgé son expertise dans de nombreux pays et a été entraîné par des maîtres reconnus comme les GMI Demuth et Édouard."
-  }
-];
-
 const features = [
   {
     icon: BookOpen,
     title: "Apprentissage progressif",
-    description: "Des cours adaptés à tous les niveaux, du débutant au joueur confirmé"
+    description: "Des cours adaptés à tous les niveaux, du débutant au joueur confirmé."
   },
   {
     icon: Brain,
     title: "Développement cognitif",
-    description: "Amélioration de la concentration, de la mémoire et des capacités d'analyse"
+    description: "Amélioration de la concentration, de la mémoire et des capacités d'analyse."
   },
   {
     icon: Users,
     title: "Ambiance conviviale",
-    description: "Un environnement bienveillant pour apprendre et progresser ensemble"
+    description: "Un environnement bienveillant pour apprendre et progresser ensemble."
   }
 ];
-
 
 export default function ChessSchool() {
   return (
     <>
       <Title>École d'Échecs - Club d'Échecs de Sion</Title>
-      <Meta name="description" content="Inscrivez-vous à notre école d'échecs. Nous proposons des cours pour tous les niveaux : écoliers, intermédiaires et avancés, encadrés par des formateurs passionnés." />
+      <Meta name="description" content="Rejoignez notre école d'échecs en cours de semestre. Nous proposons des cours pour tous les niveaux : écoliers, intermédiaires et avancés." />
       <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
-        {/* Hero Section */}
+        {/* =================================================================
+        // 1. HERO SECTION
+        // ================================================================= */}
         <section className="relative bg-gradient-to-r from-primary-900 to-accent-900 text-white py-24">
           <div className="absolute inset-0 bg-black/30"></div>
           <div className="container mx-auto px-4 relative z-10">
@@ -124,33 +79,33 @@ export default function ChessSchool() {
               className="text-center"
             >
               <h1 className="text-4xl md:text-6xl font-bold mb-4">
-                Ecole d'Échecs
+                Rejoignez notre École d'Échecs
               </h1>
               <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-3xl mx-auto">
-                Découvrez notre offre de formation pour le 1er semestre 2025-26
+                Il n'est pas trop tard pour nous rejoindre ! Les inscriptions restent ouvertes durant le semestre.
               </p>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSeenuhr6cnUsoPFlJoiSVUVpQYtxjLyPZCY4qGIaKIDzZhBgw/viewform?usp=dialog"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#contact"
                   className="inline-flex items-center px-8 py-4 bg-white text-primary-600 rounded-md hover:bg-neutral-100 transition-colors font-semibold shadow-lg"
                 >
-                  <GraduationCap className="h-5 w-5 mr-3" />
-                  S'inscrire aux cours
+                  <Mail className="h-5 w-5 mr-3" />
+                  Demander des informations
                 </a>
               </motion.div>
             </motion.div>
           </div>
         </section>
 
-        {/* Course Offer Section */}
+        {/* =================================================================
+        // 2. COURSE OFFER SECTION
+        // ================================================================= */}
         <section className="py-20 bg-neutral-50">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">Nos formules</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">Nos formules de cours</h2>
             <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
               {courses.map((course, index) => (
                 <motion.div
@@ -158,20 +113,15 @@ export default function ChessSchool() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * index }}
-                  className="bg-white rounded-xl shadow-lg flex flex-col overflow-hidden" // Ajout de overflow-hidden pour des bords nets
+                  className="bg-white rounded-xl shadow-lg flex flex-col overflow-hidden"
                 >
-                  {/* --- En-tête de la carte --- */}
                   <div className="bg-gradient-to-r from-primary-600 to-accent-600 text-white p-6">
                     <div className="flex items-center gap-4">
                       <course.icon className="h-8 w-8 flex-shrink-0" />
                       <h3 className="text-2xl font-bold">{course.title}</h3>
                     </div>
                   </div>
-
-                  {/* --- Corps de la carte --- */}
-                  {/* Utilisation de flex-col et flex-grow pour pousser le prix en bas */}
                   <div className="p-6 flex flex-col flex-grow">
-                    {/* --- Section principale des informations (qui s'agrandit) --- */}
                     <dl className="space-y-4 flex-grow">
                       <div>
                         <dt className="text-sm font-semibold text-neutral-500">Public</dt>
@@ -186,11 +136,13 @@ export default function ChessSchool() {
                         <dd className="text-neutral-800">{course.frequency}</dd>
                       </div>
                     </dl>
-
-                    {/* --- Section du prix (alignée en bas) --- */}
                     <div className="mt-6 pt-6 border-t border-neutral-200">
                       <p className="text-sm text-neutral-600">Finance d'inscription</p>
                       <p className="text-l font-bold text-primary-700">{course.price}</p>
+                      <div className="mt-4 bg-primary-50 text-primary-800 p-3 rounded-lg flex items-center gap-3 text-sm">
+                        <Info className="h-5 w-5 flex-shrink-0" />
+                        <span>Il est possible de rejoindre le cours en cours de semestre (tarif au prorata).</span>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -199,165 +151,12 @@ export default function ChessSchool() {
           </div>
         </section>
 
-        {/* Coaches Section */}
-        <section className="py-20 bg-neutral-50">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">Nos formateurs passionnés</h2>
-            <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto items-start">
-              {coaches.map((coach) => (
-                <motion.div
-                  key={coach.name}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="bg-white rounded-xl shadow-lg p-6"
-                >
-                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
-                    <img src={coach.image} alt={coach.name} className="w-32 h-32 rounded-full object-cover flex-shrink-0 border-4 border-primary-200" />
-                    <div className="text-center sm:text-left">
-                      <h3 className="text-2xl font-bold text-neutral-900">{coach.name}</h3>
-                      <p className="text-primary-700 font-semibold">{coach.title}</p>
-                    </div>
-                  </div>
-                  <div className="mt-6">
-                    <h4 className="font-semibold mb-3">Palmarès et expérience :</h4>
-                    <ul className="space-y-2 text-neutral-700">
-                      {/* Correction 2: Utilisation de 'in' pour vérifier la présence de la propriété */}
-                      {coach.achievements.map((item, index) => (
-                        <li key={index} className="flex items-start">
-                          {'year' in item ? (
-                            <span className="text-primary-600 font-bold w-20 flex-shrink-0">{item.year}</span>
-                          ) : (
-                            item.icon && <item.icon className="h-5 w-5 text-primary-600 mr-3 flex-shrink-0 mt-0.5" />
-                          )}
-                          <span>{item.text}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    {coach.experience && <p className="mt-4 text-sm italic">{coach.experience}</p>}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Payment Information Section */}
+        {/* =================================================================
+        // 3. FEATURES SECTION (POURQUOI NOUS REJOINDRE ?)
+        // ================================================================= */}
         <section className="py-20">
           <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-4">Modalités de paiement</h2>
-              <p className="text-lg text-neutral-600 mb-10">
-                Le règlement de la finance d'inscription finalise l'engagement. Il est possible de venir assister à un cours d'essai avant de s'inscrire, pour ce faire, veuillez nous contacter par mail.
-              </p>
-            </div>
-            <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-
-              {/* --- Option 1: Virement bancaire --- */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="bg-white rounded-xl shadow-lg p-8"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <Landmark className="h-8 w-8 text-primary-600" />
-                  <h3 className="text-2xl font-semibold">Par virement bancaire</h3>
-                </div>
-                <p className="text-neutral-600 mb-6">
-                  Veuillez utiliser les coordonnées ci-dessous pour effectuer le virement.
-                </p>
-                <dl className="space-y-3 text-sm">
-                  <div className="flex justify-between">
-                    <dt className="font-semibold text-neutral-500">Bénéficiaire</dt>
-                    <dd className="text-right text-neutral-800">Club d'échecs de Sion</dd>
-                  </div>
-                  <div className="flex justify-between">
-                    <dt className="font-semibold text-neutral-500">Banque</dt>
-                    <dd className="text-right text-neutral-800">Banque Cantonale du Valais</dd>
-                  </div>
-                  <div className="flex justify-between">
-                    <dt className="font-semibold text-neutral-500">IBAN</dt>
-                    <dd className="text-right text-neutral-800 font-mono">CH51 0076 5001 0415 0150 2</dd>
-                  </div>
-                  <div className="flex justify-between">
-                    <dt className="font-semibold text-neutral-500">Compte</dt>
-                    <dd className="text-right text-neutral-800 font-mono">19-81-6</dd>
-                  </div>
-                </dl>
-                <div className="mt-6 pt-6 border-t border-dashed">
-                  <p className="text-sm font-semibold text-accent-700">Important : Veuillez indiquer le nom et prénom de l'élève dans la communication du virement.</p>
-                </div>
-              </motion.div>
-
-              {/* --- Option 2: Paiement en espèces --- */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="bg-white rounded-xl shadow-lg p-8"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <HandCoins className="h-8 w-8 text-primary-600" />
-                  <h3 className="text-2xl font-semibold">En espèces</h3>
-                </div>
-                <p className="text-neutral-600">
-                  Il est également possible de régler la finance d'inscription en espèces. Le paiement peut être alors remis directement à l'un des coachs lors d'un cours.
-                </p>
-              </motion.div>
-
-            </div>
-          </div>
-        </section>
-
-        {/* Practical Information Section */}
-        <section className="py-20 bg-neutral-50">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-bold mb-8">Informations pratiques</h2>
-              <div className="bg-white rounded-xl shadow-lg p-8 space-y-6">
-
-                {/* Ligne pour le calendrier (inchangée) */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <Calendar className="h-8 w-8 text-primary-600" />
-                  <p className="text-lg">
-                    Le calendrier des cours, mis à jour mensuellement, est disponible sur le{' '}
-                    <Link to="/programme" className="font-semibold text-primary-600 hover:underline">
-                      programme 
-                    </Link>.
-                  </p>
-                </div>
-
-                {/* Ligne ajoutée pour le responsable */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <User className="h-8 w-8 text-primary-600" />
-                  <p className="text-lg">
-                    Le responsable de l'école d'échecs est{' '}
-                    <a href="mailto:pmraphrappaz@hotmail.com" className="font-semibold text-primary-600 hover:underline">
-                      Pierre-Marie Rappaz
-                    </a>.
-                  </p>
-                </div>
-
-                {/* Ligne pour le contact général (légèrement modifiée pour la clarté) */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <Mail className="h-8 w-8 text-primary-600" />
-                  <p className="text-lg">
-                    Pour toute question générale, contactez-nous à :{' '}
-                    <a href="mailto:ecole-echecs@cesion.ch" className="font-semibold text-primary-600 hover:underline">
-                      ecole-echecs@cesion.ch
-                    </a>
-                  </p>
-                </div>
-
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Features Section */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">Pourquoi rejoindre notre école ?</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">Pourquoi nous rejoindre ?</h2>
             <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {features.map((feature, index) => (
                 <motion.div
@@ -379,9 +178,108 @@ export default function ChessSchool() {
           </div>
         </section>
 
+        {/* =================================================================
+        // 4. PRACTICAL INFORMATION SECTION
+        // ================================================================= */}
+        <section id="contact" className="py-20 bg-neutral-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl font-bold mb-8">Informations et Inscriptions</h2>
+              <div className="bg-white rounded-xl shadow-lg p-8">
+                <ul className="space-y-6 text-lg">
 
-        {/* Final Call to Action */}
+                  {/* --- Ligne Responsable --- */}
+                  <li className="flex items-center justify-center gap-4">
+                    <User className="h-8 w-8 text-primary-600 flex-shrink-0" />
+                    <p className="text-neutral-700">
+                      Le responsable de l'école est <strong>Pierre-Marie Rappaz</strong>.
+                    </p>
+                  </li>
+
+                  {/* --- Ligne Email --- */}
+                  <li className="flex items-center justify-center gap-4 border-t pt-6">
+                    <Mail className="h-8 w-8 text-primary-600 flex-shrink-0" />
+                    <a href="mailto:ecole-echecs@cesion.ch" className="font-semibold text-primary-600 hover:underline">
+                      ecole-echecs@cesion.ch
+                    </a>
+                  </li>
+
+                  {/* --- Ligne Calendrier --- */}
+                  <li className="flex items-center justify-center gap-4 border-t pt-6">
+                    <Calendar className="h-8 w-8 text-primary-600 flex-shrink-0" />
+                    <p className="text-neutral-700">
+                      Consultez le{' '}
+                      <Link to="/programme" className="font-semibold text-primary-600 hover:underline">
+                        programme du club
+                      </Link>
+                      {' '}pour le calendrier.
+                    </p>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =================================================================
+        // 5. PAYMENT INFORMATION SECTION
+        // ================================================================= */}
         <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl font-bold mb-4">Modalités de paiement</h2>
+              <p className="text-lg text-neutral-600 mb-10">
+                Le règlement de la finance d'inscription finalise l'engagement. Il est possible de venir assister à un cours d'essai avant de s'inscrire, pour ce faire, veuillez nous contacter.
+              </p>
+            </div>
+            <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="bg-white rounded-xl shadow-lg p-8"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <Landmark className="h-8 w-8 text-primary-600" />
+                  <h3 className="text-2xl font-semibold">Par virement bancaire</h3>
+                </div>
+                <dl className="space-y-3 text-sm">
+                  <div className="flex justify-between">
+                    <dt className="font-semibold text-neutral-500">Bénéficiaire</dt>
+                    <dd className="text-right text-neutral-800">Club d'échecs de Sion</dd>
+                  </div>
+                  <div className="flex justify-between">
+                    <dt className="font-semibold text-neutral-500">IBAN</dt>
+                    <dd className="text-right text-neutral-800 font-mono">CH51 0076 5001 0415 0150 2</dd>
+                  </div>
+                </dl>
+                <div className="mt-6 pt-6 border-t border-dashed">
+                  <p className="text-sm font-semibold text-accent-700">Important : Veuillez indiquer le nom et prénom de l'élève dans la communication du virement.</p>
+                </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="bg-white rounded-xl shadow-lg p-8"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <HandCoins className="h-8 w-8 text-primary-600" />
+                  <h3 className="text-2xl font-semibold">En espèces</h3>
+                </div>
+                <p className="text-neutral-600">
+                  Il est également possible de régler la finance d'inscription en espèces. Le paiement peut être remis directement au responsable lors d'un cours.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* =================================================================
+        // 6. FINAL CALL TO ACTION
+        // ================================================================= */}
+        <section className="pb-20">
           <div className="container mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -393,20 +291,18 @@ export default function ChessSchool() {
                   Prêt à faire le bon mouvement ?
                 </h2>
                 <p className="text-xl mb-8 opacity-90">
-                  Ne manquez pas cette opportunité de progresser. Inscrivez-vous dès maintenant !
+                  Contactez-nous pour venir lors d'un cours d'essai ou pour vous inscrire.
                 </p>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   <a
-                    href="https://docs.google.com/forms/d/e/1FAIpQLSeenuhr6cnUsoPFlJoiSVUVpQYtxjLyPZCY4qGIaKIDzZhBgw/viewform?usp=dialog"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="mailto:ecole-echecs@cesion.ch"
                     className="inline-flex items-center px-8 py-4 bg-white text-primary-600 rounded-md hover:bg-neutral-100 transition-colors font-semibold"
                   >
                     <ArrowRight className="h-5 w-5 mr-3" />
-                    Accéder au formulaire d'inscription
+                    Envoyer un email
                   </a>
                 </motion.div>
               </div>

@@ -16,6 +16,29 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
+    date: new Date('2025-10-12T12:00:00'),
+    title: "Festivités du 100ème anniversaire du Club d'Échecs de Monthey",
+    description: "Un week-end mémorable pour célébrer le centenaire de nos amis montheysans, marqué par un tournoi par équipes, un souper de gala et une simultanée avec le GM Etienne Bacrot.",
+    text: `Le week-end du 11 et 12 octobre 2025, nos amis du Club d'Échecs de Monthey ont célébré leur 100ème anniversaire avec brio au Théâtre du Crochetan. Un événement magnifique où de nombreux membres de notre club ont participé.
+
+**Tournoi populaire par équipes**
+
+Le samedi, un grand tournoi par équipes de 3 joueurs a réuni 30 trios dans une ambiance conviviale et compétitive. Plusieurs de nos membres y ont pris part :
+* L'équipe **"Sion Tourbillon"** (Pierre-Marie Rappaz, Olivier Crettenand, Flavien Sola) a réalisé une performance remarquable en terminant ex-aequo 1ers (2èmes au départage).
+* L'équipe **"Déchu, Prometteur, Dissident"**, composée entre autres de Vlad Popescu et Simon Morand, monte sur la 3ème marche du podium.
+* L'équipe **"Les Nuts"**, avec notamment Loïc Devaud, se classe à une excellente 5ème place.
+
+**Soirée de Gala et Simultanée**
+
+Les festivités se sont poursuivies avec un superbe souper de gala le samedi soir, suivi le dimanche par une simultanée exceptionnelle animée par le Grand Maître **Etienne Bacrot**. Jeremy Duc a eu le privilège de se mesurer à l'octuple champion français.
+
+Ce fut un très beau moment de partage et de passion pour les échecs. Nous remercions chaleureusement le Club d'Échecs de Monthey pour l'organisation impeccable de cet événement inoubliable.`,
+    icon: "award",
+    hasLink: true,
+    link: "https://www.chessmonthey.ch/images/fichiers/pdf/100ans%20classement%202.pdf",
+    linkText: "Consulter les résultats complets du tournoi populaire"
+  },
+  {
     date: new Date('2025-09-13T12:00:00'),
     title: "CSE R7 : une dernière ronde qui résume la saison",
     description: "Lors de la 7ème et dernière ronde, Sion c'est inclinée face à Genève 2 et sera relégué, tandis que Sion 2 a fait face sans trembler à Payerne 2 pour assurer son maintient.",
