@@ -16,6 +16,22 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
+    icon: "award",
+    date: new Date('2025-10-19'),
+    title: "Bravo à Joseph Spahr pour sa participation au Grand Prix Junior de Bovernier !",
+    description: "Notre jeune membre Joseph Spahr a courageusement défendu les couleurs du club lors de la première étape relevée du Grand Prix Valaisan Junior, qui comptait 35 participants.",
+    text: "Le coup d'envoi de la saison du Grand Prix Valaisan Junior (GPVJ) a été donné ce dimanche 19 octobre 2025 à Bovernier, et le Club d'Échecs de Sion était de la partie !\n\nNous tenons à féliciter chaleureusement notre jeune joueur **Joseph Spahr** pour sa participation à ce premier tournoi très relevé. Se mesurer à 34 autres jeunes joueurs valaisans est une expérience formatrice et un défi en soi. Au terme des 7 rondes, Joseph a obtenu un score de 2 points, se classant à la 31ème place.\n\nAu-delà du classement, c'est l'engagement et le courage de participer que nous souhaitons saluer. Chaque tournoi est une occasion unique d'apprendre, de se mesurer à de nouveaux adversaires et de renforcer sa passion pour le jeu. Actif au sein du cours 'écoliers' et membre de notre équipe Sion 3 pour cette saison de Championnat Valaisan par équipe, Joseph a parfaitement représenté l'esprit combatif du club.\n\n**L'important, c'est de participer !**\n\nL'exemple de Joseph est un encouragement pour tous nos juniors. Le plus grand pas n'est pas de gagner, mais d'oser s'inscrire et de s'asseoir à l'échiquier.\n\nLa prochaine étape du Grand Prix se déroulera chez nous : c'est notre **Activ Chess de Sion** ! C'est l'occasion idéale de vivre l'ambiance d'un tournoi, que vous soyez débutant ou confirmé. Venez vous amuser, apprendre et défendre les couleurs du club à domicile.\n\nOn compte sur votre présence !",
+    hasImage: false, // Mettez 'true' si vous ajoutez une image
+    // image: { 
+    //   src: './picture/news/joseph-spahr-bovernier-2025.webp', 
+    //   alt: 'Joseph Spahr au tournoi de Bovernier' 
+    // },
+    hasLink: true,
+    link: '/activ-chess',
+    linkText: "S'inscrire à l'Activ Chess de Sion"
+  },
+
+  {
     date: new Date('2025-10-12T12:00:00'),
     title: "Festivités du 100ème anniversaire du Club d'Échecs de Monthey",
     description: "Un week-end mémorable pour célébrer le centenaire de nos amis montheysans, marqué par un tournoi par équipes, un souper de gala et une simultanée avec le GM Etienne Bacrot.",

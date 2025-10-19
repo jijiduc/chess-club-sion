@@ -50,19 +50,19 @@ export default function Home() {
   const renderTextWithLinks = (text: string) => {
     const lines = text.split('\n');
     const renderedElements = [];
-    let isTable = false;
+    // La déclaration 'let isTable = false;' a été supprimée d'ici.
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
 
-      // Détecte le début d'un tableau
       if (line.startsWith('|') && lines[i + 1]?.startsWith('|-')) {
-        isTable = true;
+        // L'assignation 'isTable = true;' a été supprimée d'ici.
+
         const headerLine = lines[i];
-        const headers = headerLine.split('|').map(h => h.trim()).slice(1, -1); // Retire les bords vides
+        const headers = headerLine.split('|').map(h => h.trim()).slice(1, -1);
 
         const tableRows = [];
-        let j = i + 2; // Commence à lire les lignes après l'en-tête et le séparateur
+        let j = i + 2;
         while (j < lines.length && lines[j].startsWith('|')) {
           const rowLine = lines[j];
           const cells = rowLine.split('|').map(c => c.trim()).slice(1, -1);
@@ -70,7 +70,6 @@ export default function Home() {
           j++;
         }
 
-        // Construit le JSX du tableau
         renderedElements.push(
           <div key={`table-${i}`} className="my-6 overflow-x-auto">
             <table className="min-w-full border-collapse text-left">
@@ -88,7 +87,6 @@ export default function Home() {
                   <tr key={rowIndex}>
                     {row.map((cell, cellIndex) => (
                       <td key={cellIndex} className="border-b border-neutral-200 py-3 pr-3 text-sm text-neutral-600">
-                        {/* Gère le gras dans les cellules */}
                         {cell.split(/\*\*/).map((part, partIndex) =>
                           partIndex % 2 === 1 ? <strong key={partIndex}>{part}</strong> : part
                         )}
@@ -101,11 +99,10 @@ export default function Home() {
           </div>
         );
 
-        i = j - 1; // Avance l'index principal pour sauter les lignes du tableau déjà traitées
-        continue; // Passe à la prochaine ligne après le tableau
+        i = j - 1;
+        continue;
       }
 
-      // Logique existante pour les titres, listes et paragraphes
       if (line.startsWith('**') && line.endsWith('**')) {
         renderedElements.push(
           <p key={i} className="font-bold text-neutral-800 mt-4 mb-2">
@@ -398,7 +395,7 @@ export default function Home() {
                   return (
                     <motion.article
                       key={item.title} // Utiliser un ID unique si possible
-                      className="group absolute top-0 flex flex-col bg-white rounded-2xl overflow-hidden shadow-lg w-full" // ❌ h-full retiré
+                      className="group absolute top-0 flex flex-col bg-white rounded-2xl overflow-hidden shadow-lg w-full"
                       initial={{
                         y: 0,
                         scale: 1,
@@ -426,18 +423,18 @@ export default function Home() {
                           {formatDate(item.date)}
                         </span>
 
-                        <h3 className="text-xl font-serif font-bold text-neutral-900 mb-3 line-clamp-2">
+                        {/* MODIFICATION : la classe 'line-clamp-2' a été retirée */}
+                        <h3 className="text-xl font-serif font-bold text-neutral-900 mb-3">
                           {item.title}
                         </h3>
 
                         {item.description && (
-                          // ❌ flex-grow retiré d'ici
-                          <p className="text-neutral-700 text-base mb-4 leading-relaxed line-clamp-3">
+                          /* MODIFICATION : la classe 'line-clamp-3' a été retirée */
+                          <p className="text-neutral-700 text-base mb-4 leading-relaxed">
                             {item.description}
                           </p>
                         )}
 
-                        {/* mt-auto va maintenant pousser le bouton juste après le contenu, pas au fond d'un conteneur de 500px */}
                         <div className="mt-auto pt-2">
                           <button
                             onClick={() => openNewsModal(item)}
