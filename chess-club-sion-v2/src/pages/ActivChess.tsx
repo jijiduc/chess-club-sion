@@ -56,7 +56,7 @@ const schedule = [
 const registrationFees = [
   { category: "Adultes", price: "30 CHF" },
   { category: "Juniors (U20)", price: "20 CHF" },
-  { category: "GM / IM / WGM / wWIM", price: "Gratuit" },
+  { category: "GM / IM / WGM / WIM", price: "Gratuit" },
 ];
 
 const prizeCategories = [
@@ -92,25 +92,45 @@ const prizeCategories = [
   },
 ];
 
-// MODIFICATION: Utilisation d'images pour les sponsors
+// MODIFICATION: Ajout de liens et d'une classe pour le logo de la Bourgeoisie
 const sponsors = [
-  { name: "La Ville de Sion", imgSrc: "https://www.sion.ch/dist/sion/2019/images/logo.859646380a5c91ded5e7.svg", alt: "Logo de la Ville de Sion" },
-  { name: "L'Union Valaisanne des Échecs", imgSrc: "https://www.uve-wsb.ch/images/systeme/logo-uve.png", alt: "Logo de l'Union Valaisanne des Échecs" },
+  { 
+    name: "La Ville de Sion", 
+    imgSrc: "https://www.sion.ch/dist/sion/2019/images/logo.859646380a5c91ded5e7.svg", 
+    alt: "Logo de la Ville de Sion",
+    href: "https://www.sion.ch/"
+  },
+  { 
+    name: "L'Union Valaisanne des Échecs", 
+    imgSrc: "https://www.uve-wsb.ch/images/systeme/logo-uve.png", 
+    alt: "Logo de l'Union Valaisanne des Échecs",
+    href: "https://www.uve-wsb.ch/"
+  },
+  { 
+    name: "La Banque Cantonale du Valais", 
+    imgSrc: "https://www.bcvs.ch/_assets/769bf0b6ab5a82b47c6bb5d477276626/Assets/Img/logo-standard.svg", 
+    alt: "Logo de la Banque Cantonal du Valais",
+    href: "https://www.bcvs.ch/"
+  },
+  { 
+    name: "La Bourgeoisie de Sion", 
+    imgSrc: "https://www.bourgeoisie-de-sion.ch/Site/Skins/Default/Foundation/logo-desktop.svg", 
+    alt: "Logo de la Bourgeoisie de Sion",
+    href: "https://www.bourgeoisie-de-sion.ch/",
+    className: "logo-bourgeoisie" // Classe pour le style spécifique
+  },
 ];
 
 
 export default function ActivChessSion() {
   const tournamentAddress = "Bâtiment scolaire de Champsec, Chemin des Pâquerettes 12, 1950 Sion";
   const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(tournamentAddress)}`;
-  const parkingLink = "https://maps.app.goo.gl/M93ERqxUomGuwFid6";
-  const trainDirectionsLink = `https://www.google.com/maps/dir/?api=1&origin=Gare+de+Sion&destination=${encodeURIComponent(tournamentAddress)}&travelmode=walking`;
+  const parkingLink = "https://www.google.com/maps/dir//Parking+Plantes+de+Sion,+Chemin+des+P%C3%A2querettes,+1950+Sion";
+  const trainDirectionsLink = `https://www.google.com/maps/dir/Gare+de+Sion/${encodeURIComponent(tournamentAddress)}?travelmode=walking`;
   const eventDetails = {
     title: "Activ Chess de Sion",
     location: tournamentAddress,
     details: "Tournoi d'échecs rapide. 9 rondes, 15min + 3s/coup. Plus d'infos sur www.cesion.ch",
-    // Le 26 octobre 2025, la Suisse sera en CET (UTC+1)
-    // Début: 09:00 CET -> 08:00 UTC
-    // Fin: 18:30 CET -> 17:30 UTC
     startDate: "20251026T080000Z",
     endDate: "20251026T173000Z",
   };
@@ -119,6 +139,13 @@ export default function ActivChessSion() {
 
   return (
     <>
+      {/* Style spécifique pour le logo de la Bourgeoisie */}
+      <style>{`
+        .logo-bourgeoisie {
+          filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.4));
+        }
+      `}</style>
+    
       <Title>Activ Chess de Sion - Tournoi Rapide</Title>
       <Meta name="description" content="Participez à l'Activ Chess de Sion le 26 octobre 2025. Toutes les informations sur notre tournoi d'échecs rapide : programme, inscriptions et prix." />
       <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white font-sans">
@@ -138,9 +165,7 @@ export default function ActivChessSion() {
                 Tournoi de parties rapides ouvert à tous, limité à 100 participants.
               </p>
 
-              {/* --- MODIFICATION COMMENCE ICI --- */}
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-                {/* Bouton Inscriptions */}
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -155,8 +180,6 @@ export default function ActivChessSion() {
                     Inscriptions
                   </a>
                 </motion.div>
-
-                {/* Nouveau Bouton: Liste des inscrits */}
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -172,8 +195,6 @@ export default function ActivChessSion() {
                   </a>
                 </motion.div>
               </div>
-              {/* --- MODIFICATION TERMINE ICI --- */}
-
             </motion.div>
           </div>
         </section>
@@ -291,7 +312,7 @@ export default function ActivChessSion() {
                     <CalendarPlus className="h-6 w-6 text-primary-600 flex-shrink-0" />
                     <div>
                       <p className="font-bold text-primary-800">Date limite pour commander le repas :</p>
-                      <p className="text-lg font-semibold text-primary-700">Dimanche 19 Octobre</p>
+                      <p className="text-lg font-semibold text-primary-700">Mercredi 22 Octobre</p>
                     </div>
                   </div>
                 </div>
@@ -306,27 +327,36 @@ export default function ActivChessSion() {
                 </div>
               </motion.div>
 
-              {/* Sponsors */}
+              {/* --- MODIFICATION: Section Sponsors améliorée --- */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.1 }}
                 className="text-center"
               >
-                <h2 className="text-3xl font-bold mb-8">Merci à nos généreux soutiens</h2>
-                <div className="flex justify-center items-center gap-8 flex-wrap">
+                <h2 className="text-3xl font-bold mb-12">Merci à nos généreux soutiens</h2>
+                <div className="grid grid-cols-2 gap-6">
                   {sponsors.map(sponsor => (
-                    <div key={sponsor.name} className="flex flex-col items-center gap-2 text-neutral-700">
-                      <img src={sponsor.imgSrc} alt={sponsor.alt} className="h-20 object-contain" />
-                      <p className="font-semibold">{sponsor.name}</p>
-                    </div>
+                    <a 
+                      key={sponsor.name} 
+                      href={sponsor.href}
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      title={sponsor.name}
+                      className="flex justify-center items-center h-32 bg-blue-200 rounded-lg p-6 opacity-100 hover:grayscale-0 hover:opacity-100 hover:bg-blue-500 transition-all duration-300 shadow-sm hover:shadow-md"
+                    >
+                      <img 
+                        src={sponsor.imgSrc} 
+                        alt={sponsor.alt} 
+                        className={`max-h-20 max-w-full object-contain ${sponsor.className || ''}`} 
+                      />
+                    </a>
                   ))}
                 </div>
               </motion.div>
             </div>
           </div>
         </section>
-
 
         {/* Prizes Section */}
         <section className="py-20">
@@ -366,7 +396,7 @@ export default function ActivChessSion() {
           </div>
         </section>
 
-        {/* MODIFICATION: Section Informations Pratiques */}
+        {/* Informations Pratiques Section */}
         <section className="py-20 bg-neutral-50">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-bold text-center mb-12">Informations pratiques</h2>

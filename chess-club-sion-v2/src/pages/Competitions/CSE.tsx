@@ -177,14 +177,14 @@ const CSE: React.FC = () => {
         {/* Current Standings */}
         <section className="py-16 bg-neutral-50">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">Classements actuels</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">Classements finaux 2025</h2>
             <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
 
               {/* 1ère ligue standings */}
               <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div className="bg-gradient-to-r from-accent-600 to-primary-600 text-white p-4">
                   <h3 className="text-xl font-bold">1ère ligue - Groupe Ouest</h3>
-                  <p className="text-sm opacity-90">Après 6 rondes</p>
+                  <p className="text-sm opacity-90">Classement final (après 7 rondes)</p>
                 </div>
                 <div className="p-6">
                   <table className="w-full text-sm">
@@ -199,58 +199,57 @@ const CSE: React.FC = () => {
                     <tbody>
                       {/* Fond vert pour le promu */}
                       <tr className="border-b bg-green-50">
-                        <td className="py-2 font-semibold">1</td>
+                        <td className="py-2 font-semibold">1.</td>
                         <td className="py-2 font-semibold">Genève 2</td>
-                        <td className="py-2 text-center font-bold">10</td>
-                        <td className="py-2 text-center">30½</td>
+                        <td className="py-2 text-center font-bold">12</td>
+                        <td className="py-2 text-center">37</td>
                       </tr>
 
                       <tr className="border-b">
-                        <td className="py-2">2</td>
+                        <td className="py-2">2.</td>
+                        <td className="py-2">Grand Echiquier 1</td>
+                        <td className="py-2 text-center font-semibold">9</td>
+                        <td className="py-2 text-center">31</td>
+                      </tr>
+
+                      <tr className="border-b">
+                        <td className="py-2">3.</td>
                         <td className="py-2">Echallens 2</td>
                         <td className="py-2 text-center font-semibold">9</td>
-                        <td className="py-2 text-center">26½</td>
+                        <td className="py-2 text-center">28½</td>
                       </tr>
-
                       <tr className="border-b">
-                        <td className="py-2">3</td>
+                        <td className="py-2">4.</td>
+                        <td className="py-2">Fribourg 1</td>
+                        <td className="py-2 text-center font-semibold">8</td>
+                        <td className="py-2 text-center">29½</td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="py-2">5.</td>
+                        <td className="py-2">Köniz-Bubenberg 1</td>
+                        <td className="py-2 text-center font-semibold">8</td>
+                        <td className="py-2 text-center">28</td>
+                      </tr>
+                      <tr className="border-b">
+                        <td className="py-2">6.</td>
                         <td className="py-2">Neuchâtel 1</td>
                         <td className="py-2 text-center font-semibold">7</td>
-                        <td className="py-2 text-center">26</td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="py-2">4</td>
-                        <td className="py-2">Grand Echiquier 1</td>
-                        <td className="py-2 text-center font-semibold">7</td>
-                        <td className="py-2 text-center">25</td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="py-2">5</td>
-                        <td className="py-2">Fribourg 1</td>
-                        <td className="py-2 text-center font-semibold">6</td>
-                        <td className="py-2 text-center">25</td>
-                      </tr>
-                      <tr className="border-b">
-                        <td className="py-2">6</td>
-                        <td className="py-2">Köniz-Bubenberg 1</td>
-                        <td className="py-2 text-center font-semibold">6</td>
-                        <td className="py-2 text-center">22</td>
+                        <td className="py-2 text-center">29½</td>
                       </tr>
 
-                      {/* MODIFIÉ: Ligne de démarcation rouge supprimée, fond rouge pour Sion 1, texte bleu */}
+                      {/* Fond rouge pour les relégués */}
                       <tr className="font-semibold border-b bg-red-50 text-primary-900">
-                        <td className="py-2 pl-2">7</td>
+                        <td className="py-2 pl-2">7.</td>
                         <td className="py-2">Sion 1</td>
                         <td className="py-2 text-center">2</td>
-                        <td className="py-2 text-center">18½</td>
+                        <td className="py-2 text-center">20</td>
                       </tr>
 
-                      {/* Fond rouge pour le relégué */}
                       <tr className="bg-red-50">
-                        <td className="py-2">8</td>
+                        <td className="py-2">8.</td>
                         <td className="py-2">Valais 1</td>
                         <td className="py-2 text-center font-semibold">1</td>
-                        <td className="py-2 text-center">18½</td>
+                        <td className="py-2 text-center">20½</td>
                       </tr>
                     </tbody>
                   </table>
@@ -274,7 +273,7 @@ const CSE: React.FC = () => {
               <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <div className="bg-gradient-to-r from-accent-600 to-primary-600 text-white p-4">
                   <h3 className="text-xl font-bold">3ème ligue - Groupe Ouest 2</h3>
-                  <p className="text-sm opacity-90">Après 6 rondes</p>
+                  <p className="text-sm opacity-90">Classement final (après 7 rondes)</p>
                 </div>
                 <div className="p-6">
                   <table className="w-full text-sm">
@@ -288,57 +287,57 @@ const CSE: React.FC = () => {
                     </thead>
                     <tbody>
                       <tr className="border-b bg-green-50">
-                        <td className="py-2 font-semibold">1</td>
+                        <td className="py-2 font-semibold">1.</td>
                         <td className="py-2 font-semibold">Monthey 1</td>
-                        <td className="py-2 text-center font-bold">10</td>
-                        <td className="py-2 text-center">26½</td>
+                        <td className="py-2 text-center font-bold">12</td>
+                        <td className="py-2 text-center">30½</td>
                       </tr>
 
                       <tr className="border-b">
-                        <td className="py-2">2</td>
+                        <td className="py-2">2.</td>
                         <td className="py-2">Crazy Horse 1</td>
                         <td className="py-2 text-center font-semibold">10</td>
-                        <td className="py-2 text-center">25</td>
+                        <td className="py-2 text-center">27</td>
                       </tr>
 
                       <tr className="border-b">
-                        <td className="py-2">3</td>
+                        <td className="py-2">3.</td>
                         <td className="py-2">Payerne 2</td>
-                        <td className="py-2 text-center font-semibold">8</td>
-                        <td className="py-2 text-center">25½</td>
+                        <td className="py-2 text-center font-semibold">9</td>
+                        <td className="py-2 text-center">28½</td>
                       </tr>
                       <tr className="border-b">
-                        <td className="py-2">4</td>
+                        <td className="py-2">4.</td>
                         <td className="py-2">Grand Echiquier 2</td>
-                        <td className="py-2 text-center font-semibold">7</td>
-                        <td className="py-2 text-center">18</td>
+                        <td className="py-2 text-center font-semibold">9</td>
+                        <td className="py-2 text-center">21½</td>
                       </tr>
                       <tr className="border-b">
-                        <td className="py-2">5</td>
+                        <td className="py-2">5.</td>
                         <td className="py-2">Valais 2</td>
-                        <td className="py-2 text-center font-semibold">5</td>
-                        <td className="py-2 text-center">18½</td>
+                        <td className="py-2 text-center font-semibold">7</td>
+                        <td className="py-2 text-center">22½</td>
                       </tr>
                       <tr className="font-semibold border-b text-primary-900">
-                        <td className="py-2 pl-2">6</td>
+                        <td className="py-2 pl-2">6.</td>
                         <td className="py-2">Sion 2</td>
-                        <td className="py-2 text-center">4</td>
-                        <td className="py-2 text-center">14</td>
+                        <td className="py-2 text-center">5</td>
+                        <td className="py-2 text-center">17</td>
                       </tr>
 
-                      {/* MODIFIÉ: Ligne de démarcation rouge supprimée, fond rouge */}
+                      {/* Fond rouge pour les relégués */}
                       <tr className="border-b bg-red-50">
-                        <td className="py-2 pt-3">7</td>
-                        <td className="py-2 pt-3">Bulle 3</td>
-                        <td className="py-2 pt-3 text-center font-semibold">2</td>
-                        <td className="py-2 pt-3 text-center">8½</td>
+                        <td className="py-2">7.</td>
+                        <td className="py-2">Bulle 3</td>
+                        <td className="py-2 text-center font-semibold">2</td>
+                        <td className="py-2 text-center">11</td>
                       </tr>
 
                       <tr className="bg-red-50">
-                        <td className="py-2">8</td>
+                        <td className="py-2">8.</td>
                         <td className="py-2">Crans-Montana 2</td>
                         <td className="py-2 text-center font-semibold">2</td>
-                        <td className="py-2 text-center">8</td>
+                        <td className="py-2 text-center">10</td>
                       </tr>
                     </tbody>
                   </table>
@@ -372,7 +371,7 @@ const CSE: React.FC = () => {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
-                  href="https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNSZhZ3J1cHBlPTMwNCZhbGlnYT0zJmFyb3VuZD02"
+                  href="https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNSZhbGlnYT0zJmFncnVwcGU9MzA0JmFyb3VuZD03"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-white text-neutral-900 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors flex items-center space-x-2"
@@ -381,7 +380,7 @@ const CSE: React.FC = () => {
                   <ExternalLink className="h-4 w-4" />
                 </a>
                 <a
-                  href="https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNSZhZ3J1cHBlPTUxNCZhbGlnYT01JmFyb3VuZD02"
+                  href="https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNSZhbGlnYT01JmFncnVwcGU9NTE0JmFyb3VuZD03"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors flex items-center space-x-2"

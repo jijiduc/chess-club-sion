@@ -23,11 +23,14 @@ export const newsItems: NewsItem[] = [
 
 **Tournoi populaire par équipes**
 
-Le samedi, un grand tournoi par équipes de 3 joueurs a réuni 30 trios dans une ambiance conviviale et compétitive. Plusieurs de nos membres y ont pris part :
-* L'équipe **"Sion Tourbillon"** (Pierre-Marie Rappaz, Olivier Crettenand, Flavien Sola) a réalisé une performance remarquable en terminant ex-aequo 1ers (2èmes au départage).
-* L'équipe **"Déchu, Prometteur, Dissident"**, composée entre autres de Vlad Popescu et Simon Morand, monte sur la 3ème marche du podium.
-* L'équipe **"Les Nuts"**, avec notamment Loïc Devaud, se classe à une excellente 5ème place.
+Le samedi, un grand tournoi par équipes de 3 joueurs a réuni 30 trios dans une ambiance conviviale et compétitive. Plusieurs de nos membres y ont pris part avec d'excellents résultats :
 
+| Rang  | Équipe | Membres du club | Pts d'équipe | Pts individuels |
+|---|---|---|---|
+| 2ème | **Sion Tourbillon** | Pierre-Marie Rappaz, Olivier Crettenand, Flavien Sola | 6 | 16 |
+| 3ème | **Déchu, Prometteur, Dissident** | Vlad Popescu, Stéphane Emery | 6 | 15,5 |
+| 5ème | **Les Nuts** | Loïc Devaud | 5 | 12,5 |
+ 
 **Soirée de Gala et Simultanée**
 
 Les festivités se sont poursuivies avec un superbe souper de gala le samedi soir, suivi le dimanche par une simultanée exceptionnelle animée par le Grand Maître **Etienne Bacrot**. Jeremy Duc a eu le privilège de se mesurer à l'octuple champion français.

@@ -48,42 +48,95 @@ export default function Home() {
   }
 
   const renderTextWithLinks = (text: string) => {
-    return text.split('\n').map((line, index) => {
-      // Gère les lignes qui sont des titres (commence et finit par **)
+    const lines = text.split('\n');
+    const renderedElements = [];
+    let isTable = false;
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+
+      // Détecte le début d'un tableau
+      if (line.startsWith('|') && lines[i + 1]?.startsWith('|-')) {
+        isTable = true;
+        const headerLine = lines[i];
+        const headers = headerLine.split('|').map(h => h.trim()).slice(1, -1); // Retire les bords vides
+
+        const tableRows = [];
+        let j = i + 2; // Commence à lire les lignes après l'en-tête et le séparateur
+        while (j < lines.length && lines[j].startsWith('|')) {
+          const rowLine = lines[j];
+          const cells = rowLine.split('|').map(c => c.trim()).slice(1, -1);
+          tableRows.push(cells);
+          j++;
+        }
+
+        // Construit le JSX du tableau
+        renderedElements.push(
+          <div key={`table-${i}`} className="my-6 overflow-x-auto">
+            <table className="min-w-full border-collapse text-left">
+              <thead>
+                <tr>
+                  {headers.map((header, index) => (
+                    <th key={index} className="border-b-2 border-primary-200 pb-3 pr-3 text-sm font-semibold text-neutral-800">
+                      {header}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {tableRows.map((row, rowIndex) => (
+                  <tr key={rowIndex}>
+                    {row.map((cell, cellIndex) => (
+                      <td key={cellIndex} className="border-b border-neutral-200 py-3 pr-3 text-sm text-neutral-600">
+                        {/* Gère le gras dans les cellules */}
+                        {cell.split(/\*\*/).map((part, partIndex) =>
+                          partIndex % 2 === 1 ? <strong key={partIndex}>{part}</strong> : part
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        );
+
+        i = j - 1; // Avance l'index principal pour sauter les lignes du tableau déjà traitées
+        continue; // Passe à la prochaine ligne après le tableau
+      }
+
+      // Logique existante pour les titres, listes et paragraphes
       if (line.startsWith('**') && line.endsWith('**')) {
-        return (
-          <p key={index} className="font-bold text-neutral-800 mt-4 mb-2">
+        renderedElements.push(
+          <p key={i} className="font-bold text-neutral-800 mt-4 mb-2">
             {line.replace(/\*\*/g, '')}
           </p>
         );
-      }
-      // Gère les listes à puces
-      if (line.startsWith('* ')) {
-        const parts = line.substring(2).split(/\*\*/); // Enlève le "* " puis cherche le gras
-        return (
-          <p key={index} className="ml-4 mb-1">
+      } else if (line.startsWith('* ')) {
+        const parts = line.substring(2).split(/\*\*/);
+        renderedElements.push(
+          <p key={i} className="ml-4 mb-1">
             <span className="mr-2">•</span>
-            {parts.map((part, i) =>
-              i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+            {parts.map((part, k) =>
+              k % 2 === 1 ? <strong key={k}>{part}</strong> : part
             )}
           </p>
         );
-      }
-      
-      // Gère les autres lignes de texte pouvant contenir du gras
-      if (line.trim()) {
+      } else if (line.trim()) {
         const parts = line.split(/\*\*/);
-        return (
-          <p key={index} className="mb-2">
-            {parts.map((part, i) =>
-              i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+        renderedElements.push(
+          <p key={i} className="mb-2">
+            {parts.map((part, k) =>
+              k % 2 === 1 ? <strong key={k}>{part}</strong> : part
             )}
           </p>
         );
+      } else {
+        renderedElements.push(<br key={i} />);
       }
-      
-      return <br key={index} />;
-    });
+    }
+
+    return renderedElements;
   };
 
   const today = new Date();
@@ -404,7 +457,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* News Modal (INCHANGÉ) */}
+        {/* News Modal (CORRIGÉ) */}
         <AnimatePresence>
           {selectedNews !== null && newsItems[selectedNews] && (
             <motion.div
@@ -426,7 +479,8 @@ export default function Home() {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.9, opacity: 0 }}
                 transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden"
+                // MODIFICATION 1: Ajout de flex et flex-col ici
+                className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden flex flex-col"
                 onClick={(e) => e.stopPropagation()}
               >
                 <button
@@ -437,7 +491,8 @@ export default function Home() {
                 </button>
 
                 {newsItems[selectedNews].hasImage && newsItems[selectedNews].image && (
-                  <div className="relative h-64 overflow-hidden">
+                  // flex-shrink-0 empêche l'image de rétrécir
+                  <div className="relative h-64 overflow-hidden flex-shrink-0">
                     <img
                       src={newsItems[selectedNews].image.src}
                       alt={newsItems[selectedNews].image.alt || ''}
@@ -447,7 +502,8 @@ export default function Home() {
                   </div>
                 )}
 
-                <div className="p-8">
+                {/* MODIFICATION 2: Ce conteneur devient le parent scrollable */}
+                <div className="p-8 overflow-y-auto">
                   <div className="flex items-center space-x-2 mb-4">
                     <Trophy className="h-5 w-5 text-primary-600" />
                     <span className="text-sm font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
@@ -465,7 +521,8 @@ export default function Home() {
                     </p>
                   )}
 
-                  <div className="text-neutral-600 leading-relaxed overflow-y-auto max-h-[50vh] space-y-1">
+                  {/* MODIFICATION 3: Suppression de la div scrollable qui était ici */}
+                  <div className="text-neutral-600 leading-relaxed space-y-1">
                     {renderTextWithLinks(newsItems[selectedNews].text)}
                   </div>
 
