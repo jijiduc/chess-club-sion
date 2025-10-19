@@ -2,3 +2,5 @@ node_modules/
 .vscode/
 dist/
 chess-club-deployment/
+.ps1
+.sec
