@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Trophy, ChevronRight, ChevronLeft, Award, Grid, List, CalendarPlus, Edit } from 'lucide-react'
+import { Trophy, ChevronRight, ChevronLeft, Award, Grid, List, CalendarPlus} from 'lucide-react'
 
 interface Score {
   id: number
@@ -268,7 +268,7 @@ export default function InternalTournament() {
                 >
                   <h3 className="text-2xl font-semibold flex items-center">
                     <CalendarPlus className="h-6 w-6 mr-3" />
-                    Championnat interne 2025/26 : Inscriptions
+                    Championnat interne 2025/26
                   </h3>
                   <motion.svg animate={{ rotate: isNewSeasonExpanded ? 180 : 0 }} transition={{ duration: 0.3 }} className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -278,7 +278,7 @@ export default function InternalTournament() {
                 {isNewSeasonExpanded && (
                   <motion.div initial={{ height: 0 }} animate={{ height: 'auto' }} exit={{ height: 0 }} className="px-6 py-8">
                     <p className="text-neutral-700 mb-6">
-                      La saison 2025-2026 de notre championnat interne approche ! Ce tournoi est l'événement interne phare de notre club, une occasion parfaite de se mesurer dans une ambiance amicale et compétitive.
+                      Ce tournoi est l'événement interne phare de notre club, une occasion parfaite de se mesurer dans une ambiance amicale et compétitive.
                     </p>
                     <h4 className="text-xl font-bold text-neutral-900 mb-4 flex items-center">
                       <List className="h-6 w-6 mr-2" />
@@ -298,17 +298,6 @@ export default function InternalTournament() {
                         </div>
                       ))}
                     </div>
-                    <div className="bg-primary-50 border-l-4 border-primary-500 rounded-r-lg p-4 mb-8">
-                      <p className="font-semibold text-primary-800">
-                        Date limite d'inscription : <span className="font-bold">15 octobre</span>.
-                      </p>
-                    </div>
-                    <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                      <a href="https://forms.gle/BKNBX9XzUC7HhMQC7" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full md:w-auto px-8 py-4 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors font-semibold shadow-lg">
-                        <Edit className="h-5 w-5 mr-3" />
-                        S'inscrire au tournoi
-                      </a>
-                    </motion.div>
                   </motion.div>
                 )}
               </motion.div>

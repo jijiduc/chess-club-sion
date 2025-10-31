@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Trophy, Users, Calendar, ChevronRight, ExternalLink, Medal, MapPin, FileText } from 'lucide-react'
+import { Trophy, Users, Calendar, ChevronRight, ExternalLink, Medal, MapPin, FileText, LayoutGrid, CalendarDays } from 'lucide-react'
 import { Title, Meta } from 'react-head';
 
 interface TeamResult {
@@ -317,18 +317,196 @@ export default function CVE() {
                 <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 my-8">
                   <h3 className="text-xl font-bold text-primary-900 mb-4 flex items-center">
                     <Users className="h-6 w-6 mr-2" />
-                    Répartition des équipes
+                    Équipes engagées (Saison 2025/2026)
                   </h3>
                   <div className="space-y-2 text-neutral-700">
                     <p>
-                      Pour la saison 2024/2025, le club a engagé deux équipes dans le championnat.
+                      Pour la saison 2025/2026, le club a engagé trois équipes dans le championnat.
                     </p>
                     <ul className="list-disc pl-5 space-y-1">
-                      <li><strong>Sion 1</strong>, avec pour capitaine <strong>Jeremy Duc</strong>.</li>
-                      <li><strong>Sion 2</strong>, avec pour capitaine <strong>Simon Moerschell</strong>.</li>
+                      <li><strong>Sion 1</strong> (Groupe A), avec pour capitaine <strong>Pierre-Marie Rappaz</strong>.</li>
+                      <li><strong>Sion 2</strong> (Groupe B), avec pour capitaine <strong>Simon Moerschell</strong>.</li>
+                      <li><strong>Sion 3</strong> (Groupe D), avec pour capitaine <strong>Jeremy Duc</strong>.</li>
                     </ul>
                   </div>
                 </div>
+
+                {/* Composition des Groupes  */}
+                <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 my-8">
+                  <h3 className="text-xl font-bold text-primary-900 mb-4 flex items-center">
+                    <LayoutGrid className="h-6 w-6 mr-2" />
+                    Composition des groupes de la phase de poules initiale
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {/* Groupe A */}
+                    <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
+                      <h4 className="font-bold text-lg text-primary-800 mb-3 text-center border-b pb-2">Groupe A</h4>
+                      <ol className="list-decimal list-inside space-y-2">
+                        <li className="font-bold text-primary-900">Sion 1</li>
+                        <li className="text-neutral-700">Riddes 1</li>
+                        <li className="text-neutral-700">Martigny 2</li>
+                        <li className="text-neutral-700">Sierre 2</li>
+                      </ol>
+                    </div>
+                    {/* Groupe B */}
+                    <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
+                      <h4 className="font-bold text-lg text-primary-800 mb-3 text-center border-b pb-2">Groupe B</h4>
+                      <ol className="list-decimal list-inside space-y-2">
+                        <li className="text-neutral-700">Martigny 1</li>
+                        <li className="font-bold text-primary-900">Sion 2</li>
+                        <li className="text-neutral-700">Riddes 2</li>
+                        <li className="text-neutral-700">Montana 2</li>
+                      </ol>
+                    </div>
+                    {/* Groupe C */}
+                    <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
+                      <h4 className="font-bold text-lg text-primary-800 mb-3 text-center border-b pb-2">Groupe C</h4>
+                      <ol className="list-decimal list-inside space-y-2">
+                        <li className="text-neutral-700">Sierre 1</li>
+                        <li className="text-neutral-700">Montana 1</li>
+                        <li className="text-neutral-700">Bagnes</li>
+                        <li className="text-neutral-700">Martigny 4</li>
+                      </ol>
+                    </div>
+                    {/* Groupe D */}
+                    <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
+                      <h4 className="font-bold text-lg text-primary-800 mb-3 text-center border-b pb-2">Groupe D</h4>
+                      <ol className="list-decimal list-inside space-y-2">
+                        <li className="text-neutral-700">CE Port-Valais</li>
+                        <li className="text-neutral-700">Monthey</li>
+                        <li className="text-neutral-700">Martigny 3</li>
+                        <li className="font-bold text-primary-900">Sion 3</li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Programme des Rencontres */}
+                <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 my-8">
+                  <h3 className="text-xl font-bold text-primary-900 mb-6 flex items-center">
+                    <Calendar className="h-6 w-6 mr-2" />
+                    Programme des rencontres
+                  </h3>
+                  <div className="space-y-8">
+                    {/* Ronde 1 */}
+                    <div>
+                      <h4 className="text-lg font-semibold text-primary-800 mb-4 flex items-center">
+                        <CalendarDays className="h-5 w-5 mr-2" />
+                        Ronde 1 - 07.11.2025
+                      </h4>
+                      {/* MODIFICATION ICI */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1">
+                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
+                          <h5 className="font-bold text-md text-center mb-2">Groupe A</h5>
+                          <ul className="text-sm space-y-1 text-center text-neutral-700">
+                            <li className="truncate">Sierre 2 - Riddes 1</li>
+                            <li className="truncate"><strong className="text-primary-900">Sion 1</strong> - Martigny 2</li>
+                          </ul>
+                        </div>
+                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
+                          <h5 className="font-bold text-md text-center mb-2">Groupe B</h5>
+                          <ul className="text-sm space-y-1 text-center text-neutral-700">
+                            <li className="truncate">Montana 2 - <strong className="text-primary-900">Sion 2</strong></li>
+                            <li className="truncate">Martigny 1 - Riddes 2</li>
+                          </ul>
+                        </div>
+                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
+                          <h5 className="font-bold text-md text-center mb-2">Groupe C</h5>
+                          <ul className="text-sm space-y-1 text-center text-neutral-700">
+                            <li className="truncate">Montana 1 - Martigny 4</li>
+                            <li className="truncate">Bagnes - Sierre 1</li>
+                          </ul>
+                        </div>
+                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
+                          <h5 className="font-bold text-md text-center mb-2">Groupe D</h5>
+                          <ul className="text-sm space-y-1 text-center text-neutral-700">
+                            <li className="truncate">Monthey - <strong className="text-primary-900">Sion 3</strong></li>
+                            <li className="truncate">Martigny 3 - CE Port-Valais</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Ronde 2 */}
+                    <div>
+                      <h4 className="text-lg font-semibold text-primary-800 mb-4 flex items-center">
+                        <CalendarDays className="h-5 w-5 mr-2" />
+                        Ronde 2 - 28.11.2025
+                      </h4>
+                      {/* MODIFICATION ICI */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1">
+                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
+                          <h5 className="font-bold text-md text-center mb-2">Groupe A</h5>
+                          <ul className="text-sm space-y-1 text-center text-neutral-700">
+                            <li className="truncate">Riddes 1 - <strong className="text-primary-900">Sion 1</strong></li>
+                            <li className="truncate">Martigny 2 - Sierre 2</li>
+                          </ul>
+                        </div>
+                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
+                          <h5 className="font-bold text-md text-center mb-2">Groupe B</h5>
+                          <ul className="text-sm space-y-1 text-center text-neutral-700">
+                            <li className="truncate"><strong className="text-primary-900">Sion 2</strong> - Martigny 1</li>
+                            <li className="truncate">Riddes 2 - Montana 2</li>
+                          </ul>
+                        </div>
+                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
+                          <h5 className="font-bold text-md text-center mb-2">Groupe C</h5>
+                          <ul className="text-sm space-y-1 text-center text-neutral-700">
+                            <li className="truncate">Montana 1 - Sierre 1</li>
+                            <li className="truncate">Martigny 4 - Bagnes</li>
+                          </ul>
+                        </div>
+                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
+                          <h5 className="font-bold text-md text-center mb-2">Groupe D</h5>
+                          <ul className="text-sm space-y-1 text-center text-neutral-700">
+                            <li className="truncate">CE Port-Valais - Monthey</li>
+                            <li className="truncate"><strong className="text-primary-900">Sion 3</strong> - Martigny 3</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Ronde 3 */}
+                    <div>
+                      <h4 className="text-lg font-semibold text-primary-800 mb-4 flex items-center">
+                        <CalendarDays className="h-5 w-5 mr-2" />
+                        Ronde 3 - 19.12.2025
+                      </h4>
+                      {/* MODIFICATION ICI */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1">
+                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
+                          <h5 className="font-bold text-md text-center mb-2">Groupe A</h5>
+                          <ul className="text-sm space-y-1 text-center text-neutral-700">
+                            <li className="truncate">Sierre 2 - <strong className="text-primary-900">Sion 1</strong></li>
+                            <li className="truncate">Riddes 1 - Martigny 2</li>
+                          </ul>
+                        </div>
+                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
+                          <h5 className="font-bold text-md text-center mb-2">Groupe B</h5>
+                          <ul className="text-sm space-y-1 text-center text-neutral-700">
+                            <li className="truncate">Martigny 1 - Montana 2</li>
+                            <li className="truncate"><strong className="text-primary-900">Sion 2</strong> - Riddes 2</li>
+                          </ul>
+                        </div>
+                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
+                          <h5 className="font-bold text-md text-center mb-2">Groupe C</h5>
+                          <ul className="text-sm space-y-1 text-center text-neutral-700">
+                            <li className="truncate">Sierre 1 - Martigny 4</li>
+                            <li className="truncate">Bagnes - Montana 1</li>
+                          </ul>
+                        </div>
+                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
+                          <h5 className="font-bold text-md text-center mb-2">Groupe D</h5>
+                          <ul className="text-sm space-y-1 text-center text-neutral-700">
+                            <li className="truncate"><strong className="text-primary-900">Sion 3</strong> - CE Port-Valais</li>
+                            <li className="truncate">Martigny 3 - Monthey</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </motion.div>
           </div>
@@ -337,7 +515,7 @@ export default function CVE() {
         {/* Seasons Section */}
         <section className="py-16 bg-neutral-50">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">Résultats par saison</h2>
+            <h2 className="text-3xl font-bold text-center mb-12">Saisons précédentes</h2>
             <div className="max-w-6xl mx-auto space-y-6">
               {seasons.map((season, index) => (
                 <motion.div

@@ -251,7 +251,7 @@ export default function ChessSchool() {
                   </div>
                   <div className="flex justify-between">
                     <dt className="font-semibold text-neutral-500">IBAN</dt>
-                    <dd className="text-right text-neutral-800 font-mono">CH51 0076 5001 0415 0150 2</dd>
+                    <dd className="text-right text-neutral-800 font-mono">CH08 0076 5001 0592 7490 7</dd>
                   </div>
                 </dl>
                 <div className="mt-6 pt-6 border-t border-dashed">

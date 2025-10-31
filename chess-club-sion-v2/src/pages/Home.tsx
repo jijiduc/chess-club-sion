@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 // MODIFICATION 1: Ajout des icônes pour la navigation du carrousel
-import { Trophy, Calendar, Users, ChevronRight, MapPin, Clock, Zap, X, ArrowRight, ChevronUp, ChevronDown } from 'lucide-react'
+import { Trophy, Calendar, Users, ChevronRight, MapPin, Clock, Zap, X, ChevronUp, ChevronDown, ArrowRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { newsItems } from '../data/news'
 import { programmeEvents } from '../data/programme'
@@ -218,16 +218,18 @@ export default function Home() {
               <div className="bg-black/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6 max-w-2xl mx-auto">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                   <div className="text-left">
-                    <p className="font-semibold text-primary-200 flex items-center"><Trophy className="h-5 w-5 mr-2" /> Ne manquez pas</p>
-                    <p className="text-xl text-white">Activ Chess de Sion - 26 Octobre 2025</p>
+                    <p className="font-semibold text-primary-200 flex items-center"><Trophy className="h-5 w-5 mr-2" /> Prochain rendez-vous valaisan :</p>
+                    <p className="text-xl text-white">Grand Prix de Monthey - 14-16 novembre</p>
                   </div>
-                  <Link
-                    to="/activ-chess"
+                  <a
+                    href="https://www.chessmonthey.ch/grand-prix-monthey"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group bg-primary-500 hover:bg-primary-400 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 inline-flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full md:w-auto"
                   >
                     Informations
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </motion.div>

@@ -16,6 +16,41 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
+    icon: "trophy",
+    date: new Date('2025-10-26T18:00:00'), // La date de l'événement
+    title: "L'Activ Chess 2025 : Un beau succès avec 86 participants !",
+    description: "Un grand bravo et merci aux 86 joueurs, bénévoles, et les autorités présentent pour cette magnifique édition de l'Activ Chess remportée par Romain Gemelli.",
+    text: `Quelle magnifique journée ! Le Club d'Échecs de Sion est enchanté d'avoir organisé l'édition 2025 de son Activ Chess ce dimanche 26 octobre. Nous tenons à remercier chaleureusement les **86 participants** qui ont fait de cet événement un véritable succès et ont partagé leur passion dans une ambiance à la fois compétitive et conviviale.
+
+Un immense merci également à tous nos soutiens, nos sponsors, et à l'incroyable équipe de bénévoles qui a œuvré sans relâche pour assurer une organisation impeccable. Sans vous, rien de tout cela ne serait possible.
+
+Nous avons été particulièrement honorés de la visite de **Mme Nathalie Chavaz-Constantin**, Présidente de la Bourgeoisie de Sion, et de **Mr. Philippe Varone**, Président de la Ville de Sion. Leur présence témoigne du soutien de la Ville à notre manifestation et à la vie de notre club.
+
+**Le podium de l'édition 2025 :**
+
+Après 9 rondes intenses, nous félicitons chaleureusement les trois grands vainqueurs du tournoi :
+| Rg | Nom | Pts |
+|---|---|---|
+| 1 | Gemelli, Romain | 8,5 |
+| 2 | Iwanesko, Alexandre | 7,5 |
+| 3 | Sola, Flavien | 7 |
+
+Bravo à eux pour leur superbe performance, ainsi qu'à tous les joueurs pour les belles parties disputées !
+`,
+    // MODIFICATION 1: Mettre hasImage à true
+    hasImage: true,
+    // MODIFICATION 2: Ajouter l'objet image
+    image: {
+      src: 'picture/events/tournoi_plein.png', // <--- REMPLACEZ PAR LE CHEMIN DE VOTRE IMAGE
+      alt: "Photo de l'Activ Chess 2025" // <--- REMPLACEZ PAR UNE DESCRIPTION
+    },
+    hasLink: true,
+    // MODIFICATION 3: Correction du lien (un lien interne React ne doit pas contenir l'URL complète)
+    link: '/activ-chess',
+    linkText: "Consulter la page dédiée avec les résultats complets"
+  },
+  
+  {
     icon: "award",
     date: new Date('2025-10-19'),
     title: "Bravo à Joseph Spahr pour sa participation au Grand Prix Junior de Bovernier !",
