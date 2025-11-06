@@ -17,6 +17,30 @@ export interface NewsItem {
 export const newsItems: NewsItem[] = [
   {
     icon: "trophy",
+    date: new Date('2025-11-01T09:00:00'), // Rédigé le lendemain du match
+    title: "CSG R1 : Débuts contrastés pour nos joueurs !",
+    description: "Lancement du Championnat Suisse par Groupes ce 1er novembre. Sion 1 et Valais 3 s'imposent brillamment, tandis que Valais 1 subit une défaite logique en 2e ligue fédérale.",
+    text: `Le coup d'envoi du Championnat Suisse par Groupes (CSG) 2025/26 a été donné ce samedi 1er novembre ! Quatre équipes impliquant des joueurs de notre club étaient engagées, avec des résultats diverses.
+
+**Valais 1 (2e ligue fédérale)**
+Pour son entrée en matière, l'équipe fanion affrontait Trümmerfeld 1. Face à une solide équipe, Valais 1 s'incline logiquement sur le score de **5½ - 2½**. Un début de saison difficile dans une ligue très compétitive.
+
+**Valais 2 vs Valais 3 (1ère ligue régionale)**
+C'était le grand derby fratricide de cette première ronde ! La rencontre a tourné à l'avantage de **Valais 3**, qui n'a laissé aucune chance à **Valais 2** en s'imposant sur le score net et sans appel de **6 - 0**. Une entrée en matière parfaite pour l'équipe du capitaine Pierre-Marie Rappaz.
+
+**Sion 1 (3ème ligue régionale)**
+Départ en fanfare pour notre équipe Sion 1 ! Opposée à Valais 4, l'équipe s'impose de manière convaincante sur le score de **4 - 0**. C'est un excellent résultat qui lance idéalement la saison.
+
+Bravo à tous les joueurs pour leur engagement lors de cette première ronde !
+`,
+    hasImage: false,
+    hasLink: true,
+    link: '/competitions/csg',
+    linkText: "Consulter les détails du CSG"
+  },
+  // --- Fin de l'article ajouté ---
+  {
+    icon: "trophy",
     date: new Date('2025-10-26T18:00:00'), // La date de l'événement
     title: "L'Activ Chess 2025 : Un beau succès avec 86 participants !",
     description: "Un grand bravo et merci aux 86 joueurs, bénévoles, et les autorités présentent pour cette magnifique édition de l'Activ Chess remportée par Romain Gemelli.",

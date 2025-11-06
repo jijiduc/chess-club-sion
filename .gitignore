@@ -1,6 +1,7 @@
 node_modules/
 .vscode/
 dist/
-chess-club-deployment/
+chess-club-deployment/*
+chess-club-sion-v2/public/*
 .ps1
 .sec
