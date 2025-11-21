@@ -1,3 +1,5 @@
+// src/data
+
 export interface NavItem {
   name: string
   href: string
@@ -5,7 +7,6 @@ export interface NavItem {
 }
 
 export const navigationItems: NavItem[] = [
-  { name: 'Accueil', href: '/' },
   {
     name: 'Le club',
     href: '#',
@@ -19,18 +20,25 @@ export const navigationItems: NavItem[] = [
       { name: 'Galerie photos', href: '/galerie' }
     ]
   },
-  { name: 'Activ Chess de Sion', href: '/activ-chess' },
   { name: 'Programme', href: '/programme' },
   { name: 'École d\'échecs', href: '/ecole' },
   {
-    name: 'Compétitions',
+    name: 'Tournois du club',
     href: '#',
     children: [
-      { name: 'Championnat interne du club', href: '/competitions/tournoi-interne' },
-      { name: 'CVE - Champ. Valaisan par Equipe', href: '/competitions/cve' },
-      { name: 'CSE - Champ. Suisse par Equipe', href: '/competitions/cse' },
-      { name: 'CSG - Champ. Suisse par Groupe', href: '/competitions/csg' }
+      { name: 'Championnat interne', href: '/competitions/tournoi-interne' },
+      { name: 'Activ Chess de Sion', href: '/activ-chess' }
     ]
   },
+  {
+    name: 'Compétitions par équipes',
+    href: '#',
+    children: [
+      { name: 'CVE - Champ. Valaisan', href: '/competitions/cve' },
+      { name: 'CSE - Champ. Suisse Equipe', href: '/competitions/cse' },
+      { name: 'CSG - Champ. Suisse Groupe', href: '/competitions/csg' }
+    ]
+  },
+  { name: '🎅 Blitz de Noël', href: '/tournoi-noel' },
   { name: 'Contact', href: '/contact' }
 ]

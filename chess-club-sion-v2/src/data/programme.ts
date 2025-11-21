@@ -23,91 +23,6 @@ export interface ProgrammeEvent {
 
 export const programmeEvents: ProgrammeEvent[] = [
   {
-    id: '2025-11-07-intermediaire',
-    title: 'Cours intermédiaire',
-    date: '2025-11-07',
-    time: '18h30 - 20h30',
-    category: ['ecole-echecs'],
-    description: 'Cours pour les joueurs intermédiaires',
-    location: "Local du club",
-    calendarTime: '18:30',
-    calendarEndTime: '20:30',
-    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
-    calendarDetails: 'Ecole d\'échecs de Sion : cours intermédiaire'
-  },
-  {
-    id: 'cve-2025-11-07-sion1',
-    title: 'CVE Ronde 1: Sion 1 - Martigny 2',
-    date: '2025-11-07',
-    time: 'En soirée',
-    category: ['CVE'],
-    description: 'Championnat valaisan par équipes, Ronde 1',
-    location: 'Local du CE Sion',
-    link: '/competitions/cve',
-  },
-  {
-    id: 'cve-2025-11-07-sion2',
-    title: 'CVE Ronde 1: Montana 2 - Sion 2',
-    date: '2025-11-07',
-    time: 'En soirée',
-    category: ['CVE'],
-    description: 'Championnat valaisan par équipes, Ronde 1',
-    location: 'Crans-Montana (à l\'extérieur)',
-    link: '/competitions/cve',
-  },
-  {
-    id: 'cve-2025-11-07-sion3',
-    title: 'CVE Ronde 1: Monthey - Sion 3',
-    date: '2025-11-07',
-    time: 'En soirée',
-    category: ['CVE'],
-    description: 'Championnat valaisan par équipes, Ronde 1',
-    location: 'Monthey (à l\'extérieur)',
-    link: '/competitions/cve',
-  },
-  {
-    id: '2025-11-08-avance',
-    title: 'Cours avancé',
-    date: '2025-11-08',
-    time: '9h30 - 11h30',
-    category: ['ecole-echecs'],
-    description: 'Cours pour les joueurs avancés',
-    location: "Local du club",
-    calendarTime: '09:30',
-    calendarEndTime: '11:30',
-    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
-    calendarDetails: 'Ecole d\'échecs de Sion : cours avancés'
-  },
-  {
-    id: '2025-11-12-ecolier',
-    title: 'Cours écolier',
-    date: '2025-11-12',
-    time: '13h30 - 15h30',
-    category: ['ecole-echecs'],
-    description: 'Cours pour les joueurs débutants',
-    location: "Local du club",
-    calendarTime: '13:30',
-    calendarEndTime: '15:30',
-    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
-    calendarDetails: 'Ecole d\'échecs de Sion : cours écoliers'
-  },
-  {
-    id: '2025-11-14',
-    title: "14e Grand Prix de Monthey",
-    date: '2025-11-14',
-    endDate: '2025-11-16',
-    time: '19h15',
-    category: ['tournoi'],
-    description: "Tournoi open, aussi Championnat valaisan individuel.",
-    location: "Monthey",
-    link: 'https://www.chessmonthey.ch',
-    details: [
-      "Inscription : 80.- Adultes / 40.- Jeunes.",
-      { text: 'Infos & inscriptions : jddelacroix@netplus.ch', link: 'mailto:jddelacroix@netplus.ch' }
-    ],
-    image: '/picture/events/100Monthey.png'
-  },
-  {
     id: '2025-11-21-intermediaire',
     title: 'Cours intermédiaire',
     date: '2025-11-21',
@@ -119,6 +34,19 @@ export const programmeEvents: ProgrammeEvent[] = [
     calendarEndTime: '20:30',
     calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
     calendarDetails: 'Ecole d\'échecs de Sion : cours intermédiaire'
+  },
+  {
+    id: '2025-11-21-cvi-tournoi-rapide',
+    title: 'CVI & Tournoi rapide 10+5',
+    date: '2025-11-21',
+    time: '20h00',
+    category: ['CVI', 'soiree-club', 'tournoi'],
+    description: 'CVI & Tournoi rapide 10+5 à partir de 20h00',
+    location: "Local du club",
+    calendarTime: '20:00',
+    calendarEndTime: '23:00', // Assuming it ends at 23:00
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: 'CVI & Tournoi rapide 10+5'
   },
   {
     id: '2025-11-21-cvi',
@@ -177,12 +105,12 @@ export const programmeEvents: ProgrammeEvent[] = [
     id: '2025-11-28-intermediaire',
     title: 'Cours intermédiaire',
     date: '2025-11-28',
-    time: '18h30 - 20h30',
+    time: '18h30 - 20h00',
     category: ['ecole-echecs'],
     description: 'Cours pour les joueurs intermédiaires',
     location: "Local du club",
     calendarTime: '18:30',
-    calendarEndTime: '20:30',
+    calendarEndTime: '20:00',
     calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
     calendarDetails: 'Ecole d\'échecs de Sion : cours intermédiaire'
   },
@@ -257,6 +185,49 @@ export const programmeEvents: ProgrammeEvent[] = [
     calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
     calendarDetails: 'Ecole d\'échecs de Sion : cours avancés'
   },
+  {
+    id: '2025-12-06-ecole-uve',
+    title: "Ecole d'échecs de l'UVE (Session 1)",
+    date: '2025-12-06',
+    time: '9h00 - 11h45',
+    category: ['ecole-echecs'],
+    description: "1ère session de l'Ecole d'échecs de l'Union Valaisanne. Ouvert aux niveaux 'Moyens' (<1500 ELO) et 'Avancés' (>1500 ELO).",
+    location: 'Riddes',
+    link: '/pdf/tournoi_riddes.pdf', // <-- CORRIGÉ
+    details: [
+      "Finance : Fr. 15.- (payable sur place)",
+      "Délai d'inscription : 29 novembre 2025",
+      { text: 'Infos & Inscription (J-C Putallaz)', link: 'mailto:jeanchristophe.putallaz@gmail.com' }
+    ],
+    image : '/picture/events/UVE.png', // <-- CORRIGÉ
+    calendarTime: '09:00',
+    calendarEndTime: '11:45',
+    calendarLocation: 'Nouvelle Ecole, Ruelle de la Poste, Riddes',
+    calendarDetails: "Ecole d'échecs de l'UVE (Session 1). Accueil 9h00-9h15. Cours 9h30-10h45. Jeu/simultanées 11h00-11h45."
+  },
+  {
+    id: '2025-12-06-gpjv-riddes',
+    title: '2ème Tournoi du Grand Prix Valaisan Jeunes (GPVJ U20)',
+    date: '2025-12-06',
+    time: '13h30 - 18h00',
+    category: ['tournoi', 'GPJV'],
+    description: 'Tournoi jeunes U20 organisé par l\'UVE et Riddes-Echecs. 7 rondes.',
+    image : '/picture/events/UVE.png', // <-- CORRIGÉ
+    location: 'Riddes',
+    link: '/pdf/ecole_6.pdf', // <-- CORRIGÉ
+    details: [
+      "Ouvert aux jeunes nés après le 01.09.2005",
+      "Cadence : 7 rondes de 15 minutes par joueur",
+      "Finance : Fr. 15.- (payable sur place)",
+      "Inscriptions sur place jusqu'à 13h15",
+      { text: 'Infos (J-C Putallaz)', link: 'mailto:jeanchristophe.putallaz@gmail.com' }
+    ],
+    calendarTime: '13:30',
+    calendarEndTime: '18:00',
+    calendarLocation: 'Nouvelle Ecole, Ruelle de la Poste, Riddes',
+    calendarDetails: "2ème Tournoi GPVJ U20. Clôture inscriptions 13h15. Rondes 1-7 de 13h30 à 17h45. Remise des prix 18h00."
+  },
+
   {
     id: '2025-12-11-ecolier',
     title: 'Cours écolier',
@@ -381,6 +352,29 @@ export const programmeEvents: ProgrammeEvent[] = [
     calendarEndTime: '11:30',
     calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
     calendarDetails: 'Ecole d\'échecs de Sion : cours avancés'
+  },
+  {
+    id: '2025-12-21-blitz-noel',
+    title: 'Blitz Populaire de Noël',
+    date: '2025-12-21',
+    time: '14h00 - 17h00',
+    category: ['tournoi', 'soiree-club'],
+    description: 'Tournoi Blitz de Noël. 7 rondes de 5min + 3s. Homologué FIDE.',
+    location: "Local du club",
+    calendarTime: '14:00',
+    calendarEndTime: '17:00',
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: 'Blitz Populaire de Noël. 7 rondes, 5 min + 3 sec/coup. Ouvert à tous.',
+    link: '/blitz-noel',
+    details: [
+        "7 rondes, 5 min + 3 sec/coup.",
+        "Arbitre : NA Fabrice Lovey",
+        "Finance: Adultes CHF 15.-, Juniors (U20) CHF 5.-",
+        "Limite de 40 participants.",
+        { text: 'Inscription en ligne', link: 'https://forms.gle/wTn4UmSqD6o6ouBd7' },
+        { text: 'Liste des inscrits', link: 'https://docs.google.com/document/d/1r8EbUMybaKIWZyd58Uco4e1I_dodR-5hE96cWdiMraM/edit?usp=sharing' }
+    ],
+    image: '/picture/events/Sion.png'
   },
   {
     id: '2025-12-16-cvi-8',
@@ -622,9 +616,9 @@ export const programmeEvents: ProgrammeEvent[] = [
   },
   {
     id: '2026-05-10-cvi-finale',
-    title: 'CVI 2025-2026: Finale',
-    date: '2026-05-10',
-    time: 'Soir',
+    title: 'CVI 2025-2026: Finale (en Mai)',
+    date: '2026-05-15',
+    time: 'Date pas encore définie',
     category: ['CVI'],
     description: 'Finale à planifier en Mai.',
     link: 'https://www.uve-wsb.ch/competitions-valaisannes/cvi'

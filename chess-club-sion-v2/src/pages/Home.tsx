@@ -218,11 +218,11 @@ export default function Home() {
               <div className="bg-black/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6 max-w-2xl mx-auto">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                   <div className="text-left">
-                    <p className="font-semibold text-primary-200 flex items-center"><Trophy className="h-5 w-5 mr-2" /> Prochain rendez-vous valaisan :</p>
-                    <p className="text-xl text-white">Grand Prix de Monthey - 14-16 novembre</p>
+                    <p className="font-semibold text-primary-200 flex items-center"><Trophy className="h-5 w-5 mr-2" /> Ne manquez pas !</p>
+                    <p className="text-xl text-white">Tournoi blitz de Noël - 21 décembre</p>
                   </div>
                   <a
-                    href="https://www.chessmonthey.ch/grand-prix-monthey"
+                    href="/tournoi-noel"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group bg-primary-500 hover:bg-primary-400 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 inline-flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full md:w-auto"

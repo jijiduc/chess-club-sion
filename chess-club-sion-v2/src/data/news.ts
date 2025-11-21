@@ -16,6 +16,21 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
+  icon: "trophy",
+  date: new Date('2025-11-17T09:00:00'),
+  title: "Succès sédunois au GP de Monthey : Titres valaisans pour Sola et Rappaz !",
+  description: "Bravo à nos membres ayant participés au 14e GP de Monthey, notamment Flavien Sola (Champion Valaisan) et Pierre-Marie Rappaz (Champion Valaisan Sénior).",
+  text: "Le 14ème Grand-Prix de Monthey s'est déroulé du 14 au 16 novembre 2025, marquant également le centenaire du club organisateur. Plusieurs membres du Club d'Échecs de Sion y ont participé avec succès, remportant des titres cantonaux.\n\nNous adressons nos plus vives félicitations à :\n\n* **Flavien Sola** : Il remporte le titre de **Champion Valaisan de parties lentes**. Il termine 12ème au classement général avec 5.0 points.\n* **Pierre-Marie Rappaz** : Il est sacré **Champion Valaisan Sénior**. Il se classe 22ème avec 4.0 points.\n* **Jean-Yves Riand** : Il décroche la place de **1er Sénior** du tournoi, terminant 21ème avec 4.5 points.\n\nUn grand bravo à eux, ainsi qu'à tous les autres membres du CE Sion présents pour leur participation !",
+  hasImage: true,
+  image: {
+    src: "picture/events/Monthey_2025/vainqueurs.jpg",
+    alt: "Les différents vainqueurs (g.à.d. Flavien Sola, IM Tom Decugniere (2ème), Gm Mishra Swayams (1er), FM Aurelio Colmenares (3ème) et Pierre-Marie Rappaz"
+  },
+  hasLink: true,
+  link: "https://www.chessmonthey.ch/images/fichiers/pdf/Monthey25b-TeilRang.pdf",
+  linkText: "Consulter les résultats détaillés"
+},
+  {
     icon: "trophy",
     date: new Date('2025-11-01T09:00:00'), // Rédigé le lendemain du match
     title: "CSG R1 : Débuts contrastés pour nos joueurs !",

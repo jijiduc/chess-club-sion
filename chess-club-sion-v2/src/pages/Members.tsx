@@ -18,7 +18,6 @@ export default function Members() {
     return allPlayers.filter(player => {
       const matchesSearch = searchTerm === '' ||
         `${player.prenom} ${player.nom}`.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        player.codeFSE.includes(searchTerm) ||
         player.codeFIDE.includes(searchTerm)
 
       const matchesCategory = selectedCategory === 'all' || player.category === selectedCategory
@@ -28,9 +27,11 @@ export default function Members() {
   }, [allPlayers, searchTerm, selectedCategory])
 
   const totalMembers = allPlayers.length
+  const playersWithElo = allPlayers.filter(player => player.elo > 0);
+  const totalMembersWithElo = playersWithElo.length;
   const averageElo = Math.round(
-    allPlayers.reduce((sum, player) => sum + player.elo, 0) / totalMembers
-  )
+    playersWithElo.reduce((sum, player) => sum + player.elo, 0) / totalMembersWithElo
+  );
 
   return (
     <>
@@ -105,13 +106,10 @@ export default function Members() {
                       Nom
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
-                      ELO FIDE
+                      ELO FIDE standard
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
                       Fédération
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
-                      Code FSE
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-neutral-500 uppercase tracking-wider">
                       Code FIDE
@@ -124,7 +122,7 @@ export default function Members() {
                 <tbody className="bg-white divide-y divide-neutral-200">
                   {filteredPlayers.map((player, index) => (
                     <motion.tr
-                      key={`${player.codeFSE}-${index}`}
+                      key={`${player.codeFIDE}-${index}`}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.02 }}
@@ -146,17 +144,6 @@ export default function Members() {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span className="text-sm text-neutral-600">{player.federation}</span>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <a
-                          href={`https://www.swisschess.ch/suchresultate.html?keywords=${player.codeFSE}&x=0&y=0`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm text-primary-600 hover:text-primary-700 inline-flex items-center"
-                        >
-                          {player.codeFSE}
-                          <ExternalLink className="ml-1 h-3 w-3" />
-                        </a>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         {player.codeFIDE ? (

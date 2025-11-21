@@ -1,3 +1,5 @@
+// src/components/Navigation/Navigation.tsx
+
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronDown } from 'lucide-react'
@@ -48,7 +50,7 @@ export default function Navigation() {
                 {item.children ? (
                   <div className="relative">
                     <button
-                      className={`flex items-center px-4 py-2 text-sm font-medium rounded-xl transition-all duration-200 ${
+                      className={`flex items-center px-4 py-2 text-sm font-medium rounded-xl transition-all duration-200 whitespace-nowrap ${ // <-- MODIFICATION ICI
                         isActive(item.href)
                           ? 'text-primary-700 bg-primary-50'
                           : 'text-neutral-700 hover:text-primary-700 hover:bg-neutral-50'
@@ -97,7 +99,7 @@ export default function Navigation() {
                 ) : (
                   <Link
                     to={item.href}
-                    className={`px-4 py-2 text-sm font-medium rounded-xl transition-all duration-200 ${
+                    className={`px-4 py-2 text-sm font-medium rounded-xl transition-all duration-200 whitespace-nowrap ${ // <-- MODIFICATION ICI
                       isActive(item.href)
                         ? 'text-primary-700 bg-primary-50'
                         : 'text-neutral-700 hover:text-primary-700 hover:bg-neutral-50'

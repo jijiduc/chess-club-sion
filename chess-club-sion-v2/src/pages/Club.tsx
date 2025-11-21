@@ -94,7 +94,7 @@ export default function Club() {
           >
             <Link to="/membres" className="block bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
               <Users className="h-12 w-12 text-primary-600 mx-auto mb-4" />
-              <h3 className="text-3xl font-bold text-primary-600 mb-2">28</h3>
+              <h3 className="text-3xl font-bold text-primary-600 mb-2">30</h3>
               <p className="text-neutral-600 underline">Membres actifs en compétition</p>
             </Link>
             <div className="bg-white rounded-xl shadow-lg p-8 text-center">
@@ -104,9 +104,9 @@ export default function Club() {
             </div>
             <div className="bg-white rounded-xl shadow-lg p-8 text-center">
               <Trophy className="h-12 w-12 text-primary-600 mx-auto mb-4" />
-              <h3 className="text-3xl font-bold text-neutral-900 mb-2">6</h3>
+              <h3 className="text-3xl font-bold text-neutral-900 mb-2">7</h3>
               <p className="text-neutral-600">Équipes en championnat</p>
-              <p className="text-sm text-neutral-500 mt-2">2 CSE • 2 CSG • 2 CVE</p>
+              <p className="text-sm text-neutral-500 mt-2">2 CSE • 2 CSG • 3 CVE</p>
             </div>
           </motion.div>
 
