@@ -16,6 +16,28 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
+    icon: "trophy",
+    date: new Date('2025-11-23T09:00:00'), // Rédigé le lendemain des matchs
+    title: "CSG R2 : Sion 1 et Valais 3 cartonnent, Valais 1 arrache le nul !",
+    description: "Excellente deuxième ronde de CSG pour nos équipes ! Valais 3 s'impose 4,5 - 1,5 contre Echallens 2, Sion 1 gagne 4-0 contre Montreux, et Valais 1 obtient un solide match nul 4-4 contre Echallens 1.",
+    text: `La deuxième ronde du Championnat Suisse par Groupes (CSG), qui s'est jouée hier le 22 octobre, a été marquée par d'excellentes performances de nos équipes.
+
+**Valais 1 (2e ligue fédérale)**
+Opposée à la forte équipe d'Echallens 1, Valais 1 a réalisé une performance solide en arrachant un match nul **4 - 4**. Un résultat très encourageant pour la suite du championnat.
+
+**Valais 3 (1ère ligue régionale)**
+L'équipe continue sur sa lancée de la première ronde avec une nouvelle victoire convaincante. Valais 3 s'est imposée sur le score de **4,5 - 1,5** face à Echallens 2.
+
+**Sion 1 (3ème ligue régionale)**
+Début de saison parfait pour Sion 1 qui enchaîne une deuxième victoire. L'équipe a largement dominé Montreux 2 en s'imposant sur un score sans appel de **4 - 0**.
+
+Félicitations à tous les joueurs pour ces superbes résultats !`,
+    hasImage: false,
+    hasLink: true,
+    link: '/competitions/csg',
+    linkText: "Consulter les détails du CSG"
+  },
+  {
   icon: "trophy",
   date: new Date('2025-11-17T09:00:00'),
   title: "Succès sédunois au GP de Monthey : Titres valaisans pour Sola et Rappaz !",
