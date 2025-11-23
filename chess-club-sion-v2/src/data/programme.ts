@@ -358,7 +358,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'Blitz Populaire de Noël',
     date: '2025-12-21',
     time: '14h00 - 17h00',
-    category: ['tournoi-externe', 'soiree-club'],
+    category: ['tournoi-externe'],
     description: 'Tournoi Blitz de Noël. 7 rondes de 5min + 3s. Homologué FIDE.',
     location: "Local du club",
     calendarTime: '14:00',
@@ -744,7 +744,7 @@ export const programmeEvents: ProgrammeEvent[] = [
 export const categoryLabels = {
   'ecole-echecs': 'Ecole d\'échecs',
   'soiree-club': 'Soirée club',
-  tournoi: 'Tournoi externe',
+  'tournoi-externe': 'Tournoi externe',
   CSE: 'CSE',
   CSG: 'CSG',
   CVE: 'CVE',
