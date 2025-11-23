@@ -377,14 +377,14 @@ export const programmeEvents: ProgrammeEvent[] = [
     image: '/picture/events/Sion.png'
   },
   {
-    id: 'internal-championship-2025-26-round-1',
-    title: 'Championnat interne - Ronde 1',
-    date: '2025-11-25',
-    endDate: '2025-12-25',
+    id: 'internal-championship-2025-26-round-1-deadline',
+    title: 'Championnat interne - Date limite Ronde 1',
+    date: '2025-12-25',
     time: 'Soir',
     category: ['tournoi'],
-    description: 'Date limite pour la ronde 1 du championnat interne.',
-    link: '/competitions/championnat-interne'
+    description: 'Date limite pour les résultats de la ronde 1 du championnat interne.',
+    link: '/competitions/championnat-interne',
+    image: '/picture/events/Sion.png'
   },
   {
     id: '2025-12-16-cvi-8',
@@ -399,14 +399,14 @@ export const programmeEvents: ProgrammeEvent[] = [
 
   // Janvier 2026
   {
-    id: 'internal-championship-2025-26-round-2',
-    title: 'Championnat interne - Ronde 2',
-    date: '2025-12-26',
-    endDate: '2026-01-25',
+    id: 'internal-championship-2025-26-round-2-deadline',
+    title: 'Championnat interne - Date limite Ronde 2',
+    date: '2026-01-25',
     time: 'Soir',
     category: ['tournoi'],
-    description: 'Date limite pour la ronde 2 du championnat interne.',
-    link: '/competitions/championnat-interne'
+    description: 'Date limite pour les résultats de la ronde 2 du championnat interne.',
+    link: '/competitions/championnat-interne',
+    image: '/picture/events/Sion.png'
   },
   {
     id: '2026-01-09-cvi',
@@ -475,14 +475,14 @@ export const programmeEvents: ProgrammeEvent[] = [
 
   // Février 2026
   {
-    id: 'internal-championship-2025-26-round-3',
-    title: 'Championnat interne - Ronde 3',
-    date: '2026-01-26',
-    endDate: '2026-02-23',
+    id: 'internal-championship-2025-26-round-3-deadline',
+    title: 'Championnat interne - Date limite Ronde 3',
+    date: '2026-02-23',
     time: 'Soir',
     category: ['tournoi'],
-    description: 'Date limite pour la ronde 3 du championnat interne.',
-    link: '/competitions/championnat-interne'
+    description: 'Date limite pour les résultats de la ronde 3 du championnat interne.',
+    link: '/competitions/championnat-interne',
+    image: '/picture/events/Sion.png'
   },
   {
     id: 'csg-2026-02-07-valais1',
@@ -555,14 +555,14 @@ export const programmeEvents: ProgrammeEvent[] = [
 
   // Mars 2026
   {
-    id: 'internal-championship-2025-26-round-4',
-    title: 'Championnat interne - Ronde 4',
-    date: '2026-02-24',
-    endDate: '2026-03-25',
+    id: 'internal-championship-2025-26-round-4-deadline',
+    title: 'Championnat interne - Date limite Ronde 4',
+    date: '2026-03-25',
     time: 'Soir',
     category: ['tournoi'],
-    description: 'Date limite pour la ronde 4 du championnat interne.',
-    link: '/competitions/championnat-interne'
+    description: 'Date limite pour les résultats de la ronde 4 du championnat interne.',
+    link: '/competitions/championnat-interne',
+    image: '/picture/events/Sion.png'
   },
   {
     id: 'csg-2026-03-07-valais1',
@@ -615,14 +615,14 @@ export const programmeEvents: ProgrammeEvent[] = [
 
   // Avril 2026
   {
-    id: 'internal-championship-2025-26-round-5',
-    title: 'Championnat interne - Ronde 5',
-    date: '2026-03-26',
-    endDate: '2026-04-25',
+    id: 'internal-championship-2025-26-round-5-deadline',
+    title: 'Championnat interne - Date limite Ronde 5',
+    date: '2026-04-25',
     time: 'Soir',
     category: ['tournoi'],
-    description: 'Date limite pour la ronde 5 du championnat interne.',
-    link: '/competitions/championnat-interne'
+    description: 'Date limite pour les résultats de la ronde 5 du championnat interne.',
+    link: '/competitions/championnat-interne',
+    image: '/picture/events/Sion.png'
   },
   {
     id: '2026-04-10-cvi',
@@ -646,14 +646,14 @@ export const programmeEvents: ProgrammeEvent[] = [
 
   // Mai 2026
   {
-    id: 'internal-championship-2025-26-round-6',
-    title: 'Championnat interne - Ronde 6',
-    date: '2026-04-26',
-    endDate: '2026-05-25',
+    id: 'internal-championship-2025-26-round-6-deadline',
+    title: 'Championnat interne - Date limite Ronde 6',
+    date: '2026-05-25',
     time: 'Soir',
     category: ['tournoi'],
-    description: 'Date limite pour la ronde 6 du championnat interne.',
-    link: '/competitions/championnat-interne'
+    description: 'Date limite pour les résultats de la ronde 6 du championnat interne.',
+    link: '/competitions/championnat-interne',
+    image: '/picture/events/Sion.png'
   },
   {
     id: '2026-05-02-cve',
@@ -698,14 +698,14 @@ export const programmeEvents: ProgrammeEvent[] = [
 
   // Juin 2026
   {
-    id: 'internal-championship-2025-26-round-7',
-    title: 'Championnat interne - Ronde 7',
-    date: '2026-05-26',
-    endDate: '2026-06-25',
+    id: 'internal-championship-2025-26-round-7-deadline',
+    title: 'Championnat interne - Date limite Ronde 7 et Remise des prix',
+    date: '2026-06-25',
     time: 'Soir',
     category: ['tournoi'],
-    description: 'Date limite pour la ronde 7 du championnat interne et remise des prix.',
-    link: '/competitions/championnat-interne'
+    description: 'Date limite pour les résultats de la ronde 7 du championnat interne. Remise des prix.',
+    link: '/competitions/championnat-interne',
+    image: '/picture/events/Sion.png'
   },
   {
     id: '2026-06-06',
