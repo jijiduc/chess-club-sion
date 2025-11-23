@@ -1,4 +1,4 @@
-export type EventCategory = 'ecole-echecs' | 'soiree-club' | 'tournoi' | 'CSE' | 'CSG' | 'CVE' | 'CVI' | 'GPJV' | 'jubilee' | 'championnat-interne';
+export type EventCategory = 'ecole-echecs' | 'soiree-club' | 'tournoi-externe' | 'CSE' | 'CSG' | 'CVE' | 'CVI' | 'GPJV' | 'jubilee' | 'championnat-interne';
 
 export interface ProgrammeEvent {
   id: string
@@ -40,7 +40,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'CVI & Tournoi rapide 10+5',
     date: '2025-11-21',
     time: '20h00',
-    category: ['CVI', 'soiree-club', 'tournoi'],
+    category: ['CVI', 'soiree-club', 'tournoi-externe'],
     description: 'CVI & Tournoi rapide 10+5 à partir de 20h00',
     location: "Local du club",
     calendarTime: '20:00',
@@ -75,7 +75,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '14h00',
     category: ['CSG'],
     description: '1. Regionalliga, Ronde 2',
-    location: "Echallens (à l'extérieur)",
+    location: "Echallens (à l\'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
@@ -210,7 +210,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: '2ème Tournoi du Grand Prix Valaisan Jeunes (GPVJ U20)',
     date: '2025-12-06',
     time: '13h30 - 18h00',
-    category: ['tournoi', 'GPJV'],
+    category: ['tournoi-externe', 'GPJV'],
     description: 'Tournoi jeunes U20 organisé par l\'UVE et Riddes-Echecs. 7 rondes.',
     image : '/picture/events/UVE.png', // <-- CORRIGÉ
     location: 'Riddes',
@@ -219,7 +219,7 @@ export const programmeEvents: ProgrammeEvent[] = [
       "Ouvert aux jeunes nés après le 01.09.2005",
       "Cadence : 7 rondes de 15 minutes par joueur",
       "Finance : Fr. 15.- (payable sur place)",
-      "Inscriptions sur place jusqu'à 13h15",
+      "Inscriptions sur place jusqu\'à 13h15",
       { text: 'Infos (J-C Putallaz)', link: 'mailto:jeanchristophe.putallaz@gmail.com' }
     ],
     calendarTime: '13:30',
@@ -261,7 +261,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '14h00',
     category: ['CSG'],
     description: '2. Bundesliga, Ronde 3',
-    location: "Berne (à l'extérieur)",
+    location: "Berne (à l\'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
@@ -271,7 +271,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '14h00',
     category: ['CSG'],
     description: '1. Regionalliga, Ronde 3',
-    location: "Fribourg (à l'extérieur)",
+    location: "Fribourg (à l\'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
@@ -358,7 +358,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'Blitz Populaire de Noël',
     date: '2025-12-21',
     time: '14h00 - 17h00',
-    category: ['tournoi', 'soiree-club'],
+    category: ['tournoi-externe', 'soiree-club'],
     description: 'Tournoi Blitz de Noël. 7 rondes de 5min + 3s. Homologué FIDE.',
     location: "Local du club",
     calendarTime: '14:00',
@@ -381,7 +381,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'Championnat interne - Date limite Ronde 1',
     date: '2025-12-25',
     time: 'Soir',
-    category: ['tournoi', 'championnat-interne'],
+    category: ['championnat-interne'],
     description: 'Date limite pour les résultats de la ronde 1 du championnat interne.',
     link: '/competitions/championnat-interne',
     image: '/picture/events/Sion.png'
@@ -403,7 +403,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'Championnat interne - Date limite Ronde 2',
     date: '2026-01-25',
     time: 'Soir',
-    category: ['tournoi', 'championnat-interne'],
+    category: ['championnat-interne'],
     description: 'Date limite pour les résultats de la ronde 2 du championnat interne.',
     link: '/competitions/championnat-interne',
     image: '/picture/events/Sion.png'
@@ -423,7 +423,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'Tournoi de Bagnes',
     date: '2026-01-11',
     time: 'Toute la journée',
-    category: ['tournoi','GPJV'],
+    category: ['tournoi-externe','GPJV'],
     location: 'Préau du Collège de Bagnes au Châble (sous Verbier)',
     image: '/picture/events/Bagnes.png',
     link: 'https://www.uve-wsb.ch/competitions-valaisannes/tib',
@@ -468,7 +468,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '14h00',
     category: ['CSG'],
     description: '3. Regionalliga, Ronde 4',
-    location: "Vevey (à l'extérieur)",
+    location: "Vevey (à l\'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
   },
   
@@ -479,7 +479,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'Championnat interne - Date limite Ronde 3',
     date: '2026-02-23',
     time: 'Soir',
-    category: ['tournoi', 'championnat-interne'],
+    category: ['championnat-interne'],
     description: 'Date limite pour les résultats de la ronde 3 du championnat interne.',
     link: '/competitions/championnat-interne',
     image: '/picture/events/Sion.png'
@@ -511,7 +511,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '14h00',
     category: ['CSG'],
     description: '2. Bundesliga, Ronde 6',
-    location: "La Chaux-de-Fonds (à l'extérieur)",
+    location: "La Chaux-de-Fonds (à l\'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
@@ -539,7 +539,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: '18ème Active Chess du Bouveret',
     date: '2026-02-22',
     time: 'Toute la journée',
-    category: ['tournoi','GPJV'],
+    category: ['tournoi-externe','GPJV'],
     location: 'Bouveret',
     image: '/picture/events/CEPV.png'
   },
@@ -559,7 +559,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'Championnat interne - Date limite Ronde 4',
     date: '2026-03-25',
     time: 'Soir',
-    category: ['tournoi', 'championnat-interne'],
+    category: ['championnat-interne'],
     description: 'Date limite pour les résultats de la ronde 4 du championnat interne.',
     link: '/competitions/championnat-interne',
     image: '/picture/events/Sion.png'
@@ -581,7 +581,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '14h00',
     category: ['CSG'],
     description: '1. Regionalliga, Ronde 7',
-    location: "Neuchâtel (à l'extérieur)",
+    location: "Neuchâtel (à l\'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
@@ -591,7 +591,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '14h00',
     category: ['CSG'],
     description: '3. Regionalliga, Ronde 6',
-    location: "Clarens (à l'extérieur)",
+    location: "Clarens (à l\'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
@@ -619,7 +619,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'Championnat interne - Date limite Ronde 5',
     date: '2026-04-25',
     time: 'Soir',
-    category: ['tournoi', 'championnat-interne'],
+    category: ['championnat-interne'],
     description: 'Date limite pour les résultats de la ronde 5 du championnat interne.',
     link: '/competitions/championnat-interne',
     image: '/picture/events/Sion.png'
@@ -650,7 +650,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'Championnat interne - Date limite Ronde 6',
     date: '2026-05-25',
     time: 'Soir',
-    category: ['tournoi', 'championnat-interne'],
+    category: ['championnat-interne'],
     description: 'Date limite pour les résultats de la ronde 6 du championnat interne.',
     link: '/competitions/championnat-interne',
     image: '/picture/events/Sion.png'
@@ -689,7 +689,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     date: '2026-05-14',
     endDate: '2026-05-16',
     time: 'Toute la journée',
-    category: ['tournoi'],
+    category: ['tournoi-externe'],
     description: "Tournoi Fédéral d'échecs",
     location: 'Bâle',
     link: 'https://www.swisschess.ch/federal.html',
@@ -702,7 +702,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'Championnat interne - Date limite Ronde 7 et Remise des prix',
     date: '2026-06-25',
     time: 'Soir',
-    category: ['tournoi', 'championnat-interne'],
+    category: ['championnat-interne'],
     description: 'Date limite pour les résultats de la ronde 7 du championnat interne. Remise des prix.',
     link: '/competitions/championnat-interne',
     image: '/picture/events/Sion.png'
@@ -733,7 +733,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     date: '2026-07-11',
     endDate: '2026-07-19',
     time: 'Toute la journée',
-    category: ['tournoi'],
+    category: ['tournoi-externe'],
     description: 'Championnat Suisse Individuel (CSI)',
     location: 'Grächen',
     link: 'https://www.swisschess.ch/csi.html',
@@ -744,7 +744,7 @@ export const programmeEvents: ProgrammeEvent[] = [
 export const categoryLabels = {
   'ecole-echecs': 'Ecole d\'échecs',
   'soiree-club': 'Soirée club',
-  tournoi: 'Tournoi',
+  tournoi: 'Tournoi externe',
   CSE: 'CSE',
   CSG: 'CSG',
   CVE: 'CVE',
@@ -757,7 +757,7 @@ export const categoryLabels = {
 export const categoryColors = {
   'ecole-echecs': 'bg-blue-100 text-blue-800',
   'soiree-club': 'bg-green-100 text-green-800',
-  tournoi: 'bg-purple-100 text-purple-800',
+  'tournoi-externe': 'bg-purple-100 text-purple-800',
   CSE: 'bg-red-100 text-red-800',
   CSG: 'bg-orange-100 text-orange-800',
   CVE: 'bg-pink-100 text-pink-800',
