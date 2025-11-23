@@ -290,13 +290,60 @@ export default function InternalTournament() {
                         "<strong>Homologation :</strong> Les parties seront comptabilisées pour le classement FIDE.",
                         "<strong>Début :</strong> Novembre 2025.",
                         "<strong>Fréquence :</strong> 1 ronde par mois, sur une soirée du club dédiée ou dans le délai de jeu indiqué.",
-                        "<strong>Cadence :</strong> 45 minutes + 45 secondes par coup."
+                        "<strong>Cadence :</strong> 45 minutes + 45 secondes par coup.",
+                        "<strong>Responsable sportif :</strong> Olivier Ulmann",
+                        "<strong>Arbitre :</strong> Fabrice Lovey",
+                        "<strong>Prix :</strong> Prix aux 3 premiers + meilleur junior (non cumulables)",
                       ].map((info, index) => (
                         <div key={index} className="flex items-start">
                           <ChevronRight className="h-5 w-5 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
                           <p className="text-neutral-700" dangerouslySetInnerHTML={{ __html: info }}></p>
                         </div>
                       ))}
+                    </div>
+                    <h4 className="text-xl font-bold text-neutral-900 mb-4 flex items-center">
+                      <List className="h-6 w-6 mr-2" />
+                      Règlement et déroulement
+                    </h4>
+                    <div className="space-y-3 mb-8">
+                      {[
+                        "Annoncer le résultat au responsable sportif au plus tard 6 jours avant la fin du mois.",
+                        "Passé le délai, le match est enregistré 0 - 0 et les points ELO ne sont pas comptabilisés.",
+                        "Le gagnant (blancs en cas d'égalité) annonce le résultat, joint d'une photo de la feuille de la partie.",
+                        "Le responsable sportif transmettra les résultats à l'arbitre à la fin de chaque ronde afin de préparer le prochain appariement.",
+                        "La dernière ronde se jouera en juin 2026 avec la remise des prix."
+                      ].map((info, index) => (
+                        <div key={index} className="flex items-start">
+                          <ChevronRight className="h-5 w-5 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
+                          <p className="text-neutral-700" dangerouslySetInnerHTML={{ __html: info }}></p>
+                        </div>
+                      ))}
+                    </div>
+                    <h4 className="text-xl font-bold text-neutral-900 mb-4 flex items-center">
+                      <CalendarPlus className="h-6 w-6 mr-2" />
+                      Planning et délais de jeu
+                    </h4>
+                    <div className="space-y-3 mb-8">
+                      {[
+                        "<strong>Ronde 1 :</strong> du 25.11.2025 au 25.12.2025",
+                        "<strong>Ronde 2 :</strong> du 26.12.2025 au 25.01.2026",
+                        "<strong>Ronde 3 :</strong> du 26.01.2026 au 23.02.2026",
+                        "<strong>Ronde 4 :</strong> du 24.02.2026 au 25.03.2026",
+                        "<strong>Ronde 5 :</strong> du 26.03.2026 au 25.04.2026",
+                        "<strong>Ronde 6 :</strong> du 26.04.2026 au 25.05.2026",
+                        "<strong>Ronde 7 :</strong> du 26.05.2026 au 25.06.2026 et remise des prix."
+                      ].map((info, index) => (
+                        <div key={index} className="flex items-start">
+                          <ChevronRight className="h-5 w-5 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
+                          <p className="text-neutral-700" dangerouslySetInnerHTML={{ __html: info }}></p>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="flex justify-center mt-8">
+                      <a href="https://s1.chess-results.com/Tnr1288454.aspx?lan=20&SNode=S0" target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-accent-600 hover:bg-accent-700 transition-colors">
+                        <Grid className="h-5 w-5 mr-2" />
+                        Voir les appariements (Chess-Results)
+                      </a>
                     </div>
                   </motion.div>
                 )}
