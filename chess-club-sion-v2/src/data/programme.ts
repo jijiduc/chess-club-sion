@@ -377,6 +377,16 @@ export const programmeEvents: ProgrammeEvent[] = [
     image: '/picture/events/Sion.png'
   },
   {
+    id: 'internal-championship-2025-26-round-1',
+    title: 'Championnat interne - Ronde 1',
+    date: '2025-11-25',
+    endDate: '2025-12-25',
+    time: 'Soir',
+    category: ['tournoi'],
+    description: 'Date limite pour la ronde 1 du championnat interne.',
+    link: '/competitions/championnat-interne'
+  },
+  {
     id: '2025-12-16-cvi-8',
     title: 'CVI 2025-2026: 1/8 de finale',
     date: '2025-12-16',
@@ -388,6 +398,16 @@ export const programmeEvents: ProgrammeEvent[] = [
   },
 
   // Janvier 2026
+  {
+    id: 'internal-championship-2025-26-round-2',
+    title: 'Championnat interne - Ronde 2',
+    date: '2025-12-26',
+    endDate: '2026-01-25',
+    time: 'Soir',
+    category: ['tournoi'],
+    description: 'Date limite pour la ronde 2 du championnat interne.',
+    link: '/competitions/championnat-interne'
+  },
   {
     id: '2026-01-09-cvi',
     title: 'CVI 2025-2026: 1/4 de finale',
@@ -454,6 +474,16 @@ export const programmeEvents: ProgrammeEvent[] = [
   
 
   // Février 2026
+  {
+    id: 'internal-championship-2025-26-round-3',
+    title: 'Championnat interne - Ronde 3',
+    date: '2026-01-26',
+    endDate: '2026-02-23',
+    time: 'Soir',
+    category: ['tournoi'],
+    description: 'Date limite pour la ronde 3 du championnat interne.',
+    link: '/competitions/championnat-interne'
+  },
   {
     id: 'csg-2026-02-07-valais1',
     title: 'CSG Ronde 5: Valais 1 - Nyon',
@@ -525,6 +555,16 @@ export const programmeEvents: ProgrammeEvent[] = [
 
   // Mars 2026
   {
+    id: 'internal-championship-2025-26-round-4',
+    title: 'Championnat interne - Ronde 4',
+    date: '2026-02-24',
+    endDate: '2026-03-25',
+    time: 'Soir',
+    category: ['tournoi'],
+    description: 'Date limite pour la ronde 4 du championnat interne.',
+    link: '/competitions/championnat-interne'
+  },
+  {
     id: 'csg-2026-03-07-valais1',
     title: 'CSG Ronde 7: Valais 1 - Olten',
     date: '2026-03-07',
@@ -575,6 +615,16 @@ export const programmeEvents: ProgrammeEvent[] = [
 
   // Avril 2026
   {
+    id: 'internal-championship-2025-26-round-5',
+    title: 'Championnat interne - Ronde 5',
+    date: '2026-03-26',
+    endDate: '2026-04-25',
+    time: 'Soir',
+    category: ['tournoi'],
+    description: 'Date limite pour la ronde 5 du championnat interne.',
+    link: '/competitions/championnat-interne'
+  },
+  {
     id: '2026-04-10-cvi',
     title: 'CVI 2025-2026: Demi-finales',
     date: '2026-04-10',
@@ -595,6 +645,16 @@ export const programmeEvents: ProgrammeEvent[] = [
   },
 
   // Mai 2026
+  {
+    id: 'internal-championship-2025-26-round-6',
+    title: 'Championnat interne - Ronde 6',
+    date: '2026-04-26',
+    endDate: '2026-05-25',
+    time: 'Soir',
+    category: ['tournoi'],
+    description: 'Date limite pour la ronde 6 du championnat interne.',
+    link: '/competitions/championnat-interne'
+  },
   {
     id: '2026-05-02-cve',
     title: 'Finales du CVE & Championnat CVER',
@@ -637,6 +697,16 @@ export const programmeEvents: ProgrammeEvent[] = [
   },
 
   // Juin 2026
+  {
+    id: 'internal-championship-2025-26-round-7',
+    title: 'Championnat interne - Ronde 7',
+    date: '2026-05-26',
+    endDate: '2026-06-25',
+    time: 'Soir',
+    category: ['tournoi'],
+    description: 'Date limite pour la ronde 7 du championnat interne et remise des prix.',
+    link: '/competitions/championnat-interne'
+  },
   {
     id: '2026-06-06',
     title: 'CSE - Ronde 4',
