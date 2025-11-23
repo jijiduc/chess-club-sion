@@ -1,4 +1,4 @@
-export type EventCategory = 'ecole-echecs' | 'soiree-club' | 'tournoi' | 'CSE' | 'CSG' | 'CVE' | 'CVI' | 'GPJV' | 'jubilee';
+export type EventCategory = 'ecole-echecs' | 'soiree-club' | 'tournoi' | 'CSE' | 'CSG' | 'CVE' | 'CVI' | 'GPJV' | 'jubilee' | 'championnat-interne';
 
 export interface ProgrammeEvent {
   id: string
@@ -381,7 +381,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'Championnat interne - Date limite Ronde 1',
     date: '2025-12-25',
     time: 'Soir',
-    category: ['tournoi'],
+    category: ['tournoi', 'championnat-interne'],
     description: 'Date limite pour les résultats de la ronde 1 du championnat interne.',
     link: '/competitions/championnat-interne',
     image: '/picture/events/Sion.png'
@@ -403,7 +403,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'Championnat interne - Date limite Ronde 2',
     date: '2026-01-25',
     time: 'Soir',
-    category: ['tournoi'],
+    category: ['tournoi', 'championnat-interne'],
     description: 'Date limite pour les résultats de la ronde 2 du championnat interne.',
     link: '/competitions/championnat-interne',
     image: '/picture/events/Sion.png'
@@ -479,7 +479,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'Championnat interne - Date limite Ronde 3',
     date: '2026-02-23',
     time: 'Soir',
-    category: ['tournoi'],
+    category: ['tournoi', 'championnat-interne'],
     description: 'Date limite pour les résultats de la ronde 3 du championnat interne.',
     link: '/competitions/championnat-interne',
     image: '/picture/events/Sion.png'
@@ -559,7 +559,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'Championnat interne - Date limite Ronde 4',
     date: '2026-03-25',
     time: 'Soir',
-    category: ['tournoi'],
+    category: ['tournoi', 'championnat-interne'],
     description: 'Date limite pour les résultats de la ronde 4 du championnat interne.',
     link: '/competitions/championnat-interne',
     image: '/picture/events/Sion.png'
@@ -619,7 +619,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'Championnat interne - Date limite Ronde 5',
     date: '2026-04-25',
     time: 'Soir',
-    category: ['tournoi'],
+    category: ['tournoi', 'championnat-interne'],
     description: 'Date limite pour les résultats de la ronde 5 du championnat interne.',
     link: '/competitions/championnat-interne',
     image: '/picture/events/Sion.png'
@@ -650,7 +650,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'Championnat interne - Date limite Ronde 6',
     date: '2026-05-25',
     time: 'Soir',
-    category: ['tournoi'],
+    category: ['tournoi', 'championnat-interne'],
     description: 'Date limite pour les résultats de la ronde 6 du championnat interne.',
     link: '/competitions/championnat-interne',
     image: '/picture/events/Sion.png'
@@ -702,7 +702,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     title: 'Championnat interne - Date limite Ronde 7 et Remise des prix',
     date: '2026-06-25',
     time: 'Soir',
-    category: ['tournoi'],
+    category: ['tournoi', 'championnat-interne'],
     description: 'Date limite pour les résultats de la ronde 7 du championnat interne. Remise des prix.',
     link: '/competitions/championnat-interne',
     image: '/picture/events/Sion.png'
@@ -750,7 +750,8 @@ export const categoryLabels = {
   CVE: 'CVE',
   CVI: 'CVI',
   GPJV: 'GPJV',
-  jubilee: 'Jubilée'
+  jubilee: 'Jubilée',
+  'championnat-interne': 'Championnat interne'
 }
 
 export const categoryColors = {
@@ -762,5 +763,6 @@ export const categoryColors = {
   CVE: 'bg-pink-100 text-pink-800',
   CVI: 'bg-indigo-100 text-indigo-800',
   GPJV: 'bg-cyan-100 text-cyan-800',
-  jubilee: 'bg-teal-100 text-teal-800'
+  jubilee: 'bg-teal-100 text-teal-800',
+  'championnat-interne': 'bg-yellow-100 text-yellow-800'
 }
