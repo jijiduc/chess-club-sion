@@ -11,8 +11,8 @@ export default function Footer() {
           {/* Club Identity */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-xl">♔</span>
+              <div className="w-12 h-12 flex items-center justify-center">
+                <img src="/picture/events/Sion.png" alt="Logo Club d'Échecs de Sion" className="h-full w-full object-contain" />
               </div>
               <div>
                 <h3 className="text-2xl font-display font-bold text-white">
