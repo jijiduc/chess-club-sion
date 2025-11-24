@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react'
 import { Search, ExternalLink } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { membresData } from '../data/members'
+import { membresData } from '../lib/data/members'
 import { Title, Meta } from 'react-head';
 
 export default function Members() {

@@ -32,12 +32,6 @@ New-Item -ItemType Directory -Force -Path $localPath
 Write-Output "Copie des fichiers construits (dist)..."
 Copy-Item -Recurse "dist\*" $localPath
 
-Write-Output "Copie du dossier 'picture'..."
-Copy-Item -Path "public\picture" -Destination $localPath -Recurse -Force
-
-Write-Output "Copie du dossier 'pdf'..."
-Copy-Item -Path "public\pdf" -Destination $localPath -Recurse -Force
-
 #--------------------------------------------------------------------------
 # 5. TÉLÉVERSEMENT FTP AVEC WINSCP
 #--------------------------------------------------------------------------

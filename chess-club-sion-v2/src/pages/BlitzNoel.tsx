@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Users, Calendar, Clock, MapPin, ClipboardCheck, Euro, Award, List } from 'lucide-react'
 import { Title, Meta } from 'react-head';
 import Snowfall from '../components/Snowfall';
+import winterBg from '../assets/images/winter-bg.jpg';
 
 // --- COMPOSANT TWINT (inchangé) ---
 function TwintEmbed() {
@@ -132,7 +133,7 @@ export default function BlitzNoel() {
         <section
           className="relative text-white py-24 overflow-hidden"
           style={{
-            backgroundImage: `linear-gradient(rgba(20, 0, 0, 0.6), rgba(20, 0, 0, 0.6)), url('/picture/backgrounds/winter-bg.jpg')`,
+            backgroundImage: `linear-gradient(rgba(20, 0, 0, 0.6), rgba(20, 0, 0, 0.6)), url(${winterBg})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}

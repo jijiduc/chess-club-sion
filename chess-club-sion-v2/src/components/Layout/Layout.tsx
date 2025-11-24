@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom'
-import Navigation from '../Navigation/Navigation'
+import Navigation from '../../features/navigation/Navigation'
 import Footer from './Footer'
 import ScrollManager from '../ScrollManager'
 

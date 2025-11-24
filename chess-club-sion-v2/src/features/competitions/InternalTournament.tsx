@@ -289,7 +289,7 @@ export default function InternalTournament() {
                         "<strong>Homologation :</strong> Les parties seront comptabilisées pour le classement FIDE.",
                         "<strong>Début :</strong> Novembre 2025.",
                         "<strong>Fréquence :</strong> 1 ronde par mois, sur une soirée du club dédiée ou dans le délai de jeu indiqué.",
-                        "<strong>Cadence :</strong> 45 minutes + 45 secondes par coup.",
+                        "<strong>Cadence :</strong> 45 minutes + 30 secondes par coup.",
                         "<strong>Responsable sportif :</strong> Olivier Ulmann",
                         "<strong>Arbitre :</strong> Fabrice Lovey",
                         "<strong>Prix :</strong> Prix aux 3 premiers + meilleur junior (non cumulables)",

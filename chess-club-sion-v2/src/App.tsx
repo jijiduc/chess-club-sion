@@ -2,7 +2,7 @@ import { Suspense, lazy } from 'react'
 // MODIFICATION : On retire l'import du Router ici
 import { Routes, Route } from 'react-router-dom' 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import Layout from './components/Layout/Layout'
+import Layout from './components/layout/Layout'
 
 // Lazy load all pages
 const Home = lazy(() => import('./pages/Home'))
@@ -11,10 +11,10 @@ const Committee = lazy(() => import('./pages/Committee'))
 const Contact = lazy(() => import('./pages/Contact'))
 const Members = lazy(() => import('./pages/Members'))
 const Programme = lazy(() => import('./pages/Programme'))
-const CSE = lazy(() => import('./pages/Competitions/CSE'))
-const CSG = lazy(() => import('./pages/Competitions/CSG'))
-const CVE = lazy(() => import('./pages/Competitions/CVE'))
-const InternalTournament = lazy(() => import('./pages/Competitions/InternalTournament'))
+const CSE = lazy(() => import('./features/competitions/CSE'))
+const CSG = lazy(() => import('./features/competitions/CSG'))
+const CVE = lazy(() => import('./features/competitions/CVE'))
+const InternalTournament = lazy(() => import('./features/competitions/InternalTournament'))
 const ChessSchool = lazy(() => import('./pages/ChessSchool'))
 const Gallery = lazy(() => import('./pages/Gallery'))
 const Histoire = lazy(() => import('./pages/Histoire'))

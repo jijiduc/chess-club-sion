@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Calendar, Clock, MapPin, Users, GraduationCap, Sparkles, Filter, ExternalLink, Shield, Crown, CalendarPlus, PartyPopper } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { programmeEvents, categoryLabels, categoryColors, type EventCategory } from '../data/programme';
+import { programmeEvents, categoryLabels, categoryColors, type EventCategory } from '../lib/data/programme';
 
 // --- FONCTION UTILITAIRE pour le lien Google Calendar ---
 // ... (pas de changement ici) ...

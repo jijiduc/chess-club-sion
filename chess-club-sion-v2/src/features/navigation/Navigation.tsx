@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronDown } from 'lucide-react'
-import { navigationItems } from '../../data/navigation'
+import { navigationItems } from '../../lib/data/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export default function Navigation() {

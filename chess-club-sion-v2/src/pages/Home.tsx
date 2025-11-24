@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom'
 // MODIFICATION 1: Ajout des icônes pour la navigation du carrousel
 import { Trophy, Calendar, Users, ChevronRight, MapPin, Clock, Zap, X, ChevronUp, ChevronDown, ArrowRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { newsItems } from '../data/news'
-import { programmeEvents } from '../data/programme'
+import { newsItems } from '../lib/data/news'
+import { programmeEvents } from '../lib/data/programme'
 import { useState } from 'react'
 import { Title, Meta } from 'react-head';
 
