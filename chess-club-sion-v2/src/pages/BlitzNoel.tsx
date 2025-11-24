@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 // MODIFIÉ: Ajout de 'List'
 import { Users, Calendar, Clock, MapPin, ClipboardCheck, Euro, Award, List } from 'lucide-react'
 import { Title, Meta } from 'react-head';
+import Snowfall from '../components/Snowfall';
 
 // --- COMPOSANT TWINT (inchangé) ---
 function TwintEmbed() {
@@ -62,7 +63,10 @@ export default function BlitzNoel() {
 
   // --- COMPTEUR (LOGIQUE JSONP) ---
   const [inscritCount, setInscritCount] = useState<number | string | null>(null);
-
+ 
+  // !! AJOUT: Constante pour décaler le nombre d'inscrits
+  const countOffset = 2;
+  
   // !! MODIFIÉ: Mise à jour avec votre NOUVELLE URL !!
   const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxtU43O1Qth1iCLkf8iEzVZRt9sTVvt3YWsKcOalSvwB6ob5OVpbLJJfTP39NmldCZy/exec";
 
@@ -106,6 +110,10 @@ export default function BlitzNoel() {
   }, []); // Le tableau vide [] signifie que cet effet ne s'exécute qu'une seule fois
   // --- FIN COMPTEUR ---
 
+  // Crée une variable pour l'affichage, en appliquant le décalage
+  const displayCount = inscritCount !== null && typeof inscritCount === 'number'
+    ? inscritCount - countOffset
+    : inscritCount;
 
   // Programme
   const schedule = [
@@ -121,8 +129,15 @@ export default function BlitzNoel() {
       <Meta name="description" content="Participez au tournoi Blitz de Noël du CE Sion ! 7 rondes en 5+3, ouvert à tous, le dimanche 21 décembre." />
       <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
         {/* Hero Section (inchangée) */}
-        <section className="relative bg-gradient-to-r from-red-800 via-primary-900 to-red-900 text-white py-24">
-          <div className="absolute inset-0 bg-black/30"></div>
+        <section
+          className="relative text-white py-24 overflow-hidden"
+          style={{
+            backgroundImage: `linear-gradient(rgba(20, 0, 0, 0.6), rgba(20, 0, 0, 0.6)), url('/picture/backgrounds/winter-bg.jpg')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
+          <Snowfall />
           <div className="container mx-auto px-4 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -146,13 +161,13 @@ export default function BlitzNoel() {
                   <span>7 rondes • 5 min + 3 sec</span>
                 </div>
 
-                {/* AFFICHAGE COMPTEUR (inchangé) */}
+                {/* AFFICHAGE COMPTEUR (MODIFIÉ) */}
                 <div className="flex items-center bg-white/10 px-3 py-1 rounded-full">
                   <Users className="h-5 w-5 mr-2" />
                   <span>
-                    {inscritCount !== null ? (
+                    {displayCount !== null ? (
                       <>
-                        <strong>{inscritCount}</strong> {inscritCount === '?' ? 'inscrits' : 'inscrit(s)'}
+                        <strong>{displayCount}</strong> {displayCount === '?' ? 'inscrits' : 'inscrit(s)'}
                       </>
                     ) : (
                       '...'
@@ -237,7 +252,7 @@ export default function BlitzNoel() {
                       </div>
                     </div>
 
-                    {/* AFFICHAGE COMPTEUR (inchangé) */}
+                    {/* AFFICHAGE COMPTEUR (MODIFIÉ) */}
                     <div className="flex items-start">
                       <ClipboardCheck className="h-6 w-6 mr-3 text-primary-600 flex-shrink-0 mt-1" />
                       <div>
@@ -245,14 +260,20 @@ export default function BlitzNoel() {
                         <p className="text-neutral-700">Capacité limitée à 40 participants.</p>
                         <div className="mt-2 bg-primary-100 p-2 rounded-md">
                           <p className="font-semibold text-primary-800 text-center">
-                            Pré-inscrits actuels : {
-                              inscritCount === null ? 'Chargement...' :
-                                (inscritCount === '?' ? 'N/A' : `${inscritCount} / 40`)
+                            Inscrits validés actuels : {
+                              displayCount === null ? 'Chargement...' :
+                                (displayCount === '?' ? 'N/A' : `${displayCount} / 40`)
                             }
                           </p>
                         </div>
                       </div>
                     </div>
+                  </div>
+
+                  {/* Support UVE */}
+                  <div className="mt-8 flex flex-col items-center justify-center">
+                    <p className="text-center text-neutral-600 text-sm mb-2">sous l'égide et avec le soutien de</p>
+                    <img src="/picture/events/UVE.png" alt="Logo UVE - Union Valaisanne des Echecs" className="h-16 mx-auto" />
                   </div>
                 </div>
 
@@ -262,7 +283,7 @@ export default function BlitzNoel() {
                   <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
 
                     {/* Bouton 1: S'inscrire (conditionnel) */}
-                    {inscritCount !== null && typeof inscritCount === 'number' && inscritCount < 40 && (
+                    {displayCount !== null && typeof displayCount === 'number' && displayCount < 40 && (
                       <motion.a
                         href="https://forms.gle/wTn4UmSqD6o6ouBd7"
                         target="_blank"
