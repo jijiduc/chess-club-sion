@@ -244,8 +244,8 @@ export default function Gallery() {
     const monthMap: { [key: string]: number } = { 'janvier': 0, 'février': 1, 'mars': 2, 'avril': 3, 'mai': 4, 'juin': 5, 'juillet': 6, 'août': 7, 'septembre': 8, 'octobre': 9, 'novembre': 10, 'décembre': 11 };
     const parts = dateString.toLowerCase().split(' ');
     if (parts.length === 1 && /^\d{4}$/.test(parts[0])) return new Date(parseInt(parts[0]), 0, 1);
-    if (parts.length === 2 && monthMap.hasOwnProperty(parts[0])) return new Date(parseInt(parts[1]), monthMap[parts[0]], 1);
-    if (parts.length === 3 && monthMap.hasOwnProperty(parts[1])) return new Date(parseInt(parts[2]), monthMap[parts[1]], parseInt(parts[0]));
+    if (parts.length === 2 && Object.prototype.hasOwnProperty.call(monthMap, parts[0])) return new Date(parseInt(parts[1]), monthMap[parts[0]], 1);
+    if (parts.length === 3 && Object.prototype.hasOwnProperty.call(monthMap, parts[1])) return new Date(parseInt(parts[2]), monthMap[parts[1]], parseInt(parts[0]));
     return new Date(0);
   };
 

@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 // MODIFICATION 1: Ajout des icônes pour la navigation du carrousel
 import { Trophy, Calendar, Users, ChevronRight, MapPin, Clock, Zap, X, ChevronUp, ChevronDown, ArrowRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { newsItems } from '../lib/data/news'
+import { newsItems, type NewsItem } from '../lib/data/news'
 import { programmeEvents } from '../lib/data/programme'
 import { useState } from 'react'
 import { Title, Meta } from 'react-head';
@@ -34,7 +34,7 @@ export default function Home() {
     })
   }
 
-  const openNewsModal = (newsItem: any) => {
+  const openNewsModal = (newsItem: NewsItem) => {
     // Pour s'assurer que le modal fonctionne toujours, on retrouve l'index
     // de l'article sélectionné dans l'array original non trié.
     const originalIndex = newsItems.findIndex(item => item.title === newsItem.title); // Assurez-vous d'avoir un ID unique si les titres ne le sont pas

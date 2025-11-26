@@ -75,7 +75,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '14h00',
     category: ['CSG'],
     description: '1. Regionalliga, Ronde 2',
-    location: "Echallens (à l\'extérieur)",
+    location: "Echallens (à l'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
@@ -219,7 +219,7 @@ export const programmeEvents: ProgrammeEvent[] = [
       "Ouvert aux jeunes nés après le 01.09.2005",
       "Cadence : 7 rondes de 15 minutes par joueur",
       "Finance : Fr. 15.- (payable sur place)",
-      "Inscriptions sur place jusqu\'à 13h15",
+      "Inscriptions sur place jusqu'à 13h15",
       { text: 'Infos (J-C Putallaz)', link: 'mailto:jeanchristophe.putallaz@gmail.com' }
     ],
     calendarTime: '13:30',
@@ -261,7 +261,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '14h00',
     category: ['CSG'],
     description: '2. Bundesliga, Ronde 3',
-    location: "Berne (à l\'extérieur)",
+    location: "Berne (à l'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
@@ -271,7 +271,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '14h00',
     category: ['CSG'],
     description: '1. Regionalliga, Ronde 3',
-    location: "Fribourg (à l\'extérieur)",
+    location: "Fribourg (à l'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
@@ -317,7 +317,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '20h00',
     category: ['CVE'],
     description: 'Championnat valaisan par équipes, Ronde 3',
-    location: 'Sierre (à l\'extérieur)',
+    location: "Sierre (à l'extérieur)",
     link: '/competitions/cve',
   },
   {
@@ -468,7 +468,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '14h00',
     category: ['CSG'],
     description: '3. Regionalliga, Ronde 4',
-    location: "Vevey (à l\'extérieur)",
+    location: "Vevey (à l'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
   },
   
@@ -511,7 +511,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '14h00',
     category: ['CSG'],
     description: '2. Bundesliga, Ronde 6',
-    location: "La Chaux-de-Fonds (à l\'extérieur)",
+    location: "La Chaux-de-Fonds (à l'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
@@ -581,7 +581,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '14h00',
     category: ['CSG'],
     description: '1. Regionalliga, Ronde 7',
-    location: "Neuchâtel (à l\'extérieur)",
+    location: "Neuchâtel (à l'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
@@ -591,7 +591,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '14h00',
     category: ['CSG'],
     description: '3. Regionalliga, Ronde 6',
-    location: "Clarens (à l\'extérieur)",
+    location: "Clarens (à l'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
   },
   {

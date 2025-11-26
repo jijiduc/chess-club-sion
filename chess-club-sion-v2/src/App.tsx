@@ -11,6 +11,7 @@ const Committee = lazy(() => import('./pages/Committee'))
 const Contact = lazy(() => import('./pages/Contact'))
 const Members = lazy(() => import('./pages/Members'))
 const Programme = lazy(() => import('./pages/Programme'))
+const CompetitionsHub = lazy(() => import('./pages/CompetitionsHub'))
 const CSE = lazy(() => import('./features/competitions/CSE'))
 const CSG = lazy(() => import('./features/competitions/CSG'))
 const CVE = lazy(() => import('./features/competitions/CVE'))
@@ -46,6 +47,7 @@ function App() {
             <Route path="programme" element={<Programme />} />
             <Route path="activ-chess" element={<ActivChess />} />
             <Route path="competitions">
+              <Route index element={<CompetitionsHub />} />
               <Route path="cse" element={<CSE />} />
               <Route path="csg" element={<CSG />} />
               <Route path="cve" element={<CVE />} />

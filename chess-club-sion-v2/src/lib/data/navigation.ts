@@ -30,15 +30,16 @@ export const navigationItems: NavItem[] = [
       { name: 'Activ Chess de Sion', href: '/activ-chess' }
     ]
   },
+  { name: '🎅 Blitz de Noël', href: '/tournoi-noel' },
   {
     name: 'Compétitions par équipes',
-    href: '#',
+    href: '/competitions',
     children: [
+      { name: 'Présentation des compétitions', href: '/competitions' },
       { name: 'CVE - Champ. Valaisan', href: '/competitions/cve' },
       { name: 'CSE - Champ. Suisse Equipe', href: '/competitions/cse' },
       { name: 'CSG - Champ. Suisse Groupe', href: '/competitions/csg' }
     ]
   },
-  { name: '🎅 Blitz de Noël', href: '/tournoi-noel' },
   { name: 'Contact', href: '/contact' }
 ]
