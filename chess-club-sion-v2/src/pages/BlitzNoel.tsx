@@ -66,7 +66,7 @@ export default function BlitzNoel() {
   const [inscritCount, setInscritCount] = useState<number | string | null>(null);
  
   // !! AJOUT: Constante pour décaler le nombre d'inscrits
-  const countOffset = 4;
+  const countOffset = 3;
   
   // !! MODIFIÉ: Mise à jour avec votre NOUVELLE URL !!
   const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxtU43O1Qth1iCLkf8iEzVZRt9sTVvt3YWsKcOalSvwB6ob5OVpbLJJfTP39NmldCZy/exec";

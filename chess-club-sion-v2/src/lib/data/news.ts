@@ -32,7 +32,11 @@ L'équipe continue sur sa lancée de la première ronde avec une nouvelle victoi
 Début de saison parfait pour Sion 1 qui enchaîne une deuxième victoire. L'équipe a largement dominé Montreux 2 en s'imposant sur un score sans appel de **4 - 0**.
 
 Félicitations à tous les joueurs pour ces superbes résultats !`,
-    hasImage: false,
+    hasImage: true,
+    image: {
+      src: '/picture/background/set_up.jpeg',
+      alt: "Pièces d'échecs"
+    },
     hasLink: true,
     link: '/competitions/csg',
     linkText: "Consulter les détails du CSG"
@@ -70,7 +74,11 @@ Départ en fanfare pour notre équipe Sion 1 ! Opposée à Valais 4, l'équipe s
 
 Bravo à tous les joueurs pour leur engagement lors de cette première ronde !
 `,
-    hasImage: false,
+    hasImage: true,
+    image: {
+      src: '/picture/background/set_up.jpeg',
+      alt: "Pièces d'échecs"
+    },
     hasLink: true,
     link: '/competitions/csg',
     linkText: "Consulter les détails du CSG"
@@ -117,13 +125,12 @@ Bravo à eux pour leur superbe performance, ainsi qu'à tous les joueurs pour le
     title: "Bravo à Joseph Spahr pour sa participation au Grand Prix Junior de Bovernier !",
     description: "Notre jeune membre Joseph Spahr a courageusement défendu les couleurs du club lors de la première étape relevée du Grand Prix Valaisan Junior, qui comptait 35 participants.",
     text: "Le coup d'envoi de la saison du Grand Prix Valaisan Junior (GPVJ) a été donné ce dimanche 19 octobre 2025 à Bovernier, et le Club d'Échecs de Sion était de la partie !\n\nNous tenons à féliciter chaleureusement notre jeune joueur **Joseph Spahr** pour sa participation à ce premier tournoi très relevé. Se mesurer à 34 autres jeunes joueurs valaisans est une expérience formatrice et un défi en soi. Au terme des 7 rondes, Joseph a obtenu un score de 2 points, se classant à la 31ème place.\n\nAu-delà du classement, c'est l'engagement et le courage de participer que nous souhaitons saluer. Chaque tournoi est une occasion unique d'apprendre, de se mesurer à de nouveaux adversaires et de renforcer sa passion pour le jeu. Actif au sein du cours 'écoliers' et membre de notre équipe Sion 3 pour cette saison de Championnat Valaisan par équipe, Joseph a parfaitement représenté l'esprit combatif du club.\n\n**L'important, c'est de participer !**\n\nL'exemple de Joseph est un encouragement pour tous nos juniors. Le plus grand pas n'est pas de gagner, mais d'oser s'inscrire et de s'asseoir à l'échiquier.\n\nLa prochaine étape du Grand Prix se déroulera chez nous : c'est notre **Activ Chess de Sion** ! C'est l'occasion idéale de vivre l'ambiance d'un tournoi, que vous soyez débutant ou confirmé. Venez vous amuser, apprendre et défendre les couleurs du club à domicile.\n\nOn compte sur votre présence !",
-    hasImage: false, // Mettez 'true' si vous ajoutez une image
-    // image: { 
-    //   src: './picture/news/joseph-spahr-bovernier-2025.webp', 
-    //   alt: 'Joseph Spahr au tournoi de Bovernier' 
-    // },
-    hasLink: true,
-    link: '/activ-chess',
+            hasImage: true,
+            image: { 
+              src: '/picture/news/Chess_pieces_close_up.jpg', 
+              alt: 'Joseph Spahr au tournoi de Bovernier' 
+            },
+            hasLink: true,    link: '/competitions/csg',
     linkText: "S'inscrire à l'Activ Chess de Sion"
   },
 
@@ -149,6 +156,11 @@ Les festivités se sont poursuivies avec un superbe souper de gala le samedi soi
 
 Ce fut un très beau moment de partage et de passion pour les échecs. Nous remercions chaleureusement le Club d'Échecs de Monthey pour l'organisation impeccable de cet événement inoubliable.`,
     icon: "award",
+    hasImage: true,
+    image: {
+      src: '/picture/news/free-photo-of-close-up-of-chess-pieces.jpeg',
+      alt: "Centenaire du Club d'Échecs de Monthey"
+    },
     hasLink: true,
     link: "https://www.chessmonthey.ch/images/fichiers/pdf/100ans%20classement%202.pdf",
     linkText: "Consulter les résultats complets du tournoi populaire"
@@ -166,6 +178,11 @@ L'armada genevoise est d'ailleurs venue fournie d'une moyenne ELO dépassant de 
 **Sion 2 en 3e ligue : une belle nulle tenue**
 À Payerne, Sion 2 affrontait une des meilleurs équipes de son groupe, Payerne 2. L'équipe a fait preuve d'une belle résistance et des performances, comme celle de Joan et Jacques qui ont remporté leur parties. Cette solide prestation conclue admirablement la saison.`,
     icon: "trophy",
+    hasImage: true,
+    image: {
+      src: '/picture/news/MSFT-Brown-chess-pieces-on-a-chessboard.avif',
+      alt: "Championnat Suisse par Équipes"
+    },
     hasLink: true,
     link: "/competitions/cse",
     linkText: "Voir tous les résultats et classements du CSE"
@@ -184,6 +201,11 @@ Le nombre de participants est **limité à 100 joueurs**. Une restauration sur p
 
 Ne manquez pas ce rendez-vous incontournable des échecs en Valais !`,
     icon: "trophy",
+    hasImage: true,
+    image: {
+      src: '/picture/news/others_chessboard.jpeg',
+      alt: "Activ Chess de Sion"
+    },
     hasLink: true,
     link: "/competitions/activ-chess",
     linkText: "Consulter les détails du tournoi"
@@ -202,6 +224,11 @@ ne suffira malheuresement pas à l'équipe pour se maintenir, une ronde avant la
 À domicile, Sion 2 affrontait le leader incontesté du groupe, Crazy Horse 1. Comme l'indiquait le capitaine Sandro Betrisey, l'équipe n'a "malheureusement pas fait le poids contre les premiers du classement". La rencontre s'est soldée par une défaite 1-5. Les deux demi-points de l'équipe ont été obtenus par Simon Moerschell et Sandro, montrant l'exemple dans son rôle de capitaine.
 Malgré cette défaite attendue, Sion 2 reste en bonne position pour assurer son maintien. `,
     icon: "trophy",
+    hasImage: true,
+    image: {
+      src: '/picture/news/_board.jpg',
+      alt: "Championnat Suisse par Équipes"
+    },
     hasLink: true,
     link: "/competitions/cse",
     linkText: "Voir tous les résultats et classements du CSE"
@@ -227,6 +254,11 @@ Pour la saison 2024-2025, les titres de champions valaisans de parties rapides o
 
 Un grand bravo à Flavien et Max pour ces titres qui récompensent leur talent et leur investissement tout au long de la saison !`,
     icon: "trophy",
+    hasImage: true,
+    image: {
+      src: '/picture/news/set_up.jpeg',
+      alt: "Champions Valaisans"
+    },
     hasLink: true,
     link: "https://www.uve-wsb.ch/competitions-valaisannes/active-chess-de-martigny",
     linkText: "Voir le détails de l'activ chess de Martigny"
@@ -249,6 +281,11 @@ Face à une équipe de Monthey bien armée et ambitieuse de promotion, Sion 2 a 
 
 Il n'y a désormais que peu d'espoir de maintien pour Sion 1 après ce match nul. D'un autre côté, bien que Sion 2 soit aux portes de la zone de relégation, il y a de bonnes chances pour que l'équipe parvienne à se maintenir.`,
     icon: "trophy",
+    hasImage: true,
+    image: {
+      src: '/picture/news/chess-rules-and-regulations-1024x682.jpg',
+      alt: "Championnat Suisse par Équipes"
+    },
     hasLink: true,
     link: "/competitions/cse",
     linkText: "Voir tous les résultats et classements du CSE"

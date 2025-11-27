@@ -53,12 +53,24 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.cesion.ch/competitions/cvi</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.cesion.ch/competitions/gpv</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.cesion.ch/competitions/cve</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.cesion.ch/competitions/tournoi-interne</loc>
-    <priority>0.8</priority>
+    <loc>https://www.cesion.ch/competitions/championnat-interne</loc>
+    <lastmod>2025-03-15</lastmod>
+    <changefreq>weekly</changefreq>
   </url>
-
+  <url>
+    <loc>https://www.cesion.ch/blitz-noel</loc>
+    <priority>0.7</priority>
+  </url>
 </urlset>

@@ -9,8 +9,8 @@ export default function Club() {
     { text: "Des cours d'échecs structurés dans le pôle formation", link: "/ecole" },
     { text: "Des soirées du club : blitz, analyses, parties semi-rapides ou thématiques ", link: "/programme" },
     { text: "Participation aux championnats suisses par équipes et par groupes", link: "/competitions/cse" },
-    { text: "Participation aux divers championnats valaisans par équipes", link: "/competitions/cve" },
-    { text: "Un championnat interne au club", link: "/competitions/tournoi-interne" }
+    { text: "Le Championnat Valaisan par Équipes (CVE)", link: "/competitions/cve" },
+    { text: "Un championnat interne au club", link: "/competitions/championnat-interne" }
   ]
 
   return (

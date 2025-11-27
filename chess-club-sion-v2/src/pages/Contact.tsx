@@ -35,25 +35,35 @@ export default function Contact() {
       <Meta name="description" content="Contactez le Club d'Échecs de Sion. Retrouvez nos adresses email pour toute demande d'information sur le club ou notre école d'échecs." />
       
       {/* Hero Section */}
-      <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-900 via-primary-800 to-primary-950">
-           <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none" />
-        </div>
+      <section className="relative bg-neutral-900 text-white py-24 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
         
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-          <motion.div
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-900/50 to-neutral-50/5"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto text-center"
           >
-             <span className="inline-block py-1 px-4 rounded-full bg-white/10 border border-white/20 text-primary-100 text-sm font-medium tracking-[0.2em] mb-8 backdrop-blur-sm uppercase">
-              Une question ?
-            </span>
-            <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight">
-              Contactez-nous
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-primary-300 text-sm font-bold uppercase tracking-widest mb-8 backdrop-blur-md"
+            >
+              <MessageCircle className="h-4 w-4" />
+              <span>Une question ?</span>
+            </motion.div>
+
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 font-display tracking-tight leading-tight">
+              Contactez-<span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-accent-400">Nous</span>
             </h1>
-            <div className="h-1 w-24 bg-gradient-to-r from-transparent via-primary-400 to-transparent mx-auto mb-8 opacity-80" />
-            <p className="text-xl text-primary-100 font-light max-w-2xl mx-auto leading-relaxed">
+            
+            <p className="text-xl md:text-2xl text-neutral-300 mb-12 leading-relaxed max-w-2xl mx-auto font-light">
               Nous sommes à votre disposition pour vous renseigner sur le club, l'école d'échecs ou toute autre demande.
             </p>
           </motion.div>

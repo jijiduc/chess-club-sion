@@ -15,7 +15,9 @@ const CompetitionsHub = lazy(() => import('./pages/CompetitionsHub'))
 const CSE = lazy(() => import('./features/competitions/CSE'))
 const CSG = lazy(() => import('./features/competitions/CSG'))
 const CVE = lazy(() => import('./features/competitions/CVE'))
-const InternalTournament = lazy(() => import('./features/competitions/InternalTournament'))
+const CVI = lazy(() => import('./features/competitions/CVI'))
+const GPV = lazy(() => import('./features/competitions/GPV'))
+const InternalChampionship = lazy(() => import('./features/competitions/InternalChampionship'))
 const ChessSchool = lazy(() => import('./pages/ChessSchool'))
 const Gallery = lazy(() => import('./pages/Gallery'))
 const Histoire = lazy(() => import('./pages/Histoire'))
@@ -51,12 +53,14 @@ function App() {
               <Route path="cse" element={<CSE />} />
               <Route path="csg" element={<CSG />} />
               <Route path="cve" element={<CVE />} />
-              <Route path="tournoi-interne" element={<InternalTournament />} />
+              <Route path="cvi" element={<CVI />} />
+              <Route path="gpv" element={<GPV />} />
+              <Route path="championnat-interne" element={<InternalChampionship />} />
             </Route>
             <Route path="ecole" element={<ChessSchool />} />
             <Route path="galerie" element={<Gallery />} />
             <Route path="histoire" element={<Histoire />} />
-            <Route path="tournoi-noel" element={<BlitzNoel />} /> {/* <-- NOUVELLE LIGNE 2/2 */}
+            <Route path="blitz-noel" element={<BlitzNoel />} /> {/* <-- NOUVELLE LIGNE 2/2 */}
           </Route>
         </Routes>
       </Suspense>

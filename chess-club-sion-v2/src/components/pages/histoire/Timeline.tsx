@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
-import type { TimelineEvent } from '~/data/histoireData';
 import { Section } from './Section';
 
 interface TimelineProps {
-  events: TimelineEvent[];
+  events: { year: string; description: string }[];
 }
 
 export function Timeline({ events }: TimelineProps) {

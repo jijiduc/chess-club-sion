@@ -20,26 +20,23 @@ export const navigationItems: NavItem[] = [
       { name: 'Galerie photos', href: '/galerie' }
     ]
   },
-  { name: 'Programme', href: '/programme' },
+  { name: 'Calendrier', href: '/programme' },
   { name: 'École d\'échecs', href: '/ecole' },
+  { name: '🎅 Blitz de Noël', href: '/blitz-noel' },
   {
-    name: 'Tournois du club',
-    href: '#',
-    children: [
-      { name: 'Championnat interne', href: '/competitions/tournoi-interne' },
-      { name: 'Activ Chess de Sion', href: '/activ-chess' }
-    ]
-  },
-  { name: '🎅 Blitz de Noël', href: '/tournoi-noel' },
-  {
-    name: 'Compétitions par équipes',
+    name: 'Pôle Compétition',
     href: '/competitions',
     children: [
-      { name: 'Présentation des compétitions', href: '/competitions' },
-      { name: 'CVE - Champ. Valaisan', href: '/competitions/cve' },
-      { name: 'CSE - Champ. Suisse Equipe', href: '/competitions/cse' },
-      { name: 'CSG - Champ. Suisse Groupe', href: '/competitions/csg' }
+      { name: 'Vue d\'ensemble', href: '/competitions' },
+      { name: 'CSE - Suisse Équipes', href: '/competitions/cse' },
+      { name: 'CVE - Valaisan Équipes', href: '/competitions/cve' },
+      { name: 'CSG - Suisse Groupes', href: '/competitions/csg' },
+      { name: 'CVI - Coupe Valaisanne', href: '/competitions/cvi' },
+      { name: 'GPV - Grand Prix Jeunes', href: '/competitions/gpv' },
+      { name: 'Championnat interne', href: '/competitions/championnat-interne' },
+      { name: 'Activ Chess de Sion', href: '/activ-chess' },
     ]
   },
+  { name: 'Histoire', href: '/histoire' },
   { name: 'Contact', href: '/contact' }
 ]

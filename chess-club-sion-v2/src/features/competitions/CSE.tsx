@@ -21,7 +21,7 @@ const CSE: React.FC = () => {
 
       <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-white">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-accent-900 to-primary-900 text-white py-20">
+        <section className="relative bg-gradient-to-r from-blue-900 to-blue-800 text-white py-20">
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="container mx-auto px-4 relative z-10">
             <motion.div
@@ -30,7 +30,7 @@ const CSE: React.FC = () => {
               className="text-center"
             >
               <h1 className="text-5xl font-bold mb-4">Championnat Suisse par Équipes</h1>
-              <p className="text-xl text-primary-100 mb-8">
+              <p className="text-xl text-blue-100 mb-8">
                 CSE - Compétition nationale par équipes de clubs d'échecs
               </p>
               <div className="flex flex-wrap justify-center gap-4">
@@ -63,7 +63,7 @@ const CSE: React.FC = () => {
 
               {/* Competition Explanation */}
               <div className="max-w-4xl mx-auto mb-12">
-                <div className="bg-white rounded-xl shadow-lg p-8">
+                <div className="bg-white rounded-xl shadow-lg p-8 border border-blue-100">
                   <h3 className="text-xl font-bold mb-4 text-neutral-900">Format de la compétition</h3>
                   <div className="space-y-4 text-neutral-700">
                     <p>
@@ -72,39 +72,39 @@ const CSE: React.FC = () => {
                     </p>
                     <div className="grid md:grid-cols-2 gap-6 mt-6">
                       <div>
-                        <h4 className="font-semibold text-primary-900 mb-2">Organisation</h4>
+                        <h4 className="font-semibold text-blue-900 mb-2">Organisation</h4>
                         <ul className="space-y-2 text-sm">
                           <li className="flex items-start">
-                            <ChevronRight className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
+                            <ChevronRight className="h-4 w-4 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
                             <span>7 rondes de mars à septembre</span>
                           </li>
                           <li className="flex items-start">
-                            <ChevronRight className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
+                            <ChevronRight className="h-4 w-4 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
                             <span>Matches à domicile et à l'extérieur</span>
                           </li>
                           <li className="flex items-start">
-                            <ChevronRight className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
+                            <ChevronRight className="h-4 w-4 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
                             <span>6 à 8 échiquiers par rencontre</span>
                           </li>
                           <li className="flex items-start">
-                            <ChevronRight className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
+                            <ChevronRight className="h-4 w-4 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
                             <span>Système de promotion/relégation</span>
                           </li>
                         </ul>
                       </div>
                       <div>
-                        <h4 className="font-semibold text-primary-900 mb-2">Points et classement</h4>
+                        <h4 className="font-semibold text-blue-900 mb-2">Points et classement</h4>
                         <ul className="space-y-2 text-sm">
                           <li className="flex items-start">
-                            <ChevronRight className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
+                            <ChevronRight className="h-4 w-4 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
                             <span><strong>Points de match (MP):</strong> 2 pts pour une victoire, 1 pt pour un nul</span>
                           </li>
                           <li className="flex items-start">
-                            <ChevronRight className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
+                            <ChevronRight className="h-4 w-4 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
                             <span><strong>Points individuels (EP):</strong> Somme des résultats sur les échiquiers</span>
                           </li>
                           <li className="flex items-start">
-                            <ChevronRight className="h-4 w-4 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
+                            <ChevronRight className="h-4 w-4 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
                             <span>En cas d'égalité de MP, les EP départagent</span>
                           </li>
                         </ul>
@@ -116,7 +116,7 @@ const CSE: React.FC = () => {
 
               {/* League Structure Tree */}
               <div className="max-w-3xl mx-auto">
-                <div className="bg-white rounded-xl shadow-lg p-6">
+                <div className="bg-white rounded-xl shadow-lg p-6 border border-blue-100">
                   <h3 className="text-lg font-bold mb-4 text-neutral-900">Hiérarchie des ligues</h3>
                   <div className="space-y-3">
                     {leagueStructure.map((league, index) => (
@@ -125,7 +125,7 @@ const CSE: React.FC = () => {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.05 * index }}
-                        className={`flex items-center ${league.sionTeam ? 'bg-primary-50 rounded-lg p-2 -mx-2' : ''
+                        className={`flex items-center ${league.sionTeam ? 'bg-blue-50 rounded-lg p-2 -mx-2' : ''
                           }`}
                       >
                         <div className="flex items-center flex-1">
@@ -133,16 +133,14 @@ const CSE: React.FC = () => {
                           {index > 0 && (
                             <div className="text-neutral-400 mr-2">└</div>
                           )}
-                          <div className={`font-semibold ${league.sionTeam ? 'text-primary-900' : 'text-neutral-800'
-                            }`}>
+                          <div className={`font-semibold ${league.sionTeam ? 'text-blue-900' : 'text-neutral-800'}`}>
                             {league.name}
                           </div>
                           <div className="text-neutral-500 text-sm ml-2">
                             – {league.description}
                           </div>
                           {league.sionTeam && (
-                            <div className={`ml-auto text-white text-xs px-3 py-1 rounded-full flex items-center ${league.sionTeam === 'Sion 1' ? 'bg-accent-600' : 'bg-primary-600'
-                              }`}>
+                            <div className={`ml-auto text-white text-xs px-3 py-1 rounded-full flex items-center ${league.sionTeam === 'Sion 1' ? 'bg-blue-700' : 'bg-blue-600'}`}>
                               <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                               </svg>
@@ -153,8 +151,8 @@ const CSE: React.FC = () => {
                       </motion.div>
                     ))}
                   </div>
-                  <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 my-8">
-                    <h3 className="text-xl font-bold text-primary-900 mb-4 flex items-center">
+                  <div className="bg-blue-50 rounded-xl p-6 my-8 border border-blue-100">
+                    <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
                       <Users className="h-6 w-6 mr-2" />
                       Répartition des équipes
                     </h3>
@@ -181,8 +179,8 @@ const CSE: React.FC = () => {
             <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
 
               {/* 1ère ligue standings */}
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-                <div className="bg-gradient-to-r from-accent-600 to-primary-600 text-white p-4">
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-blue-100">
+                <div className="bg-gradient-to-r from-blue-700 to-blue-600 text-white p-4">
                   <h3 className="text-xl font-bold">1ère ligue - Groupe Ouest</h3>
                   <p className="text-sm opacity-90">Classement final (après 7 rondes)</p>
                 </div>
@@ -238,7 +236,7 @@ const CSE: React.FC = () => {
                       </tr>
 
                       {/* Fond rouge pour les relégués */}
-                      <tr className="font-semibold border-b bg-red-50 text-primary-900">
+                      <tr className="font-semibold border-b bg-red-50 text-blue-900">
                         <td className="py-2 pl-2">7.</td>
                         <td className="py-2">Sion 1</td>
                         <td className="py-2 text-center">2</td>
@@ -270,8 +268,8 @@ const CSE: React.FC = () => {
               </div>
 
               {/* 3ème ligue standings */}
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-                <div className="bg-gradient-to-r from-accent-600 to-primary-600 text-white p-4">
+              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-blue-100">
+                <div className="bg-gradient-to-r from-blue-700 to-blue-600 text-white p-4">
                   <h3 className="text-xl font-bold">3ème ligue - Groupe Ouest 2</h3>
                   <p className="text-sm opacity-90">Classement final (après 7 rondes)</p>
                 </div>
@@ -318,7 +316,7 @@ const CSE: React.FC = () => {
                         <td className="py-2 text-center font-semibold">7</td>
                         <td className="py-2 text-center">22½</td>
                       </tr>
-                      <tr className="font-semibold border-b text-primary-900">
+                      <tr className="font-semibold border-b text-blue-900">
                         <td className="py-2 pl-2">6.</td>
                         <td className="py-2">Sion 2</td>
                         <td className="py-2 text-center">5</td>
@@ -383,7 +381,7 @@ const CSE: React.FC = () => {
                   href="https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNSZhbGlnYT01JmFncnVwcGU9NTE0JmFyb3VuZD03"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-700 transition-colors flex items-center space-x-2"
+                  className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center space-x-2"
                 >
                   <span>Résultats de Sion 2</span>
                   <ExternalLink className="h-4 w-4" />

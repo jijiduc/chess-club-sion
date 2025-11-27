@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Trophy, Users, Calendar, ChevronRight, ExternalLink, Medal, MapPin, FileText, LayoutGrid, CalendarDays } from 'lucide-react'
+import { Trophy, Users, Calendar, ChevronRight, ExternalLink, Medal, MapPin, FileText, LayoutGrid, CalendarDays, Flag, Target } from 'lucide-react'
 import { Title, Meta } from 'react-head';
 
 interface TeamResult {
@@ -224,9 +224,9 @@ export default function CVE() {
     <>
       <Title>Championnat Valaisan par Équipes (CVE) - Club d'Échecs de Sion</Title>
       <Meta name="description" content="Suivez les performances du Club d'Échecs de Sion au Championnat Valaisan par Équipes (CVE). Retrouvez les résultats, les classements et le palmarès de nos équipes." />
-      <div className="min-h-screen bg-gradient-to-b from-primary-50 to-white">
+      <div className="min-h-screen bg-gradient-to-b from-red-50 to-white">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-primary-900 to-accent-900 text-white py-24">
+        <section className="relative bg-gradient-to-r from-red-900 to-red-800 text-white py-24">
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="container mx-auto px-4 relative z-10">
             <motion.div
@@ -267,368 +267,253 @@ export default function CVE() {
               transition={{ delay: 0.2 }}
               className="max-w-4xl mx-auto"
             >
-              <div className="bg-white rounded-xl shadow-lg p-8 md:p-12">
+              {/* Intro Description */}
+              <div className="bg-white rounded-xl shadow-lg p-8 md:p-12 border border-red-100 mb-12">
                 <div className="prose prose-lg max-w-none">
-                  <p className="text-neutral-700 mb-6">
-                    Organisé par <a href="https://www.uve-wsb.ch/" className="text-primary-600 hover:text-primary-700 underline">
+                  <p className="text-neutral-700 text-lg leading-relaxed">
+                    Organisé par <a href="https://www.uve-wsb.ch/" className="text-red-600 hover:text-red-700 font-semibold underline decoration-red-200 hover:decoration-red-600 transition-all">
                       l'Union Valaisanne des Echecs (UVE)
-                    </a>, le Championnat Valaisan par Equipes (CVE) est une compétition par équipes entre les clubs valaisans
-                    se déroulant de novembre à mai. Chaque équipe sélectionne 4 joueurs par matchs pour s'affronter.
+                    </a>, le Championnat Valaisan par Equipes (CVE) est le rendez-vous incontournable des clubs du canton. 
+                    De novembre à mai, les équipes s'affrontent dans un format convivial mais compétitif, où chaque match se joue sur 4 échiquiers.
                   </p>
+                </div>
+              </div>
 
-                  <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 my-8">
-                    <h3 className="text-xl font-bold text-primary-900 mb-4 flex items-center">
-                      <Calendar className="h-6 w-6 mr-2" />
-                      Organisation du championnat
-                    </h3>
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="font-semibold text-primary-600 mb-2 text-lg">Structure en 3 phases</h4>
-                        <ul className="space-y-3">
-                          <li className="flex items-start">
-                            <ChevronRight className="h-5 w-5 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                            <div>
-                              <strong className="text-primary-900">Phase de poules initiale</strong> (rondes 1 à 3)<br />
-                              <span className="text-neutral-700">Détermine la répartition des équipes dans deux poules hautes (A et B) et deux poules basses (C et D).</span>
-                            </div>
-                          </li>
-                          <li className="flex items-start">
-                            <ChevronRight className="h-5 w-5 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                            <div>
-                              <strong className="text-primary-900">Phase de poules hautes/basses</strong> (rondes 4 à 6)<br />
-                              <span className="text-neutral-700">Chaque équipe affronte ses adversaires au sein de sa poule respective.</span>
-                            </div>
-                          </li>
-                          <li className="flex items-start">
-                            <ChevronRight className="h-5 w-5 text-primary-600 mr-2 flex-shrink-0 mt-0.5" />
-                            <div>
-                              <strong className="text-primary-900">Phase finale</strong> (ronde 7)<br />
-                              <span className="text-neutral-700">Les classements des poules hautes et basses déterminent les matchs finaux.</span>
-                              <br />
-                              <em className="text-sm text-neutral-600">Par exemple, le 1er de la poule haute A affronte le 1er de la poule haute B pour la 1ère-2ème place.</em>
-                            </div>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
+              {/* Format de la compétition - Cartes */}
+              <div className="mb-16">
+                <h3 className="text-2xl font-bold text-center mb-10 text-neutral-900 flex items-center justify-center">
+                  <LayoutGrid className="h-8 w-8 mr-3 text-red-600" />
+                  Format de la compétition
+                </h3>
+                <div className="grid md:grid-cols-3 gap-6">
+                  <div className="bg-white p-6 rounded-xl shadow-md border-t-4 border-red-500 hover:shadow-xl transition-shadow">
+                    <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4 text-red-600 font-bold text-xl">1</div>
+                    <h4 className="font-bold text-lg text-red-900 mb-3">Phase Initiale</h4>
+                    <p className="text-neutral-600 text-sm">
+                      <strong>Rondes 1 à 3</strong><br/>
+                      Les équipes sont réparties dans des groupes initiaux. Ces premiers matchs déterminent la qualification pour les poules "Hautes" ou "Basses".
+                    </p>
+                  </div>
+                  
+                  <div className="bg-white p-6 rounded-xl shadow-md border-t-4 border-red-500 hover:shadow-xl transition-shadow">
+                    <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4 text-red-600 font-bold text-xl">2</div>
+                    <h4 className="font-bold text-lg text-red-900 mb-3">Phase de Poules</h4>
+                    <p className="text-neutral-600 text-sm">
+                      <strong>Rondes 4 à 6</strong><br/>
+                      Les équipes s'affrontent au sein de leurs nouvelles poules (A/B pour le titre, C/D pour le classement) pour déterminer les finalistes.
+                    </p>
                   </div>
 
+                  <div className="bg-white p-6 rounded-xl shadow-md border-t-4 border-red-500 hover:shadow-xl transition-shadow">
+                     <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mb-4 text-red-600 font-bold text-xl">3</div>
+                     <h4 className="font-bold text-lg text-red-900 mb-3">Phase Finale</h4>
+                     <p className="text-neutral-600 text-sm">
+                      <strong>Ronde 7</strong><br/>
+                      La grande finale ! Les vainqueurs de poules s'affrontent pour le titre de Champion Valaisan, et chaque équipe joue un match de classement final.
+                     </p>
+                  </div>
                 </div>
-                <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 my-8">
-                  <h3 className="text-xl font-bold text-primary-900 mb-4 flex items-center">
-                    <Users className="h-6 w-6 mr-2" />
-                    Équipes engagées (Saison 2025/2026)
-                  </h3>
-                  <div className="space-y-2 text-neutral-700">
-                    <p>
-                      Pour la saison 2025/2026, le club a engagé trois équipes dans le championnat.
-                    </p>
-                    <ul className="list-disc pl-5 space-y-1">
-                      <li><strong>Sion 1</strong> (Groupe A), avec pour capitaine <strong>Pierre-Marie Rappaz</strong>.</li>
-                      <li><strong>Sion 2</strong> (Groupe B), avec pour capitaine <strong>Simon Moerschell</strong>.</li>
-                      <li><strong>Sion 3</strong> (Groupe D), avec pour capitaine <strong>Jeremy Duc</strong>.</li>
+              </div>
+
+              {/* Équipes Engagées - Cartes */}
+              <div className="mb-16">
+                 <h3 className="text-2xl font-bold text-center mb-10 text-neutral-900 flex items-center justify-center">
+                  <Users className="h-8 w-8 mr-3 text-red-600" />
+                  Nos Équipes 2025/2026
+                </h3>
+                <div className="grid md:grid-cols-3 gap-6">
+                   {[
+                     { name: "Sion 1", group: "Groupe A", captain: "Pierre-Marie Rappaz", desc: "Équipe première visant le titre." },
+                     { name: "Sion 2", group: "Groupe B", captain: "Simon Moerschell", desc: "Équipe compétitive en poule haute." },
+                     { name: "Sion 3", group: "Groupe D", captain: "Jeremy Duc", desc: "Équipe de formation et plaisir." }
+                   ].map((team, idx) => (
+                     <div key={idx} className="bg-white rounded-xl overflow-hidden shadow-md border border-neutral-200 hover:border-red-300 transition-colors group">
+                        <div className="bg-red-600 px-6 py-3">
+                          <h4 className="text-white font-bold text-xl flex justify-between items-center">
+                            {team.name}
+                            <Flag className="h-5 w-5 opacity-80" />
+                          </h4>
+                        </div>
+                        <div className="p-6">
+                           <div className="flex items-center mb-4">
+                             <span className="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                               {team.group}
+                             </span>
+                           </div>
+                           <p className="text-neutral-600 mb-6 text-sm min-h-[40px]">{team.desc}</p>
+                           <div className="flex items-center text-sm text-neutral-500 border-t pt-4">
+                             <Medal className="h-4 w-4 mr-2 text-red-500" />
+                             Capitaine : <span className="font-medium text-neutral-900 ml-1">{team.captain}</span>
+                           </div>
+                        </div>
+                     </div>
+                   ))}
+                </div>
+              </div>
+
+              {/* Composition des Groupes - Grid Améliorée */}
+              <div className="mb-16">
+                 <h3 className="text-2xl font-bold text-center mb-10 text-neutral-900 flex items-center justify-center">
+                  <Target className="h-8 w-8 mr-3 text-red-600" />
+                  Composition des Groupes
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {/* Groupe A */}
+                  <div className="bg-white p-5 rounded-xl shadow-sm border border-neutral-200 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-red-500"></div>
+                    <h4 className="font-bold text-lg text-neutral-800 mb-4 pb-2 border-b border-neutral-100">Groupe A</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li className="font-bold text-red-700 flex items-center"><ChevronRight className="h-3 w-3 mr-1"/> Sion 1</li>
+                      <li className="text-neutral-600 pl-4">Riddes 1</li>
+                      <li className="text-neutral-600 pl-4">Martigny 2</li>
+                      <li className="text-neutral-600 pl-4">Sierre 2</li>
+                    </ul>
+                  </div>
+                  {/* Groupe B */}
+                  <div className="bg-white p-5 rounded-xl shadow-sm border border-neutral-200 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-red-500"></div>
+                    <h4 className="font-bold text-lg text-neutral-800 mb-4 pb-2 border-b border-neutral-100">Groupe B</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li className="text-neutral-600 pl-4">Martigny 1</li>
+                      <li className="font-bold text-red-700 flex items-center"><ChevronRight className="h-3 w-3 mr-1"/> Sion 2</li>
+                      <li className="text-neutral-600 pl-4">Riddes 2</li>
+                      <li className="text-neutral-600 pl-4">Montana 2</li>
+                    </ul>
+                  </div>
+                  {/* Groupe C */}
+                  <div className="bg-white p-5 rounded-xl shadow-sm border border-neutral-200 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-neutral-300"></div>
+                    <h4 className="font-bold text-lg text-neutral-800 mb-4 pb-2 border-b border-neutral-100">Groupe C</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li className="text-neutral-600 pl-4">Sierre 1</li>
+                      <li className="text-neutral-600 pl-4">Montana 1</li>
+                      <li className="text-neutral-600 pl-4">Bagnes</li>
+                      <li className="text-neutral-600 pl-4">Martigny 4</li>
+                    </ul>
+                  </div>
+                  {/* Groupe D */}
+                  <div className="bg-white p-5 rounded-xl shadow-sm border border-neutral-200 relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-1 bg-red-500"></div>
+                    <h4 className="font-bold text-lg text-neutral-800 mb-4 pb-2 border-b border-neutral-100">Groupe D</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li className="text-neutral-600 pl-4">CE Port-Valais</li>
+                      <li className="text-neutral-600 pl-4">Monthey</li>
+                      <li className="text-neutral-600 pl-4">Martigny 3</li>
+                      <li className="font-bold text-red-700 flex items-center"><ChevronRight className="h-3 w-3 mr-1"/> Sion 3</li>
                     </ul>
                   </div>
                 </div>
-
-                {/* Composition des Groupes  */}
-                <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 my-8">
-                  <h3 className="text-xl font-bold text-primary-900 mb-4 flex items-center">
-                    <LayoutGrid className="h-6 w-6 mr-2" />
-                    Composition des groupes de la phase de poules initiale
-                  </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {/* Groupe A */}
-                    <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
-                      <h4 className="font-bold text-lg text-primary-800 mb-3 text-center border-b pb-2">Groupe A</h4>
-                      <ol className="list-decimal list-inside space-y-2">
-                        <li className="font-bold text-primary-900">Sion 1</li>
-                        <li className="text-neutral-700">Riddes 1</li>
-                        <li className="text-neutral-700">Martigny 2</li>
-                        <li className="text-neutral-700">Sierre 2</li>
-                      </ol>
-                    </div>
-                    {/* Groupe B */}
-                    <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
-                      <h4 className="font-bold text-lg text-primary-800 mb-3 text-center border-b pb-2">Groupe B</h4>
-                      <ol className="list-decimal list-inside space-y-2">
-                        <li className="text-neutral-700">Martigny 1</li>
-                        <li className="font-bold text-primary-900">Sion 2</li>
-                        <li className="text-neutral-700">Riddes 2</li>
-                        <li className="text-neutral-700">Montana 2</li>
-                      </ol>
-                    </div>
-                    {/* Groupe C */}
-                    <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
-                      <h4 className="font-bold text-lg text-primary-800 mb-3 text-center border-b pb-2">Groupe C</h4>
-                      <ol className="list-decimal list-inside space-y-2">
-                        <li className="text-neutral-700">Sierre 1</li>
-                        <li className="text-neutral-700">Montana 1</li>
-                        <li className="text-neutral-700">Bagnes</li>
-                        <li className="text-neutral-700">Martigny 4</li>
-                      </ol>
-                    </div>
-                    {/* Groupe D */}
-                    <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
-                      <h4 className="font-bold text-lg text-primary-800 mb-3 text-center border-b pb-2">Groupe D</h4>
-                      <ol className="list-decimal list-inside space-y-2">
-                        <li className="text-neutral-700">CE Port-Valais</li>
-                        <li className="text-neutral-700">Monthey</li>
-                        <li className="text-neutral-700">Martigny 3</li>
-                        <li className="font-bold text-primary-900">Sion 3</li>
-                      </ol>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Programme des Rencontres */}
-                <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 my-8">
-                  <h3 className="text-xl font-bold text-primary-900 mb-6 flex items-center">
-                    <Calendar className="h-6 w-6 mr-2" />
-                    Programme des rencontres
-                  </h3>
-                  <div className="space-y-8">
-
-                    {/* Ronde 1 */}
-                    <div>
-                      <h4 className="text-lg font-semibold text-primary-800 mb-4 flex items-center">
-                        <CalendarDays className="h-5 w-5 mr-2" />
-                        Ronde 1 - 07.11.2025
-                      </h4>
-                      {/* MODIFICATION ICI: lg:grid-cols-2 et max-w-4xl */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 max-w-4xl mx-auto">
-                        
-                        {/* Groupe A */}
-                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
-                          <h5 className="font-bold text-md text-center mb-3 border-b pb-2">Groupe A</h5>
-                          <div className="space-y-3 pt-2 text-sm">
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right text-neutral-700">Sierre 2</span>
-                              <span className="font-bold text-primary-800 text-center w-24">(0.5 - 3.5)</span>
-                              <span className="flex-1 text-left text-neutral-700">Riddes 1</span>
-                            </div>
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right font-bold text-primary-900">Sion 1</span>
-                              <span className="font-bold text-primary-800 text-center w-24">(3 - 1)</span>
-                              <span className="flex-1 text-left text-neutral-700">Martigny 2</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Groupe B */}
-                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
-                          <h5 className="font-bold text-md text-center mb-3 border-b pb-2">Groupe B</h5>
-                          <div className="space-y-3 pt-2 text-sm">
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right text-neutral-700">Montana 2</span>
-                              <span className="font-bold text-primary-800 text-center w-24">(1 - 3)</span>
-                              <span className="flex-1 text-left font-bold text-primary-900">Sion 2</span>
-                            </div>
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right text-neutral-700">Martigny 1</span>
-                              <span className="font-bold text-primary-800 text-center w-24">(2.5 - 1.5)</span>
-                              <span className="flex-1 text-left text-neutral-700">Riddes 2</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Groupe C */}
-                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
-                          <h5 className="font-bold text-md text-center mb-3 border-b pb-2">Groupe C</h5>
-                          <div className="space-y-3 pt-2 text-sm">
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right text-neutral-700">Montana 1</span>
-                              <span className="font-bold text-primary-800 text-center w-24">(3.5 - 0.5)</span>
-                              <span className="flex-1 text-left text-neutral-700">Martigny 4</span>
-                            </div>
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right text-neutral-700">Bagnes</span>
-                              <span className="font-bold text-primary-800 text-center w-24">(2 - 2)</span>
-                              <span className="flex-1 text-left text-neutral-700">Sierre 1</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Groupe D */}
-                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
-                          <h5 className="font-bold text-md text-center mb-3 border-b pb-2">Groupe D</h5>
-                          <div className="space-y-3 pt-2 text-sm">
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right text-neutral-700">Monthey</span>
-                              <span className="font-bold text-primary-800 text-center w-24">(4 - 0)</span>
-                              <span className="flex-1 text-left font-bold text-primary-900">Sion 3</span>
-                            </div>
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right text-neutral-700">Martigny 3</span>
-                              <span className="font-bold text-primary-800 text-center w-24">(1.5 - 2.5)</span>
-                              <span className="flex-1 text-left text-neutral-700">CE Port-Valais</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Ronde 2 */}
-                    <div>
-                      <h4 className="text-lg font-semibold text-primary-800 mb-4 flex items-center">
-                        <CalendarDays className="h-5 w-5 mr-2" />
-                        Ronde 2 - 28.11.2025
-                      </h4>
-                      {/* MODIFICATION ICI: lg:grid-cols-2 et max-w-4xl */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 max-w-4xl mx-auto">
-                        
-                        {/* Groupe A */}
-                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
-                          <h5 className="font-bold text-md text-center mb-3 border-b pb-2">Groupe A</h5>
-                          <div className="space-y-3 pt-2 text-sm">
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right text-neutral-700">Riddes 1</span>
-                              <span className="text-neutral-500 text-center w-24">vs</span>
-                              <span className="flex-1 text-left font-bold text-primary-900">Sion 1</span>
-                            </div>
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right text-neutral-700">Martigny 2</span>
-                              <span className="text-neutral-500 text-center w-24">vs</span>
-                              <span className="flex-1 text-left text-neutral-700">Sierre 2</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Groupe B */}
-                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
-                          <h5 className="font-bold text-md text-center mb-3 border-b pb-2">Groupe B</h5>
-                           <div className="space-y-3 pt-2 text-sm">
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right font-bold text-primary-900">Sion 2</span>
-                              <span className="text-neutral-500 text-center w-24">vs</span>
-                              <span className="flex-1 text-left text-neutral-700">Martigny 1</span>
-                            </div>
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right text-neutral-700">Riddes 2</span>
-                              <span className="text-neutral-500 text-center w-24">vs</span>
-                              <span className="flex-1 text-left text-neutral-700">Montana 2</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Groupe C */}
-                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
-                          <h5 className="font-bold text-md text-center mb-3 border-b pb-2">Groupe C</h5>
-                           <div className="space-y-3 pt-2 text-sm">
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right text-neutral-700">Montana 1</span>
-                              <span className="text-neutral-500 text-center w-24">vs</span>
-                              <span className="flex-1 text-left text-neutral-7C00">Sierre 1</span>
-                            </div>
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right text-neutral-700">Martigny 4</span>
-                              <span className="text-neutral-500 text-center w-24">vs</span>
-                              <span className="flex-1 text-left text-neutral-700">Bagnes</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Groupe D */}
-                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
-                          <h5 className="font-bold text-md text-center mb-3 border-b pb-2">Groupe D</h5>
-                           <div className="space-y-3 pt-2 text-sm">
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right text-neutral-700">CE Port-Valais</span>
-                              <span className="text-neutral-500 text-center w-24">vs</span>
-                              <span className="flex-1 text-left text-neutral-700">Monthey</span>
-                            </div>
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right font-bold text-primary-900">Sion 3</span>
-                              <span className="text-neutral-500 text-center w-24">vs</span>
-                              <span className="flex-1 text-left text-neutral-700">Martigny 3</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Ronde 3 */}
-                    <div>
-                      <h4 className="text-lg font-semibold text-primary-800 mb-4 flex items-center">
-                        <CalendarDays className="h-5 w-5 mr-2" />
-                        Ronde 3 - 19.12.2025
-                      </h4>
-                      {/* MODIFICATION ICI: lg:grid-cols-2 et max-w-4xl */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 max-w-4xl mx-auto">
-                        
-                        {/* Groupe A */}
-                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
-                          <h5 className="font-bold text-md text-center mb-3 border-b pb-2">Groupe A</h5>
-                          <div className="space-y-3 pt-2 text-sm">
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right text-neutral-700">Sierre 2</span>
-                              <span className="text-neutral-500 text-center w-24">vs</span>
-                              <span className="flex-1 text-left font-bold text-primary-900">Sion 1</span>
-                            </div>
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right text-neutral-700">Riddes 1</span>
-                              <span className="text-neutral-500 text-center w-24">vs</span>
-                              <span className="flex-1 text-left text-neutral-700">Martigny 2</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Groupe B */}
-                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
-                          <h5 className="font-bold text-md text-center mb-3 border-b pb-2">Groupe B</h5>
-                          <div className="space-y-3 pt-2 text-sm">
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right text-neutral-700">Martigny 1</span>
-                              <span className="text-neutral-500 text-center w-24">vs</span>
-                              <span className="flex-1 text-left text-neutral-700">Montana 2</span>
-                            </div>
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right font-bold text-primary-900">Sion 2</span>
-                              <span className="text-neutral-500 text-center w-24">vs</span>
-                              <span className="flex-1 text-left text-neutral-700">Riddes 2</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Groupe C */}
-                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
-                          <h5 className="font-bold text-md text-center mb-3 border-b pb-2">Groupe C</h5>
-                          <div className="space-y-3 pt-2 text-sm">
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right text-neutral-700">Sierre 1</span>
-                              <span className="text-neutral-500 text-center w-24">vs</span>
-                              <span className="flex-1 text-left text-neutral-700">Martigny 4</span>
-                            </div>
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right text-neutral-700">Bagnes</span>
-                              <span className="text-neutral-500 text-center w-24">vs</span>
-                              <span className="flex-1 text-left text-neutral-700">Montana 1</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Groupe D */}
-                        <div className="bg-white p-4 rounded-lg shadow-sm border border-neutral-200">
-                          <h5 className="font-bold text-md text-center mb-3 border-b pb-2">Groupe D</h5>
-                          <div className="space-y-3 pt-2 text-sm">
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right font-bold text-primary-900">Sion 3</span>
-                              <span className="text-neutral-500 text-center w-24">vs</span>
-                              <span className="flex-1 text-left text-neutral-700">CE Port-Valais</span>
-                            </div>
-                            <div className="flex items-center">
-                              <span className="flex-1 text-right text-neutral-700">Martigny 3</span>
-                              <span className="text-neutral-500 text-center w-24">vs</span>
-                              <span className="flex-1 text-left text-neutral-700">Monthey</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
               </div>
+
+              {/* Programme des Rencontres - Timeline/Cards */}
+              <div>
+                <h3 className="text-2xl font-bold text-center mb-10 text-neutral-900 flex items-center justify-center">
+                  <CalendarDays className="h-8 w-8 mr-3 text-red-600" />
+                  Calendrier 2025
+                </h3>
+                <div className="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-neutral-300 before:to-transparent">
+                  
+                  {/* Ronde 1 */}
+                  <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                     <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-red-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 text-red-600 font-bold">1</div>
+                     
+                     <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-xl shadow-md border border-neutral-100">
+                        <div className="flex justify-between items-center mb-4">
+                          <h4 className="font-bold text-lg text-neutral-800">Ronde 1</h4>
+                          <span className="px-3 py-1 bg-neutral-100 text-neutral-600 text-xs rounded-full font-medium">07.11.2025</span>
+                        </div>
+                        <div className="space-y-4 text-sm">
+                           <div className="p-3 bg-red-50/50 rounded-lg">
+                             <div className="flex justify-between font-semibold mb-1 text-red-900">Groupe A</div>
+                             <div className="flex justify-between"><span>Sierre 2</span> <span className="font-mono font-bold">0.5 - 3.5</span> <span>Riddes 1</span></div>
+                             <div className="flex justify-between font-bold text-red-700 mt-1"><span>Sion 1</span> <span className="font-mono">3 - 1</span> <span>Martigny 2</span></div>
+                           </div>
+                           <div className="p-3 bg-red-50/50 rounded-lg">
+                             <div className="flex justify-between font-semibold mb-1 text-red-900">Groupe B</div>
+                             <div className="flex justify-between font-bold text-red-700"><span>Montana 2</span> <span className="font-mono">1 - 3</span> <span>Sion 2</span></div>
+                             <div className="flex justify-between mt-1"><span>Martigny 1</span> <span className="font-mono font-bold">2.5 - 1.5</span> <span>Riddes 2</span></div>
+                           </div>
+                           <div className="p-3 bg-neutral-50 rounded-lg opacity-80 hover:opacity-100 transition-opacity">
+                             <div className="flex justify-between font-semibold mb-1 text-neutral-600">Groupe D</div>
+                             <div className="flex justify-between"><span>Monthey</span> <span className="font-mono">4 - 0</span> <span className="font-bold text-red-700">Sion 3</span></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  {/* Ronde 2 */}
+                   <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                     <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 text-neutral-400 font-bold">2</div>
+                     
+                     <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-xl shadow-md border border-neutral-100">
+                        <div className="flex justify-between items-center mb-4">
+                          <h4 className="font-bold text-lg text-neutral-800">Ronde 2</h4>
+                          <span className="px-3 py-1 bg-neutral-100 text-neutral-600 text-xs rounded-full font-medium">28.11.2025</span>
+                        </div>
+                        <div className="space-y-4 text-sm">
+                           <div className="p-3 bg-red-50/50 rounded-lg border-l-2 border-red-300">
+                             <div className="flex justify-between items-center">
+                               <span>Riddes 1</span>
+                               <span className="text-xs font-bold bg-white px-2 py-1 rounded border text-neutral-500">VS</span>
+                               <span className="font-bold text-red-700">Sion 1</span>
+                             </div>
+                           </div>
+                           <div className="p-3 bg-red-50/50 rounded-lg border-l-2 border-red-300">
+                             <div className="flex justify-between items-center">
+                               <span className="font-bold text-red-700">Sion 2</span>
+                               <span className="text-xs font-bold bg-white px-2 py-1 rounded border text-neutral-500">VS</span>
+                               <span>Martigny 1</span>
+                             </div>
+                           </div>
+                             <div className="p-3 bg-red-50/50 rounded-lg border-l-2 border-red-300">
+                             <div className="flex justify-between items-center">
+                               <span className="font-bold text-red-700">Sion 3</span>
+                               <span className="text-xs font-bold bg-white px-2 py-1 rounded border text-neutral-500">VS</span>
+                               <span>Martigny 3</span>
+                             </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  {/* Ronde 3 */}
+                   <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                     <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 text-neutral-400 font-bold">3</div>
+                     
+                     <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-xl shadow-md border border-neutral-100">
+                        <div className="flex justify-between items-center mb-4">
+                          <h4 className="font-bold text-lg text-neutral-800">Ronde 3</h4>
+                          <span className="px-3 py-1 bg-neutral-100 text-neutral-600 text-xs rounded-full font-medium">19.12.2025</span>
+                        </div>
+                        <div className="space-y-4 text-sm">
+                           <div className="p-3 bg-red-50/50 rounded-lg border-l-2 border-red-300">
+                             <div className="flex justify-between items-center">
+                               <span>Sierre 2</span>
+                               <span className="text-xs font-bold bg-white px-2 py-1 rounded border text-neutral-500">VS</span>
+                               <span className="font-bold text-red-700">Sion 1</span>
+                             </div>
+                           </div>
+                           <div className="p-3 bg-red-50/50 rounded-lg border-l-2 border-red-300">
+                             <div className="flex justify-between items-center">
+                               <span className="font-bold text-red-700">Sion 2</span>
+                               <span className="text-xs font-bold bg-white px-2 py-1 rounded border text-neutral-500">VS</span>
+                               <span>Riddes 2</span>
+                             </div>
+                           </div>
+                            <div className="p-3 bg-red-50/50 rounded-lg border-l-2 border-red-300">
+                             <div className="flex justify-between items-center">
+                               <span className="font-bold text-red-700">Sion 3</span>
+                               <span className="text-xs font-bold bg-white px-2 py-1 rounded border text-neutral-500">VS</span>
+                               <span>CE Port-Valais</span>
+                             </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                </div>
+              </div>
+              
             </motion.div>
           </div>
         </section>
@@ -649,7 +534,7 @@ export default function CVE() {
                   {/* Season Header */}
                   <button
                     onClick={() => toggleSeason(season.year)}
-                    className="w-full px-6 py-4 flex items-center justify-between bg-gradient-to-r from-primary-600 to-accent-600 text-white hover:from-primary-700 hover:to-accent-700 transition-colors"
+                    className="w-full px-6 py-4 flex items-center justify-between bg-gradient-to-r from-red-600 to-red-700 text-white hover:bg-red-700 transition-colors"
                   >
                     <h3 className="text-2xl font-semibold flex items-center">
                       <Calendar className="h-6 w-6 mr-3" />
@@ -682,7 +567,7 @@ export default function CVE() {
                       {season.hasVictory && (
                         <div className="text-center mb-8">
                           <div className="inline-block">
-                            <h3 className="text-2xl font-bold text-primary-900 mb-2 flex items-center">
+                            <h3 className="text-2xl font-bold text-red-900 mb-2 flex items-center">
                               <Trophy className="h-8 w-8 mr-3 text-yellow-500" />
                               {season.victoryTitle}
                             </h3>
@@ -710,14 +595,14 @@ export default function CVE() {
                             key={team.teamName}
                             whileHover={{ scale: 1.02 }}
                             className={`rounded-lg p-6 ${team.isChampion
-                              ? 'bg-gradient-to-br from-yellow-50 to-primary-50 border-2 border-primary-400'
+                              ? 'bg-gradient-to-br from-yellow-50 to-red-50 border-2 border-red-400'
                               : 'bg-neutral-50 border border-neutral-200'
                               }`}
                           >
                             <div className="flex justify-between items-start mb-4">
                               <h3 className="text-xl font-semibold text-neutral-900">{team.teamName}</h3>
                               <span className={`px-3 py-1 rounded-full text-sm font-medium flex items-center ${team.isChampion
-                                ? 'bg-gradient-to-r from-yellow-400 to-primary-400 text-white'
+                                ? 'bg-gradient-to-r from-yellow-400 to-red-400 text-white'
                                 : 'bg-neutral-200 text-neutral-700'
                                 }`}>
                                 {team.isChampion && <Medal className="h-4 w-4 mr-1" />}
@@ -739,7 +624,7 @@ export default function CVE() {
                                       <span className="text-neutral-600">
                                         {pairing.board}. {pairing.white} - {pairing.black}
                                       </span>
-                                      <span className="font-semibold text-primary-900">({pairing.result})</span>
+                                      <span className="font-semibold text-red-900">({pairing.result})</span>
                                     </li>
                                   ))}
                                 </ul>
@@ -765,10 +650,10 @@ export default function CVE() {
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="flex items-center px-6 py-3 bg-gradient-to-r from-primary-100 to-accent-100 rounded-lg hover:from-primary-200 hover:to-accent-200 transition-colors"
+                                className="flex items-center px-6 py-3 bg-gradient-to-r from-red-100 to-red-50 rounded-lg hover:bg-red-200 transition-colors"
                               >
-                                <ExternalLink className="h-5 w-5 mr-3 text-primary-600" />
-                                <span className="text-primary-900 font-medium">{doc.title}</span>
+                                <ExternalLink className="h-5 w-5 mr-3 text-red-600" />
+                                <span className="text-red-900 font-medium">{doc.title}</span>
                               </motion.a>
                             ))}
                           </div>
@@ -800,7 +685,7 @@ export default function CVE() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-primary-600 to-accent-600 text-white rounded-md hover:from-primary-700 hover:to-accent-700 transition-colors"
+                    className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-md hover:bg-red-700 transition-colors"
                   >
                     <ExternalLink className="h-5 w-5 mr-2" />
                     Historique complet sur le site de l'UVE

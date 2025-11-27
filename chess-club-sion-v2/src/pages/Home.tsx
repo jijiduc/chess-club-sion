@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 // MODIFICATION 1: Ajout des icônes pour la navigation du carrousel
-import { Trophy, Calendar, Users, ChevronRight, MapPin, Clock, Zap, X, ChevronUp, ChevronDown, ArrowRight } from 'lucide-react'
+import { Trophy, Calendar, Users, ChevronRight, MapPin, Clock, Zap, X, ChevronDown, ArrowRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { newsItems, type NewsItem } from '../lib/data/news'
 import { programmeEvents } from '../lib/data/programme'
@@ -9,20 +9,15 @@ import { Title, Meta } from 'react-head';
 
 export default function Home() {
   const [selectedNews, setSelectedNews] = useState<number | null>(null)
-  // MODIFICATION 2: Ajout d'un état pour l'index de la carte active dans le carrousel
-  const [activeIndex, setActiveIndex] = useState(0);
+  // MODIFICATION 2: Ajout d'un état pour gérer le nombre d'actualités visibles
+  const [visibleNewsCount, setVisibleNewsCount] = useState(3);
 
   // MODIFICATION 3: Trier les actualités par date, de la plus récente à la plus ancienne
   // Nous utilisons une copie avec [...] pour ne pas muter l'array original importé
   const sortedNews = [...newsItems].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-  // MODIFICATION 4: Fonctions pour naviguer dans le carrousel
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % sortedNews.length);
-  };
-
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + sortedNews.length) % sortedNews.length);
+  const handleLoadMore = () => {
+    setVisibleNewsCount((prev) => prev + 3);
   };
 
   const formatDate = (date: Date) => {
@@ -46,7 +41,19 @@ export default function Home() {
   const closeNewsModal = () => {
     setSelectedNews(null)
   }
-
+  
+  // ... (renderTextWithLinks code stays here implicitly as it was not part of the removed block in instruction, 
+  // but wait, the 'old_string' must cover what I want to remove.
+  // I will target the state definitions and the helper functions first, then the render part separately if needed, 
+  // OR I can do a large replacement if I am careful.
+  // The user prompt asked to refactor the SECTION.
+  // I will replace the state initialization and the `handleNext`/`handlePrev` with `handleLoadMore`.
+  
+  // Actually, simpler: I will keep `renderTextWithLinks` and `formatDate` untouched if possible, 
+  // but the `activeIndex` state and `handleNext`/`handlePrev` are at the top of the component.
+  
+  // Let's replace the top part of the component first.
+  
   const renderTextWithLinks = (text: string) => {
     const lines = text.split('\n');
     const renderedElements = [];
@@ -139,10 +146,33 @@ export default function Home() {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  const upcomingEvents = programmeEvents
+  // MODIFICATION: Logique de groupement pour les événements de la page d'accueil
+  const rawUpcoming = programmeEvents
     .filter(event => new Date(event.date) >= today)
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-    .slice(0, 3)
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
+  const groupedEvents: (typeof programmeEvents[0] | typeof programmeEvents[0][])[] = [];
+  
+  rawUpcoming.forEach(event => {
+     const isGroupable = event.category.includes('CVE') || event.category.includes('CSG');
+     if (isGroupable) {
+         const last = groupedEvents[groupedEvents.length - 1];
+         if (Array.isArray(last) && last.length > 0) {
+             const first = last[0];
+             if (first.date === event.date && first.category.some(c => ['CVE', 'CSG'].includes(c) && event.category.includes(c))) {
+                 last.push(event);
+                 return;
+             }
+         }
+         groupedEvents.push([event]);
+     } else {
+         groupedEvents.push(event);
+     }
+  });
+
+  const upcomingEvents = groupedEvents
+     .map(item => (Array.isArray(item) && item.length === 1) ? item[0] : item)
+     .slice(0, 3);
 
   const activities = [
     {
@@ -164,7 +194,7 @@ export default function Home() {
       title: "Pôle compétition",
       description: "Participez aux diverses championnats suisses et valaisans par équipes",
       time: "vendredi soir, samedi",
-      link: "/competitions/cse"
+      link: "/competitions"
     }
   ]
 
@@ -213,23 +243,39 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="mt-12"
+              className="mt-16"
             >
-              <div className="bg-black/20 backdrop-blur-sm border border-white/20 rounded-2xl p-6 max-w-2xl mx-auto">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                  <div className="text-left">
-                    <p className="font-semibold text-primary-200 flex items-center"><Trophy className="h-5 w-5 mr-2" /> Ne manquez pas !</p>
-                    <p className="text-xl text-white">Tournoi blitz de Noël - 21 décembre</p>
+              <div className="relative group max-w-3xl mx-auto">
+                {/* Glow effect behind */}
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-500 to-accent-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
+                
+                <div className="relative bg-neutral-900/80 backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8 shadow-2xl">
+                  <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div className="text-left flex-1">
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/20 border border-primary-500/30 text-primary-300 text-xs font-bold uppercase tracking-wider mb-3">
+                        <Trophy className="h-3.5 w-3.5 text-primary-400" />
+                        <span>Ne manquez pas !</span>
+                      </div>
+                      <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight">
+                        Tournoi blitz de Noël
+                        <span className="block text-lg sm:text-xl font-sans font-normal text-neutral-300 mt-1">Samedi 21 décembre 2025</span>
+                      </h3>
+                    </div>
+                    
+                    <div className="flex-shrink-0 w-full md:w-auto">
+                      <a
+                        href="/blitz-noel"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/btn relative inline-flex items-center justify-center w-full md:w-auto px-8 py-4 bg-white text-neutral-900 rounded-xl font-bold shadow-lg overflow-hidden transition-all duration-300 hover:bg-primary-50 hover:text-primary-700 hover:scale-[1.02]"
+                      >
+                        <span className="relative z-10 flex items-center">
+                          Toutes les infos
+                          <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform" />
+                        </span>
+                      </a>
+                    </div>
                   </div>
-                  <a
-                    href="/tournoi-noel"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group bg-primary-500 hover:bg-primary-400 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 inline-flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full md:w-auto"
-                  >
-                    Informations
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </a>
                 </div>
               </div>
             </motion.div>
@@ -290,6 +336,16 @@ export default function Home() {
                 )
               })}
             </div>
+
+            <div className="text-center mt-12">
+              <Link
+                to="/club"
+                className="inline-flex items-center bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1"
+              >
+                Découvrir le club
+                <ChevronRight className="ml-2 h-5 w-5" />
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -311,39 +367,65 @@ export default function Home() {
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-8 mb-12">
-              {upcomingEvents.map((event, index) => (
-                <motion.div
-                  key={event.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col"
-                >
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-sm font-medium text-primary-600 bg-primary-100 px-3 py-1 rounded-full">
-                      {new Date(event.date).toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'short' })}
-                    </span>
-                    <span className="text-sm text-neutral-500">{event.time}</span>
-                  </div>
-
-                  <div className="flex-grow">
-                    <h3 className="text-lg font-semibold text-neutral-900 mb-2">
-                      {event.title}
-                    </h3>
-                    <p className="text-neutral-600 text-sm mb-4">
-                      {event.description}
-                    </p>
-                  </div>
-
-                  {event.location && (
-                    <div className="flex items-center text-sm text-neutral-500">
-                      <MapPin className="h-4 w-4 mr-1" />
-                      {event.location}
+              {upcomingEvents.map((eventOrGroup, index) => {
+                const isGroup = Array.isArray(eventOrGroup);
+                const event = isGroup ? eventOrGroup[0] : eventOrGroup;
+                
+                return (
+                  <motion.div
+                    key={event.id + (isGroup ? '-group' : '')}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex flex-col"
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-sm font-medium text-primary-600 bg-primary-100 px-3 py-1 rounded-full">
+                        {new Date(event.date).toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'short' })}
+                      </span>
+                      <span className="text-sm text-neutral-500">{event.time}</span>
                     </div>
-                  )}
-                </motion.div>
-              ))}
+
+                    <div className="flex-grow">
+                      <h3 className="text-lg font-semibold text-neutral-900 mb-2">
+                        {isGroup ? (event.description || event.title) : event.title}
+                      </h3>
+                      
+                      {isGroup ? (
+                         <div className="space-y-2 mb-4">
+                            {(eventOrGroup as typeof programmeEvents[0][]).map(subEvent => (
+                                <div key={subEvent.id} className="bg-neutral-50 rounded p-2 border border-neutral-100">
+                                    <p className="text-sm font-medium text-neutral-800">
+                                        {subEvent.title.includes(':') ? subEvent.title.split(':')[1].trim() : subEvent.title}
+                                    </p>
+                                    {subEvent.location && (
+                                        <div className="flex items-center text-xs text-neutral-500 mt-1">
+                                            <MapPin className="h-3 w-3 mr-1" />
+                                            {subEvent.location}
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                         </div>
+                      ) : (
+                        <>
+                            <p className="text-neutral-600 text-sm mb-4">
+                                {event.description}
+                            </p>
+                            {event.location && (
+                                <div className="flex items-center text-sm text-neutral-500">
+                                <MapPin className="h-4 w-4 mr-1" />
+                                {event.location}
+                                </div>
+                            )}
+                        </>
+                      )}
+                    </div>
+
+                  </motion.div>
+                );
+              })}
             </div>
 
             <div className="text-center">
@@ -358,7 +440,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* MODIFICATION 5: Remplacement de la section Actualités */}
+        {/* MODIFICATION 5: Remplacement de la section Actualités par une Grille */}
         <section className="py-24 bg-gradient-to-br from-neutral-50 to-secondary-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -376,83 +458,69 @@ export default function Home() {
               <div className="h-1 w-24 bg-primary-600 mx-auto" />
             </motion.div>
 
-            <div className="relative flex flex-col items-center justify-center max-w-3xl mx-auto">
-              {/* Conteneur pour les boutons de navigation */}
-              <div className="z-30 flex flex-col gap-4 absolute top-1/2 -translate-y-1/2 right-0 md:-right-24">
-                <button onClick={handlePrev} className="bg-white/80 backdrop-blur-sm hover:bg-white rounded-full p-3 shadow-md hover:shadow-lg transition-all transform hover:scale-110">
-                  <ChevronUp className="h-6 w-6 text-neutral-700" />
-                </button>
-                <button onClick={handleNext} className="bg-white/80 backdrop-blur-sm hover:bg-white rounded-full p-3 shadow-md hover:shadow-lg transition-all transform hover:scale-110">
-                  <ChevronDown className="h-6 w-6 text-neutral-700" />
-                </button>
-              </div>
-
-              {/* Stack de cartes */}
-              <div className="relative w-full max-w-lg min-h-[400px]">
-                {sortedNews.map((item, index) => {
-                  const offset = index - activeIndex;
-                  // On affiche seulement 3 cartes à la fois pour la performance
-                  if (offset < 0 || offset > 2) return null;
-
-                  return (
-                    <motion.article
-                      key={item.title} // Utiliser un ID unique si possible
-                      className="group absolute top-0 flex flex-col bg-white rounded-2xl overflow-hidden shadow-lg w-full"
-                      initial={{
-                        y: 0,
-                        scale: 1,
-                        opacity: 0
-                      }}
-                      animate={{
-                        y: offset * 30,
-                        scale: 1 - (offset * 0.1),
-                        opacity: 1 - (offset * 0.3),
-                        zIndex: sortedNews.length - index,
-                      }}
-                      transition={{ type: 'spring', stiffness: 200, damping: 25 }}
-                    >
-                      {item.hasImage && item.image && (
-                        <div className="relative overflow-hidden h-48">
-                          <img
-                            src={item.image.src}
-                            alt={item.image.alt || ''}
-                            className="w-full h-full object-cover"
-                          />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              {sortedNews.slice(0, visibleNewsCount).map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col h-full group"
+                >
+                  {/* Image de couverture */}
+                  <div className="relative h-48 overflow-hidden bg-neutral-200">
+                     {item.hasImage && item.image ? (
+                        <img 
+                          src={item.image.src} 
+                          alt={item.image.alt || item.title} 
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                     ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-primary-50">
+                           <Trophy className="w-12 h-12 text-primary-200" />
                         </div>
-                      )}
-                      <div className="p-6 flex flex-col flex-grow">
-                        <span className="text-xs font-medium text-primary-600 bg-primary-50 px-2 py-1 rounded-full self-start mb-3">
-                          {formatDate(item.date)}
-                        </span>
+                     )}
+                     <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary-700 shadow-sm">
+                        {new Date(item.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' })}
+                     </div>
+                  </div>
 
-                        {/* MODIFICATION : la classe 'line-clamp-2' a été retirée */}
-                        <h3 className="text-xl font-serif font-bold text-neutral-900 mb-3">
-                          {item.title}
-                        </h3>
+                  <div className="p-6 flex flex-col flex-grow">
+                    <h3 className="text-xl font-bold text-neutral-900 mb-3 line-clamp-2 group-hover:text-primary-600 transition-colors">
+                      {item.title}
+                    </h3>
+                    
+                    <p className="text-neutral-600 text-sm mb-4 line-clamp-3 flex-grow">
+                      {item.description}
+                    </p>
 
-                        {item.description && (
-                          /* MODIFICATION : la classe 'line-clamp-3' a été retirée */
-                          <p className="text-neutral-700 text-base mb-4 leading-relaxed">
-                            {item.description}
-                          </p>
-                        )}
-
-                        <div className="mt-auto pt-2">
-                          <button
-                            onClick={() => openNewsModal(item)}
-                            className={`inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm transition-all duration-300 ${index !== activeIndex ? 'pointer-events-none' : ''
-                              }`}
-                          >
-                            Lire l'article au complet
-                            <ChevronRight className="ml-1 h-4 w-4" />
-                          </button>
-                        </div>
-                      </div>
-                    </motion.article>
-                  )
-                })}
-              </div>
+                    <div className="pt-4 border-t border-neutral-100 mt-auto">
+                       <button
+                          onClick={() => openNewsModal(item)}
+                          className="text-primary-600 font-semibold text-sm hover:text-primary-700 flex items-center gap-1 group/btn"
+                       >
+                          Lire l'article
+                          <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                       </button>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
             </div>
+
+            {visibleNewsCount < sortedNews.length && (
+              <div className="text-center">
+                <button
+                  onClick={handleLoadMore}
+                  className="inline-flex items-center bg-white hover:bg-neutral-50 text-neutral-700 border border-neutral-300 px-8 py-3 rounded-full font-semibold transition-all duration-300 shadow-sm hover:shadow-md"
+                >
+                  Voir plus d'actualités
+                  <ChevronDown className="ml-2 h-5 w-5" />
+                </button>
+              </div>
+            )}
+
           </div>
         </section>
 
