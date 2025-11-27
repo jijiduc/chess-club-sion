@@ -4,6 +4,7 @@ import {
   presidents,
   hallOfFame,
   honoraryMembers,
+  archiveImages,
 } from '~/data/histoireData';
 import {
   Hero,
@@ -11,6 +12,7 @@ import {
   Presidents,
   HallOfFame,
   HonoraryMembers,
+  HistoricalGallery,
 } from '~/components/pages/histoire';
 import { ScrollToTopButton } from '~/components/shared';
 
@@ -27,6 +29,9 @@ export default function Histoire() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <HistoryBlocks blocks={historyBlocks} className="mb-20" />
+
+          {/* Historical Gallery */}
+          <HistoricalGallery images={archiveImages} className="mb-20" />
 
           {/* Presidents & Hall of Fame & Honorary Members */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-20">

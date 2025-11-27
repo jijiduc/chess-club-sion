@@ -35,8 +35,179 @@ export interface HonoraryMember {
   name: string;
 }
 
+export interface ArchiveImage {
+  id: string;
+  src: string;
+  title: string;
+  description?: string;
+  date?: string;
+  event?: string;
+}
+
 
 // --- Structures de données pour le contenu ---
+
+export const archiveImages: ArchiveImage[] = [
+  // CSE 2002
+  {
+    id: 'cse-2002-1a',
+    src: '/picture/gallery/CSE_2002/cse20021a.jpg',
+    title: 'Position difficile contre Fribourg',
+    description: 'Analyse intense durant le match Sion I - Fribourg en Championnat Suisse par Équipes.',
+    date: '3 mars 2002',
+    event: 'Championnat Suisse par Équipes'
+  },
+  {
+    id: 'cse-2002-1b',
+    src: '/picture/gallery/CSE_2002/cse20021b.jpg',
+    title: 'Julien Carron en pleine concentration',
+    description: 'Julien Carron, absorbé par sa partie lors du Championnat Suisse.',
+    date: '3 mars 2002',
+    event: 'Championnat Suisse par Équipes'
+  },
+  {
+    id: 'cse-2002-1h',
+    src: '/picture/gallery/CSE_2002/cse20021h.jpg',
+    title: 'Vue d\'ensemble du match',
+    description: 'La salle de jeu lors de la rencontre Sion I - Fribourg.',
+    date: '3 mars 2002',
+    event: 'Championnat Suisse par Équipes'
+  },
+  {
+    id: 'cse-2002-2a',
+    src: '/picture/gallery/CSE_2002/cse20022a.jpg',
+    title: 'Le capitaine en action',
+    description: 'Match à l\'extérieur contre Lausanne Le Joueur.',
+    date: '24 mars 2002',
+    event: 'Championnat Suisse par Équipes'
+  },
+  {
+    id: 'cse-2002-2j',
+    src: '/picture/gallery/CSE_2002/cse20022j.jpg',
+    title: 'Un coup de Maître',
+    description: 'C\'est dans cette position que Pascal jouera le coup de GM d6-d5 !',
+    date: '24 mars 2002',
+    event: 'Championnat Suisse par Équipes'
+  },
+
+  // CVE 2000
+  {
+    id: 'cve-2000-3',
+    src: '/picture/gallery/CVE/cve2000-3.jpg',
+    title: 'Sion II promu en groupe A',
+    description: 'L\'équipe Sion II (Olivier Crettenand, David Campanile, Eder et Renzo Cerda) célèbre sa promotion en 2000.',
+    date: '2000',
+    event: 'Championnat Valaisan par Équipes'
+  },
+  {
+    id: 'cve-2000-4',
+    src: '/picture/gallery/CVE/cve2000-4.jpg',
+    title: 'Fair-play avec Martigny I',
+    description: 'L\'équipe Sion II pose avec les vainqueurs du groupe A, Martigny I.',
+    date: '2000',
+    event: 'Championnat Valaisan par Équipes'
+  },
+
+  // AG 1998
+  {
+    id: 'ag-1998-jmp',
+    src: '/picture/gallery/AG/ag98jmp.jpg',
+    title: 'Le Président Jean-Michel Paladini',
+    description: 'Le président prépare son discours lors de l\'Assemblée Générale de 1998.',
+    date: '1998',
+    event: 'Assemblée Générale 1998'
+  },
+  {
+    id: 'ag-1998-pg',
+    src: '/picture/gallery/AG/ag98pg.jpg',
+    title: 'Le Trésorier Pascal Grand',
+    description: 'Pascal Grand, trésorier, attentif au discours du président.',
+    date: '1998',
+    event: 'Assemblée Générale 1998'
+  },
+  {
+    id: 'ag-1998-fc',
+    src: '/picture/gallery/AG/ag98fc.jpg',
+    title: 'Fritz Karafiat, responsable interne',
+    description: 'Fritz Karafiat, dévoué aux jeunes du club.',
+    date: '1998',
+    event: 'Assemblée Générale 1998'
+  },
+
+  // Local du club
+  { id: 'local-1', src: '/picture/gallery/Local/local1.jpg', title: 'Le bâtiment du club', description: 'Vue extérieure du bâtiment (nous sommes au dernier étage).', event: 'Local du Club (avant 2006)' },
+  { id: 'local-2', src: '/picture/gallery/Local/local2.jpg', title: 'Le bâtiment du club, autre vue', description: 'Une autre perspective de notre local historique.', event: 'Local du Club (avant 2006)' },
+  { id: 'local-3', src: '/picture/gallery/Local/local3.jpg', title: 'L\'entrée des gladiateurs', description: 'Après la porte d\'entrée, il ne reste plus que 64 marches à grimper.', event: 'Local du Club (avant 2006)' },
+  { id: 'local-4', src: '/picture/gallery/Local/local4.jpg', title: 'Salle secondaire', description: 'La salle secondaire, avant la grande rénovation de 2006.', event: 'Local du Club (avant 2006)' },
+  { id: 'local-5', src: '/picture/gallery/Local/local5.jpg', title: 'Salle de jeu principale', description: 'La salle principale et son charme d\'antan, avant la rénovation de 2006.', event: 'Local du Club (avant 2006)' },
+
+  // Simultanée Kortchnoi 2000
+  { id: 'kortchnoi-2000-a', src: '/picture/gallery/Simultanee/Korchnoi/k2000a.jpg', title: 'Face au Maître', description: 'De vaillants compétiteurs face au légendaire Viktor Kortchnoi.', date: '2000', event: 'Simultanée Kortchnoi' },
+  { id: 'kortchnoi-2000-b', src: '/picture/gallery/Simultanee/Korchnoi/k2000b.jpg', title: 'Le regard du Maître', description: 'Le grand maître Viktor Kortchnoi en pleine contemplation.', date: '2000', event: 'Simultanée Kortchnoi' },
+  { id: 'kortchnoi-2000-c', src: '/picture/gallery/Simultanee/Korchnoi/k2000c.jpg', title: 'Kortchnoi contre Gilles Terreaux', description: 'Viktor Kortchnoi face à notre membre Gilles Terreaux.', date: '2000', event: 'Simultanée Kortchnoi' },
+  { id: 'kortchnoi-2000-e', src: '/picture/gallery/Simultanee/Korchnoi/k2000e.jpg', title: 'La jeunesse s\'interroge', description: 'Eddy Beney, son fils et Olivier Crettenand face à un problème posé par le GMI.', date: '2000', event: 'Simultanée Kortchnoi' },
+  { id: 'kortchnoi-2000-f', src: '/picture/gallery/Simultanee/Korchnoi/k2000f.jpg', title: 'Une poussée vigoureuse', description: 'Jean-Yves Riand et Léonard Besse en pleine collaboration contre Viktor Kortchnoi.', date: '2000', event: 'Simultanée Kortchnoi' },
+  { id: 'kortchnoi-2000-g', src: '/picture/gallery/Simultanee/Korchnoi/k2000g.jpg', title: 'Moment de réflexion', description: 'Kortchnoi analyse la position face à Jean-Yves Riand.', date: '2000', event: 'Simultanée Kortchnoi' },
+  { id: 'kortchnoi-2000-h', src: '/picture/gallery/Simultanee/Korchnoi/k2000h.jpg', title: 'Le Maître et ses adversaires', description: 'Kortchnoi se penche sur une position complexe.', date: '2000', event: 'Simultanée Kortchnoi' },
+
+  // Simultanée Nemet Ivan
+  { id: 'nemet-ivan-2005', src: '/picture/gallery/Simultanee/Nemet/simnemet.jpg', title: 'Simultanée d\'Ivan Nemet', description: 'Le GMI Ivan Nemet, Champion Suisse 1990, lors d\'une simultanée.', date: '2005', event: 'Simultanée Nemet Ivan' },
+
+  // Championnat blitz par paires 2000
+  {
+    id: 'blitz-2000-1',
+    src: '/picture/gallery/Blitz/blitzp2-2000.jpg',
+    title: 'La vieille garde en action',
+    description: 'La paire expérimentée formée par Pierre-Marie Rappaz et Jean-Yves Riand.',
+    date: '25 mars 2000',
+    event: 'Ch. Valaisan de Blitz par Paire'
+  },
+  {
+    id: 'blitz-2000-2',
+    src: '/picture/gallery/Blitz/blitzp3-2000.jpg',
+    title: 'Prix Junior pour Carron & Campanile',
+    description: 'La paire de jeunes talents, Julien Carron et David Campanile, remporte le premier prix junior.',
+    date: '25 mars 2000',
+    event: 'Ch. Valaisan de Blitz par Paire'
+  },
+  {
+    id: 'blitz-2000-3',
+    src: '/picture/gallery/Blitz/blitzp4-2000.jpg',
+    title: 'Association inter-club',
+    description: 'La paire formée de Gilles Terreaux et Jean-Paul Moret lors du tournoi.',
+    date: '25 mars 2000',
+    event: 'Ch. Valaisan de Blitz par Paire'
+  },
+  {
+    id: 'blitz-2000-4',
+    src: '/picture/gallery/Blitz/blitzp5-2000.jpg',
+    title: 'Pause publicitaire',
+    description: 'Après le garage Mistral, une page de pub pour Coca Cola...',
+    date: '25 mars 2000',
+    event: 'Ch. Valaisan de Blitz par Paire'
+  },
+
+  // Championnat Valaisan 1979
+  { id: 'cv-1979-gt', src: '/picture/gallery/Championnat_Valaisan/gt79.jpg', title: 'Gilles Terreaux, Champion 1979', description: 'Gilles Terreaux, vainqueur du championnat toutes catégories confondues en 1979.', date: '1979', event: 'Championnat Valaisan 1979' },
+  { id: 'cv-1979-pg', src: '/picture/gallery/Championnat_Valaisan/pg79.jpg', title: 'Pascal Grand, Champion du tournoi 2', description: 'Pascal Grand, champion valaisan du tournoi 2 en 1979.', date: '1979', event: 'Championnat Valaisan 1979' },
+  { id: 'cv-1979-jmp', src: '/picture/gallery/Championnat_Valaisan/jmp79.jpg', title: 'Jean-Michel Paladini, Champion Junior', description: 'Jean-Michel Paladini, sacré champion valaisan junior en 1979.', date: '1979', event: 'Championnat Valaisan 1979' },
+
+  // Fête des promotions 2001
+  { id: 'promo-2001-f1', src: '/picture/gallery/Promotion_2001/promo2001-f1.jpg', title: 'Célébration des promotions', description: 'Des membres du club lors de la fête des promotions de Sion I & II.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001-f2', src: '/picture/gallery/Promotion_2001/promo2001-f2.jpg', title: 'Le banquet des champions', description: 'Plusieurs membres, dont Eddy Beney à gauche, partagent un repas.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001-f3', src: '/picture/gallery/Promotion_2001/promo2001-f3.jpg', title: 'Un moment convivial', description: 'Les promotions de Sion I & II sont dignement arrosées.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001-f4', src: '/picture/gallery/Promotion_2001/promo2001-f4.jpg', title: 'La tablée des joueurs', description: 'Plusieurs membres, dont Julien Carron tout à gauche, célèbrent la montée.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001-f5', src: '/picture/gallery/Promotion_2001/promo2001-f5.jpg', title: 'Souvenirs de promotion', description: 'Plusieurs membres, dont Jean-Yves Riand à gauche.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001-f6', src: '/picture/gallery/Promotion_2001/promo2001-f6.jpg', title: 'Vue d\'ensemble de la fête', description: 'Une grande tablée pour une grande occasion.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001-f7', src: '/picture/gallery/Promotion_2001/promo2001-f7.jpg', title: 'Gilles Terreaux, le sourire du vainqueur', description: 'Plusieurs membres, dont Gilles Terreaux à gauche.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001-f8', src: '/picture/gallery/Promotion_2001/promo2001-f8.jpg', title: 'Une belle soirée', description: 'Une belle tablée de membres pour fêter les promotions.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001-f9', src: '/picture/gallery/Promotion_2001/promo2001-f9.jpg', title: 'Gilles Terreaux, prêt au combat', description: 'Même à table, l\'esprit de compétition est là.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001a', src: '/picture/gallery/Promotion_2001/promo2001a.jpg', title: 'L\'équipe de la promotion', description: 'L\'équipe de Sion I victorieuse 5,5-2,5 contre Berne II.', date: '2001', event: 'Fête des promotions 2001' },
+  { id: 'promo-2001b', src: '/picture/gallery/Promotion_2001/promo2001b.jpg', title: 'La feuille de match historique', description: 'Le détail du match Sion I - Berne II qui a scellé la promotion.', date: '2001', event: 'Fête des promotions 2001' },
+
+  // Julien Carron Champion
+  { id: 'julien-cs1-2005', src: '/picture/gallery/Julien_Carron/csi2005.jpg', title: 'Julien Carron, Champion Suisse Junior', description: 'Julien Carron avec les différents champions suisses de l\'année 2005.', date: '2005', event: 'Championnat Suisse Individuel' },
+];
 
 export const historyBlocks: HistoryBlock[] = [
   {
