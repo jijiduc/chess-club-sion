@@ -247,7 +247,7 @@ export default function CompetitionsHub() {
                         <span className="px-3 py-1 bg-orange-100 text-orange-800 text-xs font-bold uppercase rounded-full">Junior U20</span>
                       </div>
                       <p className="text-neutral-600 mb-6 text-lg">
-                        Le circuit de référence pour la relève ! Une série de tournois rapides à travers le canton pour se qualifier à la finale.
+                        Le circuit de référence pour la relève ! Une série de tournois rapides à travers le canton pour former la jeunesse.
                       </p>
                     </div>
                     <div className="mt-auto">
