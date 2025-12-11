@@ -313,7 +313,7 @@ export default function InternalChampionship() {
                         </div>
                         <div>
                             <h3 className="text-2xl font-bold text-neutral-900">Saison 2025/2026</h3>
-                            <p className="text-neutral-500 text-sm">Informations et Inscriptions</p>
+                            <p className="text-neutral-500 text-sm">Informations</p>
                         </div>
                     </div>
                     <motion.div animate={{ rotate: isNewSeasonExpanded ? 180 : 0 }}>
@@ -353,7 +353,7 @@ export default function InternalChampionship() {
                                             </div>
                                             <div>
                                                 <span className="block font-semibold text-neutral-900">Format</span>
-                                                <span className="text-neutral-600 text-sm">7 rondes (Système Suisse ou Toutes rondes)</span>
+                                                <span className="text-neutral-600 text-sm">7 rondes (Système Suisse)</span>
                                             </div>
                                         </li>
                                         <li className="flex items-start">
@@ -376,10 +376,11 @@ export default function InternalChampionship() {
                                     </h4>
                                     <div className="bg-neutral-50 rounded-xl p-5 text-sm text-neutral-700 space-y-3 border border-neutral-100">
                                         <p>• <strong>1 ronde par mois</strong>, à jouer lors d'une soirée dédiée ou dans le délai imparti.</p>
-                                        <p>• Annoncer le résultat au moins <strong>6 jours</strong> avant la fin du mois.</p>
-                                        <p>• Le gagnant transmet le résultat avec une photo de la feuille de partie.</p>
+                                        <p>• <strong>Annoncer le résultat avant la date butoire annoncée.</strong> Passé le délai, le match est enregistré 0 - 0 et les points ELO ne sont pas comptabilisés</p>
+                                        <p>• Le gagnant transmet le résultat avec une photo de la feuille de partie auprès du responsable du tournoi.</p>
                                         <div className="pt-3 border-t border-neutral-200 mt-2">
-                                            <p className="font-medium text-amber-800">Responsable : Olivier Ulmann</p>
+                                            <p className="font-medium text-amber-800">Responsable du tournoi : Olivier Ulmann</p>
+                                            <p className="font-medium text-amber-800">Arbitre : Fabrice Lovey</p>
                                         </div>
                                     </div>
                                     

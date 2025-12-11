@@ -66,7 +66,7 @@ export default function BlitzNoel() {
   const [inscritCount, setInscritCount] = useState<number | string | null>(null);
  
   // !! AJOUT: Constante pour décaler le nombre d'inscrits
-  const countOffset = 3;
+  const countOffset = 1;
   
   // !! MODIFIÉ: Mise à jour avec votre NOUVELLE URL !!
   const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxtU43O1Qth1iCLkf8iEzVZRt9sTVvt3YWsKcOalSvwB6ob5OVpbLJJfTP39NmldCZy/exec";
@@ -251,9 +251,11 @@ export default function BlitzNoel() {
                         <h4 className="font-semibold text-lg text-primary-900">Finance</h4>
                         <p className="text-neutral-700">Adultes : <strong>CHF 15.-</strong></p>
                         <p className="text-neutral-700">Juniors (U20) : <strong>CHF 5.-</strong></p>
-                        <p className="text-neutral-600 text-sm mt-1">
-                          Inscription validée après paiement (voir modalités ci-dessous).
-                        </p>
+                        {displayCount !== null && typeof displayCount === 'number' && displayCount < 40 && (
+                          <p className="text-neutral-600 text-sm mt-1">
+                            Inscription validée après paiement (voir modalités ci-dessous).
+                          </p>
+                        )}
                       </div>
                     </div>
 
@@ -263,6 +265,9 @@ export default function BlitzNoel() {
                       <div>
                         <h4 className="font-semibold text-lg text-primary-900">Inscriptions</h4>
                         <p className="text-neutral-700">Capacité limitée à 40 participants.</p>
+                        {displayCount !== null && typeof displayCount === 'number' && displayCount < 40 && (
+                          <p className="text-neutral-700"><strong>Inscription validée après paiement.</strong></p>
+                        )}
                         <div className="mt-2 bg-primary-100 p-2 rounded-md">
                           <p className="font-semibold text-primary-800 text-center">
                             Inscrits validés actuels : {
@@ -287,8 +292,7 @@ export default function BlitzNoel() {
                   {/* Conteneur Flex pour aligner les boutons */}
                   <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
 
-                    {/* Bouton 1: S'inscrire (conditionnel) */}
-                    {displayCount !== null && typeof displayCount === 'number' && displayCount < 40 && (
+                    {displayCount !== null && typeof displayCount === 'number' && displayCount < 40 ? (
                       <motion.a
                         href="https://forms.gle/wTn4UmSqD6o6ouBd7"
                         target="_blank"
@@ -300,6 +304,11 @@ export default function BlitzNoel() {
                         <ClipboardCheck className="h-5 w-5 mr-3" />
                         S'inscrire en ligne
                       </motion.a>
+                    ) : (
+                      <div className="w-full sm:w-auto text-center py-4 px-8 bg-neutral-100 text-neutral-700 rounded-lg shadow-inner">
+                        <p className="font-bold text-lg mb-1">Les inscriptions sont closes !</p>
+                        <p className="text-sm">Le tournoi a atteint sa capacité maximale de 40 participants.</p>
+                      </div>
                     )}
 
                     {/* NOUVEAU BOUTON: Liste des inscrits */}
@@ -312,59 +321,64 @@ export default function BlitzNoel() {
                       className="inline-flex items-center justify-center px-8 py-4 bg-white text-primary-700 font-bold rounded-lg shadow-lg border border-primary-200 hover:bg-primary-50 transition-colors w-full sm:w-auto"
                     >
                       <List className="h-5 w-5 mr-3" />
-                      Voir la liste des inscriptions validées
+                      {displayCount !== null && typeof displayCount === 'number' && displayCount >= 40 
+                        ? "Voir la liste des inscrits" 
+                        : "Voir la liste des inscriptions validées"}
                     </motion.a>
                   </div>
 
-                  <p className="text-sm text-neutral-600 mt-4">Date limite des inscriptions en ligne : vendredi 19 décembre.</p>
+                  {displayCount !== null && typeof displayCount === 'number' && displayCount < 40 && (
+                    <p className="text-sm text-neutral-600 mt-4">Date limite des inscriptions en ligne : vendredi 19 décembre.</p>
+                  )}
                 </div>
                 {/* --- FIN Call to Action --- */}
 
 
-                {/* SECTION PAIEMENT (inchangée) */}
-                <div className="my-16">
-                  <h3 className="text-3xl font-bold text-primary-900 mb-8 text-center">
-                    Modalités de Paiement
-                  </h3>
-                  <p className="text-lg text-neutral-700 text-center max-w-3xl mx-auto mb-10">
-                    Pour finaliser votre inscription, veuillez régler la finance via l'une des méthodes ci-dessous.
-                    Votre inscription n'est validée qu'à réception du paiement.
-                  </p>
+                {displayCount !== null && typeof displayCount === 'number' && displayCount < 40 && (
+                  <div className="my-16">
+                    <h3 className="text-3xl font-bold text-primary-900 mb-8 text-center">
+                      Modalités de Paiement
+                    </h3>
+                    <p className="text-lg text-neutral-700 text-center max-w-3xl mx-auto mb-10">
+                      Pour finaliser votre inscription, veuillez régler la finance via l'une des méthodes ci-dessous.
+                      <strong>Votre inscription ne sera validée qu'après réception du paiement.</strong>
+                    </p>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
 
-                    {/* Colonne 1: TWINT */}
-                    <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 md:p-8 h-full">
-                      <h4 className="text-2xl font-semibold text-primary-900 mb-4 text-center">
-                        Paiement par TWINT
-                      </h4>
-                      <p className="text-neutral-700 text-center mb-6">Utilisez le formulaire sécurisé ci-dessous.</p>
+                      {/* Colonne 1: TWINT */}
+                      <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 md:p-8 h-full">
+                        <h4 className="text-2xl font-semibold text-primary-900 mb-4 text-center">
+                          Paiement par TWINT
+                        </h4>
+                        <p className="text-neutral-700 text-center mb-6">Utilisez le formulaire sécurisé ci-dessous.</p>
 
-                      <TwintEmbed />
-                    </div>
+                        <TwintEmbed />
+                      </div>
 
-                    {/* Colonne 2: Virement Bancaire */}
-                    <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 md:p-8 h-full">
-                      <h4 className="text-2xl font-semibold text-primary-900 mb-4 text-center">
-                        Virement Bancaire
-                      </h4>
-                      <p className="text-neutral-700 text-center mb-6">Veuillez utiliser les coordonnées suivantes :</p>
-                      <ul className="space-y-3">
-                        <li className="flex flex-col p-3 bg-white rounded-md shadow-sm">
-                          <span className="text-sm font-semibold text-primary-800">Titulaire</span>
-                          <span className="text-neutral-700 text-lg">Club d'échec de Sion</span>
-                        </li>
-                        <li className="flex flex-col p-3 bg-white rounded-md shadow-sm">
-                          <span className="text-sm font-semibold text-primary-800">IBAN</span>
-                          <span className="text-neutral-700 text-lg font-mono break-all">CH08 0076 5001 0592 7490 7</span>
-                        </li>
-                      </ul>
-                      <p className="text-sm text-neutral-600 mt-4 text-center">
-                        N'oubliez pas la communication : "Blitz Noël + Votre Nom".
-                      </p>
+                      {/* Colonne 2: Virement Bancaire */}
+                      <div className="bg-gradient-to-r from-primary-50 to-accent-50 rounded-xl p-6 md:p-8 h-full">
+                        <h4 className="text-2xl font-semibold text-primary-900 mb-4 text-center">
+                          Virement Bancaire
+                        </h4>
+                        <p className="text-neutral-700 text-center mb-6">Veuillez utiliser les coordonnées suivantes :</p>
+                        <ul className="space-y-3">
+                          <li className="flex flex-col p-3 bg-white rounded-md shadow-sm">
+                            <span className="text-sm font-semibold text-primary-800">Titulaire</span>
+                            <span className="text-neutral-700 text-lg">Club d'échec de Sion</span>
+                          </li>
+                          <li className="flex flex-col p-3 bg-white rounded-md shadow-sm">
+                            <span className="text-sm font-semibold text-primary-800">IBAN</span>
+                            <span className="text-neutral-700 text-lg font-mono break-all">CH08 0076 5001 0592 7490 7</span>
+                          </li>
+                        </ul>
+                        <p className="text-sm text-neutral-600 mt-4 text-center">
+                          N'oubliez pas la communication : "Blitz Noël + Votre Nom".
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
                 {/* --- FIN SECTION PAIEMENT --- */}
 
 

@@ -146,6 +146,11 @@ const EventCard = ({ event, index }: { event: typeof programmeEvents[0], index: 
 
       <div className="p-4 flex-grow flex flex-col">
         <h3 className="text-lg font-bold text-neutral-800 mb-2">{event.title}</h3>
+        {event.description && (
+          <p className="text-neutral-500 text-sm mb-3 line-clamp-3">
+            {event.description}
+          </p>
+        )}
         
         <div className="space-y-2 text-neutral-600 text-sm flex-grow">
           <p className="flex items-center gap-2">
@@ -183,7 +188,7 @@ const EventCard = ({ event, index }: { event: typeof programmeEvents[0], index: 
               href={googleCalendarLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-secondary-600 hover:text-secondary-700 font-semibold text-sm group"
+              className="inline-flex items-center text-secondary-600 hover:text-secondary-700 font-semibold text-sm group ml-auto"
             >
               Ajouter au calendrier
               <CalendarPlus className="w-4 h-4 ml-1.5 group-hover:scale-110 transition-transform" />
@@ -229,7 +234,7 @@ const OngoingEventBar = ({ event }: { event: typeof programmeEvents[0] }) => {
                 <h3 className="font-bold text-lg text-neutral-800">{event.title}</h3>
             </div>
             <p className="text-sm text-neutral-500">
-                Fin le {endDate.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' })} · <span className="font-medium text-primary-600">{daysLeft > 0 ? `${daysLeft} jours restants` : 'Dernier jour !'}</span>
+                Partie à jouer avant le {endDate.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' })} · <span className="font-medium text-primary-600">{daysLeft > 0 ? `${daysLeft} jours restants` : 'Dernier jour !'}</span>
             </p>
         </div>
         {event.link && (
@@ -345,7 +350,7 @@ const GroupedEventCard = ({ events, index }: { events: typeof programmeEvents[0]
                      )}
                  </div>
                  {(subEvent.calendarTime || subEvent.calendarLocation) && (
-                    <div className="mt-3 pt-3 border-t border-neutral-100">
+                    <div className="mt-3 pt-3 border-t border-neutral-100 flex justify-end">
                         <a href={createGoogleCalendarLink(subEvent)} target="_blank" rel="noopener noreferrer" className="text-xs font-medium text-secondary-600 hover:text-secondary-800 flex items-center gap-1">
                              <CalendarPlus className="w-3 h-3" /> Ajouter
                         </a>

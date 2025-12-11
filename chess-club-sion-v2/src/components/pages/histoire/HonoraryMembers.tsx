@@ -1,5 +1,5 @@
 import React from 'react';
-import { Medal, Shield } from 'lucide-react';
+import { Shield, Medal } from 'lucide-react';
 import type { HonoraryMember } from '~/data/histoireData';
 import { Section } from './Section';
 
@@ -16,9 +16,7 @@ export const HonoraryMembers: React.FC<HonoraryMembersProps> = ({ members }) => 
       </h2>
       
       <div className="bg-white rounded-2xl shadow-xl border border-neutral-100 overflow-hidden h-full flex flex-col">
-        <div className="bg-slate-600 p-4 text-white text-center">
-             <p className="text-sm font-medium opacity-90 uppercase tracking-wider">Les piliers du club</p>
-        </div>
+        <div className="bg-slate-600 h-3 w-full" />
         
         <div className="p-6 flex flex-col justify-center flex-grow">
           <ul className="space-y-4">
@@ -36,4 +34,3 @@ export const HonoraryMembers: React.FC<HonoraryMembersProps> = ({ members }) => 
     </Section>
   );
 };
-

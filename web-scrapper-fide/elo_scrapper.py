@@ -4,22 +4,20 @@ import csv
 import time
 import sys
 import itertools
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
-def animate_loading():
-    """
-    Génère une animation de chargement simple
-    """
-    for c in itertools.cycle(['|', '/', '-', '\\']):
-        if getattr(animate_loading, 'stop', False):
-            break
-        sys.stdout.write('\rChargement ' + c)
-        sys.stdout.flush()
-        time.sleep(0.1)
-    sys.stdout.write('\rTerminé!     \n')
+def get_session():
+    session = requests.Session()
+    retry = Retry(connect=3, backoff_factor=0.5)
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount('http://', adapter)
+    session.mount('https://', adapter)
+    return session
 
-def get_standard_elo(fide_id):
+def get_all_ratings(session, fide_id):
     """
-    Récupère la valeur Elo standard d'un joueur à partir de son ID FIDE
+    Récupère les valeurs Elo Standard, Rapid et Blitz d'un joueur à partir de son ID FIDE
     """
     print(f"\rRécupération des données pour l'ID FIDE: {fide_id}...")
     url = f"https://ratings.fide.com/profile/{fide_id}"
@@ -27,64 +25,56 @@ def get_standard_elo(fide_id):
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
     }
     
+    ratings = {
+        'std': '0',
+        'rapid': '0',
+        'blitz': '0'
+    }
+    
     try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()  # Vérifie si la requête a réussi
+        response = session.get(url, headers=headers, timeout=10)
+        response.raise_for_status()
         
         soup = BeautifulSoup(response.text, 'html.parser')
         
-        # Recherche la div qui contient le classement standard (nouvelle structure)
-        standard_div = soup.find('div', class_='profile-standart profile-game')
-        
-        if standard_div:
-            # Le premier paragraphe contient la valeur Elo
-            elo_paragraphs = standard_div.find_all('p')
-            if elo_paragraphs and len(elo_paragraphs) > 0:
-                # La première balise <p> contient la valeur Elo
-                elo_value = elo_paragraphs[0].text.strip()
-                return elo_value
-        
-        # Si la méthode principale échoue, essayons d'autres approches
-        # Méthode alternative 1: chercher toutes les divs de jeu
-        game_divs = soup.find_all('div', class_='profile-game')
-        for div in game_divs:
-            # Vérifier si c'est la div de jeu standard
-            img = div.find('img', alt='standart')
-            if img:
+        # Helper pour extraire une note spécifique
+        def extract_elo(class_name):
+            div = soup.find('div', class_=class_name)
+            if div:
                 paragraphs = div.find_all('p')
                 if paragraphs and len(paragraphs) > 0:
-                    elo_value = paragraphs[0].text.strip()
-                    return elo_value
+                    val = paragraphs[0].text.strip()
+                    if val.isdigit():
+                        return val
+            return '0'
+
+        ratings['std'] = extract_elo('profile-standart profile-game')
+        ratings['rapid'] = extract_elo('profile-rapid profile-game')
+        ratings['blitz'] = extract_elo('profile-blitz profile-game')
         
-        # Méthode alternative 2: recherche par texte
-        all_paragraphs = soup.find_all('p')
-        for i, p in enumerate(all_paragraphs):
-            if p.text.strip().isdigit():  # Si c'est un nombre
-                next_p = all_paragraphs[i+1] if i+1 < len(all_paragraphs) else None
-                if next_p and "STANDARD" in next_p.text:
-                    return p.text.strip()
-        
-        return "Non trouvé"
+        return ratings
     
     except Exception as e:
-        return f"Erreur: {str(e)}"
+        print(f"\n❌ Erreur pour {fide_id}: {str(e)}")
+        return ratings
 
 def process_csv(input_file, output_file):
     """
     Traite un fichier CSV contenant des ID FIDE et écrit un nouveau fichier
-    avec les ID et leurs valeurs Elo correspondantes
+    avec les ID et leurs valeurs Elo (Standard, Rapid, Blitz)
     """
     print(f"📂 Ouverture du fichier d'entrée: {input_file}")
     print("🔍 Analyse du fichier CSV...")
-    with open(input_file, 'r', newline='') as csvfile:
-        reader = csv.reader(csvfile)
-        rows = list(reader)  # Convertir en liste pour pouvoir accéder aux en-têtes
-        
+    
+    try:
+        with open(input_file, 'r', newline='', encoding='utf-8') as csvfile:
+            reader = csv.reader(csvfile)
+            rows = list(reader)
+            
         # Déterminer si le fichier a un en-tête
         has_header = False
         if len(rows) > 0:
             first_row = rows[0]
-            # Si la première ligne semble être un en-tête (contient des mots comme "ID", "FIDE", etc.)
             if any(isinstance(cell, str) and ("ID" in cell.upper() or "FIDE" in cell.upper()) for cell in first_row):
                 has_header = True
                 print("✅ En-tête détecté dans le fichier d'entrée")
@@ -94,66 +84,51 @@ def process_csv(input_file, output_file):
         # Préparer les données pour l'écriture
         output_rows = []
         if has_header:
-            # Ajouter un en-tête au fichier de sortie
             header = first_row.copy()
-            header.append("Elo Standard")
-            output_rows.append(header)
-            start_idx = 1  # Commencer à partir de la deuxième ligne
+            # Clean header if it already has Elo columns from previous runs? 
+            # Just simpler to overwrite/recreate columns.
+            # We'll assume input is just IDs or we append to it.
+            # To correspond with fix_members_ts.py expectations, we need "FIDE ID", "Elo Standard", ...
+            output_rows.append(["FIDE ID", "Elo Standard", "Elo Rapid", "Elo Blitz"])
+            start_idx = 1
         else:
-            # Ajouter un en-tête générique
-            output_rows.append(["FIDE ID", "Elo Standard"])
-            start_idx = 0  # Commencer dès la première ligne
+            output_rows.append(["FIDE ID", "Elo Standard", "Elo Rapid", "Elo Blitz"])
+            start_idx = 0
         
-        # Traiter chaque ligne
         total_rows = len(rows) - start_idx
         print(f"🚀 Début du traitement de {total_rows} joueurs...")
         
+        session = get_session()
+        
         for i, row in enumerate(rows[start_idx:], 1):
-            fide_id = row[0].strip()  # Supposons que l'ID FIDE est dans la première colonne
+            fide_id = row[0].strip()
             
-            # Afficher la progression avec une barre de chargement simple
-            progress = int((i / total_rows) * 40)
-            sys.stdout.write('\r')
-            sys.stdout.write(f"[{'=' * progress}{' ' * (40 - progress)}] {i}/{total_rows} ({int(i/total_rows*100)}%) ")
+            # Progress bar
+            progress = int((i / total_rows) * 30)
+            sys.stdout.write(f"\r[{'=' * progress}{' ' * (30 - progress)}] {i}/{total_rows}")
             sys.stdout.flush()
             
-            elo = get_standard_elo(fide_id)
+            ratings = get_all_ratings(session, fide_id)
             
-            # Afficher le résultat de chaque recherche
-            if elo and elo != "Non trouvé" and not elo.startswith("Erreur"):
-                print(f"\r✅ ID {fide_id}: Elo trouvé = {elo}")
-            else:
-                print(f"\r❌ ID {fide_id}: {elo}")
+            output_rows.append([fide_id, ratings['std'], ratings['rapid'], ratings['blitz']])
             
-            new_row = row.copy()
-            new_row.append(elo)
-            output_rows.append(new_row)
+            # Pause to be nice to the server
+            time.sleep(1)
             
-            # Pause pour éviter de surcharger le serveur
-            print(f"⏳ Pause avant la prochaine requête...")
-            # Animation pendant la pause
-            for _ in range(10):  # 10 points pour 1 seconde
-                sys.stdout.write('\r⏳ Pause avant la prochaine requête' + '.' * (_ % 4))
-                sys.stdout.flush()
-                time.sleep(0.1)
-            print()
-    
-    # Écrire les résultats dans un nouveau fichier CSV
-    print(f"💾 Écriture des résultats dans le fichier {output_file}...")
-    
-    # Animation pendant l'écriture
-    for _ in range(15):
-        sys.stdout.write('\r📊 Finalisation ' + '[' + '=' * (_ % 10) + ' ' * (9 - (_ % 10)) + ']')
-        sys.stdout.flush()
-        time.sleep(0.1)
-    
-    with open(output_file, 'w', newline='') as csvfile:
-        writer = csv.writer(csvfile)
-        writer.writerows(output_rows)
-    
-    print(f"\n✨ Traitement terminé avec succès! ✨")
-    print(f"📄 {len(output_rows) - 1} joueurs traités")
-    print(f"📁 Résultats enregistrés dans {output_file}")
+        print("\n")
+        
+        # Écriture des résultats
+        print(f"💾 Écriture des résultats dans {output_file}...")
+        with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerows(output_rows)
+        
+        print(f"\n✨ Traitement terminé! {len(output_rows) - 1} joueurs traités.")
+        
+    except FileNotFoundError:
+        print(f"❌ Erreur: Le fichier {input_file} est introuvable.")
+    except Exception as e:
+        print(f"❌ Une erreur inattendue est survenue: {e}")
 
 if __name__ == "__main__":
     input_file = "web-scrapper-fide/fide_ids.csv"

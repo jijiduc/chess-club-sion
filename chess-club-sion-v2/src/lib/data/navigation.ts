@@ -21,7 +21,6 @@ export const navigationItems: NavItem[] = [
   },
   { name: 'Calendrier', href: '/programme' },
   { name: 'École d\'échecs', href: '/ecole' },
-  { name: '🎅 Blitz de Noël', href: '/blitz-noel' },
   {
     name: 'Pôle Compétition',
     href: '/competitions',
@@ -36,6 +35,6 @@ export const navigationItems: NavItem[] = [
       { name: 'Activ Chess de Sion', href: '/activ-chess' },
     ]
   },
-  { name: 'Histoire', href: '/histoire' },
+  { name: '🎅 Blitz de Noël', href: '/blitz-noel' },
   { name: 'Contact', href: '/contact' }
 ]

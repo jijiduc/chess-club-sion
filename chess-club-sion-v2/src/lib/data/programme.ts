@@ -22,32 +22,7 @@ export interface ProgrammeEvent {
 }
 
 export const programmeEvents: ProgrammeEvent[] = [
-  {
-    id: '2025-11-21-intermediaire',
-    title: 'Cours intermédiaire',
-    date: '2025-11-21',
-    time: '18h30 - 20h30',
-    category: ['ecole-echecs'],
-    description: 'Cours pour les joueurs intermédiaires',
-    location: "Local du club",
-    calendarTime: '18:30',
-    calendarEndTime: '20:30',
-    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
-    calendarDetails: 'Ecole d\'échecs de Sion : cours intermédiaire'
-  },
-  {
-    id: '2025-11-21-cvi-tournoi-rapide',
-    title: 'CVI & Tournoi rapide 10+5',
-    date: '2025-11-21',
-    time: '20h00',
-    category: ['CVI', 'soiree-club', 'tournoi-externe'],
-    description: 'CVI & Tournoi rapide 10+5 à partir de 20h00',
-    location: "Local du club",
-    calendarTime: '20:00',
-    calendarEndTime: '23:00', // Assuming it ends at 23:00
-    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
-    calendarDetails: 'CVI & Tournoi rapide 10+5'
-  },
+  
   {
     id: '2025-11-21-cvi',
     title: 'CVI 2025-2026: 1/16 de finale',
@@ -58,106 +33,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     description: 'Date limite pour les 16èmes de finale: 15 Décembre.',
     link: 'https://www.uve-wsb.ch/competitions-valaisannes/cvi'
   },
-  {
-    id: 'csg-2025-11-22-valais1',
-    title: 'CSG Ronde 2: Valais 1 - Echallens',
-    date: '2025-11-22',
-    time: '14h00',
-    category: ['CSG'],
-    description: '2. Bundesliga, Ronde 2',
-    location: 'Café du Casino, Martigny',
-    link: 'https://www.swisschess.ch/csg.html',
-  },
-  {
-    id: 'csg-2025-11-22-valais3',
-    title: 'CSG Ronde 2: Echallens 2 - Valais 3',
-    date: '2025-11-22',
-    time: '14h00',
-    category: ['CSG'],
-    description: '1. Regionalliga, Ronde 2',
-    location: "Echallens (à l'extérieur)",
-    link: 'https://www.swisschess.ch/csg.html',
-  },
-  {
-    id: 'csg-2025-11-22-sion1',
-    title: 'CSG Ronde 2: Sion 1 - Montreux 2',
-    date: '2025-11-22',
-    time: '14h00',
-    category: ['CSG'],
-    description: '3. Regionalliga, Ronde 2',
-    location: 'Local du CE Sion',
-    link: 'https://www.swisschess.ch/csg.html',
-  },
-  {
-    id: '2025-11-26-ecolier',
-    title: 'Cours écolier',
-    date: '2025-11-26',
-    time: '13h30 - 15h30',
-    category: ['ecole-echecs'],
-    description: 'Cours pour les joueurs débutants',
-    location: "Local du club",
-    calendarTime: '13:30',
-    calendarEndTime: '15:30',
-    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
-    calendarDetails: 'Ecole d\'échecs de Sion : cours écoliers'
-  },
-  {
-    id: '2025-11-28-intermediaire',
-    title: 'Cours intermédiaire',
-    date: '2025-11-28',
-    time: '18h30 - 20h00',
-    category: ['ecole-echecs'],
-    description: 'Cours pour les joueurs intermédiaires',
-    location: "Local du club",
-    calendarTime: '18:30',
-    calendarEndTime: '20:00',
-    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
-    calendarDetails: 'Ecole d\'échecs de Sion : cours intermédiaire'
-  },
-  {
-    id: 'cve-2025-11-28-sion1',
-    title: 'CVE Ronde 2: Riddes 1 - Sion 1',
-    date: '2025-11-28',
-    time: '20h00',
-    category: ['CVE'],
-    description: 'Championnat valaisan par équipes, Ronde 2',
-    location: 'Riddes (à l\'extérieur)',
-    link: '/competitions/cve',
-  },
-  {
-    id: 'cve-2025-11-28-sion2',
-    title: 'CVE Ronde 2: Sion 2 - Martigny 1',
-    date: '2025-11-28',
-    time: '20h00',
-    category: ['CVE'],
-    description: 'Championnat valaisan par équipes, Ronde 2',
-    location: 'Local du CE Sion',
-    link: '/competitions/cve',
-  },
-  {
-    id: 'cve-2025-11-28-sion3',
-    title: 'CVE Ronde 2: Sion 3 - Martigny 3',
-    date: '2025-11-28',
-    time: '20h00',
-    category: ['CVE'],
-    description: 'Championnat valaisan par équipes, Ronde 2',
-    location: 'Local du CE Sion',
-    link: '/competitions/cve',
-  },
-  {
-    id: '2025-11-29-avance',
-    title: 'Cours avancé',
-    date: '2025-11-29',
-    time: '9h30 - 11h30',
-    category: ['ecole-echecs'],
-    description: 'Cours pour les joueurs avancés',
-    location: "Local du club",
-    calendarTime: '09:30',
-    calendarEndTime: '11:30',
-    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
-    calendarDetails: 'Ecole d\'échecs de Sion : cours avancés'
-  },
-
+  
   // Décembre 2025
   {
     id: '2025-12-05-intermediaire',
@@ -171,6 +47,19 @@ export const programmeEvents: ProgrammeEvent[] = [
     calendarEndTime: '20:30',
     calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
     calendarDetails: 'Ecole d\'échecs de Sion : cours intermédiaire'
+  },
+  {
+    id: '2025-12-05-soiree-blitz',
+    title: 'Soirée tournoi blitz',
+    date: '2025-12-05',
+    time: '20h30',
+    category: ['soiree-club'],
+    description: 'Tournoi mensuel de parties blitz du club',
+    location: "Local du club",
+    calendarTime: '20:30',
+    calendarEndTime: '23:00', // Assuming it ends at 23:00
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: 'Soirée Blitz du club'
   },
   {
     id: '2025-12-06-avance',
@@ -229,9 +118,9 @@ export const programmeEvents: ProgrammeEvent[] = [
   },
 
   {
-    id: '2025-12-11-ecolier',
+    id: '2025-12-10-ecolier',
     title: 'Cours écolier',
-    date: '2025-12-11',
+    date: '2025-12-10',
     time: '13h30 - 15h30',
     category: ['ecole-echecs'],
     description: 'Cours pour les joueurs débutants',
@@ -253,6 +142,19 @@ export const programmeEvents: ProgrammeEvent[] = [
     calendarEndTime: '20:30',
     calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
     calendarDetails: 'Ecole d\'échecs de Sion : cours intermédiaire'
+  },
+  {
+    id: '2025-12-12-soiree-tournoi-interne-rapides',
+    title: 'Soirée tournoi interne + parties libres',
+    date: '2025-12-12',
+    time: '20h30',
+    category: ['soiree-club', 'championnat-interne'],
+    description: 'Tournoi interne et parties libres pour ceux ne participant pas au tournoi.',
+    location: "Local du club",
+    calendarTime: '20:30',
+    calendarEndTime: '23:00', // Assuming it ends at 23:00
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: 'Soirée tournoi interne et parties libres'
   },
   {
     id: 'csg-2025-12-13-valais1',
@@ -352,6 +254,24 @@ export const programmeEvents: ProgrammeEvent[] = [
     calendarEndTime: '11:30',
     calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
     calendarDetails: 'Ecole d\'échecs de Sion : cours avancés'
+  },
+  {
+    id: '2025-12-20-analyse',
+    title: "Séance collective d'analyse",
+    date: '2025-12-20',
+    time: '14h00 - 18h00',
+    category: ['ecole-echecs', 'soiree-club'],
+    description: "Séance collective d'analyse de vos parties, animée par notre coach Flavien.",
+    location: "Local du club",
+    details: [
+      "Analyse des parties du 13 décembre et parties lentes récentes.",
+      "Flexibilité totale : venez quand vous voulez entre 14h et 18h.",
+      { text: "Inscription et envoi des parties (PGN) à : flaviensola@gmail.com", link: "mailto:flaviensola@gmail.com" }
+    ],
+    calendarTime: '14:00',
+    calendarEndTime: '18:00',
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: "Séance collective d'analyse avec Flavien. Inscription obligatoire par mail."
   },
   {
     id: '2025-12-21-blitz-noel',

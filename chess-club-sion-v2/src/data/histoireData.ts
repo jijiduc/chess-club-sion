@@ -443,8 +443,8 @@ export const presidents: President[] = [
 export const hallOfFame: HallOfFamePlayer[] = [
   { name: "Philippe Berclaz", title: "Grand Maître International ICCF", elo: "2569" },
   { name: "Gilles Terreaux", title: "Maître International FIDE & ICCF", elo: "2505" },
-  { name: "Valéry Allegro", title: "Maître International FIDE", elo: "2416" },
   { name: "Julien Carron", title: "Maître International FIDE", elo: "2416" },
+  { name: "Valéry Allegro", title: "Maître FIDE", elo: "2416" },
 ];
 
 export const honoraryMembers: HonoraryMember[] = [

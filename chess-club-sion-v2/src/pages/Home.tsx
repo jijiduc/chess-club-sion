@@ -4,13 +4,60 @@ import { Trophy, Calendar, Users, ChevronRight, MapPin, Clock, Zap, X, ChevronDo
 import { motion, AnimatePresence } from 'framer-motion'
 import { newsItems, type NewsItem } from '../lib/data/news'
 import { programmeEvents } from '../lib/data/programme'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Title, Meta } from 'react-head';
 
 export default function Home() {
   const [selectedNews, setSelectedNews] = useState<number | null>(null)
   // MODIFICATION 2: Ajout d'un état pour gérer le nombre d'actualités visibles
   const [visibleNewsCount, setVisibleNewsCount] = useState(3);
+
+  // --- COMPTEUR (LOGIQUE JSONP ADAPTÉE) ---
+  const [inscritCount, setInscritCount] = useState<number | string | null>(null);
+  const countOffset = 1;
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxtU43O1Qth1iCLkf8iEzVZRt9sTVvt3YWsKcOalSvwB6ob5OVpbLJJfTP39NmldCZy/exec";
+
+  interface JsonpResponse {
+    count: number;
+  }
+
+  useEffect(() => {
+    const callbackName = 'jsonpCallback_home'; 
+
+    (window as unknown as Record<string, (data: JsonpResponse) => void>)[callbackName] = (data: JsonpResponse) => {
+      if (data && typeof data.count === 'number') {
+        setInscritCount(data.count);
+      } else {
+        setInscritCount('?');
+      }
+      delete (window as unknown as Record<string, (data: JsonpResponse) => void>)[callbackName];
+      document.body.removeChild(script);
+    };
+
+    const script = document.createElement('script');
+    script.src = `${APPS_SCRIPT_URL}?callback=${callbackName}`;
+    document.body.appendChild(script);
+
+    script.onerror = () => {
+      setInscritCount('?');
+      delete (window as unknown as Record<string, (data: JsonpResponse) => void>)[callbackName];
+      document.body.removeChild(script);
+    };
+
+    return () => {
+      if ((window as unknown as Record<string, (data: JsonpResponse) => void>)[callbackName]) {
+        delete (window as unknown as Record<string, (data: JsonpResponse) => void>)[callbackName];
+      }
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
+  const displayCount = inscritCount !== null && typeof inscritCount === 'number'
+    ? inscritCount - countOffset
+    : inscritCount;
+  // --- FIN COMPTEUR ---
 
   // MODIFICATION 3: Trier les actualités par date, de la plus récente à la plus ancienne
   // Nous utilisons une copie avec [...] pour ne pas muter l'array original importé
@@ -252,13 +299,29 @@ export default function Home() {
                 <div className="relative bg-neutral-900/80 backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8 shadow-2xl">
                   <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                     <div className="text-left flex-1">
-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/20 border border-primary-500/30 text-primary-300 text-xs font-bold uppercase tracking-wider mb-3">
-                        <Trophy className="h-3.5 w-3.5 text-primary-400" />
-                        <span>Ne manquez pas !</span>
+                      <div className="flex flex-wrap gap-3 mb-3">
+                        {displayCount !== null && typeof displayCount === 'number' && displayCount >= 40 ? (
+                           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/20 border border-red-500/30 text-red-300 text-xs font-bold uppercase tracking-wider">
+                              <Trophy className="h-3.5 w-3.5 text-red-400" />
+                              <span>Tournoi Complet !</span>
+                           </div>
+                        ) : (
+                           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/20 border border-primary-500/30 text-primary-300 text-xs font-bold uppercase tracking-wider">
+                              <Trophy className="h-3.5 w-3.5 text-primary-400" />
+                              <span>Ne manquez pas !</span>
+                           </div>
+                        )}
+
+                        {displayCount !== null && (
+                           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-xs font-bold uppercase tracking-wider">
+                             <Users className="h-3.5 w-3.5 text-amber-400" />
+                             <span>{displayCount === '?' ? '...' : (typeof displayCount === 'number' && displayCount >= 40 ? `Merci aux ${displayCount} inscrits` : `déjà ${displayCount} inscrits sur 40 places`)}</span>
+                           </div>
+                        )}
                       </div>
                       <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight">
                         Tournoi blitz de Noël
-                        <span className="block text-lg sm:text-xl font-sans font-normal text-neutral-300 mt-1">Samedi 21 décembre 2025</span>
+                        <span className="block text-lg sm:text-xl font-sans font-normal text-neutral-300 mt-1">Dimanche 21 décembre 2025</span>
                       </h3>
                     </div>
                     

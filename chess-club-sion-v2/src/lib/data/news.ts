@@ -16,6 +16,32 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
+    icon: "graduation-cap",
+    date: new Date('2025-12-07T18:00:00'),
+    title: "GPVJ à Riddes : Bravo à nos jeunes !",
+    description: "Trois de nos juniors ont participé à la 3ème étape du Grand Prix Valaisan Junior à Riddes. Angelo Prost-Hachemi termine à une belle 5ème place !",
+    text: `Ce dimanche 7 décembre 2025 se tenait à Riddes la 3ème étape du Grand Prix Valaisan Junior (GPVJ). Le Club d'Échecs de Sion est fier d'y avoir été représenté par trois de ses jeunes talents.
+
+**Les résultats :**
+* **Angelo Prost-Hachemi** réalise un bon tournoi et se classe **5ème** avec 5 points sur 7.
+* **Joseph Spahr** termine à la 26ème place avec 3 points.
+* **David Makarenko** se classe 34ème avec 2 points.
+
+Nous tenons à féliciter chaleureusement tous les trois pour leur participation et leur combativité ! 
+
+Une mention spéciale également pour **Angelo** et **Joseph** qui, avant de disputer le tournoi l'après-midi, avaient déjà pris part le matin même au cours de l'école d'échecs de l'UVE. Un bel exemple de passion et d'assiduité !
+
+Bravo à la relève sédunoise !`,
+    hasImage: true,
+    image: {
+      src: '/picture/news/Chess_pieces_close_up.jpg',
+      alt: "Pièces d'échecs"
+    },
+    hasLink: true,
+    link: '/competitions/GPV',
+    linkText: "Plus d'information sur le GPVJ..."
+  },
+  {
     icon: "trophy",
     date: new Date('2025-11-23T09:00:00'), // Rédigé le lendemain des matchs
     title: "CSG R2 : Sion 1 et Valais 3 cartonnent, Valais 1 arrache le nul !",

@@ -195,7 +195,7 @@ export default function CompetitionsHub() {
                       <span className="text-2xl">🎅</span>
                     </div>
                     <p className="text-neutral-600 mb-6 flex-grow">
-                      L'événement festif de fin d'année ! Des parties blitz, de la bonne ambiance pour termniner l'année le 21 décembre 2025.
+                      L'événement festif de fin d'année ! Des parties blitz, de la bonne ambiance pour terminer l'année le 21 décembre 2025.
                     </p>
                     <span className="inline-flex items-center text-primary-600 font-semibold group-hover:text-primary-700">
                       Détails de l'événement <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1" />

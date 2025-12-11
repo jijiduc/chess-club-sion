@@ -7,7 +7,7 @@ export default function GPV() {
   const tournaments = [
     { id: 1, location: "Bovernier", date: "19.10.2025", status: "completed" },
     { id: 2, location: "Active Chess de Sion", date: "26.10.2025", status: "completed" },
-    { id: 3, location: "Riddes", date: "06.12.2025", status: "upcoming" },
+    { id: 3, location: "Riddes", date: "06.12.2025", status: "completed" },
     { id: 4, location: "Active Chess de Bagnes", date: "11.01.2026", status: "upcoming" },
     { id: 5, location: "Active Chess du Bouveret", date: "22.02.2026", status: "upcoming" },
     { id: 6, location: "Sierre", date: "TBD", status: "tbd" },
@@ -37,7 +37,7 @@ export default function GPV() {
               </h1>
               <p className="text-xl text-orange-100 max-w-2xl mx-auto">
                 Le circuit officiel de tournois pour la relève des échecs en Valais. 
-                Une série de compétitions pour progresser et se qualifier pour la finale.
+                Une série d'événements pour démarrer dans la compétition.
               </p>
             </motion.div>
           </div>
@@ -66,10 +66,13 @@ export default function GPV() {
                   <div className="prose prose-orange text-neutral-600">
                     <p>
                       Le <strong>Grand Prix Valaisan Jeunes (GPV / U20)</strong> est organisé chaque saison par l'Union Valaisanne des Échecs (UVE). 
-                      Il se dispute sous la forme d'un circuit comprenant au minimum <strong>4 tournois</strong> répartis sur la saison (de septembre à août).
+                      Il se dispute sous la forme d'un circuit comprenant plusieurs tournois répartis sur la saison (de septembre à août).
                     </p>
                     <p>
                       Ces tournois sont des événements conviviaux, se déroulant généralement sur une demi-journée ou une journée, permettant aux jeunes de s'initier à la compétition ou de perfectionner leur jeu.
+                    </p>
+                    <p>
+                      Les événement nommé "Active Chess" sont des tournois ou des joueurs de tout âge peuvent participer. Cependant, seuls les joueurs âgés de moins de 20 ans au 1er septembre de la saison sont éligibles pour marquer des points dans le cadre du Grand Prix Valaisan Jeunes. Les tournois non labellisés "Active Chess" sont exclusivement réservés aux jeunes participants.
                     </p>
                   </div>
                 </motion.div>
@@ -95,10 +98,6 @@ export default function GPV() {
                         <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5" />
                         <span>Âge maximum : <strong>20 ans révolus</strong> (au 1er septembre de la saison)</span>
                       </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5" />
-                        <span>Finance d'inscription modérée (max 15.- CHF)</span>
-                      </li>
                     </ul>
                   </motion.div>
 
@@ -115,15 +114,11 @@ export default function GPV() {
                     <ul className="space-y-2 text-sm text-neutral-600">
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5" />
-                        <span>Parties rapides : <strong>15 à 30 minutes</strong> par joueur</span>
+                        <span>Parties rapides : <strong>15 min.</strong> par joueur</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5" />
-                        <span>Minimum 5 rondes par tournoi</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-green-500 mt-0.5" />
-                        <span>Classement spécifique pour les membres UVE</span>
+                        <span>7 à 9 rondes par tournoi</span>
                       </li>
                     </ul>
                   </motion.div>

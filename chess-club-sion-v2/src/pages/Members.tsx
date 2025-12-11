@@ -47,10 +47,175 @@ const CATEGORY_ORDER = [
   "Progresse vers 1er classement"
 ];
 
+const EloChangeBadge = ({ change }: { change: number }) => {
+  if (change === undefined || change === null || change === 0) return <span className="text-[10px] text-gray-400 ml-1" title="Pas de changement">=</span>;
+  const isPositive = change > 0;
+  return (
+    <span 
+      className={`text-[10px] ml-1 font-bold ${isPositive ? 'text-emerald-600' : 'text-red-600'}`}
+      title={`Changement dernier mois: ${isPositive ? '+' : ''}${change}`}
+    >
+      {isPositive ? '+' : ''}{Math.round(change * 10) / 10}
+    </span>
+  );
+};
+
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+const parsePeriod = (period: string) => {
+    const parts = period.split('-');
+    if (parts.length !== 2) return { year: 0, month: 0 };
+    const year = parseInt(parts[0]);
+    const month = MONTHS.indexOf(parts[1]);
+    return { year, month };
+};
+
+const formatPeriod = (year: number, month: number) => {
+    return `${year}-${MONTHS[month]}`;
+};
+
+const getPreviousPeriod = (period: string) => {
+    const { year, month } = parsePeriod(period);
+    if (month === 0) return formatPeriod(year - 1, 11);
+    return formatPeriod(year, month - 1);
+};
+
+const comparePeriods = (p1: string, p2: string) => {
+    const d1 = parsePeriod(p1);
+    const d2 = parsePeriod(p2);
+    if (d1.year !== d2.year) return d1.year - d2.year;
+    return d1.month - d2.month;
+};
+
+const EloGraph = ({ history, currentElo }: { history: { period: string, std: number }[], currentElo: number }) => {
+  if (!history || history.length === 0) return null;
+
+  // Reconstruct continuous history points for the last 18 months
+  const points: { month: string, rating: number }[] = [];
+  
+  // Map history for easy lookup of changes
+  const historyMap = new Map(history.map(h => [h.period, h.std]));
+  
+  // Sort history to find the range
+  const sortedHistory = [...history].sort((a, b) => comparePeriods(b.period, a.period)); // Descending
+  const newestPeriod = sortedHistory[0].period;
+  const oldestPeriod = sortedHistory[sortedHistory.length - 1].period;
+
+  let currentPeriod = newestPeriod;
+  let currentRating = currentElo;
+  
+  // Add the latest point
+  points.push({ month: currentPeriod, rating: currentRating });
+
+  // Trace back month by month
+  // We want up to 18 months of history (so 19 points roughly, or just cover the 18 month interval)
+  for (let i = 0; i < 18; i++) {
+    // Stop if we reach the beginning of recorded history
+    // If currentPeriod is equal to oldestPeriod, we can calculate the rating BEFORE this period (the base)
+    // using the change recorded in oldestPeriod.
+    // If currentPeriod is strictly older than oldestPeriod, we have no data to infer further back.
+    if (comparePeriods(currentPeriod, oldestPeriod) < 0) {
+        break;
+    }
+
+    const change = historyMap.get(currentPeriod) || 0;
+    const prevRating = currentRating - change;
+    const prevPeriod = getPreviousPeriod(currentPeriod);
+
+    points.unshift({ month: prevPeriod, rating: prevRating });
+    
+    currentPeriod = prevPeriod;
+    currentRating = prevRating;
+  }
+  
+  const graphData = points;
+  
+  const ratings = graphData.map(d => d.rating);
+  const min = Math.min(...ratings);
+  const max = Math.max(...ratings);
+  const range = max - min || 10;
+  const padding = range * 0.2; // 20% padding
+  const plotMin = min - padding;
+  const plotRange = range + 2 * padding;
+
+  const scaleY = (r: number) => 100 - ((r - plotMin) / plotRange) * 100;
+  const stepX = 300 / (graphData.length > 1 ? graphData.length - 1 : 1);
+
+  const pathD = graphData.map((d, i) => {
+    const x = i * stepX;
+    const y = scaleY(d.rating);
+    return `${i === 0 ? 'M' : 'L'} ${x} ${y}`;
+  }).join(' ');
+
+  return (
+     <div className="w-full mt-4 pt-4 border-t border-neutral-100">
+        <p className="text-[10px] text-neutral-400 uppercase tracking-wide text-center mb-2">Évolution Elo Standard (18 derniers mois)</p>
+        <div className="h-16 w-full relative pr-2">
+            <svg viewBox="0 0 300 100" className="w-full h-full overflow-visible" preserveAspectRatio="none">
+                {/* Grid lines */}
+                <line x1="0" y1="0" x2="300" y2="0" stroke="#f5f5f5" strokeWidth="1" />
+                <line x1="0" y1="50" x2="300" y2="50" stroke="#f5f5f5" strokeWidth="1" />
+                <line x1="0" y1="100" x2="300" y2="100" stroke="#f5f5f5" strokeWidth="1" />
+                
+                <path d={pathD} fill="none" stroke="#2563eb" strokeWidth="2" vectorEffect="non-scaling-stroke" />
+                
+                {graphData.map((d, i) => (
+                    <circle 
+                        key={i} 
+                        cx={i * stepX} 
+                        cy={scaleY(d.rating)} 
+                        r="3" 
+                        className="fill-blue-600 stroke-white stroke-2 hover:r-4 transition-all cursor-pointer"
+                    >
+                        <title>{d.month}: {Math.round(d.rating)}</title>
+                    </circle>
+                ))}
+            </svg>
+            <div className="flex justify-between text-[9px] text-neutral-400 mt-1 px-1">
+                <span>{graphData[0]?.month}</span>
+                <span>{graphData[graphData.length-1]?.month}</span>
+            </div>
+        </div>
+     </div>
+  );
+};
+
+const getMonthsDiff = (p1: string, p2: string) => {
+    const d1 = parsePeriod(p1);
+    const d2 = parsePeriod(p2);
+    return (d1.year - d2.year) * 12 + (d1.month - d2.month);
+};
+
+const RECENT_CHANGE_THRESHOLD = 2;
+
 export default function Members() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
+
+  const latestPeriod = useMemo(() => {
+    const allPlayers = membresData.categories.flatMap(cat => cat.players);
+    let maxPeriod = "";
+    const monthMap: Record<string, number> = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
+    
+    for (const p of allPlayers) {
+      if (p.history && p.history.length > 0) {
+         const current = p.history[0].period;
+         if (!maxPeriod) {
+             maxPeriod = current;
+             continue;
+         }
+         const [yMax, mMax] = maxPeriod.split('-');
+         const [yCur, mCur] = current.split('-');
+         const yDiff = parseInt(yCur) - parseInt(yMax);
+         if (yDiff > 0) maxPeriod = current;
+         else if (yDiff === 0) {
+             if (monthMap[mCur] > monthMap[mMax]) maxPeriod = current;
+         }
+      }
+    }
+    return maxPeriod;
+  }, []);
 
   const processedPlayers = useMemo(() => {
     // Flatten all players from the static categories
@@ -235,19 +400,29 @@ export default function Members() {
                   exit={{ opacity: 0 }}
                   className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
                 >
-                  {filteredPlayers.map((player, index) => (
+                  {filteredPlayers.map((player, index) => {
+                    const isInactive = latestPeriod && player.history && player.history.length > 0
+                        ? getMonthsDiff(latestPeriod, player.history[0].period) > 12
+                        : false;
+                    
+                    return (
                     <motion.div
                       key={`${player.codeFIDE}-${index}`}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className="bg-white rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col items-center text-center group"
+                      className={`rounded-xl border border-neutral-200 shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col items-center text-center group ${isInactive ? 'bg-neutral-50 opacity-75 grayscale-[0.5]' : 'bg-white'}`}
                     >
                       <h3 className="text-lg font-bold text-neutral-900 group-hover:text-primary-600 transition-colors mt-2">
                         {player.prenom} {player.nom}
                       </h3>
                       
                       <div className="mt-1 mb-4 flex flex-wrap justify-center gap-2">
+                         {isInactive && (
+                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-neutral-200 text-neutral-600">
+                                Inactif
+                            </span>
+                         )}
                          {player.category && (
                            <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getCategoryColor(player.category)}`}>
                              {player.category}
@@ -259,23 +434,38 @@ export default function Members() {
                       </div>
 
                       <div className="grid grid-cols-3 gap-2 w-full mb-4 border-t border-b border-neutral-100 py-4">
-                        <div className="text-center border-r border-neutral-100">
+                        <div className="text-center border-r border-neutral-100 flex flex-col items-center">
                           <p className="text-[10px] text-neutral-400 uppercase tracking-wide">Std</p>
-                          <p className={`text-base font-bold ${player.note === 'Elo FSE' ? 'text-blue-600' : 'text-neutral-900'}`}>
-                            {player.elo > 0 ? player.elo : '-'}
-                          </p>
+                          <div className="flex items-center justify-center">
+                            <p className={`text-base font-bold ${player.note === 'Elo FSE' ? 'text-blue-600' : 'text-neutral-900'}`}>
+                                {player.elo > 0 ? player.elo : '-'}
+                            </p>
+                            {player.history && player.history.length > 0 && (
+                                <EloChangeBadge change={latestPeriod && getMonthsDiff(latestPeriod, player.history[0].period) <= RECENT_CHANGE_THRESHOLD ? player.history[0].std : 0} />
+                            )}
+                          </div>
                         </div>
-                        <div className="text-center border-r border-neutral-100">
+                        <div className="text-center border-r border-neutral-100 flex flex-col items-center">
                           <p className="text-[10px] text-neutral-400 uppercase tracking-wide">Rapid</p>
-                          <p className="text-base font-bold text-neutral-900">
-                            {player.eloRapid && player.eloRapid > 0 ? player.eloRapid : '-'}
-                          </p>
+                          <div className="flex items-center justify-center">
+                             <p className="text-base font-bold text-neutral-900">
+                                {player.eloRapid && player.eloRapid > 0 ? player.eloRapid : '-'}
+                             </p>
+                             {player.history && player.history.length > 0 && (
+                                <EloChangeBadge change={latestPeriod && getMonthsDiff(latestPeriod, player.history[0].period) <= RECENT_CHANGE_THRESHOLD ? player.history[0].rapid : 0} />
+                            )}
+                          </div>
                         </div>
-                        <div className="text-center">
+                        <div className="text-center flex flex-col items-center">
                           <p className="text-[10px] text-neutral-400 uppercase tracking-wide">Blitz</p>
-                          <p className="text-base font-bold text-neutral-900">
-                            {player.eloBlitz && player.eloBlitz > 0 ? player.eloBlitz : '-'}
-                          </p>
+                          <div className="flex items-center justify-center">
+                            <p className="text-base font-bold text-neutral-900">
+                                {player.eloBlitz && player.eloBlitz > 0 ? player.eloBlitz : '-'}
+                            </p>
+                            {player.history && player.history.length > 0 && (
+                                <EloChangeBadge change={latestPeriod && getMonthsDiff(latestPeriod, player.history[0].period) <= RECENT_CHANGE_THRESHOLD ? player.history[0].blitz : 0} />
+                            )}
+                          </div>
                         </div>
                       </div>
 
@@ -330,24 +520,31 @@ export default function Members() {
                           )}
                         </div>
                       )}
+                      
+                      {player.history && player.history.length > 1 && player.elo > 0 && (
+                         <EloGraph history={player.history} currentElo={player.elo} />
+                      )}
 
                       {player.codeFIDE ? (
-                        <a
-                          href={`https://ratings.fide.com/profile/${player.codeFIDE}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="mt-auto inline-flex items-center text-sm text-primary-600 hover:text-primary-700 font-medium"
-                        >
-                          Voir profil FIDE
-                          <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
-                        </a>
+                        <div className="mt-auto max-w-xs mx-auto"> {/* Adjusted wrapper div for width control */}
+                          <a
+                            href={`https://ratings.fide.com/profile/${player.codeFIDE}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+                          >
+                            Voir profil FIDE
+                            <ExternalLink className="ml-2 h-4 w-4" />
+                          </a>
+                        </div>
                       ) : (
-                        <span className="mt-auto text-sm text-neutral-400 cursor-not-allowed">
+                        <span className="mt-auto text-sm text-neutral-400 cursor-not-allowed inline-block px-4 py-2 border border-neutral-100 rounded-lg bg-neutral-50">
                           Pas de profil FIDE
                         </span>
                       )}
                     </motion.div>
-                  ))}
+                    );
+                  })}
                 </motion.div>
               ) : (
                 <motion.div
@@ -370,32 +567,59 @@ export default function Members() {
                         </tr>
                       </thead>
                       <tbody className="bg-white divide-y divide-neutral-200">
-                        {filteredPlayers.map((player, index) => (
+                        {filteredPlayers.map((player, index) => {
+                          const isInactive = latestPeriod && player.history && player.history.length > 0
+                              ? getMonthsDiff(latestPeriod, player.history[0].period) > 12
+                              : false;
+
+                          return (
                           <motion.tr
                             key={`${player.codeFIDE}-${index}`}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.05 }}
-                            className={`${index % 2 === 0 ? 'bg-white' : 'bg-neutral-50'} hover:bg-neutral-100 transition-colors`}
+                            className={`${index % 2 === 0 ? (isInactive ? 'bg-neutral-50' : 'bg-white') : 'bg-neutral-50'} ${isInactive ? 'opacity-75 grayscale-[0.5]' : ''} hover:bg-neutral-100 transition-colors`}
                           >
                             <td className="px-6 py-4 whitespace-nowrap">
-                              <div className="text-sm font-medium text-neutral-900">{player.prenom} {player.nom}</div>
+                              <div className="text-sm font-medium text-neutral-900">
+                                  {player.prenom} {player.nom}
+                                  {isInactive && (
+                                    <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-[10px] font-medium bg-neutral-200 text-neutral-600">
+                                        Inactif
+                                    </span>
+                                  )}
+                              </div>
                               {player.note && <div className="text-xs text-neutral-500">{player.note}</div>}
                             </td>
                             <td className="px-4 py-4 whitespace-nowrap text-center">
-                              <span className={`text-sm font-bold ${player.note === 'Elo FSE' ? 'text-blue-600' : 'text-neutral-900'}`}>
-                                {player.elo > 0 ? player.elo : '-'}
-                              </span>
+                              <div className="flex items-center justify-center">
+                                  <span className={`text-sm font-bold ${player.note === 'Elo FSE' ? 'text-blue-600' : 'text-neutral-900'}`}>
+                                    {player.elo > 0 ? player.elo : '-'}
+                                  </span>
+                                  {player.history && player.history.length > 0 && (
+                                    <EloChangeBadge change={latestPeriod && getMonthsDiff(latestPeriod, player.history[0].period) <= RECENT_CHANGE_THRESHOLD ? player.history[0].std : 0} />
+                                  )}
+                              </div>
                             </td>
                             <td className="px-4 py-4 whitespace-nowrap text-center">
-                              <span className="text-sm font-medium text-neutral-700">
-                                {player.eloRapid && player.eloRapid > 0 ? player.eloRapid : '-'}
-                              </span>
+                              <div className="flex items-center justify-center">
+                                  <span className="text-sm font-medium text-neutral-700">
+                                    {player.eloRapid && player.eloRapid > 0 ? player.eloRapid : '-'}
+                                  </span>
+                                  {player.history && player.history.length > 0 && (
+                                    <EloChangeBadge change={latestPeriod && getMonthsDiff(latestPeriod, player.history[0].period) <= RECENT_CHANGE_THRESHOLD ? player.history[0].rapid : 0} />
+                                  )}
+                              </div>
                             </td>
                             <td className="px-4 py-4 whitespace-nowrap text-center">
-                              <span className="text-sm font-medium text-neutral-700">
-                                {player.eloBlitz && player.eloBlitz > 0 ? player.eloBlitz : '-'}
-                              </span>
+                              <div className="flex items-center justify-center">
+                                  <span className="text-sm font-medium text-neutral-700">
+                                    {player.eloBlitz && player.eloBlitz > 0 ? player.eloBlitz : '-'}
+                                  </span>
+                                  {player.history && player.history.length > 0 && (
+                                    <EloChangeBadge change={latestPeriod && getMonthsDiff(latestPeriod, player.history[0].period) <= RECENT_CHANGE_THRESHOLD ? player.history[0].blitz : 0} />
+                                  )}
+                              </div>
                             </td>
                             <td className="px-6 py-4 whitespace-nowrap">
                                {/* Display computed category for sorting logic/grouping, OR display the manually assigned age category? 
@@ -426,7 +650,8 @@ export default function Members() {
                               )}
                             </td>
                           </motion.tr>
-                        ))}
+                        );
+                        })}
                       </tbody>
                     </table>
                   </div>

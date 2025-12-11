@@ -15,9 +15,7 @@ export function Presidents({ presidents }: PresidentsProps) {
       </h2>
       
       <div className="bg-white rounded-2xl shadow-xl border border-neutral-100 overflow-hidden h-full flex flex-col">
-        <div className="bg-primary-900 p-4 text-white text-center">
-           <p className="text-sm font-medium opacity-80 uppercase tracking-wider">Les gardiens du temple</p>
-        </div>
+        <div className="bg-primary-900 h-3 w-full" />
         
         <div className="p-6 overflow-y-auto max-h-[600px] custom-scrollbar relative">
             {/* Vertical Line */}

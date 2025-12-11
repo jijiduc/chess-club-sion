@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { FileText, Calendar, Trophy, UserCheck, AlertCircle, ExternalLink, Clock } from 'lucide-react'
+import { FileText, Calendar, Trophy, UserCheck, AlertCircle, ExternalLink } from 'lucide-react'
 
 export default function CVI() {
   useEffect(() => {
@@ -125,13 +125,6 @@ export default function CVI() {
                 Saison 2025-2026
               </h3>
               <div className="space-y-4">
-                 <div className="flex items-start">
-                    <Clock className="h-5 w-5 text-neutral-400 mr-3 mt-0.5" />
-                    <div>
-                      <p className="font-medium text-neutral-900">Prochaine Ronde</p>
-                      <p className="text-sm text-neutral-600">Consultez le tableau officiel</p>
-                    </div>
-                 </div>
                  <div className="flex items-start">
                     <UserCheck className="h-5 w-5 text-neutral-400 mr-3 mt-0.5" />
                     <div>
