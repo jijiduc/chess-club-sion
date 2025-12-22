@@ -1,63 +1,25 @@
 import { Link } from 'react-router-dom'
 // MODIFICATION 1: Ajout des icônes pour la navigation du carrousel
-import { Trophy, Calendar, Users, ChevronRight, MapPin, Clock, Zap, X, ChevronDown, ArrowRight } from 'lucide-react'
+import { Trophy, Calendar, Users, ChevronRight, MapPin, Clock, Zap, X, ChevronDown, ArrowRight, BookOpen, Eye } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { newsItems, type NewsItem } from '../lib/data/news'
 import { programmeEvents } from '../lib/data/programme'
 import { useState, useEffect } from 'react'
 import { Title, Meta } from 'react-head';
+import { NewsCounterService } from '../services/NewsCounterService';
 
 export default function Home() {
   const [selectedNews, setSelectedNews] = useState<number | null>(null)
   // MODIFICATION 2: Ajout d'un état pour gérer le nombre d'actualités visibles
   const [visibleNewsCount, setVisibleNewsCount] = useState(3);
-
-  // --- COMPTEUR (LOGIQUE JSONP ADAPTÉE) ---
-  const [inscritCount, setInscritCount] = useState<number | string | null>(null);
-  const countOffset = 1;
-  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxtU43O1Qth1iCLkf8iEzVZRt9sTVvt3YWsKcOalSvwB6ob5OVpbLJJfTP39NmldCZy/exec";
-
-  interface JsonpResponse {
-    count: number;
-  }
+  
+  // MODIFICATION 4: Reader Counter State
+  const [newsCounts, setNewsCounts] = useState<Record<string, { clicks: number, reads: number }>>({});
+  const [hasReadCurrent, setHasReadCurrent] = useState(false);
 
   useEffect(() => {
-    const callbackName = 'jsonpCallback_home'; 
-
-    (window as unknown as Record<string, (data: JsonpResponse) => void>)[callbackName] = (data: JsonpResponse) => {
-      if (data && typeof data.count === 'number') {
-        setInscritCount(data.count);
-      } else {
-        setInscritCount('?');
-      }
-      delete (window as unknown as Record<string, (data: JsonpResponse) => void>)[callbackName];
-      document.body.removeChild(script);
-    };
-
-    const script = document.createElement('script');
-    script.src = `${APPS_SCRIPT_URL}?callback=${callbackName}`;
-    document.body.appendChild(script);
-
-    script.onerror = () => {
-      setInscritCount('?');
-      delete (window as unknown as Record<string, (data: JsonpResponse) => void>)[callbackName];
-      document.body.removeChild(script);
-    };
-
-    return () => {
-      if ((window as unknown as Record<string, (data: JsonpResponse) => void>)[callbackName]) {
-        delete (window as unknown as Record<string, (data: JsonpResponse) => void>)[callbackName];
-      }
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
+     NewsCounterService.getCounts().then(setNewsCounts);
   }, []);
-
-  const displayCount = inscritCount !== null && typeof inscritCount === 'number'
-    ? inscritCount - countOffset
-    : inscritCount;
-  // --- FIN COMPTEUR ---
 
   // MODIFICATION 3: Trier les actualités par date, de la plus récente à la plus ancienne
   // Nous utilisons une copie avec [...] pour ne pas muter l'array original importé
@@ -82,24 +44,23 @@ export default function Home() {
     const originalIndex = newsItems.findIndex(item => item.title === newsItem.title); // Assurez-vous d'avoir un ID unique si les titres ne le sont pas
     if (originalIndex !== -1) {
       setSelectedNews(originalIndex);
+      setHasReadCurrent(false);
+      // Increment click count
+      NewsCounterService.incrementClick(newsItem.title);
+      setNewsCounts(prev => ({
+           ...prev,
+           [newsItem.title]: { 
+               ...prev[newsItem.title], 
+               clicks: (prev[newsItem.title]?.clicks || 0) + 1 
+           }
+      }));
     }
   }
 
   const closeNewsModal = () => {
     setSelectedNews(null)
+    setHasReadCurrent(false);
   }
-  
-  // ... (renderTextWithLinks code stays here implicitly as it was not part of the removed block in instruction, 
-  // but wait, the 'old_string' must cover what I want to remove.
-  // I will target the state definitions and the helper functions first, then the render part separately if needed, 
-  // OR I can do a large replacement if I am careful.
-  // The user prompt asked to refactor the SECTION.
-  // I will replace the state initialization and the `handleNext`/`handlePrev` with `handleLoadMore`.
-  
-  // Actually, simpler: I will keep `renderTextWithLinks` and `formatDate` untouched if possible, 
-  // but the `activeIndex` state and `handleNext`/`handlePrev` are at the top of the component.
-  
-  // Let's replace the top part of the component first.
   
   const renderTextWithLinks = (text: string) => {
     const lines = text.split('\n');
@@ -238,7 +199,7 @@ export default function Home() {
     },
     {
       icon: Trophy,
-      title: "Pôle compétition",
+      title: "Pôle competition",
       description: "Participez aux diverses championnats suisses et valaisans par équipes",
       time: "vendredi soir, samedi",
       link: "/competitions"
@@ -300,43 +261,22 @@ export default function Home() {
                   <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                     <div className="text-left flex-1">
                       <div className="flex flex-wrap gap-3 mb-3">
-                        {displayCount !== null && typeof displayCount === 'number' && displayCount >= 40 ? (
-                           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/20 border border-red-500/30 text-red-300 text-xs font-bold uppercase tracking-wider">
-                              <Trophy className="h-3.5 w-3.5 text-red-400" />
-                              <span>Tournoi Complet !</span>
-                           </div>
-                        ) : (
-                           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/20 border border-primary-500/30 text-primary-300 text-xs font-bold uppercase tracking-wider">
-                              <Trophy className="h-3.5 w-3.5 text-primary-400" />
-                              <span>Ne manquez pas !</span>
-                           </div>
-                        )}
-
-                        {displayCount !== null && (
-                           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-xs font-bold uppercase tracking-wider">
-                             <Users className="h-3.5 w-3.5 text-amber-400" />
-                             <span>{displayCount === '?' ? '...' : (typeof displayCount === 'number' && displayCount >= 40 ? `Merci aux ${displayCount} inscrits` : `déjà ${displayCount} inscrits sur 40 places`)}</span>
-                           </div>
-                        )}
                       </div>
-                      <h3 className="text-2xl sm:text-3xl font-serif font-bold text-white leading-tight">
-                        Tournoi blitz de Noël
-                        <span className="block text-lg sm:text-xl font-sans font-normal text-neutral-300 mt-1">Dimanche 21 décembre 2025</span>
+                      <h3 className="text-xl sm:text-2xl font-serif font-bold text-white leading-tight">
+                        Nous vous souhaitons d'excellentes fêtes de fin d'années et nous réjouissons de vous retrouver à la reprise en janvier.
                       </h3>
                     </div>
                     
                     <div className="flex-shrink-0 w-full md:w-auto">
-                      <a
-                        href="/blitz-noel"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Link
+                        to="/programme"
                         className="group/btn relative inline-flex items-center justify-center w-full md:w-auto px-8 py-4 bg-white text-neutral-900 rounded-xl font-bold shadow-lg overflow-hidden transition-all duration-300 hover:bg-primary-50 hover:text-primary-700 hover:scale-[1.02]"
                       >
                         <span className="relative z-10 flex items-center">
-                          Toutes les infos
+                          Voir le programme
                           <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform" />
                         </span>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -547,6 +487,18 @@ export default function Home() {
                      <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-primary-700 shadow-sm">
                         {new Date(item.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', year: 'numeric' })}
                      </div>
+
+                     {/* Hidden Counters (Visible on Hover) */}
+                     <div className="absolute bottom-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <div className="bg-black/70 backdrop-blur-md px-2 py-1 rounded-md text-[10px] font-medium text-white shadow-sm flex items-center gap-1.5 border border-white/10" title="Vues (clics uniques)">
+                            <Eye className="w-3 h-3 text-sky-300" />
+                            <span>{newsCounts[item.title]?.clicks || 0}</span>
+                        </div>
+                        <div className="bg-black/70 backdrop-blur-md px-2 py-1 rounded-md text-[10px] font-medium text-white shadow-sm flex items-center gap-1.5 border border-white/10" title="Lecteurs (lecture complète)">
+                            <BookOpen className="w-3 h-3 text-emerald-300" />
+                            <span>{newsCounts[item.title]?.reads || 0}</span>
+                        </div>
+                     </div>
                   </div>
 
                   <div className="p-6 flex flex-col flex-grow">
@@ -633,11 +585,35 @@ export default function Home() {
                 )}
 
                 {/* MODIFICATION 2: Ce conteneur devient le parent scrollable */}
-                <div className="p-8 overflow-y-auto">
+                <div 
+                  className="p-8 overflow-y-auto"
+                  onScroll={(e) => {
+                    const target = e.currentTarget;
+                    // Check if scrolled to bottom (within 50px)
+                    const isBottom = Math.abs(target.scrollHeight - target.scrollTop - target.clientHeight) < 50;
+                    
+                    if (isBottom && !hasReadCurrent && selectedNews !== null && newsItems[selectedNews]) {
+                       setHasReadCurrent(true);
+                       const title = newsItems[selectedNews].title;
+                       NewsCounterService.incrementRead(title);
+                       setNewsCounts(prev => ({
+                           ...prev,
+                           [title]: { 
+                               ...prev[title], 
+                               reads: (prev[title]?.reads || 0) + 1 
+                           }
+                       }));
+                    }
+                  }}
+                >
                   <div className="flex items-center space-x-2 mb-4">
                     <Trophy className="h-5 w-5 text-primary-600" />
                     <span className="text-sm font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
                       {formatDate(newsItems[selectedNews].date)}
+                    </span>
+                    <span className="text-sm font-medium text-neutral-600 bg-neutral-50 px-3 py-1 rounded-full flex items-center gap-2" title="Nombre de lecteurs ayant parcouru l'article">
+                        <BookOpen className="h-4 w-4" />
+                        <span>{newsCounts[newsItems[selectedNews].title]?.reads || 0} lecteurs</span>
                     </span>
                   </div>
 

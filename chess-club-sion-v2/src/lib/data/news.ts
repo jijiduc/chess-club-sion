@@ -16,6 +16,74 @@ export interface NewsItem {
 
 export const newsItems: NewsItem[] = [
   {
+    icon: "trophy",
+    date: new Date('2025-12-21T18:00:00'),
+    title: "Pascal Vianin remporte le Blitz de Noël 2025 !",
+    description: "Une belle édition du traditionnel tournoi de blitz de Noël qui a réuni 42 joueurs. Pascal Vianin s'impose devant Colin Moesching et Pierre-Marie Rappaz.",
+    text: `Le traditionnel tournoi de Blitz de Noël du Club d'Échecs de Sion s'est déroulé ce dimanche 21 décembre 2025. Cette édition a rencontré un franc succès avec la participation de **42 joueurs** qui se sont affrontés dans une ambiance festive et conviviale.
+
+**Le Podium**
+Au terme des 7 rondes, c'est **Pascal Vianin** qui s'impose brillamment avec 6.5 points, ne concédant qu'une seule nulle face à Pierre-Marie. Il devance le jeune talent **Colin Moesching** (6 points) et **Pierre-Marie Rappaz** (5.5 points).
+
+**Côté juniors**
+Chez les juniors, Jacques Barrades se classe 1er junior au départage (4ème place, 5pts) suivit de **Noé Koehler** (2ème junior, 6ème place, 5 pts) et **Mischa Stuyts** (3ème junior, 10ème place, 4.5 pts).
+
+**Classement top 10**
+| Rg | Nom | Pts |
+|---|---|---|
+| 1 | Vianin Pascal | 6½ |
+| 2 | Moesching Colin | 6 |
+| 3 | Rappaz Pierre-M. | 5½ |
+| 4 | Barrade Jacques | 5 |
+| 5 | Eggel Xavier | 5 |
+| 6 | Koehler Noe | 5 |
+| 7 | Bijelic Milan | 4½ |
+| 8 | Sola Flavien | 4½ |
+| 9 | Duc Jeremy | 4½ |
+| 10 | Stuyts Mischa | 4½ |
+
+Un grand merci à l'arbitre **Fabrice Lovey** pour la parfaite tenue du tournoi, ainsi qu'à tous les participants !
+Joyeuses fêtes de fin d'année à tous !`,
+    hasImage: true,
+    image: {
+      src: 'picture/events/BlitzNoel2025/blitzNoel2025Vainqueurs.jpeg',
+      alt: "Le podium du Blitz de Noël 2025"
+    },
+    hasLink: true,
+    link: 'picture/events/BlitzNoel2025/Blitz_Sion_2025_Liste_de_classement.pdf',
+    linkText: "Télécharger le classement complet (PDF)"
+  },
+  {
+    icon: "trophy",
+    date: new Date('2025-12-14T10:00:00'),
+    title: "CSG R3 : Valais 3 et Sion 1 en tête à la pause de Noël !",
+    description: "Bilan positif pour cette 3ème ronde de CSG. Valais 1 se relance avec une victoire à Berne, Valais 3 conserve sa première place après un nul contre son dauphin, et Sion 1 reste leader malgré une courte défaite.",
+    text: `La troisième ronde du Championnat Suisse par Groupes (CSG) s'est disputée ce samedi 13 décembre. Nos équipes abordent la pause hivernale avec des classements très prometteurs.
+
+**Valais 1 (2e ligue fédérale) : Une victoire qui fait du bien**
+En déplacement dans la capitale pour y affronter SK Bern 1, l'équipe fanion a tenu son rang de favorite (moyenne Elo 2121 contre 2001). Elle s'impose logiquement sur le score de **5 - 3**.
+On notera les victoires du GM Christian Bauer au premier échiquier, ainsi que celles de Stéphane Emery, Alexandre Zaza et Simon Morand. Ce succès permet à l'équipe de remonter à la **5ème place** du classement provisoire.
+
+**Valais 3 (1ère ligue régionale) : Toujours invaincu dans le choc au sommet**
+C'était l'affiche de cette ronde : le leader Valais 3 affrontait son dauphin Fribourg 1. Le match a tenu toutes ses promesses et s'est soldé par un match nul de combat **3 - 3**.
+Face à une équipe fribourgeoise très homogène, **Xavier Eggel** a signé la seule victoire sédunoise. Flavien Sola, Jean-Yves Riand, Pierre-Marie Rappaz et Yves Roduit ont assuré le match nul.
+Ce résultat est une excellente opération comptable puisque Valais 3 conserve la **1ère place** du groupe !
+
+**Sion 1 (3ème ligue régionale) : Une défaite sans conséquence**
+Sion 1 recevait Vevey 2 pour un match serré. Malgré la belle victoire de **Loïc Devaud** au premier échiquier et la nulle de Stanislava Kolisnichenko, l'équipe s'incline de justesse **1½ - 2½**.
+Cependant, grâce aux résultats des autres équipes du groupe, Sion 1 conserve provisoirement sa **1ère place** au classement !
+
+Bravo à tous pour ce début de saison ! Prochaine ronde en 2026.`,
+    hasImage: true,
+    image: {
+      src: '/picture/background/set_up.jpeg',
+      alt: "Pièces d'échecs"
+    },
+    hasLink: true,
+    link: '/competitions/csg',
+    linkText: "Voir les classements complets"
+  },
+  {
     icon: "graduation-cap",
     date: new Date('2025-12-07T18:00:00'),
     title: "GPVJ à Riddes : Bravo à nos jeunes !",
