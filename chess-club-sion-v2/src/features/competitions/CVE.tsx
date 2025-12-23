@@ -376,26 +376,26 @@ export default function CVE() {
                             <tr className="bg-red-50/50">
                               <td className="py-3 font-medium text-neutral-600">1</td>
                               <td className="py-3 font-bold text-red-700 flex items-center"><ChevronRight className="h-3 w-3 mr-1"/> Sion 1</td>
-                              <td className="py-3 text-center font-medium text-neutral-800">4</td>
-                              <td className="py-3 text-center text-neutral-600">6.5</td>
+                              <td className="py-3 text-center font-medium text-neutral-800">6</td>
+                              <td className="py-3 text-center text-neutral-600">9.5</td>
                             </tr>
                             <tr>
                               <td className="py-3 font-medium text-neutral-600">2</td>
                               <td className="py-3 text-neutral-800">Martigny 2</td>
-                              <td className="py-3 text-center font-medium text-neutral-800">2</td>
-                              <td className="py-3 text-center text-neutral-600">5</td>
+                              <td className="py-3 text-center font-medium text-neutral-800">4</td>
+                              <td className="py-3 text-center text-neutral-600">8</td>
                             </tr>
                             <tr>
                               <td className="py-3 font-medium text-neutral-600">3</td>
                               <td className="py-3 text-neutral-800">Riddes 1</td>
                               <td className="py-3 text-center font-medium text-neutral-800">2</td>
-                              <td className="py-3 text-center text-neutral-600">4</td>
+                              <td className="py-3 text-center text-neutral-600">5</td>
                             </tr>
                             <tr>
                               <td className="py-3 font-medium text-neutral-600">4</td>
                               <td className="py-3 text-neutral-800">Sierre 2</td>
                               <td className="py-3 text-center font-medium text-neutral-800">0</td>
-                              <td className="py-3 text-center text-neutral-600">0.5</td>
+                              <td className="py-3 text-center text-neutral-600">1.5</td>
                             </tr>
                           </tbody>
                         </table>
@@ -422,26 +422,26 @@ export default function CVE() {
                             <tr>
                               <td className="py-3 font-medium text-neutral-600">1</td>
                               <td className="py-3 text-neutral-800">Martigny 1</td>
-                              <td className="py-3 text-center font-medium text-neutral-800">4</td>
-                              <td className="py-3 text-center text-neutral-600">5.5</td>
+                              <td className="py-3 text-center font-medium text-neutral-800">6</td>
+                              <td className="py-3 text-center text-neutral-600">8.5</td>
                             </tr>
                             <tr className="bg-red-50/50">
                               <td className="py-3 font-medium text-neutral-600">2</td>
                               <td className="py-3 font-bold text-red-700 flex items-center"><ChevronRight className="h-3 w-3 mr-1"/> Sion 2</td>
-                              <td className="py-3 text-center font-medium text-neutral-800">2</td>
-                              <td className="py-3 text-center text-neutral-600">4</td>
+                              <td className="py-3 text-center font-medium text-neutral-800">4</td>
+                              <td className="py-3 text-center text-neutral-600">7</td>
                             </tr>
                             <tr>
-                              <td className="py-3 font-medium text-neutral-600"></td>
+                              <td className="py-3 font-medium text-neutral-600">3</td>
                               <td className="py-3 text-neutral-800">Riddes 2</td>
                               <td className="py-3 text-center font-medium text-neutral-800">2</td>
-                              <td className="py-3 text-center text-neutral-600">4</td>
+                              <td className="py-3 text-center text-neutral-600">5</td>
                             </tr>
                             <tr>
                               <td className="py-3 font-medium text-neutral-600">4</td>
                               <td className="py-3 text-neutral-800">Montana 2</td>
                               <td className="py-3 text-center font-medium text-neutral-800">0</td>
-                              <td className="py-3 text-center text-neutral-600">2.5</td>
+                              <td className="py-3 text-center text-neutral-600">3.5</td>
                             </tr>
                           </tbody>
                         </table>
@@ -468,26 +468,26 @@ export default function CVE() {
                             <tr>
                               <td className="py-3 font-medium text-neutral-600">1</td>
                               <td className="py-3 text-neutral-800">Sierre 1</td>
-                              <td className="py-3 text-center font-medium text-neutral-800">3</td>
-                              <td className="py-3 text-center text-neutral-600">5.5</td>
+                              <td className="py-3 text-center font-medium text-neutral-800">5</td>
+                              <td className="py-3 text-center text-neutral-600">8.5</td>
                             </tr>
                             <tr>
                               <td className="py-3 font-medium text-neutral-600">2</td>
-                              <td className="py-3 text-neutral-800">Bagnes</td>
-                              <td className="py-3 text-center font-medium text-neutral-800">3</td>
-                              <td className="py-3 text-center text-neutral-600">5</td>
+                              <td className="py-3 text-neutral-800">Montana 1</td>
+                              <td className="py-3 text-center font-medium text-neutral-800">4</td>
+                              <td className="py-3 text-center text-neutral-600">6.5</td>
                             </tr>
                             <tr>
                               <td className="py-3 font-medium text-neutral-600">3</td>
-                              <td className="py-3 text-neutral-800">Montana 1</td>
-                              <td className="py-3 text-center font-medium text-neutral-800">2</td>
-                              <td className="py-3 text-center text-neutral-600">4</td>
+                              <td className="py-3 text-neutral-800">Bagnes</td>
+                              <td className="py-3 text-center font-medium text-neutral-800">3</td>
+                              <td className="py-3 text-center text-neutral-600">6.5</td>
                             </tr>
                             <tr>
                               <td className="py-3 font-medium text-neutral-600">4</td>
                               <td className="py-3 text-neutral-800">Martigny 4</td>
                               <td className="py-3 text-center font-medium text-neutral-800">0</td>
-                              <td className="py-3 text-center text-neutral-600">1.5</td>
+                              <td className="py-3 text-center text-neutral-600">2.5</td>
                             </tr>
                           </tbody>
                         </table>
@@ -514,20 +514,20 @@ export default function CVE() {
                             <tr>
                               <td className="py-3 font-medium text-neutral-600">1</td>
                               <td className="py-3 text-neutral-800">Monthey</td>
-                              <td className="py-3 text-center font-medium text-neutral-800">4</td>
-                              <td className="py-3 text-center text-neutral-600">7.5</td>
+                              <td className="py-3 text-center font-medium text-neutral-800">6</td>
+                              <td className="py-3 text-center text-neutral-600">10.5</td>
                             </tr>
                             <tr>
                               <td className="py-3 font-medium text-neutral-600">2</td>
                               <td className="py-3 text-neutral-800">Martigny 3</td>
                               <td className="py-3 text-center font-medium text-neutral-800">4</td>
-                              <td className="py-3 text-center text-neutral-600">7</td>
+                              <td className="py-3 text-center text-neutral-600">8</td>
                             </tr>
                             <tr>
                               <td className="py-3 font-medium text-neutral-600">3</td>
                               <td className="py-3 text-neutral-800">CE Port-Valais</td>
-                              <td className="py-3 text-center font-medium text-neutral-800">0</td>
-                              <td className="py-3 text-center text-neutral-600">1.5</td>
+                              <td className="py-3 text-center font-medium text-neutral-800">2</td>
+                              <td className="py-3 text-center text-neutral-600">5.5</td>
                             </tr>
                             <tr className="bg-red-50/50">
                               <td className="py-3 font-medium text-neutral-600">4</td>
@@ -539,6 +539,150 @@ export default function CVE() {
                         </table>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Phase de Poules - Composition */}
+              <div className="mb-16">
+                 <h3 className="text-2xl font-bold text-center mb-10 text-neutral-900 flex items-center justify-center">
+                  <Target className="h-8 w-8 mr-3 text-red-600" />
+                  Phase de poules : composition
+                </h3>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                  {/* Poule Haute (E & F) */}
+                  <div className="space-y-8">
+                    {/* Groupe E */}
+                    <div className="bg-white rounded-xl shadow-sm border border-neutral-200 overflow-hidden">
+                      <div className="h-1 bg-red-600 w-full"></div>
+                      <div className="p-6">
+                        <div className="flex justify-between items-center mb-4">
+                           <h4 className="font-bold text-lg text-neutral-800">Groupe E (Poule Haute)</h4>
+                           <span className="text-xs bg-red-100 text-red-700 px-2 py-1 rounded font-medium">A1, C1, B2, D2</span>
+                        </div>
+                        <ul className="space-y-2">
+                          <li className="flex items-center p-2 bg-red-50 rounded text-red-900 font-semibold"><span className="w-6 text-center text-red-400 mr-2">1</span>Sion 1</li>
+                          <li className="flex items-center p-2 hover:bg-neutral-50 rounded"><span className="w-6 text-center text-neutral-400 mr-2">2</span>Sierre 1</li>
+                          <li className="flex items-center p-2 hover:bg-neutral-50 rounded"><span className="w-6 text-center text-neutral-400 mr-2">3</span>Sion 2</li>
+                          <li className="flex items-center p-2 hover:bg-neutral-50 rounded"><span className="w-6 text-center text-neutral-400 mr-2">4</span>Martigny 3</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Groupe F */}
+                    <div className="bg-white rounded-xl shadow-sm border border-neutral-200 overflow-hidden">
+                      <div className="h-1 bg-red-600 w-full"></div>
+                      <div className="p-6">
+                        <div className="flex justify-between items-center mb-4">
+                           <h4 className="font-bold text-lg text-neutral-800">Groupe F (Poule Haute)</h4>
+                           <span className="text-xs bg-red-100 text-red-700 px-2 py-1 rounded font-medium">B1, D1, A2, C2</span>
+                        </div>
+                        <ul className="space-y-2">
+                          <li className="flex items-center p-2 hover:bg-neutral-50 rounded"><span className="w-6 text-center text-neutral-400 mr-2">1</span>Martigny 1</li>
+                          <li className="flex items-center p-2 hover:bg-neutral-50 rounded"><span className="w-6 text-center text-neutral-400 mr-2">2</span>Monthey</li>
+                          <li className="flex items-center p-2 hover:bg-neutral-50 rounded"><span className="w-6 text-center text-neutral-400 mr-2">3</span>Martigny 2</li>
+                          <li className="flex items-center p-2 hover:bg-neutral-50 rounded"><span className="w-6 text-center text-neutral-400 mr-2">4</span>Montana 1</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Poule Basse (G & H) */}
+                  <div className="space-y-8">
+                    {/* Groupe G */}
+                    <div className="bg-white rounded-xl shadow-sm border border-neutral-200 overflow-hidden">
+                      <div className="h-1 bg-neutral-400 w-full"></div>
+                      <div className="p-6">
+                        <div className="flex justify-between items-center mb-4">
+                           <h4 className="font-bold text-lg text-neutral-800">Groupe G (Poule Basse)</h4>
+                           <span className="text-xs bg-neutral-100 text-neutral-600 px-2 py-1 rounded font-medium">A3, C3, B4, D4</span>
+                        </div>
+                         <ul className="space-y-2">
+                          <li className="flex items-center p-2 hover:bg-neutral-50 rounded"><span className="w-6 text-center text-neutral-400 mr-2">1</span>Riddes 1</li>
+                          <li className="flex items-center p-2 hover:bg-neutral-50 rounded"><span className="w-6 text-center text-neutral-400 mr-2">2</span>Bagnes</li>
+                          <li className="flex items-center p-2 hover:bg-neutral-50 rounded"><span className="w-6 text-center text-neutral-400 mr-2">3</span>Montana 2</li>
+                          <li className="flex items-center p-2 hover:bg-neutral-50 rounded"><span className="w-6 text-center text-neutral-400 mr-2">4</span>Sion 3</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Groupe H */}
+                    <div className="bg-white rounded-xl shadow-sm border border-neutral-200 overflow-hidden">
+                      <div className="h-1 bg-neutral-400 w-full"></div>
+                      <div className="p-6">
+                        <div className="flex justify-between items-center mb-4">
+                           <h4 className="font-bold text-lg text-neutral-800">Groupe H (Poule Basse)</h4>
+                           <span className="text-xs bg-neutral-100 text-neutral-600 px-2 py-1 rounded font-medium">B3, D3, A4, C4</span>
+                        </div>
+                        <ul className="space-y-2">
+                          <li className="flex items-center p-2 hover:bg-neutral-50 rounded"><span className="w-6 text-center text-neutral-400 mr-2">1</span>Riddes 2</li>
+                          <li className="flex items-center p-2 hover:bg-neutral-50 rounded"><span className="w-6 text-center text-neutral-400 mr-2">2</span>CE Port-Valais</li>
+                          <li className="flex items-center p-2 hover:bg-neutral-50 rounded"><span className="w-6 text-center text-neutral-400 mr-2">3</span>Sierre 2</li>
+                          <li className="flex items-center p-2 hover:bg-neutral-50 rounded"><span className="w-6 text-center text-neutral-400 mr-2">4</span>Martigny 4</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Phase Finale - Structure */}
+              <div className="mb-16">
+                 <h3 className="text-2xl font-bold text-center mb-10 text-neutral-900 flex items-center justify-center">
+                  <Trophy className="h-8 w-8 mr-3 text-red-600" />
+                  Phase finale : appariements
+                </h3>
+                <div className="bg-white rounded-xl shadow-lg border border-red-100 p-8">
+                  <div className="grid md:grid-cols-2 gap-12">
+                     <div>
+                       <h4 className="font-bold text-xl text-red-800 mb-6 flex items-center border-b pb-2">
+                         <Medal className="h-5 w-5 mr-2" />
+                         Matchs de classement (Haut)
+                       </h4>
+                       <ul className="space-y-4">
+                         <li className="flex justify-between items-center p-3 bg-gradient-to-r from-yellow-50 to-white rounded-lg border border-yellow-100">
+                           <span className="font-bold text-neutral-900">Places 1-2 (Finale)</span>
+                           <span className="font-mono text-red-600 font-bold bg-white px-3 py-1 rounded shadow-sm">1er E vs 1er F</span>
+                         </li>
+                         <li className="flex justify-between items-center p-3 hover:bg-neutral-50 rounded-lg border border-transparent hover:border-neutral-100">
+                           <span className="font-medium text-neutral-700">Places 3-4</span>
+                           <span className="font-mono text-neutral-500">2ème E vs 2ème F</span>
+                         </li>
+                         <li className="flex justify-between items-center p-3 hover:bg-neutral-50 rounded-lg border border-transparent hover:border-neutral-100">
+                           <span className="font-medium text-neutral-700">Places 5-6</span>
+                           <span className="font-mono text-neutral-500">3ème E vs 3ème F</span>
+                         </li>
+                         <li className="flex justify-between items-center p-3 hover:bg-neutral-50 rounded-lg border border-transparent hover:border-neutral-100">
+                           <span className="font-medium text-neutral-700">Places 7-8</span>
+                           <span className="font-mono text-neutral-500">4ème E vs 4ème F</span>
+                         </li>
+                       </ul>
+                     </div>
+
+                     <div>
+                       <h4 className="font-bold text-xl text-neutral-700 mb-6 flex items-center border-b pb-2">
+                         <Users className="h-5 w-5 mr-2" />
+                         Matchs de classement (Bas)
+                       </h4>
+                       <ul className="space-y-4">
+                         <li className="flex justify-between items-center p-3 hover:bg-neutral-50 rounded-lg border border-transparent hover:border-neutral-100">
+                           <span className="font-medium text-neutral-700">Places 9-10</span>
+                           <span className="font-mono text-neutral-500">1er G vs 1er H</span>
+                         </li>
+                         <li className="flex justify-between items-center p-3 hover:bg-neutral-50 rounded-lg border border-transparent hover:border-neutral-100">
+                           <span className="font-medium text-neutral-700">Places 11-12</span>
+                           <span className="font-mono text-neutral-500">2ème G vs 2ème H</span>
+                         </li>
+                         <li className="flex justify-between items-center p-3 hover:bg-neutral-50 rounded-lg border border-transparent hover:border-neutral-100">
+                           <span className="font-medium text-neutral-700">Places 13-14</span>
+                           <span className="font-mono text-neutral-500">3ème G vs 3ème H</span>
+                         </li>
+                         <li className="flex justify-between items-center p-3 hover:bg-neutral-50 rounded-lg border border-transparent hover:border-neutral-100">
+                           <span className="font-medium text-neutral-700">Places 15-16</span>
+                           <span className="font-mono text-neutral-500">4ème G vs 4ème H</span>
+                         </li>
+                       </ul>
+                     </div>
                   </div>
                 </div>
               </div>
@@ -667,25 +811,43 @@ export default function CVE() {
                           <span className="px-3 py-1 bg-neutral-100 text-neutral-600 text-xs rounded-full font-medium">19.12.2025</span>
                         </div>
                         <div className="space-y-4 text-sm">
-                           <div className="p-3 bg-red-50/50 rounded-lg border-l-2 border-red-300">
-                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+                           <div className="p-3 bg-red-50/50 rounded-lg">
+                             <div className="flex justify-between font-semibold mb-1 text-red-900">Groupe A</div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 font-bold text-red-700">
                                <span className="text-right">Sierre 2</span>
-                               <span className="bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold">VS</span>
-                               <span className="font-bold text-red-700 text-left">Sion 1</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold">1 - 3</span>
+                               <span className="text-left">Sion 1</span>
+                             </div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mt-1">
+                               <span className="text-right">Riddes 1</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold">1 - 3</span>
+                               <span className="text-left">Martigny 2</span>
                              </div>
                            </div>
-                           <div className="p-3 bg-red-50/50 rounded-lg border-l-2 border-red-300">
-                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
-                               <span className="font-bold text-red-700 text-right">Sion 2</span>
-                               <span className="bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold">VS</span>
+                           <div className="p-3 bg-red-50/50 rounded-lg">
+                             <div className="flex justify-between font-semibold mb-1 text-red-900">Groupe B</div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 font-bold text-red-700">
+                               <span className="text-right">Sion 2</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold">3 - 1</span>
                                <span className="text-left">Riddes 2</span>
                              </div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mt-1">
+                               <span className="text-right">Martigny 1</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold">3 - 1</span>
+                               <span className="text-left">Montana 2</span>
+                             </div>
                            </div>
-                            <div className="p-3 bg-red-50/50 rounded-lg border-l-2 border-red-300">
-                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
-                               <span className="font-bold text-red-700 text-right">Sion 3</span>
-                               <span className="bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold">VS</span>
+                           <div className="p-3 bg-neutral-50 rounded-lg opacity-80 hover:opacity-100 transition-opacity">
+                             <div className="flex justify-between font-semibold mb-1 text-neutral-600">Groupe D</div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 font-bold text-red-700">
+                               <span className="text-right">Sion 3</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold">0 - 4</span>
                                <span className="text-left">CE Port-Valais</span>
+                             </div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mt-1">
+                               <span className="text-right">Martigny 3</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold">1 - 3</span>
+                               <span className="text-left">Monthey</span>
                              </div>
                            </div>
                         </div>
