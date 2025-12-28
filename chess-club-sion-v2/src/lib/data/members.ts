@@ -351,6 +351,20 @@ export const membresData: { categories: Category[] } = {
       title: "progresse vers 1er classement",
       players: [
         {
+          nom: "Lamon",
+          prenom: "Mathieu",
+          codeFIDE: "1378023",
+          history: [{"period": "2025-Nov", "std": 0.0, "rapid": 0.0, "blitz": 0.0}],
+          elo: 0,
+          eloRapid: 1640,
+          eloBlitz: 0,
+          federation: "SUI",
+          stats: {
+            white: { total: 9, win: 5, draw: 0, loss: 4 },
+            black: { total: 7, win: 3, draw: 0, loss: 4 }
+          },
+        },
+        {
           nom: "Makarenko",
           prenom: "David",
           codeFIDE: "1380168",
@@ -360,9 +374,9 @@ export const membresData: { categories: Category[] } = {
           eloBlitz: 0,
           federation: "SUI",
           stats: {
-            white: { total: 4, win: 2, draw: 0, loss: 2 },
-            black: { total: 4, win: 0, draw: 0, loss: 4 }
-          },
+            white: { total: 8, win: 2, draw: 0, loss: 6 },
+            black: { total: 7, win: 2, draw: 0, loss: 5 }
+          }
         },
         {
           nom: "Cometta",
@@ -372,7 +386,11 @@ export const membresData: { categories: Category[] } = {
           elo: 0,
           eloRapid: 0,
           eloBlitz: 0,
-          federation: "SUI"
+          federation: "SUI",
+          stats: {
+            white: { total: 1, win: 0, draw: 0, loss: 1 },
+            black: { total: 0, win: 0, draw: 0, loss: 0 }
+          },
         },
         {
           nom: "Crettenand",
