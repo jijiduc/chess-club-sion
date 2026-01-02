@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Users, Calendar, ChevronRight, ExternalLink } from 'lucide-react';
+import { Trophy, Users, Calendar, ChevronRight, ExternalLink, MapPin } from 'lucide-react';
 import { Title, Meta } from 'react-head';
 
-
 const CSE: React.FC = () => {
+  const [is2025Expanded, setIs2025Expanded] = useState(false);
+
   const leagueStructure = [
     { name: 'LNA', description: 'Ligue Nationale A - Élite des échecs suisses' },
     { name: 'LNB', description: 'Ligue Nationale B' },
-    { name: '1ère ligue', description: 'Niveau régional supérieur', sionTeam: 'Sion 1' },
-    { name: '2ème ligue', description: 'Niveau régional' },
+    { name: '1ère ligue', description: 'Niveau régional supérieur' },
+    { name: '2ème ligue', description: 'Niveau régional', sionTeam: 'Sion 1' },
     { name: '3ème ligue', description: 'Niveau régional', sionTeam: 'Sion 2' },
     { name: '4ème ligue', description: 'Niveau d\'entrée' }
   ];
@@ -105,7 +106,7 @@ const CSE: React.FC = () => {
                           </li>
                           <li className="flex items-start">
                             <ChevronRight className="h-4 w-4 text-blue-600 mr-2 flex-shrink-0 mt-0.5" />
-                            <span>En cas d'égalité de MP, les EP départagent</span>
+                            <span>En cas d'égalité de MP, les EP départagent les équipes</span>
                           </li>
                         </ul>
                       </div>
@@ -154,15 +155,15 @@ const CSE: React.FC = () => {
                   <div className="bg-blue-50 rounded-xl p-6 my-8 border border-blue-100">
                     <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
                       <Users className="h-6 w-6 mr-2" />
-                      Répartition des équipes
+                      Répartition des équipes 2026
                     </h3>
                     <div className="space-y-2 text-neutral-700">
                       <p>
-                        Pour la saison 2025, le club a engagé deux équipes dans le championnat.
+                        Pour la saison 2026, le club a engagé deux équipes dans le championnat.
                       </p>
                       <ul className="list-disc pl-5 space-y-1">
-                        <li><strong>Sion 1</strong>, avec pour capitaine <strong>Pierre-Marie Rappaz</strong>.</li>
-                        <li><strong>Sion 2</strong>, avec pour capitaine <strong>Sandro Bétrisey</strong>.</li>
+                        <li><strong>Sion 1</strong> (2ème ligue), avec pour capitaine <strong>Jeremy Duc</strong>.</li>
+                        <li><strong>Sion 2</strong> (3ème ligue), avec pour capitaine <strong>Sandro Bétrisey</strong>.</li>
                       </ul>
                     </div>
                   </div>
@@ -172,190 +173,302 @@ const CSE: React.FC = () => {
           </div>
         </section>
 
-        {/* Current Standings */}
-        <section className="py-16 bg-neutral-50">
+        {/* 2026 Season Schedule */}
+        <section className="py-16 bg-blue-50">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">Classements finaux 2025</h2>
-            <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-
-              {/* 1ère ligue standings */}
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-blue-100">
-                <div className="bg-gradient-to-r from-blue-700 to-blue-600 text-white p-4">
-                  <h3 className="text-xl font-bold">1ère ligue - Groupe Ouest</h3>
-                  <p className="text-sm opacity-90">Classement final (après 7 rondes)</p>
+            <h2 className="text-3xl font-bold text-center mb-12 text-blue-900">Saison 2026 - Calendrier & Résultats</h2>
+            
+            <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+              {/* Sion 1 Card */}
+              <motion.div 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="bg-white rounded-xl shadow-lg overflow-hidden border-t-4 border-blue-600"
+              >
+                <div className="p-6 border-b border-neutral-100">
+                  <div className="flex justify-between items-start mb-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-neutral-900">Sion 1</h3>
+                      <p className="text-blue-600 font-medium">2ème Ligue - Ouest 1</p>
+                    </div>
+                    <div className="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full uppercase">
+                      Groupe 407
+                    </div>
+                  </div>
+                  <div className="flex items-center text-sm text-neutral-600 mb-2">
+                     <Users className="h-4 w-4 mr-2" />
+                     Capitaine : <span className="font-semibold text-neutral-900 ml-1">Jeremy Duc</span>
+                  </div>
+                  <div className="flex items-center text-sm text-neutral-600">
+                     <MapPin className="h-4 w-4 mr-2" />
+                     Local : Rue des Châteaux 2, 1950 Sion
+                  </div>
                 </div>
-                <div className="p-6">
+
+                <div className="overflow-x-auto">
                   <table className="w-full text-sm">
-                    <thead>
-                      <tr className="text-left text-neutral-600 border-b">
-                        <th className="pb-2">Rang</th>
-                        <th className="pb-2">Club</th>
-                        <th className="pb-2 text-center">MP</th>
-                        <th className="pb-2 text-center">EP</th>
+                    <thead className="bg-neutral-50 text-neutral-500">
+                      <tr>
+                        <th className="px-6 py-3 text-left font-semibold">Ronde</th>
+                        <th className="px-6 py-3 text-left font-semibold">Date</th>
+                        <th className="px-6 py-3 text-left font-semibold">Adversaire</th>
+                        <th className="px-6 py-3 text-center font-semibold">Lieu</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      {/* Fond vert pour le promu */}
-                      <tr className="border-b bg-green-50">
-                        <td className="py-2 font-semibold">1.</td>
-                        <td className="py-2 font-semibold">Genève 2</td>
-                        <td className="py-2 text-center font-bold">12</td>
-                        <td className="py-2 text-center">37</td>
+                    <tbody className="divide-y divide-neutral-100">
+                      <tr>
+                        <td className="px-6 py-4 font-medium">1</td>
+                        <td className="px-6 py-4 text-neutral-600">14.03.2026</td>
+                        <td className="px-6 py-4">Bantiger - <span className="font-bold text-blue-700">Sion</span></td>
+                        <td className="px-6 py-4 text-center text-neutral-500">Ext.</td>
                       </tr>
-
-                      <tr className="border-b">
-                        <td className="py-2">2.</td>
-                        <td className="py-2">Grand Echiquier 1</td>
-                        <td className="py-2 text-center font-semibold">9</td>
-                        <td className="py-2 text-center">31</td>
+                      <tr>
+                        <td className="px-6 py-4 font-medium">2</td>
+                        <td className="px-6 py-4 text-neutral-600">18.04.2026</td>
+                        <td className="px-6 py-4"><span className="font-bold text-blue-700">Sion</span> - Brig</td>
+                        <td className="px-6 py-4 text-center text-neutral-500">Dom.</td>
                       </tr>
-
-                      <tr className="border-b">
-                        <td className="py-2">3.</td>
-                        <td className="py-2">Echallens 2</td>
-                        <td className="py-2 text-center font-semibold">9</td>
-                        <td className="py-2 text-center">28½</td>
+                      <tr>
+                        <td className="px-6 py-4 font-medium">3</td>
+                        <td className="px-6 py-4 text-neutral-600">09.05.2026</td>
+                        <td className="px-6 py-4"><span className="font-bold text-blue-700">Sion</span> - Bern</td>
+                        <td className="px-6 py-4 text-center text-neutral-500">Dom.</td>
                       </tr>
-                      <tr className="border-b">
-                        <td className="py-2">4.</td>
-                        <td className="py-2">Fribourg 1</td>
-                        <td className="py-2 text-center font-semibold">8</td>
-                        <td className="py-2 text-center">29½</td>
+                      <tr>
+                        <td className="px-6 py-4 font-medium">4</td>
+                        <td className="px-6 py-4 text-neutral-600">06.06.2026</td>
+                        <td className="px-6 py-4"><span className="font-bold text-blue-700">Sion</span> - Monthey</td>
+                        <td className="px-6 py-4 text-center text-neutral-500">Dom.</td>
                       </tr>
-                      <tr className="border-b">
-                        <td className="py-2">5.</td>
-                        <td className="py-2">Köniz-Bubenberg 1</td>
-                        <td className="py-2 text-center font-semibold">8</td>
-                        <td className="py-2 text-center">28</td>
+                      <tr>
+                        <td className="px-6 py-4 font-medium">5</td>
+                        <td className="px-6 py-4 text-neutral-600">20.06.2026</td>
+                        <td className="px-6 py-4">Düdingen - <span className="font-bold text-blue-700">Sion</span></td>
+                        <td className="px-6 py-4 text-center text-neutral-500">Ext.</td>
                       </tr>
-                      <tr className="border-b">
-                        <td className="py-2">6.</td>
-                        <td className="py-2">Neuchâtel 1</td>
-                        <td className="py-2 text-center font-semibold">7</td>
-                        <td className="py-2 text-center">29½</td>
+                      <tr>
+                        <td className="px-6 py-4 font-medium">6</td>
+                        <td className="px-6 py-4 text-neutral-600">22.08.2026</td>
+                        <td className="px-6 py-4">Fribourg - <span className="font-bold text-blue-700">Sion</span></td>
+                        <td className="px-6 py-4 text-center text-neutral-500">Ext.</td>
                       </tr>
-
-                      {/* Fond rouge pour les relégués */}
-                      <tr className="font-semibold border-b bg-red-50 text-blue-900">
-                        <td className="py-2 pl-2">7.</td>
-                        <td className="py-2">Sion 1</td>
-                        <td className="py-2 text-center">2</td>
-                        <td className="py-2 text-center">20</td>
-                      </tr>
-
-                      <tr className="bg-red-50">
-                        <td className="py-2">8.</td>
-                        <td className="py-2">Valais 1</td>
-                        <td className="py-2 text-center font-semibold">1</td>
-                        <td className="py-2 text-center">20½</td>
+                      <tr>
+                        <td className="px-6 py-4 font-medium">7</td>
+                        <td className="px-6 py-4 text-neutral-600">12.09.2026</td>
+                        <td className="px-6 py-4">Valais - <span className="font-bold text-blue-700">Sion</span></td>
+                        <td className="px-6 py-4 text-center text-neutral-500">Ext.</td>
                       </tr>
                     </tbody>
                   </table>
+                </div>
+              </motion.div>
 
-                  {/* Légende */}
-                  <div className="mt-4 flex flex-col sm:flex-row gap-x-6 gap-y-2">
-                    <div className="flex items-center gap-x-2">
-                      <span className="w-4 h-4 bg-green-50 border border-green-200 rounded-sm"></span>
-                      <p className="text-xs text-neutral-600">Zone de promotion</p>
+              {/* Sion 2 Card */}
+              <motion.div 
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="bg-white rounded-xl shadow-lg overflow-hidden border-t-4 border-blue-400"
+              >
+                <div className="p-6 border-b border-neutral-100">
+                  <div className="flex justify-between items-start mb-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-neutral-900">Sion 2</h3>
+                      <p className="text-blue-500 font-medium">3ème Ligue - Ouest 2</p>
                     </div>
-                    <div className="flex items-center gap-x-2">
-                      <span className="w-4 h-4 bg-red-50 border border-red-200 rounded-sm"></span>
-                      <p className="text-xs text-neutral-600">Zone de relégation</p>
+                    <div className="bg-blue-50 text-blue-600 text-xs font-bold px-3 py-1 rounded-full uppercase">
+                      Groupe 514
                     </div>
                   </div>
-
+                  <div className="flex items-center text-sm text-neutral-600 mb-2">
+                     <Users className="h-4 w-4 mr-2" />
+                     Capitaine : <span className="font-semibold text-neutral-900 ml-1">Sandro Bétrisey</span>
+                  </div>
+                   <div className="flex items-center text-sm text-neutral-600">
+                     <MapPin className="h-4 w-4 mr-2" />
+                     Local : Rue des Châteaux 2, 1950 Sion
+                  </div>
                 </div>
-              </div>
 
-              {/* 3ème ligue standings */}
-              <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-blue-100">
-                <div className="bg-gradient-to-r from-blue-700 to-blue-600 text-white p-4">
-                  <h3 className="text-xl font-bold">3ème ligue - Groupe Ouest 2</h3>
-                  <p className="text-sm opacity-90">Classement final (après 7 rondes)</p>
-                </div>
-                <div className="p-6">
+                <div className="overflow-x-auto">
                   <table className="w-full text-sm">
-                    <thead>
-                      <tr className="text-left text-neutral-600 border-b">
-                        <th className="pb-2">Rang</th>
-                        <th className="pb-2">Club</th>
-                        <th className="pb-2 text-center">MP</th>
-                        <th className="pb-2 text-center">EP</th>
+                    <thead className="bg-neutral-50 text-neutral-500">
+                      <tr>
+                        <th className="px-6 py-3 text-left font-semibold">Ronde</th>
+                        <th className="px-6 py-3 text-left font-semibold">Date</th>
+                        <th className="px-6 py-3 text-left font-semibold">Adversaire</th>
+                        <th className="px-6 py-3 text-center font-semibold">Lieu</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr className="border-b bg-green-50">
-                        <td className="py-2 font-semibold">1.</td>
-                        <td className="py-2 font-semibold">Monthey 1</td>
-                        <td className="py-2 text-center font-bold">12</td>
-                        <td className="py-2 text-center">30½</td>
+                    <tbody className="divide-y divide-neutral-100">
+                      <tr>
+                        <td className="px-6 py-4 font-medium">1</td>
+                        <td className="px-6 py-4 text-neutral-600">14.03.2026</td>
+                        <td className="px-6 py-4"><span className="font-bold text-blue-600">Sion</span> - Fribourg</td>
+                        <td className="px-6 py-4 text-center text-neutral-500">Dom.</td>
                       </tr>
-
-                      <tr className="border-b">
-                        <td className="py-2">2.</td>
-                        <td className="py-2">Crazy Horse 1</td>
-                        <td className="py-2 text-center font-semibold">10</td>
-                        <td className="py-2 text-center">27</td>
+                      <tr>
+                        <td className="px-6 py-4 font-medium">2</td>
+                        <td className="px-6 py-4 text-neutral-600">18.04.2026</td>
+                        <td className="px-6 py-4">Vevey - <span className="font-bold text-blue-600">Sion</span></td>
+                        <td className="px-6 py-4 text-center text-neutral-500">Ext.</td>
                       </tr>
-
-                      <tr className="border-b">
-                        <td className="py-2">3.</td>
-                        <td className="py-2">Payerne 2</td>
-                        <td className="py-2 text-center font-semibold">9</td>
-                        <td className="py-2 text-center">28½</td>
+                      <tr>
+                        <td className="px-6 py-4 font-medium">3</td>
+                        <td className="px-6 py-4 text-neutral-600">09.05.2026</td>
+                        <td className="px-6 py-4">Romont - <span className="font-bold text-blue-600">Sion</span></td>
+                        <td className="px-6 py-4 text-center text-neutral-500">Ext.</td>
                       </tr>
-                      <tr className="border-b">
-                        <td className="py-2">4.</td>
-                        <td className="py-2">Grand Echiquier 2</td>
-                        <td className="py-2 text-center font-semibold">9</td>
-                        <td className="py-2 text-center">21½</td>
+                      <tr>
+                        <td className="px-6 py-4 font-medium">4</td>
+                        <td className="px-6 py-4 text-neutral-600">06.06.2026</td>
+                        <td className="px-6 py-4"><span className="font-bold text-blue-600">Sion</span> - Valais</td>
+                        <td className="px-6 py-4 text-center text-neutral-500">Dom.</td>
                       </tr>
-                      <tr className="border-b">
-                        <td className="py-2">5.</td>
-                        <td className="py-2">Valais 2</td>
-                        <td className="py-2 text-center font-semibold">7</td>
-                        <td className="py-2 text-center">22½</td>
+                      <tr>
+                        <td className="px-6 py-4 font-medium">5</td>
+                        <td className="px-6 py-4 text-neutral-600">20.06.2026</td>
+                        <td className="px-6 py-4">Grand Echiquier - <span className="font-bold text-blue-600">Sion</span></td>
+                        <td className="px-6 py-4 text-center text-neutral-500">Ext.</td>
                       </tr>
-                      <tr className="font-semibold border-b text-blue-900">
-                        <td className="py-2 pl-2">6.</td>
-                        <td className="py-2">Sion 2</td>
-                        <td className="py-2 text-center">5</td>
-                        <td className="py-2 text-center">17</td>
+                      <tr>
+                        <td className="px-6 py-4 font-medium">6</td>
+                        <td className="px-6 py-4 text-neutral-600">22.08.2026</td>
+                        <td className="px-6 py-4"><span className="font-bold text-blue-600">Sion</span> - Bulle</td>
+                        <td className="px-6 py-4 text-center text-neutral-500">Dom.</td>
                       </tr>
-
-                      {/* Fond rouge pour les relégués */}
-                      <tr className="border-b bg-red-50">
-                        <td className="py-2">7.</td>
-                        <td className="py-2">Bulle 3</td>
-                        <td className="py-2 text-center font-semibold">2</td>
-                        <td className="py-2 text-center">11</td>
-                      </tr>
-
-                      <tr className="bg-red-50">
-                        <td className="py-2">8.</td>
-                        <td className="py-2">Crans-Montana 2</td>
-                        <td className="py-2 text-center font-semibold">2</td>
-                        <td className="py-2 text-center">10</td>
+                      <tr>
+                        <td className="px-6 py-4 font-medium">7</td>
+                        <td className="px-6 py-4 text-neutral-600">12.09.2026</td>
+                        <td className="px-6 py-4">Crans-Montana - <span className="font-bold text-blue-600">Sion</span></td>
+                        <td className="px-6 py-4 text-center text-neutral-500">Ext.</td>
                       </tr>
                     </tbody>
                   </table>
-
-                  {/* Légende */}
-                  <div className="mt-4 flex flex-col sm:flex-row gap-x-6 gap-y-2">
-                    <div className="flex items-center gap-x-2">
-                      <span className="w-4 h-4 bg-green-50 border border-green-200 rounded-sm"></span>
-                      <p className="text-xs text-neutral-600">Zone de promotion</p>
-                    </div>
-                    <div className="flex items-center gap-x-2">
-                      <span className="w-4 h-4 bg-red-50 border border-red-200 rounded-sm"></span>
-                      <p className="text-xs text-neutral-600">Zone de relégation</p>
-                    </div>
-                  </div>
-
                 </div>
-              </div>
-
+              </motion.div>
             </div>
+          </div>
+        </section>
+
+        {/* 2025 Archives Section */}
+        <section className="py-12 bg-white">
+          <div className="container mx-auto px-4">
+             <div className="max-w-6xl mx-auto">
+                <motion.div
+                  className="bg-white rounded-xl shadow-lg overflow-hidden border border-neutral-200"
+                >
+                  <button
+                    onClick={() => setIs2025Expanded(!is2025Expanded)}
+                    className="w-full px-6 py-4 flex items-center justify-between bg-neutral-100 hover:bg-neutral-200 transition-colors"
+                  >
+                    <h3 className="text-xl font-semibold text-neutral-800 flex items-center">
+                      <Calendar className="h-5 w-5 mr-3 text-neutral-500" />
+                      Archives Saison 2025
+                    </h3>
+                    <motion.svg
+                      animate={{ rotate: is2025Expanded ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="w-5 h-5 text-neutral-500"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </motion.svg>
+                  </button>
+
+                  {is2025Expanded && (
+                    <motion.div
+                      initial={{ height: 0 }}
+                      animate={{ height: 'auto' }}
+                      exit={{ height: 0 }}
+                      className="p-8 bg-white"
+                    >
+                      <div className="grid lg:grid-cols-2 gap-8">
+                        {/* 1ère ligue standings */}
+                        <div className="rounded-xl overflow-hidden border border-neutral-200">
+                          <div className="bg-neutral-800 text-white p-4">
+                            <h3 className="font-bold">1ère ligue - Groupe Ouest 2025</h3>
+                            <p className="text-sm opacity-80">Classement final</p>
+                          </div>
+                          <div className="p-4 overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead>
+                                <tr className="text-left text-neutral-600 border-b">
+                                  <th className="pb-2">Rang</th>
+                                  <th className="pb-2">Club</th>
+                                  <th className="pb-2 text-center">MP</th>
+                                  <th className="pb-2 text-center">EP</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr className="border-b bg-green-50">
+                                  <td className="py-2 font-semibold">1.</td>
+                                  <td className="py-2 font-semibold">Genève 2</td>
+                                  <td className="py-2 text-center font-bold">12</td>
+                                  <td className="py-2 text-center">37</td>
+                                </tr>
+                                <tr className="border-b"><td className="py-2">2.</td><td className="py-2">Grand Echiquier 1</td><td className="py-2 text-center">9</td><td className="py-2 text-center">31</td></tr>
+                                <tr className="border-b"><td className="py-2">3.</td><td className="py-2">Echallens 2</td><td className="py-2 text-center">9</td><td className="py-2 text-center">28½</td></tr>
+                                <tr className="border-b"><td className="py-2">4.</td><td className="py-2">Fribourg 1</td><td className="py-2 text-center">8</td><td className="py-2 text-center">29½</td></tr>
+                                <tr className="border-b"><td className="py-2">5.</td><td className="py-2">Köniz-Bubenberg 1</td><td className="py-2 text-center">8</td><td className="py-2 text-center">28</td></tr>
+                                <tr className="border-b"><td className="py-2">6.</td><td className="py-2">Neuchâtel 1</td><td className="py-2 text-center">7</td><td className="py-2 text-center">29½</td></tr>
+                                <tr className="font-semibold border-b bg-red-50 text-red-900">
+                                  <td className="py-2 pl-2">7.</td>
+                                  <td className="py-2">Sion 1</td>
+                                  <td className="py-2 text-center">2</td>
+                                  <td className="py-2 text-center">20</td>
+                                </tr>
+                                <tr className="bg-red-50 text-neutral-600"><td className="py-2">8.</td><td className="py-2">Valais 1</td><td className="py-2 text-center">1</td><td className="py-2 text-center">20½</td></tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+
+                        {/* 3ème ligue standings */}
+                        <div className="rounded-xl overflow-hidden border border-neutral-200">
+                          <div className="bg-neutral-800 text-white p-4">
+                            <h3 className="font-bold">3ème ligue - Groupe Ouest 2 2025</h3>
+                            <p className="text-sm opacity-80">Classement final</p>
+                          </div>
+                          <div className="p-4 overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead>
+                                <tr className="text-left text-neutral-600 border-b">
+                                  <th className="pb-2">Rang</th>
+                                  <th className="pb-2">Club</th>
+                                  <th className="pb-2 text-center">MP</th>
+                                  <th className="pb-2 text-center">EP</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr className="border-b bg-green-50">
+                                  <td className="py-2 font-semibold">1.</td>
+                                  <td className="py-2 font-semibold">Monthey 1</td>
+                                  <td className="py-2 text-center font-bold">12</td>
+                                  <td className="py-2 text-center">30½</td>
+                                </tr>
+                                <tr className="border-b"><td className="py-2">2.</td><td className="py-2">Crazy Horse 1</td><td className="py-2 text-center">10</td><td className="py-2 text-center">27</td></tr>
+                                <tr className="border-b"><td className="py-2">3.</td><td className="py-2">Payerne 2</td><td className="py-2 text-center">9</td><td className="py-2 text-center">28½</td></tr>
+                                <tr className="border-b"><td className="py-2">4.</td><td className="py-2">Grand Echiquier 2</td><td className="py-2 text-center">9</td><td className="py-2 text-center">21½</td></tr>
+                                <tr className="border-b"><td className="py-2">5.</td><td className="py-2">Valais 2</td><td className="py-2 text-center">7</td><td className="py-2 text-center">22½</td></tr>
+                                <tr className="font-semibold border-b text-blue-900">
+                                  <td className="py-2 pl-2">6.</td>
+                                  <td className="py-2">Sion 2</td>
+                                  <td className="py-2 text-center">5</td>
+                                  <td className="py-2 text-center">17</td>
+                                </tr>
+                                <tr className="border-b bg-red-50 text-neutral-600"><td className="py-2">7.</td><td className="py-2">Bulle 3</td><td className="py-2 text-center">2</td><td className="py-2 text-center">11</td></tr>
+                                <tr className="bg-red-50 text-neutral-600"><td className="py-2">8.</td><td className="py-2">Crans-Montana 2</td><td className="py-2 text-center">2</td><td className="py-2 text-center">10</td></tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </motion.div>
+             </div>
           </div>
         </section>
 
@@ -369,21 +482,12 @@ const CSE: React.FC = () => {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
-                  href="https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNSZhbGlnYT0zJmFncnVwcGU9MzA0JmFyb3VuZD03"
+                  href="https://www.swisschess.ch/cse.html"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-white text-neutral-900 px-6 py-3 rounded-lg font-semibold hover:bg-neutral-100 transition-colors flex items-center space-x-2"
                 >
-                  <span>Résultats de Sion 1</span>
-                  <ExternalLink className="h-4 w-4" />
-                </a>
-                <a
-                  href="https://www.swisschess.ch/cse.html?old=L3R1cm5pZXJlL3NtbS5waHA_YWphaHI9MjAyNSZhbGlnYT01JmFncnVwcGU9NTE0JmFyb3VuZD03"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center space-x-2"
-                >
-                  <span>Résultats de Sion 2</span>
+                  <span>Site officiel du CSE</span>
                   <ExternalLink className="h-4 w-4" />
                 </a>
               </div>

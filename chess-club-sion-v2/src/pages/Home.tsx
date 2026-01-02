@@ -263,7 +263,7 @@ export default function Home() {
                       <div className="flex flex-wrap gap-3 mb-3">
                       </div>
                       <h3 className="text-xl sm:text-2xl font-serif font-bold text-white leading-tight">
-                        Nous vous souhaitons d'excellentes fêtes de fin d'années et nous réjouissons de vous retrouver à la reprise en janvier.
+                        C'est la rentrée ! Nous vous souhaitons une excellente année 2026. Les cours et les championnats reprennent tout bientôt.
                       </h3>
                     </div>
                     

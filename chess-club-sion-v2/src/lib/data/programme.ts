@@ -108,7 +108,7 @@ export const programmeEvents: ProgrammeEvent[] = [
       "Ouvert aux jeunes nés après le 01.09.2005",
       "Cadence : 7 rondes de 15 minutes par joueur",
       "Finance : Fr. 15.- (payable sur place)",
-      "Inscriptions sur place jusqu'à 13h15",
+      "Inscriptions sur place jusqu\'à 13h15",
       { text: 'Infos (J-C Putallaz)', link: 'mailto:jeanchristophe.putallaz@gmail.com' }
     ],
     calendarTime: '13:30',
@@ -150,7 +150,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '14h00',
     category: ['CSG'],
     description: '2. Bundesliga, Ronde 3',
-    location: "Berne (à l'extérieur)",
+    location: "Berne (à l\'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
@@ -160,7 +160,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '14h00',
     category: ['CSG'],
     description: '1. Regionalliga, Ronde 3',
-    location: "Fribourg (à l'extérieur)",
+    location: "Fribourg (à l\'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
   },
   {
@@ -206,7 +206,7 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '20h00',
     category: ['CVE'],
     description: 'Championnat valaisan par équipes, Ronde 3',
-    location: "Sierre (à l'extérieur)",
+    location: "Sierre (à l\'extérieur)",
     link: '/competitions/cve',
   },
   {
@@ -498,13 +498,32 @@ export const programmeEvents: ProgrammeEvent[] = [
     calendarDetails: '7 rondes de 20 minutes par joueur + 5 sec par coup'
   },
   {
-    id: '2026-01-16-cve',
-    title: 'CVE 2025-2026 (ronde 4)',
+    id: 'cve-2026-01-16-sion1-2',
+    title: 'CVE Ronde 4: Sion 1 - Sion 2',
     date: '2026-01-16',
     time: '20h00',
     category: ['CVE'],
-    description: 'Championnat valaisan par équipes de parties classiques, Ronde 4',
+    description: 'Championnat valaisan par équipes, Ronde 4',
+    location: 'Local du CE Sion',
     link: '/competitions/cve',
+    calendarTime: '19:45',
+    calendarEndTime: '23:30',
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: 'CVE Ronde 4: Sion 1 vs Sion 2'
+  },
+  {
+    id: 'cve-2026-01-16-sion3',
+    title: 'CVE Ronde 4: Bagnes - Sion 3',
+    date: '2026-01-16',
+    time: '20h00',
+    category: ['CVE'],
+    description: 'Championnat valaisan par équipes, Ronde 4',
+    location: "Bagnes (à l\'extérieur)",
+    link: '/competitions/cve',
+    calendarTime: '19:45',
+    calendarEndTime: '23:30',
+    calendarLocation: 'Chem. du Collège 17, 1934 Bagnes',
+    calendarDetails: 'CVE Ronde 4: Bagnes vs Sion 3'
   },
   {
     id: 'csg-2026-01-24-valais1',
@@ -515,6 +534,10 @@ export const programmeEvents: ProgrammeEvent[] = [
     description: '2. Bundesliga, Ronde 4',
     location: 'Café du Casino, Martigny',
     link: 'https://www.swisschess.ch/csg.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Café du Casino, Rue du Grand-Verger 2, 1920 Martigny',
+    calendarDetails: 'CSG Ronde 4: Valais 1 vs Schwarz-Weiss Bern'
   },
   {
     id: 'csg-2026-01-24-valais3',
@@ -525,6 +548,10 @@ export const programmeEvents: ProgrammeEvent[] = [
     description: '1. Regionalliga, Ronde 4',
     location: 'Local du CE Sion',
     link: 'https://www.swisschess.ch/csg.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: 'CSG Ronde 4: Valais 3 vs Schwarz-Weiss Bern 2'
   },
   {
     id: 'csg-2026-01-24-sion1',
@@ -533,8 +560,12 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '14h00',
     category: ['CSG'],
     description: '3. Regionalliga, Ronde 4',
-    location: "Vevey (à l'extérieur)",
+    location: "Vevey (à l\'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Vevey',
+    calendarDetails: 'CSG Ronde 4: Vevey 2 vs Sion 1'
   },
   
 
@@ -559,6 +590,10 @@ export const programmeEvents: ProgrammeEvent[] = [
     description: '2. Bundesliga, Ronde 5',
     location: 'Café du Casino, Martigny',
     link: 'https://www.swisschess.ch/csg.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Café du Casino, Rue du Grand-Verger 2, 1920 Martigny',
+    calendarDetails: 'CSG Ronde 5: Valais 1 vs Nyon'
   },
   {
     id: 'csg-2026-02-07-valais3',
@@ -569,6 +604,10 @@ export const programmeEvents: ProgrammeEvent[] = [
     description: '1. Regionalliga, Ronde 5',
     location: 'Local du CE Sion',
     link: 'https://www.swisschess.ch/csg.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: 'CSG Ronde 5: Valais 3 vs Köniz Bubenberg'
   },
   {
     id: 'csg-2026-02-21-valais1',
@@ -577,8 +616,12 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '14h00',
     category: ['CSG'],
     description: '2. Bundesliga, Ronde 6',
-    location: "La Chaux-de-Fonds (à l'extérieur)",
+    location: "La Chaux-de-Fonds (à l\'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'La Chaux-de-Fonds',
+    calendarDetails: 'CSG Ronde 6: La Chaux-de-Fonds vs Valais 1'
   },
   {
     id: 'csg-2026-02-21-valais3',
@@ -589,16 +632,24 @@ export const programmeEvents: ProgrammeEvent[] = [
     description: '1. Regionalliga, Ronde 6',
     location: 'Local du CE Sion',
     link: 'https://www.swisschess.ch/csg.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: 'CSG Ronde 6: Valais 3 vs Grand Echiquier'
   },
   {
     id: 'csg-2026-02-21-sion1',
-    title: 'CSG Ronde 5: Sion 1 - Valais 4',
+    title: 'CSG Ronde 6: Sion 1 - Valais 4',
     date: '2026-02-21',
     time: '14h00',
     category: ['CSG'],
-    description: '3. Regionalliga, Ronde 5',
+    description: '3. Regionalliga, Ronde 6',
     location: 'Local du CE Sion',
     link: 'https://www.swisschess.ch/csg.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: 'CSG Ronde 6: Sion 1 vs Valais 4'
   },
   {
     id: '2026-02-22-bouveret',
@@ -610,13 +661,46 @@ export const programmeEvents: ProgrammeEvent[] = [
     image: '/picture/events/CEPV.png'
   },
   {
-    id: '2026-02-27-cve',
-    title: 'CVE 2025-2026 (ronde 5)',
+    id: 'cve-2026-02-27-sion1',
+    title: 'CVE Ronde 5: Sion 1 - Martigny 3',
     date: '2026-02-27',
     time: '20h00',
     category: ['CVE'],
-    description: 'Championnat valaisan par équipes de parties classiques, Ronde 5',
+    description: 'Championnat valaisan par équipes, Ronde 5',
+    location: 'Local du CE Sion',
     link: '/competitions/cve',
+    calendarTime: '19:45',
+    calendarEndTime: '23:30',
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: 'CVE Ronde 5: Sion 1 vs Martigny 3'
+  },
+  {
+    id: 'cve-2026-02-27-sion2',
+    title: 'CVE Ronde 5: Sion 2 - Sierre 1',
+    date: '2026-02-27',
+    time: '20h00',
+    category: ['CVE'],
+    description: 'Championnat valaisan par équipes, Ronde 5',
+    location: 'Local du CE Sion',
+    link: '/competitions/cve',
+    calendarTime: '19:45',
+    calendarEndTime: '23:30',
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: 'CVE Ronde 5: Sion 2 vs Sierre 1'
+  },
+  {
+    id: 'cve-2026-02-27-sion3',
+    title: 'CVE Ronde 5: Sion 3 - Riddes 1',
+    date: '2026-02-27',
+    time: '20h00',
+    category: ['CVE'],
+    description: 'Championnat valaisan par équipes, Ronde 5',
+    location: 'Local du CE Sion',
+    link: '/competitions/cve',
+    calendarTime: '19:45',
+    calendarEndTime: '23:30',
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: 'CVE Ronde 5: Sion 3 vs Riddes 1'
   },
 
   // Mars 2026
@@ -640,6 +724,10 @@ export const programmeEvents: ProgrammeEvent[] = [
     description: '2. Bundesliga, Ronde 7',
     location: 'Café du Casino, Martigny',
     link: 'https://www.swisschess.ch/csg.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Café du Casino, Rue du Grand-Verger 2, 1920 Martigny',
+    calendarDetails: 'CSG Ronde 7: Valais 1 vs Olten'
   },
   {
     id: 'csg-2026-03-07-valais3',
@@ -648,36 +736,96 @@ export const programmeEvents: ProgrammeEvent[] = [
     time: '14h00',
     category: ['CSG'],
     description: '1. Regionalliga, Ronde 7',
-    location: "Neuchâtel (à l'extérieur)",
+    location: "Neuchâtel (à l\'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Neuchâtel',
+    calendarDetails: 'CSG Ronde 7: Neuchâtel vs Valais 3'
   },
   {
     id: 'csg-2026-03-07-sion1',
-    title: 'CSG Ronde 6: Montreux 2 - Sion 1',
+    title: 'CSG Ronde 7: Montreux 2 - Sion 1',
     date: '2026-03-07',
     time: '14h00',
     category: ['CSG'],
-    description: '3. Regionalliga, Ronde 6',
-    location: "Clarens (à l'extérieur)",
+    description: '3. Regionalliga, Ronde 7',
+    location: "Clarens (à l\'extérieur)",
     link: 'https://www.swisschess.ch/csg.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Clarens',
+    calendarDetails: 'CSG Ronde 7: Montreux 2 vs Sion 1'
   },
   {
-    id: '2026-03-14-cse',
-    title: 'CSE - Ronde 1',
+    id: 'cse-2026-03-14-sion1',
+    title: 'CSE Ronde 1: Bantiger - Sion 1',
     date: '2026-03-14',
     time: '14h00',
     category: ['CSE'],
-    description: 'Championnat suisse par équipes (saison 2026), Ronde 1',
+    description: 'Championnat suisse par équipes, Ronde 1',
+    location: "Ittigen (à l\'extérieur)",
     link: 'https://www.swisschess.ch/cse.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Pulferstube Talgutzentrum Ittigen, Talgutzentrum, 3063 Ittigen',
+    calendarDetails: 'CSE Ronde 1: Bantiger vs Sion 1'
   },
   {
-    id: '2026-03-20-cve',
-    title: 'CVE 2025-2026 (ronde 6)',
+    id: 'cse-2026-03-14-sion2',
+    title: 'CSE Ronde 1: Sion 2 - Fribourg',
+    date: '2026-03-14',
+    time: '14h00',
+    category: ['CSE'],
+    description: 'Championnat suisse par équipes, Ronde 1',
+    location: 'Local du CE Sion',
+    link: 'https://www.swisschess.ch/cse.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: 'CSE Ronde 1: Sion 2 vs Fribourg'
+  },
+  {
+    id: 'cve-2026-03-20-sion1',
+    title: 'CVE Ronde 6: Sierre 1 - Sion 1',
     date: '2026-03-20',
     time: '20h00',
     category: ['CVE'],
-    description: 'Championnat valaisan par équipes de parties classiques, Ronde 6',
+    description: 'Championnat valaisan par équipes, Ronde 6',
+    location: "Sierre (à l\'extérieur)",
     link: '/competitions/cve',
+    calendarTime: '19:45',
+    calendarEndTime: '23:30',
+    calendarLocation: 'Hôtel de Ville, Rue du Bourg 14, 3960 Sierre',
+    calendarDetails: 'CVE Ronde 6: Sierre 1 vs Sion 1'
+  },
+  {
+    id: 'cve-2026-03-20-sion2',
+    title: 'CVE Ronde 6: Martigny 3 - Sion 2',
+    date: '2026-03-20',
+    time: '20h00',
+    category: ['CVE'],
+    description: 'Championnat valaisan par équipes, Ronde 6',
+    location: "Martigny (à l\'extérieur)",
+    link: '/competitions/cve',
+    calendarTime: '19:45',
+    calendarEndTime: '23:30',
+    calendarLocation: 'Café du Casino, Rue du Grand-Verger 2, 1920 Martigny',
+    calendarDetails: 'CVE Ronde 6: Martigny 3 vs Sion 2'
+  },
+  {
+    id: 'cve-2026-03-20-sion3',
+    title: 'CVE Ronde 6: Sion 3 - Montana 2',
+    date: '2026-03-20',
+    time: '20h00',
+    category: ['CVE'],
+    description: 'Championnat valaisan par équipes, Ronde 6',
+    location: 'Local du CE Sion',
+    link: '/competitions/cve',
+    calendarTime: '19:45',
+    calendarEndTime: '23:30',
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: 'CVE Ronde 6: Sion 3 vs Montana 2'
   },
 
   // Avril 2026
@@ -703,13 +851,32 @@ export const programmeEvents: ProgrammeEvent[] = [
     link: 'https://www.uve-wsb.ch/competitions-valaisannes/cvi'
   },
   {
-    id: '2026-04-18',
-    title: 'CSE - Ronde 2',
+    id: 'cse-2026-04-18-sion1',
+    title: 'CSE Ronde 2: Sion 1 - Brig',
     date: '2026-04-18',
     time: '14h00',
     category: ['CSE'],
-    description: 'Championnat suisse par équipes (saison 2026), Ronde 2',
+    description: 'Championnat suisse par équipes, Ronde 2',
+    location: 'Local du CE Sion',
     link: 'https://www.swisschess.ch/cse.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: 'CSE Ronde 2: Sion 1 vs Brig'
+  },
+  {
+    id: 'cse-2026-04-18-sion2',
+    title: 'CSE Ronde 2: Vevey - Sion 2',
+    date: '2026-04-18',
+    time: '14h00',
+    category: ['CSE'],
+    description: 'Championnat suisse par équipes, Ronde 2',
+    location: "Vevey (à l\'extérieur)",
+    link: 'https://www.swisschess.ch/cse.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Foyer ASLN, Rue Hotel de Ville 1, 1800 Vevey',
+    calendarDetails: 'CSE Ronde 2: Vevey vs Sion 2'
   },
 
   // Mai 2026
@@ -735,13 +902,32 @@ export const programmeEvents: ProgrammeEvent[] = [
     link: '/competitions/cve',
   },
   {
-    id: '2026-05-09-cse',
-    title: 'CSE - Ronde 3',
+    id: 'cse-2026-05-09-sion1',
+    title: 'CSE Ronde 3: Sion 1 - Bern',
     date: '2026-05-09',
     time: '14h00',
     category: ['CSE'],
-    description: 'Championnat suisse par équipes (saison 2026), Ronde 3',
+    description: 'Championnat suisse par équipes, Ronde 3',
+    location: 'Local du CE Sion',
     link: 'https://www.swisschess.ch/cse.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: 'CSE Ronde 3: Sion 1 vs Bern'
+  },
+  {
+    id: 'cse-2026-05-09-sion2',
+    title: 'CSE Ronde 3: Romont - Sion 2',
+    date: '2026-05-09',
+    time: '14h00',
+    category: ['CSE'],
+    description: 'Championnat suisse par équipes, Ronde 3',
+    location: "Romont (à l\'extérieur)",
+    link: 'https://www.swisschess.ch/cse.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Cafe Suisse, Rue du Château 105, 1680 Romont',
+    calendarDetails: 'CSE Ronde 3: Romont vs Sion 2'
   },
   {
     id: '2026-05-10-cvi-finale',
@@ -778,22 +964,60 @@ export const programmeEvents: ProgrammeEvent[] = [
     image: '/picture/events/Sion.png'
   },
   {
-    id: '2026-06-06',
-    title: 'CSE - Ronde 4',
+    id: 'cse-2026-06-06-sion1',
+    title: 'CSE Ronde 4: Sion 1 - Monthey',
     date: '2026-06-06',
     time: '14h00',
     category: ['CSE'],
-    description: 'Championnat suisse par équipes (saison 2026), Ronde 4',
+    description: 'Championnat suisse par équipes, Ronde 4',
+    location: 'Local du CE Sion',
     link: 'https://www.swisschess.ch/cse.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: 'CSE Ronde 4: Sion 1 vs Monthey'
   },
   {
-    id: '2026-06-20',
-    title: 'CSE - Ronde 5',
+    id: 'cse-2026-06-06-sion2',
+    title: 'CSE Ronde 4: Sion 2 - Valais',
+    date: '2026-06-06',
+    time: '14h00',
+    category: ['CSE'],
+    description: 'Championnat suisse par équipes, Ronde 4',
+    location: 'Local du CE Sion',
+    link: 'https://www.swisschess.ch/cse.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: 'CSE Ronde 4: Sion 2 vs Valais'
+  },
+  {
+    id: 'cse-2026-06-20-sion1',
+    title: 'CSE Ronde 5: Düdingen - Sion 1',
     date: '2026-06-20',
     time: '14h00',
     category: ['CSE'],
-    description: 'Championnat suisse par équipes (saison 2026), Ronde 5',
+    description: 'Championnat suisse par équipes, Ronde 5',
+    location: "Düdingen (à l\'extérieur)",
     link: 'https://www.swisschess.ch/cse.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Begegnungszentrum, Horiastr. 1, 3186 Düdingen',
+    calendarDetails: 'CSE Ronde 5: Düdingen vs Sion 1'
+  },
+  {
+    id: 'cse-2026-06-20-sion2',
+    title: 'CSE Ronde 5: Grand Echiquier - Sion 2',
+    date: '2026-06-20',
+    time: '14h00',
+    category: ['CSE'],
+    description: 'Championnat suisse par équipes, Ronde 5',
+    location: "Lausanne (à l\'extérieur)",
+    link: 'https://www.swisschess.ch/cse.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Cercle de la Cité, Avenue du Grey 1, 1004 Lausanne',
+    calendarDetails: 'CSE Ronde 5: Grand Echiquier vs Sion 2'
   },
 
   // Juillet 2026
@@ -808,6 +1032,66 @@ export const programmeEvents: ProgrammeEvent[] = [
     location: 'Grächen',
     link: 'https://www.swisschess.ch/csi.html',
     image: '/picture/events/FSE.png',
+  },
+
+  // Août 2026
+  {
+    id: 'cse-2026-08-22-sion1',
+    title: 'CSE Ronde 6: Fribourg - Sion 1',
+    date: '2026-08-22',
+    time: '14h00',
+    category: ['CSE'],
+    description: 'Championnat suisse par équipes, Ronde 6',
+    location: "Fribourg (à l\'extérieur)",
+    link: 'https://www.swisschess.ch/cse.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Centre de Pro Senectute, Passage du Cardinal 18, 1700 Fribourg',
+    calendarDetails: 'CSE Ronde 6: Fribourg vs Sion 1'
+  },
+  {
+    id: 'cse-2026-08-22-sion2',
+    title: 'CSE Ronde 6: Sion 2 - Bulle',
+    date: '2026-08-22',
+    time: '14h00',
+    category: ['CSE'],
+    description: 'Championnat suisse par équipes, Ronde 6',
+    location: 'Local du CE Sion',
+    link: 'https://www.swisschess.ch/cse.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
+    calendarDetails: 'CSE Ronde 6: Sion 2 vs Bulle'
+  },
+
+  // Septembre 2026
+  {
+    id: 'cse-2026-09-12-sion1',
+    title: 'CSE Ronde 7: Valais - Sion 1',
+    date: '2026-09-12',
+    time: '14h00',
+    category: ['CSE'],
+    description: 'Championnat suisse par équipes, Ronde 7',
+    location: "Monthey (à l\'extérieur)",
+    link: 'https://www.swisschess.ch/cse.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Local du CE Monthey, Place centrale 3, 1870 Monthey',
+    calendarDetails: 'CSE Ronde 7: Valais vs Sion 1'
+  },
+  {
+    id: 'cse-2026-09-12-sion2',
+    title: 'CSE Ronde 7: Crans-Montana - Sion 2',
+    date: '2026-09-12',
+    time: '14h00',
+    category: ['CSE'],
+    description: 'Championnat suisse par équipes, Ronde 7',
+    location: "Crans-Montana (à l\'extérieur)",
+    link: 'https://www.swisschess.ch/cse.html',
+    calendarTime: '14:00',
+    calendarEndTime: '19:00',
+    calendarLocation: 'Buvette Camping de la Moubra, Impasse de la Plage 2, 3963 Crans-Montana',
+    calendarDetails: 'CSE Ronde 7: Crans-Montana vs Sion 2'
   }
 ]
 

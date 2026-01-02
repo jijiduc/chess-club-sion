@@ -33,8 +33,8 @@ export const navigationItems: NavItem[] = [
       { name: 'GPV - Grand Prix Jeunes', href: '/competitions/gpv' },
       { name: 'Championnat interne', href: '/competitions/championnat-interne' },
       { name: 'Activ Chess de Sion', href: '/activ-chess' },
+      { name: '🎅 Blitz de Noël', href: '/competitions/blitz-noel' },
     ]
   },
-  { name: '🎅 Blitz de Noël', href: '/blitz-noel' },
   { name: 'Contact', href: '/contact' }
 ]

@@ -854,6 +854,213 @@ export default function CVE() {
                      </div>
                   </div>
 
+                  {/* Ronde 4 */}
+                   <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                     <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 text-neutral-400 font-bold">4</div>
+                     
+                     <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-xl shadow-md border border-neutral-100">
+                        <div className="flex justify-between items-center mb-4">
+                          <h4 className="font-bold text-lg text-neutral-800">Ronde 4</h4>
+                          <span className="px-3 py-1 bg-neutral-100 text-neutral-600 text-xs rounded-full font-medium">16.01.2026</span>
+                        </div>
+                        <div className="space-y-4 text-sm">
+                           <div className="p-3 bg-red-50/50 rounded-lg">
+                             <div className="flex justify-between font-semibold mb-1 text-red-900">Groupe E</div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 font-bold text-red-700">
+                               <span className="text-right">Sion 1</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Sion 2</span>
+                             </div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mt-1">
+                               <span className="text-right">Sierre 1</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Martigny 3</span>
+                             </div>
+                           </div>
+
+                           <div className="p-3 bg-red-50/50 rounded-lg">
+                             <div className="flex justify-between font-semibold mb-1 text-red-900">Groupe F</div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+                               <span className="text-right">Monthey</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Montana 1</span>
+                             </div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mt-1">
+                               <span className="text-right">Martigny 1</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Martigny 2</span>
+                             </div>
+                           </div>
+
+                           <div className="p-3 bg-neutral-50 rounded-lg opacity-80 hover:opacity-100 transition-opacity">
+                             <div className="flex justify-between font-semibold mb-1 text-neutral-600">Groupe G</div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+                               <span className="text-right">Riddes 1</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Montana 2</span>
+                             </div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mt-1">
+                               <span className="text-right">Bagnes</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left font-bold text-red-700">Sion 3</span>
+                             </div>
+                           </div>
+                           
+                           <div className="p-3 bg-neutral-50 rounded-lg opacity-80 hover:opacity-100 transition-opacity">
+                             <div className="flex justify-between font-semibold mb-1 text-neutral-600">Groupe H</div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+                               <span className="text-right">Riddes 2</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Martigny 4</span>
+                             </div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mt-1">
+                               <span className="text-right">CE Port-Valais</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Sierre 2</span>
+                             </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  {/* Ronde 5 */}
+                   <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                     <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 text-neutral-400 font-bold">5</div>
+                     
+                     <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-xl shadow-md border border-neutral-100">
+                        <div className="flex justify-between items-center mb-4">
+                          <h4 className="font-bold text-lg text-neutral-800">Ronde 5</h4>
+                          <span className="px-3 py-1 bg-neutral-100 text-neutral-600 text-xs rounded-full font-medium">27.02.2026</span>
+                        </div>
+                        <div className="space-y-4 text-sm">
+                           <div className="p-3 bg-red-50/50 rounded-lg">
+                             <div className="flex justify-between font-semibold mb-1 text-red-900">Groupe E</div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+                               <span className="text-right font-bold text-red-700">Sion 2</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Sierre 1</span>
+                             </div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mt-1">
+                               <span className="text-right font-bold text-red-700">Sion 1</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Martigny 3</span>
+                             </div>
+                           </div>
+
+                           <div className="p-3 bg-red-50/50 rounded-lg">
+                             <div className="flex justify-between font-semibold mb-1 text-red-900">Groupe F</div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+                               <span className="text-right">Monthey</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Martigny 1</span>
+                             </div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mt-1">
+                               <span className="text-right">Montana 1</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Martigny 2</span>
+                             </div>
+                           </div>
+
+                           <div className="p-3 bg-neutral-50 rounded-lg opacity-80 hover:opacity-100 transition-opacity">
+                             <div className="flex justify-between font-semibold mb-1 text-neutral-600">Groupe G</div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+                               <span className="text-right">Montana 2</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Bagnes</span>
+                             </div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mt-1">
+                               <span className="text-right font-bold text-red-700">Sion 3</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Riddes 1</span>
+                             </div>
+                           </div>
+                           
+                           <div className="p-3 bg-neutral-50 rounded-lg opacity-80 hover:opacity-100 transition-opacity">
+                             <div className="flex justify-between font-semibold mb-1 text-neutral-600">Groupe H</div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+                               <span className="text-right">CE Port-Valais</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Riddes 2</span>
+                             </div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mt-1">
+                               <span className="text-right">Martigny 4</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Sierre 2</span>
+                             </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  {/* Ronde 6 */}
+                   <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                     <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 text-neutral-400 font-bold">6</div>
+                     
+                     <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-xl shadow-md border border-neutral-100">
+                        <div className="flex justify-between items-center mb-4">
+                          <h4 className="font-bold text-lg text-neutral-800">Ronde 6</h4>
+                          <span className="px-3 py-1 bg-neutral-100 text-neutral-600 text-xs rounded-full font-medium">20.03.2026</span>
+                        </div>
+                        <div className="space-y-4 text-sm">
+                           <div className="p-3 bg-red-50/50 rounded-lg">
+                             <div className="flex justify-between font-semibold mb-1 text-red-900">Groupe E</div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+                               <span className="text-right">Sierre 1</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left font-bold text-red-700">Sion 1</span>
+                             </div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mt-1">
+                               <span className="text-right">Martigny 3</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left font-bold text-red-700">Sion 2</span>
+                             </div>
+                           </div>
+
+                           <div className="p-3 bg-red-50/50 rounded-lg">
+                             <div className="flex justify-between font-semibold mb-1 text-red-900">Groupe F</div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+                               <span className="text-right">Martigny 2</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Monthey</span>
+                             </div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mt-1">
+                               <span className="text-right">Montana 1</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Martigny 1</span>
+                             </div>
+                           </div>
+
+                           <div className="p-3 bg-neutral-50 rounded-lg opacity-80 hover:opacity-100 transition-opacity">
+                             <div className="flex justify-between font-semibold mb-1 text-neutral-600">Groupe G</div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+                               <span className="text-right">Riddes 1</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Bagnes</span>
+                             </div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mt-1">
+                               <span className="text-right font-bold text-red-700">Sion 3</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Montana 2</span>
+                             </div>
+                           </div>
+                           
+                           <div className="p-3 bg-neutral-50 rounded-lg opacity-80 hover:opacity-100 transition-opacity">
+                             <div className="flex justify-between font-semibold mb-1 text-neutral-600">Groupe H</div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
+                               <span className="text-right">Martigny 4</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">CE Port-Valais</span>
+                             </div>
+                             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 mt-1">
+                               <span className="text-right">Sierre 2</span>
+                               <span className="font-mono bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full font-bold text-xs">-</span>
+                               <span className="text-left">Riddes 2</span>
+                             </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
                 </div>
               </div>
               

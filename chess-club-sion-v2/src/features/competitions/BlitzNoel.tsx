@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion'
 import { Trophy, Calendar, Award, FileText, Users, Camera, List } from 'lucide-react'
 import { Title, Meta } from 'react-head';
-import Snowfall from '../components/Snowfall';
-import winterBg from '../assets/images/winter-bg.jpg';
+import Snowfall from '../../components/Snowfall';
+import winterBg from '../../assets/images/winter-bg.jpg';
 
 export default function BlitzNoel() {
   const podium = [

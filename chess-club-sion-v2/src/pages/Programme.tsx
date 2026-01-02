@@ -420,12 +420,12 @@ const Programme: React.FC = () => {
         filtered = candidates.filter(event => event.category.includes(selectedCategory));
     }
 
-    // GROUPEMENT DES ÉVÉNEMENTS (CVE / CSG)
-    // On regroupe les événements CVE ou CSG qui ont la même date et la même catégorie principale
+    // GROUPEMENT DES ÉVÉNEMENTS (CVE / CSG / CSE)
+    // On regroupe les événements CVE, CSG ou CSE qui ont la même date et la même catégorie principale
     const grouped: (typeof programmeEvents[0] | typeof programmeEvents[0][])[] = [];
     
     filtered.forEach(event => {
-        const isGroupable = event.category.includes('CVE') || event.category.includes('CSG');
+        const isGroupable = event.category.includes('CVE') || event.category.includes('CSG') || event.category.includes('CSE');
         
         if (isGroupable) {
             const lastGroup = grouped[grouped.length - 1];
@@ -433,7 +433,7 @@ const Programme: React.FC = () => {
                  const firstInGroup = lastGroup[0];
                  // Vérifier même date et catégorie compatible
                  if (firstInGroup.date === event.date && 
-                     firstInGroup.category.some(c => ['CVE', 'CSG'].includes(c) && event.category.includes(c))) {
+                     firstInGroup.category.some(c => ['CVE', 'CSG', 'CSE'].includes(c) && event.category.includes(c))) {
                      lastGroup.push(event);
                      return;
                  }

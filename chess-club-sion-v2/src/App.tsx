@@ -22,7 +22,7 @@ const ChessSchool = lazy(() => import('./pages/ChessSchool'))
 const Histoire = lazy(() => import('./pages/Histoire'))
 const ActivChess = lazy(() => import('./pages/ActivChess'))
 
-const BlitzNoel = lazy(() => import('./pages/BlitzNoel')) // <-- NOUVELLE LIGNE 1/2
+const BlitzNoel = lazy(() => import('./features/competitions/BlitzNoel')) // <-- NOUVELLE LIGNE 1/2
 
 
 const queryClient = new QueryClient()
@@ -56,10 +56,10 @@ function App() {
               <Route path="cvi" element={<CVI />} />
               <Route path="gpv" element={<GPV />} />
               <Route path="championnat-interne" element={<InternalChampionship />} />
+              <Route path="blitz-noel" element={<BlitzNoel />} />
             </Route>
             <Route path="ecole" element={<ChessSchool />} />
             <Route path="histoire" element={<Histoire />} />
-            <Route path="blitz-noel" element={<BlitzNoel />} /> {/* <-- NOUVELLE LIGNE 2/2 */}
           </Route>
         </Routes>
       </Suspense>

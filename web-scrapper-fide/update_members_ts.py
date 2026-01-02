@@ -1,5 +1,5 @@
-import csv
 import re
+import csv
 import os
 
 csv_path = 'web-scrapper-fide/fide_elo.csv'
@@ -28,13 +28,13 @@ with open(ts_path, 'r', encoding='utf-8') as f:
     content = f.read()
 
 # Helper to update player data
-def update_player_match(match):
-    player_block = match.group(0)
+def update_player_block(match):
+    block = match.group(0)
     
     # Extract FIDE ID
-    fide_match = re.search(r'codeFIDE:\s*"(\d+)"', player_block)
+    fide_match = re.search(r'codeFIDE:\s*"(\d+)"', block)
     if not fide_match:
-        return player_block
+        return block
         
     fide_id = fide_match.group(1)
     
@@ -43,64 +43,33 @@ def update_player_match(match):
         print(f"Updating {fide_id}: Std {elos['std']}, Rapid {elos['rapid']}, Blitz {elos['blitz']}")
         
         # Update Standard Elo
-        player_block = re.sub(r'elo:\s*\d+', f'elo: {elos["std"]}', player_block)
+        if 'elo:' in block:
+             block = re.sub(r'elo:\s*\d+', f'elo: {elos["std"]}', block)
         
-        # Add/Update Rapid/Blitz
-        if 'eloRapid:' not in player_block:
-            # Insert after elo. We look for the line with elo: ...,
-            # We assume the formatting 'elo: 1234,'
-            player_block = re.sub(
-                r'(elo:\s*\d+,)', 
-                f'\1\n          eloRapid: {elos["rapid"]},\n          eloBlitz: {elos["blitz"]},', 
-                player_block
-            )
+        # Add/Update Rapid
+        if 'eloRapid:' in block:
+            block = re.sub(r'eloRapid:\s*\d+', f'eloRapid: {elos["rapid"]}', block)
         else:
-            # Update existing
-            player_block = re.sub(r'eloRapid:\s*\d+', f'eloRapid: {elos["rapid"]}', player_block)
-            player_block = re.sub(r'eloBlitz:\s*\d+', f'eloBlitz: {elos["blitz"]}', player_block)
+            # Insert after elo:
+            block = re.sub(r'(elo:\s*\d+,)', f'\1\n          eloRapid: {elos["rapid"]},', block)
             
-    return player_block
+        # Add/Update Blitz
+        if 'eloBlitz:' in block:
+            block = re.sub(r'eloBlitz:\s*\d+', f'eloBlitz: {elos["blitz"]}', block)
+        else:
+            # Insert after eloRapid if present, else elo
+            if 'eloRapid:' in block:
+                block = re.sub(r'(eloRapid:\s*\d+,)', f'\1\n          eloBlitz: {elos["blitz"]},', block)
+            else:
+                block = re.sub(r'(elo:\s*\d+,)', f'\1\n          eloBlitz: {elos["blitz"]},', block)
+            
+    return block
 
-# Regex to match player objects
-# Assuming they start with { and contain nom: "..."
-pattern = r'\{\s*nom:[^}]+\}'
-content = re.sub(pattern, update_player_match, content)
-
-# Re-define interfaces cleanly
-interface_def = """export interface Player {
-  nom: string
-  prenom: string
-  codeFIDE: string
-  elo: number
-  eloRapid?: number
-  eloBlitz?: number
-  federation: string
-  note?: string
-  category?: string
-}
-
-export interface Category {
-  title: string
-  players: Player[]
-}"""
-
-# Remove existing interfaces (rudimentary cleanup)
-# We remove lines starting with 'export interface' and the block until '}'
-# But since regex across lines is tricky without DOTALL, and we want to be safe:
-# We will just replace the known structure if possible, or just strip the top part if we knew where data starts.
-# The file has imports at the top? No, just interfaces.
-# Let's look at the file start.
-# It starts with interfaces. Then `export const membresData`.
-# We can split the file at `export const membresData`.
-
-parts = content.split('export const membresData')
-if len(parts) == 2:
-    data_part = 'export const membresData' + parts[1]
-    new_content = interface_def + "\n\n" + data_part
-else:
-    # Fallback: just prepend if we couldn't split correctly (unlikely)
-    print("Could not cleanly split file. Appending interfaces at top might duplicate.")
-    new_content = interface_def + "\n" + content
+# Robust regex to match player blocks
+# Matches 8 spaces + { ... until ... 8 spaces + },?
+# Uses DOTALL to match newlines inside the block
+pattern = r'(^\s{8}\{\n.*?\n\s{8}\},?)'
+new_content = re.sub(pattern, update_player_block, content, flags=re.DOTALL | re.MULTILINE)
 
 # Write back
 with open(ts_path, 'w', encoding='utf-8') as f:

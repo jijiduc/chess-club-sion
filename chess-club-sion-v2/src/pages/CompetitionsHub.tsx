@@ -187,7 +187,7 @@ export default function CompetitionsHub() {
                   </div>
                </Link>
 
-               <Link to="/blitz-noel" className="block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-neutral-200 overflow-hidden group flex flex-col">
+               <Link to="/competitions/blitz-noel" className="block bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-neutral-200 overflow-hidden group flex flex-col">
                   <div className="h-2 bg-gradient-to-r from-red-500 to-red-700" />
                   <div className="p-6 flex-grow flex flex-col">
                     <div className="flex justify-between items-start mb-4">
