@@ -474,16 +474,6 @@ export const programmeEvents: ProgrammeEvent[] = [
     image: '/picture/events/Sion.png'
   },
   {
-    id: '2026-01-09-cvi',
-    title: 'CVI 2025-2026: 1/4 de finale',
-    date: '2026-01-09',
-    endDate: '2026-03-15',
-    time: 'Soir',
-    category: ['CVI'],
-    description: 'Date limite pour les 1/4 de finale: 15 Mars.',
-    link: 'https://www.uve-wsb.ch/competitions-valaisannes/cvi'
-  },
-  {
     id: '2026-01-11-bagnes',
     title: 'Tournoi de Bagnes',
     date: '2026-01-11',
@@ -608,6 +598,16 @@ export const programmeEvents: ProgrammeEvent[] = [
     calendarEndTime: '19:00',
     calendarLocation: 'Rue des Châteaux 2, 1950 Sion',
     calendarDetails: 'CSG Ronde 5: Valais 3 vs Köniz Bubenberg'
+  },
+  {
+    id: '2026-02-16-cvi-4',
+    title: 'CVI 2025-2026: 1/4 de finale',
+    date: '2026-02-16',
+    endDate: '2026-03-15',
+    time: 'Soir',
+    category: ['CVI'],
+    description: 'Date limite pour les 1/4 de finale: 15 Mars.',
+    link: 'https://www.uve-wsb.ch/competitions-valaisannes/cvi'
   },
   {
     id: 'csg-2026-02-21-valais1',
@@ -786,6 +786,16 @@ export const programmeEvents: ProgrammeEvent[] = [
     calendarDetails: 'CSE Ronde 1: Sion 2 vs Fribourg'
   },
   {
+    id: '2026-03-16-cvi-2',
+    title: 'CVI 2025-2026: Demi-finales',
+    date: '2026-03-16',
+    endDate: '2026-04-15',
+    time: 'Soir',
+    category: ['CVI'],
+    description: 'Date limite pour les demi-finales: 15 Avril.',
+    link: 'https://www.uve-wsb.ch/competitions-valaisannes/cvi'
+  },
+  {
     id: 'cve-2026-03-20-sion1',
     title: 'CVE Ronde 6: Sierre 1 - Sion 1',
     date: '2026-03-20',
@@ -839,16 +849,6 @@ export const programmeEvents: ProgrammeEvent[] = [
     description: 'Ronde 5 du championnat interne à jouer avant le 25 avril.',
     link: '/competitions/championnat-interne',
     image: '/picture/events/Sion.png'
-  },
-  {
-    id: '2026-04-10-cvi',
-    title: 'CVI 2025-2026: Demi-finales',
-    date: '2026-04-10',
-    endDate: '2026-04-15',
-    time: 'Soir',
-    category: ['CVI'],
-    description: 'Date limite pour les demi-finales: 15 Avril.',
-    link: 'https://www.uve-wsb.ch/competitions-valaisannes/cvi'
   },
   {
     id: 'cse-2026-04-18-sion1',
@@ -930,12 +930,12 @@ export const programmeEvents: ProgrammeEvent[] = [
     calendarDetails: 'CSE Ronde 3: Romont vs Sion 2'
   },
   {
-    id: '2026-05-10-cvi-finale',
-    title: 'CVI 2025-2026: Finale (en Mai)',
-    date: '2026-05-15',
-    time: 'Date pas encore définie',
+    id: '2026-05-01-cvi-finale',
+    title: 'CVI 2025-2026: Finale',
+    date: '2026-05-01',
+    time: 'Date à définir',
     category: ['CVI'],
-    description: 'Finale à planifier en Mai.',
+    description: 'A planifier en Mai.',
     link: 'https://www.uve-wsb.ch/competitions-valaisannes/cvi'
   },
   {
@@ -1109,14 +1109,14 @@ export const categoryLabels = {
 }
 
 export const categoryColors = {
-  'ecole-echecs': 'bg-blue-100 text-blue-800',
-  'soiree-club': 'bg-green-100 text-green-800',
-  'tournoi-externe': 'bg-purple-100 text-purple-800',
-  CSE: 'bg-red-100 text-red-800',
-  CSG: 'bg-orange-100 text-orange-800',
-  CVE: 'bg-pink-100 text-pink-800',
-  CVI: 'bg-indigo-100 text-indigo-800',
-  GPJV: 'bg-cyan-100 text-cyan-800',
+  'ecole-echecs': 'bg-cyan-100 text-cyan-800',
+  'soiree-club': 'bg-slate-100 text-slate-800',
+  'tournoi-externe': 'bg-violet-100 text-purple-800',
+  CSE: 'bg-blue-100 text-blue-800',
+  CSG: 'bg-green-100 text-green-800',
+  CVE: 'bg-red-100 text-red-800',
+  CVI: 'bg-purple-100 text-purple-800',
+  GPJV: 'bg-orange-100 text-orange-800',
   jubilee: 'bg-teal-100 text-teal-800',
-  'championnat-interne': 'bg-yellow-100 text-yellow-800'
+  'championnat-interne': 'bg-amber-100 text-amber-800'
 }

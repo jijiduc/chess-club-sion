@@ -372,21 +372,27 @@ export default function InternalChampionship() {
                                 <div>
                                     <h4 className="font-bold text-lg text-amber-900 mb-6 flex items-center">
                                         <List className="h-5 w-5 mr-2" />
-                                        Règlement
+                                        Règlement & Absences
                                     </h4>
                                     <div className="bg-neutral-50 rounded-xl p-5 text-sm text-neutral-700 space-y-3 border border-neutral-100">
-                                        <p>• <strong>1 ronde par mois</strong>, à jouer lors d'une soirée dédiée ou dans le délai imparti.</p>
-                                        <p>• <strong>Annoncer le résultat avant la date butoire annoncée.</strong> Passé le délai, le match est enregistré 0 - 0 et les points ELO ne sont pas comptabilisés</p>
-                                        <p>• Le gagnant transmet le résultat avec une photo de la feuille de partie auprès du responsable du tournoi.</p>
+                                        <p>• <strong>Organisation des parties :</strong> Par défaut, les parties se jouent toujours lors de la soirée du club dédiée (ex: 23 janvier pour la ronde 2).</p>
+                                        <p>• <strong>Absence lors de la soirée dédiée :</strong>
+                                            <ul className="list-disc list-inside ml-2 mt-1 space-y-1 text-neutral-600">
+                                                <li>Si un joueur est présent mais que son adversaire ne se présente pas (sans annonce préalable), il gagne par forfait.</li>
+                                                <li>Si aucun des deux joueurs n'est présent et qu'aucun report n'a été annoncé au préalable au directeur, la partie est déclarée double forfait (0-0).</li>
+                                            </ul>
+                                        </p>
+                                        <p>• <strong>Flexibilité et report :</strong> Il est possible de jouer sa partie en amont ou après la soirée dédiée, dans la limite des dates de la ronde. Ce déplacement doit impérativement être annoncé au directeur du tournoi.</p>
+                                        <p>• <strong>Résultats :</strong> Le gagnant transmet le résultat avec une photo de la feuille de partie avant la date butoire de la ronde. Passé ce délai, le match est enregistré 0-0.</p>
                                         <div className="pt-3 border-t border-neutral-200 mt-2">
-                                            <p className="font-medium text-amber-800">Responsable du tournoi : Olivier Ulmann</p>
+                                            <p className="font-medium text-amber-800">Directeur du tournoi : Olivier Ulmann</p>
                                             <p className="font-medium text-amber-800">Arbitre : Fabrice Lovey</p>
                                         </div>
                                     </div>
                                     
                                     <div className="mt-6">
                                         <a 
-                                            href="https://s1.chess-results.com/Tnr1288454.aspx?lan=20&SNode=S0" 
+                                            href="https://s3.chess-results.com/tnr1288454.aspx?lan=20&art=2&rd=2&SNode=S0" 
                                             target="_blank" 
                                             rel="noopener noreferrer"
                                             className="flex items-center justify-center w-full py-3 bg-amber-600 hover:bg-amber-700 text-white rounded-xl font-semibold transition-colors shadow-sm"

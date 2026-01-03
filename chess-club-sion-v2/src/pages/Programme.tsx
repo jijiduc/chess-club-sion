@@ -58,11 +58,70 @@ const createGoogleCalendarLink = (event: typeof programmeEvents[0]) => {
 };
 
 
+// --- CONFIGURATION STYLES PAR CATÉGORIE ---
+const categoryCardStyles: Record<string, { border: string, headerGradient: string, iconColor: string }> = {
+  'ecole-echecs': {
+    border: 'border-cyan-200 hover:border-cyan-400',
+    headerGradient: 'bg-gradient-to-br from-cyan-100/80 to-cyan-50/50',
+    iconColor: 'text-cyan-500'
+  },
+  'soiree-club': {
+    border: 'border-slate-200 hover:border-slate-400',
+    headerGradient: 'bg-gradient-to-br from-slate-100/80 to-slate-50/50',
+    iconColor: 'text-slate-500'
+  },
+  'tournoi-externe': {
+    border: 'border-violet-200 hover:border-violet-400',
+    headerGradient: 'bg-gradient-to-br from-violet-100/80 to-violet-50/50',
+    iconColor: 'text-violet-500'
+  },
+  CSE: {
+    border: 'border-blue-200 hover:border-blue-400',
+    headerGradient: 'bg-gradient-to-br from-blue-100/80 to-blue-50/50',
+    iconColor: 'text-blue-500'
+  },
+  CSG: {
+    border: 'border-green-200 hover:border-green-400',
+    headerGradient: 'bg-gradient-to-br from-green-100/80 to-green-50/50',
+    iconColor: 'text-green-500'
+  },
+  CVE: {
+    border: 'border-red-200 hover:border-red-400',
+    headerGradient: 'bg-gradient-to-br from-red-100/80 to-red-50/50',
+    iconColor: 'text-red-500'
+  },
+  CVI: {
+    border: 'border-purple-200 hover:border-purple-400',
+    headerGradient: 'bg-gradient-to-br from-purple-100/80 to-purple-50/50',
+    iconColor: 'text-purple-500'
+  },
+  GPJV: {
+    border: 'border-orange-200 hover:border-orange-400',
+    headerGradient: 'bg-gradient-to-br from-orange-100/80 to-orange-50/50',
+    iconColor: 'text-orange-500'
+  },
+  jubilee: {
+    border: 'border-teal-200 hover:border-teal-400',
+    headerGradient: 'bg-gradient-to-br from-teal-100/80 to-teal-50/50',
+    iconColor: 'text-teal-500'
+  },
+  'championnat-interne': {
+    border: 'border-amber-200 hover:border-amber-400',
+    headerGradient: 'bg-gradient-to-br from-amber-100/80 to-amber-50/50',
+    iconColor: 'text-amber-500'
+  }
+};
+
 // --- COMPOSANT EventCard ---
 // ... (pas de changement ici) ...
 const EventCard = ({ event, index }: { event: typeof programmeEvents[0], index: number }) => {
   
   const primaryCategory = event.category[0]; 
+  const styles = categoryCardStyles[primaryCategory] || {
+      border: 'border-transparent hover:border-primary-300',
+      headerGradient: 'bg-gradient-to-br from-primary-100 to-accent-100',
+      iconColor: 'text-primary-500'
+  };
 
   const categoryImages = {
     CSE: '/picture/events/FSE.png',
@@ -114,11 +173,16 @@ const EventCard = ({ event, index }: { event: typeof programmeEvents[0], index: 
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
       whileHover={{ y: -5 }}
-      className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full border border-transparent hover:border-primary-300 transition-all"
+      className={`bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full border transition-all ${styles.border}`}
     >
-      <div className="relative w-full h-32 bg-gradient-to-br from-primary-100 to-accent-100 flex items-center justify-center p-4">
+      <div className={`relative w-full h-32 flex items-center justify-center p-4 overflow-hidden`}>
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        {/* Gradient Overlay */}
+        <div className={`absolute inset-0 ${styles.headerGradient}`}></div>
+
         {imageSrc ? (
-          <div className="w-full h-full max-w-[80%] max-h-[80%] bg-white rounded-lg shadow-md flex items-center justify-center overflow-hidden">
+          <div className="relative z-10 w-full h-full max-w-[80%] max-h-[80%] bg-white rounded-lg shadow-md flex items-center justify-center overflow-hidden">
              <img 
                src={imageSrc} 
                alt={event.title} 
@@ -126,12 +190,12 @@ const EventCard = ({ event, index }: { event: typeof programmeEvents[0], index: 
              />
           </div>
         ) : (
-          <div className="w-full h-full flex items-center justify-center">
-            <Icon className="w-10 h-10 text-primary-500 opacity-50" />
+          <div className="relative z-10 w-full h-full flex items-center justify-center">
+            <Icon className={`w-10 h-10 opacity-50 ${styles.iconColor}`} />
           </div>
         )}
         
-        <div className="absolute top-3 right-3 flex flex-col items-end gap-1.5">
+        <div className="absolute top-3 right-3 z-20 flex flex-col items-end gap-1.5">
           {event.category.map((cat) => (
             <span
               key={cat}
@@ -154,18 +218,18 @@ const EventCard = ({ event, index }: { event: typeof programmeEvents[0], index: 
         
         <div className="space-y-2 text-neutral-600 text-sm flex-grow">
           <p className="flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-primary-500 flex-shrink-0" />
+            <Calendar className={`w-4 h-4 flex-shrink-0 ${styles.iconColor}`} />
             <span>{formatDate(event.date, event.endDate)}</span>
           </p>
           {event.time && (
             <p className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-primary-500 flex-shrink-0" />
+              <Clock className={`w-4 h-4 flex-shrink-0 ${styles.iconColor}`} />
               <span>{event.endTime ? `${event.time} - ${event.endTime}` : event.time}</span>
             </p>
           )}
           {event.location && (
             <p className="flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-primary-500 flex-shrink-0" />
+              <MapPin className={`w-4 h-4 flex-shrink-0 ${styles.iconColor}`} />
               <span>{event.location}</span>
             </p>
           )}
@@ -177,7 +241,7 @@ const EventCard = ({ event, index }: { event: typeof programmeEvents[0], index: 
               href={event.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-primary-600 hover:text-primary-700 font-semibold text-sm group"
+              className={`inline-flex items-center font-semibold text-sm group hover:underline ${styles.iconColor.replace('text-', 'text-').replace('500', '700')}`}
             >
               En savoir plus
               <ExternalLink className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" />
@@ -206,58 +270,92 @@ const OngoingEventBar = ({ event }: { event: typeof programmeEvents[0] }) => {
   const startDate = new Date(event.date);
   const endDate = event.endDate ? new Date(event.endDate) : new Date(event.date);
   
-  // Normaliser les dates pour couvrir la journée entière
   startDate.setHours(0, 0, 0, 0);
   endDate.setHours(23, 59, 59, 999);
 
   const totalDuration = endDate.getTime() - startDate.getTime();
   const elapsed = now.getTime() - startDate.getTime();
   
-  // Calculer le pourcentage (entre 0 et 100)
   const progress = Math.min(100, Math.max(0, (elapsed / totalDuration) * 100));
-
-  // Jours restants
   const daysLeft = Math.ceil((endDate.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
 
   return (
     <motion.div 
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      className="bg-white rounded-xl p-6 shadow-md border border-primary-100 mb-6 relative overflow-hidden"
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ 
+        opacity: 1, 
+        scale: 1,
+        boxShadow: ["0px 0px 0px rgba(37, 99, 235, 0)", "0px 0px 20px rgba(37, 99, 235, 0.15)", "0px 0px 0px rgba(37, 99, 235, 0)"]
+      }}
+      transition={{ 
+        boxShadow: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+        duration: 0.5 
+      }}
+      className="bg-gradient-to-br from-white via-primary-50/10 to-primary-50/30 rounded-2xl p-6 shadow-xl border-2 border-primary-100 mb-6 relative overflow-hidden group"
     >
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-3 relative z-10">
-        <div>
-            <div className="flex items-center gap-2 mb-1">
-                <span className={`px-2 py-0.5 rounded text-xs font-bold text-white ${categoryColors[event.category[0]] || 'bg-neutral-500'}`}>
+      {/* Effet de brillance au survol */}
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
+      
+      <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-6 relative z-10">
+        <div className="flex-1">
+            <div className="flex items-center gap-3 mb-2">
+                <motion.span 
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="px-3 py-1 rounded-full text-[10px] font-black text-white bg-primary-600 shadow-lg flex items-center gap-1.5 uppercase tracking-wider"
+                >
+                    <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
                     En cours
-                </span>
-                <h3 className="font-bold text-lg text-neutral-800">{event.title}</h3>
+                </motion.span>
+                <h3 className="font-extrabold text-xl text-neutral-900 tracking-tight group-hover:text-primary-700 transition-colors">
+                    {event.title}
+                </h3>
             </div>
-            <p className="text-sm text-neutral-500">
-                Partie à jouer avant le {endDate.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' })} · <span className="font-medium text-primary-600">{daysLeft > 0 ? `${daysLeft} jours restants` : 'Dernier jour !'}</span>
+            <p className="text-sm text-neutral-600">
+                Date limite : <span className="font-bold text-neutral-800">{endDate.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' })}</span>
             </p>
         </div>
-        {event.link && (
-            <a href={event.link} target="_blank" rel="noopener noreferrer" className="flex items-center text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors">
-                Voir les détails <ArrowRight className="w-4 h-4 ml-1" />
-            </a>
-        )}
+        
+        <div className="flex flex-col items-center md:items-end min-w-[100px]">
+            <div className={`text-4xl font-black leading-none ${daysLeft <= 3 ? 'text-red-600 animate-pulse' : 'text-primary-600'}`}>
+                {daysLeft > 0 ? daysLeft : '!'}
+            </div>
+            <div className="text-[10px] font-black uppercase tracking-[0.2em] text-neutral-400 mt-1">
+                {daysLeft > 1 ? 'Jours restants' : daysLeft === 1 ? 'Jour restant' : 'Échéance'}
+            </div>
+        </div>
       </div>
       
-      {/* Barre de progression */}
-      <div className="h-2 bg-neutral-100 rounded-full overflow-hidden relative z-10">
-        <motion.div 
-            initial={{ width: 0 }}
-            animate={{ width: `${progress}%` }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="h-full bg-gradient-to-r from-primary-400 to-primary-600 rounded-full"
-        />
+      {/* Zone de progression stylisée */}
+      <div className="space-y-2 relative z-10">
+        <div className="flex justify-between items-end text-[10px] font-black text-neutral-400 uppercase tracking-widest">
+            <span>Progression du délai</span>
+        </div>
+        <div className="h-4 bg-neutral-100 rounded-full p-1 shadow-inner overflow-hidden border border-neutral-200/50">
+            <motion.div 
+                initial={{ width: 0 }}
+                animate={{ width: `${progress}%` }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                className="h-full bg-gradient-to-r from-primary-600 via-primary-400 to-blue-500 rounded-full relative"
+            >
+                {/* Animation de rayures sur la barre */}
+                <div className="absolute inset-0 opacity-20 bg-[linear-gradient(45deg,rgba(255,255,255,.4)_25%,transparent_25%,transparent_50%,rgba(255,255,255,.4)_50%,rgba(255,255,255,.4)_75%,transparent_75%,transparent)] bg-[length:20px_20px]" />
+            </motion.div>
+        </div>
       </div>
 
-      {/* Décoration d'arrière-plan */}
-      <div className="absolute -right-6 -bottom-6 text-primary-50 opacity-50 rotate-12 pointer-events-none">
-         <Timer className="w-32 h-32" />
+      {/* Décoration de fond */}
+      <div className="absolute -right-4 -bottom-4 text-primary-500/5 group-hover:text-primary-500/10 transition-colors pointer-events-none transform group-hover:scale-110 group-hover:rotate-12 duration-700">
+         <Timer className="w-40 h-40" />
       </div>
+      
+      {event.link && (
+          <div className="mt-4 flex justify-end relative z-10">
+              <a href={event.link} target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-primary-600 hover:text-primary-800 flex items-center gap-1 group/link uppercase tracking-wider">
+                  VOIR LES DÉTAILS DE LA COMPÉTITION <ArrowRight className="w-3 h-3 group-hover/link:translate-x-1 transition-transform" />
+              </a>
+          </div>
+      )}
     </motion.div>
   );
 };
@@ -266,6 +364,12 @@ const OngoingEventBar = ({ event }: { event: typeof programmeEvents[0] }) => {
 const GroupedEventCard = ({ events, index }: { events: typeof programmeEvents[0][], index: number }) => {
   if (events.length === 0) return null;
   const mainEvent = events[0];
+  const primaryCategory = mainEvent.category[0];
+  const styles = categoryCardStyles[primaryCategory] || {
+      border: 'border-transparent hover:border-primary-300',
+      headerGradient: 'bg-gradient-to-br from-primary-50 to-white',
+      iconColor: 'text-primary-600'
+  };
   
   // Utiliser la description générique (ex: "Championnat valaisan par équipes, Ronde 2")
   const title = mainEvent.description || mainEvent.title;
@@ -283,7 +387,6 @@ const GroupedEventCard = ({ events, index }: { events: typeof programmeEvents[0]
     jubilee: PartyPopper
   };
 
-  const primaryCategory = mainEvent.category[0];
   const Icon = categoryIcons[primaryCategory as keyof typeof categoryIcons] || Sparkles;
 
   const formatDate = (dateString: string) => {
@@ -297,12 +400,17 @@ const GroupedEventCard = ({ events, index }: { events: typeof programmeEvents[0]
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
       whileHover={{ y: -5 }}
-      className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full border border-transparent hover:border-primary-300 transition-all col-span-1 md:col-span-2 lg:col-span-2"
+      className={`bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col h-full border transition-all col-span-1 md:col-span-2 lg:col-span-2 ${styles.border}`}
     >
       {/* Header commun */}
-      <div className="bg-gradient-to-r from-primary-50 to-white p-6 border-b border-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="flex items-center gap-4">
-             <div className={`w-12 h-12 rounded-full flex items-center justify-center ${categoryColors[primaryCategory] || 'bg-gray-100'}`}>
+      <div className={`relative p-6 border-b border-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4 overflow-hidden`}>
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        {/* Gradient Overlay */}
+        <div className={`absolute inset-0 ${styles.headerGradient}`}></div>
+
+        <div className="relative z-10 flex items-center gap-4">
+             <div className={`w-12 h-12 rounded-full flex items-center justify-center bg-white/50 backdrop-blur-sm shadow-sm ${styles.iconColor}`}>
                 <Icon className="w-6 h-6" />
              </div>
              <div>
@@ -315,13 +423,13 @@ const GroupedEventCard = ({ events, index }: { events: typeof programmeEvents[0]
                 </div>
                 <h3 className="text-xl font-bold text-neutral-800">{title}</h3>
                 <p className="text-neutral-500 text-sm flex items-center gap-2">
-                   <Calendar className="w-4 h-4" />
+                   <Calendar className={`w-4 h-4 ${styles.iconColor}`} />
                    {formatDate(date)}
                 </p>
              </div>
         </div>
         {mainEvent.link && (
-             <a href={mainEvent.link} className="text-sm font-semibold text-primary-600 hover:text-primary-700 flex items-center gap-1 whitespace-nowrap">
+             <a href={mainEvent.link} className={`relative z-10 text-sm font-semibold flex items-center gap-1 whitespace-nowrap hover:underline ${styles.iconColor.replace('text-', 'text-').replace('500', '700')}`}>
                 Voir les détails <ArrowRight className="w-4 h-4" />
              </a>
         )}
@@ -338,13 +446,13 @@ const GroupedEventCard = ({ events, index }: { events: typeof programmeEvents[0]
                  <div className="space-y-1 text-sm text-neutral-600">
                      {subEvent.time && (
                         <div className="flex items-center gap-2">
-                           <Clock className="w-3 h-3 text-primary-400" />
+                           <Clock className={`w-3 h-3 ${styles.iconColor}`} />
                            {subEvent.time}
                         </div>
                      )}
                      {subEvent.location && (
                         <div className="flex items-center gap-2">
-                           <MapPin className="w-3 h-3 text-primary-400" />
+                           <MapPin className={`w-3 h-3 ${styles.iconColor}`} />
                            <span className="line-clamp-1" title={subEvent.location}>{subEvent.location}</span>
                         </div>
                      )}

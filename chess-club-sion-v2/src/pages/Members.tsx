@@ -306,26 +306,34 @@ export default function Members() {
               <summary className="font-semibold cursor-pointer text-lg text-neutral-800">
                 Comprendre les métriques des joueurs
               </summary>
-              <div className="mt-4 text-neutral-600 space-y-3 leading-relaxed">
-                <p>
-                  Les classements ELO indiquent la force relative d'un joueur. Trois types sont affichés :
-                  <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
-                    <li><strong>Std (Standard) :</strong> ELO pour les parties longues.</li>
-                    <li><strong>Rapid (Rapide) :</strong> ELO pour les parties à cadence rapide.</li>
-                    <li><strong>Blitz :</strong> ELO pour les parties très rapides.</li>
+              <div className="mt-4 text-neutral-600 space-y-4 leading-relaxed">
+                <div>
+                  <p className="font-medium text-neutral-800 mb-1">Types de classement :</p>
+                  <ul className="list-disc list-inside ml-4 space-y-1">
+                    <li><strong>Std (Standard) :</strong> Parties longues.</li>
+                    <li><strong>Rapid (Rapide) :</strong> Parties à cadence rapide.</li>
+                    <li><strong>Blitz :</strong> Parties très rapides.</li>
                   </ul>
-                  <em>Le classement utilisé pour le tri et les catégories est le meilleur des trois (Std {'>'} Rapide {'>'} Blitz).</em>
-                </p>
-                <p>
-                  Les statistiques de jeu (affichées pour les parties Standard) détaillent les performances d'un joueur :
-                  <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
-                    <li><strong>G :</strong> Gains (Victoires)</li>
-                    <li><strong>N :</strong> Nulles (Parties Nul)</li>
-                    <li><strong>P :</strong> Pertes (Défaites)</li>
+                  <p className="mt-2 text-sm italic">Note : Le tri et les catégories se basent sur le meilleur des trois classements.</p>
+                </div>
+
+                <div>
+                  <p className="font-medium text-neutral-800 mb-1">Indicateurs visuels :</p>
+                  <ul className="list-disc list-inside ml-4 space-y-1">
+                    <li><strong>Elo FIDE :</strong> Le classement officiel international qui permet de comparer le niveau des joueurs mondialement.</li>
+                    <li><strong>Variations :</strong> Les chiffres <span className="text-emerald-600 font-bold">+x</span> ou <span className="text-red-600 font-bold">-x</span> indiquent l'évolution du classement lors du dernier mois.</li>
+                    <li><strong>Graphique :</strong> L'évolution de l'ELO Standard est tracée sur les 18 derniers mois pour les joueurs actifs.</li>
+                    <li><strong>Inactif :</strong> Un joueur est considéré inactif s'il n'a pas joué de partie officielle depuis plus de 12 mois.</li>
                   </ul>
-                  Ces données sont présentées pour les parties jouées avec les pièces blanches et les pièces noires,
-                  avec le nombre total de parties et les pourcentages correspondants.
-                </p>
+                </div>
+
+                <div>
+                  <p className="font-medium text-neutral-800 mb-1">Statistiques de carrière (FIDE) :</p>
+                  <p>
+                    Les barres colorées détaillent les <strong>Victoires (vert)</strong>, <strong>Nulles (gris)</strong> et <strong>Défaites (rouge)</strong>. 
+                    Elles sont séparées par couleur de pièces (Blancs / Noirs) pour analyser les performances globales du joueur.
+                  </p>
+                </div>
               </div>
             </details>
           </div>
