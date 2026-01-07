@@ -9,7 +9,7 @@ interface PresidentsProps {
 export function Presidents({ presidents }: PresidentsProps) {
   return (
     <Section className="h-full">
-      <h2 className="text-3xl font-serif font-bold text-primary-900 mb-8 text-center flex items-center justify-center gap-3">
+      <h2 id="presidence" className="text-3xl font-serif font-bold text-primary-900 mb-8 text-center flex items-center justify-center gap-3">
         <Crown className="h-8 w-8 text-amber-500" />
         Présidence
       </h2>

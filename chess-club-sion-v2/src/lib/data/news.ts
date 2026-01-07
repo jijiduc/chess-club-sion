@@ -19,8 +19,8 @@ export const newsItems: NewsItem[] = [
     icon: "trophy",
     date: new Date('2025-12-21T18:00:00'),
     title: "Pascal Vianin remporte le Blitz de Noël 2025 !",
-    description: "Une belle édition du traditionnel tournoi de blitz de Noël qui a réuni 42 joueurs. Pascal Vianin s'impose devant Colin Moesching et Pierre-Marie Rappaz.",
-    text: `Le traditionnel tournoi de Blitz de Noël du Club d'Échecs de Sion s'est déroulé ce dimanche 21 décembre 2025. Cette édition a rencontré un franc succès avec la participation de **42 joueurs** qui se sont affrontés dans une ambiance festive et conviviale.
+    description: "Une belle édition du nouveau tournoi de blitz de Noël qui a réuni 42 joueurs. Pascal Vianin s'impose devant Colin Moesching et Pierre-Marie Rappaz.",
+    text: `Le tournoi de Blitz de Noël du Club d'Échecs de Sion s'est déroulé ce dimanche 21 décembre 2025. Cette édition a rencontré un franc succès avec la participation de **42 joueurs** qui se sont affrontés dans une ambiance festive et conviviale.
 
 **Le Podium**
 Au terme des 7 rondes, c'est **Pascal Vianin** qui s'impose brillamment avec 6.5 points, ne concédant qu'une seule nulle face à Pierre-Marie. Il devance le jeune talent **Colin Moesching** (6 points) et **Pierre-Marie Rappaz** (5.5 points).

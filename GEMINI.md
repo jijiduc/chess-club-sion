@@ -68,7 +68,18 @@ The project uses a PowerShell script to build the React app and upload the `dist
 | :--- | :--- |
 | `chess-club-sion-v2/src/main.tsx` | Entry point for the React application. |
 | `chess-club-sion-v2/src/App.tsx` | Main component and routing definitions. |
+| `chess-club-sion-v2/src/components/navigation/TableOfContents.tsx` | **NEW**: Dynamic side navigation component with ScrollSpy. |
+| `chess-club-sion-v2/src/features/competitions/CVE.tsx` | CVE Competition page (updated with ToC & 2026 content). |
+| `chess-club-sion-v2/src/features/competitions/CSE.tsx` | CSE Competition page (updated with ToC). |
+| `chess-club-sion-v2/src/pages/Histoire.tsx` | History page (updated with ToC). |
+| `chess-club-sion-v2/src/pages/ChessSchool.tsx` | Chess School page (updated with ToC). |
+| `chess-club-sion-v2/src/pages/Club.tsx` | Club page (updated with ToC). |
 | `chess-club-sion-v2/deploy.ps1` | Windows deployment script (Build + FTP). |
 | `web-scrapper-fide/elo_scrapper.py` | Main script for updating FIDE ratings. |
 | `web-scrapper-FSE-ligue/scrape_all_rounds.py` | Main script for updating league results. |
 | `web-scrapper-FSE-ligue/cse_data_2025/` | Generated data folder for league results. |
+
+## Recent Updates (January 2026)
+*   **Navigation:** Added a dynamic `TableOfContents` component for long pages (`CVE`, `CSE`, `Histoire`, `ChessSchool`, `Club`).
+*   **CVE:** Updated content for the 2026 season (Phase 2, Groups G/H) and team compositions.
+*   **CSE:** Added 2026 season schedule and removed old group references.

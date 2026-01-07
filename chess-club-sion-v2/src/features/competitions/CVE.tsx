@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Trophy, Users, Calendar, ChevronRight, ExternalLink, Medal, MapPin, FileText, LayoutGrid, CalendarDays, Flag, Target } from 'lucide-react'
 import { Title, Meta } from 'react-head';
+import TableOfContents from '../../components/navigation/TableOfContents';
 
 interface TeamResult {
   teamName: string
@@ -44,7 +45,7 @@ export default function CVE() {
       isExpanded: true,
       hasVictory: true,
       victoryTitle: 'Sion réalise le doublé en 2025 !',
-      victoryDescription: 'Le CE Sion remporte le titre en parties classiques (pour la 4ème année consécutive) et en parties rapides lors des finales valaisannes du 3 mai 2025.',
+      victoryDescription: 'Le CE Sion remporte le titre en parties classiques (pour la 5ème année consécutive) et en parties rapides lors des finales valaisannes du 3 mai 2025.',
       photo: {
         src: '/picture/gallery/CVE/cve_2025.jpg',
         alt: "L'équipe victorieuse du tournoi rapide",
@@ -224,6 +225,7 @@ export default function CVE() {
     <>
       <Title>Championnat Valaisan par Équipes (CVE) - Club d'Échecs de Sion</Title>
       <Meta name="description" content="Suivez les performances du Club d'Échecs de Sion au Championnat Valaisan par Équipes (CVE). Retrouvez les résultats, les classements et le palmarès de nos équipes." />
+      <TableOfContents />
       <div className="min-h-screen bg-gradient-to-b from-red-50 to-white">
         {/* Hero Section */}
         <section className="relative bg-gradient-to-r from-red-900 to-red-800 text-white py-24">
@@ -281,7 +283,7 @@ export default function CVE() {
 
               {/* Format de la compétition - Cartes */}
               <div className="mb-16">
-                <h3 className="text-2xl font-bold text-center mb-10 text-neutral-900 flex items-center justify-center">
+                <h3 id="format-competition" className="text-2xl font-bold text-center mb-10 text-neutral-900 flex items-center justify-center">
                   <LayoutGrid className="h-8 w-8 mr-3 text-red-600" />
                   Format de la compétition
                 </h3>
@@ -317,15 +319,15 @@ export default function CVE() {
 
               {/* Équipes Engagées - Cartes */}
               <div className="mb-16">
-                 <h3 className="text-2xl font-bold text-center mb-10 text-neutral-900 flex items-center justify-center">
+                 <h3 id="nos-equipes" className="text-2xl font-bold text-center mb-10 text-neutral-900 flex items-center justify-center">
                   <Users className="h-8 w-8 mr-3 text-red-600" />
                   Nos Équipes 2025/2026
                 </h3>
                 <div className="grid md:grid-cols-3 gap-6">
                    {[
-                     { name: "Sion 1", group: "Groupe A", captain: "Pierre-Marie Rappaz", desc: "Équipe première visant le titre." },
-                     { name: "Sion 2", group: "Groupe B", captain: "Simon Moerschell", desc: "Équipe compétitive visant la poule haute." },
-                     { name: "Sion 3", group: "Groupe D", captain: "Jeremy Duc", desc: "Équipe de formation pour les juniors." }
+                     { name: "Sion 1", captain: "Pierre-Marie Rappaz", desc: "Équipe première visant le titre." },
+                     { name: "Sion 2", captain: "Simon Moerschell", desc: "Équipe compétitive visant la poule haute." },
+                     { name: "Sion 3", captain: "Jeremy Duc", desc: "Équipe de formation pour les juniors." }
                    ].map((team, idx) => (
                      <div key={idx} className="bg-white rounded-xl overflow-hidden shadow-md border border-neutral-200 hover:border-red-300 transition-colors group">
                         <div className="bg-red-600 px-6 py-3">
@@ -335,11 +337,6 @@ export default function CVE() {
                           </h4>
                         </div>
                         <div className="p-6">
-                           <div className="flex items-center mb-4">
-                             <span className="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                               {team.group}
-                             </span>
-                           </div>
                            <p className="text-neutral-600 mb-6 text-sm min-h-[40px]">{team.desc}</p>
                            <div className="flex items-center text-sm text-neutral-500 border-t pt-4">
                              Capitaine : <span className="font-medium text-neutral-900 ml-1">{team.captain}</span>
@@ -352,7 +349,7 @@ export default function CVE() {
 
               {/* Composition des Groupes - Grid Améliorée */}
               <div className="mb-16">
-                 <h3 className="text-2xl font-bold text-center mb-10 text-neutral-900 flex items-center justify-center">
+                 <h3 id="phase-initiale" className="text-2xl font-bold text-center mb-10 text-neutral-900 flex items-center justify-center">
                   <Target className="h-8 w-8 mr-3 text-red-600" />
                   Phase initiale : groupes et classement
                 </h3>
@@ -545,7 +542,7 @@ export default function CVE() {
 
               {/* Phase de Poules - Composition */}
               <div className="mb-16">
-                 <h3 className="text-2xl font-bold text-center mb-10 text-neutral-900 flex items-center justify-center">
+                 <h3 id="phase-de-poules" className="text-2xl font-bold text-center mb-10 text-neutral-900 flex items-center justify-center">
                   <Target className="h-8 w-8 mr-3 text-red-600" />
                   Phase de poules : composition
                 </h3>
@@ -628,7 +625,7 @@ export default function CVE() {
 
               {/* Phase Finale - Structure */}
               <div className="mb-16">
-                 <h3 className="text-2xl font-bold text-center mb-10 text-neutral-900 flex items-center justify-center">
+                 <h3 id="phase-finale" className="text-2xl font-bold text-center mb-10 text-neutral-900 flex items-center justify-center">
                   <Trophy className="h-8 w-8 mr-3 text-red-600" />
                   Phase finale : appariements
                 </h3>
@@ -689,7 +686,7 @@ export default function CVE() {
 
               {/* Programme des Rencontres - Timeline/Cards */}
               <div>
-                <h3 className="text-2xl font-bold text-center mb-10 text-neutral-900 flex items-center justify-center">
+                <h3 id="calendrier-2025" className="text-2xl font-bold text-center mb-10 text-neutral-900 flex items-center justify-center">
                   <CalendarDays className="h-8 w-8 mr-3 text-red-600" />
                   Calendrier 2025
                 </h3>
@@ -1071,7 +1068,7 @@ export default function CVE() {
         {/* Seasons Section */}
         <section className="py-16 bg-neutral-50">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12">Saisons précédentes</h2>
+            <h2 id="saisons-precedentes" className="text-3xl font-bold text-center mb-12">Saisons précédentes</h2>
             <div className="max-w-6xl mx-auto space-y-6">
               {seasons.map((season, index) => (
                 <motion.div

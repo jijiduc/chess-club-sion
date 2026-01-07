@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Trophy, Users, Calendar, ChevronRight, ExternalLink, MapPin } from 'lucide-react';
 import { Title, Meta } from 'react-head';
+import TableOfContents from '../../components/navigation/TableOfContents';
 
 const CSE: React.FC = () => {
   const [is2025Expanded, setIs2025Expanded] = useState(false);
@@ -19,6 +20,7 @@ const CSE: React.FC = () => {
     <>
       <Title>Championnat Suisse par Équipes (CSE) - Club d'Échecs de Sion</Title>
       <Meta name="description" content="Découvrez le Championnat Suisse par Équipes (CSE). Informations sur la structure des ligues, le format de la compétition et les équipes engagées par le CE Sion." />
+      <TableOfContents />
 
       <div className="min-h-screen bg-gradient-to-b from-neutral-50 to-white">
         {/* Hero Section */}
@@ -60,12 +62,12 @@ const CSE: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <h2 className="text-3xl font-bold text-center mb-12">Structure du championnat</h2>
+              <h2 id="structure" className="text-3xl font-bold text-center mb-12">Structure du championnat</h2>
 
               {/* Competition Explanation */}
               <div className="max-w-4xl mx-auto mb-12">
                 <div className="bg-white rounded-xl shadow-lg p-8 border border-blue-100">
-                  <h3 className="text-xl font-bold mb-4 text-neutral-900">Format de la compétition</h3>
+                  <h3 id="format" className="text-xl font-bold mb-4 text-neutral-900">Format de la compétition</h3>
                   <div className="space-y-4 text-neutral-700">
                     <p>
                       Le Championnat Suisse par Équipes (CSE/SMM) est une compétition officielle de la Fédération Suisse des Échecs
@@ -118,7 +120,7 @@ const CSE: React.FC = () => {
               {/* League Structure Tree */}
               <div className="max-w-3xl mx-auto">
                 <div className="bg-white rounded-xl shadow-lg p-6 border border-blue-100">
-                  <h3 className="text-lg font-bold mb-4 text-neutral-900">Hiérarchie des ligues</h3>
+                  <h3 id="hierarchie" className="text-lg font-bold mb-4 text-neutral-900">Hiérarchie des ligues</h3>
                   <div className="space-y-3">
                     {leagueStructure.map((league, index) => (
                       <motion.div
@@ -153,7 +155,7 @@ const CSE: React.FC = () => {
                     ))}
                   </div>
                   <div className="bg-blue-50 rounded-xl p-6 my-8 border border-blue-100">
-                    <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center">
+                    <h3 id="repartition" className="text-xl font-bold text-blue-900 mb-4 flex items-center">
                       <Users className="h-6 w-6 mr-2" />
                       Répartition des équipes 2026
                     </h3>
@@ -176,7 +178,7 @@ const CSE: React.FC = () => {
         {/* 2026 Season Schedule */}
         <section className="py-16 bg-blue-50">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-12 text-blue-900">Saison 2026 - Calendrier & Résultats</h2>
+            <h2 id="calendrier-2026" className="text-3xl font-bold text-center mb-12 text-blue-900">Saison 2026 - Calendrier & Résultats</h2>
             
             <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
               {/* Sion 1 Card */}
@@ -361,7 +363,7 @@ const CSE: React.FC = () => {
                     onClick={() => setIs2025Expanded(!is2025Expanded)}
                     className="w-full px-6 py-4 flex items-center justify-between bg-neutral-100 hover:bg-neutral-200 transition-colors"
                   >
-                    <h3 className="text-xl font-semibold text-neutral-800 flex items-center">
+                    <h3 id="archives-2025" className="text-xl font-semibold text-neutral-800 flex items-center">
                       <Calendar className="h-5 w-5 mr-3 text-neutral-500" />
                       Archives Saison 2025
                     </h3>
@@ -476,7 +478,7 @@ const CSE: React.FC = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="bg-gradient-to-r from-neutral-800 to-neutral-900 text-white rounded-2xl p-8 text-center">
-              <h3 className="text-2xl font-bold mb-4">Informations officielles</h3>
+              <h3 id="infos-officielles" className="text-2xl font-bold mb-4">Informations officielles</h3>
               <p className="text-neutral-300 mb-6">
                 Retrouvez tous les résultats et classements sur le site de la Fédération Suisse des Échecs
               </p>

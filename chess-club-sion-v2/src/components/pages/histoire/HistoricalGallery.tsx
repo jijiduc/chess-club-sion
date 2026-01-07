@@ -28,7 +28,7 @@ export function HistoricalGallery({ images, className = '' }: HistoricalGalleryP
   return (
     <section className={`py-12 ${className}`}>
       <div className="text-center mb-10">
-        <h2 className="text-3xl font-bold text-neutral-800 mb-4">Archives Photos</h2>
+        <h2 id="archives-photos" className="text-3xl font-bold text-neutral-800 mb-4">Archives Photos</h2>
         <p className="text-neutral-600 max-w-2xl mx-auto">
           Une plongée en images dans les moments marquants de l'histoire du club avant 2010.
         </p>

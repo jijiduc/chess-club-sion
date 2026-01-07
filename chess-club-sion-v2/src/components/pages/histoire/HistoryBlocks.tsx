@@ -45,7 +45,7 @@ export function HistoryBlocks({ blocks, className }: HistoryBlocksProps) {
         >
            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary-400 via-primary-600 to-primary-400 transform scale-x-100 group-hover:scale-x-105 transition-transform duration-500" />
           
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-8 pb-4 border-b border-neutral-100 relative">
+          <h2 id={block.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '')} className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-8 pb-4 border-b border-neutral-100 relative">
              {block.title}
              <span className="absolute bottom-0 left-0 w-20 h-1 bg-primary-200 rounded-full"></span>
           </h2>

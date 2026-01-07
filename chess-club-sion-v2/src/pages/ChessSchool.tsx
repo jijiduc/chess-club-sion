@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Title, Meta } from 'react-head';
+import TableOfContents from '~/components/navigation/TableOfContents';
 import {
   GraduationCap,
   Calendar,
@@ -84,6 +85,7 @@ export default function ChessSchool() {
     <>
       <Title>École d'Échecs - Club d'Échecs de Sion</Title>
       <Meta name="description" content="Rejoignez notre école d'échecs en cours de semestre. Nous proposons des cours pour tous les niveaux : écoliers, intermédiaires et avancés." />
+      <TableOfContents />
       
       <div className="min-h-screen bg-neutral-50">
         
@@ -184,7 +186,7 @@ export default function ChessSchool() {
         <section id="programmes" className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Nos formules de cours</h2>
+              <h2 id="nos-formules" className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Nos formules de cours</h2>
               <p className="text-lg text-neutral-600 max-w-2xl mx-auto mb-8">
                 Une structure adaptée à chaque étape de votre progression, encadrée par des formateurs passionnés.
               </p>
@@ -282,7 +284,7 @@ export default function ChessSchool() {
               
               {/* Contact Info */}
               <div>
-                <h2 className="text-3xl font-bold text-neutral-900 mb-8 flex items-center">
+                <h2 id="inscription" className="text-3xl font-bold text-neutral-900 mb-8 flex items-center">
                   <span className="bg-neutral-100 text-neutral-700 p-2 rounded-lg mr-4">
                     <Mail className="h-6 w-6" />
                   </span>
@@ -334,7 +336,7 @@ export default function ChessSchool() {
 
               {/* Payment Info */}
               <div>
-                <h2 className="text-3xl font-bold text-neutral-900 mb-8 flex items-center">
+                <h2 id="paiement" className="text-3xl font-bold text-neutral-900 mb-8 flex items-center">
                   <span className="bg-neutral-100 text-neutral-700 p-2 rounded-lg mr-4">
                     <Landmark className="h-6 w-6" />
                   </span>

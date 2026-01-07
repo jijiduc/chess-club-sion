@@ -10,7 +10,7 @@ interface HonoraryMembersProps {
 export const HonoraryMembers: React.FC<HonoraryMembersProps> = ({ members }) => {
   return (
     <Section className="h-full">
-      <h2 className="text-3xl font-serif font-bold text-primary-900 mb-8 text-center flex items-center justify-center gap-3">
+      <h2 id="membres-honneur" className="text-3xl font-serif font-bold text-primary-900 mb-8 text-center flex items-center justify-center gap-3">
         <Shield className="h-8 w-8 text-slate-500" />
         Membres d'Honneur
       </h2>

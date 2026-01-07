@@ -9,7 +9,7 @@ interface HallOfFameProps {
 export function HallOfFame({ players }: HallOfFameProps) {
   return (
     <Section className="h-full">
-      <h2 className="text-3xl font-serif font-bold text-primary-900 mb-8 text-center flex items-center justify-center gap-3">
+      <h2 id="hall-of-fame" className="text-3xl font-serif font-bold text-primary-900 mb-8 text-center flex items-center justify-center gap-3">
         <Star className="h-8 w-8 text-amber-500 fill-amber-500" />
         Hall of Fame
       </h2>

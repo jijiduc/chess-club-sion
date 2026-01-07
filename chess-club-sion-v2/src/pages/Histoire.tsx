@@ -1,4 +1,5 @@
 import { Title, Meta } from 'react-head';
+import TableOfContents from '~/components/navigation/TableOfContents';
 import {
   historyBlocks,
   presidents,
@@ -21,6 +22,7 @@ export default function Histoire() {
     <>
       <Title>Histoire du Club - Club d'Échecs de Sion</Title>
       <Meta name="description" content="Explorez l'histoire du Club d'Échecs de Sion depuis 1935. Revivez les dates clés, découvrez les personnalités marquantes et le palmarès de nos meilleurs joueurs." />
+      <TableOfContents />
       
       <Hero />
 

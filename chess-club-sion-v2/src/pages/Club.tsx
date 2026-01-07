@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Title, Meta } from 'react-head';
 import { Users, Trophy, MapPin, ChevronRight, Clock, CheckCircle2, CreditCard, Mail, Map } from 'lucide-react'
+import TableOfContents from '~/components/navigation/TableOfContents';
 
 export default function Club() {
   const localImage = { src: './picture/local/entree.jpg', alt: 'Entrée du club' }
@@ -18,6 +19,7 @@ export default function Club() {
       {/* Balises Meta */}
       <Title>Le Club - Club d'Échecs de Sion</Title>
       <Meta name="description" content="Découvrez le Club d'Échecs de Sion. Informations sur nos activités, les cotisations pour devenir membre et l'emplacement de notre local de jeu." />
+      <TableOfContents />
 
       {/* Hero Section */}
       <section className="relative min-h-[30vh] flex items-center justify-center overflow-hidden">
@@ -61,7 +63,7 @@ export default function Club() {
                
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-6">Notre Vision</h2>
+                    <h2 id="vision" className="text-3xl md:text-4xl font-serif font-bold text-primary-900 mb-6">Notre Vision</h2>
                     <p className="text-lg text-neutral-700 mb-6 leading-relaxed">
                         Le Club d'Échecs de Sion est plus qu'un simple club sportif; c'est une institution qui perpétue une tradition intellectuelle et sociale depuis près d'un siècle au cœur de la capitale valaisanne.
                     </p>
@@ -138,7 +140,7 @@ export default function Club() {
             className="mb-20"
           >
             <div className="text-center mb-12">
-                <h2 className="text-4xl font-serif font-bold text-primary-900 mb-4">Rejoignez-nous</h2>
+                <h2 id="rejoignez-nous" className="text-4xl font-serif font-bold text-primary-900 mb-4">Rejoignez-nous</h2>
                 <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
                     Venez découvrir l'ambiance du club lors d'une soirée d'essai sans engagement.
                 </p>
@@ -209,7 +211,7 @@ export default function Club() {
             id="local-jeu"
             className="mb-12"
           >
-            <h2 className="text-4xl font-serif font-bold text-primary-900 mb-8 text-center">Notre Local</h2>
+            <h2 id="notre-local" className="text-4xl font-serif font-bold text-primary-900 mb-8 text-center">Notre Local</h2>
             <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-neutral-100">
               {/* Info and Image Row */}
               <div className="grid lg:grid-cols-2 gap-0">
