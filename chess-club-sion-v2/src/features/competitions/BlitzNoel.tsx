@@ -6,7 +6,7 @@ import winterBg from '../../assets/images/winter-bg.jpg';
 
 export default function BlitzNoel() {
   const podium = [
-    { rank: 1, name: "Pascal Vianin", pts: "6.5", club: "Sion", image: "picture/events/BlitzNoel2025/blitzNoel2025Vainqueurs.jpeg" },
+    { rank: 1, name: "Pascal Vianin", pts: "6.5", club: "Sion", image: "/picture/events/BlitzNoel2025/blitzNoel2025Vainqueurs.jpeg" },
     { rank: 2, name: "Colin Moesching", pts: "6.0", club: "Sion" },
     { rank: 3, name: "Pierre-Marie Rappaz", pts: "5.5", club: "Sion" },
   ];
@@ -137,7 +137,7 @@ export default function BlitzNoel() {
 
                 <div className="mt-8 pt-8 border-t border-neutral-100 flex flex-col sm:flex-row gap-4">
                   <a
-                    href="picture/events/BlitzNoel2025/Blitz _Sion _2025_Liste_de_classement.pdf"
+                    href="/picture/events/BlitzNoel2025/Blitz_Sion_2025_Liste_de_classement.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-6 py-3 bg-neutral-900 text-white rounded-xl font-bold hover:bg-neutral-800 transition-colors flex-1"
@@ -168,7 +168,7 @@ export default function BlitzNoel() {
                   <div className="space-y-6">
                     <div className="group relative overflow-hidden rounded-xl bg-neutral-100">
                       <img 
-                        src="picture/events/BlitzNoel2025/blitzNoel2025Vainqueurs.jpeg" 
+                        src="/picture/events/BlitzNoel2025/blitzNoel2025Vainqueurs.jpeg" 
                         alt="Podium du Blitz de Noël : Colin Moesching, Pascal Vianin, Pierre-Marie Rappaz"
                         className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                       />
@@ -182,7 +182,7 @@ export default function BlitzNoel() {
 
                     <div className="group relative overflow-hidden rounded-xl bg-neutral-100">
                       <img 
-                        src="picture/events/BlitzNoel2025/blitzNoel2025VainqueursJuniors.jpeg" 
+                        src="/picture/events/BlitzNoel2025/blitzNoel2025VainqueursJuniors.jpeg" 
                         alt="Podium Juniors : Mischa Stuyts, Colin Moesching, Noé Koehler"
                         className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                       />
