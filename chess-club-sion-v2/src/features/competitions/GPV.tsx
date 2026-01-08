@@ -1,18 +1,34 @@
 import { motion } from 'framer-motion'
 import { Trophy, Calendar, Users, Clock, ExternalLink, MapPin, Star, AlertCircle, CheckCircle2 } from 'lucide-react'
 import { Title, Meta } from 'react-head';
+import { parse, isBefore, startOfToday } from 'date-fns';
 
 export default function GPV() {
-  // Données des tournois basées sur l'input utilisateur
+  // Données des tournois
   const tournaments = [
-    { id: 1, location: "Bovernier", date: "19.10.2025", status: "completed" },
-    { id: 2, location: "Active Chess de Sion", date: "26.10.2025", status: "completed" },
-    { id: 3, location: "Riddes", date: "06.12.2025", status: "completed" },
-    { id: 4, location: "Active Chess de Bagnes", date: "11.01.2026", status: "upcoming" },
-    { id: 5, location: "Active Chess du Bouveret", date: "22.02.2026", status: "upcoming" },
-    { id: 6, location: "Sierre", date: "TBD", status: "tbd" },
-    { id: 7, location: "Active Chess de Martigny", date: "TBD", status: "tbd" },
+    { id: 1, location: "Bovernier", date: "19.10.2025" },
+    { id: 2, location: "Active Chess de Sion", date: "26.10.2025" },
+    { id: 3, location: "Riddes", date: "06.12.2025" },
+    { id: 4, location: "Active Chess de Bagnes", date: "11.01.2026" },
+    { id: 5, location: "Active Chess du Bouveret", date: "22.02.2026" },
+    { id: 6, location: "Sierre", date: "TBD" },
+    { id: 7, location: "Active Chess de Martigny", date: "TBD" },
   ];
+
+  const getEventStatus = (dateStr: string) => {
+    if (dateStr === 'TBD') return 'tbd';
+    
+    try {
+      const eventDate = parse(dateStr, 'dd.MM.yyyy', new Date());
+      // On considère l'événement terminé s'il est avant aujourd'hui (donc hier ou avant)
+      if (isBefore(eventDate, startOfToday())) {
+        return 'completed';
+      }
+      return 'upcoming';
+    } catch (e) {
+      return 'tbd';
+    }
+  };
 
   return (
     <>
@@ -160,25 +176,28 @@ export default function GPV() {
                   </div>
                   
                   <div className="divide-y divide-neutral-100">
-                    {tournaments.map((event) => (
-                      <div key={event.id} className="p-4 hover:bg-neutral-50 transition-colors">
-                        <div className="flex justify-between items-start mb-2">
-                          <span className={`text-xs font-bold px-2 py-1 rounded-full ${
-                            event.status === 'completed' ? 'bg-green-100 text-green-700' :
-                            event.status === 'upcoming' ? 'bg-blue-100 text-blue-700' :
-                            'bg-neutral-100 text-neutral-500'
-                          }`}>
-                            {event.status === 'completed' ? 'Terminé' : 
-                             event.status === 'upcoming' ? 'À venir' : 'TBD'}
-                          </span>
-                          <span className="text-sm font-medium text-neutral-900">{event.date}</span>
+                    {tournaments.map((event) => {
+                      const status = getEventStatus(event.date);
+                      return (
+                        <div key={event.id} className="p-4 hover:bg-neutral-50 transition-colors">
+                          <div className="flex justify-between items-start mb-2">
+                            <span className={`text-xs font-bold px-2 py-1 rounded-full ${
+                              status === 'completed' ? 'bg-green-100 text-green-700' :
+                              status === 'upcoming' ? 'bg-blue-100 text-blue-700' :
+                              'bg-neutral-100 text-neutral-500'
+                            }`}>
+                              {status === 'completed' ? 'Terminé' : 
+                               status === 'upcoming' ? 'À venir' : 'TBD'}
+                            </span>
+                            <span className="text-sm font-medium text-neutral-900">{event.date}</span>
+                          </div>
+                          <h4 className="font-bold text-neutral-800 mb-1 flex items-start">
+                            <MapPin className="h-4 w-4 mr-1.5 mt-0.5 text-neutral-400 flex-shrink-0" />
+                            {event.location}
+                          </h4>
                         </div>
-                        <h4 className="font-bold text-neutral-800 mb-1 flex items-start">
-                          <MapPin className="h-4 w-4 mr-1.5 mt-0.5 text-neutral-400 flex-shrink-0" />
-                          {event.location}
-                        </h4>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
 
                   <div className="p-6 bg-neutral-50 border-t border-neutral-200">
