@@ -263,7 +263,7 @@ export default function Home() {
                       <div className="flex flex-wrap gap-3 mb-3">
                       </div>
                       <h3 className="text-xl sm:text-2xl font-serif font-bold text-white leading-tight">
-                        C'est la rentrée ! Nous vous souhaitons une excellente année 2026. Les cours et les championnats reprennent tout bientôt.
+                        L'année 2026 démarre fort ! Reprise des cours, tournois et soirées club. Rejoignez-nous pour partager notre passion du jeu.
                       </h3>
                     </div>
                     
