@@ -953,15 +953,27 @@ export const programmeEvents: ProgrammeEvent[] = [
   },
   {
     id: '2026-05-14',
-    title: 'Tournoi Fédéral',
+    title: 'Tournoi Fédéral 2026',
     date: '2026-05-14',
-    endDate: '2026-05-16',
+    endDate: '2026-05-17',
     time: 'Toute la journée',
     category: ['tournoi-externe'],
-    description: "Tournoi Fédéral d'échecs",
-    location: 'Bâle',
-    link: 'https://www.swisschess.ch/federal.html',
+    description: "Tournoi Fédéral d'échecs à Bâle. 7 rondes (HT) ou 5 rondes (Seniors).",
+    location: 'Hôtel Mövenpick, Bâle',
+    link: 'http://www.swisschesstour.com',
     image: '/picture/events/FSE.png',
+    details: [
+        "Lieu : Hôtel Mövenpick, Aeschgraben 25, Bâle",
+        "Cadence : 90 min + 30 sec/coup.",
+        "Catégories : HT I (>1860), HT II (1680-1900), HT III (<1720), Seniors.",
+        "Début : Jeudi 14 mai, contrôle présences 09h45-11h00.",
+        "Fin : Dimanche 17 mai, remise des prix 15h00.",
+        { text: 'Inscriptions en ligne', link: 'http://www.swisschesstour.com' }
+    ],
+    calendarTime: '09:45',
+    calendarEndTime: '16:00',
+    calendarLocation: 'Hôtel Mövenpick, Aeschgraben 25, 4051 Basel',
+    calendarDetails: "Tournoi Fédéral 2026.\n7 rondes (HT I/II/III) ou 5 rondes (Seniors).\nLieu: Hôtel Mövenpick Bâle.\nContrôle présences: Jeudi 09h45.\nInfos & Inscriptions: www.swisschesstour.com"
   },
 
   // Juin 2026
