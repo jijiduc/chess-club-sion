@@ -186,30 +186,39 @@ export default function ChessSchool() {
         <section id="programmes" className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 id="nos-formules" className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Nos formules de cours</h2>
-              <p className="text-lg text-neutral-600 max-w-2xl mx-auto mb-8">
-                Une structure adaptée à chaque étape de votre progression, encadrée par des formateurs passionnés.
+              <h2 id="nos-formules" className="text-3xl md:text-4xl font-bold text-neutral-900 mb-4">Offre de cours 2025-2026</h2>
+              <p className="text-lg text-neutral-600 max-w-3xl mx-auto mb-10">
+                Nos cours sont organisés par semestre. Les offres ci-dessous concernent le <strong>Semestre I</strong> (en cours). 
+                La programmation du <strong>Semestre II</strong> est actuellement en préparation.
               </p>
               
               {/* Calendrier des semestres intégré */}
-              <div className="inline-flex flex-wrap justify-center gap-4 md:gap-8 bg-white border border-neutral-200 rounded-2xl p-4 shadow-sm">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600">
-                    <Calendar className="w-5 h-5" />
+              <div className="inline-flex flex-wrap justify-center gap-4 md:gap-8 bg-white border border-neutral-200 rounded-2xl p-6 shadow-sm">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-emerald-600 border border-emerald-100">
+                    <CheckCircle2 className="w-6 h-6" />
                   </div>
                   <div className="text-left">
-                    <p className="text-[10px] uppercase font-black tracking-widest text-neutral-400">1er Semestre</p>
-                    <p className="text-sm font-bold text-neutral-800">Fin Août à Janvier</p>
+                    <div className="flex items-center gap-2">
+                      <p className="text-[10px] uppercase font-black tracking-widest text-emerald-600 bg-emerald-100/50 px-2 py-0.5 rounded">Actuel</p>
+                    </div>
+                    <p className="text-base font-bold text-neutral-800">Semestre I : 2025-26</p>
+                    <p className="text-xs text-neutral-500">Fin Août à Janvier</p>
                   </div>
                 </div>
-                <div className="hidden md:block w-px h-10 bg-neutral-200 self-center"></div>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600">
-                    <Calendar className="w-5 h-5" />
+                
+                <div className="hidden md:block w-px h-12 bg-neutral-200 self-center"></div>
+                
+                <div className="flex items-center gap-4 opacity-75">
+                  <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center text-amber-600 border border-amber-100">
+                    <Clock className="w-6 h-6 animate-pulse" />
                   </div>
                   <div className="text-left">
-                    <p className="text-[10px] uppercase font-black tracking-widest text-neutral-400">2ème Semestre</p>
-                    <p className="text-sm font-bold text-neutral-800">Février à Juin</p>
+                    <div className="flex items-center gap-2">
+                      <p className="text-[10px] uppercase font-black tracking-widest text-amber-600 bg-amber-100/50 px-2 py-0.5 rounded">En préparation</p>
+                    </div>
+                    <p className="text-base font-bold text-neutral-800 text-neutral-400">Semestre II : 2025-26</p>
+                    <p className="text-xs text-neutral-500">Février à Juin</p>
                   </div>
                 </div>
               </div>
@@ -237,7 +246,12 @@ export default function ChessSchool() {
                       </div>
                     </div>
 
-                    <h3 className="text-2xl font-bold text-neutral-900 mb-4">{course.title}</h3>
+                    <div className="mb-4">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-600 bg-emerald-50 px-2 py-1 rounded border border-emerald-100">
+                        Offre Semestre I
+                      </span>
+                      <h3 className="text-2xl font-bold text-neutral-900 mt-2">{course.title}</h3>
+                    </div>
                     
                     <div className="space-y-6 flex-grow">
                       <div>
