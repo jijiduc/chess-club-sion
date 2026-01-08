@@ -432,7 +432,7 @@ export default function ChessSchool() {
               Envie d'essayer avant de vous engager ?
             </h2>
             <p className="text-xl text-neutral-400 mb-10 max-w-2xl mx-auto">
-              Nous proposons un cours d'essai gratuit pour vous permettre de découvrir notre pédagogie et l'ambiance du club.
+              Il est possible de bénéficier d'un cours d'essai gratuit pour vous permettre de découvrir notre pédagogie et l'ambiance du club.
             </p>
             <motion.div
               whileHover={{ scale: 1.05 }}
