@@ -655,10 +655,23 @@ export const programmeEvents: ProgrammeEvent[] = [
     id: '2026-02-22-bouveret',
     title: '18ème Active Chess du Bouveret',
     date: '2026-02-22',
-    time: 'Toute la journée',
+    time: '09h00 - 17h30',
     category: ['tournoi-externe','GPJV'],
-    location: 'Bouveret',
-    image: '/picture/events/CEPV.png'
+    location: 'Salle des spectacles du Bouveret',
+    description: '18e Active Chess du Bouveret. 9 rondes, 15min + 3sec. Homologué FIDE.',
+    link: 'https://echecs-port-valais.ch/active-chess/',
+    image: '/picture/events/CEPV.png',
+    details: [
+      "9 rondes, Système Suisse, 15 min + 3 sec/coup.",
+      "Ouverture des portes 08h15. Début du tournoi 09h00.",
+      "Finance: Adultes 25.-, Juniors/Etudiants 15.- (Majoration +5.- après le 15.02)",
+      "Gratuit pour les GM et IM.",
+      "Homologué FIDE, Grand Prix Valaisan Jeunes."
+    ],
+    calendarTime: '09:00',
+    calendarEndTime: '17:30',
+    calendarLocation: 'Salle des spectacles, Le Bouveret, Suisse',
+    calendarDetails: "18e Active Chess du Bouveret.\n9 rondes, 15min + 3sec.\nInscriptions jusqu'à 08h45.\nAdultes 25.- / Juniors 15.-.\nInfos: www.echecs-port-valais.ch"
   },
   {
     id: 'cve-2026-02-27-sion1',
