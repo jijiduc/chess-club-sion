@@ -209,16 +209,6 @@ export default function BlitzNoel() {
           </div>
         </section>
 
-        {/* Footer info */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-serif font-bold text-neutral-900 mb-6">Joyeuses Fêtes !</h2>
-            <p className="text-xl text-neutral-600 max-w-2xl mx-auto mb-8">
-              Le Club d'Échecs de Sion vous souhaite d'excellentes fêtes de fin d'année. 
-              On se retrouve en pleine forme dès janvier pour la reprise de nos activités.
-            </p>
-          </div>
-        </section>
       </div>
     </>
   )
