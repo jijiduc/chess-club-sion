@@ -17,6 +17,29 @@ export interface NewsItem {
 export const newsItems: NewsItem[] = [
   {
     icon: "trophy",
+    date: new Date('2026-01-12T10:00:00'),
+    title: "Bravo et félicitations à tous nos joueurs qui ont participé au tournoi de Bagnes !",
+    description: "Une magnifique délégation sédunoise d'une quinzaine de joueurs, des juniors aux séniors, a brillé lors du tournoi de Bagnes. Bravo à tous !",
+    text: `❤️🤍 pour cette belle délégation sédunoise !
+
+Ce dimanche 11 janvier 2026, une quinzaine de joueurs du Club d'Échecs de Sion, allant des plus jeunes espoirs aux séniors expérimentés, ont fait le déplacement pour participer au **Tournoi de Bagnes**.
+
+Nous tenons à adresser un immense bravo à tous nos membres pour leur combativité et leur esprit d'équipe tout au long de la journée. C'est une fierté de voir les couleurs du club si bien représentées dans les compétitions cantonales.
+
+Un grand merci également aux **organisateurs du club de Bagnes** pour leur accueil chaleureux, qui lance idéalement l'année échiquéenne valaisanne.
+
+Félicitations à tous et rendez-vous au prochain tournoi !`,
+    hasImage: true,
+    image: {
+      src: 'picture/events/rapid_bagnes/delegation_sedunoise.jpeg',
+      alt: "La délégation sédunoise au tournoi de Bagnes"
+    },
+    hasLink: true,
+    link: 'https://www.uve-wsb.ch/competitions-valaisannes/tib',
+    linkText: "Voir les résultats complets"
+  },
+  {
+    icon: "trophy",
     date: new Date('2025-12-21T18:00:00'),
     title: "Pascal Vianin remporte le Blitz de Noël 2025 !",
     description: "Une belle édition du nouveau tournoi de blitz de Noël qui a réuni 42 joueurs. Pascal Vianin s'impose devant Colin Moesching et Pierre-Marie Rappaz.",

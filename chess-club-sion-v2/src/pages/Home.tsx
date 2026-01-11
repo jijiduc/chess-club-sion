@@ -261,19 +261,22 @@ export default function Home() {
                   <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                     <div className="text-left flex-1">
                       <div className="flex flex-wrap gap-3 mb-3">
+                        <span className="px-3 py-1 bg-primary-500/20 border border-primary-500/30 rounded-full text-xs font-bold text-primary-300 uppercase tracking-wider">
+                          Prochain rendez-vous valaisan
+                        </span>
                       </div>
                       <h3 className="text-xl sm:text-2xl font-serif font-bold text-white leading-tight">
-                        L'année 2026 démarre fort ! Reprise des cours, tournois et soirées club. Rejoignez-nous pour partager notre passion du jeu.
+                        18ème Active Chess du Bouveret le 22 février 2026 
                       </h3>
                     </div>
                     
                     <div className="flex-shrink-0 w-full md:w-auto">
                       <Link
-                        to="/programme"
+                        to="https://echecs-port-valais.ch/active-chess/"
                         className="group/btn relative inline-flex items-center justify-center w-full md:w-auto px-8 py-4 bg-white text-neutral-900 rounded-xl font-bold shadow-lg overflow-hidden transition-all duration-300 hover:bg-primary-50 hover:text-primary-700 hover:scale-[1.02]"
                       >
                         <span className="relative z-10 flex items-center">
-                          Voir le programme
+                          Informations
                           <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform" />
                         </span>
                       </Link>
@@ -286,19 +289,33 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Activities Section (INCHANGÉ) */}
-        <section className="py-24 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Activities Section */}
+        <section className="relative py-24 overflow-hidden">
+          {/* Background Video */}
+          <div className="absolute inset-0 w-full h-full">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+            >
+              <source src="/video/soiree_blitz.mp4" type="video/mp4" />
+            </video>
+            <div className="absolute inset-0 bg-neutral-900/80" />
+          </div>
+
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl font-serif font-bold text-neutral-900 mb-4">
+              <h2 className="text-4xl font-serif font-bold text-white mb-4">
                 Nos activités
               </h2>
-              <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
+              <p className="text-xl text-neutral-300 max-w-3xl mx-auto">
                 Du débutant au joueur confirmé, découvrez nos diverses activités
                 pour progresser et vous amusez avec le noble jeu.
               </p>
@@ -314,23 +331,23 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="group bg-gradient-to-br from-neutral-50 to-neutral-100 hover:from-primary-50 hover:to-primary-100 rounded-2xl p-6 transition-all duration-300 hover:shadow-lg flex flex-col h-full"
+                    className="group bg-white/10 backdrop-blur-md border border-white/10 hover:bg-white/20 hover:border-white/20 rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col h-full"
                   >
                     <div className="flex items-center justify-between mb-4">
-                      <IconComponent className="h-8 w-8 text-primary-600 group-hover:scale-110 transition-transform" />
-                      <span className="text-sm font-medium text-primary-600 bg-primary-100 px-3 py-1 rounded-full">
+                      <IconComponent className="h-8 w-8 text-primary-400 group-hover:scale-110 transition-transform" />
+                      <span className="text-sm font-medium text-primary-200 bg-primary-900/30 border border-primary-500/20 px-3 py-1 rounded-full">
                         {activity.time}
                       </span>
                     </div>
-                    <h3 className="text-xl font-semibold text-neutral-900 mb-3">
+                    <h3 className="text-xl font-semibold text-white mb-3">
                       {activity.title}
                     </h3>
-                    <p className="text-neutral-600 mb-4 leading-relaxed flex-grow">
+                    <p className="text-neutral-300 mb-4 leading-relaxed flex-grow">
                       {activity.description}
                     </p>
                     <Link
                       to={activity.link}
-                      className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium text-sm group-hover:translate-x-1 transition-transform mt-auto"
+                      className="inline-flex items-center text-primary-300 hover:text-primary-200 font-medium text-sm group-hover:translate-x-1 transition-transform mt-auto"
                     >
                       En savoir plus
                       <ChevronRight className="ml-1 h-4 w-4" />
@@ -343,7 +360,7 @@ export default function Home() {
             <div className="text-center mt-12">
               <Link
                 to="/club"
-                className="inline-flex items-center bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1"
+                className="inline-flex items-center bg-white text-neutral-900 hover:bg-neutral-100 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1"
               >
                 Découvrir le club
                 <ChevronRight className="ml-2 h-5 w-5" />
