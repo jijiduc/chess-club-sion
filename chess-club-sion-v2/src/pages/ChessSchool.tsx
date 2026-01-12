@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Title, Meta } from 'react-head';
 import TableOfContents from '~/components/navigation/TableOfContents';
+import TrialForm from '~/components/TrialForm';
 import {
   GraduationCap,
   Calendar,
@@ -129,28 +130,6 @@ export default function ChessSchool() {
                 <br className="hidden md:block"/>
                 Ouverts à tous les âges et tous les niveaux.
               </motion.p>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-                className="flex flex-col sm:flex-row justify-center gap-4"
-              >
-                <a
-                  href="#contact"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-primary-600 text-white rounded-xl hover:bg-primary-700 transition-all font-bold shadow-lg shadow-primary-900/20 hover:shadow-xl transform hover:-translate-y-1"
-                >
-                  <Mail className="h-5 w-5 mr-2" />
-                  S'inscrire maintenant
-                </a>
-                <a
-                  href="#programmes"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white border border-white/20 rounded-xl hover:bg-white/20 transition-all font-semibold backdrop-blur-sm"
-                >
-                  Découvrir les cours
-                  <ArrowRight className="h-5 w-5 ml-2" />
-                </a>
-              </motion.div>
             </div>
           </div>
         </section>
@@ -423,29 +402,32 @@ export default function ChessSchool() {
         </section>
 
         {/* =================================================================
-        // 5. FINAL CALL TO ACTION
+        // 5. INSCRIPTION COURS D'ESSAI
         // ================================================================= */}
         <section className="py-20 bg-neutral-900 text-white overflow-hidden relative">
           <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-          <div className="container mx-auto px-4 relative z-10 text-center">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 font-display">
-              Envie d'essayer avant de vous engager ?
-            </h2>
-            <p className="text-xl text-neutral-400 mb-10 max-w-2xl mx-auto">
-              Il est possible de bénéficier d'un cours d'essai gratuit pour vous permettre de découvrir notre pédagogie et l'ambiance du club.
-            </p>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <a
-                href="mailto:ecole-echecs@cesion.ch?subject=Demande%20de%20cours%20d'essai"
-                className="inline-flex items-center px-10 py-5 bg-primary-600 text-white rounded-2xl hover:bg-primary-700 transition-colors font-bold shadow-lg shadow-primary-900/20 text-lg"
-              >
-                <Mail className="h-6 w-6 mr-3" />
-                Demander un cours d'essai
-              </a>
-            </motion.div>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 id="cours-essai" className="text-3xl md:text-5xl font-bold mb-6 font-display">
+                  Envie d'essayer avant de vous engager ?
+                </h2>
+                <p className="text-xl text-neutral-400 mb-10 leading-relaxed">
+                  Profitez d'un <strong>cours d'essai gratuit</strong> pour découvrir notre pédagogie et rencontrer nos professeurs. 
+                  <br /><br />
+                  Choisissez simplement votre niveau et une date disponible, nous nous occupons du reste !
+                </p>
+                <div className="flex items-center gap-4 text-neutral-500">
+                    <CheckCircle2 className="w-6 h-6 text-primary-500" />
+                    <span>Sans engagement</span>
+                </div>
+              </div>
+              
+              {/* Formulaire intégré */}
+              <div className="flex justify-center md:justify-end">
+                <TrialForm />
+              </div>
+            </div>
           </div>
         </section>
       </div>

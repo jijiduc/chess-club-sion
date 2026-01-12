@@ -7,7 +7,7 @@ echo      Lancement de la mise a jour des donnees FIDE
 echo ========================================================
 echo.
 
-cd /d "C:\Users\rouge\Documents\CE Sion\chess-club-sion"
+cd /d "C:\Users\rouge\Documents\_CE_Sion\chess-club-sion"
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\update_fide_data.ps1"
 
 echo.
