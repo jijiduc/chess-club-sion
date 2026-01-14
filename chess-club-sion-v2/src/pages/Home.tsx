@@ -253,37 +253,64 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="mt-16"
             >
-              <div className="relative group max-w-3xl mx-auto">
-                {/* Glow effect behind */}
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-500 to-accent-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
-                
-                <div className="relative bg-neutral-900/80 backdrop-blur-md border border-white/10 rounded-2xl p-6 sm:p-8 shadow-2xl">
-                  <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div className="text-left flex-1">
-                      <div className="flex flex-wrap gap-3 mb-3">
-                        <span className="px-3 py-1 bg-primary-500/20 border border-primary-500/30 rounded-full text-xs font-bold text-primary-300 uppercase tracking-wider">
-                          Prochain rendez-vous valaisan
-                        </span>
+              {sortedNews.length > 0 && (
+                <div className="relative group max-w-4xl mx-auto">
+                  {/* Glow effect behind */}
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary-500 to-accent-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
+                  
+                  <div className="relative bg-neutral-900/80 backdrop-blur-md border border-white/10 rounded-2xl p-4 sm:p-6 shadow-2xl">
+                    <div className="flex flex-col md:flex-row items-center gap-6">
+                      {sortedNews[0].hasImage && sortedNews[0].image && (
+                        <div className="w-full md:w-48 h-48 md:h-32 flex-shrink-0 rounded-xl overflow-hidden border border-white/10 shadow-inner">
+                           <img 
+                              src={sortedNews[0].image.src} 
+                              alt={sortedNews[0].image.alt || ''} 
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                           />
+                        </div>
+                      )}
+                      
+                      <div className="text-left flex-1">
+                        <div className="flex flex-wrap gap-3 mb-3">
+                          <span className="px-3 py-1 bg-primary-500/20 border border-primary-500/30 rounded-full text-xs font-bold text-primary-300 uppercase tracking-wider">
+                            Dernière actualité
+                          </span>
+                          <span className="text-neutral-400 text-xs flex items-center">
+                              <Calendar className="w-3 h-3 mr-1"/>
+                              {formatDate(sortedNews[0].date)}
+                          </span>
+                        </div>
+                        <h3 className="text-xl sm:text-2xl font-serif font-bold text-white leading-tight line-clamp-2">
+                          {sortedNews[0].title}
+                        </h3>
                       </div>
-                      <h3 className="text-xl sm:text-2xl font-serif font-bold text-white leading-tight">
-                        18ème Active Chess du Bouveret le 22 février 2026 
-                      </h3>
-                    </div>
-                    
-                    <div className="flex-shrink-0 w-full md:w-auto">
-                      <Link
-                        to="https://echecs-port-valais.ch/active-chess/"
-                        className="group/btn relative inline-flex items-center justify-center w-full md:w-auto px-8 py-4 bg-white text-neutral-900 rounded-xl font-bold shadow-lg overflow-hidden transition-all duration-300 hover:bg-primary-50 hover:text-primary-700 hover:scale-[1.02]"
-                      >
-                        <span className="relative z-10 flex items-center">
-                          Informations
-                          <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform" />
-                        </span>
-                      </Link>
+                      
+                      <div className="flex-shrink-0 w-full md:w-auto flex flex-col gap-3">
+                        <button
+                          onClick={() => openNewsModal(sortedNews[0])}
+                          className="group/btn relative inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-white text-neutral-900 rounded-xl font-bold shadow-lg overflow-hidden transition-all duration-300 hover:bg-primary-50 hover:text-primary-700 hover:scale-[1.02]"
+                        >
+                          <span className="relative z-10 flex items-center">
+                            Lire l'article
+                            <ArrowRight className="ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform" />
+                          </span>
+                        </button>
+                        
+                        <a
+                           href="#news-section"
+                           onClick={(e) => {
+                             e.preventDefault();
+                             document.getElementById('news-section')?.scrollIntoView({ behavior: 'smooth' });
+                           }}
+                           className="inline-flex items-center justify-center w-full md:w-auto px-6 py-3 bg-black/20 hover:bg-black/40 border border-white/20 backdrop-blur-sm text-white rounded-xl font-medium transition-all duration-300 text-sm"
+                        >
+                           Découvrir les autres articles
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              )}
             </motion.div>
 
           </div>
@@ -461,7 +488,7 @@ export default function Home() {
         </section>
 
         {/* MODIFICATION 5: Remplacement de la section Actualités par une Grille */}
-        <section className="py-24 bg-gradient-to-br from-neutral-50 to-secondary-50">
+        <section id="news-section" className="py-24 bg-gradient-to-br from-neutral-50 to-secondary-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

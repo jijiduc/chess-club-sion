@@ -26,16 +26,19 @@ Ce dimanche 11 janvier 2026, une quinzaine de joueurs du Club d'Échecs de Sion,
 
 Nous tenons à adresser un immense bravo à tous nos membres pour leur combativité et leur esprit d'équipe tout au long de la journée. C'est une fierté de voir les couleurs du club si bien représentées dans les compétitions cantonales.
 
-Un grand merci également aux **organisateurs du club de Bagnes** pour leur accueil chaleureux, qui lance idéalement l'année échiquéenne valaisanne.
+Un bravo particulier à **Angelo, Heka et Stanislava** qui se sont illustrés dans leur catégories respectives.
 
-Félicitations à tous et rendez-vous au prochain tournoi !`,
+Un grand merci également aux organisateurs du club de Bagnes pour leur accueil chaleureux, qui lance idéalement l'année échiquéenne valaisanne.
+
+Félicitations à tous et rendez-vous au prochain tournoi !
+`,
     hasImage: true,
     image: {
       src: 'picture/events/rapid_bagnes/delegation_sedunoise.jpeg',
       alt: "La délégation sédunoise au tournoi de Bagnes"
     },
     hasLink: true,
-    link: 'https://www.uve-wsb.ch/competitions-valaisannes/tib',
+    link: 'https://s3.chess-results.com/tnr1291161.aspx?lan=20&art=1&turdet=NO&SNode=S0',
     linkText: "Voir les résultats complets"
   },
   {
